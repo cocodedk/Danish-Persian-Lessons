@@ -1,10 +1,14 @@
 /* The split-screen shell — docs/design/ART-DIRECTION.md "The specimen".
    The type itself comes from the kit: FaSpecimen, PronLine, DaWord, RuleDivider. */
 
+/* The card sits ON a ruled sheet (RuledSection), it is not a sheet itself:
+   no margin line of its own, no inline padding of its own, and no forced
+   viewport height — the sheet carries all three, and the forside puts the
+   lesson list underneath. See docs/plans/003-alphabet-lesson.md step 1. */
+
 .split-card {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
 }
 
 .split-card__pane {
@@ -13,14 +17,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.25rem 1.5rem;
-  /* Notebook margin line: inline-start puts it on the left for the Danish
-     (ltr) pane and on the right for the Persian (rtl) pane, for free. */
-  border-inline-start: 2px solid var(--red);
+  padding-block: 1.25rem;
 }
 
 .split-card__pane--fa {
-  flex: 0 0 var(--pane-fa-height);
+  flex: 0 0 auto;
+  min-block-size: var(--pane-fa-height);
   font-family: var(--font-fa);
 }
 

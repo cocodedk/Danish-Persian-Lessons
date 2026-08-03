@@ -3,6 +3,13 @@ import { render, screen } from '@testing-library/react'
 import { RuledSection } from './RuledSection'
 import css from './RuledSection.css?raw'
 
+/** Every .css file in src, keyed by path. */
+const stylesheets = import.meta.glob('../**/*.css', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>
+
 describe('RuledSection', () => {
   it('renders its content on the sheet', () => {
     render(<RuledSection>Skriv dit navn på linjen.</RuledSection>)
@@ -24,6 +31,16 @@ describe('RuledSection', () => {
     const redRules = css.match(/var\(--red\)/g) ?? []
     expect(redRules).toHaveLength(1)
     expect(css).toContain('.ruled-section::before')
+  })
+
+  it('owns that line alone — nothing else in the app draws a margin line', () => {
+    // Plan 003 step 1: SplitCard sits ON a sheet, it is not a sheet itself.
+    // A red inline-start edge anywhere else is a second margin line.
+    const offenders = Object.entries(stylesheets)
+      .filter(([path]) => !path.endsWith('RuledSection.css'))
+      .filter(([, sheet]) => /border-inline-start:[^;]*var\(--red\)/.test(sheet))
+      .map(([path]) => path)
+    expect(offenders).toEqual([])
   })
 
   it('places that margin line with a logical inset, so dir="rtl" mirrors it to the right', () => {

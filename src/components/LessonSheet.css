@@ -1,0 +1,57 @@
+/* The lesson screen frame: paper above, thumb zone below.
+   docs/design/ART-DIRECTION.md "App-specific tokens" — navigation lives in the
+   bottom thumb zone. */
+
+.lesson {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100dvh;
+}
+
+.lesson > .ruled-section {
+  flex: 1 1 auto;
+  padding-block-end: 2rem;
+}
+
+.lesson__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-latin);
+  font-size: 1.5rem;
+  line-height: var(--rule-step);
+}
+
+.lesson-bar {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  padding: 0.35rem 0.75rem;
+  border-block-start: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.lesson-bar__link {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--tap-min);
+  padding-inline: 0.5rem;
+  color: var(--blue);
+  font-family: var(--font-latin);
+  font-size: 1.0625rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lesson-bar__link[aria-disabled='true'] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .lesson-bar__link:hover {
+    color: var(--blue-hover);
+  }
+}

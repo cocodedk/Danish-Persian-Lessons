@@ -1,0 +1,109 @@
+/* The stroke-order drawing — docs/design/ART-DIRECTION.md "Motion" (teaching
+   motion: the pen moves right to left, dots land last).
+
+   Each sheet carries one ruling of its own at 62% of its height, because that
+   is the baseline the paths were drawn against: the letter visibly sits on a
+   line instead of floating in a box. */
+
+.letter-draw {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.letter-draw__sheet {
+  inline-size: min(58vw, 8.5rem);
+  block-size: auto;
+  background-color: var(--card);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0 calc(62% - 1px),
+    var(--rule) calc(62% - 1px) 62%,
+    transparent 62%
+  );
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+
+.letter-draw__path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.letter-draw__path--dot {
+  stroke-width: 6;
+}
+
+/* The pen: each path uncovers itself in the teacher's red, then settles to ink
+   as it finishes. Timing comes from src/components/letterDrawTiming.ts. */
+@keyframes letter-draw-pen {
+  0% {
+    stroke-dashoffset: 1;
+    stroke: var(--red);
+  }
+  85% {
+    stroke-dashoffset: 0;
+    stroke: var(--red);
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke: var(--ink);
+  }
+}
+
+.letter-draw__sheet--live .letter-draw__path {
+  stroke-dasharray: 1;
+  animation: letter-draw-pen var(--draw-dur) linear var(--draw-delay) both;
+}
+
+/* Step diagram: the same order standing still. Never animated — this IS the
+   reduced-motion rendering, so it must not depend on motion to make sense. */
+.letter-draw__steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.letter-draw__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.letter-draw__step .letter-draw__sheet {
+  inline-size: 3.5rem;
+}
+
+.letter-draw__path--live {
+  stroke: var(--red);
+}
+
+.letter-draw__step-number {
+  font-family: var(--font-fa);
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+.letter-draw__caption {
+  max-inline-size: 26rem;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  text-align: center;
+  opacity: 0.75;
+}
+
+@media (forced-colors: active) {
+  .letter-draw__path {
+    stroke: CanvasText;
+  }
+}
