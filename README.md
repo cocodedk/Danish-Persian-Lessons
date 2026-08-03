@@ -35,20 +35,18 @@ Lær at læse persisk, helt fra alfabetet.
 
 ## Try it
 
-The landing site is live in all three languages, and that is the part you can use today.
+The landing site is live in all three languages, and so is the app.
 
-The app is not finished. The first lesson, covering the alphabet and the vowel marks, is being written now,
-and the React app that will host it is still a written plan
-([docs/plans/001-scaffold-app.md](docs/plans/001-scaffold-app.md)) rather than code. When it ships it will be
-served from `/app/` on the same site. There is no signup and no waiting list. Watch the
+What ships at [`/app/`](https://cocodedk.github.io/Danish-Persian-Lessons/app/) today is the split-screen
+shell: one demo pair (آب/vand) and the first-run name capture. The first lesson, covering the
+alphabet and the vowel marks, is still being written. There is no signup and no waiting list. Watch the
 [repository](https://github.com/cocodedk/Danish-Persian-Lessons) if you want to know when the first lesson
 lands.
 
 ## Build from Source
 
-You need `git`, plus any static file server to view `website/` locally. Python's built-in one is enough.
-Node.js 20 or newer matters only for the React app once it exists; the site has no build step and no
-dependencies.
+You need `git` and Node.js 20 or newer for the React app. The landing site in `website/` stays
+plain HTML with no build step; any static file server shows it — Python's built-in one is enough.
 
 ```bash
 git clone https://github.com/cocodedk/Danish-Persian-Lessons.git
@@ -67,9 +65,14 @@ python3 -m http.server 8000 --directory website
 # http://localhost:8000/  ·  /da/  ·  /fa/
 ```
 
-There is no `package.json` yet. The React scaffold is specified in
-[docs/plans/001-scaffold-app.md](docs/plans/001-scaffold-app.md) and has not been executed, so `npm install`
-and `npm run dev` will not work until it has been.
+The React app lives at the repo root (scaffolded per
+[docs/plans/001-scaffold-app.md](docs/plans/001-scaffold-app.md)):
+
+```bash
+npm ci
+npm run dev        # Vite dev server for the app
+npm run verify     # lint + tests + build + verify.sh — the same gate CI runs
+```
 
 ## Architecture
 
@@ -79,11 +82,14 @@ Danish-Persian-Lessons/
 │   ├── index.html              # English
 │   ├── da/index.html           # Dansk
 │   └── fa/index.html           # فارسی, right-to-left
+├── src/                        # the React app, served at /app/
+├── public/fonts/               # self-hosted Vazirmatn, Noto Naskh Arabic, Andika (OFL)
+├── index.html · vite.config.ts · package.json
 ├── docs/
 │   ├── plans/                  # numbered implementation plans; agents execute these
 │   └── design/
 │       └── ART-DIRECTION.md    # the "exercise notebook" design system
-├── .github/workflows/          # ci.yml (checks) and deploy.yml (Pages)
+├── .github/workflows/          # ci.yml (checks) and deploy-pages.yml (Pages)
 ├── .githooks/                  # pre-commit, commit-msg, pre-push
 ├── scripts/                    # install-hooks.sh, verify.sh
 └── CLAUDE.md                   # house rules for agents working in this repo
@@ -92,7 +98,7 @@ Danish-Persian-Lessons/
 | Layer | Choice |
 |---|---|
 | Site | Hand-written HTML and CSS, no build step |
-| App (planned) | React + Vite with `HashRouter` (GitHub Pages cannot rewrite paths for a client-side router) |
+| App | React + Vite with `HashRouter` (GitHub Pages cannot rewrite paths for a client-side router) |
 | Graphics | SVG for letterforms and stroke order; three.js only if a lesson genuinely needs 3D |
 | Storage | `localStorage`, keys namespaced `dpl.v1.*` |
 | Hosting | GitHub Pages, deployed by GitHub Actions |

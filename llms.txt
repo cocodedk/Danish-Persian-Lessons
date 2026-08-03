@@ -4,7 +4,7 @@
 
 Danish-Persian Lessons teaches reading Persian (Farsi) with Danish as the language of instruction. It is aimed at heritage speakers in Denmark who speak Persian at home but never learned to read it, and at anyone who reads and writes it with difficulty. Lessons open with the alphabet and the vowel diacritics (زیر، زبر، پیش and the long vowels آ او ای) that turn a consonant skeleton into a pronounceable word, then follow the vocabulary order of the Iranian first-grade primer (آب/vand, نان/brød, من/jeg, تو/du). Each word card is split in two: the Persian word on top, right-to-left, with the Danish equivalent below it.
 
-The project is purely static: no backend, no database, no accounts. Progress is stored in the browser's localStorage. The landing site is published in three languages on GitHub Pages; a React app is planned and will be served from /app/ on the same site once it opens.
+The project is purely static: no backend, no database, no accounts. Progress is stored in the browser's localStorage. The landing site is published in three languages on GitHub Pages, and the React app shell is live at /app/ on the same site; lesson content is still being written.
 
 ## Site
 

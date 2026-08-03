@@ -6,6 +6,11 @@ on:
     paths:
       - 'website/**'
       - 'llms.txt'
+      - 'src/**'
+      - 'public/**'
+      - 'package*.json'
+      - 'vite.config.ts'
+      - 'index.html'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -32,8 +37,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - name: Copy llms.txt into the published site
-        run: cp llms.txt website/llms.txt
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Compose the published site
+        run: |
+          set -eu
+          mkdir -p _site
+          cp -r website/. _site/
+          # og-image.html is a build source for og.png (references Google
+          # Fonts to render); it is not a page and must not be published.
+          rm -f _site/og-image.html
+          cp llms.txt _site/llms.txt
+          mkdir -p _site/app
+          cp -r dist/. _site/app/
+          # Shared self-hosted fonts for the landing pages (the app has its own
+          # copy under _site/app/fonts/, produced by the Vite build above from
+          # the same public/fonts/ source — see docs/plans/001-scaffold-app.md).
+          mkdir -p _site/fonts
+          cp -r public/fonts/. _site/fonts/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
@@ -41,12 +72,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: website
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
-
-      # NOTE(docs/plans/001): once the Vite React app lands, this workflow gains a
-      # build step (`npm ci && npm run build`) and composes _site = website/ + dist/,
-      # publishing the app under _site/app/ instead of uploading website/ directly.

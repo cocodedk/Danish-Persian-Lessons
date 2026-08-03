@@ -1,10 +1,7 @@
 #!/bin/sh
 set -eu
 
-# Fast pre-commit gate: quick static content checks only (<2s, no tests).
-#
-# TODO(docs/plans/001): once the React app lands, replace the line below with
-#   npm run lint && npx tsc --noEmit
-# and let scripts/verify.sh move fully to the pre-push hook / CI.
+# Fast pre-commit gate: lint + typecheck only. The full gate (tests, build,
+# scripts/verify.sh) runs in the pre-push hook and CI — see .githooks/pre-push.
 
-bash scripts/verify.sh
+npm run lint && npx tsc --noEmit

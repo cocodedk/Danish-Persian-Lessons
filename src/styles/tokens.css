@@ -1,0 +1,38 @@
+/* Design tokens transcribed from docs/design/ART-DIRECTION.md — the notebook
+   ("دفتر مشق") palette, type, and app-specific spacing rules. Light + dark
+   ("chalkboard") both ship from day one via prefers-color-scheme. */
+
+:root {
+  /* Palette */
+  --paper: #f7f2e9;
+  --ink: #26211b;
+  --red: #c9202c;
+  --blue: #2456a6;
+  --rule: #c7d3e2;
+  --card: #efe8da;
+
+  /* Type — self-hosted, see src/styles/fonts.css */
+  --font-latin: 'Andika', 'Segoe UI', system-ui, sans-serif;
+  --font-fa: 'Vazirmatn', 'Noto Naskh Arabic', system-ui, sans-serif;
+  --font-naskh: 'Noto Naskh Arabic', 'Vazirmatn', serif;
+
+  /* App-specific spacing (docs/design/ART-DIRECTION.md "App-specific tokens") */
+  --pane-fa-height: 55dvh;
+  --tap-min: 44px;
+
+  /* Ratio of a Naskh glyph's line-height that the madde stroke's red covers,
+     tuned against Noto Naskh Arabic — matches website/styles.css. */
+  --madde-cut: 0.54em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* "Chalkboard" */
+    --paper: #161d1a;
+    --ink: #e9e5db;
+    --red: #e56a64;
+    --blue: #8fb3ea;
+    --rule: #2c3a34;
+    --card: #1d2622;
+  }
+}

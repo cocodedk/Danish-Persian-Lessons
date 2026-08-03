@@ -50,8 +50,6 @@ while read -r local_ref local_sha remote_ref remote_sha; do
 done
 
 # --- 3. Full verification gate ----------------------------------------------
-# TODO(docs/plans/001): once the React app lands, upgrade this to
-#   npm run lint && npm test && npm run build
-VERIFY_CMD="bash scripts/verify.sh"
+VERIFY_CMD="npm run verify"
 echo "Running full verification gate before push: $VERIFY_CMD" >&2
 $VERIFY_CMD

@@ -21,9 +21,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - name: Run verification checks
-        run: bash scripts/verify.sh
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
 
-      # NOTE(docs/plans/001): once the Vite React app lands, this job gains
-      # actions/setup-node + `npm ci` + `npm run lint` + `npm test` + `npm run build`
-      # alongside scripts/verify.sh.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run verification (lint, tests, build, scripts/verify.sh)
+        run: npm run verify
