@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { RuledSection } from '../components/RuledSection'
 import { SplitCard } from '../components/SplitCard'
+import { LessonCard } from '../components/LessonCard'
 import { NameCapture } from '../components/NameCapture'
 import { SettingsCorner } from '../components/SettingsCorner'
 import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
+import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
 import { DEMO_WORD } from '../content/demoWord'
 import { FA_GREETING, daGreeting } from '../content/greetings'
+import './Home.css'
 
 export default function Home() {
   const [profile, setProfileState] = useState(() => getProfile())
@@ -40,13 +44,27 @@ export default function Home() {
     return <NameCapture onSubmit={handleNameSubmit} onSkip={handleSkip} />
   }
 
+  const cleared = doneCount(getAlphabetProgress())
+
   return (
     <main className="home">
-      <SplitCard
-        word={DEMO_WORD}
-        faGreeting={FA_GREETING}
-        daGreeting={daGreeting(profile.name)}
-      />
+      <RuledSection>
+        <SplitCard
+          word={DEMO_WORD}
+          faGreeting={FA_GREETING}
+          daGreeting={daGreeting(profile.name)}
+        />
+        <h2 className="home__lessons" lang="da">
+          Lektioner
+        </h2>
+        <LessonCard
+          number={1}
+          title="Alfabetet"
+          summary="32 bogstaver, formerne og de seks vokaltegn"
+          progress={`${cleared} af ${ALPHABET_TOTAL} klaret`}
+          to="/lesson/alphabet"
+        />
+      </RuledSection>
       <SettingsCorner
         name={profile.name}
         onSave={handleNameSave}

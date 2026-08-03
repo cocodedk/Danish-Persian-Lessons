@@ -68,7 +68,11 @@ describe('#/kit gallery', () => {
     // this really renders the forside and not the capture screen.
     window.localStorage.clear()
     setProfile({ name: 'Sara' })
-    const { container } = render(<Home />)
+    const { container } = render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
     expect(screen.getByText('Hej Sara!')).toBeInTheDocument()
     const links = within(container).queryAllByRole('link')
     expect(links.filter((link) => link.getAttribute('href')?.includes('kit'))).toEqual([])

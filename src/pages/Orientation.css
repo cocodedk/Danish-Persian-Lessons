@@ -1,0 +1,119 @@
+/* Orientation — the flip, felt. The turned Danish word is the one loud thing
+   on the sheet; everything under it stays quiet.
+
+   The sweep is teaching motion (ART-DIRECTION "Motion"): it draws once, right
+   to left, in well under 1.5s. Under prefers-reduced-motion the global rule in
+   src/styles/global.css collapses it, and because both animations end filled,
+   the arrow is simply already there — a static arrow, which is the point. */
+
+.orient__intro,
+.orient__body {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  max-inline-size: 34rem;
+}
+
+.orient__point {
+  margin-block-start: var(--rule-step);
+}
+
+.orient__heading {
+  margin: 0;
+  font-family: var(--font-latin);
+  font-size: 1.1875rem;
+  line-height: var(--rule-step);
+}
+
+.orient__flip {
+  margin-block-start: 0.5rem;
+}
+
+.orient__turned {
+  margin: 0;
+  font-family: var(--font-latin);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 14vw, 4rem);
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+}
+
+.orient__sweep {
+  display: block;
+  inline-size: min(100%, 22rem);
+  block-size: auto;
+}
+
+.orient__sweep-line {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  animation: orient-sweep 900ms ease-out both;
+}
+
+.orient__sweep-head {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: orient-appear 200ms linear 900ms both;
+}
+
+.orient__sweep-start {
+  fill: var(--red);
+}
+
+@keyframes orient-sweep {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes orient-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The specimen row: separate letters, read right to left. */
+.orient__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orient__chip {
+  min-inline-size: 3rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 9vw, 2.5rem);
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (forced-colors: active) {
+  .orient__sweep-line,
+  .orient__sweep-head {
+    stroke: CanvasText;
+  }
+
+  .orient__sweep-start {
+    fill: CanvasText;
+  }
+}
