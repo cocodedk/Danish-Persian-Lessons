@@ -7,10 +7,13 @@ import { LetterForms } from '../components/LetterForms'
 import { LetterDraw } from '../components/LetterDraw'
 import { ProgressTick } from '../components/ProgressTick'
 import { Button } from '../components/Button'
+import { Celebration } from '../components/Celebration'
+import { RewardOverlays } from '../components/RewardOverlays'
 import { penMarkClass } from '../components/penMark'
 import { teachingOrder, specimens, isLetter } from '../lessons/alphabet'
 import { getAlphabetProgress, markLetterDone } from '../progress/alphabet'
 import { getProfile } from '../progress/profile'
+import { useCelebration } from '../rewards/useCelebration'
 import { NAME_LETTER_FA } from '../content/faStrings'
 import '../styles/pen.css'
 import './alphabet.css'
@@ -19,6 +22,7 @@ import './alphabet.css'
 export default function LetterScreen() {
   const { id = '' } = useParams()
   const [cleared, setCleared] = useState(() => getAlphabetProgress().letters.includes(id))
+  const celebration = useCelebration()
 
   const specimen = specimens[id]
   if (!specimen) {
@@ -86,22 +90,28 @@ export default function LetterScreen() {
       {letter?.hint && <p className="letter__hint">{letter.hint}</p>}
 
       <div className="letter__done">
-        {cleared ? (
-          <>
-            <ProgressTick granted label="Klaret" />
-            <span>Klaret</span>
-          </>
-        ) : (
+        {!cleared && (
           <Button
             onClick={() => {
               markLetterDone(id)
               setCleared(true)
+              celebration.cheer('item')
             }}
           >
             Jeg kan den
           </Button>
         )}
+        {cleared && celebration.reward === null && (
+          <>
+            <ProgressTick granted label="Klaret" />
+            <span>Klaret</span>
+          </>
+        )}
       </div>
+      {celebration.reward !== null && (
+        <Celebration reward={celebration.reward} tickLabel="Klaret" />
+      )}
+      <RewardOverlays celebration={celebration} />
     </LessonSheet>
   )
 }

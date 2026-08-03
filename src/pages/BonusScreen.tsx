@@ -3,34 +3,38 @@ import { useParams, Navigate } from 'react-router-dom'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { ChoiceExercise } from '../components/ChoiceExercise'
 import { RewardOverlays } from '../components/RewardOverlays'
-import { buildQuestions, EXERCISE_TITLES } from '../lessons/exercises'
-import type { ExerciseKind } from '../lessons/exercises'
+import { bonusQuestions } from '../lessons/bonus'
 import { markLetterDone } from '../progress/alphabet'
 import { useCelebration } from '../rewards/useCelebration'
+import { GIFT_FA } from '../rewards/copy'
 import './alphabet.css'
 
-function isKind(value: string): value is ExerciseKind {
-  return value === 'find' || value === 'match'
-}
-
-/** One round of an alphabet exercise. Leaving early costs nothing. */
-export default function ExerciseScreen() {
-  const { kind = '' } = useParams()
-  const valid = isKind(kind)
-  const questions = useMemo(() => (isKind(kind) ? buildQuestions(kind) : []), [kind])
+/**
+ * The gift, opened: three questions from the round the learner already knows.
+ * It pays like any other exercise, and walking out of it pays nothing back —
+ * a present with a bill attached would not be a present.
+ */
+export default function BonusScreen() {
+  const { n = '' } = useParams()
+  const ordinal = Number(n)
+  const questions = useMemo(() => (ordinal > 0 ? bonusQuestions(ordinal) : []), [ordinal])
   const celebration = useCelebration()
 
-  if (!valid) {
+  if (!Number.isInteger(ordinal) || ordinal < 1) {
     return <Navigate to="/lesson/alphabet" replace />
   }
 
   return (
     <LessonSheet
-      title={EXERCISE_TITLES[kind]}
+      title="Bonusøvelse"
       bar={<BarLink to="/lesson/alphabet">Til lektionen</BarLink>}
     >
+      <p className="alphabet__lead-fa" lang="fa" dir="rtl">
+        {GIFT_FA}
+      </p>
       <p className="alphabet__note">
-        Du kan stoppe når som helst. Det, du har klaret, bliver stående.
+        Tre spørgsmål, du kender formen på. Du kan lukke gaven når som helst — den koster
+        ingenting at lade ligge.
       </p>
       <ChoiceExercise
         questions={questions}

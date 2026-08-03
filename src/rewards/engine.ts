@@ -124,7 +124,7 @@ function stickersFor(from: number, to: number, owned: number): Sticker[] {
 function giftFor(from: number, to: number): Gift | null {
   const milestone = Math.floor(to / GIFT_STEP)
   if (milestone <= Math.floor(from / GIFT_STEP)) return null
-  return { id: `g${milestone}`, fa: GIFT_FA, da: GIFT_DA }
+  return { id: `g${milestone}`, ordinal: milestone, fa: GIFT_FA, da: GIFT_DA }
 }
 
 function streakFor(practiceDates: string[], now: Date): StreakState {

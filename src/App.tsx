@@ -5,6 +5,7 @@ import Orientation from './pages/Orientation'
 import LetterScreen from './pages/LetterScreen'
 import VowelMarksScreen from './pages/VowelMarksScreen'
 import ExerciseScreen from './pages/ExerciseScreen'
+import BonusScreen from './pages/BonusScreen'
 import LessonPlaceholder from './pages/LessonPlaceholder'
 import Kit from './pages/Kit'
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/lesson/alphabet/bogstav/:id" element={<LetterScreen />} />
         <Route path="/lesson/alphabet/vokaltegn" element={<VowelMarksScreen />} />
         <Route path="/lesson/alphabet/ovelse/:kind" element={<ExerciseScreen />} />
+        <Route path="/lesson/alphabet/gave/:n" element={<BonusScreen />} />
         <Route path="/lesson/:id" element={<LessonPlaceholder />} />
         {/* Review surface for the design kit — direct URL only, never linked from home. */}
         <Route path="/kit" element={<Kit />} />

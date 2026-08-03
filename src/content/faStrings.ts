@@ -4,6 +4,7 @@
 import { FA_GREETING } from './greetings'
 import { ORIENTATION_FA_STRINGS } from './orientation'
 import { LATER_MARK_FA_STRINGS } from '../lessons/vowelMarks'
+import { REWARD_FA_STRINGS } from '../rewards/copy'
 
 export const CAPTURE_PROMPT = 'نام تو چیست؟'
 export const LESSON_PLACEHOLDER_TEXT = 'این درس هنوز آماده نیست.'
@@ -25,4 +26,5 @@ export const PERSIAN_UI_STRINGS: string[] = [
   NAME_LETTER_FA,
   ...ORIENTATION_FA_STRINGS,
   ...LATER_MARK_FA_STRINGS,
+  ...REWARD_FA_STRINGS,
 ]

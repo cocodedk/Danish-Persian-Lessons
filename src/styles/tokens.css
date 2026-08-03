@@ -15,6 +15,9 @@
   --blue-light: #2456a6;
   --rule-light: #c7d3e2;
   --card-light: #efe8da;
+  /* The gold-star sticker, the one celebration colour ART-DIRECTION names
+     outside the palette table («ستارهٔ طلایی»). Used for that sticker only. */
+  --gold-light: #b8862b;
 
   --paper-dark: #161d1a;
   --ink-dark: #e9e5db;
@@ -22,6 +25,7 @@
   --blue-dark: #8fb3ea;
   --rule-dark: #3e5248;
   --card-dark: #1d2622;
+  --gold-dark: #e3b75c;
 
   /* Type — self-hosted, see src/styles/fonts.css */
   --font-latin: 'Andika', 'Segoe UI', system-ui, sans-serif;
@@ -56,6 +60,7 @@
   --blue: var(--blue-light);
   --rule: var(--rule-light);
   --card: var(--card-light);
+  --gold: var(--gold-light);
   --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
   color-scheme: light;
 }
@@ -71,6 +76,7 @@
     --blue: var(--blue-dark);
     --rule: var(--rule-dark);
     --card: var(--card-dark);
+    --gold: var(--gold-dark);
     --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
     color-scheme: dark;
   }
@@ -83,6 +89,7 @@
   --blue: var(--blue-dark);
   --rule: var(--rule-dark);
   --card: var(--card-dark);
+  --gold: var(--gold-dark);
   --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
   color-scheme: dark;
 }

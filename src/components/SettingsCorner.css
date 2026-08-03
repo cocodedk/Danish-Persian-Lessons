@@ -74,6 +74,24 @@
   color: var(--ink);
 }
 
+/* The whole row is the tap target, so the checkbox itself can stay checkbox-sized. */
+.settings-corner__sound {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--tap-min);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.settings-corner__sound input {
+  min-height: 1.35rem;
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  padding: 0;
+  accent-color: var(--blue);
+}
+
 .settings-corner__privacy {
   margin: 0;
   font-size: 1rem;

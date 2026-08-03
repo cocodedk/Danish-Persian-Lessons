@@ -36,6 +36,8 @@ export interface StreakState {
 /** A bonus exercise, offered as a gift and always skippable. */
 export interface Gift {
   id: string
+  /** Which gift this is, counting from one — it picks the bonus round. */
+  ordinal: number
   fa: string
   da: string
 }
