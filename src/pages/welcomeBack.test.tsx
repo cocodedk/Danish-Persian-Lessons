@@ -59,7 +59,7 @@ describe('coming back after ten days away', () => {
     open('#/lesson/alphabet/bogstav/be')
     fireEvent.click(screen.getByText('Jeg kan den'))
 
-    expect(screen.getByText('خوش آمدی!')).toBeInTheDocument()
+    expect(screen.getByText('خوش برگشتی!')).toBeInTheDocument()
     expect(
       screen.getByText('Velkommen tilbage! Stimen er vågen igen, nu 6 dage.'),
     ).toBeInTheDocument()

@@ -75,11 +75,50 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
   literal outside `tokens.css`. Added as a light/dark pair, used by that one sticker, and held to
   the same both-schemes assertion as every other semantic token.
 - **A level is a notebook page.** `level = 1 + floor(points / 20)` — twenty points to a page, the
-  ۲۰/۲۰ a teacher writes at the top. A `page` event rounds the total up to the next full page, so
-  finishing a round always fills exactly one page and always fires exactly one page-flip.
+  ۲۰/۲۰ a teacher writes at the top. A `page` event rounds the total up to the next full page.
+  **Correction (critic round 2):** this does not mean a round fires exactly one page-flip. A round
+  long enough to cross a page boundary mid-round fires a level-up right there too, in addition to
+  the one its own closing `page` event fires. This app's only round length (33 questions, each an
+  `answer` worth 1 point) crosses the 20-point boundary at question 20, so a full round actually
+  fires **two** page-flips — mid-round and at the end — not one. Accepted as correct, generous
+  behavior; nothing to fix, only the sentence above was wrong.
 - **The streak value is the practice-day count.** `practiceDates` is append-only, and the streak
   value is its length. Resetting a streak would mean deleting days the learner really practised,
   which no code path can do. "Resting" is derived from the clock at read time, never stored as
   progress.
 - **One red margin line stays with `RuledSection`.** The gift card rules off with a red line
   ACROSS its top instead, and the page-flip carries none.
+
+## Critic round 1 (2026-08-03) — FAIL, adjudicated
+
+Both the learner-persona and teacher-persona critic passes failed round 1. The findings were
+adjudicated and built by the round-2 fix builder (PR #10), one line each:
+
+- **D1 permanence.** `numberOr` rejected non-finite numbers but not negative ones; it now requires
+  `Number.isFinite(v) && v >= 0`. `earn`'s `POINT_AWARD` lookup was unguarded against an
+  unknown/missing event kind, which produced `NaN`; it now falls back to `0`.
+- **D2 null payload.** `storage.readJSON` handed a bare `null` straight to the caller when an
+  envelope's `value` was `null`, crashing the first field access downstream; it now treats a
+  `null` value as absent and returns the fallback (arrays are still accepted). `engine.normalize`
+  also takes `raw ?? {}` as a second line of defense.
+- **D3 negative-storage clamp.** Rides D1's fix: a hostile negative point total sitting in storage
+  can no longer produce a negative page/level on read, because `numberOr` now floors it out.
+- **D4 null-reward confetti.** `Celebration` computed `loud` from `reward?.levelUp !== null`, which
+  is `true` when `reward` itself is `null` (`undefined !== null`); a null reward fired confetti it
+  had no business firing. Fixed to `(reward?.levelUp ?? null) !== null`.
+- **D5 backwards clock.** `engine.normalize` now sorts `practiceDates` (the `YYYY-MM-DD` keys sort
+  lexically in date order), so a streak read always finds the true latest day rather than
+  whichever date happened to be appended last. The same fix closes the `dayKey` guard: an invalid
+  `Date` passed to `celebrate` still pays out points and stickers, but the practice-day append is
+  skipped, so a bad clock can never write `"NaN-NaN-NaN"` to storage.
+- **Copy (teacher persona).** The welcome-back line «خوش آمدی!» read as a generic hello rather than
+  a return-specific one; changed to «خوش برگشتی!» (Danish «Velkommen tilbage!» unchanged).
+- **Sticker labels single-sourced.** `StickerStamp`'s SVGs quoted آفرین and ۲۰ as JSX literals of
+  their own instead of reading `STICKER_LABELS`, so the text-rule guard — which walks
+  `STICKER_LABELS` via `REWARD_FA_STRINGS` — never actually walked what the stamps rendered. They
+  now render `STICKER_LABELS[kind].fa` directly.
+- **Gift idempotency.** A bonus round's URL could be revisited after completion for unbounded
+  extra points and stickers. `RewardsRecord` gained `giftsOpened`, an append-only set joined by
+  union like everything else; `celebrate` now pays a given gift id out exactly once — a replay
+  stays playable and praised, but earns nothing new, mirroring how a letter marked done by
+  `markLetterDone` cannot be marked done again for more credit.

@@ -6,6 +6,7 @@ import { StreakLine } from './StreakLine'
 import { InkConfetti } from './InkConfetti'
 import { GiftCard } from './GiftCard'
 import { RewardShelf } from './RewardShelf'
+import { Celebration } from './Celebration'
 import { STICKER_LABELS } from '../rewards/copy'
 
 const stylesheets = import.meta.glob('./*.css', {
@@ -29,9 +30,22 @@ describe('stickers are the marks a teacher actually owns', () => {
     }
   })
 
-  it('writes the Persian on the stamps with Persian digits', () => {
+  it('writes the Persian on the stamps from the single-sourced STICKER_LABELS, with Persian digits', () => {
     render(<StickerStamp kind="bist" />)
-    expect(screen.getByText('۲۰')).toBeInTheDocument()
+    expect(screen.getByText(STICKER_LABELS.bist.fa)).toBeInTheDocument()
+    expect(STICKER_LABELS.bist.fa).toBe('۲۰')
+  })
+
+  it('stamps the آفرین mark from STICKER_LABELS too — no JSX literal of its own', () => {
+    render(<StickerStamp kind="afarin" />)
+    expect(screen.getByText(STICKER_LABELS.afarin.fa)).toBeInTheDocument()
+  })
+})
+
+describe('the celebration surface never celebrates a null reward', () => {
+  it('renders zero ink-confetti when there is no reward yet', () => {
+    const { container } = render(<Celebration reward={null} />)
+    expect(container.querySelectorAll('.ink-confetti').length).toBe(0)
   })
 })
 

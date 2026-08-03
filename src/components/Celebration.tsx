@@ -21,7 +21,7 @@ export interface CelebrationProps {
 export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps) {
   const praise = reward?.praise ?? PRAISE[0]
   const stickers = reward?.stickers ?? []
-  const loud = stickers.length > 0 || reward?.levelUp !== null
+  const loud = stickers.length > 0 || (reward?.levelUp ?? null) !== null
 
   return (
     <div className="celebration">

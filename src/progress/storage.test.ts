@@ -26,6 +26,19 @@ describe('storage', () => {
     expect(readJSON('old', 'fallback')).toBe('fallback')
   })
 
+  it('treats a null envelope value as absent rather than handing null to the caller', () => {
+    window.localStorage.setItem(
+      'dpl.v1.nullish',
+      JSON.stringify({ schemaVersion: 1, value: null }),
+    )
+    expect(readJSON('nullish', 'fallback')).toBe('fallback')
+  })
+
+  it('still accepts an array value — only null is rejected, not every non-plain-object', () => {
+    writeJSON('list', [1, 2, 3])
+    expect(readJSON<number[]>('list', [])).toEqual([1, 2, 3])
+  })
+
   it('reports key existence, including an explicitly empty value', () => {
     expect(keyExists('thing')).toBe(false)
     writeJSON('thing', {})

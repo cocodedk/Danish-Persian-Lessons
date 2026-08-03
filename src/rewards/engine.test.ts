@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import * as engine from './engine'
 import { celebrate, getRewards, join, POINTS_PER_PAGE, STICKER_STEP } from './engine'
 import { findPersianTextViolations } from '../lessons/textRules'
+import type { RewardEventKind } from './types'
 
 const DAY = new Date(2026, 2, 3, 10, 0, 0)
 
@@ -72,11 +72,53 @@ describe('reward engine — every completion celebrates', () => {
 })
 
 describe('reward engine — nothing is ever taken away', () => {
-  it('exposes no API that could lower a level, a point total or a sticker', () => {
-    const takers = Object.keys(engine).filter((name) =>
-      /set|reset|clear|remove|delete|spend|deduct|decrement|lose|revoke/i.test(name),
+  it('shrugs off a hostile call: an undefined or unknown kind changes nothing', () => {
+    // A real 45-point, level-3, multi-sticker state, earned the honest way.
+    for (let i = 0; i < 45; i += 1) celebrate('answer', DAY)
+    const before = getRewards(DAY)
+    expect(before).toMatchObject({ points: 45, level: 3 })
+    expect(before.stickers.length).toBeGreaterThan(0)
+
+    celebrate(undefined as unknown as RewardEventKind, DAY)
+    celebrate('bogus' as unknown as RewardEventKind, DAY)
+
+    const after = getRewards(DAY)
+    expect(after.points).toBe(before.points)
+    expect(after.level).toBe(before.level)
+    expect(after.stickers).toEqual(before.stickers)
+  })
+
+  it('never lets a negative number in storage produce a negative or NaN view', () => {
+    window.localStorage.setItem(
+      'dpl.v1.rewards',
+      JSON.stringify({
+        schemaVersion: 1,
+        value: { points: -5, level: -3, streak: { value: -9, resting: false } },
+      }),
     )
-    expect(takers).toEqual([])
+    const view = getRewards(DAY)
+    expect(view.points).toBeGreaterThanOrEqual(0)
+    expect(view.level).toBeGreaterThanOrEqual(1)
+    expect(view.streak.value).toBeGreaterThanOrEqual(0)
+    expect(Number.isNaN(view.points)).toBe(false)
+    expect(Number.isNaN(view.level)).toBe(false)
+
+    const reward = celebrate('answer', DAY)
+    expect(reward.points).toBeGreaterThanOrEqual(1)
+    expect(Number.isNaN(reward.points)).toBe(false)
+    expect(getRewards(DAY).points).toBeGreaterThanOrEqual(0)
+  })
+
+  it('never lets a NaN-ish (non-numeric) value in storage leak into the view', () => {
+    window.localStorage.setItem(
+      'dpl.v1.rewards',
+      JSON.stringify({ schemaVersion: 1, value: { points: null, level: 'many' } }),
+    )
+    const view = getRewards(DAY)
+    expect(Number.isNaN(view.points)).toBe(false)
+    expect(Number.isNaN(view.level)).toBe(false)
+    expect(view.points).toBeGreaterThanOrEqual(0)
+    expect(view.level).toBeGreaterThanOrEqual(1)
   })
 
   it('never decreases anything across a long mixed replay', () => {
@@ -96,6 +138,7 @@ describe('reward engine — nothing is ever taken away', () => {
       level: 4,
       points: 70,
       practiceDates: ['2026-03-01', '2026-03-02'],
+      giftsOpened: ['g1'],
       streak: { value: 2, resting: false },
     }
     const small = {
@@ -103,6 +146,7 @@ describe('reward engine — nothing is ever taken away', () => {
       level: 1,
       points: 0,
       practiceDates: [],
+      giftsOpened: [],
       streak: { value: 0, resting: true },
     }
 
@@ -111,6 +155,7 @@ describe('reward engine — nothing is ever taken away', () => {
       expect(merged.level).toBe(4)
       expect(merged.stickers).toEqual(['s1', 's2'])
       expect(merged.practiceDates).toEqual(['2026-03-01', '2026-03-02'])
+      expect(merged.giftsOpened).toEqual(['g1'])
       expect(merged.streak.value).toBe(2)
     }
   })
@@ -156,5 +201,41 @@ describe('reward engine — surprise gifts run on a schedule, never on chance', 
     const next = celebrate('answer', DAY)
     expect(next.points).toBe(before.points + 1)
     expect(next.ticks).toBeGreaterThanOrEqual(1)
+  })
+})
+
+describe('reward engine — a gift pays exactly once', () => {
+  /** Three answers and a closing page event, the shape one bonus round takes. */
+  function playGift(id: string) {
+    celebrate('answer', DAY, id)
+    celebrate('answer', DAY, id)
+    celebrate('answer', DAY, id)
+    return celebrate('page', DAY, id)
+  }
+
+  it('replaying the same gift id thirty times adds nothing beyond the first pass', () => {
+    playGift('g1')
+    const once = snapshot()
+
+    for (let i = 0; i < 30; i += 1) playGift('g1')
+
+    expect(snapshot()).toEqual(once)
+  })
+
+  it('still plays and praises a replayed gift, even though it pays nothing new', () => {
+    playGift('g1')
+    const replay = celebrate('answer', DAY, 'g1')
+
+    expect(replay.ticks).toBeGreaterThanOrEqual(1)
+    expect(replay.praise.fa.length).toBeGreaterThan(0)
+    expect(replay.stickers).toEqual([])
+    expect(replay.points).toBe(getRewards(DAY).points)
+  })
+
+  it('does not cross-contaminate: a different gift id still pays its own way', () => {
+    playGift('g1')
+    const afterFirst = snapshot()
+    playGift('g2')
+    expect(snapshot()[0]).toBeGreaterThan(afterFirst[0])
   })
 })

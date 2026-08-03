@@ -19,6 +19,9 @@ export default function BonusScreen() {
   const ordinal = Number(n)
   const questions = useMemo(() => (ordinal > 0 ? bonusQuestions(ordinal) : []), [ordinal])
   const celebration = useCelebration()
+  // Matches the id `giftFor` mints (`g${ordinal}`) — revisiting this same
+  // round after it has already paid out still plays, but pays nothing new.
+  const giftId = `g${ordinal}`
 
   if (!Number.isInteger(ordinal) || ordinal < 1) {
     return <Navigate to="/lesson/alphabet" replace />
@@ -40,9 +43,9 @@ export default function BonusScreen() {
         questions={questions}
         onCorrect={(letterId) => {
           markLetterDone(letterId)
-          return celebration.cheer('answer')
+          return celebration.cheer('answer', giftId)
         }}
-        onComplete={() => celebration.cheer('page')}
+        onComplete={() => celebration.cheer('page', giftId)}
       />
       <RewardOverlays celebration={celebration} />
     </LessonSheet>

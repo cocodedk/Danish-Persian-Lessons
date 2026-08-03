@@ -14,8 +14,8 @@ export function useCelebration() {
   const [levelUp, setLevelUp] = useState<number | null>(null)
   const [gift, setGift] = useState<Gift | null>(null)
 
-  const cheer = useCallback((kind: RewardEventKind): Reward => {
-    const next = celebrate(kind)
+  const cheer = useCallback((kind: RewardEventKind, giftId?: string): Reward => {
+    const next = celebrate(kind, undefined, giftId)
     playCues(next.sounds)
     setReward(next)
     if (next.levelUp !== null) setLevelUp(next.levelUp)

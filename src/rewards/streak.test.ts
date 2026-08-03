@@ -33,6 +33,29 @@ describe('day boundaries are local midnight', () => {
     celebrate('answer', at(2026, 3, 2, 0, 1))
     expect(getRewards(at(2026, 3, 2, 0, 2)).streak.value).toBe(2)
   })
+
+  it('sorts practice days so a backwards-clock event never hides the true latest day', () => {
+    celebrate('answer', at(2026, 3, 10))
+    celebrate('answer', at(2026, 3, 11))
+    celebrate('answer', at(2026, 3, 12))
+
+    celebrate('answer', at(2026, 3, 5)) // a clock running backwards
+
+    // Mar 12 is still the true latest day, and it is in the list — read on
+    // Mar 12 itself, so the streak is awake and today is true.
+    expect(getRewards(at(2026, 3, 12)).streak).toEqual({ value: 4, resting: false, today: true })
+  })
+
+  it('treats an invalid clock as pointless-in-time: still pays, never writes a bad day', () => {
+    celebrate('answer', at(2026, 3, 1))
+    const before = getRewards(at(2026, 3, 1))
+
+    const reward = celebrate('answer', new Date('not-a-real-date'))
+
+    expect(reward.points).toBe(before.points + 1)
+    expect(getRewards(at(2026, 3, 1)).streak.value).toBe(before.streak.value)
+    expect(window.localStorage.getItem('dpl.v1.rewards')).not.toContain('NaN')
+  })
 })
 
 describe('the streak rests — it never resets', () => {

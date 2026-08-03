@@ -70,11 +70,13 @@ export interface RewardsView {
   streak: StreakState
 }
 
-/** `dpl.v1.rewards` on disk — exactly the shape plan 007 specifies. */
+/** `dpl.v1.rewards` on disk — plan 007's shape, plus `giftsOpened` (critic round 2):
+ *  which gift ids have already paid out, so a replayed bonus round pays once. */
 export interface RewardsRecord {
   stickers: string[]
   level: number
   points: number
   practiceDates: string[]
+  giftsOpened: string[]
   streak: { value: number; resting: boolean }
 }

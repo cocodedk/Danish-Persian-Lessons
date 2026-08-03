@@ -30,7 +30,7 @@ export const GIFT_FA = 'یک تمرین جایزه!'
 export const GIFT_DA = 'En bonusøvelse i gave!'
 
 /** Shown when a resting streak wakes up — the welcome, never a scolding. */
-export const WELCOME_BACK: Praise = { fa: 'خوش آمدی!', da: 'Velkommen tilbage!' }
+export const WELCOME_BACK: Praise = { fa: 'خوش برگشتی!', da: 'Velkommen tilbage!' }
 
 /** Words this app must never say about progress. Asserted in streak.test.ts. */
 export const GUILT_WORDS = [

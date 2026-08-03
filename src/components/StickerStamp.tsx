@@ -8,7 +8,7 @@ function Afarin() {
     <svg viewBox="0 0 120 76" aria-hidden="true" focusable="false">
       <rect className="sticker-stamp__frame" x="4" y="4" width="112" height="68" rx="7" />
       <text className="sticker-stamp__fa" x="60" y="50" xmlLang="fa" direction="rtl">
-        آفرین
+        {STICKER_LABELS.afarin.fa}
       </text>
     </svg>
   )
@@ -20,7 +20,7 @@ function Bist() {
     <svg viewBox="0 0 120 76" aria-hidden="true" focusable="false">
       <ellipse className="sticker-stamp__ring" cx="60" cy="38" rx="38" ry="30" />
       <text className="sticker-stamp__fa sticker-stamp__fa--big" x="60" y="52" xmlLang="fa">
-        ۲۰
+        {STICKER_LABELS.bist.fa}
       </text>
     </svg>
   )

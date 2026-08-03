@@ -127,3 +127,28 @@ describe('the forside carries the streak', () => {
     expect(within(home).getByText('1 dag · du har øvet i dag')).toBeInTheDocument()
   })
 })
+
+describe('a null envelope value never crashes the app', () => {
+  it('renders home, a letter route and the find exercise as fresh state', () => {
+    window.localStorage.setItem(
+      'dpl.v1.rewards',
+      JSON.stringify({ schemaVersion: 1, value: null }),
+    )
+    window.localStorage.setItem(
+      'dpl.v1.alphabet',
+      JSON.stringify({ schemaVersion: 1, value: null }),
+    )
+
+    const home = open('#/')
+    expect(getRewards().points).toBe(0)
+    home.unmount()
+
+    const letter = open('#/lesson/alphabet/bogstav/be')
+    expect(screen.getByRole('button', { name: 'Jeg kan den' })).toBeInTheDocument()
+    letter.unmount()
+
+    const exercise = open('#/lesson/alphabet/ovelse/find')
+    expect(screen.getByText(/Spørgsmål 1 af/)).toBeInTheDocument()
+    exercise.unmount()
+  })
+})

@@ -44,25 +44,31 @@ const EMPTY: RewardsRecord = {
   level: 1,
   points: 0,
   practiceDates: [],
+  giftsOpened: [],
   streak: { value: 0, resting: false },
 }
 
 function numberOr(value: unknown, fallback: number): number {
-  return typeof value === 'number' && Number.isFinite(value) ? value : fallback
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : fallback
 }
 
 function stringsOr(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : []
 }
 
-/** Anything may be sitting in storage; take only what has the right shape. */
-function normalize(raw: Partial<RewardsRecord>): RewardsRecord {
-  const practiceDates = stringsOr(raw.practiceDates)
+/** Anything may be sitting in storage — even `null` itself; take only what has the right shape. */
+function normalize(rawInput: Partial<RewardsRecord> | null | undefined): RewardsRecord {
+  const raw = rawInput ?? {}
+  // Sorted lexically (YYYY-MM-DD sorts chronologically) so the last entry is
+  // always the true latest practice day, even if a backwards clock appended
+  // an earlier date after later ones.
+  const practiceDates = stringsOr(raw.practiceDates).sort()
   return {
     stickers: stringsOr(raw.stickers),
     level: numberOr(raw.level, EMPTY.level),
     points: numberOr(raw.points, EMPTY.points),
     practiceDates,
+    giftsOpened: stringsOr(raw.giftsOpened),
     streak: { value: practiceDates.length, resting: raw.streak?.resting === true },
   }
 }
@@ -76,12 +82,13 @@ function union(a: string[], b: string[]): string[] {
  * their union: whatever the caller hands in, nothing on disk can shrink.
  */
 export function join(a: RewardsRecord, b: RewardsRecord): RewardsRecord {
-  const practiceDates = union(a.practiceDates, b.practiceDates)
+  const practiceDates = union(a.practiceDates, b.practiceDates).sort()
   return {
     stickers: union(a.stickers, b.stickers),
     level: Math.max(a.level, b.level),
     points: Math.max(a.points, b.points),
     practiceDates,
+    giftsOpened: union(a.giftsOpened, b.giftsOpened),
     streak: { value: practiceDates.length, resting: b.streak.resting },
   }
 }
@@ -100,10 +107,14 @@ function levelFor(points: number): number {
   return 1 + Math.floor(points / POINTS_PER_PAGE)
 }
 
-/** A page event fills the rest of the page; everything else adds its award. */
+/**
+ * A page event fills the rest of the page; everything else adds its award.
+ * An unrecognized or missing kind — a hostile call, not a real event — awards
+ * nothing: the `POINT_AWARD` lookup is guarded so it can never add `NaN`.
+ */
 function earn(kind: RewardEventKind, points: number): number {
   if (kind === 'page') return (Math.floor(points / POINTS_PER_PAGE) + 1) * POINTS_PER_PAGE
-  return points + POINT_AWARD[kind]
+  return points + (POINT_AWARD[kind] ?? 0)
 }
 
 function stickerAt(ordinal: number): Sticker {
@@ -152,25 +163,42 @@ export function getRewards(now: Date = new Date()): RewardsView {
 /**
  * One completion. Always returns a celebration — there is no code path through
  * here that returns nothing, and none that returns less than it was given.
+ *
+ * `giftId` names the bonus round this event belongs to (its answers and its
+ * closing page event share one id). The round pays out the first time that id
+ * completes; revisiting the same gift afterwards still plays and still
+ * praises, but `giftId` is already in `giftsOpened`, so nothing new is
+ * earned — the same "pays exactly once" a letter gets from `markLetterDone`.
  */
-export function celebrate(kind: RewardEventKind, now: Date = new Date()): Reward {
+export function celebrate(kind: RewardEventKind, now: Date = new Date(), giftId?: string): Reward {
   const before = readRecord()
   const wasResting = streakFor(before.practiceDates, now).resting
+  const claimed = giftId !== undefined && before.giftsOpened.includes(giftId)
 
-  const points = earn(kind, before.points)
+  const points = claimed ? before.points : earn(kind, before.points)
   const stickers = stickersFor(before.points, points, before.stickers.length)
   const gift = giftFor(before.points, points)
-  const today = dayKey(now)
-  const practiceDates = before.practiceDates.includes(today)
-    ? before.practiceDates
-    : [...before.practiceDates, today]
+
+  // An invalid clock names no real day; the event still pays, but nothing
+  // dated is ever written — never a stored "NaN-NaN-NaN".
+  const validClock = !Number.isNaN(now.getTime())
+  const today = validClock ? dayKey(now) : null
+  const practiceDates =
+    today !== null && !before.practiceDates.includes(today)
+      ? [...before.practiceDates, today]
+      : before.practiceDates
   const streak = streakFor(practiceDates, now)
+  const giftsOpened =
+    giftId !== undefined && kind === 'page' && !claimed
+      ? [...before.giftsOpened, giftId]
+      : before.giftsOpened
 
   const saved = save({
     stickers: [...before.stickers, ...stickers.map((sticker) => sticker.id)],
     level: levelFor(points),
     points,
     practiceDates,
+    giftsOpened,
     streak: { value: streak.value, resting: streak.resting },
   })
 

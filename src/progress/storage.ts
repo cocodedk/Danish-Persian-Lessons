@@ -44,6 +44,11 @@ export function readJSON<T>(key: string, fallback: T): T {
     if (!parsed || typeof parsed !== 'object' || parsed.schemaVersion !== SCHEMA_VERSION) {
       return fallback
     }
+    // A `null` value is a corrupt envelope, not legitimate content — an array
+    // is still welcome (callers that store one already treat it as such).
+    if (parsed.value === null || typeof parsed.value !== 'object') {
+      return fallback
+    }
     return parsed.value as T
   } catch {
     return fallback
