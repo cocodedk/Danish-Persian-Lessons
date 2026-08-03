@@ -1,6 +1,12 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render as rtlRender, screen, fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import Home from './Home'
+
+/** The forside links into the lessons, so it needs a router around it. */
+function render(ui: React.ReactElement) {
+  return rtlRender(<MemoryRouter>{ui}</MemoryRouter>)
+}
 
 beforeEach(() => {
   window.localStorage.clear()
@@ -88,6 +94,16 @@ describe('Home', () => {
     render(<Home />)
     expect(screen.getByText('Hej Babak!')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Babak' })).toBeInTheDocument()
+  })
+
+  it('puts the forside on the ruled sheet and lists the alphabet lesson with its progress', () => {
+    const { container } = render(<Home />)
+    fireEvent.click(screen.getByText('Spring over'))
+
+    expect(container.querySelectorAll('.ruled-section')).toHaveLength(1)
+    const lesson = screen.getByRole('link', { name: /Alfabetet/ })
+    expect(lesson).toHaveAttribute('href', '/lesson/alphabet')
+    expect(screen.getByText('0 af 39 klaret')).toBeInTheDocument()
   })
 
   it('deleting the name from the settings corner reverts the greeting to plain Hej!', () => {
