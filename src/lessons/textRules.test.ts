@@ -5,6 +5,9 @@ import { DEMO_WORD } from '../content/demoWord'
 import { FA_GREETING } from '../content/greetings'
 import { PERSIAN_UI_STRINGS } from '../content/faStrings'
 import { ORIENTATION_POINTS } from '../content/orientation'
+import { NAME_OVERRIDE_FA_STRINGS } from '../name/overrides'
+import { GUARD_FIXTURE_NAMES } from '../name/guardFixtures'
+import { suggestSpellings } from '../name/transliterate'
 import type { Lesson, Letter, VowelMark, WordCard } from './types'
 
 function isWordCard(item: Letter | VowelMark | WordCard): item is WordCard {
@@ -154,5 +157,20 @@ describe('Persian text-rule guard', () => {
       expect(PERSIAN_UI_STRINGS, point.id).toContain(point.body)
     }
     expect(ORIENTATION_POINTS.some((point) => PERSIAN.test(point.body))).toBe(true)
+  })
+
+  it('walks the name override table — a mistyped ك or ي in a name fails here', () => {
+    expect(NAME_OVERRIDE_FA_STRINGS.length).toBeGreaterThan(80)
+    for (const spelling of NAME_OVERRIDE_FA_STRINGS) {
+      expect(findPersianTextViolations(spelling), spelling).toEqual([])
+    }
+  })
+
+  it('walks every spelling the engine generates for the fixture names', () => {
+    for (const name of GUARD_FIXTURE_NAMES) {
+      for (const spelling of suggestSpellings(name)) {
+        expect(findPersianTextViolations(spelling), `${name} → ${spelling}`).toEqual([])
+      }
+    }
   })
 })

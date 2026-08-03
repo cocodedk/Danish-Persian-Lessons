@@ -1,10 +1,11 @@
 // Single source of truth for Persian strings outside lesson data, so the
 // Persian text-rule guard (src/lessons/textRules.test.ts) has one place to
 // walk. See docs/plans/001-scaffold-app.md, Critic round 1, item 7.
-import { FA_GREETING } from './greetings'
+import { FA_GREETING, faGreeting } from './greetings'
 import { ORIENTATION_FA_STRINGS } from './orientation'
 import { LATER_MARK_FA_STRINGS } from '../lessons/vowelMarks'
 import { REWARD_FA_STRINGS } from '../rewards/copy'
+import { NAME_FA_STRINGS } from '../name/copy'
 
 export const CAPTURE_PROMPT = 'نام تو چیست؟'
 export const LESSON_PLACEHOLDER_TEXT = 'این درس هنوز آماده نیست.'
@@ -21,10 +22,12 @@ export const PERSIAN_UI_STRINGS: string[] = [
   CAPTURE_PROMPT,
   LESSON_PLACEHOLDER_TEXT,
   FA_GREETING,
+  faGreeting('سارا'),
   TRY_AGAIN_FA,
   WELL_DONE_FA,
   NAME_LETTER_FA,
   ...ORIENTATION_FA_STRINGS,
   ...LATER_MARK_FA_STRINGS,
   ...REWARD_FA_STRINGS,
+  ...NAME_FA_STRINGS,
 ]
