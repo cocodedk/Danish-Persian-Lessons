@@ -8,6 +8,21 @@ export function dayKey(date: Date): string {
   return `${date.getFullYear()}-${month}-${day}`
 }
 
+const DAY_KEY_PATTERN = /^\d{4}-\d{2}-\d{2}$/
+
+/**
+ * True only for a real `YYYY-MM-DD` key. `dayKey` trusts whatever `getMonth`/
+ * `getDate`/`getFullYear` hand back; a wholly invalid `Date` makes all three
+ * `NaN` (`"NaN-NaN-NaN"`), but a `Date` *subclass* can lie about just one of
+ * them and still pass a `getTime()` check, producing a half-corrupt key like
+ * `"2026-NaN-03"`. Checking the produced string closes the hole at the class,
+ * not the instance: it does not matter which getter lied, or whether it was
+ * overridden at all — only whether what came out looks like a day.
+ */
+export function isValidDayKey(key: string): boolean {
+  return DAY_KEY_PATTERN.test(key)
+}
+
 /**
  * Whole days from `from` to `to`, both day keys. The keys are compared as UTC
  * midnights so a daylight-saving shift can never make a day 23 or 25 hours long.

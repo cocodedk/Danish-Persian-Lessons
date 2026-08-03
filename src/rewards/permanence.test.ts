@@ -1,7 +1,6 @@
-// Permanence, asserted by API shape rather than by anyone's discipline (plan
-// 007's first acceptance bullet): the export surface is snapshotted, no name a
-// hostile caller can reach is an event kind — including every own name on
-// `Object.prototype` — and a seeded fuzz replays hostile and legitimate events
+// Permanence, asserted by API shape rather than by anyone's discipline: the export surface
+// is snapshotted, no name a hostile caller can reach is an event kind — including every own
+// name on `Object.prototype` — and a seeded fuzz replays hostile and legitimate events
 // against the real store, checking after EVERY event that nothing went down.
 import { describe, it, expect, beforeEach } from 'vitest'
 import * as engine from './engine'
@@ -43,6 +42,7 @@ describe('the reward API has a shape, and the shape is the guarantee', () => {
       'GIFT_STEP',
       'POINTS_PER_PAGE',
       'STICKER_STEP',
+      'awardFor',
       'celebrate',
       'getRewards',
     ])
@@ -56,8 +56,9 @@ describe('the reward API has a shape, and the shape is the guarantee', () => {
   })
 
   it('gives its only mutator no way in for a point total, a level or a sticker', () => {
-    // `celebrate(kind, now?, giftId?)` — one required parameter, an event kind.
-    // No signature on this API could carry a smaller total inwards.
+    // `celebrate(kind, now?, giftId?)` — one required parameter. Proven here,
+    // with the export-surface test above: the surface is pinned and every
+    // number reaching storage is clamped — not that no signature could ever add a way in.
     expect(engine.celebrate.length).toBe(1)
     expect(typeof engine.getRewards).toBe('function')
   })
@@ -84,6 +85,15 @@ describe('a prototype key is not an event kind', () => {
       expect(after[0], `kind ${String(kind)} paid points`).toBe(before[0])
     }
     expect(snapshot()[0]).toBe(45)
+  })
+
+  it('awardFor direct: 0 for every prototype name, the table value for a real kind', () => {
+    for (const key of PROTOTYPE_KEYS) {
+      expect(engine.awardFor(key as RewardEventKind), `awardFor(${key})`).toBe(0)
+    }
+    expect(engine.awardFor('answer')).toBe(1)
+    expect(engine.awardFor('item')).toBe(2)
+    expect(engine.awardFor('page')).toBe(0)
   })
 })
 

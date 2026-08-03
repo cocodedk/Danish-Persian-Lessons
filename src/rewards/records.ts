@@ -23,6 +23,7 @@ const EMPTY: RewardsRecord = {
   points: 0,
   practiceDates: [],
   giftsOpened: [],
+  cheers: 0,
   streak: { value: 0, resting: false },
 }
 
@@ -48,6 +49,7 @@ export function normalize(rawInput: RawRecord): RewardsRecord {
     points: numberOr(raw.points, EMPTY.points),
     practiceDates,
     giftsOpened: stringsOr(raw.giftsOpened),
+    cheers: numberOr(raw.cheers, EMPTY.cheers),
     streak: { value: practiceDates.length, resting: raw.streak?.resting === true },
   }
 }
@@ -73,6 +75,7 @@ export function join(aRaw: RawRecord, bRaw: RawRecord): RewardsRecord {
     points: Math.max(a.points, b.points),
     practiceDates,
     giftsOpened: union(a.giftsOpened, b.giftsOpened),
+    cheers: Math.max(a.cheers, b.cheers),
     streak: { value: practiceDates.length, resting: b.streak.resting },
   }
 }

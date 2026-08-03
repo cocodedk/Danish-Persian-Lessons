@@ -91,8 +91,8 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
   behavior; nothing to fix, only the sentence above was wrong.
 - **The streak value is the practice-day count.** `practiceDates` is append-only, and the streak
   value is its length. Resetting a streak would mean deleting days the learner really practised,
-  which no code path can do. "Resting" is derived from the clock at read time, never stored as
-  progress.
+  which no code path can do. "Resting" is stored but ignored on read; derived fresh each read from
+  the clock and `practiceDates` (correction, critic round 3 — this used to say "never stored").
 - **One red margin line stays with `RuledSection`.** The gift card rules off with a red line
   ACROSS its top instead, and the page-flip carries none.
 
@@ -161,3 +161,53 @@ The findings were adjudicated and built by the round-3 fix builder (PR #10), one
   per answer, so a half-played gift could be farmed forever. Inside a gift round the answers are
   now praise-only — a full tick and a warm line, no points — and the gift pays its bundle exactly
   once, at completion. Ten partial replays of `g1` change no total; finishing later still pays once.
+
+## Critic round 3 (2026-08-03) — FAIL narrow, adjudicated
+
+Four findings, adjudicated and built by the round-4 fix builder (PR #10), one line each, plus two
+nits accepted as-is:
+
+- **Praise repeated on the praise-only path.** `celebrate` indexed `PRAISE` by `before.points %
+  PRAISE.length`; a praise-only reply (an unclaimed or already-opened gift) never moves points, so
+  six of them in a row said the same line six times. `RewardsRecord` gained `cheers`, an
+  append-only count incremented on every `celebrate` call (every call returns praise) and joined by
+  max like every other number; the praise line now indexes off `saved.cheers` instead of `points`.
+  Six praise-only replies now land at least four distinct lines — `engine.test.ts`.
+- **`awardFor` was load-bearing but only indirectly tested, and one comment overclaimed.** Exported
+  `awardFor` so `permanence.test.ts` can assert it directly — every own name on `Object.prototype`
+  answers 0, every real kind answers its table value — and pinned it in the export-surface
+  snapshot. The comment on `celebrate.length === 1` claimed "no signature on this API could carry a
+  smaller total inwards"; reworded to what the two tests actually show — the surface is pinned and
+  every number reaching storage passes the clamp in records.ts — since arity alone cannot see a
+  parameter added after one that already has a default. **Correcting round 3's claim that "either
+  fix alone leaves a red test":** verified by reverting each independently rather than by re-reading
+  the diff — the table/`hasOwn` fix alone does leave the direct `join(BIG, POISONED)` test red
+  (`Math.max(70, NaN)` is `NaN`), but the join-normalizes fix alone keeps the *entire* current suite
+  green, prototype-key sweep and monotonicity fuzz included, because `join`'s `normalize` clamps
+  whatever an unguarded `earn` hands it before the `Math.max` ever runs. The join fix was
+  independently sufficient for every test that exists today; the table/`hasOwn` fix still closes
+  the hole at its source rather than the sink, but the claim overstated its necessity for this suite.
+- **Storage could still surface a lower number.** `rawGet` preferred `localStorage` whenever it had
+  *any* value for a key, even a stale one left behind by a write that later threw (quota exceeded,
+  private mode) — generosity rule 1 doesn't distinguish "never taken away" from "never looked taken
+  away". `memory` is now a write-through cache: `rawSet` always writes it first, before even trying
+  `localStorage`; `rawGet` prefers `memory` whenever the key is there. A storm of throwing writes
+  now always reads back the newest value, never an older one — `storage.test.ts`. (Test-isolation
+  fallout: no app code ever calls `localStorage.clear()` — only tests do — so `src/test/setup.ts`
+  now also clears the write-through cache whenever a test does, or a later case would keep reading
+  back an earlier case's write regardless of the clear.)
+- **`dayKey`'s produced key went unvalidated.** The guard against a bad clock checked
+  `Number.isNaN(now.getTime())` — the instance — but a `Date` *subclass* can override just
+  `getMonth()` and still pass a `getTime()` check, producing `"2026-NaN-03"`. `days.ts` now exports
+  `isValidDayKey`, checked against the key `dayKey` actually produced (`^\d{4}-\d{2}-\d{2}$`) before
+  it is ever appended to `practiceDates` — closed at the class, not the instance. Tested with a
+  `Date` subclass whose `getMonth` returns `NaN` — `streak.test.ts`.
+
+Two nits accepted as-is, recorded rather than fixed: `PageFlip` freezes its page number for its
+whole 1.4s life (`useState(() => filledPageLine(page))` never re-reads `page`) — harmless at the
+app's current spacing, since nothing today fires two page-flips within 1.4s of each other. The
+stored `streak` field is vestigial: `join`/`normalize` still read and write `{ value, resting }`,
+but `getRewards` never consults it — both it and `celebrate` always recompute `streakFor` fresh
+from `practiceDates` and the clock instead. Prose corrected (see "The streak value is the
+practice-day count" above — was "never stored", now "stored but ignored on read"); removing the
+dead field is deferred.

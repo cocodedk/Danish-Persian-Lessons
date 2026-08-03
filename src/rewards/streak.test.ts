@@ -56,6 +56,28 @@ describe('day boundaries are local midnight', () => {
     expect(getRewards(at(2026, 3, 1)).streak.value).toBe(before.streak.value)
     expect(window.localStorage.getItem('dpl.v1.rewards')).not.toContain('NaN')
   })
+
+  it('treats a Date subclass that lies about just one getter the same way (round 4)', () => {
+    // `getTime()` is untouched and perfectly valid — only `getMonth` lies.
+    // The class, not the instance: a per-instance NaN clock is not the hole
+    // this closes; a subclass that passes a getTime() check is.
+    class LyingMonth extends Date {
+      getMonth(): number {
+        return Number.NaN
+      }
+    }
+    const hostileClock = new LyingMonth(2026, 2, 3, 10, 0, 0)
+    expect(Number.isNaN(hostileClock.getTime())).toBe(false)
+
+    celebrate('answer', at(2026, 3, 1))
+    const before = getRewards(at(2026, 3, 1))
+
+    const reward = celebrate('answer', hostileClock)
+
+    expect(reward.points).toBe(before.points + 1)
+    expect(getRewards(at(2026, 3, 1)).streak.value).toBe(before.streak.value)
+    expect(window.localStorage.getItem('dpl.v1.rewards')).not.toContain('NaN')
+  })
 })
 
 describe('the streak rests — it never resets', () => {

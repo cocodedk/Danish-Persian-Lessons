@@ -134,6 +134,20 @@ describe('reward engine — a gift pays exactly once', () => {
     expect(replay.points).toBe(getRewards(DAY).points)
   })
 
+  it('still varies the praise on a praise-only path, where points never move (round 4)', () => {
+    playGift('g1')
+    const pointsBefore = getRewards(DAY).points
+
+    const fa = new Set<string>()
+    for (let i = 0; i < 6; i += 1) {
+      // Every one of these is claimed already: praise-only, points untouched.
+      fa.add(celebrate('answer', DAY, 'g1').praise.fa)
+    }
+
+    expect(getRewards(DAY).points).toBe(pointsBefore)
+    expect(fa.size).toBeGreaterThanOrEqual(4)
+  })
+
   it('does not cross-contaminate: a different gift id still pays its own way', () => {
     playGift('g1')
     const afterFirst = snapshot()

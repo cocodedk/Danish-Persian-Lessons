@@ -10,7 +10,7 @@
 //     a reset would mean deleting days the learner really practised.
 // Surprises run off the point total, never off Math.random, so a round replays
 // identically for a test and for a learner who comes back to it.
-import { dayKey, daysBetween } from './days'
+import { dayKey, daysBetween, isValidDayKey } from './days'
 import { numberOr, readRecord, saveRecord } from './records'
 import { PRAISE, GIFT_FA, GIFT_DA } from './copy'
 import type {
@@ -49,9 +49,11 @@ const STICKER_KINDS: StickerKind[] = ['afarin', 'bist', 'star']
 /**
  * What `kind` is worth: nothing at all unless it is one of the table's own
  * keys. Own-membership is the gate, so an inherited name never reaches the
- * lookup, and the value that comes back is clamped anyway.
+ * lookup, and the value that comes back is clamped anyway. Exported so this
+ * gate has a direct test of its own (permanence.test.ts), not only the
+ * indirect coverage `earn` gets it through `celebrate`.
  */
-function awardFor(kind: RewardEventKind): number {
+export function awardFor(kind: RewardEventKind): number {
   if (typeof kind !== 'string' || !Object.hasOwn(POINT_AWARD, kind)) return 0
   return numberOr(POINT_AWARD[kind], 0)
 }
@@ -138,10 +140,13 @@ export function celebrate(kind: RewardEventKind, now: Date = new Date(), giftId?
   const stickers = stickersFor(before.points, points, before.stickers.length)
   const gift = giftFor(before.points, points)
 
-  // An invalid clock names no real day; the event still pays, but nothing
-  // dated is ever written — never a stored "NaN-NaN-NaN".
-  const validClock = !Number.isNaN(now.getTime())
-  const today = validClock ? dayKey(now) : null
+  // An invalid clock, or a Date subclass that lies about just one getter,
+  // names no real day; the event still pays, but nothing dated is ever
+  // written — never a stored "NaN-NaN-NaN" or "2026-NaN-03". Validated on the
+  // produced key itself, not on `now.getTime()`, so it does not matter which
+  // method a hostile subclass overrode.
+  const producedKey = dayKey(now)
+  const today = isValidDayKey(producedKey) ? producedKey : null
   const practiceDates =
     today !== null && !before.practiceDates.includes(today)
       ? [...before.practiceDates, today]
@@ -156,6 +161,11 @@ export function celebrate(kind: RewardEventKind, now: Date = new Date(), giftId?
     points,
     practiceDates,
     giftsOpened,
+    // Every celebrate praises, so every celebrate counts — unlike `points`,
+    // which a praise-only path (an unclaimed or already-opened gift) leaves
+    // exactly where it was. Indexing the praise line by this instead of by
+    // `points` is what keeps six such replies from repeating the same line.
+    cheers: before.cheers + 1,
     streak: { value: streak.value, resting: streak.resting },
   })
 
@@ -167,7 +177,7 @@ export function celebrate(kind: RewardEventKind, now: Date = new Date(), giftId?
 
   return {
     ticks: 1,
-    praise: PRAISE[before.points % PRAISE.length],
+    praise: PRAISE[saved.cheers % PRAISE.length],
     stickers,
     levelUp,
     level,

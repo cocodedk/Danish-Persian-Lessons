@@ -68,4 +68,24 @@ describe('storage', () => {
     setSpy.mockRestore()
     getSpy.mockRestore()
   })
+
+  it('never surfaces an older value once localStorage starts throwing on write (round 4)', () => {
+    writeJSON('thing', { a: 1 })
+    expect(readJSON('thing', null)).toEqual({ a: 1 })
+
+    const setSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('QuotaExceededError')
+    })
+
+    // A storm of writes that never once reach disk: localStorage is stuck at
+    // `{ a: 1 }` for the rest of this test, yet every read must still see the
+    // latest write — never `{ a: 1 }`, never any earlier value in the storm.
+    for (let a = 2; a <= 6; a += 1) {
+      expect(() => writeJSON('thing', { a })).not.toThrow()
+      expect(readJSON('thing', null)).toEqual({ a })
+    }
+
+    setSpy.mockRestore()
+    expect(readJSON('thing', null)).toEqual({ a: 6 })
+  })
 })

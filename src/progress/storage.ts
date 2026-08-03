@@ -1,8 +1,15 @@
 // Generic, JSON-safe localStorage wrapper. Keys are namespaced `dpl.v1.<key>`.
-// Falls back to an in-memory store when localStorage throws (private-mode
-// denial, quota exceeded, etc.) so the app stays fully usable either way.
 // Every stored value is wrapped with a schema version for future migrations;
 // an unreadable or version-mismatched envelope is treated as absent.
+//
+// `memory` is a write-through cache, not just a denial fallback: every write
+// lands there first, unconditionally, before localStorage is even tried. A
+// read prefers memory whenever the key is there. That ordering is what makes
+// generosity rule 1 (nothing ever shows a lower number) hold through a quota
+// error or private-mode denial: a write that fails to persist to disk still
+// wins the very next read, because the read never has to trust a localStorage
+// that may be silently behind. A write that succeeds keeps both copies equal,
+// so which one answers a read is invisible the rest of the time.
 
 const PREFIX = 'dpl.v1.'
 const SCHEMA_VERSION = 1
@@ -15,23 +22,36 @@ interface Envelope<T> {
 const memory = new Map<string, string>()
 
 function rawGet(key: string): string | null {
+  if (memory.has(key)) return memory.get(key) ?? null
   try {
-    const value = window.localStorage.getItem(key)
-    if (value !== null) return value
+    return window.localStorage.getItem(key)
   } catch {
-    // localStorage denied — fall through to the in-memory store.
+    // localStorage denied — no memory entry either, so there is nothing to read.
+    return null
   }
-  return memory.get(key) ?? null
 }
 
 function rawSet(key: string, value: string): void {
+  // Always first: whatever happens to localStorage below, the very next read
+  // (in this session) sees this value, never an older one still on disk.
+  memory.set(key, value)
   try {
     window.localStorage.setItem(key, value)
-    return
   } catch {
-    // localStorage denied or full — fall through to the in-memory store.
+    // localStorage denied or full — memory already holds the write.
   }
-  memory.set(key, value)
+}
+
+/**
+ * Test-only escape hatch: clears the write-through cache. Production code
+ * never calls this — nothing in the app's own code ever calls
+ * `localStorage.clear()` either, so the cache never needs to forget on
+ * purpose. Tests that do call `localStorage.clear()` to start a case from a
+ * blank slate need this too (wired once, globally, in `src/test/setup.ts`),
+ * or a later case would still read back an earlier case's write.
+ */
+export function resetMemoryCache(): void {
+  memory.clear()
 }
 
 /**
