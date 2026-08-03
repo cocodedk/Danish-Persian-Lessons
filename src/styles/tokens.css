@@ -1,15 +1,27 @@
 /* Design tokens transcribed from docs/design/ART-DIRECTION.md — the notebook
    ("دفتر مشق") palette, type, and app-specific spacing rules. Light + dark
-   ("chalkboard") both ship from day one via prefers-color-scheme. */
+   ("chalkboard") both ship from day one via prefers-color-scheme.
+
+   The palette is declared once as raw -*-light / -*-dark values, then bound to
+   the semantic tokens the components use. `.scheme-light` / `.scheme-dark`
+   bind the same values on a subtree, which is how #/kit shows both schemes on
+   one page. This file is the only place a colour or font-family literal lives. */
 
 :root {
-  /* Palette */
-  --paper: #f7f2e9;
-  --ink: #26211b;
-  --red: #c9202c;
-  --blue: #2456a6;
-  --rule: #c7d3e2;
-  --card: #efe8da;
+  /* Palette — raw values */
+  --paper-light: #f7f2e9;
+  --ink-light: #26211b;
+  --red-light: #c9202c;
+  --blue-light: #2456a6;
+  --rule-light: #c7d3e2;
+  --card-light: #efe8da;
+
+  --paper-dark: #161d1a;
+  --ink-dark: #e9e5db;
+  --red-dark: #e56a64;
+  --blue-dark: #8fb3ea;
+  --rule-dark: #3e5248;
+  --card-dark: #1d2622;
 
   /* Type — self-hosted, see src/styles/fonts.css */
   --font-latin: 'Andika', 'Segoe UI', system-ui, sans-serif;
@@ -20,19 +32,57 @@
   --pane-fa-height: 55dvh;
   --tap-min: 44px;
 
-  /* Ratio of a Naskh glyph's line-height that the madde stroke's red covers,
-     tuned against Noto Naskh Arabic — matches website/styles.css. */
+  /* Notebook ruling: one rule every --rule-step, shifted so the baseline of
+     text set at that line-height lands on the rule. --margin-gutter is the
+     inline-start inset of the single red margin line. */
+  --rule-step: 2.25rem;
+  --rule-shift: 1.625rem;
+  --margin-gutter: 2.25rem;
+
+  /* Where the teacher's red stops, measured down from the top of the line box
+     in em, tuned against Noto Naskh Arabic at line-height 2. --madde-cut is
+     the above-the-line cut (مد، زبر، پیش) and matches website/styles.css;
+     --zir-cut is the below-the-baseline one (زیر). */
   --madde-cut: 0.54em;
+  --zir-cut: 1.3em;
 }
 
+/* Semantic tokens — light is the default binding. */
+:root,
+.scheme-light {
+  --paper: var(--paper-light);
+  --ink: var(--ink-light);
+  --red: var(--red-light);
+  --blue: var(--blue-light);
+  --rule: var(--rule-light);
+  --card: var(--card-light);
+  --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
+  color-scheme: light;
+}
+
+/* :not(.scheme-light) so an explicit light scope on <html> still wins here —
+   the .scheme-* classes below only outrank this rule on descendants. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.scheme-light) {
     /* "Chalkboard" */
-    --paper: #161d1a;
-    --ink: #e9e5db;
-    --red: #e56a64;
-    --blue: #8fb3ea;
-    --rule: #2c3a34;
-    --card: #1d2622;
+    --paper: var(--paper-dark);
+    --ink: var(--ink-dark);
+    --red: var(--red-dark);
+    --blue: var(--blue-dark);
+    --rule: var(--rule-dark);
+    --card: var(--card-dark);
+    --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
+    color-scheme: dark;
   }
+}
+
+.scheme-dark {
+  --paper: var(--paper-dark);
+  --ink: var(--ink-dark);
+  --red: var(--red-dark);
+  --blue: var(--blue-dark);
+  --rule: var(--rule-dark);
+  --card: var(--card-dark);
+  --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
+  color-scheme: dark;
 }

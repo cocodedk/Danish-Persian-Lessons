@@ -24,7 +24,7 @@ Persian notebooks mirror it). Red is never decoration: it marks exactly what a t
 | `--ink` | `#26211B` | `#E9E5DB` | text, letterforms |
 | `--red` | `#C9202C` | `#E56A64` | vowel marks, madde, margin line, active/correction accents |
 | `--blue` | `#2456A6` | `#8FB3EA` | links, buttons, interactive (BIC-pen blue) |
-| `--rule` | `#C7D3E2` | `#2C3A34` | notebook ruling, hairlines |
+| `--rule` | `#C7D3E2` | `#3E5248` | notebook ruling, hairlines |
 | `--card` | `#EFE8DA` | `#1D2622` | cards, wells |
 
 Dark mode is the chalkboard: green-tinted near-black, chalk-warm text. Both schemes ship from day one

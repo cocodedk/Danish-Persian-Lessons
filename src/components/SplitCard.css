@@ -1,4 +1,5 @@
-/* The split-screen shell — docs/design/ART-DIRECTION.md "The specimen". */
+/* The split-screen shell — docs/design/ART-DIRECTION.md "The specimen".
+   The type itself comes from the kit: FaSpecimen, PronLine, DaWord, RuleDivider. */
 
 .split-card {
   display: flex;
@@ -36,60 +37,4 @@
 
 .split-card__pane--fa .split-card__greeting {
   font-size: 1.35rem;
-}
-
-.split-card__word {
-  margin: 0;
-  color: var(--ink);
-}
-
-.split-card__pane--fa .split-card__word {
-  font-family: var(--font-naskh);
-  font-weight: 700;
-  font-size: clamp(4.5rem, 20vw, 9rem);
-  line-height: 2;
-}
-
-.split-card__pane--da .split-card__word {
-  font-size: clamp(1.5rem, 6.5vw, 2.4rem);
-  line-height: 1.7;
-}
-
-/* The madde stroke in the teacher's red pen — a clipped gradient over real
-   type, not a fake glyph. Same technique and --madde-cut as website/styles.css. */
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .split-card__word--madde {
-    background-image: linear-gradient(
-      to bottom,
-      var(--red) 0 var(--madde-cut),
-      var(--ink) var(--madde-cut)
-    );
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-
-@media (forced-colors: active) {
-  .split-card__word--madde {
-    background-image: none;
-    color: CanvasText;
-  }
-}
-
-.split-card__pron {
-  margin: 0.5rem 0 0;
-  font-family: var(--font-latin);
-  font-size: 1rem;
-  color: var(--ink);
-  opacity: 0.75;
-  direction: ltr;
-  unicode-bidi: isolate;
-}
-
-.split-card__rule {
-  border: 0;
-  border-block-start: 1px solid var(--rule);
-  margin: 0;
 }

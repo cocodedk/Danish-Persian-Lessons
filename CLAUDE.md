@@ -89,7 +89,7 @@ docs/plans/         ROADMAP.md + numbered plans (001-scaffold-app.md is next)
 docs/design/        ART-DIRECTION.md — binding design system (palette, type, notebook signature)
 .github/workflows/  ci.yml (job `verify`) · deploy-pages.yml (site → Pages; app joins at /app/)
 .githooks/          pre-commit (fast) · commit-msg (Conventional Commits) · pre-push (owner-lock + full gate)
-scripts/            verify.sh · install-hooks.sh · setup-repo.sh
+scripts/            verify.sh · install-hooks.sh · setup-repo.sh · subset-fonts.py (authoring-time)
 src/, public/       (arrive with plan 001: Vite React app, lessons data, progress storage)
 ```
 

@@ -1,6 +1,12 @@
 // Shared lesson data shapes. No data files yet — populated by plans 003/004.
 
-/** Dansk lydskrift + IPA — every teaching item carries pronunciation twice, from data. */
+/** How a teaching item is said: dansk lydskrift first, then IPA. Rendered by PronLine. */
+export interface Pron {
+  da: string
+  ipa: string
+}
+
+/** A letter's or mark's sound: the Danish word it is anchored to, plus IPA. */
 export interface Pronunciation {
   anchorDa: string
   ipa: string
@@ -30,11 +36,11 @@ export interface VowelMark {
 /** A Persian/Danish word pair, as shown in the split-screen specimen. */
 export interface WordCard {
   fa: string
-  /** The diacriticized variant to render instead of `fa`, if any. Madde
-   *  styling (--red) applies when the rendered string contains 'آ'. */
+  /** The diacriticized variant to render instead of `fa`, if any. Whatever is
+   *  rendered gets its vowel marks in --red — see src/lessons/marks.ts. */
   faMarked?: string
   da: string
-  pron: { da: string; ipa: string }
+  pron: Pron
 }
 
 export type LessonKind = 'alphabet' | 'vocab'
