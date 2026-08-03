@@ -50,7 +50,9 @@
     opacity: 0;
     transform: perspective(900px) rotateY(-78deg);
   }
-  35% {
+  /* Opaque early: a half-transparent page would let the exercise behind it
+     bleed through the line the learner is meant to read. */
+  18% {
     opacity: 1;
   }
   70% {

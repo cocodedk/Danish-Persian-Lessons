@@ -16,7 +16,8 @@ export function RewardOverlays({ celebration }: RewardOverlaysProps) {
   return (
     <>
       {gift !== null && <GiftCard gift={gift} onSkip={giftSaved} />}
-      {levelUp !== null && <PageFlip level={levelUp} onDone={levelSeen} />}
+      {/* Reaching level N means page N-1 is the one that just filled up. */}
+      {levelUp !== null && <PageFlip page={levelUp - 1} onDone={levelSeen} />}
     </>
   )
 }

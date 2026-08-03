@@ -77,8 +77,8 @@ describe('the sticker shelf keeps what was earned', () => {
     unmount()
 
     render(<RewardShelf level={3} stickers={[{ id: 's1', kind: 'afarin' }]} />)
-    expect(screen.getByText(/Side 3 er fuld! Du har 1 klistermærke\./)).toBeInTheDocument()
-    expect(screen.getByText('صفحهٔ ۳ پر شد!')).toBeInTheDocument()
+    expect(screen.getByText(/Du er på side 3\. Du har 1 klistermærke\./)).toBeInTheDocument()
+    expect(screen.getByText('صفحهٔ ۳')).toBeInTheDocument()
   })
 })
 

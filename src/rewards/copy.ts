@@ -46,11 +46,19 @@ export const GUILT_WORDS = [
   'متأسفانه',
 ]
 
-/** «صفحهٔ ۳ پر شد!» / "Side 3 er fuld!" — a level is a filled notebook page. */
-export function levelLine(level: number): Praise {
+/** «صفحهٔ ۲ پر شد!» / "Side 2 er fuld!" — said about the page that just filled. */
+export function filledPageLine(page: number): Praise {
   return {
-    fa: `صفحهٔ ${toPersianDigits(level)} پر شد!`,
-    da: `Side ${level} er fuld!`,
+    fa: `صفحهٔ ${toPersianDigits(page)} پر شد!`,
+    da: `Side ${page} er fuld!`,
+  }
+}
+
+/** Where the learner is writing now. A level is the notebook page they are on. */
+export function currentPageLine(level: number): Praise {
+  return {
+    fa: `صفحهٔ ${toPersianDigits(level)}`,
+    da: `Du er på side ${level}.`,
   }
 }
 
@@ -80,7 +88,8 @@ export const REWARD_FA_STRINGS: string[] = [
   ...Object.values(STICKER_LABELS).map((label) => label.fa),
   GIFT_FA,
   WELCOME_BACK.fa,
-  levelLine(12).fa,
+  filledPageLine(12).fa,
+  currentPageLine(3).fa,
   streakLine({ value: 12, resting: true, today: false }).fa,
   streakLine({ value: 1, resting: false, today: true }).fa,
   streakLine({ value: 7, resting: false, today: false }).fa,

@@ -46,15 +46,40 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
 
 ## Acceptance
 
-- [ ] Engine tests: streak rest → wake resumes at value + 1 (never reset); local-midnight day
+- [x] Engine tests: streak rest → wake resumes at value + 1 (never reset); local-midnight day
       boundaries; permanence (no code path decreases level/points/stickers — assert by API shape,
       not discipline); surprise schedule deterministic and replayable
-- [ ] Completing a full lesson produces a celebration on every exercise and a level-up at page end
-- [ ] Simulated 10-day absence then one exercise: welcomed back warmly, streak resumes, nothing
-      lost, no guilt copy anywhere
-- [ ] Mute works, persists across reload, and no sound ever fires before the first user gesture
-- [ ] Reduced motion: every reward still visibly granted, zero animation
+      → `src/rewards/engine.test.ts`, `src/rewards/streak.test.ts`
+- [x] Completing a full lesson produces a celebration on every exercise and a level-up at page end
+      → `src/pages/rewards.test.tsx` plays all 33 questions and asserts praise on every one
+- [x] Simulated 10-day absence then one exercise: welcomed back warmly, streak resumes, nothing
+      lost, no guilt copy anywhere → `src/pages/welcomeBack.test.tsx`, incl. a guilt-word scan of
+      the rendered page
+- [x] Mute works, persists across reload, and no sound ever fires before the first user gesture
+      → `src/rewards/sound.test.ts` (no AudioContext is even constructed pre-gesture)
+- [x] Reduced motion: every reward still visibly granted, zero animation
+      → `src/components/celebration.test.tsx` + browser check at 360px (stamps opacity 1,
+      animation-name none, confetti — decoration only — dropped)
 - [ ] Learner-persona critic answers "did any moment disappoint, shame, or nag?" with a flat no
+      → for the critic round; the builder cannot sign its own persona review
 - [ ] Teacher-persona critic confirms the Persian praise is natural and varied (آفرین، ایول،
       چه خوب و…) — and the Danish equally so (Flot! · Sådan! · Godt gået!)
-- [ ] `npm run verify` + CI green; no new dependencies
+      → for the critic round; `humanizer-pa`/`humanizer-da` passes ran (احسنت → باریکلا, em dash
+      out of the Persian streak line)
+- [x] `npm run verify` + CI green; no new dependencies
+
+## Decisions taken while building
+
+- **`--gold` joins `tokens.css`.** ART-DIRECTION names the gold star («ستارهٔ طلایی») under
+  "Celebration & sound" but its palette table stops at six colours, and GATE 7 allows no colour
+  literal outside `tokens.css`. Added as a light/dark pair, used by that one sticker, and held to
+  the same both-schemes assertion as every other semantic token.
+- **A level is a notebook page.** `level = 1 + floor(points / 20)` — twenty points to a page, the
+  ۲۰/۲۰ a teacher writes at the top. A `page` event rounds the total up to the next full page, so
+  finishing a round always fills exactly one page and always fires exactly one page-flip.
+- **The streak value is the practice-day count.** `practiceDates` is append-only, and the streak
+  value is its length. Resetting a streak would mean deleting days the learner really practised,
+  which no code path can do. "Resting" is derived from the clock at read time, never stored as
+  progress.
+- **One red margin line stays with `RuledSection`.** The gift card rules off with a red line
+  ACROSS its top instead, and the page-flip carries none.

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { levelLine } from '../rewards/copy'
+import { filledPageLine } from '../rewards/copy'
 import './PageFlip.css'
 
 export interface PageFlipProps {
   /** The page that just filled up. */
-  level: number
+  page: number
   /** Fires when the overlay has said its piece. */
   onDone: () => void
 }
@@ -17,8 +17,8 @@ const SHOWN_MS = 1400
  * the page does not turn; the line still appears, because the level is real
  * either way (ART-DIRECTION "Motion").
  */
-export function PageFlip({ level, onDone }: PageFlipProps) {
-  const [line] = useState(() => levelLine(level))
+export function PageFlip({ page, onDone }: PageFlipProps) {
+  const [line] = useState(() => filledPageLine(page))
 
   useEffect(() => {
     const timer = window.setTimeout(onDone, SHOWN_MS)

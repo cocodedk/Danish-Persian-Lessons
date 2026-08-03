@@ -1,5 +1,5 @@
 import { StickerStamp } from './StickerStamp'
-import { levelLine } from '../rewards/copy'
+import { currentPageLine } from '../rewards/copy'
 import type { Sticker } from '../rewards/types'
 import './RewardShelf.css'
 
@@ -20,7 +20,7 @@ export function RewardShelf({ level, stickers }: RewardShelfProps) {
   if (stickers.length === 0) return null
 
   const shown = stickers.slice(-SHOWN)
-  const line = levelLine(level)
+  const line = currentPageLine(level)
 
   return (
     <section className="reward-shelf" aria-label="Dine klistermærker">
