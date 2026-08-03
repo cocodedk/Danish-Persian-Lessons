@@ -1,0 +1,41 @@
+/* Pen-blue buttons — docs/design/ART-DIRECTION.md "Accessibility floor".
+   Hover changes colour only: no lift, no shadow, no transform. The focus ring
+   has one owner for the whole app: :focus-visible in src/styles/global.css. */
+
+.btn {
+  min-block-size: var(--tap-min);
+  min-inline-size: var(--tap-min);
+  padding: 0.5rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-family: var(--font-latin);
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.btn--quiet {
+  background: transparent;
+  color: var(--blue);
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: var(--blue-hover);
+    border-color: var(--blue-hover);
+  }
+
+  .btn--quiet:hover {
+    color: var(--blue-hover);
+  }
+}

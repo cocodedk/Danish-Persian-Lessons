@@ -1,0 +1,11 @@
+/* The Persian specimen — docs/design/ART-DIRECTION.md "Typography".
+   Colour is inherited (--ink) rather than declared, so the red-pen cut in
+   src/styles/pen.css is the only rule that ever touches `color` here. */
+
+.fa-specimen {
+  margin: 0;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(4.5rem, 20vw, 9rem);
+  line-height: 2;
+}

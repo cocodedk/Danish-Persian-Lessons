@@ -41,10 +41,71 @@ critic confirmed is still missing: the ruled notebook sheet. Reviewable at a `#/
 
 ## Acceptance
 
-- [ ] `#/kit` shows all components, light + dark, LTR + RTL; 360px clean; margin line sits right
+- [x] `#/kit` shows all components, light + dark, LTR + RTL; 360px clean; margin line sits right
       in the RTL sample and left in LTR — visibly
-- [ ] SplitCard is visually unchanged after the refactor (screenshot comparison at 360px)
-- [ ] The ruled sheet renders on the ruling rhythm with exactly one red margin line, tokens only
-- [ ] Both Andika woff2 < 60 KB, all used glyphs present (åb · [ɒːb] renders without tofu)
-- [ ] `npm run verify` + CI green; zero new dependencies; 200-line file cap held
+- [x] SplitCard is visually unchanged after the refactor (screenshot comparison at 360px)
+- [x] The ruled sheet renders on the ruling rhythm with exactly one red margin line, tokens only
+- [x] Both Andika woff2 < 60 KB, all used glyphs present (åb · [ɒːb] renders without tofu)
+- [x] `npm run verify` + CI green; zero new dependencies; 200-line file cap held
 - [ ] Critic personas find no concrete defect at the gallery
+
+## Outcome (build pass 1)
+
+Durable decisions worth keeping:
+
+- **Scheme scopes.** `tokens.css` now declares the palette once as `--*-light` / `--*-dark` and
+  binds it three ways: `:root` (light), the `prefers-color-scheme: dark` media query, and the
+  `.scheme-light` / `.scheme-dark` classes. The classes are what let `#/kit` put both schemes on
+  one page; nothing else changed for consumers, who still read `var(--paper)` and friends.
+- **The red pen is a gradient, not an element.** A vowel mark cannot be wrapped in its own span
+  without breaking Arabic shaping, so `src/styles/pen.css` clips a hard-edged gradient to the text
+  (`.pen-mark--above` / `--below`, cut at `--pen-cut`, default `--madde-cut`). `FaSpecimen` and
+  `VowelChip` share it; `markSide.ts` reads the side off the glyph, so lesson data carries only
+  the letter.
+- **The ruling rhythm.** `--rule-step` (2.25rem) is both the rule pitch and the line-height on the
+  sheet; `--rule-shift` (1.625rem) drops the rule onto the text baseline — measured at 360px, not
+  guessed. The single margin line is `::before` at `inset-inline-start`, so RTL mirrors it for free.
+- **Script knowledge sits in `src/lessons/`.** `marks.ts` (which side of the line a vowel mark is
+  written on) is a peer of `textRules.ts`, not a component helper — plans 003/005/006 need the
+  same table for the alphabet, the keyboard and the name spelling. The presentation half, the
+  class name, stays in `src/components/penMark.ts`.
+- **CSS guards in tests.** jsdom computes no layout, so the rules that carry design decisions
+  (logical margin line, 44px tap target, reduced-motion fallback, celebration under 1.5s) are
+  asserted by reading the CSS source via `?raw`. That needed `test.css.include = [/\?raw/]` in
+  `vite.config.ts`; ordinary CSS imports stay stubbed. `src/styles/tokens.test.ts` also enforces
+  gate item 7 — no colour or font-family literal in any stylesheet but `tokens.css`/`fonts.css`.
+- **Font subsetting is authoring-time.** `python3 scripts/subset-fonts.py` rewrites the two Andika
+  woff2 in place (247 KB → ~43.8 KB each, 674 glyphs) and refuses to write a font that lost a
+  required glyph or broke the 60 KB budget. It is idempotent, runs on no npm dependency, and
+  nothing in the build or CI calls it. `scripts/verify.sh` now guards the shipped sizes instead.
+  Full originals: `git show 3e16152:public/fonts/`.
+- **Zero-visual-change proof.** The home screen at 360×800 was captured before the refactor and
+  after refactor + subsetting, light and dark, in headless Chrome: 0 differing pixels in both
+  schemes. That covers both the SplitCard refactor and the "no tofu" check for `åb · [ɒːb]`.
+- **Not linked from home.** `#/kit` is a route only; `Kit.test.tsx` asserts the forside has no
+  link to it.
+
+## Follow-ups this plan deliberately did not take (for Fable to schedule)
+
+1. **Three button styles ship at once.** `NameCapture.css` and `SettingsCorner.css` still carry
+   their own button and divider rules, and NameCapture renders the very labels the new `Button`
+   demos ("Gem", "Spring over"). Migrating them is not cosmetic-free: the current submit button
+   has no border and the skip button is an outlined grey box, where `Button` gives a 1px blue
+   border and a quiet underlined text button. That is a visible change to a screen plan 001
+   shipped, so it needs its own plan and its own visual review. Same for `.name-capture__rule`,
+   which is byte-identical to `RuleDivider`.
+2. **The Persian faces are not subsetted.** Measured with the same pipeline and a Persian range:
+   Vazirmatn-Regular 50.7 → 24.2 KB, Vazirmatn-Bold 51.0 → 24.7 KB, NotoNaskhArabic-Bold
+   53.0 → 24.6 KB. On top of that, `Vazirmatn-Bold` is never actually requested — no rule pairs
+   `--font-fa` with weight 700 (bold Persian always switches to `--font-naskh`) — so ~51 KB is
+   deployed dead weight today. Step 8 says "both Andika woff2", and Arabic-script subsetting
+   needs its own shaping/ZWNJ verification, so it is left for a follow-up.
+3. **`#/kit` is statically imported**: +6.1 KB raw / +1.6 KB gzip in every learner's bundle,
+   ~2% of the payload. A one-line `React.lazy` removes it; judged not worth the `Suspense`
+   boilerplate for a review-only route, but it is a one-liner whenever the payload matters.
+4. **`VowelChip` takes `{ glyph, caption }`, not `VowelMark`** — it has no slot for the mark's
+   name (زبر/زیر/پیش), which the curriculum teaches by name. Plan 003 owns the vowel row and
+   should widen the props then rather than have 002 guess the shape.
+5. **The red pen paints one side per string.** A word marked both above and below renders only
+   the above marks in red. A second cut below the baseline cannot tell a زیر from the dot under
+   a ب, so this is a limit of the technique, not of the code; it is documented in `marks.ts`.

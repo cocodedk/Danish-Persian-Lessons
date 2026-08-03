@@ -112,6 +112,19 @@ check_contains website/robots.txt 'Sitemap:'
 check_contains README.md 'cocode.dk'
 check_contains README.md 'cocodedk.github.io/Danish-Persian-Lessons'
 
+# --- (f) every shipped webfont stays inside the 60 KB budget (plan 002) -------
+# Andika is subsetted to fit; regenerate with: python3 scripts/subset-fonts.py
+
+FONT_CEILING=61440
+for font in public/fonts/*.woff2; do
+  size=$(wc -c < "$font" 2>/dev/null | tr -d ' ' || echo 0)
+  if [ "$size" -gt 0 ] && [ "$size" -lt "$FONT_CEILING" ]; then
+    report "$font under 60 KB ($size bytes)" 0
+  else
+    report "$font under 60 KB (found $size bytes)" 1
+  fi
+done
+
 # --- verdict -------------------------------------------------------------------
 
 if [ "$FAILED" -ne 0 ]; then

@@ -13,5 +13,9 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
+    // Stylesheets stay stubbed in tests, except `?raw` imports: jsdom computes
+    // no layout, so the rules that carry design decisions (the logical margin
+    // line, the reduced-motion fallback) are guarded by reading CSS source.
+    css: { include: [/\?raw/] },
   },
 })

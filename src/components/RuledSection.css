@@ -1,0 +1,39 @@
+/* The signature element: a sheet of ruled exercise paper (دفتر مشق).
+
+   Light-blue rules repeat on the --rule-step rhythm, shifted by --rule-shift so
+   the baseline of text set at that line-height lands on the rule instead of
+   floating above it. Exactly ONE red margin line, drawn by ::before at
+   inset-inline-start — a logical inset, so dir="rtl" mirrors it to the right
+   with no RTL-specific rule anywhere. No physical left/right in this file. */
+
+.ruled-section {
+  position: relative;
+  padding-block: var(--rule-step);
+  padding-inline: calc(var(--margin-gutter) + 0.9rem) 1rem;
+  line-height: var(--rule-step);
+  background-color: var(--paper);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0 calc(var(--rule-step) - 1px),
+    var(--rule) calc(var(--rule-step) - 1px)
+  );
+  background-size: 100% var(--rule-step);
+  background-position: 0 var(--rule-shift);
+  background-repeat: repeat;
+}
+
+/* The teacher's margin line. */
+.ruled-section::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: var(--margin-gutter);
+  inline-size: 2px;
+  background-color: var(--red);
+}
+
+@media (forced-colors: active) {
+  .ruled-section::before {
+    background-color: CanvasText;
+  }
+}
