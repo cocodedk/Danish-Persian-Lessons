@@ -9,9 +9,9 @@ the app exists, `npm run verify`) is green.
 
 - [x] **P0 — Infrastructure** (done 2026-08-03): repo, CI, Pages deploy, trilingual landing site,
       hooks, hygiene, CLAUDE.md, art direction, this roadmap.
-- [ ] **P1 — [001-scaffold-app.md](001-scaffold-app.md)**: Vite + React + TS app skeleton, tokens,
-      SplitCard shell, storage + profile (skippable name capture), fonts self-hosted, CI/deploy/hooks
-      upgraded, app live at `/app/`.
+- [x] **P1 — [001-scaffold-app.md](001-scaffold-app.md)** (merged 2026-08-03, PR #5, two critic
+      rounds): app live at `/app/`, split-screen shell + pronunciation line, name capture, storage,
+      self-hosted fonts, gates upgraded.
 - [ ] **P2 — [002-design-system.md](002-design-system.md)**: notebook-page component kit per ART-DIRECTION.
 - [ ] **P3 — [003-alphabet-lesson.md](003-alphabet-lesson.md)**: orientation ("Persian runs right to
       left", joining, shapes, no capitals) + Lesson 1 — letters with stroke-order drawings, forms,
