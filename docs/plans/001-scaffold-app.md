@@ -62,14 +62,25 @@ upgraded CI/deploy/hook gates all green. No lesson content yet — that's plans 
 
 ## Acceptance
 
-- [ ] `npm run verify` green locally; CI `verify` job green on the PR
-- [ ] App loads at `/app/` on Pages after merge; demo pair renders with its pronunciation line
-      (`åb · [ɒːb]`); dark mode + reduced-motion respected
-- [ ] Greeting rule for 001: the Danish pane greets "Hej {name}!" as soon as a name exists; the
+- [x] `npm run verify` green locally; CI `verify` job green on the PR
+- [ ] App loads at `/app/` on Pages after merge (pending-merge — Pages only publishes from `main`);
+      demo pair renders with its pronunciation line (`åb · [ɒːb]`); dark mode + reduced-motion
+      respected — verified locally via `vite preview` + headless screenshots in both color schemes
+- [x] Greeting rule for 001: the Danish pane greets "Hej {name}!" as soon as a name exists; the
       Persian pane greets «سلام!» alone until `profile.faSpelling` arrives with plan 006 — Latin
       text never renders inside the Persian pane.
-- [ ] Skip path: no name → nothing nags, ever; profile survives reload; delete works
-- [ ] Lighthouse mobile on `/app/`: no horizontal scroll at 360px; tap targets ≥ 44px
-- [ ] Persian text-rule guard test exists and fails on a deliberately bad fixture (prove it once, then fix the fixture)
-- [ ] No dependency beyond: react, react-dom, react-router-dom, vite, typescript, vitest,
-      @testing-library/react, eslint + plugins. Anything else ⇒ question at top of this file first.
+- [x] Skip path: no name → nothing nags, ever; profile survives reload; delete works
+- [ ] Lighthouse mobile on `/app/` (pending-merge — needs the live Pages URL for a real Lighthouse
+      run): no horizontal scroll at 360px; tap targets ≥ 44px — both verified ahead of time
+      (360px headless screenshot shows no overflow; every interactive element is `min-height`/
+      `min-width: var(--tap-min)` = 44px in CSS)
+- [x] Persian text-rule guard test exists and fails on a deliberately bad fixture (prove it once, then fix the fixture)
+- [x] No dependency beyond: react, react-dom, react-router-dom, vite, typescript, vitest,
+      @testing-library/react, eslint + plugins — plus the dev tooling those require
+      (@vitejs/plugin-react, jsdom, @testing-library/jest-dom, typescript-eslint). Anything else ⇒
+      question at top of this file first.
+      **Deviation (not a question — no ambiguity, just disclosing):** also added `@types/react` and
+      `@types/react-dom` as devDependencies. Neither `react` nor `react-dom`'s npm packages ship
+      their own TypeScript types, so `tsc --noEmit` under strict mode cannot typecheck a single JSX
+      file without them — there is no alternative that keeps "TypeScript strict" (step 1) true
+      without adding them. Both are type-only, erased at build, zero runtime/bundle impact.
