@@ -1,0 +1,79 @@
+.settings-corner {
+  position: fixed;
+  inset-block-end: 0.75rem;
+  inset-inline-end: 0.75rem;
+  z-index: 10;
+  font-family: var(--font-latin);
+}
+
+.settings-corner__toggle {
+  min-height: var(--tap-min);
+  min-width: var(--tap-min);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.settings-corner__panel {
+  position: absolute;
+  inset-block-end: calc(100% + 0.5rem);
+  inset-inline-end: 0;
+  width: max(16rem, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  box-shadow: 0 1px 0 var(--rule);
+}
+
+.settings-corner__panel label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.settings-corner__panel input {
+  min-height: var(--tap-min);
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.settings-corner__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.settings-corner__actions button {
+  min-height: var(--tap-min);
+  min-width: var(--tap-min);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--blue);
+  color: var(--paper);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.settings-corner__delete {
+  background: transparent;
+  color: var(--ink);
+}
+
+.settings-corner__privacy {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink);
+  opacity: 0.75;
+}
