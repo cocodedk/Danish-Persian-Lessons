@@ -60,6 +60,23 @@ describe('Home', () => {
     expect(greeting?.textContent ?? '').not.toMatch(/[A-Za-z]/)
   })
 
+  it('names with æ/ø/å round-trip correctly through capture, greeting, and reload', () => {
+    for (const name of ['Mette', 'Søren']) {
+      window.localStorage.clear()
+      const { unmount } = render(<Home />)
+      fireEvent.change(screen.getByLabelText('Hvad hedder du?'), {
+        target: { value: name },
+      })
+      fireEvent.click(screen.getByText('Gem'))
+      expect(screen.getByText(`Hej ${name}!`)).toBeInTheDocument()
+      unmount()
+
+      render(<Home />)
+      expect(screen.getByText(`Hej ${name}!`)).toBeInTheDocument()
+      unmount()
+    }
+  })
+
   it('the name persists across a reload and is shown on the settings corner', () => {
     const { unmount } = render(<Home />)
     fireEvent.change(screen.getByLabelText('Hvad hedder du?'), {
