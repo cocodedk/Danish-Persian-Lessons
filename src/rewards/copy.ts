@@ -15,12 +15,12 @@ export const PRAISE: Praise[] = [
   { fa: 'چه خوب', da: 'Godt gået!' },
   { fa: 'عالی', da: 'Rigtig fint!' },
   { fa: 'خیلی خوب', da: 'Dygtig!' },
-  { fa: 'احسنت', da: 'Sådan skal det være!' },
+  { fa: 'باریکلا', da: 'Sådan skal det være!' },
 ]
 
 /** The three stamps a teacher owns: the آفرین stamp, the ۲۰ mark, the gold star. */
 export const STICKER_LABELS: Record<StickerKind, Praise> = {
-  afarin: { fa: 'آفرین', da: 'Klistermærke: flot' },
+  afarin: { fa: 'آفرین', da: 'Klistermærke: flot klaret' },
   bist: { fa: '۲۰', da: 'Klistermærke: tyve ud af tyve' },
   star: { fa: 'ستارهٔ طلایی', da: 'Klistermærke: guldstjerne' },
 }
@@ -64,7 +64,7 @@ export function streakLine(streak: StreakState): Praise {
 
   if (streak.resting) {
     return {
-      fa: `${roz} · رشته‌ات خوابیده — یک تمرین بیدارش می‌کند`,
+      fa: `${roz} · رشته‌ات خوابیده، یک تمرین بیدارش می‌کند`,
       da: `${days} · stimen hviler — én øvelse vækker den`,
     }
   }

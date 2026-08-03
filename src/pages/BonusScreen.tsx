@@ -33,7 +33,7 @@ export default function BonusScreen() {
         {GIFT_FA}
       </p>
       <p className="alphabet__note">
-        Tre spørgsmål, du kender formen på. Du kan lukke gaven når som helst — den koster
+        Tre spørgsmål, du kender formen på. Du kan lukke gaven når som helst. Den koster
         ingenting at lade ligge.
       </p>
       <ChoiceExercise

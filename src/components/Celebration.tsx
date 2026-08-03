@@ -43,7 +43,7 @@ export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps)
             {WELCOME_BACK.fa}
           </span>
           <span lang="da">
-            {WELCOME_BACK.da} Stimen er vågen igen — nu {reward.streak.value} dage.
+            {WELCOME_BACK.da} Stimen er vågen igen, nu {reward.streak.value} dage.
           </span>
         </p>
       )}

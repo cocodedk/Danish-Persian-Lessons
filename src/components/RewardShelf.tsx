@@ -29,7 +29,8 @@ export function RewardShelf({ level, stickers }: RewardShelfProps) {
           {line.fa}
         </span>
         <span className="reward-shelf__da" lang="da">
-          {line.da} Du har {stickers.length} klistermærker.
+          {line.da} Du har {stickers.length}{' '}
+          {stickers.length === 1 ? 'klistermærke' : 'klistermærker'}.
         </span>
       </p>
       <p className="reward-shelf__stamps">
