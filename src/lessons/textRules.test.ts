@@ -22,6 +22,7 @@ function collectFaStrings(lesson: Lesson): string[] {
       strings.push(item.fa)
     } else if (isLetter(item)) {
       strings.push(item.glyph, item.name.fa, ...Object.values(item.forms))
+      if (item.madde) strings.push(item.madde.glyph, item.madde.name.fa)
     } else {
       strings.push(item.glyph, item.name.fa)
     }
@@ -72,11 +73,13 @@ describe('Persian text-rule guard', () => {
 
   it('also walks the Letter item shape correctly (glyph, name.fa, and all four forms) — proven now, ahead of plan 003', () => {
     const badLetter: Letter = {
+      id: 'kaf-fixture',
       glyph: 'ك', // deliberately bad: Arabic kaf, should be ک
       name: { fa: 'کاف', da: 'kaf' },
       forms: { isolated: 'ک', initial: 'کـ', medial: 'ـکـ', final: 'ـک' },
       joinsLeft: true,
-      sound: { anchorDa: 'k i "kat"', ipa: 'k' },
+      sound: { da: 'k i "kat"', ipa: 'k' },
+      strokes: [{ d: 'M 82 14 L 18 44', kind: 'stroke' }],
     }
     const badLesson: Lesson = { id: 'fixture-letter-bad', kind: 'alphabet', items: [badLetter] }
     const badViolations = collectFaStrings(badLesson).flatMap(findPersianTextViolations)
