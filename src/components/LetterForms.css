@@ -1,7 +1,9 @@
 /* The four positional forms, as a schoolbook prints them: one row, one cell
-   per position, the Danish label underneath. */
+   per position, the Danish label underneath. The row is a Persian sequence, so
+   it reads from the right — alene sits where the eye starts. */
 
 .letter-forms__row {
+  direction: rtl;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.35rem;

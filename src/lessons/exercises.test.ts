@@ -33,6 +33,36 @@ describe('exercise questions', () => {
     expect(new Set(slots).size).toBe(4)
   })
 
+  it('offers exactly one choice that matches the prompt sound — every question, both rounds', () => {
+    for (const question of [...find, ...match]) {
+      const matches = question.choices.filter(
+        (choice) =>
+          specimens[choice.id].sound.ipa === question.sound.ipa ||
+          specimens[choice.id].sound.da === question.sound.da,
+      )
+      expect(matches.map((choice) => choice.id), question.id).toEqual([question.answerId])
+    }
+  })
+
+  it('never offers a homophone as a distractor — ذ ز ض ظ · ث س ص · ت ط · ح ه · ق غ', () => {
+    const groups = [
+      ['zal', 'ze', 'zad', 'za'],
+      ['se', 'sin', 'sad'],
+      ['te', 'ta'],
+      ['he-jimi', 'he'],
+      ['ghaf', 'gheyn'],
+    ]
+    for (const group of groups) {
+      const sounds = new Set(group.map((id) => specimens[id].sound.ipa))
+      expect(sounds.size, group.join(' ')).toBe(1)
+    }
+    for (const question of [...find, ...match]) {
+      const group = groups.find((ids) => ids.includes(question.answerId)) ?? []
+      const offered = question.choices.map((choice) => choice.id).filter((id) => group.includes(id))
+      expect(offered, question.id).toEqual(group.length ? [question.answerId] : [])
+    }
+  })
+
   it('picks distractors a learner could actually confuse — same body, other dots', () => {
     const be = find.find((q) => q.letterId === 'be')
     expect(be?.choices.map((c) => c.id).sort()).toEqual(['be', 'pe', 'se', 'te'])

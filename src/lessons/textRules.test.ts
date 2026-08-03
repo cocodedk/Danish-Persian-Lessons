@@ -4,6 +4,7 @@ import { lessons } from './registry'
 import { DEMO_WORD } from '../content/demoWord'
 import { FA_GREETING } from '../content/greetings'
 import { PERSIAN_UI_STRINGS } from '../content/faStrings'
+import { ORIENTATION_POINTS } from '../content/orientation'
 import type { Lesson, Letter, VowelMark, WordCard } from './types'
 
 function isWordCard(item: Letter | VowelMark | WordCard): item is WordCard {
@@ -14,10 +15,25 @@ function isLetter(item: Letter | VowelMark | WordCard): item is Letter {
   return 'forms' in item
 }
 
+/** The Arabic block (U+0600–U+06FF): a Danish line that prints one is fa too. */
+const PERSIAN = /[\u0600-\u06FF]/
+
+/**
+ * The Danish lines that print Persian inline: a letter's or mark's hint («ی
+ * står uden prikker»), a sound anchor («ens for ق og غ»). They are Danish copy,
+ * so they are walked only when they actually carry a Persian glyph.
+ */
+function daLinesWithPersian(item: Letter | VowelMark | WordCard): string[] {
+  const lines: Array<string | undefined> = 'hint' in item ? [item.hint] : []
+  if ('sound' in item) lines.push(item.sound.da)
+  return lines.filter((line): line is string => !!line && PERSIAN.test(line))
+}
+
 /** Every fa-bearing string a Lesson carries, regardless of item kind. */
 function collectFaStrings(lesson: Lesson): string[] {
   const strings: string[] = []
   for (const item of lesson.items) {
+    strings.push(...daLinesWithPersian(item))
     if (isWordCard(item)) {
       strings.push(item.fa)
     } else if (isLetter(item)) {
@@ -94,6 +110,28 @@ describe('Persian text-rule guard', () => {
     expect(fixedViolations).toEqual([])
   })
 
+  it('walks the Danish hint on a letter — a ي hidden in Danish copy is still a violation', () => {
+    const withHint: Letter = {
+      id: 'ye-fixture',
+      glyph: 'ی',
+      name: { fa: 'یِ', da: 'ye' },
+      forms: { isolated: 'ی', initial: 'یـ', medial: 'ـیـ', final: 'ـی' },
+      joinsLeft: true,
+      sound: { da: 'j i "ja"', ipa: 'j' },
+      strokes: [{ d: 'M 82 14 L 18 44', kind: 'stroke' }],
+      hint: 'Alene står ي uden prikker.', // deliberately bad: Arabic yeh, should be ی
+    }
+    const badLesson: Lesson = { id: 'fixture-hint-bad', kind: 'alphabet', items: [withHint] }
+    expect(collectFaStrings(badLesson).flatMap(findPersianTextViolations).length).toBeGreaterThan(0)
+
+    const fixed: Lesson = {
+      ...badLesson,
+      id: 'fixture-hint-fixed',
+      items: [{ ...withHint, hint: 'Alene står ی uden prikker.' }],
+    }
+    expect(collectFaStrings(fixed).flatMap(findPersianTextViolations)).toEqual([])
+  })
+
   it('walks every lesson currently in the registry with zero violations', () => {
     const allViolations = lessons.flatMap((lesson) =>
       collectFaStrings(lesson).flatMap(findPersianTextViolations),
@@ -109,5 +147,12 @@ describe('Persian text-rule guard', () => {
   it('walks every exported Persian UI string (capture prompt, lesson placeholder, greeting) with zero violations — a future ك/ي edit to src/content/faStrings.ts fails this test', () => {
     const allViolations = PERSIAN_UI_STRINGS.flatMap(findPersianTextViolations)
     expect(allViolations).toEqual([])
+  })
+
+  it('walks the orientation bodies too — they print Persian inside Danish sentences', () => {
+    for (const point of ORIENTATION_POINTS) {
+      expect(PERSIAN_UI_STRINGS, point.id).toContain(point.body)
+    }
+    expect(ORIENTATION_POINTS.some((point) => PERSIAN.test(point.body))).toBe(true)
   })
 })

@@ -29,11 +29,16 @@ export default function AlphabetLesson() {
         </span>
       </p>
       <p className="alphabet__lead">
-        32 bogstaver og seks vokaltegn. Tag ét ad gangen — der er ingen rækkefølge, du skal nå.
+        32 bogstaver, tegnet{' '}
+        <span className="alphabet__lead-fa" lang="fa" dir="rtl">
+          {specimens['alef-madde'].glyph}
+        </span>{' '}
+        og seks vokaltegn. Tag dem i den rækkefølge, du vil.
       </p>
 
       <h2 className="alphabet__section-title">Bogstaverne</h2>
-      <ul className="alphabet__grid">
+      {/* The chart reads the way Persian does: آ ا ب … from the right. */}
+      <ul className="alphabet__grid" dir="rtl">
         {teachingOrder.map((id) => {
           const specimen = specimens[id]
           const cleared = progress.letters.includes(id)

@@ -56,7 +56,11 @@ function Animated({ strokes, name }: LetterDrawProps) {
 /** The same order, standing still: one small sheet per step, newest in red. */
 function Steps({ strokes, name }: LetterDrawProps) {
   return (
-    <ol className="letter-draw__steps" aria-label={`Stregrækkefølge for ${name}, trin for trin`}>
+    <ol
+      className="letter-draw__steps"
+      dir="rtl"
+      aria-label={`Stregrækkefølge for ${name}, trin for trin`}
+    >
       {strokes.map((_, step) => (
         <li key={step} className="letter-draw__step">
           <svg className="letter-draw__sheet" viewBox="0 0 100 100" aria-hidden="true">

@@ -62,8 +62,11 @@
 }
 
 /* Step diagram: the same order standing still. Never animated — this IS the
-   reduced-motion rendering, so it must not depend on motion to make sense. */
+   reduced-motion rendering, so it must not depend on motion to make sense.
+   ۱ ۲ ۳ ۴ run right to left, the way the pen and every other Persian sequence
+   in the app do. */
 .letter-draw__steps {
+  direction: rtl;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

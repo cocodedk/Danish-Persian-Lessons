@@ -25,6 +25,7 @@ export default function LetterScreen() {
     return <Navigate to="/lesson/alphabet" replace />
   }
 
+  // آ is a taught sign, not the 33rd letter — the heading says which it is.
   const letter = isLetter(specimen) ? specimen : undefined
   const index = teachingOrder.indexOf(id)
   const previous = teachingOrder[index - 1]
@@ -33,7 +34,7 @@ export default function LetterScreen() {
 
   return (
     <LessonSheet
-      title={`Bogstavet ${specimen.name.da}`}
+      title={`${letter ? 'Bogstavet' : 'Tegnet'} ${specimen.name.da}`}
       bar={
         <>
           {previous && <BarLink to={`/lesson/alphabet/bogstav/${previous}`}>Forrige</BarLink>}
@@ -42,8 +43,9 @@ export default function LetterScreen() {
         </>
       }
     >
+      {/* "Tegn", not "bogstav": the 33 are the 32 letters plus the sign آ. */}
       <p className="letter__eyebrow">
-        {index + 1} af {teachingOrder.length}
+        Tegn {index + 1} af {teachingOrder.length}
       </p>
 
       <div className="letter__specimen">

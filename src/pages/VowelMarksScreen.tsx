@@ -29,22 +29,26 @@ export default function VowelMarksScreen() {
         return (
           <div key={mark.id} className="marks__row">
             <VowelChip glyph={mark.glyph} caption={mark.sound} />
-            <span className="marks__names">
-              <span className="marks__name-fa" lang="fa" dir="rtl">
-                {mark.name.fa}
+            {/* Name over action: at 360px the chip takes half the line, so
+                these two stack instead of squeezing each other. */}
+            <div className="marks__side">
+              <span className="marks__names">
+                <span className="marks__name-fa" lang="fa" dir="rtl">
+                  {mark.name.fa}
+                </span>
+                <span>{mark.name.da}</span>
               </span>
-              <span>{mark.name.da}</span>
-            </span>
-            {done ? (
-              <ProgressTick granted label="Klaret" />
-            ) : (
-              <Button
-                variant="quiet"
-                onClick={() => setCleared(markVowelDone(mark.id).marks)}
-              >
-                Jeg kan den
-              </Button>
-            )}
+              {done ? (
+                <ProgressTick granted label="Klaret" />
+              ) : (
+                <Button
+                  variant="quiet"
+                  onClick={() => setCleared(markVowelDone(mark.id).marks)}
+                >
+                  Jeg kan den
+                </Button>
+              )}
+            </div>
           </div>
         )
       })}

@@ -57,8 +57,12 @@ export const ORIENTATION_POINTS: OrientationPoint[] = [
   },
 ]
 
-/** Walked by the Persian text-rule guard (src/content/faStrings.ts). */
+/**
+ * Walked by the Persian text-rule guard (src/content/faStrings.ts). The Danish
+ * bodies come along because they print Persian inline — «ب skifter udseende» is
+ * as much fa content as the specimen row above it.
+ */
 export const ORIENTATION_FA_STRINGS: string[] = [
   MIRROR_DEMO.fa,
-  ...ORIENTATION_POINTS.flatMap((point) => [...point.fa, point.result ?? '']),
+  ...ORIENTATION_POINTS.flatMap((point) => [...point.fa, point.result ?? '', point.body]),
 ]

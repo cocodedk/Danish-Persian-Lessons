@@ -15,6 +15,12 @@
   max-inline-size: 34rem;
 }
 
+/* آ is a thin stroke and a wave: in the Danish lead it needs the Persian face. */
+.alphabet__lead-fa {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+}
+
 .alphabet__section-title {
   margin: var(--rule-step) 0 0;
   font-family: var(--font-latin);
@@ -22,8 +28,9 @@
   line-height: var(--rule-step);
 }
 
-/* The 33 specimens, five to a row on a phone. */
+/* The 33 specimens, five to a row. A Persian sequence: it fills from the right. */
 .alphabet__grid {
+  direction: rtl;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(3.25rem, 1fr));
   gap: 0.4rem;
@@ -146,12 +153,20 @@
 
 /* --- vowel marks ------------------------------------------------------- */
 
+/* The chip takes half the line at 360px; name and button stack in the rest. */
 .marks__row {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
   margin-block-start: 0.75rem;
+}
+
+.marks__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-inline-size: 0;
 }
 
 .marks__names {

@@ -19,6 +19,12 @@ interface Row {
   ipa: string
 }
 
+/** ذ ز ض ظ are four spellings of one sound — one anchor, so they read alike. */
+const Z_ANCHOR = 'stemt s — som engelsk z i "zoo"'
+
+/** ق and غ have fallen together in Tehrani Persian: one sound, two spellings. */
+const GHAF_GHEYN = { anchor: 'et dybt g/r bagerst i halsen — ens for ق og غ', ipa: 'ɢ~ɣ' }
+
 const ROWS: Row[] = [
   { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'a i "kat"', ipa: 'æ' },
   { g: 'ب', id: 'be', fa: 'بِ', da: 'be', joins: true, anchor: 'b i "bil"', ipa: 'b' },
@@ -27,30 +33,30 @@ const ROWS: Row[] = [
   { g: 'ث', id: 'se', fa: 'ثِ', da: 'se', joins: true, anchor: 's i "sol"', ipa: 's' },
   { g: 'ج', id: 'jim', fa: 'جیم', da: 'jim', joins: true, anchor: 'dj i "jazz"', ipa: 'dʒ' },
   { g: 'چ', id: 'che', fa: 'چِ', da: 'che', joins: true, anchor: 'tj i "chips"', ipa: 'tʃ' },
-  { g: 'ح', id: 'he-jimi', fa: 'حِ', da: 'he', joins: true, anchor: 'h i "hus"', ipa: 'h' },
+  { g: 'ح', id: 'he-jimi', fa: 'حِ', da: 'he jimi', joins: true, anchor: 'h i "hus"', ipa: 'h' },
   { g: 'خ', id: 'khe', fa: 'خِ', da: 'khe', joins: true, anchor: 'ch i tysk "Bach"', ipa: 'x' },
   { g: 'د', id: 'dal', fa: 'دال', da: 'dal', joins: false, anchor: 'd i "dag"', ipa: 'd' },
-  { g: 'ذ', id: 'zal', fa: 'ذال', da: 'zal', joins: false, anchor: 'blødt s, som z i "zoo"', ipa: 'z' },
+  { g: 'ذ', id: 'zal', fa: 'ذال', da: 'zal', joins: false, anchor: Z_ANCHOR, ipa: 'z' },
   { g: 'ر', id: 're', fa: 'رِ', da: 're', joins: false, anchor: 'rullet r, som spansk "pero"', ipa: 'ɾ' },
-  { g: 'ز', id: 'ze', fa: 'زِ', da: 'ze', joins: false, anchor: 'blødt s, som z i "zoo"', ipa: 'z' },
-  { g: 'ژ', id: 'zhe', fa: 'ژِ', da: 'zhe', joins: false, anchor: 'g i "genre"', ipa: 'ʒ' },
+  { g: 'ز', id: 'ze', fa: 'زِ', da: 'ze', joins: false, anchor: Z_ANCHOR, ipa: 'z' },
+  { g: 'ژ', id: 'zhe', fa: 'ژِ', da: 'zhe', joins: false, anchor: 'som j i fransk "journal" — stemt sj', ipa: 'ʒ' },
   { g: 'س', id: 'sin', fa: 'سین', da: 'sin', joins: true, anchor: 's i "sol"', ipa: 's' },
   { g: 'ش', id: 'shin', fa: 'شین', da: 'shin', joins: true, anchor: 'sj i "sjal"', ipa: 'ʃ' },
   { g: 'ص', id: 'sad', fa: 'صاد', da: 'sad', joins: true, anchor: 's i "sol"', ipa: 's' },
-  { g: 'ض', id: 'zad', fa: 'ضاد', da: 'zad', joins: true, anchor: 'blødt s, som z i "zoo"', ipa: 'z' },
+  { g: 'ض', id: 'zad', fa: 'ضاد', da: 'zad', joins: true, anchor: Z_ANCHOR, ipa: 'z' },
   { g: 'ط', id: 'ta', fa: 'طا', da: 'ta', joins: true, anchor: 't i "tak"', ipa: 't' },
-  { g: 'ظ', id: 'za', fa: 'ظا', da: 'za', joins: true, anchor: 'blødt s, som z i "zoo"', ipa: 'z' },
+  { g: 'ظ', id: 'za', fa: 'ظا', da: 'za', joins: true, anchor: Z_ANCHOR, ipa: 'z' },
   { g: 'ع', id: 'eyn', fa: 'عین', da: 'eyn', joins: true, anchor: 'stød, som i "hånd"', ipa: 'ʔ' },
-  { g: 'غ', id: 'gheyn', fa: 'غین', da: 'gheyn', joins: true, anchor: 'blødt r i halsen', ipa: 'ɣ' },
+  { g: 'غ', id: 'gheyn', fa: 'غین', da: 'gheyn', joins: true, ...GHAF_GHEYN },
   { g: 'ف', id: 'fe', fa: 'فِ', da: 'fe', joins: true, anchor: 'f i "fisk"', ipa: 'f' },
-  { g: 'ق', id: 'ghaf', fa: 'قاف', da: 'ghaf', joins: true, anchor: 'hårdt r dybt i halsen', ipa: 'ɢ' },
+  { g: 'ق', id: 'ghaf', fa: 'قاف', da: 'ghaf', joins: true, ...GHAF_GHEYN },
   { g: 'ک', id: 'kaf', fa: 'کاف', da: 'kaf', joins: true, anchor: 'k i "kat"', ipa: 'k' },
   { g: 'گ', id: 'gaf', fa: 'گاف', da: 'gaf', joins: true, anchor: 'g i "gul"', ipa: 'ɡ' },
   { g: 'ل', id: 'lam', fa: 'لام', da: 'lam', joins: true, anchor: 'l i "lys"', ipa: 'l' },
   { g: 'م', id: 'mim', fa: 'میم', da: 'mim', joins: true, anchor: 'm i "mor"', ipa: 'm' },
   { g: 'ن', id: 'nun', fa: 'نون', da: 'nun', joins: true, anchor: 'n i "nat"', ipa: 'n' },
   { g: 'و', id: 'vav', fa: 'واو', da: 'vav', joins: false, anchor: 'v i "vand"', ipa: 'v' },
-  { g: 'ه', id: 'he', fa: 'هِ', da: 'he', joins: true, anchor: 'h i "hus"', ipa: 'h' },
+  { g: 'ه', id: 'he', fa: 'هِ', da: 'he do-tjeshm', joins: true, anchor: 'h i "hus"', ipa: 'h' },
   { g: 'ی', id: 'ye', fa: 'یِ', da: 'ye', joins: true, anchor: 'j i "ja"', ipa: 'j' },
 ]
 

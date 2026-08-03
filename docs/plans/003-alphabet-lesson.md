@@ -104,3 +104,43 @@ Decisions the plan left open, recorded so the critic can judge them:
 - Verified at 360×780 in headless Chrome across all eight routes: `scrollWidth === clientWidth`
   everywhere, no link or button under 44×44, both colour schemes, and the reduced-motion step
   diagram rendering.
+
+## Critic round 1 (2026-08-03) — FAIL, adjudicated
+
+Six defects, all fixed in round 2. Extras the adjudication folded into them are indented.
+
+1. **Exercises offered two right answers.** "Find bogstavet" drew distractors by body and by
+   neighbour without ever asking what they sound like, so questions 12, 16, 19 and 23 put ذ next to
+   ز, س next to ص, ض next to ظ and غ next to ق — two choices satisfying one prompt.
+   → `distractorIds` now skips any letter that shares either half of the answer's pronunciation, and
+   `exercises.test.ts` asserts on EVERY generated question that exactly one choice matches the
+   prompt sound. Removing the filter turns the test red on `find-zal`.
+2. **ق and غ contradicted themselves.** The hint said they sound alike in Teheran; the data gave
+   them two anchors and two IPA symbols.
+   → Both letters now carry one sound: `et dybt g/r bagerst i halsen — ens for ق og غ` / `ɢ~ɣ`,
+   from a single `GHAF_GHEYN` constant. The hint agrees with the data instead of arguing with it.
+3. **The text-rule guard had holes.** Danish copy that prints Persian was not walked: letter hints
+   («ی står uden prikker») and the orientation bodies («ب skifter udseende…»).
+   → `collectFaStrings` collects hints and sound anchors whenever they carry a Persian code point,
+   and `ORIENTATION_FA_STRINGS` carries every `point.body`. Poison-proved: ي in `HINTS.ye` and ك in
+   `ORIENTATION_POINTS[1].body` each turned the guard red, then were restored.
+4. **The alphabet chart read left to right.** A right-to-left script laid out like a Latin table.
+   → The grid is `dir="rtl"`, so it fills آ ا ب … from the right.
+   - The four-forms row follows the same rule — alene, først, midt, sidst now start at the right,
+     matching orientation's own specimen row.
+   - So do the reduced-motion step numbers ۱ ۲ ۳ ۴. One principle: anything sequenced in Persian
+     reads from the right.
+5. **The counts did not add up.** "32 bogstaver og seks vokaltegn" over a 33-cell chart and
+   "x af 39 klaret".
+   → The lead says «32 bogstaver, tegnet آ og seks vokaltegn» (32 + 1 + 6 = 39), the letter screen
+   counts "Tegn N af 33", and the progress line is untouched. آ is a taught sign, not a 33rd letter:
+   its screen is headed "Tegnet …", every other "Bogstavet …".
+6. **ح and ه were both called "he".** Two letters, one Danish name, two identical aria-labels in the
+   chart.
+   → The Persian school names: ح is `he jimi`, ه is `he do-tjeshm` — and a test now pins that all 32
+   Danish names are distinct.
+   - Lydskrift precision, same round: ذ ز ض ظ anchor on `stemt s — som engelsk z i "zoo"` and ژ on
+     `som j i fransk "journal" — stemt sj`, because a Dane reading "zoo" says [s].
+   - Copy and layout: «der er ingen rækkefølge, du skal nå» became «Tag dem i den rækkefølge, du
+     vil», and the vowel-mark rows stack name over button beside the chip instead of wrapping into
+     each other at 360px.

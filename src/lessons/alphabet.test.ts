@@ -76,8 +76,30 @@ describe('the Persian alphabet', () => {
     expect(anchors.kaf).toEqual({ da: 'k i "kat"', ipa: 'k' })
     expect(anchors.be).toEqual({ da: 'b i "bil"', ipa: 'b' })
     expect(anchors.gaf.ipa).toBe('ɡ')
-    expect(anchors.ghaf.ipa).toBe('ɢ')
-    expect(anchors.gheyn.ipa).toBe('ɣ')
+  })
+
+  it('gives ق and غ one sound, because Tehrani Persian says them the same', () => {
+    const anchors = Object.fromEntries(letters.map((l) => [l.id, l.sound]))
+    expect(anchors.ghaf).toEqual({
+      da: 'et dybt g/r bagerst i halsen — ens for ق og غ',
+      ipa: 'ɢ~ɣ',
+    })
+    expect(anchors.gheyn).toEqual(anchors.ghaf)
+  })
+
+  it('says the voicing out loud, since a Dane reading "zoo" says [s]', () => {
+    const anchors = Object.fromEntries(letters.map((l) => [l.id, l.sound]))
+    for (const id of ['zal', 'ze', 'zad', 'za']) {
+      expect(anchors[id], id).toEqual({ da: 'stemt s — som engelsk z i "zoo"', ipa: 'z' })
+    }
+    expect(anchors.zhe.da).toBe('som j i fransk "journal" — stemt sj')
+  })
+
+  it('gives the two h-letters the school names, so no two letters answer to one name', () => {
+    const names = Object.fromEntries(letters.map((l) => [l.id, l.name.da]))
+    expect(names['he-jimi']).toBe('he jimi')
+    expect(names.he).toBe('he do-tjeshm')
+    expect(new Set(letters.map((l) => l.name.da)).size).toBe(32)
   })
 
   it('hangs آ on the alef entry, with its own sound and strokes', () => {

@@ -43,16 +43,28 @@ const POSITION_DA: Record<Position, string> = {
 }
 
 /**
+ * Two specimens sound alike when they share either half of the pronunciation —
+ * the IPA or the Danish anchor. Persian spells one sound several ways (ذ ز ض ظ,
+ * ث س ص, ت ط, ح ه, ق غ), and a question may never offer two answers to itself.
+ */
+function soundsAlike(a: Pron, b: Pron): boolean {
+  return a.ipa === b.ipa || a.da === b.da
+}
+
+/**
  * Three letters to choose against. Letters that share a body come first — the
  * useful confusion is ب against ت, never ب against ل — then the neighbours in
- * `order` fill up whatever is left.
+ * `order` fill up whatever is left. Homophones are skipped in both passes: ص
+ * next to س would be a second right answer, not a distractor.
  */
 function distractorIds(id: string, count: number, order: string[]): string[] {
-  const pool = sameBodyAs(id).slice(0, count)
+  const sound = specimens[id].sound
+  const usable = (other: string) => other !== id && !soundsAlike(specimens[other].sound, sound)
+  const pool = sameBodyAs(id).filter(usable).slice(0, count)
   const start = order.indexOf(id)
   for (let step = 1; pool.length < count; step += 1) {
     const candidate = order[(start + step) % order.length]
-    if (candidate !== id && !pool.includes(candidate)) pool.push(candidate)
+    if (usable(candidate) && !pool.includes(candidate)) pool.push(candidate)
   }
   return pool
 }
