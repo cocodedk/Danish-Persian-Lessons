@@ -14,7 +14,7 @@
   border-radius: 3px;
   background: var(--card);
   color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .settings-corner__panel label {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--ink);
 }
@@ -62,7 +62,7 @@
   border-radius: 3px;
   background: var(--blue);
   color: var(--paper);
-  font-size: 0.95rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -73,7 +73,7 @@
 
 .settings-corner__privacy {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--ink);
   opacity: 0.75;
 }

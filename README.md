@@ -35,12 +35,11 @@ Lær at læse persisk, helt fra alfabetet.
 
 ## Try it
 
-The landing site is live in all three languages, and that is the part you can use today.
+The landing site is live in all three languages, and so is the app.
 
-The app is not finished. The first lesson, covering the alphabet and the vowel marks, is being written now,
-and the React app that will host it is still a written plan
-([docs/plans/001-scaffold-app.md](docs/plans/001-scaffold-app.md)) rather than code. When it ships it will be
-served from `/app/` on the same site. There is no signup and no waiting list. Watch the
+What ships at [`/app/`](https://cocodedk.github.io/Danish-Persian-Lessons/app/) today is the split-screen
+shell: one demo pair (آب/vand) and the first-run name capture. The first lesson, covering the
+alphabet and the vowel marks, is still being written. There is no signup and no waiting list. Watch the
 [repository](https://github.com/cocodedk/Danish-Persian-Lessons) if you want to know when the first lesson
 lands.
 

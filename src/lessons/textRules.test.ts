@@ -3,6 +3,7 @@ import { isValidPersianText, findPersianTextViolations } from './textRules'
 import { lessons } from './registry'
 import { DEMO_WORD } from '../content/demoWord'
 import { FA_GREETING } from '../content/greetings'
+import { PERSIAN_UI_STRINGS } from '../content/faStrings'
 import type { Lesson, Letter, VowelMark, WordCard } from './types'
 
 function isWordCard(item: Letter | VowelMark | WordCard): item is WordCard {
@@ -100,5 +101,10 @@ describe('Persian text-rule guard', () => {
   it('the home screen demo word and greeting are themselves valid Persian text', () => {
     expect(findPersianTextViolations(DEMO_WORD.fa)).toEqual([])
     expect(findPersianTextViolations(FA_GREETING)).toEqual([])
+  })
+
+  it('walks every exported Persian UI string (capture prompt, lesson placeholder, greeting) with zero violations — a future ك/ي edit to src/content/faStrings.ts fails this test', () => {
+    const allViolations = PERSIAN_UI_STRINGS.flatMap(findPersianTextViolations)
+    expect(allViolations).toEqual([])
   })
 })

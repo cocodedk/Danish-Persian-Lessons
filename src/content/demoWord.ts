@@ -4,7 +4,6 @@ import type { WordCard } from '../lessons/types'
 
 export const DEMO_WORD: WordCard = {
   fa: 'آب',
-  faMarked: true,
   da: 'vand',
   pron: { da: 'åb', ipa: 'ɒːb' },
 }

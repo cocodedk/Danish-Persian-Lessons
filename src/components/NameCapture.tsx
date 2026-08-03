@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { CAPTURE_PROMPT } from '../content/faStrings'
 import './NameCapture.css'
 
 export interface NameCaptureProps {
@@ -22,7 +23,7 @@ export function NameCapture({ onSubmit, onSkip }: NameCaptureProps) {
   return (
     <main className="name-capture">
       <div className="name-capture__pane name-capture__pane--fa" lang="fa" dir="rtl">
-        <p className="name-capture__question">اسمت چیست؟</p>
+        <p className="name-capture__question">{CAPTURE_PROMPT}</p>
       </div>
 
       <hr className="name-capture__rule" />

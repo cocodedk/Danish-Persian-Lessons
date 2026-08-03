@@ -9,7 +9,7 @@ beforeEach(() => {
 describe('Home', () => {
   it('shows the skippable name-capture screen on first launch', () => {
     render(<Home />)
-    expect(screen.getByText('اسمت چیست؟')).toBeInTheDocument()
+    expect(screen.getByText('نام تو چیست؟')).toBeInTheDocument()
     expect(screen.getByLabelText('Hvad hedder du?')).toBeInTheDocument()
   })
 
@@ -17,7 +17,7 @@ describe('Home', () => {
     render(<Home />)
     fireEvent.click(screen.getByText('Spring over'))
 
-    expect(screen.queryByText('اسمت چیست؟')).not.toBeInTheDocument()
+    expect(screen.queryByText('نام تو چیست؟')).not.toBeInTheDocument()
     expect(screen.getByText('سلام!')).toBeInTheDocument()
     expect(screen.getByText('Hej!')).toBeInTheDocument()
     // The demo pair still renders with its pronunciation line.
@@ -31,7 +31,7 @@ describe('Home', () => {
     unmount()
 
     render(<Home />)
-    expect(screen.queryByText('اسمت چیست؟')).not.toBeInTheDocument()
+    expect(screen.queryByText('نام تو چیست؟')).not.toBeInTheDocument()
     expect(screen.getByText('Hej!')).toBeInTheDocument()
   })
 

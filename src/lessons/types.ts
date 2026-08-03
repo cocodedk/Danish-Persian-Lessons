@@ -30,8 +30,9 @@ export interface VowelMark {
 /** A Persian/Danish word pair, as shown in the split-screen specimen. */
 export interface WordCard {
   fa: string
-  /** True when the word carries a diacritic/madde that renders in --red. */
-  faMarked?: boolean
+  /** The diacriticized variant to render instead of `fa`, if any. Madde
+   *  styling (--red) applies when the rendered string contains 'آ'. */
+  faMarked?: string
   da: string
   pron: { da: string; ipa: string }
 }

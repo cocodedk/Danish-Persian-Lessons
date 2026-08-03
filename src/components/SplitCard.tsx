@@ -14,20 +14,21 @@ export interface SplitCardProps {
  * a notebook-rule divider, Danish pane below. See docs/design/ART-DIRECTION.md.
  */
 export function SplitCard({ word, faGreeting, daGreeting }: SplitCardProps) {
+  const renderedFa = word.faMarked ?? word.fa
   return (
     <section className="split-card">
       <div className="split-card__pane split-card__pane--fa" lang="fa" dir="rtl">
         <p className="split-card__greeting">{faGreeting}</p>
         <p
           className={
-            word.faMarked
+            renderedFa.includes('آ')
               ? 'split-card__word split-card__word--madde'
               : 'split-card__word'
           }
         >
-          {word.fa}
+          {renderedFa}
         </p>
-        <p className="split-card__pron">
+        <p className="split-card__pron" lang="da" dir="ltr">
           {word.pron.da} · [{word.pron.ipa}]
         </p>
       </div>

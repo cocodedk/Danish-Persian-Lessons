@@ -54,6 +54,9 @@ jobs:
           set -eu
           mkdir -p _site
           cp -r website/. _site/
+          # og-image.html is a build source for og.png (references Google
+          # Fonts to render); it is not a page and must not be published.
+          rm -f _site/og-image.html
           cp llms.txt _site/llms.txt
           mkdir -p _site/app
           cp -r dist/. _site/app/
