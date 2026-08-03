@@ -8,7 +8,7 @@ both already speak some Persian: (1) speaks but cannot read at all; (2) reads/wr
 Reading comes first; speaking/audio is a later concern. "Danish-Persian-Lessons" is a working title —
 never hardcode it outside `vite.config.ts` and the workflows.
 
-- **Language / Runtime**: TypeScript, Node.js ≥ 20 (app not yet scaffolded — see `docs/plans/001`)
+- **Language / Runtime**: TypeScript, Node.js ≥ 20 (app scaffolded per `docs/plans/001`; lessons arrive with 003+)
 - **Framework**: React + Vite (app), plain HTML/CSS (landing site in `website/`)
 - **Architecture**: static SPA, no backend, no database, no accounts — ever
 - **Hosting**: GitHub Pages via Actions; owner `cocodedk`
