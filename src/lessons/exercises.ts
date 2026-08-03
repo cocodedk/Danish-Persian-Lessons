@@ -76,7 +76,7 @@ function arrange(answer: Choice, distractors: Choice[], slot: number): Choice[] 
   return choices
 }
 
-/** "Find bogstavet": a Danish sound anchor, four glyphs, one of them right. */
+/** "Find tegnet": a Danish sound anchor, four glyphs, one of them right. */
 function findQuestions(): Question[] {
   return teachingOrder.map((id, index) => {
     const specimen = specimens[id]
@@ -87,7 +87,7 @@ function findQuestions(): Question[] {
     return {
       id: `find-${id}`,
       letterId: id,
-      promptDa: 'Hvilket bogstav siger denne lyd?',
+      promptDa: 'Hvilket tegn siger denne lyd?',
       sound: specimen.sound,
       choices: arrange({ id, glyph: specimen.glyph }, distractors, index),
       answerId: id,
@@ -124,6 +124,6 @@ export function buildQuestions(kind: ExerciseKind): Question[] {
 }
 
 export const EXERCISE_TITLES: Record<ExerciseKind, string> = {
-  find: 'Find bogstavet',
+  find: 'Find tegnet',
   match: 'Match formerne',
 }

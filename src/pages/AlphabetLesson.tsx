@@ -36,7 +36,7 @@ export default function AlphabetLesson() {
         og seks vokaltegn. Tag dem i den rækkefølge, du vil.
       </p>
 
-      <h2 className="alphabet__section-title">Bogstaverne</h2>
+      <h2 className="alphabet__section-title">Tegn for tegn</h2>
       {/* The chart reads the way Persian does: آ ا ب … from the right. */}
       <ul className="alphabet__grid" dir="rtl">
         {teachingOrder.map((id) => {
@@ -71,7 +71,7 @@ export default function AlphabetLesson() {
       <ul className="alphabet__links">
         <li>
           <Link className="alphabet__link" to="/lesson/alphabet/ovelse/find">
-            Find bogstavet
+            Find tegnet
           </Link>
         </li>
         <li>

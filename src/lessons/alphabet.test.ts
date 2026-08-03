@@ -81,7 +81,7 @@ describe('the Persian alphabet', () => {
   it('gives ق and غ one sound, because Tehrani Persian says them the same', () => {
     const anchors = Object.fromEntries(letters.map((l) => [l.id, l.sound]))
     expect(anchors.ghaf).toEqual({
-      da: 'et dybt g/r bagerst i halsen — ens for ق og غ',
+      da: 'et dybt g/r bagerst i halsen',
       ipa: 'ɢ~ɣ',
     })
     expect(anchors.gheyn).toEqual(anchors.ghaf)

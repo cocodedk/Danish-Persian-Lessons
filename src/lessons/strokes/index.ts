@@ -82,7 +82,7 @@ export const STROKES: Record<string, Stroke[]> = {
 
 /**
  * The families that share one body — the reason dots matter. The orientation
- * lesson teaches this, and the "Find bogstavet" exercise draws its distractors
+ * lesson teaches this, and the "Find tegnet" exercise draws its distractors
  * from here, so a learner is asked to tell ب from ت, never ب from ل.
  */
 export const BODY_GROUPS: string[][] = [

@@ -53,7 +53,7 @@ describe('#/lesson/alphabet', () => {
     const { container } = open('#/lesson/alphabet')
     expect(container.querySelectorAll('.alphabet__cell')).toHaveLength(33)
     expect(screen.getByText('0 af 39 klaret')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Find bogstavet' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Find tegnet' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Match formerne' })).toBeInTheDocument()
   })
 })
@@ -125,7 +125,7 @@ describe('the vowel marks and the exercises', () => {
 
   it('runs an exercise round and writes progress as it goes', () => {
     open('#/lesson/alphabet/ovelse/find')
-    expect(screen.getByRole('heading', { name: 'Find bogstavet' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Find tegnet' })).toBeInTheDocument()
     expect(screen.getByText(/Du kan stoppe når som helst/)).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('آ'))

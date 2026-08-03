@@ -23,7 +23,7 @@ interface Row {
 const Z_ANCHOR = 'stemt s — som engelsk z i "zoo"'
 
 /** ق and غ have fallen together in Tehrani Persian: one sound, two spellings. */
-const GHAF_GHEYN = { anchor: 'et dybt g/r bagerst i halsen — ens for ق og غ', ipa: 'ɢ~ɣ' }
+const GHAF_GHEYN = { anchor: 'et dybt g/r bagerst i halsen', ipa: 'ɢ~ɣ' }
 
 const ROWS: Row[] = [
   { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'a i "kat"', ipa: 'æ' },
