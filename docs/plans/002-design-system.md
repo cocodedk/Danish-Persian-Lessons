@@ -109,3 +109,15 @@ Durable decisions worth keeping:
 5. **The red pen paints one side per string.** A word marked both above and below renders only
    the above marks in red. A second cut below the baseline cannot tell a زیر from the dot under
    a ب, so this is a limit of the technique, not of the code; it is documented in `marks.ts`.
+
+## Critic round 1 (2026-08-03) — FAIL, adjudicated
+
+1. **Defect — RuledSection Persian typography.** `RuledSection.css` declared no font-family/size,
+   so `lang="fa"` sheets rendered Persian in the inherited Latin stack (Andika), an OS fallback
+   face at 16px — critic-verified. Fixed this round: a `:lang(fa)` rule gives the sheet the
+   Persian UI face (`var(--font-fa)`) at 1.125rem, per ART-DIRECTION.md's Persian-body floor.
+2. **Dark ruling contrast.** Dark-scheme `--rule` measured 1.44:1 against `--paper-dark`, nearly
+   invisible. Token adjudicated by the art director to `#3E5248` this round (now 2.05:1); applied
+   in `tokens.css` and `website/styles.css`, light `--rule` unchanged.
+3. **Home-screen signature adoption + the Pron/Pronunciation bridge.** Deferred to plan 003 by
+   the planner rather than folded into this round's fix.

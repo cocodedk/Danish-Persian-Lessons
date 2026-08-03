@@ -40,4 +40,31 @@ describe('RuledSection', () => {
     expect(css).toContain('var(--rule-step)')
     expect(css).toContain('var(--rule)')
   })
+
+  it('gives a lang="fa" sheet the Persian UI face at the body-text floor, cascade-resolved', () => {
+    // Load the component's own stylesheet for real, so this checks what the
+    // cascade actually does for a lang="fa" element — not just that the right
+    // text appears somewhere in the file. (jsdom resolves selector cascade and
+    // specificity for computed style; it does not substitute custom properties,
+    // so the Persian token surfaces as the literal `var(--font-fa)` reference
+    // rather than the resolved 'Vazirmatn, ...' stack.)
+    const style = document.createElement('style')
+    style.textContent = css
+    document.head.appendChild(style)
+
+    try {
+      const { container } = render(
+        <RuledSection dir="rtl" lang="fa">
+          روی خط بنویس.
+        </RuledSection>,
+      )
+      const sheet = container.querySelector('.ruled-section')!
+      const computed = getComputedStyle(sheet)
+
+      expect(computed.fontFamily).toContain('var(--font-fa)')
+      expect(parseFloat(computed.fontSize)).toBeGreaterThanOrEqual(18)
+    } finally {
+      style.remove()
+    }
+  })
 })

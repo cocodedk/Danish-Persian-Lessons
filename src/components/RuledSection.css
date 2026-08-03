@@ -22,6 +22,17 @@
   background-repeat: repeat;
 }
 
+/* Persian content needs the Persian UI/body face — Andika (the inherited
+   Latin stack) is Latin-subset and cannot shape Arabic script at all.
+   ART-DIRECTION.md "Typography": Persian UI/body = Vazirmatn, minimum
+   1.125rem. Font-size only, never line-height: the rule pitch stays fixed
+   at --rule-step regardless of font, so Persian ink still lands on the
+   same rule lines it was tuned against. */
+.ruled-section:lang(fa) {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+}
+
 /* The teacher's margin line. */
 .ruled-section::before {
   content: '';
