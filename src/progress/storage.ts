@@ -34,7 +34,17 @@ function rawSet(key: string, value: string): void {
   memory.set(key, value)
 }
 
-/** Reads and parses `key`, returning `fallback` if absent, corrupt, or on a schema mismatch. */
+/**
+ * Reads and parses `key`, returning `fallback` if absent, corrupt, or on a
+ * schema mismatch.
+ *
+ * Contract — objects and arrays only. Every store in this app keeps a record or
+ * a list, so a stored primitive (a string, a number, a boolean) is corruption
+ * rather than content and reads back as `fallback`; `null` is rejected for the
+ * same reason, since it would crash the first field access downstream. Writing
+ * a primitive is therefore a one-way trip: `writeJSON` stores it, `readJSON`
+ * will not hand it back. Wrap scalars in a record — `{ name }`, not `name`.
+ */
 export function readJSON<T>(key: string, fallback: T): T {
   const raw = rawGet(PREFIX + key)
   if (raw === null) return fallback

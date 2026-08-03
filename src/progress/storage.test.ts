@@ -34,6 +34,15 @@ describe('storage', () => {
     expect(readJSON('nullish', 'fallback')).toBe('fallback')
   })
 
+  it('reads a stored primitive back as the fallback — the store keeps records, not scalars', () => {
+    // The narrowing in readJSON is a contract, not an accident: a bare 'Sara'
+    // where a profile record belongs is corruption, and comes back as absent.
+    for (const value of ['Sara', 7, true]) {
+      writeJSON('scalar', value)
+      expect(readJSON('scalar', 'fallback')).toBe('fallback')
+    }
+  })
+
   it('still accepts an array value — only null is rejected, not every non-plain-object', () => {
     writeJSON('list', [1, 2, 3])
     expect(readJSON<number[]>('list', [])).toEqual([1, 2, 3])

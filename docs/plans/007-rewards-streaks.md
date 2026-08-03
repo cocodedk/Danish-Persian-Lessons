@@ -49,7 +49,14 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
 - [x] Engine tests: streak rest → wake resumes at value + 1 (never reset); local-midnight day
       boundaries; permanence (no code path decreases level/points/stickers — assert by API shape,
       not discipline); surprise schedule deterministic and replayable
-      → `src/rewards/engine.test.ts`, `src/rewards/streak.test.ts`
+      → `src/rewards/engine.test.ts`, `src/rewards/streak.test.ts`, and — for the "by API shape,
+      not discipline" half, which is what makes this box an [x] — `src/rewards/permanence.test.ts`:
+      an export-surface snapshot of `engine` and `records` (any future mutator is a visible diff),
+      the one mutator's signature (no parameter on this API can carry a total inwards), a sweep of
+      every own name on `Object.prototype` used as an event kind, and a seeded monotonicity fuzz
+      (seeds 1 · 7 · 42 · 1337 · 2026 · 20260803, from clean / mid-progress / hostile-corrupt
+      starts, with clocks forwards, backwards and invalid) that re-reads points, level, sticker
+      count and streak value after every single event
 - [x] Completing a full lesson produces a celebration on every exercise and a level-up at page end
       → `src/pages/rewards.test.tsx` plays all 33 questions and asserts praise on every one
 - [x] Simulated 10-day absence then one exercise: welcomed back warmly, streak resumes, nothing
@@ -122,3 +129,35 @@ adjudicated and built by the round-2 fix builder (PR #10), one line each:
   union like everything else; `celebrate` now pays a given gift id out exactly once — a replay
   stays playable and praised, but earns nothing new, mirroring how a letter marked done by
   `markLetterDone` cannot be marked done again for more credit.
+
+## Critic round 2 (2026-08-03) — FAIL, adjudicated
+
+Round 2 failed on permanence again: the hole had been patched at the instance, not at the class.
+The findings were adjudicated and built by the round-3 fix builder (PR #10), one line each:
+
+- **Prototype-key hole, closed twice over.** `POINT_AWARD['__proto__']` returned `Object.prototype`
+  from a plain object literal, string-concatenated into the point total and came back as a `NaN`
+  that wiped the record. The table is now null-prototype (`Object.create(null)`) and `earn` gates
+  on `Object.hasOwn` membership, so no inherited name is an event kind; independently, `join`
+  normalizes both operands, so every number reaching the maximum has passed the finite-and-≥0 rule
+  and a `NaN` cannot survive a join whoever produced it. Either fix alone leaves a red test.
+- **Permanence asserted by API shape.** `src/rewards/permanence.test.ts` snapshots the export
+  surface of `engine` and `records`, pins the one mutator's signature, sweeps every own name on
+  `Object.prototype` (computed, not typed out) plus `'bogus'`/`undefined`/`null` against a real
+  45-point state, and runs a deterministic monotonicity fuzz — six seeds × three seeded starts
+  (clean, mid-progress, hostile-corrupt) × forwards/backwards/invalid clocks, re-reading
+  points/level/sticker-count/streak after every event. No `Math.random` anywhere.
+- **200-line cap.** `engine.ts` (223) split: the record algebra — `numberOr`, `normalize`, `join`,
+  `readRecord`, `saveRecord` — moved to `src/rewards/records.ts`; `engine.ts` keeps `celebrate`,
+  `getRewards` and `earn`. `engine.test.ts` (241) split into `engine.test.ts` (what a completion
+  feels like) and `permanence.test.ts` (what can never be taken away). Whole `src/` tree ≤ 200.
+- **`readJSON` contract.** The object/array-only narrowing is now documented on `readJSON` as a
+  contract — the store keeps records, not scalars — with a test asserting `'Sara'`, `7` and `true`
+  read back as the fallback. No behavior change; the trap is now a stated rule.
+- **Gift wiring test.** `src/pages/bonus.test.tsx` plays the bonus round from its own URL twice and
+  asserts the second pass adds nothing. Dropping `giftId` from either `celebration.cheer` call in
+  `BonusScreen` turns it red.
+- **Partial-gift farming.** Answering a bonus round's questions without finishing it used to pay
+  per answer, so a half-played gift could be farmed forever. Inside a gift round the answers are
+  now praise-only — a full tick and a warm line, no points — and the gift pays its bundle exactly
+  once, at completion. Ten partial replays of `g1` change no total; finishing later still pays once.

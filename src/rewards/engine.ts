@@ -4,28 +4,25 @@
 //   * the only exported mutator is `celebrate`, and it takes an event kind —
 //     no exported function accepts a level, a point total or a sticker, so
 //     "set points to 3" cannot be written against this module at all;
-//   * every write goes through `join`, which takes the pointwise maximum of
-//     the numbers and the union of the lists — a save can only ever raise;
+//   * every write goes through `join` (records.ts): numbers keep their maximum,
+//     lists keep their union, so a save can only ever raise;
 //   * the streak value IS the number of practice days, an append-only list, so
 //     a reset would mean deleting days the learner really practised.
 // Surprises run off the point total, never off Math.random, so a round replays
 // identically for a test and for a learner who comes back to it.
-import { readJSON, writeJSON } from '../progress/storage'
 import { dayKey, daysBetween } from './days'
+import { numberOr, readRecord, saveRecord } from './records'
 import { PRAISE, GIFT_FA, GIFT_DA } from './copy'
 import type {
   Gift,
   Reward,
   RewardEventKind,
-  RewardsRecord,
   RewardsView,
   SoundCue,
   Sticker,
   StickerKind,
   StreakState,
 } from './types'
-
-const KEY = 'rewards'
 
 /** A notebook page holds twenty points — the ۲۰/۲۰ a teacher writes at the top. */
 export const POINTS_PER_PAGE = 20
@@ -36,85 +33,42 @@ export const GIFT_STEP = 30
 /** Every third sticker milestone hands out two — the surprise in rule 5. */
 const DOUBLE_STICKER_EVERY = 3
 
-const POINT_AWARD: Record<RewardEventKind, number> = { answer: 1, item: 2, page: 0 }
+/**
+ * What each event kind is worth. A null-prototype table on purpose: on a plain
+ * object literal `POINT_AWARD['__proto__']` answers with `Object.prototype`
+ * (and `.constructor`, `.toString`, … with functions), which string-concatenate
+ * into a NaN point total. Here every inherited name is simply absent.
+ */
+const POINT_AWARD: Record<string, number> = Object.assign(
+  Object.create(null) as Record<string, number>,
+  { answer: 1, item: 2, page: 0 },
+)
+
 const STICKER_KINDS: StickerKind[] = ['afarin', 'bist', 'star']
 
-const EMPTY: RewardsRecord = {
-  stickers: [],
-  level: 1,
-  points: 0,
-  practiceDates: [],
-  giftsOpened: [],
-  streak: { value: 0, resting: false },
-}
-
-function numberOr(value: unknown, fallback: number): number {
-  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : fallback
-}
-
-function stringsOr(value: unknown): string[] {
-  return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : []
-}
-
-/** Anything may be sitting in storage — even `null` itself; take only what has the right shape. */
-function normalize(rawInput: Partial<RewardsRecord> | null | undefined): RewardsRecord {
-  const raw = rawInput ?? {}
-  // Sorted lexically (YYYY-MM-DD sorts chronologically) so the last entry is
-  // always the true latest practice day, even if a backwards clock appended
-  // an earlier date after later ones.
-  const practiceDates = stringsOr(raw.practiceDates).sort()
-  return {
-    stickers: stringsOr(raw.stickers),
-    level: numberOr(raw.level, EMPTY.level),
-    points: numberOr(raw.points, EMPTY.points),
-    practiceDates,
-    giftsOpened: stringsOr(raw.giftsOpened),
-    streak: { value: practiceDates.length, resting: raw.streak?.resting === true },
-  }
-}
-
-function union(a: string[], b: string[]): string[] {
-  return [...a, ...b.filter((item) => !a.includes(item))]
-}
-
 /**
- * The only way a record reaches disk. Numbers keep their maximum, lists keep
- * their union: whatever the caller hands in, nothing on disk can shrink.
+ * What `kind` is worth: nothing at all unless it is one of the table's own
+ * keys. Own-membership is the gate, so an inherited name never reaches the
+ * lookup, and the value that comes back is clamped anyway.
  */
-export function join(a: RewardsRecord, b: RewardsRecord): RewardsRecord {
-  const practiceDates = union(a.practiceDates, b.practiceDates).sort()
-  return {
-    stickers: union(a.stickers, b.stickers),
-    level: Math.max(a.level, b.level),
-    points: Math.max(a.points, b.points),
-    practiceDates,
-    giftsOpened: union(a.giftsOpened, b.giftsOpened),
-    streak: { value: practiceDates.length, resting: b.streak.resting },
-  }
-}
-
-function readRecord(): RewardsRecord {
-  return normalize(readJSON<Partial<RewardsRecord>>(KEY, {}))
-}
-
-function save(next: RewardsRecord): RewardsRecord {
-  const joined = join(readRecord(), next)
-  writeJSON<RewardsRecord>(KEY, joined)
-  return joined
+function awardFor(kind: RewardEventKind): number {
+  if (typeof kind !== 'string' || !Object.hasOwn(POINT_AWARD, kind)) return 0
+  return numberOr(POINT_AWARD[kind], 0)
 }
 
 function levelFor(points: number): number {
-  return 1 + Math.floor(points / POINTS_PER_PAGE)
+  return 1 + Math.floor(numberOr(points, 0) / POINTS_PER_PAGE)
 }
 
 /**
  * A page event fills the rest of the page; everything else adds its award.
- * An unrecognized or missing kind — a hostile call, not a real event — awards
- * nothing: the `POINT_AWARD` lookup is guarded so it can never add `NaN`.
+ * An unrecognized, missing or inherited kind — a hostile call, not a real
+ * event — adds nothing, so `earn` can never return anything but a real number.
  */
 function earn(kind: RewardEventKind, points: number): number {
-  if (kind === 'page') return (Math.floor(points / POINTS_PER_PAGE) + 1) * POINTS_PER_PAGE
-  return points + (POINT_AWARD[kind] ?? 0)
+  const base = numberOr(points, 0)
+  if (kind === 'page') return (Math.floor(base / POINTS_PER_PAGE) + 1) * POINTS_PER_PAGE
+  return base + awardFor(kind)
 }
 
 function stickerAt(ordinal: number): Sticker {
@@ -165,17 +119,22 @@ export function getRewards(now: Date = new Date()): RewardsView {
  * here that returns nothing, and none that returns less than it was given.
  *
  * `giftId` names the bonus round this event belongs to (its answers and its
- * closing page event share one id). The round pays out the first time that id
- * completes; revisiting the same gift afterwards still plays and still
- * praises, but `giftId` is already in `giftsOpened`, so nothing new is
- * earned — the same "pays exactly once" a letter gets from `markLetterDone`.
+ * closing page event share one id). A gift pays its bundle exactly once, at
+ * completion: inside the round the single answers are praise-only — a full tick
+ * and a warm line, no points — so half-playing a bonus round over and over
+ * earns exactly what it earned the first time, which is nothing. Replaying a
+ * finished round still plays and still praises; its id is already in
+ * `giftsOpened`, the same "pays exactly once" a letter gets from
+ * `markLetterDone`.
  */
 export function celebrate(kind: RewardEventKind, now: Date = new Date(), giftId?: string): Reward {
   const before = readRecord()
   const wasResting = streakFor(before.practiceDates, now).resting
-  const claimed = giftId !== undefined && before.giftsOpened.includes(giftId)
+  const inGift = giftId !== undefined
+  const claimed = inGift && before.giftsOpened.includes(giftId)
+  const paysOut = !claimed && (!inGift || kind === 'page')
 
-  const points = claimed ? before.points : earn(kind, before.points)
+  const points = paysOut ? earn(kind, before.points) : before.points
   const stickers = stickersFor(before.points, points, before.stickers.length)
   const gift = giftFor(before.points, points)
 
@@ -189,11 +148,9 @@ export function celebrate(kind: RewardEventKind, now: Date = new Date(), giftId?
       : before.practiceDates
   const streak = streakFor(practiceDates, now)
   const giftsOpened =
-    giftId !== undefined && kind === 'page' && !claimed
-      ? [...before.giftsOpened, giftId]
-      : before.giftsOpened
+    inGift && kind === 'page' && !claimed ? [...before.giftsOpened, giftId] : before.giftsOpened
 
-  const saved = save({
+  const saved = saveRecord({
     stickers: [...before.stickers, ...stickers.map((sticker) => sticker.id)],
     level: levelFor(points),
     points,
