@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { getSettings, setSoundOn } from '../progress/settings'
 import './SettingsCorner.css'
 
 export interface SettingsCornerProps {
@@ -11,6 +12,7 @@ export interface SettingsCornerProps {
 export function SettingsCorner({ name, onSave, onDelete }: SettingsCornerProps) {
   const [open, setOpen] = useState(false)
   const [draft, setDraft] = useState(name ?? '')
+  const [sound, setSound] = useState(() => getSettings().sound)
 
   function handleToggle() {
     setDraft(name ?? '')
@@ -63,6 +65,17 @@ export function SettingsCorner({ name, onSave, onDelete }: SettingsCornerProps) 
               </button>
             )}
           </div>
+          {/* Sound has nothing to do with the motion preference — a learner
+              may want the jingle and no animation, or the other way round. */}
+          <label className="settings-corner__sound" htmlFor="settings-corner-sound">
+            <input
+              id="settings-corner-sound"
+              type="checkbox"
+              checked={sound}
+              onChange={(event) => setSound(setSoundOn(event.target.checked).sound)}
+            />
+            <span>Lyd ved ros og nye sider</span>
+          </label>
           <p className="settings-corner__privacy">Navnet gemmes kun på din telefon.</p>
         </div>
       )}

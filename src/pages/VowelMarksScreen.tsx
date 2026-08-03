@@ -3,9 +3,12 @@ import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { VowelChip } from '../components/VowelChip'
 import { ProgressTick } from '../components/ProgressTick'
 import { Button } from '../components/Button'
+import { Celebration } from '../components/Celebration'
+import { RewardOverlays } from '../components/RewardOverlays'
 import { penMarkClass } from '../components/penMark'
 import { vowelMarks, laterMarks } from '../lessons/vowelMarks'
 import { getAlphabetProgress, markVowelDone } from '../progress/alphabet'
+import { useCelebration } from '../rewards/useCelebration'
 import '../styles/pen.css'
 import './alphabet.css'
 
@@ -15,6 +18,8 @@ import './alphabet.css'
  */
 export default function VowelMarksScreen() {
   const [cleared, setCleared] = useState(() => getAlphabetProgress().marks)
+  const [justDone, setJustDone] = useState<string | null>(null)
+  const celebration = useCelebration()
 
   return (
     <LessonSheet title="Vokaltegn" bar={<BarLink to="/lesson/alphabet">Til lektionen</BarLink>}>
@@ -43,15 +48,21 @@ export default function VowelMarksScreen() {
               ) : (
                 <Button
                   variant="quiet"
-                  onClick={() => setCleared(markVowelDone(mark.id).marks)}
+                  onClick={() => {
+                    setCleared(markVowelDone(mark.id).marks)
+                    setJustDone(mark.id)
+                    celebration.cheer('item')
+                  }}
                 >
                   Jeg kan den
                 </Button>
               )}
             </div>
+            {justDone === mark.id && <Celebration reward={celebration.reward} tickLabel="Klaret" />}
           </div>
         )
       })}
+      <RewardOverlays celebration={celebration} />
 
       <h2 className="alphabet__section-title">Senere</h2>
       <p className="alphabet__note">

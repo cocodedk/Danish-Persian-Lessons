@@ -1,0 +1,72 @@
+/* A notebook page turning over: paper and blue ruling, with the filled-page
+   line in the teacher's red. No margin line — RuledSection owns the app's one
+   red margin. Never blocking either: pointer-events are off, so a tap goes
+   straight through to whatever the learner meant to hit. */
+
+.page-flip {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.page-flip__sheet {
+  inline-size: min(20rem, 82vw);
+  padding: 1.5rem 1.25rem;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--rule-step) - 1px),
+    var(--rule) calc(var(--rule-step) - 1px),
+    var(--rule) var(--rule-step)
+  );
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  text-align: center;
+  transform-origin: right center;
+  animation: page-flip-turn 1200ms cubic-bezier(0.3, 0.7, 0.3, 1) both;
+}
+
+.page-flip__fa {
+  font-family: var(--font-naskh);
+  font-size: 1.9rem;
+  line-height: 2;
+  color: var(--red);
+  margin: 0;
+}
+
+.page-flip__da {
+  font-family: var(--font-latin);
+  font-size: 1.0625rem;
+  color: var(--ink);
+  margin: 0.25rem 0 0;
+}
+
+@keyframes page-flip-turn {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateY(-78deg);
+  }
+  /* Opaque early: a half-transparent page would let the exercise behind it
+     bleed through the line the learner is meant to read. */
+  18% {
+    opacity: 1;
+  }
+  70% {
+    transform: perspective(900px) rotateY(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateY(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The page does not turn; the level still lands. */
+  .page-flip__sheet {
+    animation: none;
+  }
+}

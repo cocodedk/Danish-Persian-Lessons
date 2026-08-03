@@ -4,8 +4,11 @@ import { SplitCard } from '../components/SplitCard'
 import { LessonCard } from '../components/LessonCard'
 import { NameCapture } from '../components/NameCapture'
 import { SettingsCorner } from '../components/SettingsCorner'
+import { StreakLine } from '../components/StreakLine'
+import { RewardShelf } from '../components/RewardShelf'
 import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
+import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
 import { FA_GREETING, daGreeting } from '../content/greetings'
 import './Home.css'
@@ -45,6 +48,7 @@ export default function Home() {
   }
 
   const cleared = doneCount(getAlphabetProgress())
+  const rewards = getRewards()
 
   return (
     <main className="home">
@@ -54,6 +58,8 @@ export default function Home() {
           faGreeting={FA_GREETING}
           daGreeting={daGreeting(profile.name)}
         />
+        <StreakLine streak={rewards.streak} />
+        <RewardShelf level={rewards.level} stickers={rewards.stickers} />
         <h2 className="home__lessons" lang="da">
           Lektioner
         </h2>

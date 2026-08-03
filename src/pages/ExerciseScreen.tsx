@@ -2,9 +2,11 @@ import { useMemo } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { ChoiceExercise } from '../components/ChoiceExercise'
+import { RewardOverlays } from '../components/RewardOverlays'
 import { buildQuestions, EXERCISE_TITLES } from '../lessons/exercises'
 import type { ExerciseKind } from '../lessons/exercises'
 import { markLetterDone } from '../progress/alphabet'
+import { useCelebration } from '../rewards/useCelebration'
 import './alphabet.css'
 
 function isKind(value: string): value is ExerciseKind {
@@ -16,14 +18,10 @@ export default function ExerciseScreen() {
   const { kind = '' } = useParams()
   const valid = isKind(kind)
   const questions = useMemo(() => (isKind(kind) ? buildQuestions(kind) : []), [kind])
+  const celebration = useCelebration()
 
   if (!valid) {
     return <Navigate to="/lesson/alphabet" replace />
-  }
-
-  function handleComplete() {
-    // The seam plan 007's reward engine hooks into. Ticks are already granted
-    // per question, so there is nothing this round still owes the learner.
   }
 
   return (
@@ -36,9 +34,13 @@ export default function ExerciseScreen() {
       </p>
       <ChoiceExercise
         questions={questions}
-        onCorrect={markLetterDone}
-        onComplete={handleComplete}
+        onCorrect={(letterId) => {
+          markLetterDone(letterId)
+          return celebration.cheer('answer')
+        }}
+        onComplete={() => celebration.cheer('page')}
       />
+      <RewardOverlays celebration={celebration} />
     </LessonSheet>
   )
 }

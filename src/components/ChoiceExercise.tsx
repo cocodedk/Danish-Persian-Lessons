@@ -2,17 +2,18 @@ import { useState } from 'react'
 import type { Question } from '../lessons/exercises'
 import { FaSpecimen } from './FaSpecimen'
 import { PronLine } from './PronLine'
-import { ProgressTick } from './ProgressTick'
 import { Button } from './Button'
-import { TRY_AGAIN_FA, WELL_DONE_FA } from '../content/faStrings'
+import { Celebration } from './Celebration'
+import { TRY_AGAIN_FA } from '../content/faStrings'
+import type { Reward } from '../rewards/types'
 import './ChoiceExercise.css'
 
 export interface ChoiceExerciseProps {
   questions: Question[]
   /** Fires the first time a question is answered right, with the letter's id. */
-  onCorrect: (letterId: string) => void
-  /** Fires once, when the last question is answered. Plan 007 hooks its rewards here. */
-  onComplete: () => void
+  onCorrect: (letterId: string) => Reward | void
+  /** Fires once, when the last question is answered. */
+  onComplete: () => Reward | void
 }
 
 /**
@@ -25,6 +26,7 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
   const [solved, setSolved] = useState(false)
   const [missed, setMissed] = useState<string[]>([])
   const [finished, setFinished] = useState(false)
+  const [reward, setReward] = useState<Reward | null>(null)
 
   const question = questions[index]
   const isLast = index === questions.length - 1
@@ -33,7 +35,7 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
     if (solved) return
     if (choiceId === question.answerId) {
       setSolved(true)
-      onCorrect(question.letterId)
+      setReward(onCorrect(question.letterId) ?? null)
       return
     }
     setMissed((tried) => (tried.includes(choiceId) ? tried : [...tried, choiceId]))
@@ -42,20 +44,19 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
   function advance() {
     if (isLast) {
       setFinished(true)
-      onComplete()
+      setReward(onComplete() ?? null)
       return
     }
     setIndex((current) => current + 1)
     setSolved(false)
     setMissed([])
+    setReward(null)
   }
 
   if (finished) {
     return (
       <div className="choice-exercise choice-exercise__done">
-        <p className="choice-exercise__praise" lang="fa" dir="rtl">
-          {WELL_DONE_FA}
-        </p>
+        <Celebration reward={reward} tickLabel="Runden er klaret" />
         <p>Du kom hele runden igennem. Alt, du klarede, står stadig på lektionen.</p>
       </div>
     )
@@ -94,14 +95,7 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
       </ul>
 
       <div className="choice-exercise__feedback" role="status">
-        {solved && (
-          <p className="choice-exercise__right">
-            <ProgressTick granted label="Rigtigt" />
-            <span lang="fa" dir="rtl">
-              {WELL_DONE_FA}
-            </span>
-          </p>
-        )}
+        {solved && <Celebration reward={reward} />}
         {!solved && missed.length > 0 && (
           <p className="choice-exercise__again">
             <span lang="fa" dir="rtl">
