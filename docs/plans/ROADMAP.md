@@ -13,10 +13,10 @@ the app exists, `npm run verify`) is green.
       rounds): app live at `/app/`, split-screen shell + pronunciation line, name capture, storage,
       self-hosted fonts, gates upgraded.
 - [x] **P2 — [002-design-system.md](002-design-system.md)** (merged 2026-08-03, PR #7, one critic round): notebook kit + #/kit gallery, Andika subset, dark ruling fixed.
-- [ ] **P3 — [003-alphabet-lesson.md](003-alphabet-lesson.md)**: orientation ("Persian runs right to
+- [x] **P3 — [003-alphabet-lesson.md](003-alphabet-lesson.md)** (merged 2026-08-03, PR #9, two critic rounds): orientation ("Persian runs right to
       left", joining, shapes, no capitals) + Lesson 1 — letters with stroke-order drawings, forms,
       vowel marks (name-letter badges shipped dormant).
-- [ ] **P4 — [007-rewards-streaks.md](007-rewards-streaks.md)**: generosity-first reward engine —
+- [x] **P4 — [007-rewards-streaks.md](007-rewards-streaks.md)** (merged 2026-08-04, PR #10, three critic rounds): generosity-first reward engine —
       ticks, stickers, jingles, levels, resting streaks, bonus-exercise gifts. Lands right after the
       first lesson so everything afterwards celebrates.
 - [ ] **P5 — [006-your-name.md](006-your-name.md)**: Persian spelling of the learner's name,
