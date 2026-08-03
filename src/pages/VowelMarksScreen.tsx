@@ -3,8 +3,10 @@ import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { VowelChip } from '../components/VowelChip'
 import { ProgressTick } from '../components/ProgressTick'
 import { Button } from '../components/Button'
+import { penMarkClass } from '../components/penMark'
 import { vowelMarks, laterMarks } from '../lessons/vowelMarks'
 import { getAlphabetProgress, markVowelDone } from '../progress/alphabet'
+import '../styles/pen.css'
 import './alphabet.css'
 
 /**
@@ -53,7 +55,7 @@ export default function VowelMarksScreen() {
       </p>
       {laterMarks.map((mark) => (
         <p key={mark.id} className="marks__later">
-          <span className="marks__later-glyph" lang="fa" dir="rtl">
+          <span className={penMarkClass('marks__later-glyph', mark.glyph)} lang="fa" dir="rtl">
             {mark.glyph}
           </span>
           <span className="marks__name-fa" lang="fa" dir="rtl">

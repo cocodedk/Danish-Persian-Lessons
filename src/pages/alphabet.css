@@ -174,9 +174,11 @@
   font-size: 0.9375rem;
 }
 
+/* line-height 2 is the geometry the red-pen cuts in src/styles/pen.css were
+   tuned against — a shallower line box would put the cut through the letter. */
 .marks__later-glyph {
   font-family: var(--font-naskh);
   font-weight: 700;
   font-size: 1.75rem;
-  line-height: 1.6;
+  line-height: 2;
 }
