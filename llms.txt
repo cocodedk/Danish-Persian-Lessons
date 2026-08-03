@@ -1,0 +1,20 @@
+# Danish-Persian Lessons
+
+> A free, static, mobile-first web app that teaches Danish speakers to read Persian, starting from the alphabet and the vowel marks.
+
+Danish-Persian Lessons teaches reading Persian (Farsi) with Danish as the language of instruction. It is aimed at heritage speakers in Denmark who speak Persian at home but never learned to read it, and at anyone who reads and writes it with difficulty. Lessons open with the alphabet and the vowel diacritics (زیر، زبر، پیش and the long vowels آ او ای) that turn a consonant skeleton into a pronounceable word, then follow the vocabulary order of the Iranian first-grade primer (آب/vand, نان/brød, من/jeg, تو/du). Each word card is split in two: the Persian word on top, right-to-left, with the Danish equivalent below it.
+
+The project is purely static: no backend, no database, no accounts. Progress is stored in the browser's localStorage. The landing site is published in three languages on GitHub Pages; a React app is planned and will be served from /app/ on the same site once it opens.
+
+## Site
+
+- [English](https://cocodedk.github.io/Danish-Persian-Lessons/): what the app teaches and who it is for
+- [Dansk](https://cocodedk.github.io/Danish-Persian-Lessons/da/): the Danish page, written for the primary audience
+- [فارسی (Persian)](https://cocodedk.github.io/Danish-Persian-Lessons/fa/): the Persian page, right-to-left
+
+## Repository
+
+- [GitHub repository](https://github.com/cocodedk/Danish-Persian-Lessons): source, issues and pull requests
+- [CLAUDE.md](https://github.com/cocodedk/Danish-Persian-Lessons/blob/main/CLAUDE.md): repo conventions and instructions for agents working in it
+- [Roadmap](https://github.com/cocodedk/Danish-Persian-Lessons/blob/main/docs/plans/ROADMAP.md): what is built, what is next
+- [Art direction](https://github.com/cocodedk/Danish-Persian-Lessons/blob/main/docs/design/ART-DIRECTION.md): the "exercise notebook" design system: palette, typography, the split-screen card contract

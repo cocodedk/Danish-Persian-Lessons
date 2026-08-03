@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: ['**']
+
+# PR/branch CI: safe to cancel a superseded run — a newer push makes the old run
+# irrelevant. (Never do this on a deploy workflow — see deploy-pages.yml.)
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Job id must stay exactly "verify" — branch protection pins its required status
+  # check to this context name.
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Run verification checks
+        run: bash scripts/verify.sh
+
+      # NOTE(docs/plans/001): once the Vite React app lands, this job gains
+      # actions/setup-node + `npm ci` + `npm run lint` + `npm test` + `npm run build`
+      # alongside scripts/verify.sh.

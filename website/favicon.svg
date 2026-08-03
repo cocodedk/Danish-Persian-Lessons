@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="آ">
+  <title>Danish-Persian Lessons</title>
+  <!-- Alef-madde (U+0622), outlines from Noto Naskh Arabic Bold.
+       Madde stroke in the red token (the teacher's pen), alef in ink, on paper. -->
+  <style>
+    .paper { fill: #F7F2E9 }
+    .ink   { fill: #26211B }
+    .red   { fill: #C9202C }
+    @media (prefers-color-scheme: dark) {
+      .paper { fill: #161D1A }
+      .ink   { fill: #E9E5DB }
+      .red   { fill: #E56A64 }
+    }
+  </style>
+  <rect class="paper" width="32" height="32" rx="6"/>
+  <path class="ink" d="M15.57 28.5Q15.41 25.24 15.26 22.76Q15.1 20.29 14.94 18.22Q14.78 16.14 14.59 14.18Q14.4 12.21 14.18 9.93Q14.08 9.14 14.54 8.54Q15 7.94 15.81 7.59Q16.62 7.24 17.57 7.24Q17.82 8.22 18.15 9.2Q18.49 10.19 18.87 11.14L17.76 11.96Q17.82 14.59 17.79 18.71Q17.76 22.83 17.6 28.25Z"/>
+  <path class="red" d="M12.34 5.72 11.96 5.05Q13.83 3.56 14.05 3.56L14.59 3.63Q15.51 3.85 16.17 3.96Q16.84 4.07 17.25 4.07Q17.79 4.07 18.57 3.9Q19.34 3.72 19.79 3.5L20.04 4.2Q19.41 4.83 18.55 5.24Q17.7 5.65 17.12 5.65Q15.67 5.65 13.86 4.99Z"/>
+</svg>

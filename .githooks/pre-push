@@ -1,0 +1,57 @@
+#!/bin/sh
+set -eu
+
+# --- 1. Owner-lock ----------------------------------------------------------
+# git invokes pre-push as: pre-push <remote-name> <remote-url>
+REMOTE_NAME=$1
+REMOTE_URL=$2
+
+case "$REMOTE_URL" in
+    https://github.com/cocodedk/*|git@github.com:cocodedk/*|ssh://git@github.com/cocodedk/*)
+        ;;
+    *)
+        echo "Refusing to push: remote '$REMOTE_NAME' ($REMOTE_URL) is not an approved cocodedk remote." >&2
+        echo "Allowed remotes: https://github.com/cocodedk/*, git@github.com:cocodedk/*, ssh://git@github.com/cocodedk/*" >&2
+        exit 1
+        ;;
+esac
+
+# --- 2. Protected-branch guard -----------------------------------------------
+# stdin lines: <local_ref> <local_sha> <remote_ref> <remote_sha>
+ZERO_SHA="0000000000000000000000000000000000000000"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    branch=""
+    case "$remote_ref" in
+        refs/heads/*)
+            branch=${remote_ref#refs/heads/}
+            ;;
+    esac
+
+    case "$branch" in
+        main|master|trunk|production|prod|release)
+            ;;
+        *)
+            continue
+            ;;
+    esac
+
+    if [ "$local_sha" = "$ZERO_SHA" ]; then
+        echo "Refusing to push: this would delete protected branch '$branch'." >&2
+        echo "Emergency bypass (use with care): git push --no-verify" >&2
+        exit 1
+    fi
+
+    if [ "$remote_sha" != "$ZERO_SHA" ] && ! git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; then
+        echo "Refusing to push: non-fast-forward update to protected branch '$branch'." >&2
+        echo "Emergency bypass (use with care): git push --no-verify" >&2
+        exit 1
+    fi
+done
+
+# --- 3. Full verification gate ----------------------------------------------
+# TODO(docs/plans/001): once the React app lands, upgrade this to
+#   npm run lint && npm test && npm run build
+VERIFY_CMD="bash scripts/verify.sh"
+echo "Running full verification gate before push: $VERIFY_CMD" >&2
+$VERIFY_CMD

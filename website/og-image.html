@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open Graph card — 1200×630 — Danish-Persian Lessons</title>
+<!--
+  Source layout for og.png. Render at exactly 1200×630:
+
+    google-chrome-stable --headless --disable-gpu --no-sandbox \
+      --window-size=1200,630 --default-background-color=00000000 \
+      --screenshot=og.png "file:///abs/path/website/og-image.html"
+
+  Light tokens are hardcoded on purpose — an OG card must not follow the
+  viewer's colour scheme.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Noto+Naskh+Arabic:wght@700&display=swap">
+<style>
+  :root {
+    --paper: #F7F2E9;
+    --ink:   #26211B;
+    --red:   #C9202C;
+    --rule:  #C7D3E2;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--paper);
+    font-family: "Andika", sans-serif;
+    color: var(--ink);
+  }
+
+  /* the notebook page: light-blue ruling + one red margin line at the left */
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 69px,
+      rgba(199, 211, 226, 0.55) 69px 70px
+    );
+    background-position: 0 26px;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 104px;
+    width: 3px;
+    background: var(--red);
+  }
+
+  .stage {
+    position: absolute;
+    inset: 0 90px 100px 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* never let flex shrink the notebook rule away */
+  .stage > * { flex: 0 0 auto; }
+
+  /* Persian pane ~55% of the split, Danish ~45% */
+  .fa {
+    font-family: "Noto Naskh Arabic", serif;
+    font-weight: 700;
+    font-size: 190px;
+    line-height: 2;                 /* --madde-cut below is tuned to this */
+    direction: rtl;
+    margin: 0 0 -76px;
+    padding: 0;
+    /* real type; only the colour is split, so the madde reads as red pen */
+    background-image: linear-gradient(to bottom,
+      var(--red) 0 0.54em, var(--ink) 0.54em);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .split {
+    width: 640px;
+    height: 3px;
+    background: var(--rule);
+    border: 0;
+    margin: 0;
+  }
+
+  .da {
+    font-size: 76px;
+    line-height: 1.3;
+    margin: 24px 0 0;
+    letter-spacing: 0.01em;
+  }
+
+  .caption {
+    margin: 24px 0 0;
+    font-size: 28px;
+    line-height: 1.4;
+    color: var(--ink);
+    opacity: 0.72;
+  }
+
+  .attribution {
+    position: absolute;
+    left: 104px;
+    right: 0;
+    bottom: 0;
+    padding: 22px 90px 26px 66px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-size: 23px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.6;
+  }
+
+  .attribution .dot { color: var(--red); opacity: 1; padding: 0 0.3em; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="stage">
+      <p class="fa" lang="fa" dir="rtl">آب</p>
+      <hr class="split">
+      <p class="da" lang="da">vand</p>
+      <p class="caption">Learn to read Persian, in Danish</p>
+    </div>
+    <p class="attribution">Babak Bandpey <span class="dot">·</span> cocode.dk</p>
+  </div>
+</body>
+</html>

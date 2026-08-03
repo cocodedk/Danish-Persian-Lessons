@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://cocodedk.github.io/Danish-Persian-Lessons/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cocodedk.github.io/Danish-Persian-Lessons/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://cocodedk.github.io/Danish-Persian-Lessons/da/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/Danish-Persian-Lessons/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/Danish-Persian-Lessons/"/>
+  </url>
+
+  <url>
+    <loc>https://cocodedk.github.io/Danish-Persian-Lessons/da/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cocodedk.github.io/Danish-Persian-Lessons/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://cocodedk.github.io/Danish-Persian-Lessons/da/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/Danish-Persian-Lessons/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/Danish-Persian-Lessons/"/>
+  </url>
+
+  <url>
+    <loc>https://cocodedk.github.io/Danish-Persian-Lessons/fa/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cocodedk.github.io/Danish-Persian-Lessons/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://cocodedk.github.io/Danish-Persian-Lessons/da/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://cocodedk.github.io/Danish-Persian-Lessons/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cocodedk.github.io/Danish-Persian-Lessons/"/>
+  </url>
+
+</urlset>

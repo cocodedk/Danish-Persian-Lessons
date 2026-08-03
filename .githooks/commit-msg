@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+
+# Enforce Conventional Commits (https://www.conventionalcommits.org/).
+
+MSG=$(cat "$1")
+FIRST_LINE=$(printf '%s\n' "$MSG" | head -n 1)
+
+# Let merge commits and fixup!/squash! commits through untouched.
+case "$FIRST_LINE" in
+    "Merge "*|"fixup!"*|"squash!"*)
+        exit 0
+        ;;
+esac
+
+if printf '%s\n' "$FIRST_LINE" | grep -qE '^(feat|fix|chore|docs|style|refactor|test|ci|build|perf|revert)(\(.+\))?: .+'; then
+    exit 0
+fi
+
+echo "Commit message does not follow Conventional Commits format." >&2
+echo "" >&2
+echo "  Format:  <type>(<optional scope>): <description>" >&2
+echo "  Example: feat(auth): add password reset flow" >&2
+echo "" >&2
+echo "Allowed types: feat, fix, chore, docs, style, refactor, test, ci, build, perf, revert" >&2
+exit 1

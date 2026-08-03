@@ -1,0 +1,556 @@
+@charset "utf-8";
+/* ==========================================================================
+   Danish-Persian Lessons — landing stylesheet
+   Implements docs/design/ART-DIRECTION.md: «دفتر مشق» / the exercise notebook.
+   Mobile-first (base ≈360px), enhanced at 640 / 768 / 1024px only.
+   Shared by /index.html, /da/index.html and /fa/index.html.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --paper: #F7F2E9;
+  --ink:   #26211B;
+  --red:   #C9202C;
+  --blue:  #2456A6;
+  --rule:  #C7D3E2;
+  --card:  #EFE8DA;
+
+  --font-latin: "Andika", "Segoe UI", system-ui, sans-serif;
+  --font-fa:    "Vazirmatn", "Noto Naskh Arabic", system-ui, sans-serif;
+  --font-naskh: "Noto Naskh Arabic", "Vazirmatn", serif;
+
+  /* the notebook grid */
+  --sheet-max: 46rem;
+  --gutter: 1.15rem;
+  --madde-cut: 0.54em; /* tuned against Noto Naskh Arabic at line-height 2 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { /* "chalkboard" */
+    --paper: #161D1A;
+    --ink:   #E9E5DB;
+    --red:   #E56A64;
+    --blue:  #8FB3EA;
+    --rule:  #2C3A34;
+    --card:  #1D2622;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset / base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-latin);
+  font-size: 1rem;         /* 16px floor */
+  line-height: 1.65;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+}
+
+[dir="rtl"] body,
+body[dir="rtl"] {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;     /* Persian body floor */
+  line-height: 1.9;
+}
+
+img, svg { max-width: 100%; height: auto; }
+
+h1, h2, h3 { line-height: 1.25; text-wrap: balance; margin: 0 0 0.5em; font-weight: 700; }
+h1 { font-size: clamp(1.6rem, 6.5vw, 2.35rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.3rem, 5vw, 1.7rem); }
+h3 { font-size: 1.075rem; }
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 { letter-spacing: normal; }
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--red); color: var(--paper); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   3. The sheet — one red margin line, ruled sections
+   The margin line sits inline-start: LEFT on LTR, RIGHT on RTL, for free.
+   -------------------------------------------------------------------------- */
+.sheet {
+  max-width: var(--sheet-max);
+  margin-inline: auto;
+  border-inline-start: 2px solid var(--red);
+  padding-inline: var(--gutter) var(--gutter);
+  padding-block: 1.5rem 2.5rem;
+}
+
+.sheet > * + * { border-block-start: 1px solid var(--rule); }
+
+main > section + section { border-block-start: 1px solid var(--rule); }
+
+section { padding-block: 2rem; }
+main > section:first-child { padding-block-start: 1.25rem; }
+
+.lede {
+  font-size: 1.075rem;
+  max-width: 34ch;
+}
+[dir="rtl"] .lede { font-size: 1.2rem; max-width: 36ch; }
+
+.note { color: var(--ink); opacity: 0.78; font-size: 0.95rem; }
+[dir="rtl"] .note { font-size: 1rem; }
+
+/* --------------------------------------------------------------------------
+   4. Header + language switcher
+   -------------------------------------------------------------------------- */
+.masthead {
+  padding-block-end: 1.25rem;
+}
+
+.wordmark {
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  opacity: 0.65;
+}
+[dir="rtl"] .wordmark { letter-spacing: normal; text-transform: none; font-size: 0.9rem; }
+
+.langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  align-items: center;
+}
+
+.langs li { display: flex; }
+
+.langs a,
+.langs span {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.langs a { color: var(--blue); }
+.langs a:hover { border-color: var(--blue); }
+
+.langs .is-current {
+  color: var(--ink);
+  border-color: var(--red);
+  border-inline-start-width: 3px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero — the split-screen specimen
+   -------------------------------------------------------------------------- */
+.specimen {
+  margin: 0 0 1.5rem;
+  padding-block: 0.5rem 0;
+  text-align: center;
+}
+
+.specimen__fa {
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(4.5rem, 20vw, 9rem);
+  line-height: 2;          /* diacritics need air — and --madde-cut depends on it */
+  direction: rtl;
+  color: var(--ink);
+  /* line-height 2 leaves more descender air than the specimen needs; the
+     negative margin trims the gap without moving the gradient's origin */
+  margin: 0 0 -0.22em;
+}
+
+/* The madde stroke in the teacher's red pen. The glyph is real type — the
+   colour split is a clipped gradient, so no fake letterforms are introduced. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .specimen__fa--madde {
+    background-image: linear-gradient(to bottom,
+      var(--red) 0 var(--madde-cut), var(--ink) var(--madde-cut));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media (forced-colors: active) {
+  .specimen__fa--madde { background-image: none; color: CanvasText; }
+}
+
+.specimen__rule {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+  margin: 0;
+}
+
+.specimen__da {
+  font-family: var(--font-latin);
+  font-size: clamp(1.5rem, 6.5vw, 2.4rem);
+  line-height: 1.7;
+  padding-block: 0.65rem 0.35rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.specimen__gloss {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 0;
+}
+[dir="rtl"] .specimen__gloss { letter-spacing: normal; text-transform: none; font-size: 0.95rem; }
+
+/* --------------------------------------------------------------------------
+   6. Vowel-mark chips — the one orchestrated moment of motion
+   -------------------------------------------------------------------------- */
+.marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-block: 1.5rem 1rem;
+}
+
+.marks li {
+  flex: 0 0 auto;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem 0.35rem;
+}
+
+.marks b {
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 7vw, 2.1rem);
+  line-height: 1.7;
+  color: var(--red);
+  direction: rtl;
+}
+
+@keyframes ink-in {
+  from { opacity: 0; transform: translateY(-2px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.marks li { animation: ink-in 420ms ease-out backwards; }
+.marks li:nth-child(1) { animation-delay: 120ms; }
+.marks li:nth-child(2) { animation-delay: 210ms; }
+.marks li:nth-child(3) { animation-delay: 300ms; }
+.marks li:nth-child(4) { animation-delay: 390ms; }
+.marks li:nth-child(5) { animation-delay: 480ms; }
+.marks li:nth-child(6) { animation-delay: 570ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marks li { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Profiles — who this is for
+   -------------------------------------------------------------------------- */
+.profiles { display: grid; gap: 1rem; }
+
+.profiles li {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-inline-start: 3px solid var(--red);
+  border-radius: 3px;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.profiles h3 { margin-block-end: 0.35rem; }
+.profiles p { font-size: 1rem; }
+[dir="rtl"] .profiles p { font-size: 1.075rem; }
+
+/* --------------------------------------------------------------------------
+   8. Steps — three ruled rows
+   -------------------------------------------------------------------------- */
+.steps { counter-reset: none; }
+
+.steps li {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0 0.85rem;
+  align-items: start;
+  padding-block: 1.1rem;
+  border-block-start: 1px solid var(--rule);
+}
+
+/* no closing rule on the last row: the section divider already ends the block,
+   and two hairlines a few rem apart read as a mistake */
+
+.steps .num {
+  grid-row: 1 / span 2;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1.4;
+}
+
+.steps h3 { margin: 0 0 0.25rem; align-self: center; }
+.steps p { grid-column: 2; font-size: 1rem; margin: 0; }
+[dir="rtl"] .steps p { font-size: 1.075rem; }
+
+.shapes,
+.inline-fa {
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-size: 1.25em;
+  line-height: 1.3;        /* keeps the surrounding line boxes even */
+}
+
+.inline-fa--red { color: var(--red); }
+
+/* --------------------------------------------------------------------------
+   9. Curriculum preview — four specimen mini-cards
+   -------------------------------------------------------------------------- */
+.words {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.words li {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.4rem 0.5rem 0.7rem;
+  text-align: center;
+}
+
+.words .fa {
+  display: block;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 12vw, 3.25rem);
+  line-height: 2;
+  direction: rtl;
+  color: var(--ink);
+  margin: 0 0 -0.2em;
+}
+
+.words .fa--madde { /* same clipped-gradient trick, same tuned cut */
+  color: var(--ink);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .words .fa--madde {
+    background-image: linear-gradient(to bottom,
+      var(--red) 0 var(--madde-cut), var(--ink) var(--madde-cut));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media (forced-colors: active) {
+  .words .fa--madde { background-image: none; color: CanvasText; }
+}
+
+.words hr {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+  margin: 0;
+}
+
+.words .da {
+  display: block;
+  font-family: var(--font-latin);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding-block-start: 0.45rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Privacy
+   -------------------------------------------------------------------------- */
+.facts { display: grid; gap: 0.5rem; margin-block-start: 1rem; }
+
+.facts li {
+  padding-inline-start: 1.4rem;
+  position: relative;
+  font-size: 1rem;
+}
+[dir="rtl"] .facts li { font-size: 1.075rem; }
+
+.facts li::before {
+  content: "✓";
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   11. Status + CTA
+   -------------------------------------------------------------------------- */
+.status {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-inline-start: 3px solid var(--red);
+  border-radius: 3px;
+  padding: 1rem;
+  margin-block-end: 1.25rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.6rem 1.35rem;
+  background: var(--blue);
+  color: var(--paper);
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cta { color: #14201C; }
+}
+
+.cta:hover { background: var(--ink); }
+.cta:focus-visible { outline-offset: 3px; }
+
+.cta-note { margin-block-start: 0.85rem; }
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+footer {
+  padding-block: 1.35rem 0;
+  font-size: 0.95rem;
+}
+[dir="rtl"] footer { font-size: 1rem; }
+
+footer p { margin: 0; }
+
+/* --------------------------------------------------------------------------
+   13. RTL specifics
+   Logical properties do the mirroring; these are the genuinely directional
+   or script-specific bits.
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .specimen__da,
+[dir="rtl"] .words .da,
+[dir="rtl"] .lang-da {
+  font-family: var(--font-latin);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .cta,
+[dir="rtl"] .langs a,
+[dir="rtl"] .langs span { font-family: var(--font-fa); }
+
+[dir="rtl"] .steps .num { font-family: var(--font-fa); }
+
+/* --------------------------------------------------------------------------
+   14. Enhancements — min-width only
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+  :root { --gutter: 1.75rem; }
+
+  .sheet { padding-block: 2.25rem 3.25rem; }
+  section { padding-block: 2.5rem; }
+
+  .profiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .steps li { grid-template-columns: 2.75rem 1fr; padding-block: 1.35rem; }
+
+  .words { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
+
+  .marks { gap: 0.55rem; }
+  .marks li { min-width: 60px; }
+}
+
+@media (min-width: 768px) {
+  body { font-size: 1.0625rem; }
+  [dir="rtl"] body { font-size: 1.175rem; }
+
+  /* keep the measure readable once the sheet gets wide */
+  main > section > p,
+  .note,
+  .steps p,
+  .status p,
+  .cta-note,
+  .facts li { max-width: 66ch; }
+
+  .marks { justify-content: flex-start; }
+
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .wordmark { margin-block-end: 0; }
+
+  .lede { font-size: 1.2rem; max-width: 44ch; }
+  [dir="rtl"] .lede { font-size: 1.3rem; max-width: 44ch; }
+
+  .specimen { padding-block-start: 1rem; }
+}
+
+@media (min-width: 1024px) {
+  :root { --sheet-max: 52rem; --gutter: 2.5rem; }
+  .sheet { padding-block: 3rem 4rem; }
+  section { padding-block: 3rem; }
+}
