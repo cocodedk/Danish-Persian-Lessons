@@ -84,6 +84,11 @@
   }
 }
 
+/* A specimen is a display object: it centres on the sheet. */
+.orient__specimen {
+  text-align: center;
+}
+
 /* The specimen row: separate letters, read right to left. */
 .orient__row {
   display: flex;

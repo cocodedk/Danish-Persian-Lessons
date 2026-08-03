@@ -43,8 +43,12 @@ function Point({ point }: { point: OrientationPoint }) {
           </li>
         ))}
       </ul>
-      {point.result && <FaSpecimen fa={point.result} />}
-      {point.pron && <PronLine da={point.pron.da} ipa={point.pron.ipa} />}
+      {(point.result || point.pron) && (
+        <div className="orient__specimen">
+          {point.result && <FaSpecimen fa={point.result} />}
+          {point.pron && <PronLine da={point.pron.da} ipa={point.pron.ipa} />}
+        </div>
+      )}
       <p className="orient__body">{point.body}</p>
     </section>
   )
@@ -78,9 +82,11 @@ export default function Orientation() {
         <h2 className="orient__heading">Persisk læses fra højre mod venstre</h2>
         <Flip />
         <RuleDivider />
-        <FaSpecimen fa={MIRROR_DEMO.fa} />
-        <PronLine da={MIRROR_DEMO.pron.da} ipa={MIRROR_DEMO.pron.ipa} />
-        <DaWord>{MIRROR_DEMO.da.toLowerCase()}</DaWord>
+        <div className="orient__specimen">
+          <FaSpecimen fa={MIRROR_DEMO.fa} />
+          <PronLine da={MIRROR_DEMO.pron.da} ipa={MIRROR_DEMO.pron.ipa} />
+          <DaWord>{MIRROR_DEMO.da.toLowerCase()}</DaWord>
+        </div>
         <p className="orient__body">
           Persisk gør det hver eneste gang: første bogstav yderst til højre, sidste bogstav yderst
           til venstre.

@@ -89,9 +89,16 @@
   opacity: 0.7;
 }
 
+/* A specimen is a display object: it centres on the sheet, whichever way the
+   text around it runs. */
+.letter__specimen {
+  text-align: center;
+}
+
 .letter__names {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 0.6rem;
   margin: 0;
 }

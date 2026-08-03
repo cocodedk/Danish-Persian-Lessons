@@ -46,18 +46,20 @@ export default function LetterScreen() {
         {index + 1} af {teachingOrder.length}
       </p>
 
-      <FaSpecimen fa={specimen.glyph} />
-      <p className="letter__names">
-        <span
-          className={penMarkClass('letter__name-fa', specimen.name.fa)}
-          lang="fa"
-          dir="rtl"
-        >
-          {specimen.name.fa}
-        </span>
-        <span className="letter__name-da">{specimen.name.da}</span>
-      </p>
-      <PronLine da={specimen.sound.da} ipa={specimen.sound.ipa} />
+      <div className="letter__specimen">
+        <FaSpecimen fa={specimen.glyph} />
+        <p className="letter__names">
+          <span
+            className={penMarkClass('letter__name-fa', specimen.name.fa)}
+            lang="fa"
+            dir="rtl"
+          >
+            {specimen.name.fa}
+          </span>
+          <span className="letter__name-da">{specimen.name.da}</span>
+        </p>
+        <PronLine da={specimen.sound.da} ipa={specimen.sound.ipa} />
+      </div>
 
       {inMyName && (
         <p className="letter__badge">
