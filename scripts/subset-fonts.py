@@ -85,7 +85,7 @@ def subset(path: Path) -> None:
             raise SystemExit(f"{path.name}: dropped required glyphs {missing!r}")
 
         after = out.stat().st_size
-        if after > SIZE_CEILING:
+        if after >= SIZE_CEILING:
             raise SystemExit(f"{path.name}: {after} bytes is over the {SIZE_CEILING} ceiling")
 
         out.replace(path)
