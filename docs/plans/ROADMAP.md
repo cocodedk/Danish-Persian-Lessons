@@ -27,7 +27,10 @@ the app exists, `npm run verify`) is green.
 
 (Plan file numbers are stable IDs, not execution order — the sequence above is the order.)
 
-**All seven roadmap plans are merged and live (2026-08-04).** The gauntlet is complete; future work starts from the Later list below with new plans.
+**All seven roadmap plans are merged and live (2026-08-04).** The gauntlet is complete; future work continues as numbered plans below.
+
+- [ ] **P8 — [008-keyboard-danish-hints.md](008-keyboard-danish-hints.md)**: Danish sound hints on the
+      keyboard keys, small and orange (requested by Babak 2026-08-04).
 
 ## Later (not planned yet — do not build ahead)
 
