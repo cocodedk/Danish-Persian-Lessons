@@ -20,9 +20,15 @@
   line-height: var(--rule-step);
 }
 
-.lesson-bar {
+/* The thumb zone: whatever the screen docks (the keyboard) and the bar under
+   it, pinned together so the sheet scrolls behind both. */
+.lesson-foot {
   position: sticky;
   inset-block-end: 0;
+  background: var(--paper);
+}
+
+.lesson-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

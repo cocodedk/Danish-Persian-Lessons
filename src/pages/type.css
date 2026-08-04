@@ -1,0 +1,32 @@
+/* The capstone's one extra: the learner's own spelling, folded away until it is
+   asked for. Closed by default, so the prompt still never reveals the answer. */
+
+.type__help {
+  margin-block-start: 0.5rem;
+  font-family: var(--font-latin);
+}
+
+.type__help > summary {
+  display: flex;
+  align-items: center;
+  min-block-size: var(--tap-min);
+  color: var(--blue);
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.type__help > summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.type__help-fa {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.8;
+  color: var(--ink);
+}

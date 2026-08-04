@@ -14,6 +14,10 @@ export const LESSON_PLACEHOLDER_TEXT = 'این درس هنوز آماده نیس
 export const TRY_AGAIN_FA = 'دوباره'
 export const WELL_DONE_FA = 'آفرین'
 
+/** The two typing rounds (plan 005): the unit's words, and the capstone. */
+export const TYPE_WORDS_FA = 'کلمه‌ها را بنویس'
+export const TYPE_NAME_FA = 'نامِ خودت را بنویس'
+
 /** The margin badge on a letter the learner's own name is spelled with (plan 006). */
 export const NAME_LETTER_FA = 'این حرف در نامِ توست'
 
@@ -29,6 +33,8 @@ export const PERSIAN_UI_STRINGS: string[] = [
   faGreeting('سارا'),
   TRY_AGAIN_FA,
   WELL_DONE_FA,
+  TYPE_WORDS_FA,
+  TYPE_NAME_FA,
   NAME_LETTER_FA,
   NAME_LETTER_IN_WORD_FA,
   NAME_LETTERS_IN_WORD_FA,

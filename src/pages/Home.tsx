@@ -7,6 +7,7 @@ import { NameCapture } from '../components/NameCapture'
 import { SettingsCorner } from '../components/SettingsCorner'
 import { StreakLine } from '../components/StreakLine'
 import { RewardShelf } from '../components/RewardShelf'
+import { TypingRounds } from '../components/TypingRounds'
 import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
 import { isNameLessonDone } from '../progress/nameLesson'
@@ -104,6 +105,7 @@ export default function Home() {
             to={`/lesson/ord/${unit.id}`}
           />
         ))}
+        <TypingRounds faSpelling={profile.faSpelling} />
       </RuledSection>
       <SettingsCorner
         name={profile.name}

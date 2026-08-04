@@ -9,6 +9,8 @@ import BonusScreen from './pages/BonusScreen'
 import VocabUnitScreen from './pages/VocabUnitScreen'
 import WordScreen from './pages/WordScreen'
 import VocabExerciseScreen from './pages/VocabExerciseScreen'
+import TypeWordScreen from './pages/TypeWordScreen'
+import TypeNameScreen from './pages/TypeNameScreen'
 import NameSpelling from './pages/NameSpelling'
 import NameLesson from './pages/NameLesson'
 import LessonPlaceholder from './pages/LessonPlaceholder'
@@ -28,11 +30,15 @@ export default function App() {
         {/* The grade-1 word units. Any unit, any word, any time — no gating. */}
         <Route path="/lesson/ord/:unit" element={<VocabUnitScreen />} />
         <Route path="/lesson/ord/:unit/ovelse/:kind" element={<VocabExerciseScreen />} />
+        {/* Static before dynamic: «skriv» is the typing round, never a word id. */}
+        <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
         <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
         {/* The learner's own name: how it is spelled, and the lesson that
             teaches it. Both send a learner without a name back to the forside. */}
         <Route path="/dit-navn" element={<NameSpelling />} />
         <Route path="/lesson/navn" element={<NameLesson />} />
+        {/* The capstone. Dormant without a spelling this keyboard can write. */}
+        <Route path="/lesson/navn/skriv" element={<TypeNameScreen />} />
         <Route path="/lesson/:id" element={<LessonPlaceholder />} />
         {/* Review surface for the design kit — direct URL only, never linked from home. */}
         <Route path="/kit" element={<Kit />} />
