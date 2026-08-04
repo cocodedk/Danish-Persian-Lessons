@@ -139,6 +139,20 @@ describe('#/dit-navn — choosing how the name is spelled', () => {
     expect(screen.getByText('نامت فقط روی همین دستگاه می‌ماند.')).toBeInTheDocument()
   })
 
+  it('spells a compound name with one space between the parts, however often it is tapped', () => {
+    setProfile({ name: 'Anne Mette' })
+    open('#/dit-navn')
+    fireEvent.click(screen.getByText('Åbn bogstaverne'))
+
+    const space = screen.getByText('Mellemrum')
+    fireEvent.click(space)
+    fireEvent.click(space)
+    tapLetter('م')
+    fireEvent.click(screen.getByText('Gem stavemåden'))
+
+    expect(getProfile().faSpelling).toBe('آنه مته م')
+  })
+
   it('gives every letter and every choice a thumb-sized target', () => {
     // jsdom computes no layout, so the floor is read off the stylesheet.
     expect(bankCss).toContain('min-block-size: var(--tap-min)')

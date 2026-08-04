@@ -35,6 +35,15 @@ export default function NameSpelling() {
     setDraft((current) => current + tile.glyph)
   }
 
+  function eraseLast() {
+    setDraft((current) => [...current].slice(0, -1).join(''))
+  }
+
+  /** A compound name takes one space between its parts, never two. */
+  function addSpace() {
+    setDraft((current) => (current === '' || current.endsWith(' ') ? current : `${current} `))
+  }
+
   function save() {
     const spelling = draft.trim()
     setProfile({ ...profile, faSpelling: spelling || undefined })
@@ -100,10 +109,10 @@ export default function NameSpelling() {
             label="Tryk et bogstav for at sætte det ind til venstre"
           />
           <div className="name__actions">
-            <Button variant="quiet" onClick={() => setDraft((current) => [...current].slice(0, -1).join(''))}>
+            <Button variant="quiet" onClick={eraseLast}>
               Slet sidste bogstav
             </Button>
-            <Button variant="quiet" onClick={() => setDraft((current) => `${current} `)}>
+            <Button variant="quiet" onClick={addSpace}>
               Mellemrum
             </Button>
           </div>
