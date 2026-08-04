@@ -2,6 +2,7 @@
 // one file so the Persian text-rule guard can walk it and a reader can hear the
 // whole tone at once. See docs/plans/006-your-name.md steps 2, 5 and 6.
 import { nameLetters, OTHER_SIGN_FA, type FormKey, type NameLetter } from './forms'
+import { PRAISE } from '../rewards/copy'
 import type { Praise } from '../rewards/types'
 
 export const SPELLING_TITLE_FA = 'نامت به فارسی'
@@ -30,9 +31,13 @@ export const LATER_IN_NAME_DA = 'Det bogstav kommer et andet sted i navnet. Prø
 export const PRIVACY_FA = 'نامت فقط روی همین دستگاه می‌ماند.'
 export const PRIVACY_DA = 'Navnet gemmes kun på din telefon og sendes aldrig videre.'
 
-/** Praise that says the name out loud: «آفرین، سارا!» / "Flot, Sara!" */
+/**
+ * Praise that says the name out loud: «آفرین، سارا!» / "Flot, Sara!" — always
+ * the آفرین line (plan 009's row 1), so it carries that line's own pron
+ * rather than inventing one for a phrase that includes a name.
+ */
 export function namePraise(faSpelling: string, name: string): Praise {
-  return { fa: `آفرین، ${faSpelling}!`, da: `Flot, ${name}!` }
+  return { fa: `آفرین، ${faSpelling}!`, da: `Flot, ${name}!`, pron: PRAISE[0].pron }
 }
 
 /** The same four words the alphabet lesson labels the forms with. */

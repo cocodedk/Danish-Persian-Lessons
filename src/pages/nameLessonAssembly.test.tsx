@@ -72,6 +72,9 @@ describe('the name-assembly exercise', () => {
     assemble('سارا')
 
     expect(screen.getByText('آفرین، سارا!')).toBeInTheDocument()
+    // The name rides inside the آفرین line, so it carries that line's own
+    // pron (plan 009) — never a missing third line just because a name is in it.
+    expect(screen.getByText('åfarin · [ɒːfæɾin]')).toBeInTheDocument()
     expect(screen.getByText('Flot, Sara!')).toBeInTheDocument()
     expect(isNameLessonDone()).toBe(true)
   })

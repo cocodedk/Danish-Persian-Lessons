@@ -7,15 +7,20 @@ import type { Praise, StickerKind, StreakState } from './types'
 /**
  * Iranian school praise, varied the way a teacher varies it. The engine walks
  * this list by progress count, so it never repeats itself twice in a row and
- * never needs a random number.
+ * never needs a random number. Pron is dansk lydskrift + IPA, dictated verbatim
+ * by docs/plans/009-praise-pronunciation.md — never improvised in the UI.
  */
 export const PRAISE: Praise[] = [
-  { fa: 'آفرین', da: 'Flot!' },
-  { fa: 'ایول', da: 'Sådan!' },
-  { fa: 'چه خوب', da: 'Godt gået!' },
-  { fa: 'عالی', da: 'Rigtig fint!' },
-  { fa: 'خیلی خوب', da: 'Dygtig!' },
-  { fa: 'باریکلا', da: 'Sådan skal det være!' },
+  { fa: 'آفرین', da: 'Flot!', pron: { da: 'åfarin', ipa: 'ɒːfæɾin' } },
+  { fa: 'ایول', da: 'Sådan!', pron: { da: 'ejval', ipa: 'ejvæl' } },
+  { fa: 'چه خوب', da: 'Godt gået!', pron: { da: 'tje khub', ipa: 'tʃe xub' } },
+  { fa: 'عالی', da: 'Rigtig fint!', pron: { da: 'åli', ipa: 'ɒːli' } },
+  { fa: 'خیلی خوب', da: 'Dygtig!', pron: { da: 'khejli khub', ipa: 'xejli xub' } },
+  {
+    fa: 'باریکلا',
+    da: 'Sådan skal det være!',
+    pron: { da: 'bårikalå', ipa: 'bɒːɾikælɒː' },
+  },
 ]
 
 /** The three stamps a teacher owns: the آفرین stamp, the ۲۰ mark, the gold star. */
@@ -30,7 +35,11 @@ export const GIFT_FA = 'یک تمرین جایزه!'
 export const GIFT_DA = 'En bonusøvelse i gave!'
 
 /** Shown when a resting streak wakes up — the welcome, never a scolding. */
-export const WELCOME_BACK: Praise = { fa: 'خوش برگشتی!', da: 'Velkommen tilbage!' }
+export const WELCOME_BACK: Praise = {
+  fa: 'خوش برگشتی!',
+  da: 'Velkommen tilbage!',
+  pron: { da: 'khosj bargasjti', ipa: 'xoʃ bæɾɡæʃti' },
+}
 
 /** Words this app must never say about progress. Asserted in streak.test.ts. */
 export const GUILT_WORDS = [
