@@ -18,6 +18,9 @@ export interface KeyDef {
   glyph: string
   /** The key's accessible name — for a letter, its Danish name as taught. */
   label: string
+  /** The Danish sound hint shown under a letter key's glyph. Absent for the
+   *  three sign keys, which keep their own caption instead. */
+  hint?: string
 }
 
 /**
@@ -53,7 +56,16 @@ function keyFor(id: string): KeyDef {
   // Loud on purpose: a mistyped id would otherwise ship a blank key that
   // writes nothing and says nothing.
   if (!specimen) throw new Error(`keyboard layout: no letter "${id}" in the alphabet data`)
-  return { id, kind: 'letter', glyph: specimen.glyph, label: specimen.name.da }
+  // Same discipline for the hint: a letter key without its Danish sound hint
+  // would ship a silently blank cap instead of failing the build.
+  if (!specimen.latinHint) throw new Error(`keyboard layout: letter "${id}" has no latinHint`)
+  return {
+    id,
+    kind: 'letter',
+    glyph: specimen.glyph,
+    label: specimen.name.da,
+    hint: specimen.latinHint,
+  }
 }
 
 export const KEYBOARD_ROWS: KeyDef[][] = ROW_IDS.map((row) => row.map(keyFor))

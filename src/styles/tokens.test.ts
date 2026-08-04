@@ -15,7 +15,16 @@ function isDeclarationFile(path: string): boolean {
   return DECLARATION_FILES.some((name) => path.endsWith(name))
 }
 
-const SEMANTIC_TOKENS = ['--paper', '--ink', '--red', '--blue', '--rule', '--card', '--gold']
+const SEMANTIC_TOKENS = [
+  '--paper',
+  '--ink',
+  '--red',
+  '--blue',
+  '--rule',
+  '--card',
+  '--gold',
+  '--orange',
+]
 
 /** The declarations inside the first rule whose selector matches. */
 function block(selector: string): string {

@@ -28,6 +28,13 @@ export interface Specimen {
   sound: Pron
   /** Pen paths in drawing order: every 'stroke' before every 'dot'. */
   strokes: Stroke[]
+  /**
+   * The Danish letter(s) this sounds like — shown small and orange under the
+   * glyph on the keyboard key (docs/plans/008-keyboard-danish-hints.md).
+   * Optional here so a bare Specimen (آ's madde) can carry one too; every
+   * Letter below makes it required.
+   */
+  latinHint?: string
 }
 
 /** A single Persian letter and its four positional forms. */
@@ -42,6 +49,8 @@ export interface Letter extends Specimen {
   joinsLeft: boolean
   /** One Danish line for the letters that surprise a reader (ی, ه, ا). */
   hint?: string
+  /** Every letter has one — see Specimen. Required here, unlike the base type. */
+  latinHint: string
   /**
    * آ — alef carrying the madde. The same letter body plus one stroke, its own
    * sound, and the first thing taught (the primer opens on آب).

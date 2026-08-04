@@ -19,6 +19,11 @@ export interface PersianKeyboardProps {
  * stroke — `aria-label` already says it to a screen reader, but a sighted
  * learner reading the board gets nothing from that (critic round 1). The
  * name text itself stays `aria-hidden`, so it is not announced twice.
+ *
+ * Every letter key carries the same idea one step further: the Danish
+ * letter(s) it sounds like, under the glyph, in orange
+ * (docs/plans/008-keyboard-danish-hints.md). Also `aria-hidden` — the key's
+ * accessible name stays the letter's Danish name from the alphabet data.
  */
 function KeyCap({ shape }: { shape: KeyDef }) {
   if (shape.id === 'space') {
@@ -52,8 +57,18 @@ function KeyCap({ shape }: { shape: KeyDef }) {
     )
   }
   return (
-    <span lang="fa" dir="rtl" aria-hidden="true">
-      {shape.glyph}
+    <span className="keyboard__letter">
+      <span lang="fa" dir="rtl" aria-hidden="true">
+        {shape.glyph}
+      </span>
+      {/* The Danish sound this letter corresponds to — a teaching aid, not a
+          name: the key's aria-label above stays the letter's own Danish name,
+          so a screen reader never hears the hint (docs/plans/008). */}
+      {shape.hint && (
+        <span className="keyboard__hint" aria-hidden="true">
+          {shape.hint}
+        </span>
+      )}
     </span>
   )
 }

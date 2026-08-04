@@ -26,6 +26,7 @@ Persian notebooks mirror it). Red is never decoration: it marks exactly what a t
 | `--blue` | `#2456A6` | `#8FB3EA` | links, buttons, interactive (BIC-pen blue) |
 | `--rule` | `#C7D3E2` | `#3E5248` | notebook ruling, hairlines |
 | `--card` | `#EFE8DA` | `#1D2622` | cards, wells |
+| `--orange` | `#A94D09` | `#F2A25C` | Latin sound hints — the pencil orange |
 
 Dark mode is the chalkboard: green-tinted near-black, chalk-warm text. Both schemes ship from day one
 (`prefers-color-scheme`). No gradients. No drop shadows except a 1px paper-edge on raised cards.

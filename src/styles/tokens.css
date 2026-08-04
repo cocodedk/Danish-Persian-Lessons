@@ -18,6 +18,9 @@
   /* The gold-star sticker, the one celebration colour ART-DIRECTION names
      outside the palette table («ستارهٔ طلایی»). Used for that sticker only. */
   --gold-light: #b8862b;
+  /* Latin sound hints on the keyboard keys — the pencil orange
+     (docs/plans/008-keyboard-danish-hints.md). Measured ≥4.5:1 on --paper. */
+  --orange-light: #a94d09;
 
   --paper-dark: #161d1a;
   --ink-dark: #e9e5db;
@@ -26,6 +29,7 @@
   --rule-dark: #3e5248;
   --card-dark: #1d2622;
   --gold-dark: #e3b75c;
+  --orange-dark: #f2a25c;
 
   /* Type — self-hosted, see src/styles/fonts.css */
   --font-latin: 'Andika', 'Segoe UI', system-ui, sans-serif;
@@ -61,6 +65,7 @@
   --rule: var(--rule-light);
   --card: var(--card-light);
   --gold: var(--gold-light);
+  --orange: var(--orange-light);
   --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
   color-scheme: light;
 }
@@ -77,6 +82,7 @@
     --rule: var(--rule-dark);
     --card: var(--card-dark);
     --gold: var(--gold-dark);
+    --orange: var(--orange-dark);
     --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
     color-scheme: dark;
   }
@@ -90,6 +96,7 @@
   --rule: var(--rule-dark);
   --card: var(--card-dark);
   --gold: var(--gold-dark);
+  --orange: var(--orange-dark);
   --blue-hover: color-mix(in srgb, var(--blue) 85%, var(--ink));
   color-scheme: dark;
 }
