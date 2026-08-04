@@ -33,6 +33,28 @@ describe('FaSpecimen', () => {
     expect(plain.querySelector('.fa-specimen')?.className).toBe('fa-specimen')
   })
 
+  it('draws a vocalized word as red اِعراب under an ink copy of the same letters', () => {
+    const { container } = render(<FaSpecimen fa="مدرسه" faMarked="مَدرِسه" />)
+    expect(container.querySelector('.fa-specimen--vocalized')).not.toBeNull()
+    expect(container.querySelector('.fa-specimen__marks')?.textContent).toBe('مَدرِسه')
+    expect(container.querySelector('.fa-specimen__marks')).toHaveAttribute('aria-hidden', 'true')
+    expect(container.querySelector('.fa-specimen__ink')?.textContent).toBe('مدرسه')
+    // Both marks are red — the gradient cut could only ever catch one side.
+    expect(faCss).toContain('.fa-specimen__marks')
+    expect(faCss).toContain('color: var(--red)')
+  })
+
+  it('keeps the single layer when faMarked changes a letter rather than marking one', () => {
+    const { container } = render(<FaSpecimen fa="اب" faMarked="آب" />)
+    expect(container.querySelector('.fa-specimen--vocalized')).toBeNull()
+    expect(container.querySelector('.fa-specimen')?.className).toContain('pen-mark--above')
+  })
+
+  it('still gives آ its red madde inside a vocalized word', () => {
+    const { container } = render(<FaSpecimen fa="آسمان" faMarked="آسِمان" />)
+    expect(container.querySelector('.fa-specimen__ink')?.className).toContain('pen-mark--above')
+  })
+
   it('gives the diacritics air: line-height 2 at the clamp scale', () => {
     expect(faCss).toContain('line-height: 2')
     expect(faCss).toContain('clamp(4.5rem, 20vw, 9rem)')

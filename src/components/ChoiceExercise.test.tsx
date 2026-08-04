@@ -2,8 +2,14 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { ChoiceExercise } from './ChoiceExercise'
 import { buildQuestions } from '../lessons/exercises'
+import { buildVocabQuestions } from '../lessons/vocabExercises'
 
 const questions = buildQuestions('find').slice(0, 2)
+const vocabOrdQuestions = buildVocabQuestions('2', 'ord')
+
+function vocabQuestion(itemId: string) {
+  return vocabOrdQuestions.find((q) => q.itemId === itemId)!
+}
 
 function renderExercise() {
   const onCorrect = vi.fn()
@@ -41,7 +47,7 @@ describe('ChoiceExercise', () => {
     expect(screen.getByText('Spørgsmål 1 af 2')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText(rightChoice(0)))
-    expect(onCorrect).toHaveBeenCalledWith(questions[0].letterId)
+    expect(onCorrect).toHaveBeenCalledWith(questions[0].itemId)
   })
 
   it('praises a right tap and only then offers the next question', () => {
@@ -73,5 +79,38 @@ describe('ChoiceExercise', () => {
     fireEvent.click(screen.getByText('Afslut runden'))
     expect(onComplete).toHaveBeenCalledTimes(1)
     expect(screen.getByText(/Du kom hele runden igennem/)).toBeInTheDocument()
+  })
+
+  it('draws a vocab prompt marked above and below as a two-layer specimen, both marks red', () => {
+    // مَدرِسه: a زبر over the م and a زیر under the ر — the single gradient
+    // cut can only ever colour one of the two (plan 004's "Note on the red
+    // pen"). The exercise prompt must stack them exactly like the word screen.
+    const { container } = render(
+      <ChoiceExercise
+        questions={[vocabQuestion('madrese')]}
+        onCorrect={vi.fn()}
+        onComplete={vi.fn()}
+      />,
+    )
+    expect(container.querySelector('.fa-specimen--vocalized')).not.toBeNull()
+    expect(container.querySelector('.fa-specimen__marks')?.textContent).toBe('مَدرِسه')
+    expect(container.querySelector('.fa-specimen__ink')?.textContent).toBe('مدرسه')
+  })
+
+  it('stacks a below-only mark too, never falling back to the single-layer pen class', () => {
+    // کِتاب carries only a زیر under the ک. FaSpecimen stacks any word whose
+    // faMarked is fa plus اِعراب, regardless of which side the marks sit on —
+    // so this specimen must never carry a `pen-mark--*` class anywhere.
+    const { container } = render(
+      <ChoiceExercise
+        questions={[vocabQuestion('ketab')]}
+        onCorrect={vi.fn()}
+        onComplete={vi.fn()}
+      />,
+    )
+    expect(container.querySelector('.fa-specimen--vocalized')).not.toBeNull()
+    expect(container.querySelector('.fa-specimen__marks')?.textContent).toBe('کِتاب')
+    expect(container.querySelector('.fa-specimen__ink')?.textContent).toBe('کتاب')
+    expect(container.querySelector('[class*="pen-mark--"]')).toBeNull()
   })
 })

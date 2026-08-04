@@ -26,7 +26,11 @@
 
 .choice-exercise__choices {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* minmax(0, 1fr): a grid track's automatic minimum is its content's, which
+     for an unbroken Danish phrase can be wider than the column — the track
+     would rather overflow than shrink. Flooring it at 0 lets the column take
+     over and the text wrap inside the button instead (plan 004 round 2). */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.6rem;
   inline-size: 100%;
   max-inline-size: 22rem;
@@ -47,6 +51,19 @@
   font-size: clamp(2.25rem, 12vw, 3.25rem);
   line-height: 1.4;
   cursor: pointer;
+}
+
+/* A choice written in Danish (plan 004's vocabulary rounds): Latin type at a
+   body-text scale, wrapping normally over as many lines as a gloss needs —
+   never the huge single-glyph Naskh sizing above, which a whole phrase like
+   "den, det (derovre)" cannot fit on one line. min-block-size above still
+   applies, so the tap target never drops under --tap-min. */
+.choice-exercise__choice[lang='da'] {
+  font-family: var(--font-latin);
+  font-size: clamp(1.125rem, 4vw, 1.375rem);
+  line-height: 1.3;
+  white-space: normal;
+  word-break: normal;
 }
 
 /* Tried and not it. A dashed edge remembers it for the learner; no colour

@@ -38,7 +38,10 @@ function collectFaStrings(lesson: Lesson): string[] {
   for (const item of lesson.items) {
     strings.push(...daLinesWithPersian(item))
     if (isWordCard(item)) {
+      // Both spellings: the plain word AND the vocalized specimen. A ك or a ي
+      // is just as wrong under an اِعراب as it is bare (plan 004, step 6).
       strings.push(item.fa)
+      if (item.faMarked) strings.push(item.faMarked)
     } else if (isLetter(item)) {
       strings.push(item.glyph, item.name.fa, ...Object.values(item.forms))
       if (item.madde) strings.push(item.madde.glyph, item.madde.name.fa)
@@ -70,6 +73,25 @@ describe('Persian text-rule guard', () => {
 
   it('rejects ASCII digits', () => {
     expect(isValidPersianText('سال 2026')).toBe(false)
+  })
+
+  it('tolerates اِعراب — a vocalized specimen is correct Persian, not a violation', () => {
+    // زبر، زیر، پیش، تشدید، ساکن are combining marks in U+064B–U+0652, right
+    // after the forbidden Arabic yeh (U+064A). The guard must not confuse them.
+    for (const marked of ['مَدرِسه', 'مِداد', 'گُل', 'آسِمان', 'مادَر', 'بَچّه', 'دَسْت']) {
+      expect(findPersianTextViolations(marked), marked).toEqual([])
+    }
+  })
+
+  it('still catches a ك or a ي hiding under the vowel marks of a specimen', () => {
+    const card = (faMarked: string): Lesson => ({
+      id: 'fixture-marked',
+      kind: 'vocab',
+      items: [{ fa: 'کتاب', faMarked, da: 'bog', pron: { da: 'ketåb', ipa: 'ketɒːb' } }],
+    })
+    // ك (U+0643) wearing a زیر, where a Persian ک belongs.
+    expect(collectFaStrings(card('كِتاب')).flatMap(findPersianTextViolations)).not.toEqual([])
+    expect(collectFaStrings(card('کِتاب')).flatMap(findPersianTextViolations)).toEqual([])
   })
 
   it('fails on a deliberately bad fixture, then passes once the fixture is fixed', () => {
