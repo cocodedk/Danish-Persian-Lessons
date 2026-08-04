@@ -100,3 +100,48 @@ Where the build does not do what this plan wrote, and why.
 10. **One plan-004 test query got more specific.** `src/pages/vocab.test.tsx` picked a unit's
     forside card by accessible name; the forside now also carries a typing round naming the same
     unit, so the card is picked by its destination instead. No behaviour changed.
+
+## Critic round 1 (2026-08-04) — FAIL, adjudicated
+
+One root cause, behind four visibility defects: the opaque sticky `.lesson-foot` dock (writing
+line + keyboard) covered the sheet's own content at 360×640, and nothing anywhere scrolled the
+covered content into view.
+
+1. On arrival, the dock covered the pron line entirely and left the prompt with no margin either.
+2. After typing, the growing writing line ate further into that margin.
+3. After a wrong «Se efter», the mark and the «دوباره» / "Prøv igen" line sat on the sheet, under
+   the dock, unreachable without a scroll the app never performed.
+4. The capstone's "Se, hvordan dit navn staves" summary sat far enough down the sheet that a real
+   tap at its coordinates hit the dock, not the summary.
+
+Fixed by moving the marking into the dock itself, beside the writing line it marks — it is now
+part of the surface that never scrolls away, not the sheet that does — and by trimming the dock's
+own rows (`src/components/TypeExercise.tsx`, `.css`) until the prompt and the pron line fit above
+it at 360×640 with no scroll at all: the writing line and its button now share one row (a float,
+not a flex/grid row — see the code comment for the layout bug that ruled flex/grid out), and the
+Persian eyebrow and the "Ord X af Y" count share another.
+
+Three smaller items, adjudicated alongside:
+
+5. The marking called a divergent space or a نیم‌فاصله "et andet bogstav" — wrong, since neither
+   has a letterform. `Divergence` now carries a `cellKind` (`src/keyboard/diff.ts`), and the
+   marking picks the honest line for each, in both languages (`src/components/TypeMarks.tsx`).
+6. The space and نیم‌فاصله keys named themselves to a screen reader only. Both now also carry a
+   small visible caption under the pen-stroke glyph (`src/components/PersianKeyboard.tsx`).
+7. The writing line's `aria-live` and the marking's `role="status"` competed on every check. The
+   line's `aria-live` is dropped; the marking is the one moment on this screen worth announcing.
+
+Measured in headless Chromium (raw CDP, no new dependency) at 360×640, 390×844, 414×896, both
+schemes: prompt and pron line fully sampled on arrival and after typing one glyph, the marked cell
+and the «دوباره» line fully sampled after a wrong check, and the capstone summary fully sampled and
+genuinely tappable by a real, coordinate-based mouse click — at every one of those eighteen
+combinations. `src/components/TypeExercise.test.tsx` guards the one fact jsdom can check (the
+marking is a child of the dock, never of the sheet); the pixel claim itself is browser-verified,
+not jsdom-verified, and honestly cannot be the other way — jsdom computes no layout at all.
+
+Accepted without change:
+- The board's letter order follows the standard Persian layout, by this plan's own step 1 — not a
+  defect.
+- Whether the logic here was built test-first cannot be reconstructed from commit order after the
+  fact. That is a standing limit of "TDD for logic" as a project convention (CLAUDE.md), not a
+  defect this round can prove one way or the other.

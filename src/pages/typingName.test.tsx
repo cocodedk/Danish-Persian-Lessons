@@ -111,4 +111,17 @@ describe('with a name', () => {
     tap('Se efter')
     expect(screen.getByText('Flot, Anne Mette!')).toBeInTheDocument()
   })
+
+  // Critic round 1: a missing space used to be marked "et andet bogstav" —
+  // wrong, since a space has no letterform at all.
+  it('names a missing mellemrum honestly, stopping before the two-part name\'s space', () => {
+    setProfile({ name: 'Anne Mette', faSpelling: 'آنه مته' })
+    open('#/lesson/navn/skriv')
+
+    write('آنه')
+    tap('Se efter')
+
+    expect(screen.getByText(/Her mangler et mellemrum\./)).toBeInTheDocument()
+    expect(screen.getByText('اینجا یک فاصله جا افتاده.')).toBeInTheDocument()
+  })
 })

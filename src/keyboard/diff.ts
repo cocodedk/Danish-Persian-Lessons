@@ -4,13 +4,32 @@
 // bled red. A learner who is told about four mistakes at once fixes none of
 // them; a learner shown the first one fixes it and reads on.
 import { withoutMarks } from '../lessons/marks'
+import { ZWNJ, SPACE } from './buffer'
 
 export type DiffKind = 'match' | 'wrong' | 'missing' | 'extra'
+
+/** A space and a نیم‌فاصله have no letterform — calling either "a letter" is
+ *  simply wrong, not just unhelpful (critic round 1). */
+export type CellKind = 'letter' | 'space' | 'zwnj'
+
+function classify(char: string | undefined): CellKind {
+  if (char === SPACE) return 'space'
+  if (char === ZWNJ) return 'zwnj'
+  return 'letter'
+}
 
 export interface Divergence {
   kind: DiffKind
   /** Where the mark goes, counted in code points. -1 when nothing is marked. */
   index: number
+  /**
+   * What kind of thing the mark is pointing at. For `wrong`/`extra` this reads
+   * the typed side — what the red mark actually shows on the page. `missing`
+   * has nothing typed to read, so it reads the answer's side instead; that is
+   * the one place this reveals a shred of the answer, and only its kind, never
+   * its identity — knowing a space is missing is not knowing which letter is.
+   */
+  cellKind: CellKind
 }
 
 /**
@@ -33,12 +52,16 @@ export function compare(attempt: string, answer: string): Divergence {
 
   const shared = Math.min(typed.length, wanted.length)
   for (let at = 0; at < shared; at += 1) {
-    if (typed[at] !== wanted[at]) return { kind: 'wrong', index: at }
+    if (typed[at] !== wanted[at]) return { kind: 'wrong', index: at, cellKind: classify(typed[at]) }
   }
 
-  if (typed.length < wanted.length) return { kind: 'missing', index: typed.length }
-  if (typed.length > wanted.length) return { kind: 'extra', index: wanted.length }
-  return { kind: 'match', index: -1 }
+  if (typed.length < wanted.length) {
+    return { kind: 'missing', index: typed.length, cellKind: classify(wanted[typed.length]) }
+  }
+  if (typed.length > wanted.length) {
+    return { kind: 'extra', index: wanted.length, cellKind: classify(typed[wanted.length]) }
+  }
+  return { kind: 'match', index: -1, cellKind: 'letter' }
 }
 
 /** One cell per code point written, plus an empty one where a letter is missing. */

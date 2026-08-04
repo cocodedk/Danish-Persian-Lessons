@@ -111,34 +111,51 @@ export function TypeExercise(props: TypeExerciseProps) {
       bar={bar}
       dock={
         <>
-          {/* The line the learner writes on, pinned directly above the keys —
-              where a phone puts the field it is typing into, and where it
-              cannot scroll away from the hand that is writing. No input
-              element anywhere near it: the buffer is a string in state, so
-              the phone's own keyboard has nothing to open over the lesson. */}
-          <p className="type__line" lang="fa" dir="rtl" aria-live="polite">
-            <span className="type__written">{buffer}</span>
-            <span className="type__caret" aria-hidden="true" />
-          </p>
-          <div className="type__action">
-            {solved ? (
-              <Button onClick={advance}>{isLast ? 'Afslut runden' : 'Næste'}</Button>
-            ) : (
-              <Button onClick={check}>Se efter</Button>
-            )}
+          {/* The line the learner writes on and the button beside it, sharing
+              one row pinned directly above the keys — where a phone puts the
+              field it is typing into, and where it cannot scroll away from
+              the hand that is writing. The button floats rather than sits in
+              a flex/grid row with the line: at least one engine in this
+              build computes a wildly inflated auto cross-size for a flex or
+              grid item whose own font-size is this large (reproduced with
+              plain CSS grid too, independent of align-items) — float is the
+              one layout mode that measured correctly. No input element
+              anywhere near the line itself: the buffer is a string in
+              state, so the phone's own keyboard has nothing to open over the
+              lesson. Not a live region — announcing every keystroke would be
+              noisier than helpful; the marking below is the one moment on
+              this screen worth announcing. */}
+          <div className="type__line-row">
+            <div className="type__action">
+              {solved ? (
+                <Button onClick={advance}>{isLast ? 'Afslut runden' : 'Næste'}</Button>
+              ) : (
+                <Button onClick={check}>Se efter</Button>
+              )}
+            </div>
+            <p className="type__line" lang="fa" dir="rtl">
+              <span className="type__written">{buffer}</span>
+              <span className="type__caret" aria-hidden="true" />
+            </p>
           </div>
+          {/* Beside the writing line it marks, inside the dock that never
+              scrolls away — not on the sheet above, where the dock used to
+              cover it (critic round 1: the mark was there but unreachable). */}
+          {divergence && <TypeMarks attempt={buffer} divergence={divergence} />}
           {!solved && <PersianKeyboard onPress={handlePress} label="Persisk tastatur" />}
         </>
       }
     >
-      <p className="type__eyebrow" lang="fa" dir="rtl">
-        {eyebrowFa}
-      </p>
-      {tasks.length > 1 && (
-        <p className="type__count">
-          Ord {index + 1} af {tasks.length}
+      <div className="type__meta">
+        <p className="type__eyebrow" lang="fa" dir="rtl">
+          {eyebrowFa}
         </p>
-      )}
+        {tasks.length > 1 && (
+          <p className="type__count">
+            Ord {index + 1} af {tasks.length}
+          </p>
+        )}
+      </div>
       <h2 className="type__prompt">{task.promptDa}</h2>
       {task.pron && <PronLine da={task.pron.da} ipa={task.pron.ipa} />}
       {help}
@@ -147,9 +164,6 @@ export function TypeExercise(props: TypeExerciseProps) {
         Du kan stoppe når som helst. Det, du har skrevet rigtigt, bliver stående.
       </p>
 
-      {/* Last on the sheet, so the marking sits directly above the line it is
-          about — the way a teacher writes in the space under the writing. */}
-      {divergence && <TypeMarks attempt={buffer} divergence={divergence} />}
       {solved && <Celebration reward={reward} tickLabel="Rigtigt" />}
       {overlays}
     </LessonSheet>

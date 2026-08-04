@@ -74,13 +74,34 @@
   border-block-end: 2px solid var(--blue);
 }
 
+/* The space and نیم‌فاصله keys stack their stroke over a small visible name —
+   tiny on purpose, a caption under the mark rather than a second key face. */
+.keyboard__sign-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.keyboard__caption {
+  font-family: var(--font-latin);
+  font-size: 0.625rem;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.keyboard__caption[lang='fa'] {
+  font-family: var(--font-fa);
+}
+
 .keyboard__erase {
   font-family: var(--font-latin);
   font-size: 1.25rem;
   color: var(--blue);
 }
 
-.keyboard__key:active .keyboard__erase {
+.keyboard__key:active .keyboard__erase,
+.keyboard__key:active .keyboard__caption {
   color: var(--paper);
 }
 

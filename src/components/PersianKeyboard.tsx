@@ -1,4 +1,5 @@
 import { KEYBOARD_KEYS, type KeyDef } from '../keyboard/layout'
+import { ZWNJ_NAME_FA } from '../content/faStrings'
 import './PersianKeyboard.css'
 
 export interface PersianKeyboardProps {
@@ -13,14 +14,33 @@ export interface PersianKeyboardProps {
  * with a gap between them are the نیم‌فاصله, which is exactly what it looks
  * like on paper. Drawn rather than typed so no key depends on a symbol the
  * self-hosted fonts may not carry.
+ *
+ * The space and نیم‌فاصله keys also carry a small visible name under the
+ * stroke — `aria-label` already says it to a screen reader, but a sighted
+ * learner reading the board gets nothing from that (critic round 1). The
+ * name text itself stays `aria-hidden`, so it is not announced twice.
  */
 function KeyCap({ shape }: { shape: KeyDef }) {
-  if (shape.id === 'space') return <span className="keyboard__stroke" aria-hidden="true" />
+  if (shape.id === 'space') {
+    return (
+      <span className="keyboard__sign-cap">
+        <span className="keyboard__stroke" aria-hidden="true" />
+        <span className="keyboard__caption" aria-hidden="true">
+          mellemrum
+        </span>
+      </span>
+    )
+  }
   if (shape.id === 'zwnj') {
     return (
-      <span className="keyboard__half" aria-hidden="true">
-        <span />
-        <span />
+      <span className="keyboard__sign-cap">
+        <span className="keyboard__half" aria-hidden="true">
+          <span />
+          <span />
+        </span>
+        <span className="keyboard__caption" aria-hidden="true" lang="fa" dir="rtl">
+          {ZWNJ_NAME_FA}
+        </span>
       </span>
     )
   }
