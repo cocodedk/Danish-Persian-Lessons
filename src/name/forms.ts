@@ -15,6 +15,8 @@ export interface NameLetter {
   form: FormKey
   /** The form as the pen writes it, joining strokes included: بـ ـتـ ـک ر */
   formGlyph: string
+  /** All four, so a screen can show where this one sits among them. */
+  forms: Letter['forms']
   nameDa: string
   nameFa: string
   joinsLeft: boolean
@@ -102,6 +104,7 @@ export function nameLetters(spelling: string): NameLetter[] {
       glyph: char,
       form,
       formGlyph: shape.forms[form],
+      forms: shape.forms,
       nameDa: shape.nameDa,
       nameFa: shape.nameFa,
       joinsLeft: shape.joinsLeft,

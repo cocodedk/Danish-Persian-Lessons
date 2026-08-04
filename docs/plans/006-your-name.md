@@ -43,12 +43,13 @@ alphabet lesson, and a "write your name" mini-lesson.
 
 ## Acceptance
 
-- [ ] Golden tests: Babak→بابک, Sara→سارا, Mette→مته, Søren→سورن, Anna→آنا, Ali→علی (override),
+- [x] Golden tests: Babak→بابک, Sara→سارا, Mette→مته, Søren→سورن, Anna→آنا, Ali→علی (override),
       Lærke→ لرکه (rule-based best-effort) — plus: every suggestion passes the text-rule guard
-- [ ] æ/ø/å inputs produce valid, joined Persian; nothing crashes on "X Æ A-12" style nonsense
-- [ ] Skip path still pristine: no name → no badges, no mini-lesson entry, no nags, greeting «سلام!»
-- [ ] Edit and delete flows work; deleting the name also clears `faSpelling` and hides the mini-lesson
-- [ ] Persian pane never shows Latin; the chosen spelling renders identically in greeting, badges,
+- [x] æ/ø/å inputs produce valid, joined Persian; nothing crashes on "X Æ A-12" style nonsense
+- [x] Skip path still pristine: no name → no badges, no mini-lesson entry, no nags, greeting «سلام!»
+- [x] Edit and delete flows work; deleting the name also clears `faSpelling` and hides the mini-lesson
+- [x] Persian pane never shows Latin; the chosen spelling renders identically in greeting, badges,
       and mini-lesson (single source of truth)
-- [ ] Mini-lesson passes the three-persona review (teacher / learner / maintainer) with zero concrete defects
-- [ ] `npm run verify` and CI green; no new dependencies
+- [ ] Mini-lesson passes the three-persona review (teacher / learner / maintainer) with zero concrete
+      defects — for the critic round; the builder cannot pass itself
+- [x] `npm run verify` and CI green; no new dependencies

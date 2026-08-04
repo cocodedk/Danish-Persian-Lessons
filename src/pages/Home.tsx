@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { RuledSection } from '../components/RuledSection'
 import { SplitCard } from '../components/SplitCard'
 import { LessonCard } from '../components/LessonCard'
@@ -8,12 +9,14 @@ import { StreakLine } from '../components/StreakLine'
 import { RewardShelf } from '../components/RewardShelf'
 import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
+import { isNameLessonDone } from '../progress/nameLesson'
 import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
-import { FA_GREETING, daGreeting } from '../content/greetings'
+import { faGreeting, daGreeting } from '../content/greetings'
 import './Home.css'
 
 export default function Home() {
+  const navigate = useNavigate()
   const [profile, setProfileState] = useState(() => getProfile())
   const [needsCapture, setNeedsCapture] = useState(() => !hasProfileRecord())
 
@@ -23,6 +26,9 @@ export default function Home() {
     setProfile(next)
     setProfileState(next)
     setNeedsCapture(false)
+    // A name that was just given goes straight on to its Persian spelling —
+    // the one screen where the learner meets themselves in Persian letters.
+    if (trimmed) navigate('/dit-navn')
   }
 
   function handleSkip() {
@@ -33,7 +39,10 @@ export default function Home() {
 
   function handleNameSave(name: string) {
     const trimmed = name.trim()
-    const next = { ...profile, name: trimmed || undefined }
+    // A different name is a different spelling: keeping the old one would leave
+    // the greeting, the badges and the mini-lesson spelling somebody else.
+    const kept = trimmed && trimmed !== profile.name ? undefined : profile.faSpelling
+    const next = { ...profile, name: trimmed || undefined, faSpelling: trimmed ? kept : undefined }
     setProfile(next)
     setProfileState(next)
   }
@@ -55,7 +64,7 @@ export default function Home() {
       <RuledSection>
         <SplitCard
           word={DEMO_WORD}
-          faGreeting={FA_GREETING}
+          faGreeting={faGreeting(profile.faSpelling)}
           daGreeting={daGreeting(profile.name)}
         />
         <StreakLine streak={rewards.streak} />
@@ -70,9 +79,20 @@ export default function Home() {
           progress={`${cleared} af ${ALPHABET_TOTAL} klaret`}
           to="/lesson/alphabet"
         />
+        {/* Only a learner who has a Persian spelling has this lesson at all. */}
+        {profile.faSpelling && (
+          <LessonCard
+            number={2}
+            title="Dit navn"
+            summary="Læs og skriv dit eget navn med persiske bogstaver"
+            progress={isNameLessonDone() ? 'Klaret' : 'Klar, når du er'}
+            to="/lesson/navn"
+          />
+        )}
       </RuledSection>
       <SettingsCorner
         name={profile.name}
+        faSpelling={profile.faSpelling}
         onSave={handleNameSave}
         onDelete={handleNameDelete}
       />

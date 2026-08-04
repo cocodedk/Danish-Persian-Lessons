@@ -11,9 +11,12 @@ export const SPELLING_PICK_FA = 'کدام را می‌پسندی؟'
 export const WRITE_NAME_FA = 'نامِ خود را بنویس'
 export const ASSEMBLE_FA = 'نامت را دوباره بچین'
 
+/** What the tray of tappable letters is, over both banks. */
+export const LETTERS_FA = 'حرف‌ها'
+
 /** The promise in the settings corner, said in both languages. */
 export const PRIVACY_FA = 'نامت فقط روی همین دستگاه می‌ماند.'
-export const PRIVACY_DA = 'Navnet bliver på din telefon. Det bliver aldrig sendt nogen steder hen.'
+export const PRIVACY_DA = 'Navnet gemmes kun på din telefon og sendes aldrig videre.'
 
 /** Praise that says the name out loud: «آفرین، سارا!» / "Flot, Sara!" */
 export function namePraise(faSpelling: string, name: string): Praise {
@@ -53,6 +56,7 @@ export const NAME_FA_STRINGS: string[] = [
   SPELLING_PICK_FA,
   WRITE_NAME_FA,
   ASSEMBLE_FA,
+  LETTERS_FA,
   PRIVACY_FA,
   namePraise('سارا', 'Sara').fa,
   ...[...nameLetters('سارا'), ...nameLetters('مته')].map(formNote),

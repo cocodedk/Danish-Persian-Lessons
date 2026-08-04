@@ -1,0 +1,26 @@
+/* The line the learner writes on, and the gentle word when a letter does not
+   belong there yet. Nothing here shrinks, greys out or counts mistakes. */
+
+.name-assembly {
+  margin-block-start: 1.25rem;
+}
+
+.name-assembly__line {
+  min-block-size: 3.5rem;
+  border-block-end: 1px solid var(--rule);
+}
+
+.name-assembly__again {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+}
+
+.name-assembly__again [lang='fa'] {
+  color: var(--red);
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+}

@@ -32,6 +32,9 @@ beforeEach(() => {
   markOrientationSeen()
 })
 
+// These cases play whole rounds through the real screens — a dozen renders
+// each. That is slower than the 5s default when the suite runs its files in
+// parallel, so this block says how long it may honestly take.
 describe('every exercise answer flows through the reward engine', () => {
   it('celebrates each right answer with a tick and a praise pair in both languages', () => {
     open('#/lesson/alphabet/ovelse/find')
@@ -99,7 +102,7 @@ describe('every exercise answer flows through the reward engine', () => {
     expect(screen.getByText('Spørgsmål 1 af 3')).toBeInTheDocument()
     expect(screen.getByText('یک تمرین جایزه!')).toBeInTheDocument()
   })
-})
+}, 20_000)
 
 describe('a letter cleared from its own screen celebrates too', () => {
   it('praises "Jeg kan den" instead of only ticking it off', () => {
