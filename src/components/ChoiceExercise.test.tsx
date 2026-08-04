@@ -41,7 +41,7 @@ describe('ChoiceExercise', () => {
     expect(screen.getByText('Spørgsmål 1 af 2')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText(rightChoice(0)))
-    expect(onCorrect).toHaveBeenCalledWith(questions[0].letterId)
+    expect(onCorrect).toHaveBeenCalledWith(questions[0].itemId)
   })
 
   it('praises a right tap and only then offers the next question', () => {

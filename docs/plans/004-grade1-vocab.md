@@ -76,6 +76,19 @@ word the forside greets with, so it arrives with a face the learner knows.
 - **Names left out.** The primer's own children, سارا and دارا, are lovely first words but they are
   names, not vocabulary; plan 006 already teaches the learner their own name.
 
+### Note on the red pen (durable decision)
+
+The gradient cut in `src/styles/pen.css` colours everything above one horizontal line, and that line
+was tuned for the مد of آ — which sits far higher than a زبر over a short letter. On مَدرِسه it left
+the marks in ink; lowering it turned the top of every ا and ل red instead. No single cut can do both,
+and it can only ever colour one side of the line, so a word marked above *and* below loses one mark.
+
+A vocalized specimen is now drawn as two copies of the same word in one grid cell: `faMarked` in
+`--red` underneath, `fa` in `--ink` on top. Diacritics carry no width, so the letterforms land
+pixel-identically and only the marks show through — both sides of the line, on every word. The ink
+layer keeps the old gradient, so آ still gets its red مد. `FaSpecimen` falls back to the single-layer
+path whenever `faMarked` is not `fa` plus marks (`withoutMarks(faMarked) === fa` is the test).
+
 ## Steps
 
 1. **Research pass first** (WebSearch): the authentic فارسی اول دبستان word progression — which
@@ -103,11 +116,11 @@ word the forside greets with, so it arrives with a face the learner knows.
 
 ## Acceptance
 
-- [ ] Word list proposal committed in this plan file and flagged for Babak's native review
-- [ ] Starter-set words all present in unit 1 with correct faMarked diacritics (teacher persona
+- [x] Word list proposal committed in this plan file and flagged for Babak's native review
+- [x] Starter-set words all present in unit 1 with correct faMarked diacritics (teacher persona
       checks هر اِعراب letter by letter) and natural Danish equivalents
-- [ ] Every card: pronunciation twice from data; specimen marks red, on specimens only
-- [ ] Unique-answer invariant test extended to vocab exercises and green
-- [ ] Units enterable in any order; progress + rewards flow; pay-once verified with reloads
+- [x] Every card: pronunciation twice from data; specimen marks red, on specimens only
+- [x] Unique-answer invariant test extended to vocab exercises and green
+- [x] Units enterable in any order; progress + rewards flow; pay-once verified with reloads
 - [ ] 360px both schemes clean; RTL correct; no new deps; 200-line cap; `npm run verify` + CI green
 - [ ] Critic personas (teacher / learner / maintainer) find no concrete defect

@@ -9,3 +9,18 @@
   font-size: clamp(4.5rem, 20vw, 9rem);
   line-height: 2;
 }
+
+/* A vocalized word: both layers share one grid cell, so the two copies of the
+   word sit exactly on top of each other. See FaSpecimen.tsx for why. */
+.fa-specimen--vocalized {
+  display: grid;
+}
+
+.fa-specimen--vocalized > span {
+  grid-area: 1 / 1;
+}
+
+/* The teacher's pen. Only the اِعراب are ever left uncovered by the ink layer. */
+.fa-specimen__marks {
+  color: var(--red);
+}

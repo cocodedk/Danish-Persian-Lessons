@@ -10,8 +10,8 @@ import './ChoiceExercise.css'
 
 export interface ChoiceExerciseProps {
   questions: Question[]
-  /** Fires the first time a question is answered right, with the letter's id. */
-  onCorrect: (letterId: string) => Reward | void
+  /** Fires the first time a question is answered right, with the item's id. */
+  onCorrect: (itemId: string) => Reward | void
   /** Fires once, when the last question is answered. */
   onComplete: () => Reward | void
 }
@@ -30,12 +30,16 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
 
   const question = questions[index]
   const isLast = index === questions.length - 1
+  // Persian choices read right to left; the Danish meanings of plan 004's
+  // vocabulary rounds read left to right. Nothing else about the round changes.
+  const choiceLang = question.choiceLang ?? 'fa'
+  const choiceDir = choiceLang === 'fa' ? 'rtl' : 'ltr'
 
   function choose(choiceId: string) {
     if (solved) return
     if (choiceId === question.answerId) {
       setSolved(true)
-      setReward(onCorrect(question.letterId) ?? null)
+      setReward(onCorrect(question.itemId) ?? null)
       return
     }
     setMissed((tried) => (tried.includes(choiceId) ? tried : [...tried, choiceId]))
@@ -83,8 +87,8 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
                 className={`choice-exercise__choice ${tried} ${
                   state ? 'choice-exercise__choice--right' : ''
                 }`}
-                lang="fa"
-                dir="rtl"
+                lang={choiceLang}
+                dir={choiceDir}
                 onClick={() => choose(choice.id)}
               >
                 {choice.glyph}

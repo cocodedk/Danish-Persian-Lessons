@@ -14,6 +14,18 @@ const BELOW = new Set(['ِ', 'ٍ'])
 const ABOVE = new Set(['ً', 'ٌ', 'َ', 'ُ', 'ّ', 'ْ', 'ٓ'])
 
 /**
+ * اِعراب as combining marks: تنوین، زبر، زیر، پیش، تشدید، ساکن (U+064B–U+0652).
+ * The madde (U+0653) is deliberately outside the range — it is part of how آ is
+ * spelled, not a vowel sign a reader could do without.
+ */
+const HARAKAT = /[\u064B-\u0652]/g
+
+/** The same word with its اِعراب taken off: «مَدرِسه» → «مدرسه», «آب» → «آب». */
+export function withoutMarks(text: string): string {
+  return text.replace(HARAKAT, '')
+}
+
+/**
  * The side a string's vowel marks are written on. The text is decomposed
  * first, so the precomposed آ (U+0622) and the spelled-out ا + ٓ classify alike.
  *

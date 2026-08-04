@@ -10,6 +10,8 @@ import { RewardShelf } from '../components/RewardShelf'
 import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
 import { isNameLessonDone } from '../progress/nameLesson'
+import { vocabUnits } from '../lessons/vocab'
+import { unitDoneCount } from '../progress/vocab'
 import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
 import { faGreeting, daGreeting } from '../content/greetings'
@@ -58,6 +60,9 @@ export default function Home() {
 
   const cleared = doneCount(getAlphabetProgress())
   const rewards = getRewards()
+  // The name lesson only exists for a learner who has a spelling, so the word
+  // units number themselves after whatever is actually on the page.
+  const firstWordNumber = profile.faSpelling ? 3 : 2
 
   return (
     <main className="home">
@@ -89,6 +94,16 @@ export default function Home() {
             to="/lesson/navn"
           />
         )}
+        {vocabUnits.map((unit, index) => (
+          <LessonCard
+            key={unit.id}
+            number={firstWordNumber + index}
+            title={unit.title}
+            summary={unit.summary}
+            progress={`${unitDoneCount(unit)} af ${unit.words.length} ord klaret`}
+            to={`/lesson/ord/${unit.id}`}
+          />
+        ))}
       </RuledSection>
       <SettingsCorner
         name={profile.name}

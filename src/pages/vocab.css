@@ -1,0 +1,64 @@
+/* The vocabulary screens: one unit, one word, one round. They sit on the same
+   RuledSection sheet as the alphabet screens and reuse that stylesheet's
+   summary, lead, section title, links, note, eyebrow and badge — every screen
+   here imports alphabet.css beside this file. Only the word list and the
+   Persian unit heading are new. */
+
+.vocab__title-fa {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* The name badge on a word carries a whole sentence in each language. At 360px
+   they stack instead of squeezing into two thin columns. */
+.vocab__badge {
+  flex-wrap: wrap;
+}
+
+/* A word needs more room than a letter: two lines, so the pair stays a pair. */
+.vocab__grid {
+  direction: rtl;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vocab__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  min-block-size: var(--tap-min);
+  padding: 0.5rem 0.4rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Cleared: the teacher's pen under the word. Never removed. */
+.vocab__cell--done {
+  border-block-end: 3px solid var(--red);
+}
+
+.vocab__cell-fa {
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.vocab__cell-da {
+  font-family: var(--font-latin);
+  font-size: 0.875rem;
+  opacity: 0.75;
+}

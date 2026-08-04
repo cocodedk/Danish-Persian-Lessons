@@ -19,19 +19,22 @@ export interface Choice {
 
 export interface Question {
   id: string
-  /** The letter a correct answer completes. */
-  letterId: string
+  /** The item a correct answer completes: a letter here, a word in plan 004. */
+  itemId: string
   /** Danish prompt, du-form. */
   promptDa: string
-  /** The letter being asked about, when the question shows one. */
+  /** The Persian the question shows, when it shows any. */
   promptFa?: string
-  /** Dansk lydskrift + IPA for the letter in play — always from the data. */
+  /** Dansk lydskrift + IPA for the item in play — always from the data. */
   sound: Pron
   choices: Choice[]
   answerId: string
+  /** What language the choices are written in. Persian unless stated otherwise. */
+  choiceLang?: 'fa' | 'da'
 }
 
-const CHOICE_COUNT = 4
+/** Four choices per question — shared with the vocabulary rounds (plan 004). */
+export const CHOICE_COUNT = 4
 const LETTER_ORDER = letters.map((letter) => letter.id)
 
 type Position = 'initial' | 'medial' | 'final'
@@ -70,7 +73,7 @@ function distractorIds(id: string, count: number, order: string[]): string[] {
 }
 
 /** Puts the right answer in a different slot each question, without randomness. */
-function arrange(answer: Choice, distractors: Choice[], slot: number): Choice[] {
+export function arrange(answer: Choice, distractors: Choice[], slot: number): Choice[] {
   const choices = [...distractors]
   choices.splice(slot % CHOICE_COUNT, 0, answer)
   return choices
@@ -86,7 +89,7 @@ function findQuestions(): Question[] {
     }))
     return {
       id: `find-${id}`,
-      letterId: id,
+      itemId: id,
       promptDa: 'Hvilket tegn siger denne lyd?',
       sound: specimen.sound,
       choices: arrange({ id, glyph: specimen.glyph }, distractors, index),
@@ -109,7 +112,7 @@ function matchQuestions(): Question[] {
     }))
     return {
       id: `match-${letter.id}`,
-      letterId: letter.id,
+      itemId: letter.id,
       promptDa: `Hvordan ser bogstavet ud ${POSITION_DA[position]}?`,
       promptFa: letter.glyph,
       sound: letter.sound,

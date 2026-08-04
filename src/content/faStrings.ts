@@ -17,6 +17,10 @@ export const WELL_DONE_FA = 'آفرین'
 /** The margin badge on a letter the learner's own name is spelled with (plan 006). */
 export const NAME_LETTER_FA = 'این حرف در نامِ توست'
 
+/** The same warm note on a whole word (plan 004) — one shared letter, or several. */
+export const NAME_LETTER_IN_WORD_FA = 'حرفی از نامِ تو در این کلمه هست'
+export const NAME_LETTERS_IN_WORD_FA = 'حرف‌هایی از نامِ تو در این کلمه هست'
+
 /** Every Persian UI string outside lesson data — walked by the text-rule guard. */
 export const PERSIAN_UI_STRINGS: string[] = [
   CAPTURE_PROMPT,
@@ -26,6 +30,8 @@ export const PERSIAN_UI_STRINGS: string[] = [
   TRY_AGAIN_FA,
   WELL_DONE_FA,
   NAME_LETTER_FA,
+  NAME_LETTER_IN_WORD_FA,
+  NAME_LETTERS_IN_WORD_FA,
   ...ORIENTATION_FA_STRINGS,
   ...LATER_MARK_FA_STRINGS,
   ...REWARD_FA_STRINGS,

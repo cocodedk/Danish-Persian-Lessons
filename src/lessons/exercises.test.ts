@@ -7,8 +7,8 @@ const match = buildQuestions('match')
 
 describe('exercise questions', () => {
   it('asks about every specimen once, in teaching order', () => {
-    expect(find.map((q) => q.letterId)).toEqual(teachingOrder)
-    expect(match.map((q) => q.letterId)).toEqual(letters.map((l) => l.id))
+    expect(find.map((q) => q.itemId)).toEqual(teachingOrder)
+    expect(match.map((q) => q.itemId)).toEqual(letters.map((l) => l.id))
   })
 
   it('gives every question four distinct choices, one of them right', () => {
@@ -22,7 +22,7 @@ describe('exercise questions', () => {
 
   it('says every prompt twice — dansk lydskrift and IPA — from the letter data', () => {
     for (const question of [...find, ...match]) {
-      expect(question.sound, question.id).toEqual(specimens[question.letterId].sound)
+      expect(question.sound, question.id).toEqual(specimens[question.itemId].sound)
       expect(question.sound.da.length).toBeGreaterThan(0)
       expect(question.sound.ipa.length).toBeGreaterThan(0)
     }
@@ -64,12 +64,12 @@ describe('exercise questions', () => {
   })
 
   it('picks distractors a learner could actually confuse — same body, other dots', () => {
-    const be = find.find((q) => q.letterId === 'be')
+    const be = find.find((q) => q.itemId === 'be')
     expect(be?.choices.map((c) => c.id).sort()).toEqual(['be', 'pe', 'se', 'te'])
   })
 
   it('asks non-joiners about their final form, since they have no medial one', () => {
-    const alef = match.find((q) => q.letterId === 'alef')
+    const alef = match.find((q) => q.itemId === 'alef')
     expect(alef?.promptDa).toContain('sidst i et ord')
     expect(alef?.choices.find((c) => c.id === 'alef')?.glyph).toBe('ـا')
   })
@@ -80,7 +80,7 @@ describe('exercise questions', () => {
         const letter = letters.find((l) => l.id === choice.id)
         expect(Object.values(letter!.forms), question.id).toContain(choice.glyph)
       }
-      expect(question.promptFa).toBe(specimens[question.letterId].glyph)
+      expect(question.promptFa).toBe(specimens[question.itemId].glyph)
     }
   })
 
