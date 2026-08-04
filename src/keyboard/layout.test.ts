@@ -44,6 +44,14 @@ describe('the key map', () => {
     }
   })
 
+  it('gives every letter key the same Danish sound hint the alphabet data carries', () => {
+    const letterKeys = KEYBOARD_KEYS.filter((each) => each.kind === 'letter')
+    for (const key of letterKeys) {
+      expect(key.hint, key.id).toBe(specimens[key.id].latinHint)
+      expect(key.hint, key.id).toBeTruthy()
+    }
+  })
+
   it('labels the three sign keys in plain Danish, so no key is a mystery', () => {
     const signs = KEYBOARD_KEYS.filter((key) => key.kind !== 'letter')
     expect(signs.map((key) => key.label)).toEqual([
@@ -52,6 +60,13 @@ describe('the key map', () => {
       'slet sidste tegn',
     ])
     expect(signs.map((key) => key.glyph)).toEqual([SPACE, ZWNJ, ''])
+  })
+
+  it('gives the three sign keys no Latin hint — they keep their own caption', () => {
+    const signs = KEYBOARD_KEYS.filter((key) => key.kind !== 'letter')
+    for (const key of signs) {
+      expect(key.hint, key.id).toBeUndefined()
+    }
   })
 
   it('lays out six rows of six — the widest grid that keeps every key ≥44px at 360px', () => {
@@ -78,6 +93,11 @@ describe('how the board is drawn', () => {
 
   it('shows keyboard focus, the way the accessibility floor requires', () => {
     expect(keyboardCss).toMatch(/:focus-visible\s*\{[^}]*outline: 2px solid var\(--blue\)/)
+  })
+
+  it('draws the Danish sound hint in the orange token, in the Latin face', () => {
+    expect(keyboardCss).toMatch(/\.keyboard__hint\s*\{[^}]*color: var\(--orange\)/)
+    expect(keyboardCss).toMatch(/\.keyboard__hint\s*\{[^}]*font-family: var\(--font-latin\)/)
   })
 
   it('animates nothing — there is no motion here for reduced motion to take away', () => {

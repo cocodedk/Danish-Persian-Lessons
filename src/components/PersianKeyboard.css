@@ -56,6 +56,26 @@
   }
 }
 
+/* A letter key stacks its ink glyph over its Danish sound hint — the glyph's
+   own line-height (1.4, tuned for one centered line) would waste height now
+   that a second line sits under it, so this wrapper sets a tighter one. */
+.keyboard__letter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+}
+
+/* The hint: Andika, small, --orange — the pencil orange, never the ink or the
+   blue the key is drawn in. aria-hidden (see the component comment), so this
+   is a sighted teaching aid only. */
+.keyboard__hint {
+  font-family: var(--font-latin);
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--orange);
+}
+
 /* A space is one pen stroke; the نیم‌فاصله is that stroke cut in half. */
 .keyboard__stroke {
   inline-size: 1.5rem;
@@ -101,7 +121,8 @@
 }
 
 .keyboard__key:active .keyboard__erase,
-.keyboard__key:active .keyboard__caption {
+.keyboard__key:active .keyboard__caption,
+.keyboard__key:active .keyboard__hint {
   color: var(--paper);
 }
 

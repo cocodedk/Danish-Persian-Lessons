@@ -121,6 +121,7 @@ describe('Persian text-rule guard', () => {
       joinsLeft: true,
       sound: { da: 'k i "kat"', ipa: 'k' },
       strokes: [{ d: 'M 82 14 L 18 44', kind: 'stroke' }],
+      latinHint: 'k',
     }
     const badLesson: Lesson = { id: 'fixture-letter-bad', kind: 'alphabet', items: [badLetter] }
     const badViolations = collectFaStrings(badLesson).flatMap(findPersianTextViolations)
@@ -144,6 +145,7 @@ describe('Persian text-rule guard', () => {
       joinsLeft: true,
       sound: { da: 'j i "ja"', ipa: 'j' },
       strokes: [{ d: 'M 82 14 L 18 44', kind: 'stroke' }],
+      latinHint: 'j',
       hint: 'Alene står ي uden prikker.', // deliberately bad: Arabic yeh, should be ی
     }
     const badLesson: Lesson = { id: 'fixture-hint-bad', kind: 'alphabet', items: [withHint] }
