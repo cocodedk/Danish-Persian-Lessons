@@ -29,10 +29,8 @@ the app exists, `npm run verify`) is green.
 
 **All seven roadmap plans are merged and live (2026-08-04).** The gauntlet is complete; future work continues as numbered plans below.
 
-- [ ] **P8 — [008-keyboard-danish-hints.md](008-keyboard-danish-hints.md)**: Danish sound hints on the
-      keyboard keys, small and orange + app favicon (requested by Babak 2026-08-04).
-- [ ] **P9 — [009-praise-pronunciation.md](009-praise-pronunciation.md)**: lydskrift + IPA beside every
-      Persian praise word (requested by Babak 2026-08-04).
+- [x] **P8 — [008-keyboard-danish-hints.md](008-keyboard-danish-hints.md)** (merged 2026-08-04, PR #21, one adjudicated critic round): orange Danish key hints + app favicon.
+- [x] **P9 — [009-praise-pronunciation.md](009-praise-pronunciation.md)** (merged 2026-08-04, PR #22, one adjudicated critic round): lydskrift + IPA beside every praise word.
 
 ## Later (not planned yet — do not build ahead)
 
