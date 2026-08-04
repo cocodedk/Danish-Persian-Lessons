@@ -67,6 +67,20 @@ export const IRANIAN_NAMES: Record<string, string> = {
   kaveh: 'کاوه',
   kourosh: 'کوروش',
   kurosh: 'کوروش',
+  // Kousar is spelled with ث — the name is the Quranic word کوثر, a river in
+  // paradise. Spelled by sound it would come out کوسر, which is not the name at
+  // all and is crude besides. See blocklist.ts.
+  kosar: 'کوثر',
+  kousar: 'کوثر',
+  kowsar: 'کوثر',
+  kawsar: 'کوثر',
+  // Cyrus is the Latin of Kourosh, but a family that writes Cyrus writes سیروس,
+  // not کوروش. Spelled by sound it opens on کیر, so the list is the only way it
+  // gets an answer at all. Roxana carries the x the sound table refuses, and is
+  // here for the same reason the Danish x names are on theirs.
+  cyrus: 'سیروس',
+  roxana: 'رکسانا',
+  roxanna: 'رکسانا',
   mina: 'مینا',
   mitra: 'میترا',
   neda: 'ندا',

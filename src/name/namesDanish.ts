@@ -50,10 +50,19 @@ export const DANISH_NAMES: Record<string, string> = {
   magnus: 'مگنوس',
   // The x names live here or nowhere: the sound table does not map x at all,
   // because a name that opens on ک + س opens on a crude word. Inside a word the
-  // two letters are simply themselves.
+  // two letters are simply themselves. Felix and Axel are top-fifty Danish boys'
+  // names, so «nowhere» would have meant handing half a classroom the bare
+  // alphabet — the list is where they get an answer.
   alexander: 'الکساندر',
+  alexandra: 'الکساندرا',
   alex: 'الکس',
   max: 'مکس',
+  maxine: 'مکسین',
+  felix: 'فلیکس',
+  axel: 'اکسل',
+  aksel: 'اکسل',
+  rex: 'رکس',
+  xenia: 'زنیا',
   victor: 'ویکتور',
   anton: 'آنتون',
   carl: 'کارل',
@@ -94,7 +103,17 @@ export const DANISH_NAMES: Record<string, string> = {
   laura: 'لاورا',
   astrid: 'آسترید',
   signe: 'سیگنه',
+  // The whole Margrethe family, spelled with the ا Danish really says. Sound
+  // alone would open every one of them on مرگ — «død» — so the list carries the
+  // family rather than one member of it. See blocklist.ts.
   margrethe: 'مارگرته',
+  margrete: 'مارگرته',
+  margit: 'مارگیت',
+  marga: 'مارگا',
+  marge: 'مارگه',
+  margrit: 'مارگریت',
+  margaretha: 'مارگارتا',
+  margarethe: 'مارگارته',
   katrine: 'کاترینه',
   kathrine: 'کاترینه',
   cecilie: 'سیسیلیه',

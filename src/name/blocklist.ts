@@ -9,10 +9,12 @@
 // Two match modes, because Persian words behave in two different ways here:
 //
 //   * PREFIX — the worst words are still the word when a name grows out of
-//     them: کیرستن opens on کیر and is read that way, whatever follows. These
-//     are matched against the START of a written part.
-//   * WHOLE TOKEN — مرگ («død») inside مارگرته is nothing at all; مرگ standing
-//     alone is death. These are matched against the whole part, never inside it,
+//     them: کیرستن opens on کیر and is read that way, whatever follows. So is
+//     مرگریته, which opens on مرگ («død») and stays death for the length of the
+//     name; the ا that Danish Margrethe really carries is what saves مارگرته,
+//     not the letters after the گ. These are matched against the START of a part.
+//   * WHOLE TOKEN — خر («æsel») inside خرم is nothing at all; خر standing alone
+//     is an insult. These are matched against the whole part, never inside it,
 //     or half the override table would fall (الکساندر carries کس in the middle
 //     and is simply Alexander).
 //
@@ -20,14 +22,27 @@
 // word, it only makes it a worse suggestion. A filtered part offers nothing.
 
 /** Crude whatever follows them — matched on the opening of a part. */
-export const CRUDE_PREFIXES: string[] = ['کس', 'کیر', 'کون', 'گوز', 'شاش', 'چس']
+export const CRUDE_PREFIXES: string[] = [
+  'کس',
+  'کیر',
+  'کون',
+  'گوز',
+  'شاش',
+  'چس',
+  // These three used to be whole-token entries, and that was the bug: a name is
+  // not made decent by growing. کوسر, کوسیما and کوسه all open on کوس and all
+  // read as the word; مرگت and مرگا open on death; چوسی is still چوس. Every
+  // Margrete-shaped name that survives does so on its own ا — مارگیت, not مرگت.
+  'کوس',
+  'مرگ',
+  'چوس',
+]
 
 /** Crude only as the whole word — matched against a complete part. */
 export const CRUDE_WORDS: string[] = [
   'سکس',
   'کص',
   'کصکش',
-  'کوس',
   'کونی',
   'جنده',
   'جاکش',
@@ -42,7 +57,9 @@ export const CRUDE_WORDS: string[] = [
   'بز',
   'کر',
   'زر',
-  'مرگ',
+  // Sine spells سینه, which is a body part and not a Dane's name. It is a whole
+  // word, not an opening: سینا (Sina) is a man's name and must stay.
+  'سینه',
   'دول',
   'دودول',
   'ممه',

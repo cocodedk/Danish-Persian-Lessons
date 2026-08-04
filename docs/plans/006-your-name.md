@@ -133,3 +133,33 @@ Two fresh concerns were accepted as real and deferred by the planner — logged 
 - **At 360px the assembly exercise sits below the fold**, under the whole letter-by-letter
   walkthrough. The exercise is the part that teaches by doing, and it is the part a thumb has to
   scroll for.
+
+## Critic round 2 (2026-08-04) — FAIL, adjudicated
+
+Round 1 was fixed string by string. The critic typed in the next string and it came back crude.
+Everything below is the same class closed at the rule instead of at the instance.
+
+- **مرگ was a whole-token entry, so only مرگ itself was caught.** Margrete → مرگریته, Margit →
+  مرگت, Marga → مرگا: «død» first, at rank 1, in the app's own top suggestion. مرگ, کوس and چوس
+  moved to `CRUDE_PREFIXES` — a name is not made decent by growing. What saves the Danish
+  Margrethe is the ا she really carries (مارگرته), not the letters after the گ.
+- **سینه was on no list at all.** Signe had been fixed to سیگنه and Sine had not, so every Sine in
+  Denmark was still offered a body part. سینه is now a `CRUDE_WORDS` entry — whole-token, because
+  سینا (Sina) is a man's name and must stay.
+- **Kosar → کوسر, the worst catch: crude AND not the name.** کوثر is the name — the Quranic word,
+  spelled with ث, which no sound rule can reach. On the override list now, with Kousar/Kowsar/
+  Kawsar. The whole Margrethe family (Margrete, Margit, Marga, Marge, Margrit, Margaretha,
+  Margarethe) is on the list too, spelled مارگ-.
+- **The x-name gap the round-1 fix opened.** Dropping x from the sound table left Felix and Axel —
+  both top-fifty Danish boys' names — with no suggestion at all, and Cyrus with none either
+  (سیروس; by sound it opens on کیر). Now on the list: فلیکس, اکسل, الکساندرا, مکسین, زنیا, رکس,
+  سیروس, رکسانا.
+- **The two hint languages shared a line.** At 360px the Persian sentence and the Danish one
+  wrapped into each other — RTL and LTR interleaved, with no way to see where one language stopped.
+  `.name-assembly__again` is a column now; each sentence wraps inside its own block.
+- **The guard was extended from letter-strings to names.** `src/name/nameCorpus.ts` carries ~290
+  real Danish and Iranian first names, including every probe the critic typed; the sweep walks
+  them beside the 25 000 short strings, and the three repros are asserted not to reproduce.
+- **Two files over the 200-line cap** were split: `nameLesson.test.tsx` into the lesson and the
+  assembly exercise, `permanence.test.ts` into the shape guarantees and the seeded fuzz, with the
+  shared moves in a `*Harness` module each.

@@ -1,36 +1,14 @@
 // Permanence, asserted by API shape rather than by anyone's discipline: the export surface
 // is snapshotted, no name a hostile caller can reach is an event kind — including every own
-// name on `Object.prototype` — and a seeded fuzz replays hostile and legitimate events
-// against the real store, checking after EVERY event that nothing went down.
+// name on `Object.prototype` — and nothing handed to the store can shrink what is already
+// there. The seeded replay that hammers the same guarantees is permanenceFuzz.test.ts.
 import { describe, it, expect, beforeEach } from 'vitest'
 import * as engine from './engine'
 import * as records from './records'
 import { celebrate, getRewards } from './engine'
 import { join, normalize } from './records'
 import type { RewardEventKind } from './types'
-
-const KEY = 'dpl.v1.rewards'
-const DAY = new Date(2026, 2, 3, 10, 0, 0)
-
-/** Every own name on `Object.prototype`, computed — `__proto__` included. */
-const PROTOTYPE_KEYS = Object.getOwnPropertyNames(Object.prototype)
-
-/** Points, level, sticker count and streak value as one comparable tuple. */
-function snapshot(): number[] {
-  const view = getRewards(DAY)
-  return [view.points, view.level, view.stickers.length, view.streak.value]
-}
-
-function expectNeverLower(before: number[], after: number[], what: string): void {
-  after.forEach((value, index) => {
-    expect(Number.isNaN(value), `${what}: field ${index} went NaN`).toBe(false)
-    expect(value, `${what}: field ${index} went down`).toBeGreaterThanOrEqual(before[index])
-  })
-}
-
-function putRaw(value: unknown): void {
-  window.localStorage.setItem(KEY, JSON.stringify({ schemaVersion: 1, value }))
-}
+import { DAY, PROTOTYPE_KEYS, snapshot, expectNeverLower, putRaw } from './permanenceHarness'
 
 beforeEach(() => {
   window.localStorage.clear()
@@ -149,62 +127,4 @@ describe('nothing handed to the store can shrink what the learner owns', () => {
       expect(merged.streak.value).toBe(2)
     }
   })
-})
-
-/** mulberry32 — seeded, so this fuzz replays identically for everyone, forever. */
-function rng(seed: number): () => number {
-  let state = seed >>> 0
-  return () => {
-    state = (state + 0x6d2b79f5) >>> 0
-    let t = Math.imul(state ^ (state >>> 15), state | 1)
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-  }
-}
-
-const SEEDS = [1, 7, 42, 1337, 2026, 20260803]
-const STEPS = 40
-const CLOCKS = [DAY, new Date(2026, 2, 9, 8), new Date(2026, 1, 20, 22), new Date('nonsense')]
-const KINDS: unknown[] = [
-  'answer',
-  'item',
-  'page',
-  'replay',
-  'bogus',
-  undefined,
-  null,
-  ...PROTOTYPE_KEYS,
-]
-const GIFTS = [undefined, 'g1', 'g2']
-
-const STARTS: Record<string, () => void> = {
-  clean: () => {},
-  'mid-progress': () => {
-    for (let i = 0; i < 25; i += 1) celebrate('answer', DAY)
-  },
-  'hostile-corrupt': () =>
-    putRaw({ points: -99, level: 'many', stickers: 'none', giftsOpened: null, streak: null }),
-}
-
-describe('monotonicity fuzz — after every single event, nothing has gone down', () => {
-  for (const [name, seedState] of Object.entries(STARTS)) {
-    it(`holds from a ${name} start, on every seed`, () => {
-      for (const seed of SEEDS) {
-        window.localStorage.clear()
-        seedState()
-        const pick = rng(seed)
-        let previous = snapshot()
-
-        for (let step = 0; step < STEPS; step += 1) {
-          const kind = KINDS[Math.floor(pick() * KINDS.length)]
-          const clock = CLOCKS[Math.floor(pick() * CLOCKS.length)]
-          celebrate(kind as RewardEventKind, clock, GIFTS[Math.floor(pick() * GIFTS.length)])
-
-          const now = snapshot()
-          expectNeverLower(previous, now, `${name} seed ${seed} step ${step} ${String(kind)}`)
-          previous = now
-        }
-      }
-    })
-  }
 })

@@ -3,6 +3,7 @@ import { crudeHits, isDecent, CRUDE_PREFIXES, CRUDE_WORDS } from './blocklist'
 import { suggestSpellings } from './transliterate'
 import { NAME_OVERRIDE_FA_STRINGS, NAME_OVERRIDE_LATIN } from './overrides'
 import { GUARD_FIXTURE_NAMES } from './guardFixtures'
+import { GIVEN_NAME_CORPUS } from './nameCorpus'
 import { findPersianTextViolations } from '../lessons/textRules'
 
 const DANISH_ALPHABET = [...'abcdefghijklmnopqrstuvwxyzæøå']
@@ -35,13 +36,27 @@ describe('the crude-word filter', () => {
   })
 
   it('leaves the same letters alone inside a word, where they are not the word', () => {
-    // الکساندر carries ک س in the middle and is simply Alexander; مرگ is death
-    // standing alone and nothing at all inside مارگرته.
+    // الکساندر carries ک س in the middle and is simply Alexander; خر is an
+    // insult standing alone and nothing at all inside خرم.
     expect(crudeHits('الکساندر')).toEqual([])
-    expect(crudeHits('مارگرته')).toEqual([])
     expect(crudeHits('خرم')).toEqual([])
-    expect(crudeHits('مرگ')).toEqual(['مرگ'])
     expect(crudeHits('خر')).toEqual(['خر'])
+    expect(crudeHits('سینا')).toEqual([])
+    expect(crudeHits('سینه')).toEqual(['سینه'])
+  })
+
+  it('reads مرگ, کوس and چوس from the opening, because a name growing does not help', () => {
+    // The round-2 hole: these three were whole-token entries, so مرگریته and
+    // کوسر walked straight through. What saves the Danish Margrethe is the ا she
+    // really carries, not the letters after the گ.
+    expect(crudeHits('مرگریته')).toEqual(['مرگ'])
+    expect(crudeHits('مرگت')).toEqual(['مرگ'])
+    expect(crudeHits('کوسر')).toEqual(['کوس'])
+    expect(crudeHits('چوسی')).toEqual(['چوس'])
+    expect(crudeHits('مارگرته')).toEqual([])
+    expect(crudeHits('مارگیت')).toEqual([])
+    expect(crudeHits('کوروش')).toEqual([])
+    expect(crudeHits('کوثر')).toEqual([])
   })
 
   it('reads a compound name part by part, so one bad half is caught', () => {
@@ -64,6 +79,7 @@ describe('nothing the engine offers reads crude', () => {
       ...everyString(3),
       ...NAME_OVERRIDE_LATIN,
       ...GUARD_FIXTURE_NAMES,
+      ...GIVEN_NAME_CORPUS,
     ]
 
     const offences: string[] = []
@@ -101,5 +117,46 @@ describe('nothing the engine offers reads crude', () => {
     expect(suggestSpellings('Car')).toEqual(['کار'])
     // Konrad keeps the short-vowel reading; کونراد, which opens on a word, goes.
     expect(suggestSpellings('Konrad')).toEqual(['کنرد'])
+  })
+})
+
+describe('the names people really have', () => {
+  it('walks a few hundred Danish and Iranian first names without one crude answer', () => {
+    const offences: string[] = []
+    let answered = 0
+    let offered = 0
+    for (const name of GIVEN_NAME_CORPUS) {
+      const spellings = suggestSpellings(name)
+      if (spellings.length > 0) answered += 1
+      for (const spelling of spellings) {
+        offered += 1
+        const hits = crudeHits(spelling)
+        if (hits.length > 0) offences.push(`${name} → ${spelling} (${hits.join(' ')})`)
+      }
+    }
+
+    expect(offences).toEqual([])
+    expect(GIVEN_NAME_CORPUS.length).toBeGreaterThan(250)
+    expect(offered).toBeGreaterThan(300)
+    // Silence is the honest answer for a handful of these, and only a handful:
+    // a guard that passed by refusing every name would be no guard at all.
+    expect(answered / GIVEN_NAME_CORPUS.length).toBeGreaterThan(0.9)
+  })
+
+  it('does not reproduce anything the round-2 critic typed in', () => {
+    // 1. مرگریته — «død» first, and it was the top suggestion.
+    expect(suggestSpellings('Margrete')[0]).not.toBe('مرگریته')
+    expect(suggestSpellings('Margrete')).toEqual(['مارگرته'])
+    expect(suggestSpellings('Margit')).toEqual(['مارگیت'])
+    // 2. سینه — a body part, offered to every Sine in Denmark.
+    expect(suggestSpellings('Sine')).toEqual([])
+    expect(crudeHits(suggestSpellings('Sinne').join(' '))).toEqual([])
+    // 3. کوسر for Kosar. The name is کوثر and always was.
+    expect(suggestSpellings('Kosar')).toEqual(['کوثر'])
+    expect(suggestSpellings('Kowsar')).toEqual(['کوثر'])
+    // …and the x-names the round-1 fix left with nothing to read at all.
+    expect(suggestSpellings('Felix')).toEqual(['فلیکس'])
+    expect(suggestSpellings('Axel')).toEqual(['اکسل'])
+    expect(suggestSpellings('Cyrus')).toEqual(['سیروس'])
   })
 })

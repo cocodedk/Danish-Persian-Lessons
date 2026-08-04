@@ -10,17 +10,26 @@
   border-block-end: 1px solid var(--rule);
 }
 
+/* The two languages stack; they never share a line. Side by side they fitted on
+   a laptop and fell apart on a phone: «این حرف در نامِ تو نیست. دوباره نگاه کن.»
+   is a sentence, not a word, and at 360 px it wrapped INTO the Danish sentence
+   beside it — right-to-left and left-to-right shuffled together, with no way to
+   tell where one language stopped. In a column each sentence wraps inside its
+   own block and keeps its own direction. */
 .name-assembly__again {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
   margin: 0.5rem 0;
   font-family: var(--font-latin);
   font-size: 0.9375rem;
+  line-height: 1.5;
 }
 
 .name-assembly__again [lang='fa'] {
   color: var(--red);
   font-family: var(--font-fa);
   font-size: 1.125rem;
+  line-height: 1.7;
 }
