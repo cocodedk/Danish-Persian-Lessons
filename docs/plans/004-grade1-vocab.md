@@ -122,5 +122,5 @@ path whenever `faMarked` is not `fa` plus marks (`withoutMarks(faMarked) === fa`
 - [x] Every card: pronunciation twice from data; specimen marks red, on specimens only
 - [x] Unique-answer invariant test extended to vocab exercises and green
 - [x] Units enterable in any order; progress + rewards flow; pay-once verified with reloads
-- [ ] 360px both schemes clean; RTL correct; no new deps; 200-line cap; `npm run verify` + CI green
+- [x] 360px both schemes clean; RTL correct; no new deps; 200-line cap; `npm run verify` + CI green
 - [ ] Critic personas (teacher / learner / maintainer) find no concrete defect
