@@ -48,8 +48,8 @@ describe('name transliteration', () => {
   })
 
   it('ranks: the first suggestion is the best one, and they are all different', () => {
-    const suggestions = suggestSpellings('Søren')
-    expect(suggestions[0]).toBe('سورن')
+    const suggestions = suggestSpellings('Lærke')
+    expect(suggestions[0]).toBe('لرکه')
     expect(suggestions.length).toBeGreaterThan(1)
     expect(new Set(suggestions).size).toBe(suggestions.length)
     expect(suggestions.length).toBeLessThanOrEqual(3)
@@ -57,16 +57,56 @@ describe('name transliteration', () => {
 
   it('offers the long-vowel reading as an alternative the learner may prefer', () => {
     expect(suggestSpellings('Lærke')).toContain('لارکه')
-    expect(suggestSpellings('Mette')).toContain('میته')
   })
 
-  it('never throws on nonsense, and offers what it can', () => {
-    expect(() => suggestSpellings('X Æ A-12')).not.toThrow()
-    const suggestions = suggestSpellings('X Æ A-12')
-    for (const suggestion of suggestions) {
-      expect(findPersianTextViolations(suggestion)).toEqual([])
-      expect(suggestion).not.toMatch(LATIN)
+  it('a name the list knows is spelled that one way, with no near-miss beside it', () => {
+    // A learner must not be able to pick a misspelling of their own name off a
+    // list this app wrote. Where the table speaks, the rules stay quiet.
+    expect(suggestSpellings('Mohammad')).toEqual(['محمد'])
+    expect(suggestSpellings('Mette')).toEqual(['مته'])
+    expect(suggestSpellings('Søren')).toEqual(['سورن'])
+    expect(suggestSpellings('Ali')).toEqual(['علی'])
+  })
+
+  it('spells the same Persian name from every Latin spelling of it', () => {
+    for (const written of ['Mohammad', 'Mohamed', 'Mohammed', 'Muhammad']) {
+      expect(suggestSpellings(written), written).toEqual(['محمد'])
     }
+    for (const written of ['Hossein', 'Hussein', 'Hosein']) {
+      expect(suggestSpellings(written), written).toEqual(['حسین'])
+    }
+    for (const written of ['Sara', 'Sarah']) {
+      expect(suggestSpellings(written), written).toEqual(['سارا'])
+    }
+    for (const written of ['Fatemeh', 'Fateme', 'Fatima']) {
+      expect(suggestSpellings(written), written).toEqual(['فاطمه'])
+    }
+    for (const written of ['Yasmin', 'Yasmine', 'Jasmin']) {
+      expect(suggestSpellings(written), written).toEqual(['یاسمین'])
+    }
+  })
+
+  it('spells the names whose faithful spelling read as something else', () => {
+    // Decency beats phonetics: کیرستن, سینه and the مرگ that opens مرگریته are
+    // all correct readings of the sounds and none of them is offered.
+    expect(suggestSpellings('Kirsten')).toEqual(['کرستن'])
+    expect(suggestSpellings('Signe')).toEqual(['سیگنه'])
+    expect(suggestSpellings('Margrethe')).toEqual(['مارگرته'])
+    expect(suggestSpellings('Karen Margrethe')).toEqual(['کارن مارگرته'])
+  })
+
+  it('never throws on nonsense, and says nothing rather than something wrong', () => {
+    // Initials are not a name. X on its own used to come back as a crude word;
+    // no reading of one letter is anybody's spelling, so none is offered and
+    // the screen hands the learner the letter bank instead.
+    expect(() => suggestSpellings('X Æ A-12')).not.toThrow()
+    expect(suggestSpellings('X Æ A-12')).toEqual([])
+    expect(suggestSpellings('X')).toEqual([])
+    expect(suggestSpellings('B J')).toEqual([])
+    // A name with an x in it and no entry on the list: the sound table does not
+    // map x at all, so there is nothing honest to offer.
+    expect(suggestSpellings('Xander')).toEqual([])
+    expect(suggestSpellings('Alexander')).toEqual(['الکساندر'])
   })
 
   it('returns nothing at all when there is nothing to transliterate', () => {
@@ -82,10 +122,17 @@ describe('name transliteration', () => {
     expect(suggestSpellings('Ærø')[0]).toBe('ارو')
   })
 
+  it('every fixture that is a name is spelled; the one that is initials is not', () => {
+    for (const name of GUARD_FIXTURE_NAMES) {
+      const expected = name === 'X Æ A-12' ? 0 : 1
+      expect(suggestSpellings(name).length, name).toBeGreaterThanOrEqual(expected)
+      if (expected === 0) expect(suggestSpellings(name), name).toEqual([])
+    }
+  })
+
   it('every suggestion for every fixture name is valid Persian text', () => {
     for (const name of GUARD_FIXTURE_NAMES) {
       const suggestions = suggestSpellings(name)
-      expect(suggestions.length, name).toBeGreaterThan(0)
       for (const suggestion of suggestions) {
         expect(findPersianTextViolations(suggestion), `${name} → ${suggestion}`).toEqual([])
         expect(suggestion, name).not.toMatch(LATIN)

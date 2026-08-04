@@ -94,6 +94,7 @@ describe('a prototype key is not an event kind', () => {
     expect(engine.awardFor('answer')).toBe(1)
     expect(engine.awardFor('item')).toBe(2)
     expect(engine.awardFor('page')).toBe(0)
+    expect(engine.awardFor('replay')).toBe(0)
   })
 })
 
@@ -164,7 +165,16 @@ function rng(seed: number): () => number {
 const SEEDS = [1, 7, 42, 1337, 2026, 20260803]
 const STEPS = 40
 const CLOCKS = [DAY, new Date(2026, 2, 9, 8), new Date(2026, 1, 20, 22), new Date('nonsense')]
-const KINDS: unknown[] = ['answer', 'item', 'page', 'bogus', undefined, null, ...PROTOTYPE_KEYS]
+const KINDS: unknown[] = [
+  'answer',
+  'item',
+  'page',
+  'replay',
+  'bogus',
+  undefined,
+  null,
+  ...PROTOTYPE_KEYS,
+]
 const GIFTS = [undefined, 'g1', 'g2']
 
 const STARTS: Record<string, () => void> = {

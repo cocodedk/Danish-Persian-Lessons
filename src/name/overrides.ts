@@ -21,5 +21,12 @@ export function overrideFor(latin: string): string | undefined {
  */
 export const NAME_OVERRIDE_FA_STRINGS: string[] = Object.values(OVERRIDES)
 
+/**
+ * Every Latin name the list knows, so a test can run the whole table back
+ * through the engine — the decency guard walks what the app would really
+ * offer, not only what the table stores.
+ */
+export const NAME_OVERRIDE_LATIN: string[] = Object.keys(OVERRIDES)
+
 /** How many names the list covers. Asserted in the tests, quoted in the plan. */
-export const OVERRIDE_COUNT = Object.keys(OVERRIDES).length
+export const OVERRIDE_COUNT = NAME_OVERRIDE_LATIN.length

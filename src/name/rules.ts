@@ -23,7 +23,13 @@ export function cleanPart(raw: string): string {
   return raw.toLowerCase().replace(/[^a-zæøå]/g, '')
 }
 
-function unitsOf(part: string): Unit[] {
+/**
+ * The sound units of `part`, or null when it carries a Danish letter the sound
+ * table does not map — x is the only one, and the answer «کس» is one this app
+ * does not give (see soundMap.ts). A part with an unmapped letter gets no rule
+ * spelling rather than a spelling with a hole where the letter was.
+ */
+function unitsOf(part: string): Unit[] | null {
   const units: Unit[] = []
   let index = 0
 
@@ -41,10 +47,7 @@ function unitsOf(part: string): Unit[] {
       index += 1
       continue
     }
-    if (!(letter in CONSONANTS)) {
-      index += 1
-      continue
-    }
+    if (!(letter in CONSONANTS)) return null
 
     // ss, tt, nn, ll … one letter in Persian, and the vowel before it is short.
     const doubled = part[index + 1] === letter
@@ -95,7 +98,7 @@ function render(units: Unit[], everyVowelWritten: boolean): string {
  */
 export function ruleSpellings(raw: string): string[] {
   const units = unitsOf(cleanPart(raw))
-  if (units.length === 0) return []
+  if (units === null || units.length === 0) return []
   const spellings = [render(units, false), render(units, true)]
   return [...new Set(spellings)].filter(Boolean)
 }

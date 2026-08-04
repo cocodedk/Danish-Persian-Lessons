@@ -1,6 +1,11 @@
 // The most common Danish first names, spelled the way they SOUND in Persian
-// letters — not letter by letter. That is why Signe is سینه (the g is silent)
-// and Mads is ماس (the d is not spoken).
+// letters — not letter by letter. That is why Mads is ماس (the d is not spoken).
+//
+// Sound is the rule, but it is not the last word: a spelling that reads as a
+// crude Persian word is wrong however right its phonetics are. Signe is سیگنه
+// with the silent g written, because سینه is a body part; Kirsten is کرستن,
+// because the faithful کیرستن opens on an obscenity; Margrethe is مارگرته, so
+// that no reader starts on مرگ. See blocklist.ts.
 //
 // Lærke is deliberately absent: the rules already spell it لرکه, and the plan
 // keeps it as the proof that they can (docs/plans/006-your-name.md, Acceptance).
@@ -13,6 +18,7 @@ export const DANISH_NAMES: Record<string, string> = {
   peter: 'پیتر',
   jens: 'ینس',
   michael: 'میکل',
+  mikael: 'میکل',
   mikkel: 'میکل',
   lars: 'لارس',
   thomas: 'توماس',
@@ -42,7 +48,12 @@ export const DANISH_NAMES: Record<string, string> = {
   william: 'ویلیام',
   noah: 'نوا',
   magnus: 'مگنوس',
+  // The x names live here or nowhere: the sound table does not map x at all,
+  // because a name that opens on ک + س opens on a crude word. Inside a word the
+  // two letters are simply themselves.
   alexander: 'الکساندر',
+  alex: 'الکس',
+  max: 'مکس',
   victor: 'ویکتور',
   anton: 'آنتون',
   carl: 'کارل',
@@ -58,7 +69,9 @@ export const DANISH_NAMES: Record<string, string> = {
   benjamin: 'بنیامین',
   tobias: 'توبیاس',
   nikolaj: 'نیکولای',
-  kirsten: 'کیرستن',
+  nikolai: 'نیکولای',
+  nicolai: 'نیکولای',
+  kirsten: 'کرستن',
   hanne: 'هانه',
   helle: 'هله',
   susanne: 'سوسانه',
@@ -66,6 +79,7 @@ export const DANISH_NAMES: Record<string, string> = {
   maria: 'ماریا',
   marianne: 'ماریانه',
   camilla: 'کامیلا',
+  kamilla: 'کامیلا',
   louise: 'لوئیزه',
   charlotte: 'شارلوته',
   inge: 'اینگه',
@@ -73,13 +87,16 @@ export const DANISH_NAMES: Record<string, string> = {
   julie: 'یولیه',
   ida: 'ایدا',
   sofie: 'سوفیه',
+  sophie: 'سوفیه',
   emma: 'اما',
   freja: 'فرایا',
   clara: 'کلارا',
   laura: 'لاورا',
   astrid: 'آسترید',
-  signe: 'سینه',
+  signe: 'سیگنه',
+  margrethe: 'مارگرته',
   katrine: 'کاترینه',
+  kathrine: 'کاترینه',
   cecilie: 'سیسیلیه',
   amalie: 'آمالیه',
   caroline: 'کارولینه',

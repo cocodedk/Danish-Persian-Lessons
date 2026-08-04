@@ -52,13 +52,15 @@ describe('#/dit-navn — choosing how the name is spelled', () => {
   })
 
   it('lets a learner take a second suggestion instead of the first', () => {
-    setProfile({ name: 'Mette' })
+    // Lærke, not Mette: a name the override list knows is offered the one way
+    // the list spells it, so there is no second line to take.
+    setProfile({ name: 'Lærke' })
     open('#/dit-navn')
 
-    fireEvent.click(screen.getByRole('button', { name: 'میته' }))
-    expect(preview()).toBe('میته')
+    fireEvent.click(screen.getByRole('button', { name: 'لارکه' }))
+    expect(preview()).toBe('لارکه')
     fireEvent.click(screen.getByText('Gem stavemåden'))
-    expect(getProfile().faSpelling).toBe('میته')
+    expect(getProfile().faSpelling).toBe('لارکه')
   })
 
   it('edits letter by letter from the bank — tap to place, and one step back', () => {

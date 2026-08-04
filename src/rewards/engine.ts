@@ -41,7 +41,7 @@ const DOUBLE_STICKER_EVERY = 3
  */
 const POINT_AWARD: Record<string, number> = Object.assign(
   Object.create(null) as Record<string, number>,
-  { answer: 1, item: 2, page: 0 },
+  { answer: 1, item: 2, page: 0, replay: 0 },
 )
 
 const STICKER_KINDS: StickerKind[] = ['afarin', 'bist', 'star']
@@ -63,9 +63,11 @@ function levelFor(points: number): number {
 }
 
 /**
- * A page event fills the rest of the page; everything else adds its award.
- * An unrecognized, missing or inherited kind — a hostile call, not a real
- * event — adds nothing, so `earn` can never return anything but a real number.
+ * A page event fills the rest of the page; everything else adds its award —
+ * which for a `replay` is nothing, so a lesson finished for the second time
+ * leaves the total exactly where the first time left it. An unrecognized,
+ * missing or inherited kind — a hostile call, not a real event — adds nothing
+ * either, so `earn` can never return anything but a real number.
  */
 function earn(kind: RewardEventKind, points: number): number {
   const base = numberOr(points, 0)

@@ -34,9 +34,18 @@ export const CONSONANTS: Record<string, string> = {
   t: 'ت',
   v: 'و',
   w: 'و',
-  x: 'کس',
   z: 'ز',
 }
+
+/**
+ * x is deliberately absent. Its sound is ک + س, and a name that opens on it is
+ * handed back as an obscenity — «X Æ A-12» came out «کس ا آ» before this line
+ * was written. A letter name (اکس) is not a spelling either: nobody is called
+ * that. So the sound table simply does not know x; `rules.ts` gives a part that
+ * carries one no spelling at all, and the learner writes it from the letter
+ * bank. The names where the two letters sit safely inside the word are on the
+ * override list instead — Alexander → الکساندر, Max → مکس. See blocklist.ts.
+ */
 
 /**
  * A written vowel is a LONG letter, because that is what a beginner can read

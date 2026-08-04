@@ -53,3 +53,83 @@ alphabet lesson, and a "write your name" mini-lesson.
 - [ ] Mini-lesson passes the three-persona review (teacher / learner / maintainer) with zero concrete
       defects — for the critic round; the builder cannot pass itself
 - [x] `npm run verify` and CI green; no new dependencies
+
+## Deviations
+
+Where the build (PR #13) does not do what this plan wrote, and why. All accepted.
+
+1. **The override list is much longer than "ca. 40".** It ships ~180 keys — Iranian names, Danish
+   top-50, and several Latin spellings of one Persian name (Hussein/Hossein, Mohamed/Muhammad,
+   Sarah/Sara). The list is the only thing that can spell ع ص ط ح, and it is now also the only
+   thing that spells a name whose faithful transliteration reads badly, so it earns its length.
+2. **Short vowels are ranked first, not long ones.** The plan says the rules should "favor LONG
+   letters for readability", but its own golden table asks for Mette→مته and Babak→بابک, which are
+   the short-vowel readings. The goldens won: rank 1 writes Persian the way Persian is written,
+   rank 2 offers the every-vowel reading (Lærke→لارکه) for a learner who wants it.
+3. **The mini-lesson is not placed "after the vowel-marks lesson".** Its card appears on the
+   forside as soon as a spelling exists, gated on nothing else. Logged again as a fresh concern
+   below.
+4. **Completion goes through plan 007's reward engine**, which landed first: `cheer('page')` grants
+   the tick, the points and the sticker, and only the praise line is swapped for «آفرین، سارا!».
+   The plan predates the engine and describes the tick alone.
+5. **Compound names are spelled part by part** and joined with one plain space — the plan never
+   mentions them. A compound the list knows as one word (Alireza→علیرضا) is offered beside the two-
+   word spelling, never instead of it.
+6. **At most three suggestions.** The plan says "ranked suggestions" without a number; a fourth
+   line is a fourth thing to compare, and the ranking is only trustworthy two or three deep.
+7. **The letter bank is the whole 33-glyph alphabet**, not the "small letter bank" of step 2. A
+   bank holding only the letters we guessed at cannot correct a guess that was wrong, which is the
+   one thing that screen exists for. Accepted.
+
+## Critic round 1 (2026-08-04) — FAIL, adjudicated
+
+The learner- and teacher-persona passes failed on decency: the engine could hand a learner an
+obscenity as their own name. Eleven findings, adjudicated and built by the round-2 fix builder,
+one line each.
+
+- **D1 «X Æ A-12» → «کس ا آ».** The sound table mapped x to کس, which is a crude word wherever a
+  part starts on it. x is gone from the table entirely: a part carrying one now gets no rule
+  spelling at all, and the x names that are real names (Alexander→الکساندر, Max→مکس, Alex→الکس)
+  are on the override list, where the two letters sit safely inside the word.
+- **D2 nothing read what the rules produced.** Ker→کیر, Kon→کون, Goz→گوز, Sg→سگ, Ge→گه were all
+  reachable from a name field. `src/name/blocklist.ts` now reads every emitted suggestion part by
+  part — prefix match for the words that stay the word whatever follows (کس کیر کون گوز شاش چس),
+  whole-token match for the ones that are only crude alone (مرگ خر سگ گاو بز کر زر گه …). A part
+  with nothing decent left takes the whole suggestion with it, and the screen's letter-bank path
+  takes over. Never spaced letters: «ک س» is the same word with a gap in it.
+- **D3 Kirsten → کیرستن**, from the override list itself. Now کرستن.
+- **D4 Signe → سینه** — phonetically right (the g is silent) and a body part. Now سیگنه, with the
+  g written.
+- **D5 the list and the rules were offered side by side.** A learner typing Mohammad got محمد at
+  rank 1 and rule-made near-misses under it, and could pick a misspelling of their own name off a
+  list this app wrote. Where the override list knows a part, it is now the only spelling offered.
+- **D6 Margrethe → مرگریته**, which opens on مرگ, «død». Now مارگرته, and the Latin alternates a
+  family may write (Hussein, Mohamed/Muhammad, Sarah, Fateme/Fatima, Yasmine/Jasmin) map to the
+  one Persian spelling each.
+- **D7 the try-again line was not true.** Tapping one of the two strangers in the tray answered
+  "Det bogstav kommer et andet sted i navnet", sending the learner hunting for a letter that is
+  not in their name to find. The line now branches: «دوباره» for a letter waiting its turn, and
+  «این حرف در نامِ تو نیست. دوباره نگاه کن.» / "Det bogstav er ikke i dit navn. Kig igen." for a
+  stranger.
+- **D8 the lesson paid a full page every time it was finished.** Replaying it was worth twenty
+  points a turn. `celebrate` gained a `replay` kind — praise, tick, practice day, no payout — and
+  the lesson asks for it whenever `dpl.v1.name-lesson` is already done, read from storage so a
+  reload cannot pay for it twice either. The letter rule (`markLetterDone`) and the gift rule
+  (`giftsOpened`), now for a lesson.
+- **D9 a sign outside the alphabet was named after itself.** لوئیزه walked as «Bogstav 3: ئ står
+  midt», printing the one shape the learner cannot read yet where its name belongs. Signs outside
+  the taught 33 are now "særligt tegn" / «نشانهٔ ویژه» in the walkthrough and in every tile's
+  aria-label.
+- **D10 the walkthrough never said how a letter sounds** — gate 5, and the letters already carry
+  lydskrift and IPA from plan 003. Every step now shows its `PronLine`, read off the letter data;
+  a sign the alphabet does not teach shows none rather than an invented one.
+- **D11 this plan logged neither its deviations nor a critic round.** Both sections written above.
+
+Two fresh concerns were accepted as real and deferred by the planner — logged here, not built:
+
+- **The name lesson is gated on nothing.** A learner can meet their own name before they have met
+  a single letter it is made of; the card appears as soon as a spelling exists. Whether it should
+  wait for the alphabet lesson is a curriculum decision, not a bug fix.
+- **At 360px the assembly exercise sits below the fold**, under the whole letter-by-letter
+  walkthrough. The exercise is the part that teaches by doing, and it is the part a thumb has to
+  scroll for.

@@ -2,9 +2,12 @@ import { useMemo, useState } from 'react'
 import { LetterBank } from './LetterBank'
 import { Button } from './Button'
 import { assemblyBank, assembledPrefix, nameGlyphs, type Tile } from '../name/bank'
-import { ASSEMBLE_FA } from '../name/copy'
+import { ASSEMBLE_FA, NOT_IN_NAME_FA, NOT_IN_NAME_DA, LATER_IN_NAME_DA } from '../name/copy'
 import { TRY_AGAIN_FA } from '../content/faStrings'
 import './NameAssembly.css'
+
+/** What the last wrong tap was: a letter of the name, or one of the strangers. */
+type Missed = 'later' | 'stranger'
 
 export interface NameAssemblyProps {
   spelling: string
@@ -21,18 +24,19 @@ export interface NameAssemblyProps {
 export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
   const target = useMemo(() => nameGlyphs(spelling), [spelling])
   const tiles = useMemo(() => assemblyBank(spelling), [spelling])
+  const inName = useMemo(() => new Set(target), [target])
   const [placed, setPlaced] = useState<string[]>([])
-  const [missed, setMissed] = useState(false)
+  const [missed, setMissed] = useState<Missed | null>(null)
   const done = placed.length === target.length
 
   function pick(tile: Tile) {
     if (done) return
     if (tile.glyph !== target[placed.length]) {
-      setMissed(true)
+      setMissed(inName.has(tile.glyph) ? 'later' : 'stranger')
       return
     }
     const next = [...placed, tile.key]
-    setMissed(false)
+    setMissed(null)
     setPlaced(next)
     if (next.length === target.length) onDone()
   }
@@ -53,16 +57,16 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
       </p>
 
       {/* A standing region, like the exercise screens': the gentle line is
-          announced when it appears instead of arriving unseen. */}
+          announced when it appears instead of arriving unseen. It says which
+          kind of wrong tap it was, because "try again" would send a learner
+          hunting for a letter that is not in the tray to find. */}
       <div className="name-assembly__feedback" role="status">
-        {missed && !done && (
+        {missed !== null && !done && (
           <p className="name-assembly__again">
             <span lang="fa" dir="rtl">
-              {TRY_AGAIN_FA}
+              {missed === 'later' ? TRY_AGAIN_FA : NOT_IN_NAME_FA}
             </span>
-            <span lang="da">
-              Det bogstav kommer et andet sted i navnet. Prøv igen, du mister ingenting.
-            </span>
+            <span lang="da">{missed === 'later' ? LATER_IN_NAME_DA : NOT_IN_NAME_DA}</span>
           </p>
         )}
       </div>
@@ -80,7 +84,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
             variant="quiet"
             onClick={() => {
               setPlaced([])
-              setMissed(false)
+              setMissed(null)
             }}
           >
             Start forfra

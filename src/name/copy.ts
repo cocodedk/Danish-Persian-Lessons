@@ -1,7 +1,7 @@
 // What the app says about the learner's own name, in both languages. Kept in
 // one file so the Persian text-rule guard can walk it and a reader can hear the
 // whole tone at once. See docs/plans/006-your-name.md steps 2, 5 and 6.
-import { nameLetters, type FormKey, type NameLetter } from './forms'
+import { nameLetters, OTHER_SIGN_FA, type FormKey, type NameLetter } from './forms'
 import type { Praise } from '../rewards/types'
 
 export const SPELLING_TITLE_FA = 'نامت به فارسی'
@@ -13,6 +13,18 @@ export const ASSEMBLE_FA = 'نامت را دوباره بچین'
 
 /** What the tray of tappable letters is, over both banks. */
 export const LETTERS_FA = 'حرف‌ها'
+
+/**
+ * The other thing a wrong tap can be: not a letter waiting its turn, but a
+ * letter that is not in this name at all. «دوباره» is the right word for the
+ * first and a small lie for the second — a learner told to try again looks for
+ * the same letter twice. So this line says which it was, and where to look.
+ */
+export const NOT_IN_NAME_FA = 'این حرف در نامِ تو نیست. دوباره نگاه کن.'
+export const NOT_IN_NAME_DA = 'Det bogstav er ikke i dit navn. Kig igen.'
+
+/** …and the one for a letter that IS in the name, further along. */
+export const LATER_IN_NAME_DA = 'Det bogstav kommer et andet sted i navnet. Prøv igen, du mister ingenting.'
 
 /** The promise in the settings corner, said in both languages. */
 export const PRIVACY_FA = 'نامت فقط روی همین دستگاه می‌ماند.'
@@ -58,6 +70,8 @@ export const NAME_FA_STRINGS: string[] = [
   ASSEMBLE_FA,
   LETTERS_FA,
   PRIVACY_FA,
+  NOT_IN_NAME_FA,
+  OTHER_SIGN_FA,
   namePraise('سارا', 'Sara').fa,
   ...[...nameLetters('سارا'), ...nameLetters('مته')].map(formNote),
 ]

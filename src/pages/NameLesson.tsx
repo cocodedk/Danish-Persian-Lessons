@@ -28,10 +28,17 @@ export default function NameLesson() {
     return <Navigate to="/" replace />
   }
 
+  /**
+   * The name is finished. It is worth a full page the first time and nothing
+   * after that — the lesson is as playable as the learner likes, and playing it
+   * twice is practice, not a second wage. Read from storage rather than from
+   * `cleared`, so a reload cannot pay for it again either.
+   */
   function finish() {
+    const paid = isNameLessonDone()
     markNameLessonDone()
     setCleared(true)
-    celebration.cheer('page')
+    celebration.cheer(paid ? 'replay' : 'page')
   }
 
   // The engine grants the reward; the name goes into the praise it is read out

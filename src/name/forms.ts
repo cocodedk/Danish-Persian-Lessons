@@ -2,7 +2,7 @@
 // alphabet lesson already owns the letters and whether each joins to the left
 // (src/lessons/alphabet.ts); this reads that data one position at a time.
 import { letters, specimens } from '../lessons/alphabet'
-import type { Letter } from '../lessons/types'
+import type { Letter, Pron } from '../lessons/types'
 
 export type FormKey = keyof Letter['forms']
 
@@ -19,6 +19,12 @@ export interface NameLetter {
   forms: Letter['forms']
   nameDa: string
   nameFa: string
+  /**
+   * How the letter is said — dansk lydskrift and IPA, straight from the
+   * alphabet data. Absent for a sign outside the taught 33: this app teaches no
+   * sound for it, so it says none.
+   */
+  sound?: Pron
   joinsLeft: boolean
 }
 
@@ -27,7 +33,16 @@ interface Shape {
   joinsLeft: boolean
   nameDa: string
   nameFa: string
+  sound?: Pron
 }
+
+/**
+ * What a sign outside the taught 33 is called. Never its own glyph: «Bogstav 3:
+ * ئ står midt» tells a beginner nothing they can read or say, and printing an
+ * unknown shape where a name belongs makes it look like a name they missed.
+ */
+export const OTHER_SIGN_DA = 'særligt tegn'
+export const OTHER_SIGN_FA = 'نشانهٔ ویژه'
 
 function derive(glyph: string, joinsLeft: boolean, nameDa: string, nameFa: string): Shape {
   return {
@@ -53,16 +68,21 @@ const SHAPES = new Map<string, Shape>([
       joinsLeft: letter.joinsLeft,
       nameDa: letter.name.da,
       nameFa: letter.name.fa,
+      sound: letter.sound,
     },
   ]),
   // آ is a sign on an alef, not the 33rd letter, so it carries no forms of its
   // own — and like alef it never joins to the left.
-  [MADDE.glyph, derive(MADDE.glyph, false, MADDE.name.da, MADDE.name.fa)],
+  [
+    MADDE.glyph,
+    { ...derive(MADDE.glyph, false, MADDE.name.da, MADDE.name.fa), sound: MADDE.sound },
+  ],
 ])
 
 /**
  * A Persian letter that is not one of the 32 — ئ in لوئیزه, say. It joins on
- * both sides, which is true of every such form, and it is named after itself.
+ * both sides, which is true of every such form, and it is called what it is
+ * rather than named after itself.
  */
 // Written as code-point escapes on purpose: the ranges cover the letters of the
 // Arabic block, and spelling them out would print the two forbidden glyphs
@@ -74,7 +94,9 @@ function shapeOf(char: string | undefined): Shape | undefined {
   if (char === undefined) return undefined
   const known = SHAPES.get(char)
   if (known) return known
-  return PERSIAN_LETTER.test(char) ? derive(char, true, char, char) : undefined
+  return PERSIAN_LETTER.test(char)
+    ? derive(char, true, OTHER_SIGN_DA, OTHER_SIGN_FA)
+    : undefined
 }
 
 /**
@@ -107,6 +129,7 @@ export function nameLetters(spelling: string): NameLetter[] {
       forms: shape.forms,
       nameDa: shape.nameDa,
       nameFa: shape.nameFa,
+      sound: shape.sound,
       joinsLeft: shape.joinsLeft,
     })
   })
