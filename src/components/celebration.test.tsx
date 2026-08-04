@@ -7,7 +7,25 @@ import { InkConfetti } from './InkConfetti'
 import { GiftCard } from './GiftCard'
 import { RewardShelf } from './RewardShelf'
 import { Celebration } from './Celebration'
-import { STICKER_LABELS } from '../rewards/copy'
+import { STICKER_LABELS, PRAISE } from '../rewards/copy'
+import type { Reward } from '../rewards/types'
+
+/** A reward with nothing loud in it — just enough shape to satisfy the type,
+ *  so a test can swap in one field (usually `praise`) and render Celebration
+ *  without going through the real engine for something this narrow. Not to be
+ *  confused with `reward={null}`, the no-celebration-yet case tested above. */
+const QUIET_REWARD: Reward = {
+  ticks: 1,
+  praise: PRAISE[0],
+  stickers: [],
+  levelUp: null,
+  level: 1,
+  points: 1,
+  streak: { value: 1, resting: false, today: true },
+  wokeUp: false,
+  gift: null,
+  sounds: ['tick'],
+}
 
 const stylesheets = import.meta.glob('./*.css', {
   query: '?raw',
@@ -46,6 +64,34 @@ describe('the celebration surface never celebrates a null reward', () => {
   it('renders zero ink-confetti when there is no reward yet', () => {
     const { container } = render(<Celebration reward={null} />)
     expect(container.querySelectorAll('.ink-confetti').length).toBe(0)
+  })
+})
+
+describe('the praise row carries its own pronunciation (plan 009)', () => {
+  it('renders fa, then the pron line, then da — the same order as any other specimen', () => {
+    const { container } = render(<Celebration reward={null} />)
+    const row = [...(container.querySelector('.celebration__praise')?.children ?? [])].map(
+      (el) => el.className,
+    )
+    expect(row).toEqual([
+      'progress-tick progress-tick--granted',
+      'celebration__fa',
+      'pron-line',
+      'celebration__da',
+    ])
+
+    // The default praise (no reward yet) is PRAISE[0] — آفرین — from data, not improvised.
+    expect(screen.getByText(PRAISE[0].fa)).toBeInTheDocument()
+    expect(screen.getByText(`${PRAISE[0].pron?.da} · [${PRAISE[0].pron?.ipa}]`)).toBeInTheDocument()
+    expect(screen.getByText(PRAISE[0].da)).toBeInTheDocument()
+  })
+
+  it('gives every praise pair a real pron line, not just the first', () => {
+    for (const praise of PRAISE) {
+      const { unmount } = render(<Celebration reward={{ ...QUIET_REWARD, praise }} />)
+      expect(screen.getByText(`${praise.pron?.da} · [${praise.pron?.ipa}]`)).toBeInTheDocument()
+      unmount()
+    }
   })
 })
 

@@ -15,7 +15,9 @@
 }
 
 .celebration__praise .progress-tick {
-  grid-row: 1 / span 2;
+  /* Spans the fa / pron / da stack in the second column, however many of the
+     three rows actually render. */
+  grid-row: 1 / span 3;
 }
 
 .celebration__fa {
@@ -32,10 +34,11 @@
 }
 
 .celebration__welcome {
+  /* Stacked, not a wrapping row — fa, pron, da, the same order and shape as
+     the praise row above it (and every other specimen in the app). */
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0.5rem 0 0;
   font-family: var(--font-latin);
   font-size: 1rem;

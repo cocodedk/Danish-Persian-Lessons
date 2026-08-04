@@ -2,6 +2,7 @@ import { PRAISE, WELCOME_BACK } from '../rewards/copy'
 import { ProgressTick } from './ProgressTick'
 import { StickerStamp } from './StickerStamp'
 import { InkConfetti } from './InkConfetti'
+import { PronLine } from './PronLine'
 import type { Reward } from '../rewards/types'
 import './Celebration.css'
 
@@ -27,25 +28,27 @@ export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps)
     <div className="celebration">
       {loud && <InkConfetti />}
 
-      <p className="celebration__praise">
+      <div className="celebration__praise">
         <ProgressTick granted label={tickLabel} />
         <span className="celebration__fa" lang="fa" dir="rtl">
           {praise.fa}
         </span>
+        {praise.pron && <PronLine da={praise.pron.da} ipa={praise.pron.ipa} />}
         <span className="celebration__da" lang="da">
           {praise.da}
         </span>
-      </p>
+      </div>
 
       {reward?.wokeUp && (
-        <p className="celebration__welcome">
+        <div className="celebration__welcome">
           <span className="celebration__fa" lang="fa" dir="rtl">
             {WELCOME_BACK.fa}
           </span>
+          {WELCOME_BACK.pron && <PronLine da={WELCOME_BACK.pron.da} ipa={WELCOME_BACK.pron.ipa} />}
           <span lang="da">
             {WELCOME_BACK.da} Stimen er vågen igen, nu {reward.streak.value} dage.
           </span>
-        </p>
+        </div>
       )}
 
       {stickers.length > 0 && (

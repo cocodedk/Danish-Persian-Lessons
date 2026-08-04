@@ -84,7 +84,8 @@ star (ستارهٔ طلایی), red margin ticks, and levels as filled notebook 
 Jingles are WebAudio-synthesized (no audio files, no dependencies) — a light santur-ish pluck for
 ticks, a warmer chime for stickers, a short fanfare for level-ups. Sound plays only after a user
 gesture, has its own mute toggle persisted in `dpl.v1.settings`, and is independent of the motion
-preference.
+preference. Praise lines carry lydskrift + IPA like any teaching item (plan 009) — the pronunciation
+line sits between the Persian praise and its Danish line, same as everywhere else in the app.
 
 ## Copy voice
 
