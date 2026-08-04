@@ -57,9 +57,10 @@ describe('vocabulary progress', () => {
   it('pays the page once — a second run through the finished unit is practice, not wages', () => {
     const last = allButLast()
     expect(learnWord(unit, last)).toBe('page')
-    // Every word again, in any order: never a second page.
+    // Every word again, in any order: never a second page, and never a
+    // second item either — every one of them was already learned.
     for (const word of unit.words) {
-      expect(learnWord(unit, word.id), word.id).toBe('item')
+      expect(learnWord(unit, word.id), word.id).toBe('answer')
     }
   })
 
@@ -71,7 +72,20 @@ describe('vocabulary progress', () => {
     // A reload is a fresh read of the same storage.
     const afterReload = getVocabProgress(unit.id)
     expect(afterReload.paid).toBe(true)
-    expect(learnWord(unit, last)).toBe('item')
+    expect(learnWord(unit, last)).toBe('answer')
+  })
+
+  it('pays an answer, not an item, for a word already learned — a replay cannot double-pay', () => {
+    // Same word, learned mid-unit (not the one that completes it): first
+    // claim is worth an item, every claim after is worth a flat answer, the
+    // same rate a letter's exercise round pays on every tap regardless of
+    // whether the letter was already known (critic round 1, deviation 5).
+    const [first, second] = unit.words
+    expect(learnWord(unit, first.id)).toBe('item')
+    expect(learnWord(unit, first.id)).toBe('answer')
+    expect(learnWord(unit, first.id)).toBe('answer')
+    // A different, still-unlearned word is unaffected by the repeat above.
+    expect(learnWord(unit, second.id)).toBe('item')
   })
 
   it('ignores corrupt storage rather than crashing on it', () => {

@@ -73,7 +73,9 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
       </p>
 
       <h2 className="choice-exercise__prompt">{question.promptDa}</h2>
-      {question.promptFa && <FaSpecimen fa={question.promptFa} />}
+      {question.promptFa && (
+        <FaSpecimen fa={question.promptFa} faMarked={question.promptFaMarked} />
+      )}
       <PronLine da={question.sound.da} ipa={question.sound.ipa} />
 
       <ul className="choice-exercise__choices">

@@ -1,41 +1,17 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { render, screen, fireEvent, within } from '@testing-library/react'
-import App from '../App'
+// The vocabulary screens: the forside's lesson cards, any unit reachable any
+// time, and the word screen's specimen, ticks and name-overlap note. What
+// finishing a unit pays and how the two exercise rounds play is
+// vocabRounds.test.tsx.
+import { describe, it, expect } from 'vitest'
+import { screen, fireEvent, within } from '@testing-library/react'
 import { setProfile } from '../progress/profile'
-import { markOrientationSeen } from '../progress/alphabet'
 import { getRewards } from '../rewards/engine'
-import { getVocabProgress } from '../progress/vocab'
 import { vocabUnits, findVocabUnit } from '../lessons/vocab'
-import { buildVocabQuestions } from '../lessons/vocabExercises'
-import { PRAISE } from '../rewards/copy'
+import { freshVocabState, open, praiseOnScreen } from './vocabHarness'
 
 const unit = findVocabUnit('1')!
 
-function open(hash: string) {
-  window.location.hash = hash
-  return render(<App />)
-}
-
-function praiseOnScreen(): boolean {
-  return PRAISE.some((line) => screen.queryAllByText(line.fa).length > 0)
-}
-
-/** Walks a unit's word screens and taps "Jeg kan det" on every one of them. */
-function clearWholeUnit(unitId: string) {
-  for (const word of findVocabUnit(unitId)!.words) {
-    const view = open(`#/lesson/ord/${unitId}/${word.id}`)
-    const button = screen.queryByRole('button', { name: 'Jeg kan det' })
-    if (button) fireEvent.click(button)
-    view.unmount()
-  }
-}
-
-beforeEach(() => {
-  window.localStorage.clear()
-  window.location.hash = ''
-  setProfile({})
-  markOrientationSeen()
-})
+freshVocabState()
 
 describe('the forside lists the word units', () => {
   it('shows all three, with their own progress, and links straight into them', () => {
@@ -121,63 +97,5 @@ describe('a word screen', () => {
     open('#/lesson/ord/1/baba')
     expect(screen.getByText('حرفی از نامِ تو در این کلمه هست')).toBeInTheDocument()
     expect(screen.getByText(/Ét af bogstaverne her/)).toBeInTheDocument()
-  })
-})
-
-describe('finishing a unit', () => {
-  it('fills a notebook page — once, no matter how often the unit is finished again', () => {
-    clearWholeUnit('1')
-    const afterFirst = getRewards()
-    expect(getVocabProgress('1').paid).toBe(true)
-    expect(afterFirst.points % 20).toBe(0)
-    expect(afterFirst.level).toBeGreaterThan(1)
-
-    // A reload, then every word tapped again: the ticks are already there, so
-    // there is nothing left to pay for.
-    clearWholeUnit('1')
-    expect(getRewards().points).toBe(afterFirst.points)
-    expect(getRewards().level).toBe(afterFirst.level)
-  })
-})
-
-describe('the two rounds', () => {
-  it('asks for the Danish meaning, in Danish, and celebrates a right tap', () => {
-    const questions = buildVocabQuestions('1', 'ord')
-    open('#/lesson/ord/1/ovelse/ord')
-
-    expect(screen.getByRole('heading', { name: 'Find betydningen' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Hvad betyder ordet?' })).toBeInTheDocument()
-    const right = questions[0].choices.find((choice) => choice.id === questions[0].answerId)!
-    const button = screen.getAllByRole('button').find((each) => each.textContent === right.glyph)!
-    expect(button.getAttribute('lang')).toBe('da')
-    fireEvent.click(button)
-
-    expect(praiseOnScreen()).toBe(true)
-    expect(getVocabProgress('1').words).toContain(questions[0].answerId)
-  })
-
-  it('asks for the Persian word, right to left, with the meaning in the prompt', () => {
-    const questions = buildVocabQuestions('2', 'par')
-    open('#/lesson/ord/2/ovelse/par')
-
-    expect(screen.getByRole('heading', { name: questions[0].promptDa })).toBeInTheDocument()
-    const right = questions[0].choices.find((choice) => choice.id === questions[0].answerId)!
-    const button = screen.getAllByRole('button').find((each) => each.textContent === right.glyph)!
-    expect(button.getAttribute('dir')).toBe('rtl')
-  })
-
-  it('keeps the gentle wrong-answer copy and takes nothing away', () => {
-    const questions = buildVocabQuestions('1', 'ord')
-    open('#/lesson/ord/1/ovelse/ord')
-    const wrong = questions[0].choices.find((choice) => choice.id !== questions[0].answerId)!
-    fireEvent.click(screen.getAllByRole('button').find((each) => each.textContent === wrong.glyph)!)
-
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(getRewards().points).toBe(0)
-  })
-
-  it('sends an unknown round back to the forside', () => {
-    open('#/lesson/ord/1/ovelse/hop')
-    expect(screen.getByText('Lektioner')).toBeInTheDocument()
   })
 })

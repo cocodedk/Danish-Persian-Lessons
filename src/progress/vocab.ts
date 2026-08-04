@@ -53,13 +53,20 @@ export function isUnitDone(unit: VocabUnit): boolean {
 
 /**
  * One word cleared, and the reward event it deserves: `page` the first time
- * this finishes the whole unit, `item` every other time — including a unit
- * finished again later, which celebrates just as loudly and costs the engine
- * nothing extra. The claim is read and written through storage, so two mounts,
- * a reload, or a re-run of the round cannot pay the page twice.
+ * this finishes the whole unit, `item` the first time this word itself is
+ * claimed otherwise, and `answer` — the same flat rate a letter's exercise
+ * round pays — for a word that was already learned before this call. Without
+ * that last case, replaying a finished unit's exercise round paid the `item`
+ * rate on every tap forever, twice what the same replay earns a letter
+ * (critic round 1, adjudicated from the plan's deviation 5). The claim is
+ * read and written through storage, so two mounts, a reload, or a re-run of
+ * the round cannot pay the page — or a stale item — twice.
  */
 export function learnWord(unit: VocabUnit, wordId: string): RewardEventKind {
+  const before = getVocabProgress(unit.id)
+  const alreadyLearned = before.words.includes(wordId)
   const progress = markWordDone(unit.id, wordId)
+  if (alreadyLearned) return 'answer'
   const complete = unit.words.every((word) => progress.words.includes(word.id))
   if (!complete || progress.paid) return 'item'
   writeJSON<VocabProgress>(key(unit.id), { ...progress, paid: true })

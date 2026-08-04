@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest'
-import { buildVocabQuestions, isVocabExerciseKind } from './vocabExercises'
+import { buildVocabQuestions, distractors, isVocabExerciseKind } from './vocabExercises'
 import type { VocabExerciseKind } from './vocabExercises'
 import { vocabUnits, allVocabWords } from './vocab'
+import type { VocabWord } from './vocab'
 import { withoutMarks } from './marks'
 
 const KINDS: VocabExerciseKind[] = ['ord', 'par']
@@ -81,11 +82,13 @@ describe('vocabulary exercises', () => {
       for (const question of questions) {
         const word = wordOf(question.itemId)
         if (kind === 'ord') {
-          expect(question.promptFa, question.id).toBe(word.faMarked)
+          expect(question.promptFa, question.id).toBe(word.fa)
+          expect(question.promptFaMarked, question.id).toBe(word.faMarked)
           expect(question.choiceLang).toBe('da')
           expect(question.choices.map((choice) => choice.glyph)).toContain(word.da)
         } else {
           expect(question.promptFa, question.id).toBeUndefined()
+          expect(question.promptFaMarked, question.id).toBeUndefined()
           expect(question.promptDa, question.id).toContain(word.da)
           expect(question.choiceLang).toBe('fa')
           // اِعراب belongs on specimens only — the choices are bare words.
@@ -107,6 +110,23 @@ describe('vocabulary exercises', () => {
   it('is deterministic — the same round every time', () => {
     for (const { unit, kind, questions } of rounds) {
       expect(buildVocabQuestions(unit.id, kind)).toEqual(questions)
+    }
+  })
+
+  it('throws rather than silently shipping a round short of distractors', () => {
+    // Three هم‌آوا clones of one real word leave the target zero non-alike
+    // neighbours — one short of the three `CHOICE_COUNT - 1` needs.
+    const target = wordOf('ab')
+    const clone = (id: string): VocabWord => ({ ...target, id })
+    const tooFew = [target, clone('ab2'), clone('ab3'), clone('ab4')]
+    expect(() => distractors(tooFew, 0)).toThrow(/distractor/i)
+  })
+
+  it('never actually falls short in the real units — every word has room to spare', () => {
+    for (const unit of vocabUnits) {
+      for (let index = 0; index < unit.words.length; index += 1) {
+        expect(() => distractors(unit.words, index), `${unit.id}/${unit.words[index].id}`).not.toThrow()
+      }
     }
   })
 })

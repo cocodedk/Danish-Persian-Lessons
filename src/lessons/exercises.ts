@@ -25,6 +25,10 @@ export interface Question {
   promptDa: string
   /** The Persian the question shows, when it shows any. */
   promptFa?: string
+  /** The diacriticized twin of `promptFa`, when the lesson supplies one — the
+   *  two-layer specimen path (see FaSpecimen) needs both to engage. Letters
+   *  carry no faMarked, so alphabet rounds never set this. */
+  promptFaMarked?: string
   /** Dansk lydskrift + IPA for the item in play — always from the data. */
   sound: Pron
   choices: Choice[]
