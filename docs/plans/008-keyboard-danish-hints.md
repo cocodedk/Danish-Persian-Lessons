@@ -96,3 +96,15 @@ Where the build does not do what this plan wrote, and why.
    than inside `alphabet.test.ts`.** Appending them in place would have pushed `alphabet.test.ts` to
    210 lines, over the 200-line cap (CLAUDE.md). Splitting by concern — the alphabet's shape versus
    the keyboard's hint table — keeps both files under it and each focused on one thing.
+
+## Critic round 1 (2026-08-04) — FAIL, adjudicated by Fable
+
+1. Contrast surface mismatch (the one defect): the plan named `--paper` but hints render on
+   `--card` key caps, where light orange measured 4.119:1. Adjudicated at the token: light
+   `--orange` darkened #B4530A → #A94D09 (4.590:1 on `--card`, 5.019:1 on `--paper`); the
+   dictated surface in step 3 was the planner's error, not the builder's.
+2. Hardened per critic notes: a letter key without a `latinHint` now throws (loud, like a missing
+   letter); hint charset pinned Latin-only (a-z æøå ’, 1-3 chars).
+3. Accepted notes, logged: ع's ’ reads as a speck at hint size (revisit alongside the planned
+   ع-through-stød lesson anchor); و→v and ی→j hide vowel duties (deliberate keyboard-affordance
+   simplification); zj/kh are coined transliterations, internally consistent.

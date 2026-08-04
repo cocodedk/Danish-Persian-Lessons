@@ -18,6 +18,12 @@ describe('keyboard Latin hints', () => {
     expect(Object.keys(TABLE)).toHaveLength(33)
   })
 
+  it('hints are Latin-only: Danish letters and the ’ glottal mark, 1-3 chars', () => {
+    for (const hint of Object.values(TABLE)) {
+      expect(hint).toMatch(/^[a-zæøå’]{1,3}$/)
+    }
+  })
+
   it('gives all 33 keyboard letters a non-empty hint, matching the dictated table', () => {
     for (const letter of letters) {
       expect(letter.latinHint, letter.id).toBe(TABLE[letter.glyph])

@@ -56,6 +56,9 @@ function keyFor(id: string): KeyDef {
   // Loud on purpose: a mistyped id would otherwise ship a blank key that
   // writes nothing and says nothing.
   if (!specimen) throw new Error(`keyboard layout: no letter "${id}" in the alphabet data`)
+  // Same discipline for the hint: a letter key without its Danish sound hint
+  // would ship a silently blank cap instead of failing the build.
+  if (!specimen.latinHint) throw new Error(`keyboard layout: letter "${id}" has no latinHint`)
   return {
     id,
     kind: 'letter',
