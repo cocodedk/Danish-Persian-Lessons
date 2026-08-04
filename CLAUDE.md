@@ -78,7 +78,7 @@ Per-lesson specs live in `docs/plans/`. Sequence and status: `docs/plans/ROADMAP
 | Reviewing a PR | `pr-review-toolkit:review-pr` (or `/code-review` for the working diff) |
 
 Invoke nothing beyond these and the built-ins without Babak asking. The allowlist is enforced in
-`.claude/settings.local.json` (`skillOverrides` / `enabledPlugins`) — flip a skill on there if a task
+`.claude/settings.json` (committed; `skillOverrides` / `enabledPlugins` — personal overrides may still go in the gitignored `.claude/settings.local.json`) — flip a skill on there if a task
 genuinely needs it, and flip it back.
 
 ## Architecture
