@@ -92,9 +92,38 @@
   accent-color: var(--blue);
 }
 
+.settings-corner__spelling {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.settings-corner__spelling-fa {
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+.settings-corner__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--blue);
+  font-size: 1rem;
+}
+
 .settings-corner__privacy {
   margin: 0;
   font-size: 1rem;
   color: var(--ink);
   opacity: 0.75;
+}
+
+.settings-corner__privacy[lang='fa'] {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }

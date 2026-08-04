@@ -7,8 +7,14 @@
  * `answer` — one question answered right inside a round;
  * `item`   — a letter or vowel mark cleared ("Jeg kan den");
  * `page`   — a round or a lesson finished, which fills a notebook page.
+ * And one more, plan 006's:
+ * `replay` — a lesson finished again, having already been paid for. It
+ *            celebrates and praises like any other completion and counts as a
+ *            practice day; it is worth no points, the way a letter already
+ *            marked done cannot be marked done again for more credit. A caller
+ *            can only ever ask for this instead of a payout, never for more.
  */
-export type RewardEventKind = 'answer' | 'item' | 'page'
+export type RewardEventKind = 'answer' | 'item' | 'page' | 'replay'
 
 export type StickerKind = 'afarin' | 'bist' | 'star'
 

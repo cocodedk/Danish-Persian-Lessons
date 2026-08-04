@@ -6,6 +6,8 @@ import LetterScreen from './pages/LetterScreen'
 import VowelMarksScreen from './pages/VowelMarksScreen'
 import ExerciseScreen from './pages/ExerciseScreen'
 import BonusScreen from './pages/BonusScreen'
+import NameSpelling from './pages/NameSpelling'
+import NameLesson from './pages/NameLesson'
 import LessonPlaceholder from './pages/LessonPlaceholder'
 import Kit from './pages/Kit'
 
@@ -20,6 +22,10 @@ export default function App() {
         <Route path="/lesson/alphabet/vokaltegn" element={<VowelMarksScreen />} />
         <Route path="/lesson/alphabet/ovelse/:kind" element={<ExerciseScreen />} />
         <Route path="/lesson/alphabet/gave/:n" element={<BonusScreen />} />
+        {/* The learner's own name: how it is spelled, and the lesson that
+            teaches it. Both send a learner without a name back to the forside. */}
+        <Route path="/dit-navn" element={<NameSpelling />} />
+        <Route path="/lesson/navn" element={<NameLesson />} />
         <Route path="/lesson/:id" element={<LessonPlaceholder />} />
         {/* Review surface for the design kit — direct URL only, never linked from home. */}
         <Route path="/kit" element={<Kit />} />

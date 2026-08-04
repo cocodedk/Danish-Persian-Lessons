@@ -1,15 +1,19 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { getSettings, setSoundOn } from '../progress/settings'
+import { PRIVACY_DA, PRIVACY_FA } from '../name/copy'
 import './SettingsCorner.css'
 
 export interface SettingsCornerProps {
   name?: string
+  /** The Persian spelling, when the learner has chosen one. */
+  faSpelling?: string
   onSave: (name: string) => void
   onDelete: () => void
 }
 
 /** A small, unobtrusive corner control where the name can be edited or deleted. */
-export function SettingsCorner({ name, onSave, onDelete }: SettingsCornerProps) {
+export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsCornerProps) {
   const [open, setOpen] = useState(false)
   const [draft, setDraft] = useState(name ?? '')
   const [sound, setSound] = useState(() => getSettings().sound)
@@ -65,6 +69,21 @@ export function SettingsCorner({ name, onSave, onDelete }: SettingsCornerProps) 
               </button>
             )}
           </div>
+
+          {/* The spelling lives on its own screen, where the letters are. */}
+          {name && (
+            <p className="settings-corner__spelling">
+              {faSpelling && (
+                <span className="settings-corner__spelling-fa" lang="fa" dir="rtl">
+                  {faSpelling}
+                </span>
+              )}
+              <Link className="settings-corner__link" to="/dit-navn">
+                {faSpelling ? 'Ret navnet på persisk' : 'Skriv navnet på persisk'}
+              </Link>
+            </p>
+          )}
+
           {/* Sound has nothing to do with the motion preference — a learner
               may want the jingle and no animation, or the other way round. */}
           <label className="settings-corner__sound" htmlFor="settings-corner-sound">
@@ -76,7 +95,10 @@ export function SettingsCorner({ name, onSave, onDelete }: SettingsCornerProps) 
             />
             <span>Lyd ved ros og nye sider</span>
           </label>
-          <p className="settings-corner__privacy">Navnet gemmes kun på din telefon.</p>
+          <p className="settings-corner__privacy">{PRIVACY_DA}</p>
+          <p className="settings-corner__privacy" lang="fa" dir="rtl">
+            {PRIVACY_FA}
+          </p>
         </div>
       )}
     </div>

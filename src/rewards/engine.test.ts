@@ -106,6 +106,22 @@ describe('reward engine — surprise gifts run on a schedule, never on chance', 
   })
 })
 
+describe('reward engine — a lesson replayed pays exactly once', () => {
+  it('praises a replay, counts it as practice, and adds nothing to the total', () => {
+    celebrate('page', DAY)
+    const paid = snapshot()
+
+    const replay = celebrate('replay', DAY)
+
+    expect(replay.ticks).toBeGreaterThanOrEqual(1)
+    expect(replay.praise.fa.length).toBeGreaterThan(0)
+    expect(replay.stickers).toEqual([])
+    expect(replay.streak.value).toBeGreaterThan(0)
+    for (let i = 0; i < 30; i += 1) celebrate('replay', DAY)
+    expect(snapshot()).toEqual(paid)
+  })
+})
+
 describe('reward engine — a gift pays exactly once', () => {
   /** Three answers and a closing page event, the shape one bonus round takes. */
   function playGift(id: string) {
