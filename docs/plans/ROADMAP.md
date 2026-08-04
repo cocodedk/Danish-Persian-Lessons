@@ -22,10 +22,12 @@ the app exists, `npm run verify`) is green.
 - [x] **P5 — [006-your-name.md](006-your-name.md)** (merged 2026-08-04, PR #13, three critic rounds incl. the decency sweep): Persian spelling of the learner's name,
       transliteration engine, badges activate, "write your name" mini-lesson. The motivation hook.
 - [x] **P6 — [004-grade1-vocab.md](004-grade1-vocab.md)** (merged 2026-08-04, PR #15, one critic round; word list awaits Babak’s native review): grade-1 primer word units (آب/vand …).
-- [ ] **P7 — [005-persian-keyboard.md](005-persian-keyboard.md)**: on-screen Persian keyboard +
+- [x] **P7 — [005-persian-keyboard.md](005-persian-keyboard.md)** (merged 2026-08-04, PR #17, one critic round): on-screen Persian keyboard +
       typing exercises (capstone: type your own name).
 
 (Plan file numbers are stable IDs, not execution order — the sequence above is the order.)
+
+**All seven roadmap plans are merged and live (2026-08-04).** The gauntlet is complete; future work starts from the Later list below with new plans.
 
 ## Later (not planned yet — do not build ahead)
 
