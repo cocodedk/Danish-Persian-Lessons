@@ -1,0 +1,111 @@
+/* The keyboard: keys drawn with the blue pen, letters written in ink.
+   docs/design/ART-DIRECTION.md — --blue is what the learner touches, --ink is
+   what the learner writes. No shadow, no gradient, no lift on press: the only
+   thing that changes when a key goes down is its colour.
+
+   Six columns is the widest grid that keeps every key at or above 44×44px on a
+   360px screen: (360 - 8 padding - 5 × 4 gap) ÷ 6 ≈ 55px. */
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.25rem;
+  /* Hand-sized wherever it is shown: a keyboard stretched across a laptop is
+     no easier to reach, only stranger to look at. */
+  max-inline-size: 26rem;
+  margin-inline: auto;
+  padding: 0.25rem;
+}
+
+.keyboard__key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--tap-min);
+  min-inline-size: var(--tap-min);
+  padding: 0;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.375rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+/* The three keys that write no letter stay quieter than the 33 that do. */
+.keyboard__key--sign {
+  border-color: var(--rule);
+}
+
+.keyboard__key:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.keyboard__key:active {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+@media (hover: hover) {
+  .keyboard__key:hover {
+    border-color: var(--blue-hover);
+  }
+}
+
+/* A space is one pen stroke; the نیم‌فاصله is that stroke cut in half. */
+.keyboard__stroke {
+  inline-size: 1.5rem;
+  block-size: 0.75rem;
+  border-block-end: 2px solid var(--blue);
+}
+
+.keyboard__half {
+  display: flex;
+  gap: 0.3rem;
+  block-size: 0.75rem;
+}
+
+.keyboard__half > span {
+  inline-size: 0.6rem;
+  border-block-end: 2px solid var(--blue);
+}
+
+/* The space and نیم‌فاصله keys stack their stroke over a small visible name —
+   tiny on purpose, a caption under the mark rather than a second key face. */
+.keyboard__sign-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.keyboard__caption {
+  font-family: var(--font-latin);
+  font-size: 0.625rem;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.keyboard__caption[lang='fa'] {
+  font-family: var(--font-fa);
+}
+
+.keyboard__erase {
+  font-family: var(--font-latin);
+  font-size: 1.25rem;
+  color: var(--blue);
+}
+
+.keyboard__key:active .keyboard__erase,
+.keyboard__key:active .keyboard__caption {
+  color: var(--paper);
+}
+
+.keyboard__key:active .keyboard__stroke,
+.keyboard__key:active .keyboard__half > span {
+  border-block-end-color: var(--paper);
+}

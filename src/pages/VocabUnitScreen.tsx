@@ -64,6 +64,12 @@ export default function VocabUnitScreen() {
             </Link>
           </li>
         ))}
+        {/* The third round: writing the words on the Persian keyboard (plan 005). */}
+        <li>
+          <Link className="alphabet__link" to={`/lesson/ord/${unit.id}/skriv`}>
+            Skriv ordene
+          </Link>
+        </li>
       </ul>
     </LessonSheet>
   )

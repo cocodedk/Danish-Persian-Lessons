@@ -13,12 +13,24 @@ const unit = findVocabUnit('1')!
 
 freshVocabState()
 
+/**
+ * The unit's lesson card, picked by where it goes. Since plan 005 the forside
+ * also carries a typing round per unit, which names the same unit in its own
+ * link — the destination is what tells the two apart.
+ */
+function unitCard(unitId: string): HTMLElement {
+  return screen
+    .getAllByRole('link')
+    .find((link) => link.getAttribute('href') === `#/lesson/ord/${unitId}`)!
+}
+
 describe('the forside lists the word units', () => {
   it('shows all three, with their own progress, and links straight into them', () => {
     open('#/')
     for (const each of vocabUnits) {
-      const card = screen.getByRole('link', { name: new RegExp(each.title) })
-      expect(card).toHaveAttribute('href', `#/lesson/ord/${each.id}`)
+      const card = unitCard(each.id)
+      expect(card, each.title).toBeInTheDocument()
+      expect(within(card).getByText(each.title)).toBeInTheDocument()
       expect(
         within(card).getByText(`0 af ${each.words.length} ord klaret`),
       ).toBeInTheDocument()
@@ -31,7 +43,7 @@ describe('the forside lists the word units', () => {
     word.unmount()
 
     open('#/')
-    const card = screen.getByRole('link', { name: new RegExp(unit.title) })
+    const card = unitCard(unit.id)
     expect(within(card).getByText(`1 af ${unit.words.length} ord klaret`)).toBeInTheDocument()
   })
 })
