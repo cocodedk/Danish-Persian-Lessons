@@ -19,7 +19,7 @@ match the plan-008 key hints: kh = خ, sj = ش, tj = چ, å = آ)
 | عالی | åli | [ɒːli] |
 | خیلی خوب | khejli khub | [xejli xub] |
 | باریکلا | bårikalå | [bɒːɾikælɒː] |
-| خوش برگشتی | khåsj bargasjti | [xoʃ bæɾɡæʃti] |
+| خوش برگشتی | khosj bargasjti | [xoʃ bæɾɡæʃti] |
 
 ## Steps
 
@@ -71,3 +71,13 @@ Where the build does not do what this plan wrote, and why.
    needed anyway, stacking fa/pron/da vertically — the same shape as the praise row above it, and
    every specimen elsewhere in the app — read better than wrapping a third inline item into the old
    flex row.
+
+## Critic round 1 (2026-08-04) — FAIL, adjudicated by Fable
+
+1. Row 7 lydskrift was the planner's own inconsistency: خوش is [xoʃ] and this app spells [o] as
+   "o", [ɒː] as "å" — corrected khåsj → khosj in the table, copy.ts, and copy.test.ts.
+2. Acceptance box 3 softened to what the app actually promises: visible or reachable by normal
+   scroll, never dock-occluded (the critic measured the welcome banner below a scrollable fold —
+   the plan-005 occlusion class does not apply).
+3. Capstone pron deviation adjudicated correct (PRAISE[0].pron under the name-praise; the name's
+   own pron cannot exist without improvisation, which a stated rule forbids).

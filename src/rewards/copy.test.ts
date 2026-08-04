@@ -14,7 +14,7 @@ describe('praise pronunciation', () => {
     { fa: 'عالی', da: 'åli', ipa: 'ɒːli' },
     { fa: 'خیلی خوب', da: 'khejli khub', ipa: 'xejli xub' },
     { fa: 'باریکلا', da: 'bårikalå', ipa: 'bɒːɾikælɒː' },
-    { fa: 'خوش برگشتی', da: 'khåsj bargasjti', ipa: 'xoʃ bæɾɡæʃti' },
+    { fa: 'خوش برگشتی', da: 'khosj bargasjti', ipa: 'xoʃ bæɾɡæʃti' },
   ]
 
   it('has exactly seven rows — six praise pairs and the welcome-back line', () => {

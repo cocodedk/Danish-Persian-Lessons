@@ -38,7 +38,7 @@ export const GIFT_DA = 'En bonusøvelse i gave!'
 export const WELCOME_BACK: Praise = {
   fa: 'خوش برگشتی!',
   da: 'Velkommen tilbage!',
-  pron: { da: 'khåsj bargasjti', ipa: 'xoʃ bæɾɡæʃti' },
+  pron: { da: 'khosj bargasjti', ipa: 'xoʃ bæɾɡæʃti' },
 }
 
 /** Words this app must never say about progress. Asserted in streak.test.ts. */
