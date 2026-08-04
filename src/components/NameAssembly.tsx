@@ -52,14 +52,20 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
         {assembledPrefix(spelling, placed.length)}
       </p>
 
-      {missed && !done && (
-        <p className="name-assembly__again">
-          <span lang="fa" dir="rtl">
-            {TRY_AGAIN_FA}
-          </span>
-          <span lang="da">Det bogstav kommer et andet sted i navnet. Prøv igen, du mister ingenting.</span>
-        </p>
-      )}
+      {/* A standing region, like the exercise screens': the gentle line is
+          announced when it appears instead of arriving unseen. */}
+      <div className="name-assembly__feedback" role="status">
+        {missed && !done && (
+          <p className="name-assembly__again">
+            <span lang="fa" dir="rtl">
+              {TRY_AGAIN_FA}
+            </span>
+            <span lang="da">
+              Det bogstav kommer et andet sted i navnet. Prøv igen, du mister ingenting.
+            </span>
+          </p>
+        )}
+      </div>
 
       <LetterBank
         tiles={tiles}
