@@ -1,15 +1,18 @@
-.name-capture {
+/* The very first screen is a sheet of the same notebook. The panes sit ON the
+   sheet — the one red margin line belongs to RuledSection, never to a pane.
+   See docs/plans/003-alphabet-lesson.md step 1. */
+
+.name-capture > .ruled-section {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  min-block-size: 100dvh;
 }
 
 .name-capture__pane {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1.5rem;
-  border-inline-start: 2px solid var(--red);
+  padding-block: 1.5rem;
 }
 
 .name-capture__pane--fa {

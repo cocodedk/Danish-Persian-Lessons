@@ -1,0 +1,53 @@
+/* The moment after a right answer. Persian first, Danish under it, the tick in
+   the margin — the same order as every other pair in the app. */
+
+.celebration {
+  position: relative;
+  margin-block: 0.75rem;
+}
+
+.celebration__praise {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.5rem;
+  margin: 0;
+}
+
+.celebration__praise .progress-tick {
+  /* Spans the fa / pron / da stack in the second column, however many of the
+     three rows actually render. */
+  grid-row: 1 / span 3;
+}
+
+.celebration__fa {
+  font-family: var(--font-fa);
+  font-size: 1.375rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.celebration__da {
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.celebration__welcome {
+  /* Stacked, not a wrapping row — fa, pron, da, the same order and shape as
+     the praise row above it (and every other specimen in the app). */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0.5rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+}
+
+.celebration__stickers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.85rem 0 0;
+}

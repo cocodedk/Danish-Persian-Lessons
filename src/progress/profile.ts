@@ -27,9 +27,15 @@ export function hasProfileRecord(): boolean {
   return keyExists(KEY)
 }
 
-/** Removes only the name, keeping the rest of the profile (and its "seen" record) intact. */
+/**
+ * Removes the name and its Persian spelling, keeping the rest of the profile
+ * (and its "seen" record) intact. The two always go together: `faSpelling` is
+ * the spelling OF the name, so a name that is gone cannot still have one —
+ * that is what keeps the greeting, the badges and the mini-lesson agreeing.
+ */
 export function clearName(): void {
   const next: Profile = { ...getProfile() }
   delete next.name
+  delete next.faSpelling
   setProfile(next)
 }

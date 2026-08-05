@@ -1,0 +1,59 @@
+/* One step per letter, down the page like مشق in a notebook: what the name
+   looks like so far, then why this letter took the shape it did. */
+
+.name-walk {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.name-walk__step {
+  margin-block: 0.9rem;
+  padding-block-end: 0.9rem;
+  border-block-end: 1px solid var(--rule);
+  /* The pen arrives at one letter after the other. Teaching motion, not
+     decoration: the delay IS the letter-by-letter reading. */
+  animation: name-walk-ink 320ms ease-out backwards;
+  animation-delay: calc(var(--step, 0) * 180ms);
+}
+
+.name-walk__step:last-child {
+  border-block-end: none;
+}
+
+@keyframes name-walk-ink {
+  from {
+    opacity: 0;
+    transform: translateX(0.4rem);
+  }
+}
+
+.name-walk__count {
+  margin: 0;
+  font-family: var(--font-latin);
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+.name-walk__grown {
+  margin: 0.15rem 0 0.35rem;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(2rem, 11vw, 3rem);
+  line-height: 1.8;
+}
+
+.name-walk__note {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* Less motion: the steps are already numbered and complete, so the only thing
+   that goes is the movement. Nothing is hidden, nothing is withheld. */
+@media (prefers-reduced-motion: reduce) {
+  .name-walk__step {
+    animation: none;
+  }
+}

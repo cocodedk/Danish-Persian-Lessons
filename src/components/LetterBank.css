@@ -1,0 +1,61 @@
+/* The tray of letters. Cells like the alphabet chart's, because it is the same
+   alphabet — only here they are things to tap rather than things to read. */
+
+.letter-bank__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  opacity: 0.8;
+}
+
+.letter-bank__label-fa {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+  opacity: 1;
+}
+
+.letter-bank__tray {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--tap-min), 1fr));
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.letter-bank__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  min-block-size: var(--tap-min);
+  min-inline-size: var(--tap-min);
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.letter-bank__tile:hover {
+  border-color: var(--blue);
+}
+
+.letter-bank__tile:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Used, not gone: the letter stays where the learner last saw it. */
+.letter-bank__tile--used {
+  opacity: 0.4;
+  cursor: default;
+}
