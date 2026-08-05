@@ -1,0 +1,183 @@
+/* The typing screen. One line to write on, and beside it, in the same dock —
+   only when something went wrong — the teacher's marking row.
+   docs/design/ART-DIRECTION.md: red marks exactly what a red pen would mark.
+
+   The dock (keyboard + writing line + bar) already spends most of a 360×640
+   screen; the eyebrow/count and the line/button each share one row instead of
+   two so the sheet above still has room to show the prompt (critic round 1). */
+
+.type__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.25rem;
+}
+
+.type__eyebrow {
+  margin: 0;
+  font-family: var(--font-fa);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.type__count {
+  margin: 0;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.type__prompt {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1.25rem;
+  line-height: var(--rule-step);
+}
+
+.type__note {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  line-height: var(--rule-step);
+  opacity: 0.8;
+}
+
+/* The line and the button that checks it, sharing one row. `flow-root`
+   (not flex, not grid) so the float below is contained: at least one engine
+   in this build computed a wildly inflated auto cross-size — reproduced with
+   plain CSS grid too, independent of align-items — for a flex/grid item
+   whose own font-size is this large. Float is the one layout mode that
+   measured correctly, so the button floats instead of sitting in a flex row
+   with the line (critic round 1 — the merge itself is what buys back the
+   headroom the sheet above needs). */
+.type__line-row {
+  display: flow-root;
+  max-inline-size: 26rem;
+  margin-inline: auto;
+}
+
+/* The button floats first in source order, so the line — which follows it —
+   narrows to wrap beside it rather than under it. No block padding: the
+   44px tap-min floor is already the row's height budget, and this row is
+   the one place 360×640 has no spare pixels (critic round 1). */
+.type__action {
+  float: inline-end;
+  padding: 0 0.75rem;
+}
+
+/* The writing line: one notebook rule, drawn a shade heavier than the sheet's
+   own ruling, because this is the line the pen is on. It lives in the thumb
+   zone with the keys, so it stays under the hand however short the screen.
+   44px, matching the button beside it exactly — down from the original 3rem,
+   the four pixels 360×640 needed to stop the dock covering the sheet above it. */
+.type__line {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0.1rem;
+  min-block-size: var(--tap-min);
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  border-block-end: 2px solid var(--rule);
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* The pen tip, waiting where the next letter goes. Static: ART-DIRECTION allows
+   teaching motion and celebration motion, and a blinking caret is neither. */
+.type__caret {
+  align-self: center;
+  inline-size: 2px;
+  block-size: 1.75rem;
+  background: var(--blue);
+}
+
+/* The marking's own row of rows: the cells, then the «دوباره» line, inset and
+   centered the same way the line and the keyboard above it are. */
+.type__feedback {
+  max-inline-size: 26rem;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+}
+
+/* The marking row: the word spelled out, one letter to a cell, right to left. */
+.type__marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.type__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 2.25rem;
+  min-block-size: 2.5rem;
+  padding: 0.1rem 0.3rem;
+  border-block-end: 2px solid var(--rule);
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* The one mark. The teacher's pen, at the first place the word goes wrong. */
+.type__cell--mark {
+  border-block-end-color: var(--red);
+  color: var(--red);
+}
+
+/* Nothing was written here, and something should have been. */
+.type__cell--empty {
+  border: 2px dashed var(--red);
+  border-radius: 3px;
+}
+
+/* A space and a نیم‌فاصله have no letterform — same two pen strokes the
+   keyboard draws them with, so the marking row can point at them too. */
+.type__stroke {
+  inline-size: 1.25rem;
+  block-size: 0.7rem;
+  border-block-end: 2px solid currentcolor;
+}
+
+.type__half {
+  display: flex;
+  gap: 0.25rem;
+  block-size: 0.7rem;
+}
+
+.type__half::before,
+.type__half::after {
+  content: '';
+  inline-size: 0.5rem;
+  border-block-end: 2px solid currentcolor;
+}
+
+.type__again {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  line-height: var(--rule-step);
+}
+
+/* «دوباره» is said in ink, the way the choice rounds say it. The one red thing
+   on this screen is the mark itself — that is what makes it read as a mark. */
+.type__again [lang='fa'] {
+  font-family: var(--font-fa);
+  font-size: 1.25rem;
+}

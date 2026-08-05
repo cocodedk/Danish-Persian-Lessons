@@ -1,0 +1,18 @@
+/* The vowel specimen chip. The red-pen cuts come straight from the tokens —
+   the glyph is set at line-height 2, the geometry those cuts were tuned for. */
+
+.vowel-chip {
+  padding: 0.25rem 0.9rem 0.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  text-align: center;
+}
+
+.vowel-chip__glyph {
+  margin: 0;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 11vw, 3.25rem);
+  line-height: 2;
+}

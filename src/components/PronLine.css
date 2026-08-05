@@ -1,0 +1,11 @@
+/* The pronunciation line — small Andika under the Persian word. */
+
+.pron-line {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  color: var(--ink);
+  opacity: 0.75;
+  direction: ltr;
+  unicode-bidi: isolate;
+}

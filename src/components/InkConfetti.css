@@ -1,0 +1,47 @@
+/* Ink spatter on paper: small dots in the two pen colours, falling a short way
+   and drying out. Purely decorative, so under reduced motion it simply is not
+   drawn — nothing is withheld, because nothing here was ever the reward. */
+
+.ink-confetti {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 0;
+  pointer-events: none;
+}
+
+.ink-confetti__dot {
+  position: absolute;
+  inset-block-start: 0;
+  border-radius: 50%;
+  opacity: 0;
+  animation: ink-confetti-fall 900ms ease-out both;
+}
+
+.ink-confetti__dot--red {
+  background: var(--red);
+}
+
+.ink-confetti__dot--blue {
+  background: var(--blue);
+}
+
+@keyframes ink-confetti-fall {
+  from {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
+    translate: 0 var(--drop);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-confetti {
+    display: none;
+  }
+}

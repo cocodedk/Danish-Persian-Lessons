@@ -9,23 +9,28 @@ the app exists, `npm run verify`) is green.
 
 - [x] **P0 — Infrastructure** (done 2026-08-03): repo, CI, Pages deploy, trilingual landing site,
       hooks, hygiene, CLAUDE.md, art direction, this roadmap.
-- [ ] **P1 — [001-scaffold-app.md](001-scaffold-app.md)**: Vite + React + TS app skeleton, tokens,
-      SplitCard shell, storage + profile (skippable name capture), fonts self-hosted, CI/deploy/hooks
-      upgraded, app live at `/app/`.
-- [ ] **P2 — [002-design-system.md](002-design-system.md)**: notebook-page component kit per ART-DIRECTION.
-- [ ] **P3 — [003-alphabet-lesson.md](003-alphabet-lesson.md)**: orientation ("Persian runs right to
+- [x] **P1 — [001-scaffold-app.md](001-scaffold-app.md)** (merged 2026-08-03, PR #5, two critic
+      rounds): app live at `/app/`, split-screen shell + pronunciation line, name capture, storage,
+      self-hosted fonts, gates upgraded.
+- [x] **P2 — [002-design-system.md](002-design-system.md)** (merged 2026-08-03, PR #7, one critic round): notebook kit + #/kit gallery, Andika subset, dark ruling fixed.
+- [x] **P3 — [003-alphabet-lesson.md](003-alphabet-lesson.md)** (merged 2026-08-03, PR #9, two critic rounds): orientation ("Persian runs right to
       left", joining, shapes, no capitals) + Lesson 1 — letters with stroke-order drawings, forms,
       vowel marks (name-letter badges shipped dormant).
-- [ ] **P4 — [007-rewards-streaks.md](007-rewards-streaks.md)**: generosity-first reward engine —
+- [x] **P4 — [007-rewards-streaks.md](007-rewards-streaks.md)** (merged 2026-08-04, PR #10, three critic rounds): generosity-first reward engine —
       ticks, stickers, jingles, levels, resting streaks, bonus-exercise gifts. Lands right after the
       first lesson so everything afterwards celebrates.
-- [ ] **P5 — [006-your-name.md](006-your-name.md)**: Persian spelling of the learner's name,
+- [x] **P5 — [006-your-name.md](006-your-name.md)** (merged 2026-08-04, PR #13, three critic rounds incl. the decency sweep): Persian spelling of the learner's name,
       transliteration engine, badges activate, "write your name" mini-lesson. The motivation hook.
-- [ ] **P6 — [004-grade1-vocab.md](004-grade1-vocab.md)**: grade-1 primer word units (آب/vand …).
-- [ ] **P7 — [005-persian-keyboard.md](005-persian-keyboard.md)**: on-screen Persian keyboard +
+- [x] **P6 — [004-grade1-vocab.md](004-grade1-vocab.md)** (merged 2026-08-04, PR #15, one critic round; word list awaits Babak’s native review): grade-1 primer word units (آب/vand …).
+- [x] **P7 — [005-persian-keyboard.md](005-persian-keyboard.md)** (merged 2026-08-04, PR #17, one critic round): on-screen Persian keyboard +
       typing exercises (capstone: type your own name).
 
 (Plan file numbers are stable IDs, not execution order — the sequence above is the order.)
+
+**All seven roadmap plans are merged and live (2026-08-04).** The gauntlet is complete; future work continues as numbered plans below.
+
+- [x] **P8 — [008-keyboard-danish-hints.md](008-keyboard-danish-hints.md)** (merged 2026-08-04, PR #21, one adjudicated critic round): orange Danish key hints + app favicon.
+- [x] **P9 — [009-praise-pronunciation.md](009-praise-pronunciation.md)** (merged 2026-08-04, PR #22, one adjudicated critic round): lydskrift + IPA beside every praise word.
 
 ## Later (not planned yet — do not build ahead)
 

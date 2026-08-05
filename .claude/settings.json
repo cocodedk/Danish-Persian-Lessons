@@ -1,0 +1,67 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash scripts/verify.sh)",
+      "Bash(./scripts/install-hooks.sh)",
+      "Bash(npm run:*)",
+      "Bash(npm install)",
+      "Bash(npm ci)",
+      "Bash(npm test:*)",
+      "Bash(npx vite:*)",
+      "Bash(npx vitest:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(sudo:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "message-test@message-test": false,
+    "npt@natural-parallel-test": false
+  },
+  "skillOverrides": {
+    "agent-loop": "off",
+    "codex": "off",
+    "codex-consult": "off",
+    "codex-mutual-acceptance": "off",
+    "codex-review": "off",
+    "codex-review-branch": "off",
+    "codex-review-plans": "off",
+    "context-optimization": "off",
+    "documentary-making": "off",
+    "don-norman-principles-audit": "off",
+    "dream": "off",
+    "github-setup": "off",
+    "iso-42001-ai-governance": "off",
+    "modern-persian-fiction": "off",
+    "nist-ai-rmf": "off",
+    "on-writing-well": "off",
+    "opencode-review": "off",
+    "pptx": "off",
+    "prose-mechanics": "off",
+    "samsung-tizen-app": "off",
+    "skill-creator": "off",
+    "skill-reviewer": "off",
+    "teacher": "off",
+    "writing-organization": "off"
+  }
+}

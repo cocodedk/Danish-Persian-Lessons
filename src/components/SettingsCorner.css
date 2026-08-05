@@ -1,6 +1,9 @@
+/* Top corner, not bottom: the thumb zone belongs to the lessons now that the
+   forside carries a lesson list under the specimen (plan 003 step 1). */
+
 .settings-corner {
   position: fixed;
-  inset-block-end: 0.75rem;
+  inset-block-start: 0.75rem;
   inset-inline-end: 0.75rem;
   z-index: 10;
   font-family: var(--font-latin);
@@ -20,7 +23,7 @@
 
 .settings-corner__panel {
   position: absolute;
-  inset-block-end: calc(100% + 0.5rem);
+  inset-block-start: calc(100% + 0.5rem);
   inset-inline-end: 0;
   width: max(16rem, 100%);
   display: flex;
@@ -71,9 +74,56 @@
   color: var(--ink);
 }
 
+/* The whole row is the tap target, so the checkbox itself can stay checkbox-sized. */
+.settings-corner__sound {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--tap-min);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.settings-corner__sound input {
+  min-height: 1.35rem;
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  padding: 0;
+  accent-color: var(--blue);
+}
+
+.settings-corner__spelling {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.settings-corner__spelling-fa {
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+.settings-corner__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--blue);
+  font-size: 1rem;
+}
+
 .settings-corner__privacy {
   margin: 0;
   font-size: 1rem;
   color: var(--ink);
   opacity: 0.75;
+}
+
+.settings-corner__privacy[lang='fa'] {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
