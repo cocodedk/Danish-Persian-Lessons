@@ -78,7 +78,7 @@ Per-lesson specs live in `docs/plans/`. Sequence and status: `docs/plans/ROADMAP
 | Reviewing a PR | `pr-review-toolkit:review-pr` (or `/code-review` for the working diff) |
 
 Invoke nothing beyond these and the built-ins without Babak asking. The allowlist is enforced in
-`.claude/settings.local.json` (`skillOverrides` / `enabledPlugins`) — flip a skill on there if a task
+`.claude/settings.json` (committed; `skillOverrides` / `enabledPlugins` — personal overrides may still go in the gitignored `.claude/settings.local.json`) — flip a skill on there if a task
 genuinely needs it, and flip it back.
 
 ## Architecture
@@ -89,7 +89,7 @@ docs/plans/         ROADMAP.md + numbered plans (001-scaffold-app.md is next)
 docs/design/        ART-DIRECTION.md — binding design system (palette, type, notebook signature)
 .github/workflows/  ci.yml (job `verify`) · deploy-pages.yml (site → Pages; app joins at /app/)
 .githooks/          pre-commit (fast) · commit-msg (Conventional Commits) · pre-push (owner-lock + full gate)
-scripts/            verify.sh · install-hooks.sh · setup-repo.sh
+scripts/            verify.sh · install-hooks.sh · setup-repo.sh · subset-fonts.py (authoring-time)
 src/, public/       (arrive with plan 001: Vite React app, lessons data, progress storage)
 ```
 

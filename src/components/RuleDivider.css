@@ -1,0 +1,7 @@
+/* A single notebook rule as a separator. */
+
+.rule-divider {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+  margin: 0;
+}

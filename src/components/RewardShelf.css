@@ -1,0 +1,40 @@
+/* The collected stamps, laid out along a notebook line. Permanent by design —
+   the shelf has no state in which anything is removed from it. */
+
+.reward-shelf {
+  margin-block-end: 1.25rem;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--rule);
+}
+
+.reward-shelf__line {
+  display: grid;
+  margin: 0 0 0.5rem;
+}
+
+.reward-shelf__fa {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+.reward-shelf__da {
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.reward-shelf__stamps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+/* Stamps on the shelf are keepsakes, not news: they never re-stamp on a
+   re-render, they are simply there. */
+.reward-shelf .sticker-stamp {
+  animation: none;
+}

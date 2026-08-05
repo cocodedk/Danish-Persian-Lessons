@@ -1,0 +1,9 @@
+/* The Danish word — docs/design/ART-DIRECTION.md "The specimen".
+   Colour is inherited (--ink), matching the Persian specimen. */
+
+.da-word {
+  margin: 0;
+  font-family: var(--font-latin);
+  font-size: clamp(1.5rem, 6.5vw, 2.4rem);
+  line-height: 1.7;
+}

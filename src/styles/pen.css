@@ -1,0 +1,46 @@
+/* The teacher's red pen, applied to real type.
+
+   A vowel mark (madde, زبر, زیر, پیش) is part of its letter's glyph — it cannot
+   be wrapped in its own element without breaking Arabic shaping. So the red is
+   painted as a hard-edged gradient clipped to the text: everything above (or
+   below) the cut is red, the letterform itself stays ink.
+
+   Each side reads its own cut token, because they are nowhere near each other:
+   --madde-cut sits above the letter, --zir-cut below the baseline. A component
+   whose type is set differently can override --pen-cut locally.
+
+   Same technique and tokens as website/styles.css. */
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .pen-mark--above,
+  .pen-mark--below {
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .pen-mark--above {
+    background-image: linear-gradient(
+      to bottom,
+      var(--red) 0 var(--pen-cut, var(--madde-cut)),
+      var(--ink) var(--pen-cut, var(--madde-cut))
+    );
+  }
+
+  .pen-mark--below {
+    background-image: linear-gradient(
+      to bottom,
+      var(--ink) 0 var(--pen-cut, var(--zir-cut)),
+      var(--red) var(--pen-cut, var(--zir-cut))
+    );
+  }
+}
+
+@media (forced-colors: active) {
+  .pen-mark--above,
+  .pen-mark--below {
+    background-image: none;
+    color: CanvasText;
+  }
+}

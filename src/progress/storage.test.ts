@@ -26,6 +26,28 @@ describe('storage', () => {
     expect(readJSON('old', 'fallback')).toBe('fallback')
   })
 
+  it('treats a null envelope value as absent rather than handing null to the caller', () => {
+    window.localStorage.setItem(
+      'dpl.v1.nullish',
+      JSON.stringify({ schemaVersion: 1, value: null }),
+    )
+    expect(readJSON('nullish', 'fallback')).toBe('fallback')
+  })
+
+  it('reads a stored primitive back as the fallback — the store keeps records, not scalars', () => {
+    // The narrowing in readJSON is a contract, not an accident: a bare 'Sara'
+    // where a profile record belongs is corruption, and comes back as absent.
+    for (const value of ['Sara', 7, true]) {
+      writeJSON('scalar', value)
+      expect(readJSON('scalar', 'fallback')).toBe('fallback')
+    }
+  })
+
+  it('still accepts an array value — only null is rejected, not every non-plain-object', () => {
+    writeJSON('list', [1, 2, 3])
+    expect(readJSON<number[]>('list', [])).toEqual([1, 2, 3])
+  })
+
   it('reports key existence, including an explicitly empty value', () => {
     expect(keyExists('thing')).toBe(false)
     writeJSON('thing', {})
@@ -45,5 +67,25 @@ describe('storage', () => {
 
     setSpy.mockRestore()
     getSpy.mockRestore()
+  })
+
+  it('never surfaces an older value once localStorage starts throwing on write (round 4)', () => {
+    writeJSON('thing', { a: 1 })
+    expect(readJSON('thing', null)).toEqual({ a: 1 })
+
+    const setSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('QuotaExceededError')
+    })
+
+    // A storm of writes that never once reach disk: localStorage is stuck at
+    // `{ a: 1 }` for the rest of this test, yet every read must still see the
+    // latest write — never `{ a: 1 }`, never any earlier value in the storm.
+    for (let a = 2; a <= 6; a += 1) {
+      expect(() => writeJSON('thing', { a })).not.toThrow()
+      expect(readJSON('thing', null)).toEqual({ a })
+    }
+
+    setSpy.mockRestore()
+    expect(readJSON('thing', null)).toEqual({ a: 6 })
   })
 })
