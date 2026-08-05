@@ -1,0 +1,94 @@
+/* The two screens that belong to the learner's own name: choosing how it is
+   spelled, and learning to write it. The name itself is always ink — it is the
+   learner, not a correction — so no red touches it anywhere here. */
+
+.name__eyebrow {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-fa);
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+.name__ask {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+.name__preview {
+  margin: 0.5rem 0;
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 14vw, 4rem);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.name__hint {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  opacity: 0.8;
+}
+
+.name__choices {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.name__choice-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.name__choice {
+  flex: 1;
+  min-block-size: var(--tap-min);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font-naskh);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.7;
+  text-align: start;
+  cursor: pointer;
+}
+
+.name__choice:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* The chosen one carries the teacher's red — the mark that says "this one". */
+.name__choice--picked {
+  border-color: var(--red);
+  border-inline-start-width: 3px;
+}
+
+.name__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+
+.name__actions--save {
+  margin-block-start: 1.5rem;
+}
+
+.name__done {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block: 1rem;
+  font-family: var(--font-latin);
+}

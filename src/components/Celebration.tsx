@@ -1,0 +1,63 @@
+import { PRAISE, WELCOME_BACK } from '../rewards/copy'
+import { ProgressTick } from './ProgressTick'
+import { StickerStamp } from './StickerStamp'
+import { InkConfetti } from './InkConfetti'
+import { PronLine } from './PronLine'
+import type { Reward } from '../rewards/types'
+import './Celebration.css'
+
+export interface CelebrationProps {
+  /** What the engine just granted. Null only where no engine is wired in. */
+  reward: Reward | null
+  /** What the red tick says out loud. */
+  tickLabel?: string
+}
+
+/**
+ * What a completion looks like: the teacher's red tick, a warm line in both
+ * languages, whatever stickers just landed, and — when there is something to
+ * celebrate — a flick of ink across the paper. Never a score, never a streak
+ * warning, never a countdown.
+ */
+export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps) {
+  const praise = reward?.praise ?? PRAISE[0]
+  const stickers = reward?.stickers ?? []
+  const loud = stickers.length > 0 || (reward?.levelUp ?? null) !== null
+
+  return (
+    <div className="celebration">
+      {loud && <InkConfetti />}
+
+      <div className="celebration__praise">
+        <ProgressTick granted label={tickLabel} />
+        <span className="celebration__fa" lang="fa" dir="rtl">
+          {praise.fa}
+        </span>
+        {praise.pron && <PronLine da={praise.pron.da} ipa={praise.pron.ipa} />}
+        <span className="celebration__da" lang="da">
+          {praise.da}
+        </span>
+      </div>
+
+      {reward?.wokeUp && (
+        <div className="celebration__welcome">
+          <span className="celebration__fa" lang="fa" dir="rtl">
+            {WELCOME_BACK.fa}
+          </span>
+          {WELCOME_BACK.pron && <PronLine da={WELCOME_BACK.pron.da} ipa={WELCOME_BACK.pron.ipa} />}
+          <span lang="da">
+            {WELCOME_BACK.da} Stimen er vågen igen, nu {reward.streak.value} dage.
+          </span>
+        </div>
+      )}
+
+      {stickers.length > 0 && (
+        <p className="celebration__stickers">
+          {stickers.map((sticker) => (
+            <StickerStamp key={sticker.id} kind={sticker.kind} />
+          ))}
+        </p>
+      )}
+    </div>
+  )
+}

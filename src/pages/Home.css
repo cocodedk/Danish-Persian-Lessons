@@ -1,0 +1,14 @@
+/* The forside is a sheet of the same notebook: the specimen at the top of the
+   page, the lesson list below it, one red margin line down the side.
+   docs/plans/003-alphabet-lesson.md step 1. */
+
+.home > .ruled-section {
+  min-block-size: 100dvh;
+}
+
+.home__lessons {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-latin);
+  font-size: 1.1875rem;
+  line-height: var(--rule-step);
+}

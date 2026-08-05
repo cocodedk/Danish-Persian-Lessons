@@ -23,10 +23,10 @@ describe('profile', () => {
     expect(getProfile()).toEqual({})
   })
 
-  it('clearName removes only the name, keeping the record (and other fields) intact', () => {
+  it('clearName removes the name and its spelling, keeping the record intact', () => {
     setProfile({ name: 'Babak', faSpelling: 'بابک' })
     clearName()
-    expect(getProfile()).toEqual({ faSpelling: 'بابک' })
+    expect(getProfile()).toEqual({})
     expect(hasProfileRecord()).toBe(true)
   })
 

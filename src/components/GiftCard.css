@@ -1,0 +1,72 @@
+/* A present laid on the page: a card with the paper-edge hairline the design
+   system allows, nothing gift-wrapped, nothing flashing. The red line runs
+   ACROSS the top, the way a teacher rules off a note — the one red margin line
+   in this app belongs to RuledSection and stays there. */
+
+.gift-card {
+  margin-block-start: 1rem;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-block-start: 3px solid var(--red);
+  border-radius: 3px;
+}
+
+.gift-card__fa {
+  margin: 0;
+  font-family: var(--font-fa);
+  font-size: 1.375rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.gift-card__da {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.gift-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 0.85rem;
+}
+
+.gift-card__open,
+.gift-card__skip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--tap-min);
+  min-inline-size: var(--tap-min);
+  padding-inline: 1rem;
+  border-radius: 3px;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.gift-card__open {
+  background: var(--blue);
+  color: var(--paper);
+  border: 1px solid var(--blue);
+  text-decoration: none;
+}
+
+.gift-card__open:hover {
+  background: var(--blue-hover);
+}
+
+.gift-card__skip {
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid var(--rule);
+}
+
+.gift-card__open:focus-visible,
+.gift-card__skip:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}

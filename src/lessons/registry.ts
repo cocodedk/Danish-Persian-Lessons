@@ -1,6 +1,21 @@
-// The single source of truth for every lesson the app knows about. Empty for
-// plan 001 — no lesson content yet (that's plans 003/004). The text-rule
-// guard test walks this array, so future lessons are checked automatically.
+// The single source of truth for every lesson the app knows about. The
+// Persian text-rule guard walks this array, so lesson content is checked
+// automatically the moment it lands here.
 import type { Lesson } from './types'
+import { letters } from './alphabet'
+import { vowelMarks } from './vowelMarks'
+import { vocabUnits } from './vocab'
 
-export const lessons: Lesson[] = []
+export const ALPHABET_LESSON_ID = 'alphabet'
+
+/** The registry id of a vocabulary unit — `vocab-1` for unit «۱». */
+export function vocabLessonId(unitId: string): string {
+  return `vocab-${unitId}`
+}
+
+export const lessons: Lesson[] = [
+  { id: ALPHABET_LESSON_ID, kind: 'alphabet', items: [...letters, ...vowelMarks] },
+  ...vocabUnits.map(
+    (unit): Lesson => ({ id: vocabLessonId(unit.id), kind: 'vocab', items: unit.words }),
+  ),
+]

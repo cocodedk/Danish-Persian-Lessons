@@ -24,8 +24,9 @@ Persian notebooks mirror it). Red is never decoration: it marks exactly what a t
 | `--ink` | `#26211B` | `#E9E5DB` | text, letterforms |
 | `--red` | `#C9202C` | `#E56A64` | vowel marks, madde, margin line, active/correction accents |
 | `--blue` | `#2456A6` | `#8FB3EA` | links, buttons, interactive (BIC-pen blue) |
-| `--rule` | `#C7D3E2` | `#2C3A34` | notebook ruling, hairlines |
+| `--rule` | `#C7D3E2` | `#3E5248` | notebook ruling, hairlines |
 | `--card` | `#EFE8DA` | `#1D2622` | cards, wells |
+| `--orange` | `#A94D09` | `#F2A25C` | Latin sound hints — the pencil orange |
 
 Dark mode is the chalkboard: green-tinted near-black, chalk-warm text. Both schemes ship from day one
 (`prefers-color-scheme`). No gradients. No drop shadows except a 1px paper-edge on raised cards.
@@ -83,7 +84,8 @@ star (ستارهٔ طلایی), red margin ticks, and levels as filled notebook 
 Jingles are WebAudio-synthesized (no audio files, no dependencies) — a light santur-ish pluck for
 ticks, a warmer chime for stickers, a short fanfare for level-ups. Sound plays only after a user
 gesture, has its own mute toggle persisted in `dpl.v1.settings`, and is independent of the motion
-preference.
+preference. Praise lines carry lydskrift + IPA like any teaching item (plan 009) — the pronunciation
+line sits between the Persian praise and its Danish line, same as everywhere else in the app.
 
 ## Copy voice
 
