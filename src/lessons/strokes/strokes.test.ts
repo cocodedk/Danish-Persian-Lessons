@@ -80,9 +80,16 @@ describe('stroke-order data', () => {
   })
 
   it('enters every stroke on the right half — where Persian starts', () => {
+    // ط ظ are the one real exception: the upright genuinely sits left of
+    // centre in the isolated glyph (verified against the font's own outline
+    // — its ink never crosses x≈40), so TA_BAR, the second stroke of both,
+    // cannot honestly start on the right half. The loop (their first stroke)
+    // still does.
+    const LEFT_UPRIGHT_SECOND_STROKE = new Set(['ta', 'za'])
     for (const { id, strokes } of all) {
       for (const [index, path] of strokes.entries()) {
         if (path.kind !== 'stroke') continue
+        if (LEFT_UPRIGHT_SECOND_STROKE.has(id) && index === 1) continue
         expect(firstPoint(path.d).x, `${id} path ${index}`).toBeGreaterThanOrEqual(50)
       }
     }

@@ -61,7 +61,7 @@ export const STROKES: Record<string, Stroke[]> = {
   zad: [SAD, dot(66, 32)],
 
   ta: [TA, TA_BAR],
-  za: [TA, TA_BAR, dot(48, 34)],
+  za: [TA, TA_BAR, dot(63, 24)],
 
   eyn: [EYN],
   gheyn: [EYN, dot(56, 14)],

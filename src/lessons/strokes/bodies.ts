@@ -59,9 +59,11 @@ export const SAD = stroke(
   'M 82 50 C 70 42 54 46 54 55 C 54 63 72 65 82 58 C 62 64 34 62 26 70 C 36 80 66 76 82 66',
 )
 
-/** ط ظ — the base and its loop first; the upright is a second stroke. */
-export const TA = stroke('M 80 62 L 44 62 C 30 62 22 56 24 50 C 26 44 38 42 44 48 C 47 52 46 58 44 62')
-export const TA_BAR = stroke('M 78 16 L 78 62')
+/** ط ظ — the bowl's right rim first, over the top, down past the upright's
+ * foot, then the tail out to the lower left; the upright is a second stroke
+ * standing on the left, where the bowl closes. */
+export const TA = stroke('M 88 48 C 88 36 76 30 67 33 C 56 33 40 40 34 48 C 26 56 10 58 2 60')
+export const TA_BAR = stroke('M 30 14 L 30 62')
 
 /** ع غ — the head, then the deep bowl below the line. */
 export const EYN = stroke(
