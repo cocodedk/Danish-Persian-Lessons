@@ -1,6 +1,7 @@
 import { STICKER_LABELS } from '../rewards/copy'
 import type { StickerKind } from '../rewards/types'
 import './StickerStamp.css'
+import { PronLine } from './PronLine'
 
 /** The آفرین rubber stamp: a red frame, struck slightly off-square. */
 function Afarin() {
@@ -55,9 +56,16 @@ export interface StickerStampProps {
  */
 export function StickerStamp({ kind }: StickerStampProps) {
   const Face = FACES[kind]
+  const entry = STICKER_LABELS[kind]
   return (
-    <span className={`sticker-stamp sticker-stamp--${kind}`} role="img" aria-label={STICKER_LABELS[kind].da}>
-      <Face />
-    </span>
+    <div className="sticker-stamp-wrap">
+      <span className={`sticker-stamp sticker-stamp--${kind}`} role="img" aria-label={entry.da}>
+        <Face />
+      </span>
+      <div className="sticker-stamp__help">
+        <PronLine {...entry.pron} />
+        <span>{entry.da}</span>
+      </div>
+    </div>
   )
 }

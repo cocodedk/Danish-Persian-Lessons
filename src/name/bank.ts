@@ -5,11 +5,13 @@
 // plays. See docs/plans/006-your-name.md steps 2 and 5.
 import { teachingOrder, specimens } from '../lessons/alphabet'
 import { nameLetters } from './forms'
+import type { PersianEntry } from '../catalog/types'
 
 export interface Tile {
   /** Unique per tile, so the two ا of سارا are two tiles and not one. */
   key: string
   glyph: string
+  entry?: PersianEntry
   /** The letter's Danish name — what the tap target says out loud. */
   nameDa: string
 }
@@ -22,6 +24,7 @@ export function alphabetBank(): Tile[] {
   return teachingOrder.map((id) => ({
     key: id,
     glyph: specimens[id].glyph,
+    entry: specimens[id].entry,
     nameDa: specimens[id].name.da,
   }))
 }
@@ -86,6 +89,7 @@ export function assemblyBank(spelling: string): Tile[] {
   const own: Tile[] = nameLetters(spelling).map((letter) => ({
     key: `n${letter.index}`,
     glyph: letter.glyph,
+    entry: letter.entry,
     nameDa: letter.nameDa,
   }))
   const used = new Set(own.map((tile) => tile.glyph))

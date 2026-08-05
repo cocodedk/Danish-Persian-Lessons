@@ -22,9 +22,9 @@ describe('exercise questions', () => {
 
   it('says every prompt twice — dansk lydskrift and IPA — from the letter data', () => {
     for (const question of [...find, ...match]) {
-      expect(question.sound, question.id).toEqual(specimens[question.itemId].sound)
-      expect(question.sound.da.length).toBeGreaterThan(0)
-      expect(question.sound.ipa.length).toBeGreaterThan(0)
+      expect(question.entry.pron, question.id).toEqual(specimens[question.itemId].sound)
+      expect(question.entry.pron.da.length).toBeGreaterThan(0)
+      expect(question.entry.pron.ipa.length).toBeGreaterThan(0)
     }
   })
 
@@ -37,8 +37,8 @@ describe('exercise questions', () => {
     for (const question of [...find, ...match]) {
       const matches = question.choices.filter(
         (choice) =>
-          specimens[choice.id].sound.ipa === question.sound.ipa ||
-          specimens[choice.id].sound.da === question.sound.da,
+          specimens[choice.id].sound.ipa === question.entry.pron.ipa ||
+          specimens[choice.id].sound.da === question.entry.pron.da,
       )
       expect(matches.map((choice) => choice.id), question.id).toEqual([question.answerId])
     }
@@ -80,7 +80,7 @@ describe('exercise questions', () => {
         const letter = letters.find((l) => l.id === choice.id)
         expect(Object.values(letter!.forms), question.id).toContain(choice.glyph)
       }
-      expect(question.promptFa).toBe(specimens[question.itemId].glyph)
+      expect(question.showsFa).toBe(true)
     }
   })
 

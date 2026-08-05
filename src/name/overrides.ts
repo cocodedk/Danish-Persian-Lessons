@@ -3,7 +3,14 @@
 import { IRANIAN_NAMES } from './namesIranian'
 import { DANISH_NAMES } from './namesDanish'
 
-const OVERRIDES: Record<string, string> = { ...IRANIAN_NAMES, ...DANISH_NAMES }
+// Null prototype: a learner may type any name, and on a plain object literal
+// the key 'constructor' answers with Object's constructor function instead of
+// undefined — the same trap engine.ts documents on POINT_AWARD.
+const OVERRIDES: Record<string, string> = Object.assign(
+  Object.create(null) as Record<string, string>,
+  IRANIAN_NAMES,
+  DANISH_NAMES,
+)
 
 /** Lookup key: case and punctuation are not part of a name. */
 function key(latin: string): string {

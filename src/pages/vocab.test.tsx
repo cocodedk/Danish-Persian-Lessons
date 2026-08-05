@@ -53,9 +53,9 @@ describe('any unit, any word, any time', () => {
     open('#/lesson/ord/3')
     const third = findVocabUnit('3')!
     expect(screen.getByRole('heading', { name: third.title })).toBeInTheDocument()
-    expect(screen.getByText(third.titleFa)).toBeInTheDocument()
+    expect(screen.getByText(third.titleEntry.fa)).toBeInTheDocument()
     for (const word of third.words) {
-      expect(screen.getByText(word.fa)).toBeInTheDocument()
+      expect(screen.getAllByText(word.fa).length).toBeGreaterThan(0)
     }
   })
 
@@ -74,8 +74,9 @@ describe('a word screen', () => {
     expect(faPane?.textContent).toContain(word.faMarked)
     expect(screen.getByText(`${word.pron.da} · [${word.pron.ipa}]`)).toBeInTheDocument()
     expect(screen.getByText(word.da)).toBeInTheDocument()
-    // The specimen is Persian and runs right to left.
-    expect(faPane?.getAttribute('dir')).toBe('rtl')
+    // The approved specimen renderer owns Persian language and direction.
+    expect(faPane?.querySelector('.fa-specimen')).toHaveAttribute('dir', 'rtl')
+    expect(faPane?.querySelector('.fa-specimen')).toHaveAttribute('lang', 'fa')
   })
 
   it('marks the vowel signs with the teacher\'s red pen, on the specimen only', () => {
@@ -107,7 +108,7 @@ describe('a word screen', () => {
   it('notes the letters a word shares with the learner\'s own name, warmly', () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/lesson/ord/1/baba')
-    expect(screen.getByText('حرفی از نامِ تو در این کلمه هست')).toBeInTheDocument()
+    expect(screen.getByText('حرفی از نام تو در این کلمه هست')).toBeInTheDocument()
     expect(screen.getByText(/Ét af bogstaverne her/)).toBeInTheDocument()
   })
 })

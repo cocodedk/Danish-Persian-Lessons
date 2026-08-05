@@ -50,13 +50,15 @@ describe('every exercise answer flows through the reward engine', () => {
     expect(getRewards().points).toBe(2)
   })
 
-  it('keeps the gentle wrong-answer copy from plan 003, and deducts nothing', () => {
+  it('teaches after a wrong answer, offers an optional retry, and deducts nothing', () => {
     open('#/lesson/alphabet/ovelse/find')
     const wrong = questions[0].choices.find((c) => c.id !== questions[0].answerId)!.glyph
     fireEvent.click(screen.getAllByRole('button').filter((b) => b.textContent === wrong)[0])
 
     expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText('— prøv igen. Du mister ingenting.')).toBeInTheDocument()
+    expect(screen.getByText('— nu har du hele hjælpen. Du mister ingenting.')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
     expect(getRewards().points).toBe(0)
     expect(getRewards().level).toBe(1)
   })

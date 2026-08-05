@@ -2,12 +2,10 @@ import { penMarkClass } from './penMark'
 import { withoutMarks } from '../lessons/marks'
 import '../styles/pen.css'
 import './FaSpecimen.css'
+import type { PersianEntry } from '../catalog/types'
 
 export interface FaSpecimenProps {
-  /** The plain Persian word or letter. */
-  fa: string
-  /** The diacriticized variant to render instead, when the lesson supplies one. */
-  faMarked?: string
+  entry: PersianEntry
 }
 
 /**
@@ -26,7 +24,8 @@ export interface FaSpecimenProps {
  * Anything else — a `faMarked` that changes a letter rather than marking it —
  * takes the plain single-layer path. See docs/design/ART-DIRECTION.md.
  */
-export function FaSpecimen({ fa, faMarked }: FaSpecimenProps) {
+export function FaSpecimen({ entry }: FaSpecimenProps) {
+  const { fa, faMarked } = entry
   const stacked = faMarked !== undefined && faMarked !== fa && withoutMarks(faMarked) === fa
 
   if (!stacked) {

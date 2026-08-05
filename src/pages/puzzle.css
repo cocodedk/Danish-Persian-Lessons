@@ -1,0 +1,56 @@
+.puzzle__count,
+.puzzle__meaning p {
+  margin: 0;
+}
+
+.puzzle__word,
+.puzzle__assembled {
+  min-height: 4.5rem;
+  margin: 0;
+  font-family: var(--font-naskh);
+  font-size: clamp(3rem, 15vw, 6rem);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.puzzle__meaning {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.puzzle__choices,
+.puzzle__tiles,
+.puzzle__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.puzzle__choices button,
+.puzzle__tiles button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--blue);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+
+.puzzle__choices button {
+  display: grid;
+  gap: 0.15rem;
+  text-align: start;
+}
+
+.puzzle__choices--letters button,
+.puzzle__tiles button {
+  font-family: var(--font-naskh);
+  font-size: 2rem;
+}
+
+.puzzle__tiles button[aria-pressed='true'] {
+  opacity: 0.45;
+}

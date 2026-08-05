@@ -6,6 +6,8 @@
 // the whole rule, and deriving it is how the data stays honest.
 import type { Letter, Specimen } from './types'
 import { STROKES } from './strokes'
+import { defineEntry } from '../catalog/types'
+import { withoutMarks } from './marks'
 
 const TATWEEL = 'ـ'
 
@@ -17,6 +19,7 @@ interface Row {
   joins: boolean
   anchor: string
   ipa: string
+  nameIpa: string
   /** The Danish sound-hint shown on the keyboard key — see types.ts. */
   hint: string
 }
@@ -31,53 +34,53 @@ const GHAF_GHEYN = { anchor: 'et dybt g/r bagerst i halsen', ipa: 'ɢ~ɣ' }
 // verbatim — homophone groups (derived from `ipa` equality, see alphabet.test.ts)
 // repeat the same hint by design: ث س ص all say "s" because they all sound [s].
 const ROWS: Row[] = [
-  { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'a i "kat"', ipa: 'æ', hint: 'a' },
-  { g: 'ب', id: 'be', fa: 'بِ', da: 'be', joins: true, anchor: 'b i "bil"', ipa: 'b', hint: 'b' },
-  { g: 'پ', id: 'pe', fa: 'پِ', da: 'pe', joins: true, anchor: 'p i "pose"', ipa: 'p', hint: 'p' },
-  { g: 'ت', id: 'te', fa: 'تِ', da: 'te', joins: true, anchor: 't i "tak"', ipa: 't', hint: 't' },
-  { g: 'ث', id: 'se', fa: 'ثِ', da: 'se', joins: true, anchor: 's i "sol"', ipa: 's', hint: 's' },
-  { g: 'ج', id: 'jim', fa: 'جیم', da: 'jim', joins: true, anchor: 'dj i "jazz"', ipa: 'dʒ', hint: 'dj' },
-  { g: 'چ', id: 'che', fa: 'چِ', da: 'che', joins: true, anchor: 'tj i "chips"', ipa: 'tʃ', hint: 'tj' },
-  { g: 'ح', id: 'he-jimi', fa: 'حِ', da: 'he jimi', joins: true, anchor: 'h i "hus"', ipa: 'h', hint: 'h' },
-  { g: 'خ', id: 'khe', fa: 'خِ', da: 'khe', joins: true, anchor: 'ch i tysk "Bach"', ipa: 'x', hint: 'kh' },
-  { g: 'د', id: 'dal', fa: 'دال', da: 'dal', joins: false, anchor: 'd i "dag"', ipa: 'd', hint: 'd' },
-  { g: 'ذ', id: 'zal', fa: 'ذال', da: 'zal', joins: false, anchor: Z_ANCHOR, ipa: 'z', hint: 'z' },
-  { g: 'ر', id: 're', fa: 'رِ', da: 're', joins: false, anchor: 'rullet r, som spansk "pero"', ipa: 'ɾ', hint: 'r' },
-  { g: 'ز', id: 'ze', fa: 'زِ', da: 'ze', joins: false, anchor: Z_ANCHOR, ipa: 'z', hint: 'z' },
-  { g: 'ژ', id: 'zhe', fa: 'ژِ', da: 'zhe', joins: false, anchor: 'som j i fransk "journal" — stemt sj', ipa: 'ʒ', hint: 'zj' },
-  { g: 'س', id: 'sin', fa: 'سین', da: 'sin', joins: true, anchor: 's i "sol"', ipa: 's', hint: 's' },
-  { g: 'ش', id: 'shin', fa: 'شین', da: 'shin', joins: true, anchor: 'sj i "sjal"', ipa: 'ʃ', hint: 'sj' },
-  { g: 'ص', id: 'sad', fa: 'صاد', da: 'sad', joins: true, anchor: 's i "sol"', ipa: 's', hint: 's' },
-  { g: 'ض', id: 'zad', fa: 'ضاد', da: 'zad', joins: true, anchor: Z_ANCHOR, ipa: 'z', hint: 'z' },
-  { g: 'ط', id: 'ta', fa: 'طا', da: 'ta', joins: true, anchor: 't i "tak"', ipa: 't', hint: 't' },
-  { g: 'ظ', id: 'za', fa: 'ظا', da: 'za', joins: true, anchor: Z_ANCHOR, ipa: 'z', hint: 'z' },
-  { g: 'ع', id: 'eyn', fa: 'عین', da: 'eyn', joins: true, anchor: 'stød, som i "hånd"', ipa: 'ʔ', hint: '’' },
-  { g: 'غ', id: 'gheyn', fa: 'غین', da: 'gheyn', joins: true, ...GHAF_GHEYN, hint: 'gh' },
-  { g: 'ف', id: 'fe', fa: 'فِ', da: 'fe', joins: true, anchor: 'f i "fisk"', ipa: 'f', hint: 'f' },
-  { g: 'ق', id: 'ghaf', fa: 'قاف', da: 'ghaf', joins: true, ...GHAF_GHEYN, hint: 'gh' },
-  { g: 'ک', id: 'kaf', fa: 'کاف', da: 'kaf', joins: true, anchor: 'k i "kat"', ipa: 'k', hint: 'k' },
-  { g: 'گ', id: 'gaf', fa: 'گاف', da: 'gaf', joins: true, anchor: 'g i "gul"', ipa: 'ɡ', hint: 'g' },
-  { g: 'ل', id: 'lam', fa: 'لام', da: 'lam', joins: true, anchor: 'l i "lys"', ipa: 'l', hint: 'l' },
-  { g: 'م', id: 'mim', fa: 'میم', da: 'mim', joins: true, anchor: 'm i "mor"', ipa: 'm', hint: 'm' },
-  { g: 'ن', id: 'nun', fa: 'نون', da: 'nun', joins: true, anchor: 'n i "nat"', ipa: 'n', hint: 'n' },
-  { g: 'و', id: 'vav', fa: 'واو', da: 'vav', joins: false, anchor: 'v i "vand"', ipa: 'v', hint: 'v' },
-  { g: 'ه', id: 'he', fa: 'هِ', da: 'he do-tjeshm', joins: true, anchor: 'h i "hus"', ipa: 'h', hint: 'h' },
-  { g: 'ی', id: 'ye', fa: 'یِ', da: 'ye', joins: true, anchor: 'j i "ja"', ipa: 'j', hint: 'j' },
+  { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'a i "kat"', ipa: 'æ', nameIpa: 'ʔælef', hint: 'a' },
+  { g: 'ب', id: 'be', fa: 'بِ', da: 'be', joins: true, anchor: 'b i "bil"', ipa: 'b', nameIpa: 'be', hint: 'b' },
+  { g: 'پ', id: 'pe', fa: 'پِ', da: 'pe', joins: true, anchor: 'p i "pose"', ipa: 'p', nameIpa: 'pe', hint: 'p' },
+  { g: 'ت', id: 'te', fa: 'تِ', da: 'te', joins: true, anchor: 't i "tak"', ipa: 't', nameIpa: 'te', hint: 't' },
+  { g: 'ث', id: 'se', fa: 'ثِ', da: 'se', joins: true, anchor: 's i "sol"', ipa: 's', nameIpa: 'se', hint: 's' },
+  { g: 'ج', id: 'jim', fa: 'جیم', da: 'jim', joins: true, anchor: 'dj i "jazz"', ipa: 'dʒ', nameIpa: 'dʒiːm', hint: 'dj' },
+  { g: 'چ', id: 'che', fa: 'چِ', da: 'che', joins: true, anchor: 'tj i "chips"', ipa: 'tʃ', nameIpa: 'tʃe', hint: 'tj' },
+  { g: 'ح', id: 'he-jimi', fa: 'حِ', da: 'he jimi', joins: true, anchor: 'h i "hus"', ipa: 'h', nameIpa: 'he', hint: 'h' },
+  { g: 'خ', id: 'khe', fa: 'خِ', da: 'khe', joins: true, anchor: 'ch i tysk "Bach"', ipa: 'x', nameIpa: 'xe', hint: 'kh' },
+  { g: 'د', id: 'dal', fa: 'دال', da: 'dal', joins: false, anchor: 'd i "dag"', ipa: 'd', nameIpa: 'dɒːl', hint: 'd' },
+  { g: 'ذ', id: 'zal', fa: 'ذال', da: 'zal', joins: false, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'zɒːl', hint: 'z' },
+  { g: 'ر', id: 're', fa: 'رِ', da: 're', joins: false, anchor: 'rullet r, som spansk "pero"', ipa: 'ɾ', nameIpa: 'ɾe', hint: 'r' },
+  { g: 'ز', id: 'ze', fa: 'زِ', da: 'ze', joins: false, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'ze', hint: 'z' },
+  { g: 'ژ', id: 'zhe', fa: 'ژِ', da: 'zhe', joins: false, anchor: 'som j i fransk "journal" — stemt sj', ipa: 'ʒ', nameIpa: 'ʒe', hint: 'zj' },
+  { g: 'س', id: 'sin', fa: 'سین', da: 'sin', joins: true, anchor: 's i "sol"', ipa: 's', nameIpa: 'siːn', hint: 's' },
+  { g: 'ش', id: 'shin', fa: 'شین', da: 'shin', joins: true, anchor: 'sj i "sjal"', ipa: 'ʃ', nameIpa: 'ʃiːn', hint: 'sj' },
+  { g: 'ص', id: 'sad', fa: 'صاد', da: 'sad', joins: true, anchor: 's i "sol"', ipa: 's', nameIpa: 'sɒːd', hint: 's' },
+  { g: 'ض', id: 'zad', fa: 'ضاد', da: 'zad', joins: true, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'zɒːd', hint: 'z' },
+  { g: 'ط', id: 'ta', fa: 'طا', da: 'ta', joins: true, anchor: 't i "tak"', ipa: 't', nameIpa: 'tɒː', hint: 't' },
+  { g: 'ظ', id: 'za', fa: 'ظا', da: 'za', joins: true, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'zɒː', hint: 'z' },
+  { g: 'ع', id: 'eyn', fa: 'عین', da: 'eyn', joins: true, anchor: 'stød, som i "hånd"', ipa: 'ʔ', nameIpa: 'ʔejn', hint: '’' },
+  { g: 'غ', id: 'gheyn', fa: 'غین', da: 'gheyn', joins: true, ...GHAF_GHEYN, nameIpa: 'ɣejn', hint: 'gh' },
+  { g: 'ف', id: 'fe', fa: 'فِ', da: 'fe', joins: true, anchor: 'f i "fisk"', ipa: 'f', nameIpa: 'fe', hint: 'f' },
+  { g: 'ق', id: 'ghaf', fa: 'قاف', da: 'ghaf', joins: true, ...GHAF_GHEYN, nameIpa: 'ɢɒːf', hint: 'gh' },
+  { g: 'ک', id: 'kaf', fa: 'کاف', da: 'kaf', joins: true, anchor: 'k i "kat"', ipa: 'k', nameIpa: 'kɒːf', hint: 'k' },
+  { g: 'گ', id: 'gaf', fa: 'گاف', da: 'gaf', joins: true, anchor: 'g i "gul"', ipa: 'ɡ', nameIpa: 'ɡɒːf', hint: 'g' },
+  { g: 'ل', id: 'lam', fa: 'لام', da: 'lam', joins: true, anchor: 'l i "lys"', ipa: 'l', nameIpa: 'lɒːm', hint: 'l' },
+  { g: 'م', id: 'mim', fa: 'میم', da: 'mim', joins: true, anchor: 'm i "mor"', ipa: 'm', nameIpa: 'miːm', hint: 'm' },
+  { g: 'ن', id: 'nun', fa: 'نون', da: 'nun', joins: true, anchor: 'n i "nat"', ipa: 'n', nameIpa: 'nuːn', hint: 'n' },
+  { g: 'و', id: 'vav', fa: 'واو', da: 'vav', joins: false, anchor: 'v i "vand"', ipa: 'v', nameIpa: 'vɒːv', hint: 'v' },
+  { g: 'ه', id: 'he', fa: 'هِ', da: 'he do-tjeshm', joins: true, anchor: 'h i "hus"', ipa: 'h', nameIpa: 'he', hint: 'h' },
+  { g: 'ی', id: 'ye', fa: 'یِ', da: 'ye', joins: true, anchor: 'j i "ja"', ipa: 'j', nameIpa: 'je', hint: 'j' },
 ]
 
 /** One Danish line for the letters that surprise a reader. Nothing decorative. */
 const HINTS: Record<string, string> = {
-  alef: 'Alef har ingen lyd i sig selv — den bærer vokalen. Får den en bølge ovenpå, bliver den آ.',
-  pe: 'Et af de fire bogstaver persisk har, men arabisk ikke: پ چ ژ گ.',
-  che: 'Et af de fire bogstaver persisk har, men arabisk ikke: پ چ ژ گ.',
-  'he-jimi': 'Der er to h-bogstaver. Dette er he-jimi — samme krop som ج, bare uden prik.',
-  zhe: 'Et af de fire bogstaver persisk har, men arabisk ikke: پ چ ژ گ.',
-  gheyn: 'ق og غ lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
-  ghaf: 'ق og غ lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
-  gaf: 'گ er ک med én streg mere. Et af persisks egne fire bogstaver.',
-  vav: 'و er både v og vokalen u. Du møder او som «u i du» hos vokaltegnene.',
-  he: 'Det andet h. Det kaldes he med to øjne, for midt i et ord får det netop det: ـهـ.',
-  ye: 'Alene og sidst står ی uden prikker. Først og midt i ordet får den to under: یـ ـیـ.',
+  alef: 'Alef har ingen lyd i sig selv — det bærer vokalen. Med madde ovenpå bliver lyden lang.',
+  pe: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
+  che: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
+  'he-jimi': 'Der er to h-bogstaver. He-jimi har samme krop som jim, men ingen prik.',
+  zhe: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
+  gheyn: 'Gheyn og ghaf lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
+  ghaf: 'Ghaf og gheyn lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
+  gaf: 'Gaf er kaf med én streg mere og er et af persisks egne fire bogstaver.',
+  vav: 'Vav er både v og den lange vokal u. Du møder begge brugsmåder i lektionerne.',
+  he: 'Det andet h kaldes he med to øjne, fordi formen midt i et ord får to åbninger.',
+  ye: 'Alene og sidst står ye uden prikker. Først og midt i et ord får det to prikker under.',
 }
 
 function formsFor(glyph: string, joins: boolean) {
@@ -90,17 +93,35 @@ function formsFor(glyph: string, joins: boolean) {
 }
 
 /** آ — alef wearing the madde. Taught first, because the primer opens on آب. */
+const MADDE_ENTRY = defineEntry({ id: 'alphabet-alef-madde', kind: 'symbol', fa: 'آ', da: 'alef med madde', pron: { da: 'å i "år"', ipa: 'ɒː' } })
 const MADDE: Specimen = {
   id: 'alef-madde',
-  glyph: 'آ',
-  name: { fa: 'آ', da: 'alef med madde' },
-  sound: { da: 'å i "år"', ipa: 'ɒː' },
+  entry: MADDE_ENTRY,
+  nameEntry: defineEntry({ id: 'alphabet-name-alef-madde', kind: 'symbol', fa: 'آ', da: 'navnet alef med madde', pron: { da: 'å', ipa: 'ɒː' } }),
+  glyph: MADDE_ENTRY.fa,
+  name: { fa: MADDE_ENTRY.fa, da: MADDE_ENTRY.da },
+  sound: MADDE_ENTRY.pron,
   strokes: STROKES['alef-madde'],
   latinHint: 'å',
 }
 
 export const letters: Letter[] = ROWS.map((row) => ({
   id: row.id,
+  entry: defineEntry({
+    id: `alphabet-letter-${row.id}`,
+    kind: 'letter',
+    fa: row.g,
+    da: row.da,
+    pron: { da: row.anchor, ipa: row.ipa },
+  }),
+  nameEntry: defineEntry({
+    id: `alphabet-name-${row.id}`,
+    kind: 'word',
+    fa: withoutMarks(row.fa),
+    ...(row.fa !== withoutMarks(row.fa) ? { faMarked: row.fa } : {}),
+    da: `bogstavnavnet ${row.da}`,
+    pron: { da: row.da, ipa: row.nameIpa },
+  }),
   glyph: row.g,
   name: { fa: row.fa, da: row.da },
   sound: { da: row.anchor, ipa: row.ipa },
@@ -127,6 +148,19 @@ export const teachingOrder: string[] = [
 export const specimens: Record<string, Specimen> = {
   ...Object.fromEntries(letters.map((letter) => [letter.id, letter])),
   [MADDE.id]: MADDE,
+}
+
+const SPECIMEN_ID_BY_ENTRY_ID = new Map(
+  Object.values(specimens).map((specimen) => [specimen.entry.id, specimen.id]),
+)
+
+/**
+ * The specimen (and so the letter screen) that teaches a catalog entry —
+ * undefined for entries no drawable specimen owns, which a caller renders as
+ * "no lesson to open" rather than guessing a route.
+ */
+export function specimenIdForEntryId(entryId: string): string | undefined {
+  return SPECIMEN_ID_BY_ENTRY_ID.get(entryId)
 }
 
 /** True for the 32 letters, false for آ — only a letter has positional forms. */

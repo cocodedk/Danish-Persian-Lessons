@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react'
 import { LessonSheet } from './LessonSheet'
 import { PronLine } from './PronLine'
 import { Button } from './Button'
+import { RetryActions } from './RetryActions'
 import { Celebration } from './Celebration'
 import { PersianKeyboard } from './PersianKeyboard'
 import { TypeMarks } from './TypeMarks'
@@ -10,10 +11,18 @@ import { compare, type Divergence } from '../keyboard/diff'
 import type { KeyDef } from '../keyboard/layout'
 import type { Pron } from '../lessons/types'
 import type { Reward } from '../rewards/types'
+import type { PersianEntry } from '../catalog/types'
+import { ChallengeReveal, CompactPhraseRow } from './EntryRenderers'
+import { LearnerPersianInput } from './LearnerPersianInput'
+import { PersonalNameCompanion, type PersonalName } from './PersonalName'
+import { useRoundOutcome } from './useRoundOutcome'
 import './TypeExercise.css'
 
 export interface TypeTask {
   id: string
+  /** Catalog answer, except a learner's dynamic personal spelling. */
+  entry?: PersianEntry
+  personalName?: PersonalName
   /** What to write, asked in Danish. Never the Persian answer — that is the exercise. */
   promptDa: string
   /** How it sounds, twice: the bridge from the Danish word to the Persian one. */
@@ -25,7 +34,7 @@ export interface TypeTask {
 export interface TypeExerciseProps {
   title: string
   /** The round's Persian name, under the title. */
-  eyebrowFa: string
+  eyebrowEntry: PersianEntry
   bar: ReactNode
   tasks: TypeTask[]
   /** Fires every time a task is written correctly, with its id. */
@@ -54,13 +63,13 @@ export interface TypeExerciseProps {
  * instead of starting over (docs/plans/005-persian-keyboard.md step 3).
  */
 export function TypeExercise(props: TypeExerciseProps) {
-  const { title, eyebrowFa, bar, tasks, onCorrect, onComplete, help, doneLine, overlays } = props
+  const { title, eyebrowEntry, bar, tasks, onCorrect, onComplete, help, doneLine, overlays } = props
   const [index, setIndex] = useState(0)
   const [buffer, setBuffer] = useState('')
   const [divergence, setDivergence] = useState<Divergence | null>(null)
   const [solved, setSolved] = useState(false)
-  const [finished, setFinished] = useState(false)
   const [reward, setReward] = useState<Reward | null>(null)
+  const round = useRoundOutcome(tasks.length)
 
   const task = tasks[index]
   const isLast = index === tasks.length - 1
@@ -79,13 +88,13 @@ export function TypeExercise(props: TypeExerciseProps) {
       return
     }
     setSolved(true)
+    round.recordSuccess()
     setReward(onCorrect(task.id) ?? null)
   }
 
   function advance() {
     if (isLast) {
-      setFinished(true)
-      setReward(onComplete() ?? null)
+      if (round.finish()) setReward(onComplete() ?? null)
       return
     }
     setIndex((current) => current + 1)
@@ -95,11 +104,19 @@ export function TypeExercise(props: TypeExerciseProps) {
     setReward(null)
   }
 
-  if (finished) {
+  if (round.finished) {
     return (
       <LessonSheet title={title} bar={bar}>
-        <Celebration reward={reward} tickLabel="Runden er klaret" />
-        <p className="type__note">{doneLine}</p>
+        {round.completed && (
+          <Celebration
+            reward={reward}
+            tickLabel="Runden er klaret"
+            personalName={task.personalName}
+          />
+        )}
+        <p className="type__note">
+          {round.completed ? doneLine : 'Runden er slut. Kun de rigtige svar er markeret som lært.'}
+        </p>
         {overlays}
       </LessonSheet>
     )
@@ -111,20 +128,9 @@ export function TypeExercise(props: TypeExerciseProps) {
       bar={bar}
       dock={
         <>
-          {/* The line the learner writes on and the button beside it, sharing
-              one row pinned directly above the keys — where a phone puts the
-              field it is typing into, and where it cannot scroll away from
-              the hand that is writing. The button floats rather than sits in
-              a flex/grid row with the line: at least one engine in this
-              build computes a wildly inflated auto cross-size for a flex or
-              grid item whose own font-size is this large (reproduced with
-              plain CSS grid too, independent of align-items) — float is the
-              one layout mode that measured correctly. No input element
-              anywhere near the line itself: the buffer is a string in
-              state, so the phone's own keyboard has nothing to open over the
-              lesson. Not a live region — announcing every keystroke would be
-              noisier than helpful; the marking below is the one moment on
-              this screen worth announcing. */}
+          {/* The float keeps the action beside the large writing line without
+              inflating its row. The state buffer opens no system keyboard and
+              is deliberately not a per-keystroke live region. */}
           <div className="type__line-row">
             <div className="type__action">
               {solved ? (
@@ -133,23 +139,19 @@ export function TypeExercise(props: TypeExerciseProps) {
                 <Button onClick={check}>Se efter</Button>
               )}
             </div>
-            <p className="type__line" lang="fa" dir="rtl">
+            <LearnerPersianInput as="p" className="type__line">
               <span className="type__written">{buffer}</span>
               <span className="type__caret" aria-hidden="true" />
-            </p>
+            </LearnerPersianInput>
           </div>
-          {/* Beside the writing line it marks, inside the dock that never
-              scrolls away — not on the sheet above, where the dock used to
-              cover it (critic round 1: the mark was there but unreachable). */}
+          {/* The marking stays beside its writing line inside the sticky dock. */}
           {divergence && <TypeMarks attempt={buffer} divergence={divergence} />}
           {!solved && <PersianKeyboard onPress={handlePress} label="Persisk tastatur" />}
         </>
       }
     >
       <div className="type__meta">
-        <p className="type__eyebrow" lang="fa" dir="rtl">
-          {eyebrowFa}
-        </p>
+        <CompactPhraseRow entry={eyebrowEntry} />
         {tasks.length > 1 && (
           <p className="type__count">
             Ord {index + 1} af {tasks.length}
@@ -157,14 +159,33 @@ export function TypeExercise(props: TypeExerciseProps) {
         )}
       </div>
       <h2 className="type__prompt">{task.promptDa}</h2>
-      {task.pron && <PronLine da={task.pron.da} ipa={task.pron.ipa} />}
+      {task.pron && <PronLine {...task.pron} />}
       {help}
 
       <p className="type__note">
         Du kan stoppe når som helst. Det, du har skrevet rigtigt, bliver stående.
       </p>
 
-      {solved && <Celebration reward={reward} tickLabel="Rigtigt" />}
+      {(solved || divergence) && task.entry && <ChallengeReveal entry={task.entry} />}
+      {(solved || divergence) && task.personalName && (
+        <PersonalNameCompanion
+          spelling={task.personalName.spelling}
+          original={task.personalName.original}
+        />
+      )}
+      {solved && (
+        <Celebration reward={reward} tickLabel="Rigtigt" personalName={task.personalName} />
+      )}
+      {divergence && !solved && (
+        <RetryActions
+          solved={false}
+          // Only the marking goes — the writing stays on the line, so the
+          // learner fixes the one letter instead of starting over.
+          onRetry={() => setDivergence(null)}
+          onAdvance={advance}
+          advanceLabel={isLast ? 'Afslut runden' : 'Næste'}
+        />
+      )}
       {overlays}
     </LessonSheet>
   )

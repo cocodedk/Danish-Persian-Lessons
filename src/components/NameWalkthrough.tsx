@@ -5,6 +5,7 @@ import { nameLetters } from '../name/forms'
 import { formNote, FORM_LABEL } from '../name/copy'
 import { assembledPrefix } from '../name/bank'
 import './NameWalkthrough.css'
+import { PersonalNameText } from './PersonalName'
 
 export interface NameWalkthroughProps {
   spelling: string
@@ -32,12 +33,14 @@ export function NameWalkthrough({ spelling }: NameWalkthroughProps) {
           <p className="name-walk__count">
             Bogstav {at + 1}: {letter.nameDa} står {FORM_LABEL[letter.form]}
           </p>
-          {letter.sound && <PronLine da={letter.sound.da} ipa={letter.sound.ipa} />}
-          <p className="name-walk__grown" lang="fa" dir="rtl">
-            {assembledPrefix(spelling, at + 1)}
-          </p>
+          {letter.sound && <PronLine {...letter.sound} />}
+          <PersonalNameText
+            spelling={assembledPrefix(spelling, at + 1)}
+            as="p"
+            className="name-walk__grown"
+          />
           <p className="name-walk__note">{formNote(letter)}</p>
-          <LetterForms forms={letter.forms} joinsLeft={letter.joinsLeft} />
+          <LetterForms forms={letter.forms} joinsLeft={letter.joinsLeft} entry={letter.entry} />
         </li>
       ))}
     </ol>

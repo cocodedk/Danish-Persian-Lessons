@@ -71,9 +71,9 @@ describe('positional forms of a name', () => {
     expect(letters[2].glyph).toBe('ئ')
     expect(letters[2].form).toBe('initial')
     // The lesson never taught it, so it is called what it is and claims no sound.
-    expect(letters[2].nameDa).toBe('særligt tegn')
-    expect(letters[2].nameFa).toBe('نشانهٔ ویژه')
-    expect(letters[2].sound).toBeUndefined()
+    expect(letters[2].nameDa).toBe('hamze over ye')
+    expect(letters[2].entry?.da).toBe('hamze over ye; ingen egen lyd')
+    expect(letters[2].sound).toEqual({ da: 'ingen egen lyd', ipa: '∅' })
   })
 
   it('returns nothing for an empty spelling', () => {

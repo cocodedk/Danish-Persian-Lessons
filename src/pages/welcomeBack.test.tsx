@@ -50,7 +50,8 @@ describe('coming back after ten days away', () => {
     open('#/')
 
     expect(screen.getByText('5 dage · stimen hviler — én øvelse vækker den')).toBeInTheDocument()
-    expect(screen.getByText('۵ روز · رشته‌ات خوابیده، یک تمرین بیدارش می‌کند')).toBeInTheDocument()
+    expect(screen.getByText('رشتهٔ تمرین خوابیده')).toBeInTheDocument()
+    expect(screen.getByText('resjteje tamrin khåbide · [ɾeʃteje tæmɾiːn xɒːbiːde]')).toBeInTheDocument()
     expect(screen.getByText('Hej Sara!')).toBeInTheDocument()
     expectNoGuilt()
   })

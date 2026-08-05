@@ -16,8 +16,9 @@
 
 .celebration__praise .progress-tick {
   /* Spans the fa / pron / da stack in the second column, however many of the
-     three rows actually render. */
-  grid-row: 1 / span 3;
+     rows actually render — negative lines would resolve against the (empty)
+     explicit grid, so the span names the maximum stack: fa, name, pron, da. */
+  grid-row: 1 / span 4;
 }
 
 .celebration__fa {

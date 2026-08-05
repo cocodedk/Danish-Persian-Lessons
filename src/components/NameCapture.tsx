@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
-import { CAPTURE_PROMPT } from '../content/faStrings'
+import { CAPTURE_PROMPT_ENTRY } from '../content/faStrings'
 import { RuledSection } from './RuledSection'
+import { CompactPhraseRow } from './EntryRenderers'
 import './NameCapture.css'
 
 export interface NameCaptureProps {
@@ -24,8 +25,8 @@ export function NameCapture({ onSubmit, onSkip }: NameCaptureProps) {
   return (
     <main className="name-capture">
       <RuledSection>
-        <div className="name-capture__pane name-capture__pane--fa" lang="fa" dir="rtl">
-          <p className="name-capture__question">{CAPTURE_PROMPT}</p>
+        <div className="name-capture__pane name-capture__pane--fa">
+          <CompactPhraseRow entry={CAPTURE_PROMPT_ENTRY} />
         </div>
 
         <hr className="name-capture__rule" />

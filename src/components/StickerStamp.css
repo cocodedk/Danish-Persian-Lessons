@@ -90,3 +90,17 @@
     stroke: CanvasText;
   }
 }
+.sticker-stamp-wrap {
+  display: inline-grid;
+  justify-items: center;
+  gap: 0.2rem;
+  max-inline-size: 9rem;
+}
+
+.sticker-stamp__help {
+  display: grid;
+  gap: 0.1rem;
+  font-family: var(--font-latin);
+  font-size: 0.75rem;
+  text-align: center;
+}

@@ -5,7 +5,7 @@ import { screen } from '@testing-library/react'
 import { setProfile } from '../progress/profile'
 import { getRewards } from '../rewards/engine'
 import { getTypeProgress } from '../progress/typing'
-import { namePraise } from '../name/copy'
+import { NAME_PRAISE_ENTRY } from '../rewards/copy'
 import { freshTypingState, open, tap, write } from './typingHarness'
 
 const SARA = { name: 'Sara', faSpelling: 'سارا' }
@@ -71,9 +71,9 @@ describe('with a name', () => {
 
     write(SARA.faSpelling)
     tap('Se efter')
-    const praise = namePraise(SARA.faSpelling, SARA.name)
-    expect(screen.getAllByText(praise.fa).length).toBeGreaterThan(0)
-    expect(screen.getAllByText(praise.da).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(NAME_PRAISE_ENTRY.fa).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(SARA.faSpelling).length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Flot, Sara!').length).toBeGreaterThan(0)
 
     tap('Afslut runden')
     expect(getTypeProgress('name').paid).toBe(true)
@@ -87,7 +87,7 @@ describe('with a name', () => {
     tap('Se efter')
     tap('Afslut runden')
     expect(getRewards().points).toBe(afterFirst + 1)
-    expect(screen.getAllByText(praise.fa).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(NAME_PRAISE_ENTRY.fa).length).toBeGreaterThan(0)
   })
 
   it('marks a wrong letter in the name as gently as it marks a word', () => {

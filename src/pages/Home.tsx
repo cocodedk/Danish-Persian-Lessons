@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { RuledSection } from '../components/RuledSection'
 import { SplitCard } from '../components/SplitCard'
 import { LessonCard } from '../components/LessonCard'
@@ -15,13 +15,15 @@ import { vocabUnits } from '../lessons/vocab'
 import { unitDoneCount } from '../progress/vocab'
 import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
-import { faGreeting, daGreeting } from '../content/greetings'
+import { GREETING_ENTRY, GREETING_WITH_NAME_ENTRY, daGreeting } from '../content/greetings'
 import './Home.css'
 
 export default function Home() {
   const navigate = useNavigate()
   const [profile, setProfileState] = useState(() => getProfile())
   const [needsCapture, setNeedsCapture] = useState(() => !hasProfileRecord())
+  const alphabetProgress = getAlphabetProgress()
+  const cleared = doneCount(alphabetProgress)
 
   function handleNameSubmit(name: string) {
     const trimmed = name.trim()
@@ -55,11 +57,16 @@ export default function Home() {
     setProfileState(getProfile())
   }
 
-  if (needsCapture) {
+  if (!alphabetProgress.orientationSeen && needsCapture) {
+    return <Navigate to="/lesson/alphabet/intro" replace />
+  }
+
+  // The learner meets their name after the alphabet in the recommended flow.
+  // Direct routes remain open, and a skipped name never blocks another lesson.
+  if (needsCapture && cleared === ALPHABET_TOTAL) {
     return <NameCapture onSubmit={handleNameSubmit} onSkip={handleSkip} />
   }
 
-  const cleared = doneCount(getAlphabetProgress())
   const rewards = getRewards()
   // The name lesson only exists for a learner who has a spelling, so the word
   // units number themselves after whatever is actually on the page.
@@ -70,7 +77,8 @@ export default function Home() {
       <RuledSection>
         <SplitCard
           word={DEMO_WORD}
-          faGreeting={faGreeting(profile.faSpelling)}
+          greetingEntry={profile.faSpelling ? GREETING_WITH_NAME_ENTRY : GREETING_ENTRY}
+          personalSpelling={profile.faSpelling}
           daGreeting={daGreeting(profile.name)}
         />
         <StreakLine streak={rewards.streak} />
@@ -81,7 +89,7 @@ export default function Home() {
         <LessonCard
           number={1}
           title="Alfabetet"
-          summary="32 bogstaver, formerne og de seks vokaltegn"
+          summary="Start her: læseretning, 32 bogstaver og seks vokaltegn"
           progress={`${cleared} af ${ALPHABET_TOTAL} klaret`}
           to="/lesson/alphabet"
         />

@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { KEYBOARD_KEYS, type KeyDef } from '../keyboard/layout'
-import { ZWNJ_NAME_FA } from '../content/faStrings'
+import { ZWNJ_NAME_ENTRY } from '../content/faStrings'
+import { PersianText } from './PersianText'
+import { DetailStrip, letterLessonPath } from './EntryRenderers'
 import './PersianKeyboard.css'
 
 export interface PersianKeyboardProps {
@@ -43,9 +46,7 @@ function KeyCap({ shape }: { shape: KeyDef }) {
           <span />
           <span />
         </span>
-        <span className="keyboard__caption" aria-hidden="true" lang="fa" dir="rtl">
-          {ZWNJ_NAME_FA}
-        </span>
+        <PersianText entry={ZWNJ_NAME_ENTRY} className="keyboard__caption" ariaHidden />
       </span>
     )
   }
@@ -58,9 +59,7 @@ function KeyCap({ shape }: { shape: KeyDef }) {
   }
   return (
     <span className="keyboard__letter">
-      <span lang="fa" dir="rtl" aria-hidden="true">
-        {shape.glyph}
-      </span>
+      {shape.entry && <PersianText entry={shape.entry} ariaHidden />}
       {/* The Danish sound this letter corresponds to — a teaching aid, not a
           name: the key's aria-label above stays the letter's own Danish name,
           so a screen reader never hears the hint (docs/plans/008). */}
@@ -80,19 +79,28 @@ function KeyCap({ shape }: { shape: KeyDef }) {
  * never opens over the lesson (docs/plans/005-persian-keyboard.md, box 1).
  */
 export function PersianKeyboard({ onPress, label }: PersianKeyboardProps) {
+  const [selected, setSelected] = useState<KeyDef | null>(null)
   return (
-    <div className="keyboard" role="group" aria-label={label} dir="rtl">
-      {KEYBOARD_KEYS.map((shape) => (
-        <button
-          key={shape.id}
-          type="button"
-          className={`keyboard__key ${shape.kind === 'letter' ? '' : 'keyboard__key--sign'}`}
-          aria-label={shape.label}
-          onClick={() => onPress(shape)}
-        >
-          <KeyCap shape={shape} />
-        </button>
-      ))}
+    <div className="keyboard-wrap">
+      <div className="keyboard" role="group" aria-label={label} dir="rtl">
+        {KEYBOARD_KEYS.map((shape) => (
+          <button
+            key={shape.id}
+            type="button"
+            className={`keyboard__key ${shape.kind === 'letter' ? '' : 'keyboard__key--sign'}`}
+            aria-label={shape.label}
+            onClick={() => {
+              onPress(shape)
+              if (shape.entry) setSelected(shape)
+            }}
+          >
+            <KeyCap shape={shape} />
+          </button>
+        ))}
+      </div>
+      {selected?.entry && (
+        <DetailStrip entry={selected.entry} to={letterLessonPath(selected.entry.id)} />
+      )}
     </div>
   )
 }

@@ -32,6 +32,13 @@ the app exists, `npm run verify`) is green.
 - [x] **P8 — [008-keyboard-danish-hints.md](008-keyboard-danish-hints.md)** (merged 2026-08-04, PR #21, one adjudicated critic round): orange Danish key hints + app favicon.
 - [x] **P9 — [009-praise-pronunciation.md](009-praise-pronunciation.md)** (merged 2026-08-04, PR #22, one adjudicated critic round): lydskrift + IPA beside every praise word.
 
+- [ ] **P10 — [010-beginner-content-contract.md](010-beginner-content-contract.md)**: zero-knowledge
+      first run, a typed catalog for every app-owned Persian item, complete shared teaching renderers,
+      master-detail selectors, and kind feedback after an attempt. This supersedes the narrower
+      pronunciation contract in P1–P9 without rewriting those historical plans.
+- [ ] **P11 — [011-simple-puzzles.md](011-simple-puzzles.md)** (depends on P10): deterministic,
+      tap-only match, ordering, and missing-letter breaks using only material already introduced.
+
 ## Later (not planned yet — do not build ahead)
 
 Audio pronunciation · spaced repetition on top of progress data · full writing practice (tracing

@@ -5,7 +5,7 @@ import { RewardOverlays } from '../components/RewardOverlays'
 import { findVocabUnit } from '../lessons/vocab'
 import { typeWordDone, payRound } from '../progress/typing'
 import { useCelebration } from '../rewards/useCelebration'
-import { TYPE_WORDS_FA } from '../content/faStrings'
+import { TYPE_WORDS_ENTRY } from '../content/faStrings'
 
 /**
  * «کلمه‌ها را بنویس» — one unit's words, written rather than recognized. The
@@ -24,6 +24,7 @@ export default function TypeWordScreen() {
 
   const tasks: TypeTask[] = unit.words.map((word) => ({
     id: word.id,
+    entry: word.entry,
     promptDa: `Skriv ordet »${word.da}«`,
     pron: word.pron,
     // The plain spelling, never the vocalized one: the keyboard has no
@@ -34,7 +35,7 @@ export default function TypeWordScreen() {
   return (
     <TypeExercise
       title="Skriv ordene"
-      eyebrowFa={TYPE_WORDS_FA}
+      eyebrowEntry={TYPE_WORDS_ENTRY}
       bar={<BarLink to={`/lesson/ord/${unit.id}`}>Til lektionen</BarLink>}
       tasks={tasks}
       onCorrect={(wordId) => celebration.cheer(typeWordDone(unit.id, wordId))}

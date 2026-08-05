@@ -1,21 +1,18 @@
 import { useState } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
-import { FaSpecimen } from '../components/FaSpecimen'
-import { PronLine } from '../components/PronLine'
+import { CompactPhraseRow, FullTeachingCard } from '../components/EntryRenderers'
 import { LetterForms } from '../components/LetterForms'
 import { LetterDraw } from '../components/LetterDraw'
 import { ProgressTick } from '../components/ProgressTick'
 import { Button } from '../components/Button'
 import { Celebration } from '../components/Celebration'
 import { RewardOverlays } from '../components/RewardOverlays'
-import { penMarkClass } from '../components/penMark'
 import { teachingOrder, specimens, isLetter } from '../lessons/alphabet'
 import { getAlphabetProgress, markLetterDone } from '../progress/alphabet'
 import { getProfile } from '../progress/profile'
 import { useCelebration } from '../rewards/useCelebration'
-import { NAME_LETTER_FA } from '../content/faStrings'
-import '../styles/pen.css'
+import { NAME_LETTER_ENTRY } from '../content/faStrings'
 import './alphabet.css'
 
 /** One letter: its shape, its sound, its four positions, and how it is written. */
@@ -24,7 +21,9 @@ export default function LetterScreen() {
   const [cleared, setCleared] = useState(() => getAlphabetProgress().letters.includes(id))
   const celebration = useCelebration()
 
-  const specimen = specimens[id]
+  // Own-key check: the id comes from the URL, and on a plain object a hash
+  // like #/…/bogstav/toString would answer with an inherited function.
+  const specimen = Object.hasOwn(specimens, id) ? specimens[id] : undefined
   if (!specimen) {
     return <Navigate to="/lesson/alphabet" replace />
   }
@@ -53,33 +52,20 @@ export default function LetterScreen() {
       </p>
 
       <div className="letter__specimen">
-        <FaSpecimen fa={specimen.glyph} />
-        <p className="letter__names">
-          <span
-            className={penMarkClass('letter__name-fa', specimen.name.fa)}
-            lang="fa"
-            dir="rtl"
-          >
-            {specimen.name.fa}
-          </span>
-          <span className="letter__name-da">{specimen.name.da}</span>
-        </p>
-        <PronLine da={specimen.sound.da} ipa={specimen.sound.ipa} />
+        <FullTeachingCard entry={specimen.entry} />
+        <CompactPhraseRow entry={specimen.nameEntry} />
       </div>
 
       {inMyName && (
-        <p className="letter__badge">
+        <div className="letter__badge">
           <ProgressTick granted label="I dit navn" />
-          <span className="letter__badge-fa" lang="fa" dir="rtl">
-            {NAME_LETTER_FA}
-          </span>
-          <span>Dette bogstav er i dit navn</span>
-        </p>
+          <CompactPhraseRow entry={NAME_LETTER_ENTRY} />
+        </div>
       )}
 
       {letter && (
         <div className="letter__block">
-          <LetterForms forms={letter.forms} joinsLeft={letter.joinsLeft} />
+          <LetterForms forms={letter.forms} joinsLeft={letter.joinsLeft} entry={letter.entry} />
         </div>
       )}
 

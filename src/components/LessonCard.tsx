@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
-import { toPersianDigits } from '../lessons/digits'
 import './LessonCard.css'
 
 export interface LessonCardProps {
-  /** Where the lesson sits in the curriculum. Shown in Persian digits. */
+  /** Where the lesson sits in the curriculum. */
   number: number
   title: string
   /** What is in it, in one Danish line. */
@@ -14,15 +13,13 @@ export interface LessonCardProps {
 }
 
 /**
- * One lesson on the forside. The number is written ۰ ۱ ۲ — the learner will
- * need Persian digits anyway, and this is the cheapest place to meet them.
+ * One lesson on the forside. Counters stay Latin until Persian numerals are
+ * deliberately taught with their own catalog companions.
  */
 export function LessonCard({ number, title, summary, progress, to }: LessonCardProps) {
   return (
     <Link className="lesson-card" to={to}>
-      <span className="lesson-card__number" lang="fa" dir="rtl" aria-hidden="true">
-        {toPersianDigits(number)}
-      </span>
+      <span className="lesson-card__number" aria-hidden="true">{number}</span>
       <span className="lesson-card__text">
         <span className="lesson-card__title">{title}</span>
         <span className="lesson-card__summary">{summary}</span>

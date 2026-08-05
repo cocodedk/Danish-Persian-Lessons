@@ -1,4 +1,7 @@
 import type { Letter } from '../lessons/types'
+import type { PersianEntry } from '../catalog/types'
+import { PersianText } from './PersianText'
+import { PersonalNameText } from './PersonalName'
 import './LetterForms.css'
 
 const CELLS: Array<[keyof Letter['forms'], string]> = [
@@ -11,6 +14,7 @@ const CELLS: Array<[keyof Letter['forms'], string]> = [
 export interface LetterFormsProps {
   forms: Letter['forms']
   joinsLeft: boolean
+  entry?: PersianEntry
 }
 
 /**
@@ -18,15 +22,17 @@ export interface LetterFormsProps {
  * Persian, so it runs right to left — alene, først, midt, sidst, starting at
  * the right, exactly like the specimen row in orientation.
  */
-export function LetterForms({ forms, joinsLeft }: LetterFormsProps) {
+export function LetterForms({ forms, joinsLeft, entry }: LetterFormsProps) {
   return (
     <div className="letter-forms">
       <ul className="letter-forms__row" dir="rtl">
         {CELLS.map(([key, label]) => (
           <li key={key} className="letter-forms__cell">
-            <span className="letter-forms__glyph" lang="fa" dir="rtl">
-              {forms[key]}
-            </span>
+            {entry ? (
+              <PersianText entry={entry} display={forms[key]} className="letter-forms__glyph" />
+            ) : (
+              <PersonalNameText spelling={forms[key]} className="letter-forms__glyph" />
+            )}
             <span className="letter-forms__label">{label}</span>
           </li>
         ))}

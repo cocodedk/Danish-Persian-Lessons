@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getSettings, setSoundOn } from '../progress/settings'
-import { PRIVACY_DA, PRIVACY_FA } from '../name/copy'
+import { PRIVACY_ENTRY } from '../name/copy'
+import { CompactPhraseRow } from './EntryRenderers'
+import { PersonalNameText } from './PersonalName'
 import './SettingsCorner.css'
 
 export interface SettingsCornerProps {
@@ -74,9 +76,10 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
           {name && (
             <p className="settings-corner__spelling">
               {faSpelling && (
-                <span className="settings-corner__spelling-fa" lang="fa" dir="rtl">
-                  {faSpelling}
-                </span>
+                <PersonalNameText
+                  spelling={faSpelling}
+                  className="settings-corner__spelling-fa"
+                />
               )}
               <Link className="settings-corner__link" to="/dit-navn">
                 {faSpelling ? 'Ret navnet på persisk' : 'Skriv navnet på persisk'}
@@ -95,10 +98,7 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
             />
             <span>Lyd ved ros og nye sider</span>
           </label>
-          <p className="settings-corner__privacy">{PRIVACY_DA}</p>
-          <p className="settings-corner__privacy" lang="fa" dir="rtl">
-            {PRIVACY_FA}
-          </p>
+          <CompactPhraseRow entry={PRIVACY_ENTRY} />
         </div>
       )}
     </div>

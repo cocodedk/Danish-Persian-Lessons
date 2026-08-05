@@ -2,6 +2,10 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import { render as rtlRender, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import Home from './Home'
+import App from '../App'
+import { markOrientationSeen } from '../progress/alphabet'
+import { completeAlphabet } from './typingHarness'
+import { setProfile } from '../progress/profile'
 
 /** The forside links into the lessons, so it needs a router around it. */
 function render(ui: React.ReactElement) {
@@ -10,10 +14,20 @@ function render(ui: React.ReactElement) {
 
 beforeEach(() => {
   window.localStorage.clear()
+  markOrientationSeen()
+  completeAlphabet()
 })
 
 describe('Home', () => {
-  it('shows the skippable name-capture screen on first launch', () => {
+  it('opens orientation before asking for a name on a true first launch', () => {
+    window.localStorage.clear()
+    window.location.hash = ''
+    rtlRender(<App />)
+    expect(screen.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeInTheDocument()
+    expect(screen.queryByLabelText('Hvad hedder du?')).not.toBeInTheDocument()
+  })
+
+  it('shows the skippable name capture after the alphabet in the recommended flow', () => {
     render(<Home />)
     expect(screen.getByText('نام تو چیست؟')).toBeInTheDocument()
     expect(screen.getByLabelText('Hvad hedder du?')).toBeInTheDocument()
@@ -41,7 +55,7 @@ describe('Home', () => {
     expect(screen.getByText('Hej!')).toBeInTheDocument()
   })
 
-  it('once a name is given, the Danish pane greets by name and the Persian pane still says only سلام!', () => {
+  it('once a Latin name is given, Danish uses it while Persian stays plain until spelling', () => {
     render(<Home />)
     fireEvent.change(screen.getByLabelText('Hvad hedder du?'), {
       target: { value: 'Sara' },
@@ -50,25 +64,25 @@ describe('Home', () => {
 
     expect(screen.getByText('Hej Sara!')).toBeInTheDocument()
     expect(screen.getByText('سلام!')).toBeInTheDocument()
+    expect(screen.queryByText('سارا')).not.toBeInTheDocument()
   })
 
-  it('the Persian greeting never renders the Latin name (only the pronunciation line does, by design)', () => {
+  it('never fabricates whole-name pronunciation in the Persian greeting', () => {
+    setProfile({ name: 'Sara', faSpelling: 'سارا' })
     render(<Home />)
-    fireEvent.change(screen.getByLabelText('Hvad hedder du?'), {
-      target: { value: 'Sara' },
-    })
-    fireEvent.click(screen.getByText('Gem'))
 
-    const faPane = document.querySelector('[lang="fa"]')
-    expect(faPane).not.toBeNull()
-    const greeting = faPane?.querySelector('.split-card__greeting')
-    expect(greeting?.textContent).toBe('سلام!')
-    expect(greeting?.textContent ?? '').not.toMatch(/[A-Za-z]/)
+    const greeting = document.querySelector('.split-card__greeting')
+    expect(greeting?.querySelectorAll('[lang="fa"]')).toHaveLength(2)
+    expect(greeting?.textContent).toContain('سلام، سارا!')
+    expect(greeting?.textContent).toContain('salåm · [sælɒːm]')
+    expect(greeting?.textContent).not.toContain('sårå')
   })
 
   it('names with æ/ø/å round-trip correctly through capture, greeting, and reload', () => {
     for (const name of ['Mette', 'Søren']) {
       window.localStorage.clear()
+      markOrientationSeen()
+      completeAlphabet()
       const { unmount } = render(<Home />)
       fireEvent.change(screen.getByLabelText('Hvad hedder du?'), {
         target: { value: name },
@@ -97,8 +111,10 @@ describe('Home', () => {
   })
 
   it('puts the forside on the ruled sheet and lists the alphabet lesson with its progress', () => {
+    window.localStorage.clear()
+    setProfile({})
+    markOrientationSeen()
     const { container } = render(<Home />)
-    fireEvent.click(screen.getByText('Spring over'))
 
     expect(container.querySelectorAll('.ruled-section')).toHaveLength(1)
     const lesson = screen.getByRole('link', { name: /Alfabetet/ })

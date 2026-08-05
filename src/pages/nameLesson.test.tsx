@@ -25,7 +25,7 @@ describe('#/lesson/navn — write your name', () => {
     open('#/lesson/navn')
 
     expect(screen.getByRole('heading', { name: 'Skriv dit navn' })).toBeInTheDocument()
-    expect(screen.getByText('نامِ خود را بنویس')).toBeInTheDocument()
+    expect(screen.getByText('نام خود را بنویس')).toBeInTheDocument()
 
     // One numbered step per letter, naming the letter and its position.
     // The same alef twice, in two different forms: bound after س, free after ر.
@@ -63,15 +63,13 @@ describe('#/lesson/navn — write your name', () => {
     setProfile({ name: 'Louise', faSpelling: 'لوئیزه' })
     open('#/lesson/navn')
 
-    expect(screen.getByText('Bogstav 3: særligt tegn står først')).toBeInTheDocument()
-    expect(screen.getByText(/særligt tegn binder videre til bogstavet efter/)).toBeInTheDocument()
-    expect(screen.getAllByLabelText('særligt tegn').length).toBeGreaterThan(0)
-    expect(screen.queryByLabelText('ئ')).not.toBeInTheDocument()
+    expect(screen.getByText('Bogstav 3: hamze over ye står først')).toBeInTheDocument()
+    expect(screen.getByText(/hamze over ye binder videre til bogstavet efter/)).toBeInTheDocument()
+    expect(screen.getAllByText('ingen egen lyd · [∅]').length).toBeGreaterThanOrEqual(2)
 
-    // It has no taught sound either, so the lesson claims none for it: five
-    // pronunciation lines under six letters.
+    // It honestly names the absence of an independent sound.
     expect(document.querySelectorAll('.name-walk__step')).toHaveLength(6)
-    expect(document.querySelectorAll('.name-walk__step .pron-line')).toHaveLength(5)
+    expect(document.querySelectorAll('.name-walk__step .pron-line')).toHaveLength(6)
   })
 
   it('under prefers-reduced-motion the lesson is whole and the reward still lands', () => {
@@ -81,7 +79,8 @@ describe('#/lesson/navn — write your name', () => {
 
     expect(document.querySelectorAll('.name-walk__step')).toHaveLength(4)
     assemble('سارا')
-    expect(screen.getByText('آفرین، سارا!')).toBeInTheDocument()
+    expect(screen.getByText('آفرین،')).toBeInTheDocument()
+    expect(screen.getAllByText('سارا').length).toBeGreaterThan(0)
     expect(screen.getByLabelText('Klaret')).toBeInTheDocument()
   })
 

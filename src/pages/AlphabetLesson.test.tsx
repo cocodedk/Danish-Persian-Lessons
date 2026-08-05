@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import App from '../App'
 import { setProfile } from '../progress/profile'
 import { markOrientationSeen, getAlphabetProgress } from '../progress/alphabet'
+import { alphabetGroups } from '../puzzles/catalog'
+import { payPuzzle } from '../progress/puzzles'
 
 /** Opens the app at a hash route, the way a shared link would. */
 function open(hash: string) {
@@ -80,7 +82,8 @@ describe('a letter screen', () => {
 
     fireEvent.click(screen.getByRole('link', { name: 'Alle bogstaver' }))
     expect(screen.getByText('1 af 39 klaret')).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('link', { name: 'be, klaret' }))
+    fireEvent.click(screen.getByRole('button', { name: 'be, klaret' }))
+    fireEvent.click(screen.getByRole('link', { name: 'Åbn hele lektionen' }))
     expect(screen.getByLabelText('Klaret')).toBeInTheDocument()
     expect(screen.queryByText('Jeg kan den')).not.toBeInTheDocument()
   })
@@ -94,7 +97,7 @@ describe('a letter screen', () => {
     setProfile({ name: 'Babak', faSpelling: 'بابک' })
     open('#/lesson/alphabet/bogstav/be')
     expect(screen.getByText('Dette bogstav er i dit navn')).toBeInTheDocument()
-    expect(screen.getByText('این حرف در نامِ توست')).toBeInTheDocument()
+    expect(screen.getByText('این حرف در نام توست')).toBeInTheDocument()
   })
 
   it('sends an unknown letter back to the lesson instead of breaking', () => {
@@ -135,5 +138,26 @@ describe('the vowel marks and the exercises', () => {
   it('sends an unknown exercise back to the lesson', () => {
     open('#/lesson/alphabet/ovelse/ingenting')
     expect(screen.getByRole('heading', { name: 'Alfabetet' })).toBeInTheDocument()
+  })
+})
+
+describe('puzzle breaks on the lesson index', () => {
+  it('links every letter group to its own puzzle, and remembers a cleared one', () => {
+    markOrientationSeen()
+    const { unmount } = open('#/lesson/alphabet')
+
+    const links = screen.getAllByRole('link', { name: /Lille puslespil/ })
+    expect(links.map((link) => link.getAttribute('href'))).toEqual(
+      alphabetGroups.map((group) => `#/puslespil/${group.puzzle.id}`),
+    )
+
+    fireEvent.click(links[0])
+    expect(screen.getByText(/Lille pause 1 af/)).toBeInTheDocument()
+    unmount()
+
+    payPuzzle(alphabetGroups[0].puzzle.id)
+    open('#/lesson/alphabet')
+    const [first] = screen.getAllByRole('link', { name: /Lille puslespil/ })
+    expect(first).toHaveTextContent('klaret — spil igen')
   })
 })

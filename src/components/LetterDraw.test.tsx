@@ -45,9 +45,9 @@ describe('LetterDraw', () => {
 
     const steps = screen.getByRole('list', { name: 'Stregrækkefølge for pe, trin for trin' })
     expect(steps.children).toHaveLength(pe.strokes.length)
-    // Numbered in Persian digits, and each step shows one more path than the last.
-    expect(screen.getByText('۱')).toBeInTheDocument()
-    expect(screen.getByText('۴')).toBeInTheDocument()
+    // Dynamic counters stay Latin until Persian numerals are deliberately taught.
+    expect(screen.getByText('1')).toBeInTheDocument()
+    expect(screen.getByText('4')).toBeInTheDocument()
     const counts = [...steps.children].map((step) => step.querySelectorAll('path').length)
     expect(counts).toEqual([1, 2, 3, 4])
   })

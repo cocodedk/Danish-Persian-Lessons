@@ -1,16 +1,19 @@
-import { PRAISE, WELCOME_BACK } from '../rewards/copy'
+import { NAME_PRAISE_ENTRY, PRAISE, WELCOME_BACK } from '../rewards/copy'
 import { ProgressTick } from './ProgressTick'
 import { StickerStamp } from './StickerStamp'
 import { InkConfetti } from './InkConfetti'
 import { PronLine } from './PronLine'
 import type { Reward } from '../rewards/types'
 import './Celebration.css'
+import { PersianText } from './PersianText'
+import { PersonalNameText, type PersonalName } from './PersonalName'
 
 export interface CelebrationProps {
   /** What the engine just granted. Null only where no engine is wired in. */
   reward: Reward | null
   /** What the red tick says out loud. */
   tickLabel?: string
+  personalName?: PersonalName
 }
 
 /**
@@ -19,8 +22,9 @@ export interface CelebrationProps {
  * celebrate — a flick of ink across the paper. Never a score, never a streak
  * warning, never a countdown.
  */
-export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps) {
+export function Celebration({ reward, tickLabel = 'Rigtigt', personalName }: CelebrationProps) {
   const praise = reward?.praise ?? PRAISE[0]
+  const shownPraise = personalName ? NAME_PRAISE_ENTRY : praise
   const stickers = reward?.stickers ?? []
   const loud = stickers.length > 0 || (reward?.levelUp ?? null) !== null
 
@@ -30,21 +34,26 @@ export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps)
 
       <div className="celebration__praise">
         <ProgressTick granted label={tickLabel} />
-        <span className="celebration__fa" lang="fa" dir="rtl">
-          {praise.fa}
-        </span>
-        {praise.pron && <PronLine da={praise.pron.da} ipa={praise.pron.ipa} />}
+        <PersianText entry={shownPraise} className="celebration__fa" />
+        {personalName && (
+          // RTL base so the «!» closes the name on its left, where a Persian
+          // sentence ends — same rule as SplitCard's greeting pane.
+          <span dir="rtl">
+            <PersonalNameText spelling={personalName.spelling} />!
+          </span>
+        )}
+        <PronLine {...shownPraise.pron} />
         <span className="celebration__da" lang="da">
-          {praise.da}
+          {personalName?.original
+            ? `${shownPraise.da}, ${personalName.original}!`
+            : shownPraise.da}
         </span>
       </div>
 
       {reward?.wokeUp && (
         <div className="celebration__welcome">
-          <span className="celebration__fa" lang="fa" dir="rtl">
-            {WELCOME_BACK.fa}
-          </span>
-          {WELCOME_BACK.pron && <PronLine da={WELCOME_BACK.pron.da} ipa={WELCOME_BACK.pron.ipa} />}
+          <PersianText entry={WELCOME_BACK} className="celebration__fa" />
+          <PronLine {...WELCOME_BACK.pron} />
           <span lang="da">
             {WELCOME_BACK.da} Stimen er vågen igen, nu {reward.streak.value} dage.
           </span>
@@ -52,11 +61,11 @@ export function Celebration({ reward, tickLabel = 'Rigtigt' }: CelebrationProps)
       )}
 
       {stickers.length > 0 && (
-        <p className="celebration__stickers">
+        <div className="celebration__stickers">
           {stickers.map((sticker) => (
             <StickerStamp key={sticker.id} kind={sticker.kind} />
           ))}
-        </p>
+        </div>
       )}
     </div>
   )

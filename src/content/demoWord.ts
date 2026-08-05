@@ -1,9 +1,4 @@
-// The one hardcoded demo pair for plan 001's home screen (#/). Real lesson
-// data (Iranian first-grade primer order) arrives with plan 004.
-import type { WordCard } from '../lessons/types'
+import { allVocabWords } from '../lessons/vocab'
 
-export const DEMO_WORD: WordCard = {
-  fa: 'آب',
-  da: 'vand',
-  pron: { da: 'åb', ipa: 'ɒːb' },
-}
+/** Reuse the first real catalog word; the home specimen is not a duplicate. */
+export const DEMO_WORD = allVocabWords[0]

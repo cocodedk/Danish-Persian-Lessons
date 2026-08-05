@@ -1,0 +1,40 @@
+.personal-name {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.personal-name__spelling {
+  margin: 0;
+  font-family: var(--font-naskh);
+  font-size: clamp(2.5rem, 12vw, 5rem);
+  line-height: 1.5;
+}
+
+.personal-name__original {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.personal-name__letters {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.personal-name__letters li {
+  display: grid;
+  grid-template-columns: minmax(44px, auto) 1fr;
+  align-items: center;
+  gap: 0 0.75rem;
+  min-height: 44px;
+  border-block-end: 1px solid var(--rule);
+}
+
+.personal-name__letters li > [lang='fa'] {
+  grid-row: 1 / 3;
+  font-family: var(--font-naskh);
+  font-size: 2rem;
+}

@@ -2,7 +2,7 @@
 // out of a tray of its letters and two strangers. What the lesson says on the
 // way down to it is nameLesson.test.tsx.
 import { describe, it, expect } from 'vitest'
-import { screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import { setProfile } from '../progress/profile'
 import { isNameLessonDone } from '../progress/nameLesson'
 import { assemblyBank, nameGlyphs } from '../name/bank'
@@ -35,11 +35,28 @@ describe('the name-assembly exercise', () => {
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('')
     expect(screen.getByText('دوباره')).toBeInTheDocument()
     expect(screen.getByText(/Prøv igen, du mister ingenting/)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
 
     // …and the letter is still there to use when its turn comes.
     tapTile('س')
     tapTile('ا')
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('سا')
+  })
+
+  it('does not complete or reward the lesson when a taught answer is skipped', () => {
+    setProfile({ name: 'Sara', faSpelling: 'سارا' })
+    open('#/lesson/navn')
+
+    tapTile('ا')
+    fireEvent.click(screen.getByRole('button', { name: 'Næste' }))
+    tapTile('ا')
+    tapTile('ر')
+    tapTile('ا')
+
+    expect(isNameLessonDone()).toBe(false)
+    expect(getRewards().points).toBe(0)
+    expect(screen.getByRole('button', { name: 'Prøv hele navnet igen' })).toBeInTheDocument()
   })
 
   it('says which kind of wrong tap it was — a letter waiting its turn, or a stranger', () => {
@@ -53,7 +70,7 @@ describe('the name-assembly exercise', () => {
     expect(stranger, 'the tray always carries two strangers').toBeTruthy()
 
     tapTile(stranger!.glyph)
-    expect(screen.getByText('این حرف در نامِ تو نیست. دوباره نگاه کن.')).toBeInTheDocument()
+    expect(screen.getByText('این حرف در نام تو نیست. دوباره نگاه کن.')).toBeInTheDocument()
     expect(screen.getByText('Det bogstav er ikke i dit navn. Kig igen.')).toBeInTheDocument()
     expect(screen.queryByText('دوباره')).not.toBeInTheDocument()
 
@@ -65,16 +82,15 @@ describe('the name-assembly exercise', () => {
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('')
   })
 
-  it('celebrates the finished name by name — «آفرین، سارا!» / "Flot, Sara!"', () => {
+  it('celebrates with a static phrase plus a separate personal-name segment', () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/lesson/navn')
 
     assemble('سارا')
 
-    expect(screen.getByText('آفرین، سارا!')).toBeInTheDocument()
-    // The name rides inside the آفرین line, so it carries that line's own
-    // pron (plan 009) — never a missing third line just because a name is in it.
-    expect(screen.getByText('åfarin · [ɒːfæɾin]')).toBeInTheDocument()
+    expect(screen.getByText('آفرین،')).toBeInTheDocument()
+    expect(screen.getAllByText('سارا').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('åfarin · [ɒːfæɾin]').length).toBeGreaterThan(0)
     expect(screen.getByText('Flot, Sara!')).toBeInTheDocument()
     expect(isNameLessonDone()).toBe(true)
   })
@@ -88,7 +104,8 @@ describe('the name-assembly exercise', () => {
     open('#/lesson/navn')
     expect(screen.getByLabelText('Klaret')).toBeInTheDocument()
     assemble('بابک')
-    expect(screen.getByText('آفرین، بابک!')).toBeInTheDocument()
+    expect(screen.getByText('آفرین،')).toBeInTheDocument()
+    expect(screen.getAllByText('بابک').length).toBeGreaterThan(0)
   })
 
   it('praises every finish but pays for the lesson once — the letter rule, for a lesson', () => {
@@ -103,7 +120,7 @@ describe('the name-assembly exercise', () => {
     // Round two, after a reload: the same warm ending, and not one point more.
     open('#/lesson/navn')
     assemble('بابک')
-    expect(screen.getByText('آفرین، بابک!')).toBeInTheDocument()
+    expect(screen.getByText('آفرین،')).toBeInTheDocument()
     expect(screen.getByText('Flot, Babak!')).toBeInTheDocument()
 
     const again = getRewards()

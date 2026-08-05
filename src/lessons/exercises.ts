@@ -7,12 +7,14 @@
 import { letters, specimens, teachingOrder } from './alphabet'
 import { sameBodyAs } from './strokes'
 import type { Pron } from './types'
+import type { PersianEntry } from '../catalog/types'
 
 export type ExerciseKind = 'find' | 'match'
 
 export interface Choice {
   /** The letter this choice belongs to. */
   id: string
+  entry: PersianEntry
   /** What is printed on the choice: a glyph, or one positional form of it. */
   glyph: string
 }
@@ -21,16 +23,12 @@ export interface Question {
   id: string
   /** The item a correct answer completes: a letter here, a word in plan 004. */
   itemId: string
+  entry: PersianEntry
   /** Danish prompt, du-form. */
   promptDa: string
-  /** The Persian the question shows, when it shows any. */
-  promptFa?: string
-  /** The diacriticized twin of `promptFa`, when the lesson supplies one — the
-   *  two-layer specimen path (see FaSpecimen) needs both to engage. Letters
-   *  carry no faMarked, so alphabet rounds never set this. */
-  promptFaMarked?: string
-  /** Dansk lydskrift + IPA for the item in play — always from the data. */
-  sound: Pron
+  /** True when the question shows its Persian specimen (rendered from `entry`);
+   *  absent when the Persian IS the thing being asked for. */
+  showsFa?: boolean
   choices: Choice[]
   answerId: string
   /** What language the choices are written in. Persian unless stated otherwise. */
@@ -77,9 +75,9 @@ function distractorIds(id: string, count: number, order: string[]): string[] {
 }
 
 /** Puts the right answer in a different slot each question, without randomness. */
-export function arrange(answer: Choice, distractors: Choice[], slot: number): Choice[] {
-  const choices = [...distractors]
-  choices.splice(slot % CHOICE_COUNT, 0, answer)
+export function arrange<T>(answer: T, distractors: T[], slot: number): T[] {
+  const choices: T[] = [...distractors]
+  choices.splice(slot % (distractors.length + 1), 0, answer)
   return choices
 }
 
@@ -89,14 +87,15 @@ function findQuestions(): Question[] {
     const specimen = specimens[id]
     const distractors = distractorIds(id, CHOICE_COUNT - 1, teachingOrder).map((other) => ({
       id: other,
+      entry: specimens[other].entry,
       glyph: specimens[other].glyph,
     }))
     return {
       id: `find-${id}`,
       itemId: id,
+      entry: specimen.entry,
       promptDa: 'Hvilket tegn siger denne lyd?',
-      sound: specimen.sound,
-      choices: arrange({ id, glyph: specimen.glyph }, distractors, index),
+      choices: arrange({ id, entry: specimen.entry, glyph: specimen.glyph }, distractors, index),
       answerId: id,
     }
   })
@@ -110,17 +109,17 @@ function matchQuestions(): Question[] {
         ? 'medial'
         : 'initial'
       : 'final'
-    const distractors = distractorIds(letter.id, CHOICE_COUNT - 1, LETTER_ORDER).map((other) => ({
-      id: other,
-      glyph: letters[LETTER_ORDER.indexOf(other)].forms[position],
-    }))
+    const distractors = distractorIds(letter.id, CHOICE_COUNT - 1, LETTER_ORDER).map((other) => {
+      const source = letters[LETTER_ORDER.indexOf(other)]
+      return { id: other, entry: source.entry, glyph: source.forms[position] }
+    })
     return {
       id: `match-${letter.id}`,
       itemId: letter.id,
+      entry: letter.entry,
       promptDa: `Hvordan ser bogstavet ud ${POSITION_DA[position]}?`,
-      promptFa: letter.glyph,
-      sound: letter.sound,
-      choices: arrange({ id: letter.id, glyph: letter.forms[position] }, distractors, index),
+      showsFa: true,
+      choices: arrange({ id: letter.id, entry: letter.entry, glyph: letter.forms[position] }, distractors, index),
       answerId: letter.id,
     }
   })

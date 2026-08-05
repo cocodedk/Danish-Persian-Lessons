@@ -2,8 +2,14 @@ import { useMemo, useState } from 'react'
 import { LetterBank } from './LetterBank'
 import { Button } from './Button'
 import { assemblyBank, assembledPrefix, nameGlyphs, type Tile } from '../name/bank'
-import { ASSEMBLE_FA, NOT_IN_NAME_FA, NOT_IN_NAME_DA, LATER_IN_NAME_DA } from '../name/copy'
-import { TRY_AGAIN_FA } from '../content/faStrings'
+import { ASSEMBLE_ENTRY, NOT_IN_NAME_ENTRY, LATER_IN_NAME_DA } from '../name/copy'
+import { TRY_AGAIN_ENTRY } from '../content/faStrings'
+import { CompactPhraseRow, ChallengeReveal } from './EntryRenderers'
+import { RetryActions } from './RetryActions'
+import { PersonalNameText } from './PersonalName'
+import { PersianText } from './PersianText'
+import { nameLetters } from '../name/forms'
+import { PronLine } from './PronLine'
 import './NameAssembly.css'
 
 /** What the last wrong tap was: a letter of the name, or one of the strangers. */
@@ -25,9 +31,13 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
   const target = useMemo(() => nameGlyphs(spelling), [spelling])
   const tiles = useMemo(() => assemblyBank(spelling), [spelling])
   const inName = useMemo(() => new Set(target), [target])
+  const letters = useMemo(() => nameLetters(spelling), [spelling])
   const [placed, setPlaced] = useState<string[]>([])
   const [missed, setMissed] = useState<Missed | null>(null)
+  const [skipped, setSkipped] = useState(false)
   const done = placed.length === target.length
+  const missEntry = missed === 'later' ? TRY_AGAIN_ENTRY : NOT_IN_NAME_ENTRY
+  const expected = letters[placed.length]
 
   function pick(tile: Tile) {
     if (done) return
@@ -38,23 +48,33 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
     const next = [...placed, tile.key]
     setMissed(null)
     setPlaced(next)
-    if (next.length === target.length) onDone()
+    if (next.length === target.length && !skipped) onDone()
+  }
+
+  function skipCurrent() {
+    const tile = tiles.find(
+      (candidate) => candidate.glyph === target[placed.length] && !placed.includes(candidate.key),
+    )
+    if (!tile) return
+    setPlaced((current) => [...current, tile.key])
+    setMissed(null)
+    setSkipped(true)
   }
 
   return (
     <section className="name-assembly">
       <h2 className="alphabet__section-title">Sæt navnet sammen igen</h2>
-      <p className="name__ask" lang="fa" dir="rtl">
-        {ASSEMBLE_FA}
-      </p>
+      <CompactPhraseRow entry={ASSEMBLE_ENTRY} />
       <p className="alphabet__note">
         Persisk skrives fra højre. Tryk derfor det første bogstav i navnet først. Det lander yderst
         til højre, og de næste stiller sig til venstre for det.
       </p>
 
-      <p className="name__preview name-assembly__line" lang="fa" dir="rtl">
-        {assembledPrefix(spelling, placed.length)}
-      </p>
+      <PersonalNameText
+        spelling={assembledPrefix(spelling, placed.length)}
+        as="p"
+        className="name__preview name-assembly__line"
+      />
 
       {/* A standing region, like the exercise screens': the gentle line is
           announced when it appears instead of arriving unseen. It says which
@@ -62,14 +82,23 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
           hunting for a letter that is not in the tray to find. */}
       <div className="name-assembly__feedback" role="status">
         {missed !== null && !done && (
-          <p className="name-assembly__again">
-            <span lang="fa" dir="rtl">
-              {missed === 'later' ? TRY_AGAIN_FA : NOT_IN_NAME_FA}
-            </span>
-            <span lang="da">{missed === 'later' ? LATER_IN_NAME_DA : NOT_IN_NAME_DA}</span>
-          </p>
+          <div className="name-assembly__again">
+            <PersianText entry={missEntry} />
+            <PronLine {...missEntry.pron} />
+            <span lang="da">{missed === 'later' ? LATER_IN_NAME_DA : NOT_IN_NAME_ENTRY.da}</span>
+          </div>
         )}
       </div>
+      {missed !== null && expected?.entry && <ChallengeReveal entry={expected.entry} />}
+      {missed !== null && !done && (
+        <RetryActions
+          className="name__actions"
+          solved={false}
+          onRetry={() => setMissed(null)}
+          onAdvance={skipCurrent}
+          advanceLabel="Næste"
+        />
+      )}
 
       <LetterBank
         tiles={tiles}
@@ -78,16 +107,17 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
         usedKeys={placed}
       />
 
-      {placed.length > 0 && !done && (
+      {placed.length > 0 && (!done || skipped) && (
         <div className="name__actions">
           <Button
             variant="quiet"
             onClick={() => {
               setPlaced([])
               setMissed(null)
+              setSkipped(false)
             }}
           >
-            Start forfra
+            {done ? 'Prøv hele navnet igen' : 'Start forfra'}
           </Button>
         </div>
       )}

@@ -1,10 +1,16 @@
+import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { ProgressTick } from '../components/ProgressTick'
-import { teachingOrder, specimens } from '../lessons/alphabet'
+import { specimens } from '../lessons/alphabet'
 import { vowelMarks } from '../lessons/vowelMarks'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
 import './alphabet.css'
+import { DetailStrip } from '../components/EntryRenderers'
+import { PersianText } from '../components/PersianText'
+import { PuzzleBreakLink } from '../components/PuzzleBreakLink'
+import { alphabetGroups } from '../puzzles/catalog'
+import { completedPuzzles } from '../progress/puzzles'
 
 /**
  * The lesson index at #/lesson/alphabet: what there is, and how far the
@@ -12,7 +18,11 @@ import './alphabet.css'
  * time after that.
  */
 export default function AlphabetLesson() {
-  const progress = getAlphabetProgress()
+  // Read once per visit: nothing on this screen writes progress, and the
+  // selection state re-renders it on every tile tap.
+  const [progress] = useState(getAlphabetProgress)
+  const [puzzleDone] = useState(completedPuzzles)
+  const [selectedId, setSelectedId] = useState(alphabetGroups[0].itemIds[0])
   if (!progress.orientationSeen) {
     return <Navigate to="/lesson/alphabet/intro" replace />
   }
@@ -30,34 +40,42 @@ export default function AlphabetLesson() {
       </p>
       <p className="alphabet__lead">
         32 bogstaver, tegnet{' '}
-        <span className="alphabet__lead-fa" lang="fa" dir="rtl">
-          {specimens['alef-madde'].glyph}
-        </span>{' '}
-        og seks vokaltegn. Tag dem i den rækkefølge, du vil.
+        <PersianText entry={specimens['alef-madde'].entry} className="alphabet__lead-fa" /> og seks
+        vokaltegn. Rækkefølgen er anbefalet, men alt er åbent fra start.
       </p>
 
       <h2 className="alphabet__section-title">Tegn for tegn</h2>
-      {/* The chart reads the way Persian does: آ ا ب … from the right. */}
-      <ul className="alphabet__grid" dir="rtl">
-        {teachingOrder.map((id) => {
-          const specimen = specimens[id]
-          const cleared = progress.letters.includes(id)
-          return (
-            <li key={id}>
-              <Link
-                className={`alphabet__cell ${cleared ? 'alphabet__cell--done' : ''}`}
-                to={`/lesson/alphabet/bogstav/${id}`}
-                aria-label={cleared ? `${specimen.name.da}, klaret` : specimen.name.da}
-              >
-                <span lang="fa" dir="rtl">
-                  {specimen.glyph}
-                </span>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
-
+      <DetailStrip
+        entry={specimens[selectedId].entry}
+        to={`/lesson/alphabet/bogstav/${selectedId}`}
+        className="entry-detail--master"
+        live
+      />
+      {alphabetGroups.map((group) => (
+        <section key={group.id} className="alphabet__cluster">
+          <h3>{group.title}</h3>
+          <ul className="alphabet__grid" dir="rtl">
+            {group.itemIds.map((id) => {
+              const specimen = specimens[id]
+              const cleared = progress.letters.includes(id)
+              return (
+                <li key={id}>
+                  <button
+                    type="button"
+                    className={`alphabet__cell ${cleared ? 'alphabet__cell--done' : ''}`}
+                    aria-label={cleared ? `${specimen.name.da}, klaret` : specimen.name.da}
+                    aria-pressed={selectedId === id}
+                    onClick={() => setSelectedId(id)}
+                  >
+                    <PersianText entry={specimen.entry} ariaHidden />
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+          <PuzzleBreakLink puzzleId={group.puzzle.id} done={puzzleDone.includes(group.puzzle.id)} />
+        </section>
+      ))}
       <h2 className="alphabet__section-title">Vokaltegn</h2>
       <ul className="alphabet__links">
         <li>

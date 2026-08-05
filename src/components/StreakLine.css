@@ -9,8 +9,9 @@
   margin: 0 0 1rem;
 }
 
+/* Spans the implicit rows the stack can fill: fa, pron, da. */
 .streak-line .progress-tick {
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
 }
 
 .streak-line__fa {

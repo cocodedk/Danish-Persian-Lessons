@@ -2,16 +2,17 @@ import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { SplitCard } from './SplitCard'
 import { DEMO_WORD } from '../content/demoWord'
+import { GREETING_ENTRY } from '../content/greetings'
 
 function renderCard() {
-  return render(<SplitCard word={DEMO_WORD} faGreeting="سلام!" daGreeting="Hej Sara!" />)
+  return render(<SplitCard word={DEMO_WORD} greetingEntry={GREETING_ENTRY} daGreeting="Hej Sara!" />)
 }
 
 describe('SplitCard after the kit refactor', () => {
   it('is a composition of the kit: specimen, pronunciation, one rule, Danish word', () => {
     const { container } = renderCard()
     expect(container.querySelectorAll('.fa-specimen')).toHaveLength(1)
-    expect(container.querySelectorAll('.pron-line')).toHaveLength(1)
+    expect(container.querySelectorAll('.pron-line')).toHaveLength(2)
     expect(container.querySelectorAll('hr.rule-divider')).toHaveLength(1)
     expect(container.querySelectorAll('.da-word')).toHaveLength(1)
   })

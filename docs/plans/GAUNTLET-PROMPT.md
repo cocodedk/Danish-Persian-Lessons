@@ -8,7 +8,8 @@ file, not ad-hoc variants.
 
 Implement the Danish-Persian Lessons app by executing the roadmap plans IN ORDER —
 001-scaffold-app → 002-design-system → 003-alphabet-lesson → 007-rewards-streaks → 006-your-name →
-004-grade1-vocab → 005-persian-keyboard — each to its acceptance gate. The specs are law, in this
+004-grade1-vocab → 005-persian-keyboard → 008-keyboard-danish-hints → 009-praise-pronunciation →
+010-beginner-content-contract → 011-simple-puzzles — each to its acceptance gate. The specs are law, in this
 precedence: docs/plans/<plan>.md, then CLAUDE.md, then docs/design/ART-DIRECTION.md. Where they are
 silent, choose the smallest thing that satisfies the gate.
 
@@ -29,8 +30,10 @@ THE GATE for every plan — all countable, all must pass:
 5. Persian content: `dir="rtl"` correct; the orientation lesson teaches RIGHT-to-LEFT correctly;
    Persian code points only (ک ی, digits ۰–۹); ZWNJ where grammar requires; diacritics only on
    teaching specimens; red marks per ART-DIRECTION; stroke-order drawings move right-to-left with
-   dots last and survive the teacher persona letter by letter; every teaching word and letter shows
-   its pronunciation twice — dansk lydskrift + IPA — from lesson data, never improvised.
+   dots last and survive the teacher persona letter by letter; every app-owned Persian letter, word,
+   sign, symbol, and phrase has Danish help and shows its pronunciation twice — dansk lydskrift + IPA
+   — from the typed catalog, never improvised. UI phrases are undiacriticized; teaching diacritics live
+   in `faMarked`. Learner names show original Latin spelling and letter-by-letter help, never invented IPA.
 6. Dark scheme (chalkboard tokens) and `prefers-reduced-motion` verified — reduced motion swaps
    teaching animations for numbered step diagrams and still grants every reward.
 7. Zero colors or font-families outside src/styles/tokens.css; zero dependencies beyond the plan's
@@ -43,6 +46,13 @@ THE GATE for every plan — all countable, all must pass:
    and never reset, every completion celebrates, wrong answers never shame, surprise gifts fire on
    their deterministic schedule; sound only after a user gesture, mute persists; a simulated 10-day
    absence returns to a warm welcome, not guilt.
+10. Beginner journey (010 onward): assume zero Persian knowledge, teach before testing, explain RTL and
+    both pronunciation systems first, recommend alphabet then name, and keep every route unlocked.
+    A first wrong attempt reveals the complete entry without a red X; retry is optional and only a
+    successful completion updates learned progress.
+11. Puzzle breaks (011 onward): deterministic, tap-only, skippable, replayable, drawn only from entries
+    already introduced. No drag, timer, score, lives, audio dependency, random generation, or locks;
+    `dpl.v1.puzzles` pays the normal item reward once per completed puzzle ID.
 
 CRITIC PERSONAS — every round, three independent verdicts; the harshest wins:
 - The Iranian first-grade teacher (native Persian): is every Persian string correct, natural, and
@@ -68,6 +78,6 @@ RULES OF ENGAGEMENT:
 - Do not build anything from the ROADMAP "Later" list. Do not redesign what ART-DIRECTION fixes.
 - Each critic round's residual defects get logged in the plan file before the next builder pass.
 
-STOP when: all seven plans are merged and green — or the same unit fails its gate 3 consecutive
+STOP when: all eleven plans are merged and green — or the same unit fails its gate 3 consecutive
 rounds without measurable improvement, in which case stop everything and hand Babak the critic's
 residual defect list instead of grinding.

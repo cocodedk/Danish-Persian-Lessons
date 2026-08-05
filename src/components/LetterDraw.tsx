@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { Stroke } from '../lessons/types'
-import { toPersianDigits } from '../lessons/digits'
 import { drawTimings } from './letterDrawTiming'
 import { usePrefersReducedMotion } from './usePrefersReducedMotion'
 import { Button } from './Button'
@@ -74,9 +73,7 @@ function Steps({ strokes, name }: LetterDrawProps) {
               />
             ))}
           </svg>
-          <span className="letter-draw__step-number" lang="fa" dir="rtl">
-            {toPersianDigits(step + 1)}
-          </span>
+          <span className="letter-draw__step-number">{step + 1}</span>
         </li>
       ))}
     </ol>

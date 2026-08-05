@@ -62,6 +62,24 @@ Persian pane gets ~55% of the vertical split (diacritic headroom), Danish ~45%.
 `--ink` at ~75%: dansk lydskrift first, IPA in brackets — `åb · [ɒːb]`. Never in the Danish pane
 (meaning stays clean there). Both values come from lesson data, never improvised.
 
+## Beginner teaching surfaces
+
+Plan 010 extends the specimen into four shared surfaces. The full teaching card always reads Persian
+→ dansk lydskrift and IPA → Danish meaning or explanation. A compact phrase row keeps the same order
+for complete UI phrases. A challenge reveal uses the full card after every attempt. A learner name uses
+a separate companion: Persian spelling, original Latin name, then letter-by-letter help; it never shows
+a made-up whole-name IPA.
+
+Dense alphabets, vocabulary grids, letter banks, and keyboards stay compact. Selecting or tapping an
+item also updates one persistent master-detail strip close to the controls. The strip contains Persian,
+both pronunciation forms, Danish help, and—for lesson grids—the action that opens the full teaching
+screen. Positional forms reuse the parent letter companion. The strip may stick within the viewport,
+but it must not obscure the keyboard or bottom thumb bar.
+
+The generated boards in `docs/design/previews/010-beginner-content-board.png` and
+`docs/design/previews/011-simple-puzzles-board.png` are layout references only. Catalog data is the
+authority for exact Persian, Danish, and IPA.
+
 ## Motion
 
 Two kinds of motion only:
@@ -79,8 +97,9 @@ without animation. No scroll-jacking, no parallax, no hover lifts beyond color.
 
 Rewards look like Iranian school praise, not casino UI: the آفرین stamp, the ۲۰/۲۰ mark, the gold
 star (ستارهٔ طلایی), red margin ticks, and levels as filled notebook pages. Generosity is policy
-(plan 007): nothing is ever taken away, streaks rest — never reset, wrong answers get a gentle
-«دوباره» / "prøv igen", points only go up, and a reward may itself be a gift exercise.
+(plan 007): nothing is ever taken away, streaks rest — never reset, and wrong answers get a gentle
+«دوباره» plus an immediate complete teaching reveal. There is no red X or penalty; “Prøv én gang
+til” is optional beside “Næste”. Points only go up, and a reward may itself be a gift exercise.
 Jingles are WebAudio-synthesized (no audio files, no dependencies) — a light santur-ish pluck for
 ticks, a warmer chime for stickers, a short fanfare for level-ups. Sound plays only after a user
 gesture, has its own mute toggle persisted in `dpl.v1.settings`, and is independent of the motion

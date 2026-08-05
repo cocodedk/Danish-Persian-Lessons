@@ -159,7 +159,7 @@ describe('vowel marks', () => {
   })
 
   it('names تشدید and سکون as coming later, with a Danish line each', () => {
-    expect(laterMarks.map((mark) => mark.name.fa)).toEqual(['تشدید', 'سکون'])
+    expect(laterMarks.map((mark) => mark.nameEntry.fa)).toEqual(['تشدید', 'سکون'])
     for (const mark of laterMarks) {
       expect(mark.hint.length).toBeGreaterThan(0)
     }

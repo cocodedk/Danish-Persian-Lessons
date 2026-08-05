@@ -12,14 +12,6 @@
   border-radius: 3px;
 }
 
-.gift-card__fa {
-  margin: 0;
-  font-family: var(--font-fa);
-  font-size: 1.375rem;
-  line-height: 1.8;
-  color: var(--ink);
-}
-
 .gift-card__da {
   margin: 0.25rem 0 0;
   font-family: var(--font-latin);

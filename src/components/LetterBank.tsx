@@ -1,5 +1,10 @@
 import type { Tile } from '../name/bank'
-import { LETTERS_FA } from '../name/copy'
+import { useState } from 'react'
+import { LETTERS_ENTRY } from '../name/copy'
+import type { PersianEntry } from '../catalog/types'
+import { PersianText } from './PersianText'
+import { PersonalNameText } from './PersonalName'
+import { CompactPhraseRow, DetailStrip, letterLessonPath } from './EntryRenderers'
 import './LetterBank.css'
 
 export interface LetterBankProps {
@@ -17,14 +22,13 @@ export interface LetterBankProps {
  * name — the same name the alphabet lesson taught it under.
  */
 export function LetterBank({ tiles, onPick, label, usedKeys = [] }: LetterBankProps) {
+  const [selected, setSelected] = useState<PersianEntry | null>(null)
   return (
     <div className="letter-bank">
-      <p className="letter-bank__label">
-        <span lang="fa" dir="rtl" className="letter-bank__label-fa">
-          {LETTERS_FA}
-        </span>
+      <div className="letter-bank__label">
+        <CompactPhraseRow entry={LETTERS_ENTRY} />
         <span lang="da">{label}</span>
-      </p>
+      </div>
       <ul className="letter-bank__tray" dir="rtl">
         {tiles.map((tile) => {
           const used = usedKeys.includes(tile.key)
@@ -33,18 +37,24 @@ export function LetterBank({ tiles, onPick, label, usedKeys = [] }: LetterBankPr
               <button
                 type="button"
                 className={`letter-bank__tile ${used ? 'letter-bank__tile--used' : ''}`}
-                onClick={() => onPick(tile)}
+                onClick={() => {
+                  onPick(tile)
+                  if (tile.entry) setSelected(tile.entry)
+                }}
                 disabled={used}
                 aria-label={tile.nameDa}
               >
-                <span lang="fa" dir="rtl" aria-hidden="true">
-                  {tile.glyph}
-                </span>
+                {tile.entry ? (
+                  <PersianText entry={tile.entry} display={tile.glyph} ariaHidden />
+                ) : (
+                  <PersonalNameText spelling={tile.glyph} ariaHidden />
+                )}
               </button>
             </li>
           )
         })}
       </ul>
+      {selected && <DetailStrip entry={selected} to={letterLessonPath(selected.id)} />}
     </div>
   )
 }

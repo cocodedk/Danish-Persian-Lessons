@@ -1,11 +1,10 @@
 # Danish-Persian Lessons
 
-Plenty of people in Denmark grew up hearing Persian at home and can hold a whole conversation in it, but a
-shop sign in Tehran is still a wall of shapes. This is a free web app that teaches reading Persian from the
-alphabet up, with Danish as the language of instruction. Every card is split in two, the Persian word on top
-and the Danish equivalent underneath, and the early lessons spend most of their time on the vowel marks,
-because that is the part nobody explains and the part that turns a row of consonants into a word you can say
-out loud. It runs in the browser, with nothing to install and no account to create.
+This free web app teaches Persian reading from the first right-to-left step, with Danish as the language of
+instruction. It assumes no spoken Persian and no knowledge of the script. It also works for heritage speakers
+who understand Persian but never learned to read it, and for readers who want a gentler restart. Every Persian
+item comes with a Danish explanation, an approachable Danish pronunciation, and precise IPA. It runs in the
+browser, with nothing to install and no account to create.
 
 «آموزش خواندن و نوشتن فارسی برای دانمارکی‌زبان‌ها»
 
@@ -30,18 +29,19 @@ Lær at læse persisk, helt fra alfabetet.
 - Progress is written to `localStorage` and stays on the device. No accounts, no analytics, nothing sent
   anywhere. The flip side of that: clearing your browser data clears your progress.
 - Built for a phone. One hand, thumb reach, 360px upward. Bigger screens get the same layout with more air.
-- An on-screen Persian keyboard is planned, so typing exercises will work without a Persian layout installed.
+- The app recommends orientation, alphabet, your name, then vocabulary, while leaving every lesson open.
+- Short tap-only puzzle breaks use material already taught. They are skippable, replayable, and never unlock
+  required content.
+- An on-screen Persian keyboard supports typing without a Persian keyboard layout installed.
 - Free and open source, Apache-2.0.
 
 ## Try it
 
 The landing site is live in all three languages, and so is the app.
 
-What ships at [`/app/`](https://cocodedk.github.io/Danish-Persian-Lessons/app/) today is the split-screen
-shell: one demo pair (آب/vand) and the first-run name capture. The first lesson, covering the
-alphabet and the vowel marks, is still being written. There is no signup and no waiting list. Watch the
-[repository](https://github.com/cocodedk/Danish-Persian-Lessons) if you want to know when the first lesson
-lands.
+What ships at [`/app/`](https://cocodedk.github.io/Danish-Persian-Lessons/app/) includes orientation,
+the alphabet and vowel marks, personal-name spelling, first-reader vocabulary, a Persian keyboard,
+generous feedback, and short puzzle breaks. There is no signup and no waiting list.
 
 ## Build from Source
 

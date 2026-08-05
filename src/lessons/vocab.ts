@@ -11,6 +11,8 @@
 // Marks are the short vowels only — مَدرِسه, never مَدْرِسه; the schoolbook
 // does not write ساکن.
 import type { WordCard } from './types'
+import { defineEntry } from '../catalog/types'
+import type { PersianEntry } from '../catalog/types'
 
 export interface VocabWord extends WordCard {
   /** Stable ascii id — used in routes (#/lesson/ord/:unit/:word) and progress. */
@@ -25,7 +27,7 @@ export interface VocabUnit {
   /** Danish heading. */
   title: string
   /** Persian heading. UI chrome, so no اِعراب — CLAUDE.md's Persian text rules. */
-  titleFa: string
+  titleEntry: PersianEntry
   /** One Danish line for the forside card. */
   summary: string
   words: VocabWord[]
@@ -34,9 +36,17 @@ export interface VocabUnit {
 /** id · fa · faMarked · dansk · dansk lydskrift · IPA (standard Tehrani). */
 type Row = [string, string, string, string, string, string]
 
-function words(rows: Row[]): VocabWord[] {
+function words(unitId: string, rows: Row[]): VocabWord[] {
   return rows.map(([id, fa, faMarked, da, lyd, ipa]) => ({
     id,
+    entry: defineEntry({
+      id: `vocabulary-${unitId}-${id}`,
+      kind: 'word',
+      fa,
+      faMarked,
+      da,
+      pron: { da: lyd, ipa },
+    }),
     fa,
     faMarked,
     da,
@@ -48,9 +58,9 @@ export const vocabUnits: VocabUnit[] = [
   {
     id: '1',
     title: 'De første ord',
-    titleFa: 'آب و بابا',
+    titleEntry: defineEntry({ id: 'vocabulary-unit-1-title', kind: 'phrase', fa: 'آب و بابا', da: 'Vand og far', pron: { da: 'åb o båbå', ipa: 'ɒːb o bɒːbɒː' } }),
     summary: 'De ord bogen åbner med — og de ord du peger med',
-    words: words([
+    words: words('1', [
       ['ab', 'آب', 'آب', 'vand', 'åb', 'ɒːb'],
       ['baba', 'بابا', 'بابا', 'far', 'båbå', 'bɒːbɒː'],
       ['bad', 'باد', 'باد', 'vind', 'båd', 'bɒːd'],
@@ -68,9 +78,9 @@ export const vocabUnits: VocabUnit[] = [
   {
     id: '2',
     title: 'I skolen',
-    titleFa: 'مدرسه',
+    titleEntry: defineEntry({ id: 'vocabulary-unit-2-title', kind: 'word', fa: 'مدرسه', faMarked: 'مَدرِسه', da: 'Skole', pron: { da: 'madrese', ipa: 'mædɾese' } }),
     summary: 'Blyant, bog, bord — og det du siger, når du kommer ind',
-    words: words([
+    words: words('2', [
       ['medad', 'مداد', 'مِداد', 'blyant', 'medåd', 'medɒːd'],
       ['ketab', 'کتاب', 'کِتاب', 'bog', 'ketåb', 'ketɒːb'],
       ['miz', 'میز', 'میز', 'bord', 'miz', 'miːz'],
@@ -84,9 +94,9 @@ export const vocabUnits: VocabUnit[] = [
   {
     id: '3',
     title: 'Hjem og himmel',
-    titleFa: 'خانه و آسمان',
+    titleEntry: defineEntry({ id: 'vocabulary-unit-3-title', kind: 'phrase', fa: 'خانه و آسمان', da: 'Hjem og himmel', pron: { da: 'khåne o åsemån', ipa: 'xɒːne o ɒːsemɒːn' } }),
     summary: 'Hus, regn, måne, nat — og to farver mere',
-    words: words([
+    words: words('3', [
       ['khane', 'خانه', 'خانه', 'hus, hjem', 'khåne', 'xɒːne'],
       ['baran', 'باران', 'باران', 'regn', 'bårån', 'bɒːɾɒːn'],
       ['aseman', 'آسمان', 'آسِمان', 'himmel', 'åsemån', 'ɒːsemɒːn'],

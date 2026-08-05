@@ -15,6 +15,7 @@ import NameSpelling from './pages/NameSpelling'
 import NameLesson from './pages/NameLesson'
 import LessonPlaceholder from './pages/LessonPlaceholder'
 import Kit from './pages/Kit'
+import PuzzleScreen from './pages/PuzzleScreen'
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         {/* Static before dynamic: «skriv» is the typing round, never a word id. */}
         <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
         <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
+        <Route path="/puslespil/:id" element={<PuzzleScreen />} />
         {/* The learner's own name: how it is spelled, and the lesson that
             teaches it. Both send a learner without a name back to the forside. */}
         <Route path="/dit-navn" element={<NameSpelling />} />

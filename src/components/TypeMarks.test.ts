@@ -5,28 +5,26 @@
 import { describe, it, expect } from 'vitest'
 import { noteFor } from './TypeMarks'
 import {
-  TRY_AGAIN_FA,
-  TYPE_MISSING_SPACE_FA,
-  TYPE_EXTRA_SPACE_FA,
-  TYPE_MISSING_ZWNJ_FA,
-  TYPE_EXTRA_ZWNJ_FA,
-  TYPE_MISSING_ZWNJ_DA,
-  TYPE_EXTRA_ZWNJ_DA,
+  TRY_AGAIN_ENTRY,
+  TYPE_MISSING_SPACE_ENTRY,
+  TYPE_EXTRA_SPACE_ENTRY,
+  TYPE_MISSING_ZWNJ_ENTRY,
+  TYPE_EXTRA_ZWNJ_ENTRY,
 } from '../content/faStrings'
 
 describe('an ordinary letter', () => {
   it('keeps the three original lines, «دوباره» carrying the Persian half', () => {
     expect(noteFor({ kind: 'wrong', index: 0, cellKind: 'letter' })).toEqual({
+      entry: TRY_AGAIN_ENTRY,
       da: 'Her står et andet bogstav.',
-      fa: TRY_AGAIN_FA,
     })
     expect(noteFor({ kind: 'missing', index: 0, cellKind: 'letter' })).toEqual({
+      entry: TRY_AGAIN_ENTRY,
       da: 'Her mangler et bogstav.',
-      fa: TRY_AGAIN_FA,
     })
     expect(noteFor({ kind: 'extra', index: 0, cellKind: 'letter' })).toEqual({
+      entry: TRY_AGAIN_ENTRY,
       da: 'Her er et bogstav for meget.',
-      fa: TRY_AGAIN_FA,
     })
   })
 })
@@ -34,24 +32,24 @@ describe('an ordinary letter', () => {
 describe('a space or a نیم‌فاصله', () => {
   it('is named as missing, not as a letter', () => {
     expect(noteFor({ kind: 'missing', index: 0, cellKind: 'space' })).toEqual({
-      da: 'Her mangler et mellemrum.',
-      fa: TYPE_MISSING_SPACE_FA,
+      entry: TYPE_MISSING_SPACE_ENTRY,
+      da: TYPE_MISSING_SPACE_ENTRY.da,
     })
     expect(noteFor({ kind: 'missing', index: 0, cellKind: 'zwnj' })).toEqual({
-      da: TYPE_MISSING_ZWNJ_DA,
-      fa: TYPE_MISSING_ZWNJ_FA,
+      entry: TYPE_MISSING_ZWNJ_ENTRY,
+      da: TYPE_MISSING_ZWNJ_ENTRY.da,
     })
   })
 
   it('is named as stray, whether the divergence is "wrong" or "extra"', () => {
     for (const kind of ['wrong', 'extra'] as const) {
       expect(noteFor({ kind, index: 0, cellKind: 'space' })).toEqual({
-        da: 'Her står et mellemrum for meget.',
-        fa: TYPE_EXTRA_SPACE_FA,
+        entry: TYPE_EXTRA_SPACE_ENTRY,
+        da: TYPE_EXTRA_SPACE_ENTRY.da,
       })
       expect(noteFor({ kind, index: 0, cellKind: 'zwnj' })).toEqual({
-        da: TYPE_EXTRA_ZWNJ_DA,
-        fa: TYPE_EXTRA_ZWNJ_FA,
+        entry: TYPE_EXTRA_ZWNJ_ENTRY,
+        da: TYPE_EXTRA_ZWNJ_ENTRY.da,
       })
     }
   })
@@ -59,6 +57,6 @@ describe('a space or a نیم‌فاصله', () => {
 
 describe('a match', () => {
   it('says nothing — there is nothing to mark', () => {
-    expect(noteFor({ kind: 'match', index: -1, cellKind: 'letter' })).toEqual({ da: '', fa: '' })
+    expect(noteFor({ kind: 'match', index: -1, cellKind: 'letter' })).toEqual({ da: '' })
   })
 })

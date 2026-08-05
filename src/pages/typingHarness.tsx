@@ -6,8 +6,10 @@ import { beforeEach } from 'vitest'
 import { screen, render, fireEvent } from '@testing-library/react'
 import App from '../App'
 import { setProfile } from '../progress/profile'
-import { markOrientationSeen } from '../progress/alphabet'
+import { markLetterDone, markOrientationSeen, markVowelDone } from '../progress/alphabet'
+import { teachingOrder } from '../lessons/alphabet'
 import { findVocabUnit } from '../lessons/vocab'
+import { vowelMarks } from '../lessons/vowelMarks'
 import { KEYBOARD_KEYS } from '../keyboard/layout'
 import { PRAISE } from '../rewards/copy'
 
@@ -19,6 +21,12 @@ export function freshTypingState(): void {
     setProfile({})
     markOrientationSeen()
   })
+}
+
+/** Every letter and vowel mark cleared — the state after the whole alphabet. */
+export function completeAlphabet(): void {
+  for (const id of teachingOrder) markLetterDone(id)
+  for (const mark of vowelMarks) markVowelDone(mark.id)
 }
 
 export function open(hash: string) {

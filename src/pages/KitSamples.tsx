@@ -8,7 +8,8 @@ import { FaSpecimen } from '../components/FaSpecimen'
 import { PronLine } from '../components/PronLine'
 import { DaWord } from '../components/DaWord'
 import { DEMO_WORD } from '../content/demoWord'
-import { KIT_VOWELS, KIT_SHEET_FA, KIT_SHEET_DA } from '../content/kitSamples'
+import { KIT_VOWELS, KIT_SHEET_ENTRY, KIT_SHEET_DA } from '../content/kitSamples'
+import { CompactPhraseRow } from '../components/EntryRenderers'
 
 function Sample({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -29,13 +30,13 @@ export function KitSamples({ dir }: { dir: 'ltr' | 'rtl' }) {
     <>
       <Sample label="RuledSection — arket">
         <RuledSection dir={dir} lang={rtl ? 'fa' : 'da'}>
-          {rtl ? KIT_SHEET_FA : KIT_SHEET_DA}
+          {rtl ? <CompactPhraseRow entry={KIT_SHEET_ENTRY} /> : KIT_SHEET_DA}
         </RuledSection>
       </Sample>
 
       <Sample label="FaSpecimen · PronLine · RuleDivider · DaWord">
-        <FaSpecimen fa={DEMO_WORD.fa} faMarked={DEMO_WORD.faMarked} />
-        <PronLine da={DEMO_WORD.pron.da} ipa={DEMO_WORD.pron.ipa} />
+        <FaSpecimen entry={DEMO_WORD.entry} />
+        <PronLine {...DEMO_WORD.pron} />
         <RuleDivider />
         <DaWord>{DEMO_WORD.da}</DaWord>
       </Sample>
@@ -43,7 +44,7 @@ export function KitSamples({ dir }: { dir: 'ltr' | 'rtl' }) {
       <Sample label="VowelChip — vokaltegn">
         <div className="kit__row">
           {KIT_VOWELS.map((vowel) => (
-            <VowelChip key={vowel.glyph} glyph={vowel.glyph} caption={vowel.caption} />
+            <VowelChip key={vowel.id} entry={vowel} />
           ))}
         </div>
       </Sample>

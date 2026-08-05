@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { RuleDivider } from '../components/RuleDivider'
-import { FaSpecimen } from '../components/FaSpecimen'
+import { FullTeachingCard } from '../components/EntryRenderers'
+import { PersianText } from '../components/PersianText'
 import { PronLine } from '../components/PronLine'
-import { DaWord } from '../components/DaWord'
 import { markOrientationSeen } from '../progress/alphabet'
 import { MIRROR_DEMO, ORIENTATION_POINTS } from '../content/orientation'
 import type { OrientationPoint } from '../content/orientation'
@@ -36,19 +36,21 @@ function Point({ point }: { point: OrientationPoint }) {
   return (
     <section className="orient__point">
       <h2 className="orient__heading">{point.heading}</h2>
-      <ul className="orient__row" lang="fa" dir="rtl">
-        {point.fa.map((item, index) => (
-          <li key={`${item}-${index}`} className="orient__chip">
-            {item}
+      {/* Each chip is a miniature of the specimen contract (ART-DIRECTION
+          "Beginner teaching surfaces"): Persian on top, then lydskrift + IPA,
+          then the Danish name — stacked, never sharing a line. */}
+      <ul className="orient__row" dir="rtl">
+        {point.fa.map((token, index) => (
+          <li key={`${token.entry.id}-${index}`} className="orient__chip">
+            <PersianText entry={token.entry} display={token.form} />
+            <PronLine {...token.entry.pron} />
+            <span className="orient__chip-help" lang="da" dir="ltr">
+              {token.entry.da}
+            </span>
           </li>
         ))}
       </ul>
-      {(point.result || point.pron) && (
-        <div className="orient__specimen">
-          {point.result && <FaSpecimen fa={point.result} />}
-          {point.pron && <PronLine da={point.pron.da} ipa={point.pron.ipa} />}
-        </div>
-      )}
+      {point.result && <FullTeachingCard entry={point.result} />}
       <p className="orient__body">{point.body}</p>
     </section>
   )
@@ -75,17 +77,26 @@ export default function Orientation() {
       }
     >
       <p className="orient__intro">
-        Fem ting overrasker de fleste. Du kan gå videre når som helst — og læse det her igen senere.
+        Du behøver ikke kunne tale, skrive eller læse persisk endnu. Du kan gå videre når som helst
+        og vende tilbage senere. Vi anbefaler, at du starter eller fortsætter med alfabetet herfra.
       </p>
+
+      <section className="orient__point">
+        <h2 className="orient__heading">To slags hjælp følger altid med</h2>
+        <PronLine {...MIRROR_DEMO.entry.pron} />
+        <p className="orient__body">
+          <strong>{MIRROR_DEMO.entry.pron.da}</strong> er en enkel dansk lydskrift, du kan prøve med
+          det samme. <strong>[{MIRROR_DEMO.entry.pron.ipa}]</strong> er den præcise IPA. Du får
+          altid begge dele sammen med betydningen.
+        </p>
+      </section>
 
       <section className="orient__point">
         <h2 className="orient__heading">Persisk læses fra højre mod venstre</h2>
         <Flip />
         <RuleDivider />
         <div className="orient__specimen">
-          <FaSpecimen fa={MIRROR_DEMO.fa} />
-          <PronLine da={MIRROR_DEMO.pron.da} ipa={MIRROR_DEMO.pron.ipa} />
-          <DaWord>{MIRROR_DEMO.da.toLowerCase()}</DaWord>
+          <FullTeachingCard entry={MIRROR_DEMO.entry} />
         </div>
         <p className="orient__body">
           Persisk gør det hver eneste gang: første bogstav yderst til højre, sidste bogstav yderst

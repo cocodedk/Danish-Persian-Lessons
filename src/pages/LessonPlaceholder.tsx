@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
-import { LESSON_PLACEHOLDER_TEXT } from '../content/faStrings'
+import { LESSON_PLACEHOLDER_ENTRY } from '../content/faStrings'
+import { CompactPhraseRow } from '../components/EntryRenderers'
 
 /** Placeholder for #/lesson/:id — real lesson content arrives with plans 003/004. */
 export default function LessonPlaceholder() {
@@ -7,9 +8,7 @@ export default function LessonPlaceholder() {
 
   return (
     <main className="lesson-placeholder">
-      <p lang="fa" dir="rtl">
-        {LESSON_PLACEHOLDER_TEXT}
-      </p>
+      <CompactPhraseRow entry={LESSON_PLACEHOLDER_ENTRY} />
       <p lang="da">Lektion {id} er her snart.</p>
       <Link to="/">Til forsiden</Link>
     </main>

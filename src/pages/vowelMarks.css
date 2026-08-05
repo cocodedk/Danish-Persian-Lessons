@@ -1,0 +1,26 @@
+/* The chip takes half the line at 360px; name and button stack in the rest. */
+.marks__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block-start: 0.75rem;
+}
+
+.marks__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-inline-size: 0;
+}
+
+.marks__later {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 0.9375rem;
+  flex-wrap: wrap;
+}
+

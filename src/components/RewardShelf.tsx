@@ -2,6 +2,8 @@ import { StickerStamp } from './StickerStamp'
 import { currentPageLine } from '../rewards/copy'
 import type { Sticker } from '../rewards/types'
 import './RewardShelf.css'
+import { PersianText } from './PersianText'
+import { PronLine } from './PronLine'
 
 export interface RewardShelfProps {
   level: number
@@ -24,20 +26,19 @@ export function RewardShelf({ level, stickers }: RewardShelfProps) {
 
   return (
     <section className="reward-shelf" aria-label="Dine klistermærker">
-      <p className="reward-shelf__line">
-        <span className="reward-shelf__fa" lang="fa" dir="rtl">
-          {line.fa}
-        </span>
+      <div className="reward-shelf__line">
+        <PersianText entry={line} className="reward-shelf__fa" />
+        <PronLine {...line.pron} />
         <span className="reward-shelf__da" lang="da">
           {line.da} Du har {stickers.length}{' '}
           {stickers.length === 1 ? 'klistermærke' : 'klistermærker'}.
         </span>
-      </p>
-      <p className="reward-shelf__stamps">
+      </div>
+      <div className="reward-shelf__stamps">
         {shown.map((sticker) => (
           <StickerStamp key={sticker.id} kind={sticker.kind} />
         ))}
-      </p>
+      </div>
     </section>
   )
 }

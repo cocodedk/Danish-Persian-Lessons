@@ -3,9 +3,16 @@
 // 003/005/006 need the same table for lessons, the keyboard and the name
 // spelling — the red-pen rendering (src/components/penMark.ts) is only one
 // consumer of it.
+import type { Pron } from './types'
 
 /** Above the line (زبر، پیش، مد), under it (زیر), or unmarked. */
 export type MarkSide = 'above' | 'below' | 'none'
+
+/**
+ * The one pronunciation the app gives a sign that carries no vowel of its own
+ * (تشدید، سکون، ئ): said the same way everywhere it appears.
+ */
+export const NO_OWN_SOUND: Pron = { da: 'ingen egen lyd', ipa: '∅' }
 
 /** زیر (kasra) and its tanwin — the only marks written under the letter. */
 const BELOW = new Set(['ِ', 'ٍ'])

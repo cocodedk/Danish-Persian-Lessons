@@ -6,7 +6,8 @@ import { RewardOverlays } from '../components/RewardOverlays'
 import { bonusQuestions } from '../lessons/bonus'
 import { markLetterDone } from '../progress/alphabet'
 import { useCelebration } from '../rewards/useCelebration'
-import { GIFT_FA } from '../rewards/copy'
+import { GIFT_ENTRY } from '../rewards/copy'
+import { CompactPhraseRow } from '../components/EntryRenderers'
 import './alphabet.css'
 
 /**
@@ -32,9 +33,7 @@ export default function BonusScreen() {
       title="Bonusøvelse"
       bar={<BarLink to="/lesson/alphabet">Til lektionen</BarLink>}
     >
-      <p className="alphabet__lead-fa" lang="fa" dir="rtl">
-        {GIFT_FA}
-      </p>
+      <CompactPhraseRow entry={GIFT_ENTRY} />
       <p className="alphabet__note">
         Tre spørgsmål, du kender formen på. Du kan lukke gaven når som helst. Den koster
         ingenting at lade ligge.

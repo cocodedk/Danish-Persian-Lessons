@@ -2,6 +2,8 @@ import { streakLine } from '../rewards/copy'
 import { ProgressTick } from './ProgressTick'
 import type { StreakState } from '../rewards/types'
 import './StreakLine.css'
+import { PersianText } from './PersianText'
+import { PronLine } from './PronLine'
 
 export interface StreakLineProps {
   streak: StreakState
@@ -18,14 +20,13 @@ export function StreakLine({ streak }: StreakLineProps) {
 
   const line = streakLine(streak)
   return (
-    <p className={`streak-line ${streak.resting ? 'streak-line--resting' : ''}`}>
+    <div className={`streak-line ${streak.resting ? 'streak-line--resting' : ''}`}>
       <ProgressTick granted={streak.today} label="Øvet i dag" />
-      <span className="streak-line__fa" lang="fa" dir="rtl">
-        {line.fa}
-      </span>
+      <PersianText entry={line} className="streak-line__fa" />
+      <PronLine {...line.pron} />
       <span className="streak-line__da" lang="da">
         {line.da}
       </span>
-    </p>
+    </div>
   )
 }

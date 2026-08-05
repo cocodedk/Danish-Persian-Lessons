@@ -1,0 +1,10 @@
+/* The puzzle-break invitation: a quiet blue line that still meets the 44px
+   tap target, wherever a lesson index places it. */
+
+.puzzle-break {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  margin-block-start: 0.35rem;
+  color: var(--blue);
+}

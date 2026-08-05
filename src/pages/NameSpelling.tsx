@@ -7,7 +7,9 @@ import { ProgressTick } from '../components/ProgressTick'
 import { getProfile, setProfile } from '../progress/profile'
 import { suggestSpellings } from '../name/transliterate'
 import { alphabetBank, type Tile } from '../name/bank'
-import { SPELLING_TITLE_FA, SPELLING_PICK_FA } from '../name/copy'
+import { SPELLING_TITLE_ENTRY, SPELLING_PICK_ENTRY } from '../name/copy'
+import { CompactPhraseRow } from '../components/EntryRenderers'
+import { PersonalNameCompanion, PersonalNameText } from '../components/PersonalName'
 import './name.css'
 
 /**
@@ -57,25 +59,19 @@ export default function NameSpelling() {
 
   return (
     <LessonSheet title="Dit navn på persisk" bar={<BarLink to="/">Til forsiden</BarLink>}>
-      <p className="name__eyebrow" lang="fa" dir="rtl">
-        {SPELLING_TITLE_FA}
-      </p>
+      <CompactPhraseRow entry={SPELLING_TITLE_ENTRY} />
       <p className="alphabet__lead">
         Sådan kan {profile.name} skrives med persiske bogstaver. Vælg den, der ligner dit navn mest,
         eller ret den bogstav for bogstav. Du kan altid ændre den igen.
       </p>
 
-      <p className="name__preview" lang="fa" dir="rtl">
-        {draft}
-      </p>
+      {draft && <PersonalNameCompanion spelling={draft} original={profile.name} className="name__preview" />}
       {draft === '' && <p className="name__hint">Tryk på bogstaverne herunder for at skrive navnet.</p>}
 
       {suggestions.length > 0 ? (
         <>
           <h2 className="alphabet__section-title">Vælg en stavemåde</h2>
-          <p className="name__ask" lang="fa" dir="rtl">
-            {SPELLING_PICK_FA}
-          </p>
+          <CompactPhraseRow entry={SPELLING_PICK_ENTRY} />
           <ul className="name__choices">
             {suggestions.map((spelling) => (
               <li key={spelling} className="name__choice-row">
@@ -85,9 +81,7 @@ export default function NameSpelling() {
                   aria-pressed={spelling === draft}
                   onClick={() => setDraft(spelling)}
                 >
-                  <span lang="fa" dir="rtl">
-                    {spelling}
-                  </span>
+                  <PersonalNameText spelling={spelling} />
                 </button>
                 {spelling === draft && <ProgressTick granted label="Valgt" />}
               </li>

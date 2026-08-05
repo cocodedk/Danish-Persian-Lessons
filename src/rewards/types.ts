@@ -1,7 +1,7 @@
 // Shapes for the reward engine (plan 007). Every number here only ever grows:
 // there is no "spend", no "lose", no negative. See engine.ts for why that is
 // structural rather than a promise.
-import type { Pron } from '../lessons/types'
+import type { PersianEntry } from '../catalog/types'
 
 /**
  * What the learner just did. The three seams plan 003 already exposes:
@@ -26,14 +26,7 @@ export interface Sticker {
 }
 
 /** One matched praise pair. Persian first, the way the app reads. */
-export interface Praise {
-  fa: string
-  da: string
-  /** Dansk lydskrift + IPA, shown under the fa line — set on the six praise
-   *  words and the welcome-back line (plan 009). Optional so a derived status
-   *  line (streak, gift) is never forced to invent one. */
-  pron?: Pron
-}
+export type Praise = PersianEntry
 
 export interface StreakState {
   /** Total practice days. Only ever grows. */
@@ -49,8 +42,7 @@ export interface Gift {
   id: string
   /** Which gift this is, counting from one — it picks the bonus round. */
   ordinal: number
-  fa: string
-  da: string
+  entry: PersianEntry
 }
 
 export type SoundCue = 'tick' | 'chime' | 'fanfare'

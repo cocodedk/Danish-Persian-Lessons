@@ -5,36 +5,48 @@ import { PronLine } from './PronLine'
 import { DaWord } from './DaWord'
 import { RuleDivider } from './RuleDivider'
 import faCss from './FaSpecimen.css?raw'
+import { defineEntry } from '../catalog/types'
+
+function entry(fa: string, faMarked?: string) {
+  return defineEntry({
+    id: `test-${[...fa].map((char) => char.codePointAt(0)?.toString(16)).join('-')}`,
+    kind: 'word',
+    fa,
+    ...(faMarked ? { faMarked } : {}),
+    da: 'test',
+    pron: { da: 'test', ipa: 'test' },
+  })
+}
 
 describe('FaSpecimen', () => {
   it('renders the diacriticized spelling when the lesson supplies one', () => {
-    render(<FaSpecimen fa="اب" faMarked="آب" />)
+    render(<FaSpecimen entry={entry('اب', 'آب')} />)
     expect(screen.getByText('آب')).toBeInTheDocument()
     expect(screen.queryByText('اب')).toBeNull()
   })
 
   it('falls back to the plain spelling', () => {
-    render(<FaSpecimen fa="کتاب" />)
+    render(<FaSpecimen entry={entry('کتاب')} />)
     expect(screen.getByText('کتاب')).toBeInTheDocument()
   })
 
   it('is Persian, right to left', () => {
-    const { container } = render(<FaSpecimen fa="آب" />)
+    const { container } = render(<FaSpecimen entry={entry('آب')} />)
     const specimen = container.querySelector('.fa-specimen')
     expect(specimen).toHaveAttribute('lang', 'fa')
     expect(specimen).toHaveAttribute('dir', 'rtl')
   })
 
   it('puts the madde in the teacher red, and nothing on an unmarked word', () => {
-    const { container: marked } = render(<FaSpecimen fa="آب" />)
+    const { container: marked } = render(<FaSpecimen entry={entry('آب')} />)
     expect(marked.querySelector('.fa-specimen')?.className).toContain('pen-mark--above')
 
-    const { container: plain } = render(<FaSpecimen fa="کتاب" />)
+    const { container: plain } = render(<FaSpecimen entry={entry('کتاب')} />)
     expect(plain.querySelector('.fa-specimen')?.className).toBe('fa-specimen')
   })
 
   it('draws a vocalized word as red اِعراب under an ink copy of the same letters', () => {
-    const { container } = render(<FaSpecimen fa="مدرسه" faMarked="مَدرِسه" />)
+    const { container } = render(<FaSpecimen entry={entry('مدرسه', 'مَدرِسه')} />)
     expect(container.querySelector('.fa-specimen--vocalized')).not.toBeNull()
     expect(container.querySelector('.fa-specimen__marks')?.textContent).toBe('مَدرِسه')
     expect(container.querySelector('.fa-specimen__marks')).toHaveAttribute('aria-hidden', 'true')
@@ -45,13 +57,13 @@ describe('FaSpecimen', () => {
   })
 
   it('keeps the single layer when faMarked changes a letter rather than marking one', () => {
-    const { container } = render(<FaSpecimen fa="اب" faMarked="آب" />)
+    const { container } = render(<FaSpecimen entry={entry('اب', 'آب')} />)
     expect(container.querySelector('.fa-specimen--vocalized')).toBeNull()
     expect(container.querySelector('.fa-specimen')?.className).toContain('pen-mark--above')
   })
 
   it('still gives آ its red madde inside a vocalized word', () => {
-    const { container } = render(<FaSpecimen fa="آسمان" faMarked="آسِمان" />)
+    const { container } = render(<FaSpecimen entry={entry('آسمان', 'آسِمان')} />)
     expect(container.querySelector('.fa-specimen__ink')?.className).toContain('pen-mark--above')
   })
 

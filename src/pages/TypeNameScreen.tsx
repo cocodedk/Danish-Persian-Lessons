@@ -7,9 +7,8 @@ import { getProfile } from '../progress/profile'
 import { typeWordDone, payRound } from '../progress/typing'
 import { canType } from '../keyboard/layout'
 import { useCelebration } from '../rewards/useCelebration'
-import { namePraise } from '../name/copy'
-import { TYPE_NAME_FA } from '../content/faStrings'
-import type { Reward } from '../rewards/types'
+import { TYPE_NAME_ENTRY } from '../content/faStrings'
+import { PersonalNameText } from '../components/PersonalName'
 import './type.css'
 
 /** The one item this round has, and the key its progress is kept under. */
@@ -31,29 +30,27 @@ export default function TypeNameScreen() {
     return <Navigate to="/" replace />
   }
 
-  /** The moment the whole app is for: the praise says the learner's own name. */
-  function byName(reward: Reward): Reward {
-    return name && faSpelling ? { ...reward, praise: namePraise(faSpelling, name) } : reward
-  }
-
   return (
     <TypeExercise
       title="Tast dit navn"
-      eyebrowFa={TYPE_NAME_FA}
+      eyebrowEntry={TYPE_NAME_ENTRY}
       bar={<BarLink to="/">Til forsiden</BarLink>}
       tasks={[
-        { id: NAME_TASK, promptDa: 'Skriv dit navn med persiske bogstaver', answer: faSpelling },
+        {
+          id: NAME_TASK,
+          promptDa: 'Skriv dit navn med persiske bogstaver',
+          answer: faSpelling,
+          personalName: { spelling: faSpelling, original: name },
+        },
       ]}
-      onCorrect={() => byName(celebration.cheer(typeWordDone(NAME_TASK, NAME_TASK)))}
-      onComplete={() => byName(celebration.cheer(payRound(NAME_TASK)))}
+      onCorrect={() => celebration.cheer(typeWordDone(NAME_TASK, NAME_TASK))}
+      onComplete={() => celebration.cheer(payRound(NAME_TASK))}
       help={
         // Your own name is never a riddle. It is one tap away, and taking it
         // costs nothing — the exercise is the writing, not the remembering.
         <details className="type__help">
           <summary>Se, hvordan dit navn staves</summary>
-          <p className="type__help-fa" lang="fa" dir="rtl">
-            {faSpelling}
-          </p>
+          <PersonalNameText spelling={faSpelling} as="p" className="type__help-fa" />
         </details>
       }
       doneLine="Du skrev dit eget navn med persiske bogstaver."

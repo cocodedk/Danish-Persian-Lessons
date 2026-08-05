@@ -47,7 +47,8 @@ describe('#/dit-navn — choosing how the name is spelled', () => {
     fireEvent.click(screen.getByText('Gem stavemåden'))
     expect(getProfile()).toEqual({ name: 'Babak', faSpelling: 'بابک' })
     // Landed back on the forside, greeted in Persian by the name just chosen.
-    expect(screen.getByText('سلام، بابک!')).toBeInTheDocument()
+    expect(screen.getByText('سلام،')).toBeInTheDocument()
+    expect(screen.getByText('بابک')).toBeInTheDocument()
     expect(screen.getByText('Hej Babak!')).toBeInTheDocument()
   })
 
@@ -99,7 +100,8 @@ describe('#/dit-navn — choosing how the name is spelled', () => {
 
     fireEvent.click(screen.getByText('Gem stavemåden'))
     expect(getProfile().faSpelling).toBe('سورن')
-    expect(screen.getByText('سلام، سورن!')).toBeInTheDocument()
+    expect(screen.getByText('سلام،')).toBeInTheDocument()
+    expect(screen.getByText('سورن')).toBeInTheDocument()
   })
 
   it('deletes the spelling without touching the name', () => {

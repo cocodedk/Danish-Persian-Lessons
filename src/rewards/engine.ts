@@ -12,7 +12,7 @@
 // identically for a test and for a learner who comes back to it.
 import { dayKey, daysBetween, isValidDayKey } from './days'
 import { numberOr, readRecord, saveRecord } from './records'
-import { PRAISE, GIFT_FA, GIFT_DA } from './copy'
+import { PRAISE, GIFT_ENTRY } from './copy'
 import type {
   Gift,
   Reward,
@@ -93,7 +93,7 @@ function stickersFor(from: number, to: number, owned: number): Sticker[] {
 function giftFor(from: number, to: number): Gift | null {
   const milestone = Math.floor(to / GIFT_STEP)
   if (milestone <= Math.floor(from / GIFT_STEP)) return null
-  return { id: `g${milestone}`, ordinal: milestone, fa: GIFT_FA, da: GIFT_DA }
+  return { id: `g${milestone}`, ordinal: milestone, entry: GIFT_ENTRY }
 }
 
 function streakFor(practiceDates: string[], now: Date): StreakState {

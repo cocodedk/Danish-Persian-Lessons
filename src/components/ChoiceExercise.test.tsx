@@ -32,20 +32,25 @@ describe('ChoiceExercise', () => {
   it('says the prompt twice — dansk lydskrift and IPA — and counts the round', () => {
     renderExercise()
     expect(screen.getByText('Spørgsmål 1 af 2')).toBeInTheDocument()
-    const { da, ipa } = questions[0].sound
+    expect(screen.queryByText('Se hele tegnet eller ordet')).not.toBeInTheDocument()
+    const { da, ipa } = questions[0].entry.pron
     expect(screen.getByText(`${da} · [${ipa}]`)).toBeInTheDocument()
   })
 
-  it('answers a wrong tap with «دوباره», keeps every choice open and takes nothing away', () => {
+  it('reveals complete help after a wrong tap, offers retry or next, and takes nothing away', () => {
     const { onCorrect } = renderExercise()
     fireEvent.click(screen.getByText(wrongChoice(0)))
 
     expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText('— prøv igen. Du mister ingenting.')).toBeInTheDocument()
+    expect(screen.getByText(/nu har du hele hjælpen/)).toBeInTheDocument()
+    expect(screen.getByText('Se hele tegnet eller ordet')).toBeInTheDocument()
+    expect(screen.getByText('Prøv én gang til')).toBeInTheDocument()
+    expect(screen.getByText('Næste')).toBeInTheDocument()
     expect(onCorrect).not.toHaveBeenCalled()
-    // Still question one, and still answerable.
+    // Still question one; retry explicitly returns to the active challenge.
     expect(screen.getByText('Spørgsmål 1 af 2')).toBeInTheDocument()
 
+    fireEvent.click(screen.getByText('Prøv én gang til'))
     fireEvent.click(screen.getByText(rightChoice(0)))
     expect(onCorrect).toHaveBeenCalledWith(questions[0].itemId)
   })
@@ -64,8 +69,9 @@ describe('ChoiceExercise', () => {
 
   it('grants a letter once, however many taps it took', () => {
     const { onCorrect } = renderExercise()
-    fireEvent.click(screen.getByText(rightChoice(0)))
-    fireEvent.click(screen.getByText(rightChoice(0)))
+    const button = screen.getByText(rightChoice(0)).closest('button')!
+    fireEvent.click(button)
+    fireEvent.click(button)
     expect(onCorrect).toHaveBeenCalledTimes(1)
   })
 
@@ -79,6 +85,18 @@ describe('ChoiceExercise', () => {
     fireEvent.click(screen.getByText('Afslut runden'))
     expect(onComplete).toHaveBeenCalledTimes(1)
     expect(screen.getByText(/Du kom hele runden igennem/)).toBeInTheDocument()
+  })
+
+  it('does not complete a round when a wrong answer is skipped', () => {
+    const { onCorrect, onComplete } = renderExercise()
+    fireEvent.click(screen.getByText(wrongChoice(0)))
+    fireEvent.click(screen.getByText('Næste'))
+    fireEvent.click(screen.getByText(rightChoice(1)))
+    fireEvent.click(screen.getByText('Afslut runden'))
+
+    expect(onCorrect).toHaveBeenCalledTimes(1)
+    expect(onComplete).not.toHaveBeenCalled()
+    expect(screen.getByText(/Kun de svar, du fandt/)).toBeInTheDocument()
   })
 
   it('draws a vocab prompt marked above and below as a two-layer specimen, both marks red', () => {

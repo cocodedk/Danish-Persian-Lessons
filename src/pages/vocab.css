@@ -4,15 +4,6 @@
    here imports alphabet.css beside this file. Only the word list and the
    Persian unit heading are new. */
 
-.vocab__title-fa {
-  margin: 0.25rem 0 0;
-  font-family: var(--font-naskh);
-  font-weight: 700;
-  font-size: 1.75rem;
-  line-height: 1.6;
-  color: var(--ink);
-}
-
 /* The name badge on a word carries a whole sentence in each language. At 360px
    they stack instead of squeezing into two thin columns. */
 .vocab__badge {
@@ -43,6 +34,9 @@
   background: var(--card);
   color: var(--ink);
   text-decoration: none;
+  inline-size: 100%;
+  font: inherit;
+  cursor: pointer;
 }
 
 /* Cleared: the teacher's pen under the word. Never removed. */

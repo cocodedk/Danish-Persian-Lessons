@@ -5,6 +5,7 @@ import { StickerStamp } from './StickerStamp'
 import { StreakLine } from './StreakLine'
 import { InkConfetti } from './InkConfetti'
 import { GiftCard } from './GiftCard'
+import { GIFT_ENTRY } from '../rewards/copy'
 import { RewardShelf } from './RewardShelf'
 import { Celebration } from './Celebration'
 import { STICKER_LABELS, PRAISE } from '../rewards/copy'
@@ -117,7 +118,7 @@ describe('the gift', () => {
     render(
       <MemoryRouter>
         <GiftCard
-          gift={{ id: 'g2', ordinal: 2, fa: 'یک تمرین جایزه!', da: 'En bonusøvelse i gave!' }}
+          gift={{ id: 'g2', ordinal: 2, entry: GIFT_ENTRY }}
           onSkip={() => {}}
         />
       </MemoryRouter>,
@@ -138,7 +139,8 @@ describe('the sticker shelf keeps what was earned', () => {
 
     render(<RewardShelf level={3} stickers={[{ id: 's1', kind: 'afarin' }]} />)
     expect(screen.getByText(/Du er på side 3\. Du har 1 klistermærke\./)).toBeInTheDocument()
-    expect(screen.getByText('صفحهٔ ۳')).toBeInTheDocument()
+    expect(screen.getByText('صفحهٔ تازه')).toBeInTheDocument()
+    expect(screen.getByText('safheje tåze · [sæfheje tɒːze]')).toBeInTheDocument()
   })
 })
 

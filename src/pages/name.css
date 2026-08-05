@@ -2,21 +2,6 @@
    spelled, and learning to write it. The name itself is always ink — it is the
    learner, not a correction — so no red touches it anywhere here. */
 
-.name__eyebrow {
-  margin: 0 0 0.25rem;
-  font-family: var(--font-fa);
-  font-size: 1.25rem;
-  line-height: 1.8;
-}
-
-.name__ask {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-fa);
-  font-size: 1.125rem;
-  line-height: 1.8;
-  opacity: 0.85;
-}
-
 .name__preview {
   margin: 0.5rem 0;
   font-family: var(--font-naskh);

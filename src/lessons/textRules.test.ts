@@ -1,8 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { isValidPersianText, findPersianTextViolations } from './textRules'
 import { lessons } from './registry'
-import { DEMO_WORD } from '../content/demoWord'
-import { FA_GREETING } from '../content/greetings'
 import { PERSIAN_UI_STRINGS } from '../content/faStrings'
 import { ORIENTATION_POINTS } from '../content/orientation'
 import { NAME_OVERRIDE_FA_STRINGS } from '../name/overrides'
@@ -76,8 +74,7 @@ describe('Persian text-rule guard', () => {
   })
 
   it('tolerates اِعراب — a vocalized specimen is correct Persian, not a violation', () => {
-    // زبر، زیر، پیش، تشدید، ساکن are combining marks in U+064B–U+0652, right
-    // after the forbidden Arabic yeh (U+064A). The guard must not confuse them.
+    // Combining marks U+064B–U+0652 must not be confused with Arabic yeh.
     for (const marked of ['مَدرِسه', 'مِداد', 'گُل', 'آسِمان', 'مادَر', 'بَچّه', 'دَسْت']) {
       expect(findPersianTextViolations(marked), marked).toEqual([])
     }
@@ -87,9 +84,8 @@ describe('Persian text-rule guard', () => {
     const card = (faMarked: string): Lesson => ({
       id: 'fixture-marked',
       kind: 'vocab',
-      items: [{ fa: 'کتاب', faMarked, da: 'bog', pron: { da: 'ketåb', ipa: 'ketɒːb' } }],
+      items: [{ fa: 'کتاب', faMarked, da: 'bog', pron: { da: 'ketåb', ipa: 'ketɒːb' } } as WordCard],
     })
-    // ك (U+0643) wearing a زیر, where a Persian ک belongs.
     expect(collectFaStrings(card('كِتاب')).flatMap(findPersianTextViolations)).not.toEqual([])
     expect(collectFaStrings(card('کِتاب')).flatMap(findPersianTextViolations)).toEqual([])
   })
@@ -98,7 +94,7 @@ describe('Persian text-rule guard', () => {
     const badFixture: Lesson = {
       id: 'fixture-bad',
       kind: 'vocab',
-      items: [{ fa: 'كتاب', da: 'bog', pron: { da: 'ketab', ipa: 'ketæːb' } }],
+      items: [{ fa: 'كتاب', da: 'bog', pron: { da: 'ketab', ipa: 'ketæːb' } } as WordCard],
     }
     const badViolations = collectFaStrings(badFixture).flatMap(findPersianTextViolations)
     expect(badViolations.length).toBeGreaterThan(0)
@@ -106,14 +102,14 @@ describe('Persian text-rule guard', () => {
     const fixedFixture: Lesson = {
       ...badFixture,
       id: 'fixture-fixed',
-      items: [{ fa: 'کتاب', da: 'bog', pron: { da: 'ketab', ipa: 'ketæːb' } }],
+      items: [{ fa: 'کتاب', da: 'bog', pron: { da: 'ketab', ipa: 'ketæːb' } } as WordCard],
     }
     const fixedViolations = collectFaStrings(fixedFixture).flatMap(findPersianTextViolations)
     expect(fixedViolations).toEqual([])
   })
 
   it('also walks the Letter item shape correctly (glyph, name.fa, and all four forms) — proven now, ahead of plan 003', () => {
-    const badLetter: Letter = {
+    const badLetter = {
       id: 'kaf-fixture',
       glyph: 'ك', // deliberately bad: Arabic kaf, should be ک
       name: { fa: 'کاف', da: 'kaf' },
@@ -122,7 +118,7 @@ describe('Persian text-rule guard', () => {
       sound: { da: 'k i "kat"', ipa: 'k' },
       strokes: [{ d: 'M 82 14 L 18 44', kind: 'stroke' }],
       latinHint: 'k',
-    }
+    } as Letter
     const badLesson: Lesson = { id: 'fixture-letter-bad', kind: 'alphabet', items: [badLetter] }
     const badViolations = collectFaStrings(badLesson).flatMap(findPersianTextViolations)
     expect(badViolations.length).toBeGreaterThan(0)
@@ -137,7 +133,7 @@ describe('Persian text-rule guard', () => {
   })
 
   it('walks the Danish hint on a letter — a ي hidden in Danish copy is still a violation', () => {
-    const withHint: Letter = {
+    const withHint = {
       id: 'ye-fixture',
       glyph: 'ی',
       name: { fa: 'یِ', da: 'ye' },
@@ -147,7 +143,7 @@ describe('Persian text-rule guard', () => {
       strokes: [{ d: 'M 82 14 L 18 44', kind: 'stroke' }],
       latinHint: 'j',
       hint: 'Alene står ي uden prikker.', // deliberately bad: Arabic yeh, should be ی
-    }
+    } as Letter
     const badLesson: Lesson = { id: 'fixture-hint-bad', kind: 'alphabet', items: [withHint] }
     expect(collectFaStrings(badLesson).flatMap(findPersianTextViolations).length).toBeGreaterThan(0)
 
@@ -166,21 +162,18 @@ describe('Persian text-rule guard', () => {
     expect(allViolations).toEqual([])
   })
 
-  it('the home screen demo word and greeting are themselves valid Persian text', () => {
-    expect(findPersianTextViolations(DEMO_WORD.fa)).toEqual([])
-    expect(findPersianTextViolations(FA_GREETING)).toEqual([])
-  })
-
   it('walks every exported Persian UI string (capture prompt, lesson placeholder, greeting) with zero violations — a future ك/ي edit to src/content/faStrings.ts fails this test', () => {
     const allViolations = PERSIAN_UI_STRINGS.flatMap(findPersianTextViolations)
     expect(allViolations).toEqual([])
   })
 
-  it('walks the orientation bodies too — they print Persian inside Danish sentences', () => {
+  it('keeps orientation Persian in catalog entries instead of inline Danish bodies', () => {
     for (const point of ORIENTATION_POINTS) {
-      expect(PERSIAN_UI_STRINGS, point.id).toContain(point.body)
+      expect(PERSIAN.test(point.body), point.id).toBe(false)
+      for (const token of point.fa) {
+        expect(findPersianTextViolations(token.entry.fa), point.id).toEqual([])
+      }
     }
-    expect(ORIENTATION_POINTS.some((point) => PERSIAN.test(point.body))).toBe(true)
   })
 
   it('walks the name override table — a mistyped ك or ي in a name fails here', () => {

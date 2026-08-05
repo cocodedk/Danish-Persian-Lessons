@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { filledPageLine } from '../rewards/copy'
 import './PageFlip.css'
+import { PersianText } from './PersianText'
+import { PronLine } from './PronLine'
 
 export interface PageFlipProps {
   /** The page that just filled up. */
@@ -28,9 +30,8 @@ export function PageFlip({ page, onDone }: PageFlipProps) {
   return (
     <div className="page-flip" role="status">
       <div className="page-flip__sheet">
-        <p className="page-flip__fa" lang="fa" dir="rtl">
-          {line.fa}
-        </p>
+        <PersianText entry={line} as="p" className="page-flip__fa" />
+        <PronLine {...line.pron} />
         <p className="page-flip__da" lang="da">
           {line.da}
         </p>

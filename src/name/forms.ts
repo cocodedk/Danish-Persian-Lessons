@@ -2,7 +2,9 @@
 // alphabet lesson already owns the letters and whether each joins to the left
 // (src/lessons/alphabet.ts); this reads that data one position at a time.
 import { letters, specimens } from '../lessons/alphabet'
+import { NO_OWN_SOUND } from '../lessons/marks'
 import type { Letter, Pron } from '../lessons/types'
+import { defineEntry, type PersianEntry } from '../catalog/types'
 
 export type FormKey = keyof Letter['forms']
 
@@ -12,13 +14,14 @@ export interface NameLetter {
   /** Position among the letters of the name, counting from the right. */
   index: number
   glyph: string
+  /** Catalog companion when the sign is known; personal output may be unknown. */
+  entry?: PersianEntry
   form: FormKey
   /** The form as the pen writes it, joining strokes included: بـ ـتـ ـک ر */
   formGlyph: string
   /** All four, so a screen can show where this one sits among them. */
   forms: Letter['forms']
   nameDa: string
-  nameFa: string
   /**
    * How the letter is said — dansk lydskrift and IPA, straight from the
    * alphabet data. Absent for a sign outside the taught 33: this app teaches no
@@ -32,8 +35,8 @@ interface Shape {
   forms: Letter['forms']
   joinsLeft: boolean
   nameDa: string
-  nameFa: string
   sound?: Pron
+  entry?: PersianEntry
 }
 
 /**
@@ -42,9 +45,22 @@ interface Shape {
  * unknown shape where a name belongs makes it look like a name they missed.
  */
 export const OTHER_SIGN_DA = 'særligt tegn'
-export const OTHER_SIGN_FA = 'نشانهٔ ویژه'
 
-function derive(glyph: string, joinsLeft: boolean, nameDa: string, nameFa: string): Shape {
+/** ئ in names such as Louise: a contextual carrier, not an extra vowel. */
+export const HAMZE_YE_ENTRY = defineEntry({
+  id: 'names-contextual-hamze-ye',
+  kind: 'symbol',
+  fa: 'ئ',
+  da: 'hamze over ye; ingen egen lyd',
+  pron: NO_OWN_SOUND,
+})
+
+function derive(
+  glyph: string,
+  joinsLeft: boolean,
+  nameDa: string,
+  entry?: PersianEntry,
+): Shape {
   return {
     forms: {
       isolated: glyph,
@@ -54,7 +70,7 @@ function derive(glyph: string, joinsLeft: boolean, nameDa: string, nameFa: strin
     },
     joinsLeft,
     nameDa,
-    nameFa,
+    entry,
   }
 }
 
@@ -67,16 +83,17 @@ const SHAPES = new Map<string, Shape>([
       forms: letter.forms,
       joinsLeft: letter.joinsLeft,
       nameDa: letter.name.da,
-      nameFa: letter.name.fa,
       sound: letter.sound,
+      entry: letter.entry,
     },
   ]),
   // آ is a sign on an alef, not the 33rd letter, so it carries no forms of its
   // own — and like alef it never joins to the left.
   [
     MADDE.glyph,
-    { ...derive(MADDE.glyph, false, MADDE.name.da, MADDE.name.fa), sound: MADDE.sound },
+    { ...derive(MADDE.glyph, false, MADDE.name.da, MADDE.entry), sound: MADDE.sound },
   ],
+  [HAMZE_YE_ENTRY.fa, { ...derive(HAMZE_YE_ENTRY.fa, true, 'hamze over ye', HAMZE_YE_ENTRY), sound: HAMZE_YE_ENTRY.pron }],
 ])
 
 /**
@@ -94,9 +111,7 @@ function shapeOf(char: string | undefined): Shape | undefined {
   if (char === undefined) return undefined
   const known = SHAPES.get(char)
   if (known) return known
-  return PERSIAN_LETTER.test(char)
-    ? derive(char, true, OTHER_SIGN_DA, OTHER_SIGN_FA)
-    : undefined
+  return PERSIAN_LETTER.test(char) ? derive(char, true, OTHER_SIGN_DA) : undefined
 }
 
 /**
@@ -124,11 +139,11 @@ export function nameLetters(spelling: string): NameLetter[] {
     result.push({
       index: result.length,
       glyph: char,
+      entry: shape.entry,
       form,
       formGlyph: shape.forms[form],
       forms: shape.forms,
       nameDa: shape.nameDa,
-      nameFa: shape.nameFa,
       sound: shape.sound,
       joinsLeft: shape.joinsLeft,
     })

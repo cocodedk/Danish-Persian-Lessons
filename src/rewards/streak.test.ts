@@ -121,7 +121,8 @@ describe('the streak rests — it never resets', () => {
     const line = streakLine(getRewards(at(2026, 3, 15)).streak)
 
     expect(line.da).toBe('5 dage · stimen hviler — én øvelse vækker den')
-    expect(line.fa).toBe('۵ روز · رشته‌ات خوابیده، یک تمرین بیدارش می‌کند')
+    expect(line.fa).toBe('رشتهٔ تمرین خوابیده')
+    expect(line.pron).toEqual({ da: 'resjteje tamrin khåbide', ipa: 'ɾeʃteje tæmɾiːn xɒːbiːde' })
     for (const word of GUILT_WORDS) {
       expect(line.da.toLowerCase()).not.toContain(word)
       expect(line.fa).not.toContain(word)

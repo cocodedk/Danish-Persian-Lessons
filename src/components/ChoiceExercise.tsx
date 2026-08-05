@@ -2,10 +2,13 @@ import { useState } from 'react'
 import type { Question } from '../lessons/exercises'
 import { FaSpecimen } from './FaSpecimen'
 import { PronLine } from './PronLine'
-import { Button } from './Button'
+import { RetryActions } from './RetryActions'
 import { Celebration } from './Celebration'
-import { TRY_AGAIN_FA } from '../content/faStrings'
+import { TRY_AGAIN_ENTRY } from '../content/faStrings'
 import type { Reward } from '../rewards/types'
+import { ChallengeReveal, CompactPhraseRow } from './EntryRenderers'
+import { PersianText } from './PersianText'
+import { useRoundOutcome } from './useRoundOutcome'
 import './ChoiceExercise.css'
 
 export interface ChoiceExerciseProps {
@@ -24,8 +27,8 @@ export interface ChoiceExerciseProps {
 export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerciseProps) {
   const [index, setIndex] = useState(0)
   const [solved, setSolved] = useState(false)
-  const [missed, setMissed] = useState<string[]>([])
-  const [finished, setFinished] = useState(false)
+  const [attempted, setAttempted] = useState(false)
+  const round = useRoundOutcome(questions.length)
   const [reward, setReward] = useState<Reward | null>(null)
 
   const question = questions[index]
@@ -36,32 +39,37 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
   const choiceDir = choiceLang === 'fa' ? 'rtl' : 'ltr'
 
   function choose(choiceId: string) {
-    if (solved) return
+    if (attempted) return
     if (choiceId === question.answerId) {
       setSolved(true)
+      setAttempted(true)
+      round.recordSuccess()
       setReward(onCorrect(question.itemId) ?? null)
       return
     }
-    setMissed((tried) => (tried.includes(choiceId) ? tried : [...tried, choiceId]))
+    setAttempted(true)
   }
 
   function advance() {
     if (isLast) {
-      setFinished(true)
-      setReward(onComplete() ?? null)
+      if (round.finish()) setReward(onComplete() ?? null)
       return
     }
     setIndex((current) => current + 1)
     setSolved(false)
-    setMissed([])
+    setAttempted(false)
     setReward(null)
   }
 
-  if (finished) {
+  if (round.finished) {
     return (
       <div className="choice-exercise choice-exercise__done">
-        <Celebration reward={reward} tickLabel="Runden er klaret" />
-        <p>Du kom hele runden igennem. Alt, du klarede, står stadig på lektionen.</p>
+        {round.completed && <Celebration reward={reward} tickLabel="Runden er klaret" />}
+        <p>
+          {round.completed
+            ? 'Du kom hele runden igennem. Alt, du klarede, står stadig på lektionen.'
+            : 'Runden er slut. Kun de svar, du fandt, er markeret som lært.'}
+        </p>
       </div>
     )
   }
@@ -73,27 +81,34 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
       </p>
 
       <h2 className="choice-exercise__prompt">{question.promptDa}</h2>
-      {question.promptFa && (
-        <FaSpecimen fa={question.promptFa} faMarked={question.promptFaMarked} />
-      )}
-      <PronLine da={question.sound.da} ipa={question.sound.ipa} />
+      {question.showsFa && <FaSpecimen entry={question.entry} />}
+      <PronLine {...question.entry.pron} />
 
       <ul className="choice-exercise__choices">
         {question.choices.map((choice) => {
-          const state = solved && choice.id === question.answerId ? 'right' : ''
-          const tried = missed.includes(choice.id) ? 'choice-exercise__choice--missed' : ''
+          const right = solved && choice.id === question.answerId
           return (
             <li key={choice.id}>
+              {/* The Persian glyph IS the accessible name — naming the choice
+                  by its Danish meaning would hand a screen-reader user the
+                  answer (plan 010: hide answer metadata while an attempt is
+                  active). The buttons also stay enabled: choose() ignores taps
+                  after an attempt, and disabling the focused button would drop
+                  keyboard focus to <body>. */}
               <button
                 type="button"
-                className={`choice-exercise__choice ${tried} ${
-                  state ? 'choice-exercise__choice--right' : ''
+                className={`choice-exercise__choice ${
+                  right ? 'choice-exercise__choice--right' : ''
                 }`}
-                lang={choiceLang}
                 dir={choiceDir}
+                lang={choiceLang === 'da' ? 'da' : undefined}
                 onClick={() => choose(choice.id)}
               >
-                {choice.glyph}
+                {choiceLang === 'fa' ? (
+                  <PersianText entry={choice.entry} display={choice.glyph} />
+                ) : (
+                  choice.glyph
+                )}
               </button>
             </li>
           )
@@ -101,18 +116,24 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
       </ul>
 
       <div className="choice-exercise__feedback" role="status">
+        {attempted && <ChallengeReveal entry={question.entry} />}
         {solved && <Celebration reward={reward} />}
-        {!solved && missed.length > 0 && (
-          <p className="choice-exercise__again">
-            <span lang="fa" dir="rtl">
-              {TRY_AGAIN_FA}
-            </span>
-            <span> — prøv igen. Du mister ingenting.</span>
-          </p>
+        {attempted && !solved && (
+          <div className="choice-exercise__again">
+            <CompactPhraseRow entry={TRY_AGAIN_ENTRY} />
+            <span> — nu har du hele hjælpen. Du mister ingenting.</span>
+          </div>
         )}
       </div>
 
-      {solved && <Button onClick={advance}>{isLast ? 'Afslut runden' : 'Næste'}</Button>}
+      {attempted && (
+        <RetryActions
+          solved={solved}
+          onRetry={() => setAttempted(false)}
+          onAdvance={advance}
+          advanceLabel={isLast ? 'Afslut runden' : 'Næste'}
+        />
+      )}
     </div>
   )
 }

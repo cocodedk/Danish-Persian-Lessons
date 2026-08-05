@@ -73,7 +73,7 @@ describe('vocabulary exercises', () => {
 
   it('says every prompt twice — dansk lydskrift and IPA — from the word data', () => {
     for (const question of everyQuestion) {
-      expect(question.sound, question.id).toEqual(wordOf(question.itemId).pron)
+      expect(question.entry.pron, question.id).toEqual(wordOf(question.itemId).pron)
     }
   })
 
@@ -82,13 +82,11 @@ describe('vocabulary exercises', () => {
       for (const question of questions) {
         const word = wordOf(question.itemId)
         if (kind === 'ord') {
-          expect(question.promptFa, question.id).toBe(word.fa)
-          expect(question.promptFaMarked, question.id).toBe(word.faMarked)
+          expect(question.showsFa, question.id).toBe(true)
           expect(question.choiceLang).toBe('da')
           expect(question.choices.map((choice) => choice.glyph)).toContain(word.da)
         } else {
-          expect(question.promptFa, question.id).toBeUndefined()
-          expect(question.promptFaMarked, question.id).toBeUndefined()
+          expect(question.showsFa, question.id).toBeUndefined()
           expect(question.promptDa, question.id).toContain(word.da)
           expect(question.choiceLang).toBe('fa')
           // اِعراب belongs on specimens only — the choices are bare words.

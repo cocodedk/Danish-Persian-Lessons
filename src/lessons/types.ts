@@ -1,5 +1,7 @@
-// Shared lesson data shapes. The data itself lives in src/lessons/alphabet.ts
-// and src/lessons/vowelMarks.ts.
+// Shared lesson data shapes. PersianEntry is the canonical content contract;
+// the scalar compatibility fields below are derived from it at declaration
+// time so existing route and exercise logic keeps its stable API.
+import type { PersianEntry, Pronunciation } from '../catalog/types'
 
 /**
  * How a teaching item is said, always twice: dansk lydskrift first, then IPA
@@ -7,10 +9,7 @@
  * lydskrift ("åb"); for a letter or a mark it is the Danish sound anchor
  * (`a i "kat"`). One type for both — see docs/plans/003-alphabet-lesson.md step 2.
  */
-export interface Pron {
-  da: string
-  ipa: string
-}
+export type Pron = Pronunciation
 
 /** One pen path in a stroke-order drawing. Dots are strokes too — short ticks. */
 export interface Stroke {
@@ -23,6 +22,9 @@ export interface Stroke {
 export interface Specimen {
   /** Stable ascii id — used in routes (#/lesson/alphabet/bogstav/:id) and progress. */
   id: string
+  entry: PersianEntry
+  /** A displayed Persian letter name is a word with its own pronunciation. */
+  nameEntry: PersianEntry
   glyph: string
   name: { fa: string; da: string }
   sound: Pron
@@ -61,6 +63,8 @@ export interface Letter extends Specimen {
 /** A vowel mark (زبر/زیر/پیش) or a long vowel (آ او ای). */
 export interface VowelMark {
   id: string
+  entry: PersianEntry
+  nameEntry: PersianEntry
   glyph: string
   name: { fa: string; da: string }
   sound: Pron
@@ -68,6 +72,7 @@ export interface VowelMark {
 
 /** A Persian/Danish word pair, as shown in the split-screen specimen. */
 export interface WordCard {
+  entry: PersianEntry
   fa: string
   /** The diacriticized variant to render instead of `fa`, if any. Whatever is
    *  rendered gets its vowel marks in --red — see src/lessons/marks.ts. */

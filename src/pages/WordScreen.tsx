@@ -10,7 +10,9 @@ import { findVocabUnit } from '../lessons/vocab'
 import { getVocabProgress, learnWord } from '../progress/vocab'
 import { getProfile } from '../progress/profile'
 import { useCelebration } from '../rewards/useCelebration'
-import { NAME_LETTER_IN_WORD_FA, NAME_LETTERS_IN_WORD_FA } from '../content/faStrings'
+import { NAME_LETTER_IN_WORD_ENTRY, NAME_LETTERS_IN_WORD_ENTRY } from '../content/faStrings'
+import { PersonalNameText } from '../components/PersonalName'
+import { CompactPhraseRow } from '../components/EntryRenderers'
 import './alphabet.css'
 import './vocab.css'
 
@@ -57,18 +59,16 @@ export default function WordScreen() {
       <SplitCard word={word} />
 
       {shared.length > 0 && (
-        <p className="letter__badge vocab__badge">
+        <div className="letter__badge vocab__badge">
           <ProgressTick granted label="I dit navn" />
-          <span className="letter__badge-fa" lang="fa" dir="rtl">
-            {only ? NAME_LETTER_IN_WORD_FA : NAME_LETTERS_IN_WORD_FA}
-          </span>
+          <CompactPhraseRow
+            entry={only ? NAME_LETTER_IN_WORD_ENTRY : NAME_LETTERS_IN_WORD_ENTRY}
+          />
           <span>
             {only ? 'Ét af bogstaverne her' : 'Nogle af bogstaverne her'} er også i dit navn:{' '}
-            <span lang="fa" dir="rtl">
-              {shared.join(' ')}
-            </span>
+            <PersonalNameText spelling={shared.join(' ')} />
           </span>
-        </p>
+        </div>
       )}
 
       <div className="letter__done">

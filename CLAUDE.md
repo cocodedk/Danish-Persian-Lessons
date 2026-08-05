@@ -3,9 +3,10 @@
 ## Project Overview
 
 A free, mobile-first, purely static web app that teaches Danish speakers to READ Persian (Farsi),
-published on GitHub Pages at https://cocodedk.github.io/Danish-Persian-Lessons/. Two learner profiles,
-both already speak some Persian: (1) speaks but cannot read at all; (2) reads/writes with difficulty.
-Reading comes first; speaking/audio is a later concern. "Danish-Persian-Lessons" is a working title —
+published on GitHub Pages at https://cocodedk.github.io/Danish-Persian-Lessons/. It assumes no spoken,
+written, or reading knowledge of Persian. Heritage speakers and hesitant readers remain welcome, but
+every Persian item must also work for an absolute beginner. Reading comes first; audio is later.
+"Danish-Persian-Lessons" is a working title —
 never hardcode it outside `vite.config.ts` and the workflows.
 
 - **Language / Runtime**: TypeScript, Node.js ≥ 20 (app scaffolded per `docs/plans/001`; lessons arrive with 003+)
@@ -22,6 +23,11 @@ never hardcode it outside `vite.config.ts` and the workflows.
 - Personalization: the learner may enter a name (optional, always skippable, editable, deletable);
   stored only in `dpl.v1.profile` and used as a teaching instrument — greeting, name-letter badges,
   write-your-name lesson (plan 006). The app is fully usable with no name given.
+- Teaching before testing (plan 010): orientation opens before optional name capture; every app-owned
+  Persian letter, mark, word, sign, and phrase has Danish help, dansk lydskrift, and standard Tehrani
+  IPA from the typed catalog. Exercises may hide answer metadata only while an attempt is active.
+- The curriculum recommends orientation → alphabet → name → vocabulary, but no lesson or puzzle
+  ever locks another. Puzzle breaks are skippable and replayable (plan 011).
 - Rewards are generous by design (plan 007): every completion celebrates — praise, stickers,
   jingles, levels, bonus-exercise gifts; nothing is ever taken away; streaks rest, never reset;
   wrong answers never shame. The app must never disappoint the learner.
@@ -40,8 +46,13 @@ never hardcode it outside `vite.config.ts` and the workflows.
 3. **Grade-1 vocabulary**, Iranian first-grade primer order: آب، بابا، نان، مادر… plus من، تو، او، ما، شما، این/آن.
 4. **Exercises**: recognize → match → type (on-screen Persian keyboard component, plan 005).
 
-Every Persian teaching item carries its pronunciation **twice** — dansk lydskrift ("åb") and IPA
-([ɒːb], standard Tehrani Persian) — stored in lesson data, never improvised in the UI.
+Every app-owned Persian letter, word, sign, symbol, and phrase carries Danish help plus pronunciation
+**twice** — dansk lydskrift ("åb") and IPA ([ɒːb], standard Tehrani Persian) — in the typed
+catalog, never improvised in the UI. A displayed Persian letter name is its own catalog entry. Learner
+input is the only composition-time exception; names get letter-by-letter help, never fabricated IPA.
+
+Plan 010 supersedes the narrower pronunciation contracts in completed plans 001–009; those files stay
+unchanged as historical records.
 
 Per-lesson specs live in `docs/plans/`. Sequence and status: `docs/plans/ROADMAP.md`.
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Gift } from '../rewards/types'
 import './GiftCard.css'
+import { CompactPhraseRow } from './EntryRenderers'
 
 export interface GiftCardProps {
   gift: Gift
@@ -16,11 +17,9 @@ export interface GiftCardProps {
 export function GiftCard({ gift, onSkip }: GiftCardProps) {
   return (
     <div className="gift-card">
-      <p className="gift-card__fa" lang="fa" dir="rtl">
-        {gift.fa}
-      </p>
+      <CompactPhraseRow entry={gift.entry} />
       <p className="gift-card__da" lang="da">
-        {gift.da} Tre hurtige spørgsmål, hvis du har lyst.
+        Tre hurtige spørgsmål, hvis du har lyst.
       </p>
       <div className="gift-card__actions">
         <Link className="gift-card__open" to={`/lesson/alphabet/gave/${gift.ordinal}`}>

@@ -56,7 +56,7 @@ export function distractors(words: VocabWord[], index: number): VocabWord[] {
 
 /** What a choice is printed with: the Danish meaning, or the bare Persian word. */
 function choiceOf(word: VocabWord, kind: VocabExerciseKind): Choice {
-  return { id: word.id, glyph: kind === 'ord' ? word.da : word.fa }
+  return { id: word.id, entry: word.entry, glyph: kind === 'ord' ? word.da : word.fa }
 }
 
 /**
@@ -71,14 +71,12 @@ export function buildVocabQuestions(unitId: string, kind: VocabExerciseKind): Qu
   return unit.words.map((word, index) => ({
     id: `${kind}-${unit.id}-${word.id}`,
     itemId: word.id,
+    entry: word.entry,
     promptDa: kind === 'ord' ? 'Hvad betyder ordet?' : `Hvilket ord betyder »${word.da}«?`,
-    // The specimen carries its اِعراب; the choices in `par` do not — marks
-    // belong on teaching specimens only (docs/design/ART-DIRECTION.md). Both
-    // the plain and the marked spelling go along, so FaSpecimen can draw the
-    // two-layer specimen instead of losing one side of a word marked above
-    // and below (مَدرِسه) to the single gradient cut.
-    ...(kind === 'ord' ? { promptFa: word.fa, promptFaMarked: word.faMarked } : {}),
-    sound: word.pron,
+    // The specimen carries its اِعراب (drawn by FaSpecimen from the entry); the
+    // choices in `par` do not — marks belong on teaching specimens only
+    // (docs/design/ART-DIRECTION.md).
+    ...(kind === 'ord' ? { showsFa: true } : {}),
     choices: arrange(
       choiceOf(word, kind),
       distractors(unit.words, index).map((other) => choiceOf(other, kind)),

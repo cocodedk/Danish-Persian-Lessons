@@ -1,14 +1,16 @@
 import { ZWNJ, SPACE } from '../keyboard/buffer'
 import { markUp, type Divergence } from '../keyboard/diff'
 import {
-  TRY_AGAIN_FA,
-  TYPE_MISSING_SPACE_FA,
-  TYPE_EXTRA_SPACE_FA,
-  TYPE_MISSING_ZWNJ_FA,
-  TYPE_EXTRA_ZWNJ_FA,
-  TYPE_MISSING_ZWNJ_DA,
-  TYPE_EXTRA_ZWNJ_DA,
+  TRY_AGAIN_ENTRY,
+  TYPE_MISSING_SPACE_ENTRY,
+  TYPE_EXTRA_SPACE_ENTRY,
+  TYPE_MISSING_ZWNJ_ENTRY,
+  TYPE_EXTRA_ZWNJ_ENTRY,
 } from '../content/faStrings'
+import type { PersianEntry } from '../catalog/types'
+import { LearnerPersianInput } from './LearnerPersianInput'
+import { PersianText } from './PersianText'
+import { PronLine } from './PronLine'
 import './TypeExercise.css'
 
 /**
@@ -19,22 +21,29 @@ import './TypeExercise.css'
  * Where the cell is an ordinary letter, «دوباره» alone still carries the
  * Persian half — there is nothing else true to say about which letter it is.
  */
-export function noteFor({ kind, cellKind }: Divergence): { da: string; fa: string } {
-  if (kind === 'match') return { da: '', fa: '' }
+export function noteFor({ kind, cellKind }: Divergence): { entry?: PersianEntry; da: string } {
+  if (kind === 'match') return { da: '' }
 
-  if (kind === 'missing') {
-    if (cellKind === 'space') return { da: 'Her mangler et mellemrum.', fa: TYPE_MISSING_SPACE_FA }
-    if (cellKind === 'zwnj') return { da: TYPE_MISSING_ZWNJ_DA, fa: TYPE_MISSING_ZWNJ_FA }
-    return { da: 'Her mangler et bogstav.', fa: TRY_AGAIN_FA }
+  // A sign cell says everything through its own entry — the note IS the entry's
+  // Danish line. 'wrong' and 'extra' both mean a stray sign on the paper.
+  if (cellKind === 'space') {
+    const entry = kind === 'missing' ? TYPE_MISSING_SPACE_ENTRY : TYPE_EXTRA_SPACE_ENTRY
+    return { entry, da: entry.da }
+  }
+  if (cellKind === 'zwnj') {
+    const entry = kind === 'missing' ? TYPE_MISSING_ZWNJ_ENTRY : TYPE_EXTRA_ZWNJ_ENTRY
+    return { entry, da: entry.da }
   }
 
-  // 'wrong' or 'extra': the red mark shows what was actually typed, so the
-  // note names that — a stray space or نیم‌فاصله, never "et andet bogstav".
-  if (cellKind === 'space') return { da: 'Her står et mellemrum for meget.', fa: TYPE_EXTRA_SPACE_FA }
-  if (cellKind === 'zwnj') return { da: TYPE_EXTRA_ZWNJ_DA, fa: TYPE_EXTRA_ZWNJ_FA }
-  return kind === 'wrong'
-    ? { da: 'Her står et andet bogstav.', fa: TRY_AGAIN_FA }
-    : { da: 'Her er et bogstav for meget.', fa: TRY_AGAIN_FA }
+  // An ordinary letter: «دوباره» alone carries the Persian half — there is
+  // nothing else true to say about which letter it is.
+  const da =
+    kind === 'missing'
+      ? 'Her mangler et bogstav.'
+      : kind === 'wrong'
+        ? 'Her står et andet bogstav.'
+        : 'Her er et bogstav for meget.'
+  return { entry: TRY_AGAIN_ENTRY, da }
 }
 
 /** The two signs that have no letterform: they are drawn, so they can be seen. */
@@ -54,7 +63,7 @@ export function TypeMarks({ attempt, divergence }: { attempt: string; divergence
   const note = noteFor(divergence)
   return (
     <div className="type__feedback" role="status">
-      <ul className="type__marks" dir="rtl" lang="fa">
+      <LearnerPersianInput as="ul" className="type__marks">
         {markUp(attempt, divergence).map((cell, at) => (
           <li
             key={at}
@@ -65,13 +74,12 @@ export function TypeMarks({ attempt, divergence }: { attempt: string; divergence
             <CellMark char={cell.char} />
           </li>
         ))}
-      </ul>
-      <p className="type__again">
-        <span lang="fa" dir="rtl">
-          {note.fa}
-        </span>
+      </LearnerPersianInput>
+      <div className="type__again">
+        {note.entry && <PersianText entry={note.entry} />}
+        {note.entry && <PronLine {...note.entry.pron} />}
         <span lang="da">{note.da} Prøv igen, du mister ingenting.</span>
-      </p>
+      </div>
     </div>
   )
 }

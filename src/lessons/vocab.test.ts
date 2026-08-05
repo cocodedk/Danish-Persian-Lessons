@@ -117,9 +117,9 @@ describe('grade-1 vocabulary data', () => {
       expect(findPersianTextViolations(word.faMarked), word.id).toEqual([])
     }
     for (const unit of vocabUnits) {
-      expect(findPersianTextViolations(unit.titleFa), unit.id).toEqual([])
+      expect(findPersianTextViolations(unit.titleEntry.fa), unit.id).toEqual([])
       // Unit headings are UI chrome: no اِعراب there, only on specimens.
-      expect(withoutMarks(unit.titleFa), unit.id).toBe(unit.titleFa)
+      expect(withoutMarks(unit.titleEntry.fa), unit.id).toBe(unit.titleEntry.fa)
     }
   })
 })

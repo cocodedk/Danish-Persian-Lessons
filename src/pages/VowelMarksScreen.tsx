@@ -5,12 +5,12 @@ import { ProgressTick } from '../components/ProgressTick'
 import { Button } from '../components/Button'
 import { Celebration } from '../components/Celebration'
 import { RewardOverlays } from '../components/RewardOverlays'
-import { penMarkClass } from '../components/penMark'
+import { CompactPhraseRow, FullTeachingCard } from '../components/EntryRenderers'
 import { vowelMarks, laterMarks } from '../lessons/vowelMarks'
 import { getAlphabetProgress, markVowelDone } from '../progress/alphabet'
 import { useCelebration } from '../rewards/useCelebration'
-import '../styles/pen.css'
 import './alphabet.css'
+import './vowelMarks.css'
 
 /**
  * The six vowel signs. Short vowels ride above or below their letter in the
@@ -33,16 +33,11 @@ export default function VowelMarksScreen() {
         const done = cleared.includes(mark.id)
         return (
           <div key={mark.id} className="marks__row">
-            <VowelChip glyph={mark.glyph} caption={mark.sound} />
+            <VowelChip entry={mark.entry} />
             {/* Name over action: at 360px the chip takes half the line, so
                 these two stack instead of squeezing each other. */}
             <div className="marks__side">
-              <span className="marks__names">
-                <span className="marks__name-fa" lang="fa" dir="rtl">
-                  {mark.name.fa}
-                </span>
-                <span>{mark.name.da}</span>
-              </span>
+              <CompactPhraseRow entry={mark.nameEntry} />
               {done ? (
                 <ProgressTick granted label="Klaret" />
               ) : (
@@ -69,15 +64,11 @@ export default function VowelMarksScreen() {
         To tegn mere. De giver ingen vokal, så dem tager vi i en senere lektion.
       </p>
       {laterMarks.map((mark) => (
-        <p key={mark.id} className="marks__later">
-          <span className={penMarkClass('marks__later-glyph', mark.glyph)} lang="fa" dir="rtl">
-            {mark.glyph}
-          </span>
-          <span className="marks__name-fa" lang="fa" dir="rtl">
-            {mark.name.fa}
-          </span>
+        <div key={mark.id} className="marks__later">
+          <FullTeachingCard entry={mark.entry} />
+          <CompactPhraseRow entry={mark.nameEntry} />
           <span>{mark.hint}</span>
-        </p>
+        </div>
       ))}
     </LessonSheet>
   )
