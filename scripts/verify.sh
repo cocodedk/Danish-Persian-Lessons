@@ -66,6 +66,27 @@ do
   check_exists "$f"
 done
 
+# --- (g) built app assets stay within the measured P12 baseline ceilings -----
+
+JS_CEILING=360000
+CSS_CEILING=50000
+for asset in dist/assets/*.js; do
+  size=$(wc -c < "$asset" 2>/dev/null | tr -d ' ' || echo 0)
+  if [ "$size" -gt 0 ] && [ "$size" -le "$JS_CEILING" ]; then
+    report "$asset under 360 KB ($size bytes)" 0
+  else
+    report "$asset under 360 KB (found $size bytes)" 1
+  fi
+done
+for asset in dist/assets/*.css; do
+  size=$(wc -c < "$asset" 2>/dev/null | tr -d ' ' || echo 0)
+  if [ "$size" -gt 0 ] && [ "$size" -le "$CSS_CEILING" ]; then
+    report "$asset under 50 KB ($size bytes)" 0
+  else
+    report "$asset under 50 KB (found $size bytes)" 1
+  fi
+done
+
 # --- (b) shared SEO/meta substrings on each of the 3 HTML pages ---------------
 
 for page in website/index.html website/da/index.html website/fa/index.html; do

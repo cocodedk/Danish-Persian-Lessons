@@ -2,6 +2,8 @@ import { nameLetters, OTHER_SIGN_DA } from '../name/forms'
 import { NO_OWN_SOUND } from '../lessons/marks'
 import { LearnerPersianInput } from './LearnerPersianInput'
 import { PronLine } from './PronLine'
+import { ReadingCueList } from './ReadingCues'
+import { personalReadingCues } from '../name/readingCues'
 import './PersonalName.css'
 
 /** The learner's name as the app carries it: the Persian spelling they chose,
@@ -33,6 +35,7 @@ export function PersonalNameCompanion({
   original,
   className = '',
 }: PersonalName & { className?: string }) {
+  const cues = personalReadingCues(spelling)
   return (
     <section
       className="personal-name"
@@ -50,11 +53,12 @@ export function PersonalNameCompanion({
         {nameLetters(spelling).map((letter) => (
           <li key={letter.index}>
             <PersonalNameText spelling={letter.glyph} ariaHidden />
-            <span>{letter.entry?.da ?? OTHER_SIGN_DA}</span>
-            <PronLine {...(letter.entry?.pron ?? NO_OWN_SOUND)} />
+            <span>{letter.nameEntry?.da ?? letter.entry?.da ?? OTHER_SIGN_DA}</span>
+            <PronLine {...(letter.nameEntry?.pron ?? NO_OWN_SOUND)} />
           </li>
         ))}
       </ol>
+      {cues && <ReadingCueList cues={cues} label="Sådan læses dit navn i denne stavemåde" />}
     </section>
   )
 }

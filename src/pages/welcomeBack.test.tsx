@@ -58,7 +58,7 @@ describe('coming back after ten days away', () => {
 
   it('wakes the streak on the first exercise and welcomes the learner back', () => {
     open('#/lesson/alphabet/bogstav/be')
-    fireEvent.click(screen.getByText('Jeg kan den'))
+    fireEvent.click(screen.getByText('Jeg har set tegnet'))
 
     expect(screen.getByText('خوش برگشتی!')).toBeInTheDocument()
     expect(screen.getByText('khosj bargasjti · [xoʃ bæɾɡæʃti]')).toBeInTheDocument()
@@ -80,7 +80,7 @@ describe('coming back after ten days away', () => {
     expect(before.streak).toEqual({ value: 5, resting: true, today: false })
 
     const letter = open('#/lesson/alphabet/bogstav/be')
-    fireEvent.click(screen.getByText('Jeg kan den'))
+    fireEvent.click(screen.getByText('Jeg har set tegnet'))
     letter.unmount()
 
     const after = getRewards()
@@ -98,7 +98,7 @@ describe('coming back after ten days away', () => {
 describe('the mute toggle', () => {
   it('is on by default, switches off, and survives a reload', () => {
     const first = open('#/')
-    fireEvent.click(screen.getByRole('button', { name: 'Sara' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Sara' }))
 
     const toggle = screen.getByLabelText('Lyd ved ros og nye sider')
     expect(toggle).toBeChecked()
@@ -108,7 +108,7 @@ describe('the mute toggle', () => {
     first.unmount()
 
     open('#/')
-    fireEvent.click(screen.getByRole('button', { name: 'Sara' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Sara' }))
     expect(screen.getByLabelText('Lyd ved ros og nye sider')).not.toBeChecked()
   })
 })

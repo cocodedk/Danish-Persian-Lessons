@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { KEYBOARD_KEYS, type KeyDef } from '../keyboard/layout'
+import { KEYBOARD_KEYS, keyForPhysicalInput, type KeyDef } from '../keyboard/layout'
 import { ZWNJ_NAME_ENTRY } from '../content/faStrings'
 import { PersianText } from './PersianText'
 import { DetailStrip, letterLessonPath } from './EntryRenderers'
@@ -80,19 +80,39 @@ function KeyCap({ shape }: { shape: KeyDef }) {
  */
 export function PersianKeyboard({ onPress, label }: PersianKeyboardProps) {
   const [selected, setSelected] = useState<KeyDef | null>(null)
+
+  function choose(shape: KeyDef) {
+    onPress(shape)
+    if (shape.entry) setSelected(shape)
+  }
+
   return (
     <div className="keyboard-wrap">
-      <div className="keyboard" role="group" aria-label={label} dir="rtl">
+      <p className="visually-hidden" id="persian-keyboard-physical">
+        Du kan også skrive med et fysisk persisk tastatur. Skift + mellemrum skriver et halvt mellemrum.
+      </p>
+      <div
+        className="keyboard"
+        role="group"
+        aria-label={label}
+        aria-describedby="persian-keyboard-physical"
+        dir="rtl"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if ((event.key === ' ' || event.key === 'Enter') && event.target !== event.currentTarget) return
+          const shape = keyForPhysicalInput(event.key, event.shiftKey)
+          if (!shape) return
+          event.preventDefault()
+          choose(shape)
+        }}
+      >
         {KEYBOARD_KEYS.map((shape) => (
           <button
             key={shape.id}
             type="button"
             className={`keyboard__key ${shape.kind === 'letter' ? '' : 'keyboard__key--sign'}`}
             aria-label={shape.label}
-            onClick={() => {
-              onPress(shape)
-              if (shape.entry) setSelected(shape)
-            }}
+            onClick={() => choose(shape)}
           >
             <KeyCap shape={shape} />
           </button>

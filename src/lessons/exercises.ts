@@ -29,6 +29,8 @@ export interface Question {
   /** True when the question shows its Persian specimen (rendered from `entry`);
    *  absent when the Persian IS the thing being asked for. */
   showsFa?: boolean
+  /** False when the pronunciation itself would disclose a conceptual answer. */
+  showsPron?: boolean
   choices: Choice[]
   answerId: string
   /** What language the choices are written in. Persian unless stated otherwise. */
@@ -83,7 +85,10 @@ export function arrange<T>(answer: T, distractors: T[], slot: number): T[] {
 
 /** "Find tegnet": a Danish sound anchor, four glyphs, one of them right. */
 function findQuestions(): Question[] {
-  return teachingOrder.map((id, index) => {
+  // Plain alef is a contextual vowel carrier, not one stable sound. Asking
+  // which sign “says” its placeholder role would teach the contradiction this
+  // round is meant to test, so it is learned through words instead.
+  return teachingOrder.filter((id) => id !== 'alef').map((id, index) => {
     const specimen = specimens[id]
     const distractors = distractorIds(id, CHOICE_COUNT - 1, teachingOrder).map((other) => ({
       id: other,

@@ -44,7 +44,7 @@ export default function NameLesson() {
   }
 
   return (
-    <LessonSheet title="Skriv dit navn" bar={<BarLink to="/">Til forsiden</BarLink>}>
+    <LessonSheet className="lesson--name" title="Skriv dit navn" bar={<BarLink to="/">Til forsiden</BarLink>}>
       <CompactPhraseRow entry={WRITE_NAME_ENTRY} />
       <p className="alphabet__lead">
         Dit navn, bogstav for bogstav. Se først hvordan hvert bogstav skifter form, når det binder
@@ -53,10 +53,13 @@ export default function NameLesson() {
 
       <PersonalNameCompanion spelling={faSpelling} original={name} className="name__preview" />
 
-      <h2 className="alphabet__section-title">Bogstav for bogstav</h2>
-      <NameWalkthrough spelling={faSpelling} />
-
-      <NameAssembly spelling={faSpelling} onDone={finish} />
+      <div className="name__practice">
+        <section>
+          <h2 className="alphabet__section-title">Bogstav for bogstav</h2>
+          <NameWalkthrough spelling={faSpelling} />
+        </section>
+        <NameAssembly spelling={faSpelling} onDone={finish} />
+      </div>
 
       {celebration.reward !== null && (
         <Celebration

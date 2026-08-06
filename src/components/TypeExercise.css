@@ -19,7 +19,7 @@
   margin: 0;
   font-family: var(--font-latin);
   font-size: 0.9375rem;
-  opacity: 0.75;
+  opacity: 0.8;
   white-space: nowrap;
 }
 
@@ -36,6 +36,11 @@
   font-size: 0.9375rem;
   line-height: var(--rule-step);
   opacity: 0.8;
+}
+
+.type__reveal {
+  min-inline-size: 0;
+  scroll-margin-block-start: 0.5rem;
 }
 
 /* The line and the button that checks it, sharing one row. `flow-root`

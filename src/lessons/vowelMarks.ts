@@ -56,13 +56,13 @@ export interface LaterMark {
 export const laterMarks: LaterMark[] = [
   {
     id: 'tashdid',
-    entry: defineEntry({ id: 'alphabet-mark-tashdid', kind: 'mark', fa: 'ـّ', da: 'bogstavet siges dobbelt', pron: NO_OWN_SOUND }),
+    entry: defineEntry({ id: 'alphabet-mark-tashdid', kind: 'mark', fa: 'ـّ', da: 'bogstavet siges dobbelt', pron: NO_OWN_SOUND, audioNotApplicable: 'Tegnet har ingen egen lyd; det fordobler bogstavet under sig.' }),
     nameEntry: defineEntry({ id: 'alphabet-mark-name-tashdid', kind: 'word', fa: 'تشدید', da: 'tegnnavnet tashdid', pron: { da: 'tasjdid', ipa: 'tæʃdiːd' } }),
     hint: 'Bogstavet under tegnet siges dobbelt.',
   },
   {
     id: 'sokun',
-    entry: defineEntry({ id: 'alphabet-mark-sokun', kind: 'mark', fa: 'ـْ', da: 'bogstavet får ingen vokal', pron: NO_OWN_SOUND }),
+    entry: defineEntry({ id: 'alphabet-mark-sokun', kind: 'mark', fa: 'ـْ', da: 'bogstavet får ingen vokal', pron: NO_OWN_SOUND, audioNotApplicable: 'Tegnet har ingen egen lyd; det markerer fravær af en vokal.' }),
     nameEntry: defineEntry({ id: 'alphabet-mark-name-sokun', kind: 'word', fa: 'سکون', da: 'tegnnavnet sokun', pron: { da: 'sokun', ipa: 'sokuːn' } }),
     hint: 'Bogstavet får ingen vokal — det står tørt.',
   },

@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+.lesson--task > .ruled-section > :not(.lesson__title) {
+  max-inline-size: var(--task-max);
+  margin-inline: auto;
+}
+
 .puzzle__word,
 .puzzle__assembled {
   min-height: 4.5rem;
@@ -26,6 +31,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  justify-content: center;
+  max-inline-size: var(--task-max);
 }
 
 .puzzle__choices button,
@@ -37,6 +44,23 @@
   background: var(--card);
   color: var(--ink);
   font: inherit;
+}
+
+.puzzle__choices .puzzle__choice--selected {
+  border-width: 2px;
+  background: var(--paper);
+}
+
+.puzzle__choice-state {
+  display: block;
+  font-family: var(--font-latin);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.puzzle__feedback {
+  max-inline-size: 34rem;
+  scroll-margin-block-start: 0.5rem;
 }
 
 .puzzle__choices button {

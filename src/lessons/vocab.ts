@@ -13,6 +13,7 @@
 import type { WordCard } from './types'
 import { defineEntry } from '../catalog/types'
 import type { PersianEntry } from '../catalog/types'
+import { vocabReadingCues } from './vocabReadingCues'
 
 export interface VocabWord extends WordCard {
   /** Stable ascii id — used in routes (#/lesson/ord/:unit/:word) and progress. */
@@ -37,21 +38,25 @@ export interface VocabUnit {
 type Row = [string, string, string, string, string, string]
 
 function words(unitId: string, rows: Row[]): VocabWord[] {
-  return rows.map(([id, fa, faMarked, da, lyd, ipa]) => ({
-    id,
-    entry: defineEntry({
-      id: `vocabulary-${unitId}-${id}`,
-      kind: 'word',
+  return rows.map(([id, fa, faMarked, da, lyd, ipa]) => {
+    const pron = { da: lyd, ipa }
+    return {
+      id,
+      entry: defineEntry({
+        id: `vocabulary-${unitId}-${id}`,
+        kind: 'word',
+        fa,
+        faMarked,
+        da,
+        pron,
+        readingCues: vocabReadingCues(id),
+      }),
       fa,
       faMarked,
       da,
-      pron: { da: lyd, ipa },
-    }),
-    fa,
-    faMarked,
-    da,
-    pron: { da: lyd, ipa },
-  }))
+      pron,
+    }
+  })
 }
 
 export const vocabUnits: VocabUnit[] = [
@@ -64,9 +69,9 @@ export const vocabUnits: VocabUnit[] = [
       ['ab', 'آب', 'آب', 'vand', 'åb', 'ɒːb'],
       ['baba', 'بابا', 'بابا', 'far', 'båbå', 'bɒːbɒː'],
       ['bad', 'باد', 'باد', 'vind', 'båd', 'bɒːd'],
-      ['abi', 'آبی', 'آبی', 'blå', 'åbi', 'ɒːbiː'],
+      ['abi', 'آبی', 'آبی', 'blå', 'åbi', 'ɒːˈbiː'],
       ['nan', 'نان', 'نان', 'brød', 'nån', 'nɒːn'],
-      ['madar', 'مادر', 'مادَر', 'mor', 'mådar', 'mɒːdæɾ'],
+      ['madar', 'مادر', 'مادَر', 'mor', 'mådar', 'mɒːˈdæɾ'],
       ['man', 'من', 'مَن', 'jeg', 'man', 'mæn'],
       ['to', 'تو', 'تو', 'du', 'to', 'to'],
       ['ma', 'ما', 'ما', 'vi', 'må', 'mɒː'],
@@ -81,14 +86,14 @@ export const vocabUnits: VocabUnit[] = [
     titleEntry: defineEntry({ id: 'vocabulary-unit-2-title', kind: 'word', fa: 'مدرسه', faMarked: 'مَدرِسه', da: 'Skole', pron: { da: 'madrese', ipa: 'mædɾese' } }),
     summary: 'Blyant, bog, bord — og det du siger, når du kommer ind',
     words: words('2', [
-      ['medad', 'مداد', 'مِداد', 'blyant', 'medåd', 'medɒːd'],
-      ['ketab', 'کتاب', 'کِتاب', 'bog', 'ketåb', 'ketɒːb'],
+      ['medad', 'مداد', 'مِداد', 'blyant', 'medåd', 'meˈdɒːd'],
+      ['ketab', 'کتاب', 'کِتاب', 'bog', 'ketåb', 'keˈtɒːb'],
       ['miz', 'میز', 'میز', 'bord', 'miz', 'miːz'],
       ['dar', 'در', 'دَر', 'dør', 'dar', 'dæɾ'],
       ['dast', 'دست', 'دَست', 'hånd', 'dast', 'dæst'],
       ['dust', 'دوست', 'دوست', 'ven', 'dust', 'duːst'],
-      ['madrese', 'مدرسه', 'مَدرِسه', 'skole', 'madrese', 'mædɾese'],
-      ['salam', 'سلام', 'سَلام', 'hej', 'salåm', 'sælɒːm'],
+      ['madrese', 'مدرسه', 'مَدرِسه', 'skole', 'madrese', 'mædɾeˈse'],
+      ['salam', 'سلام', 'سَلام', 'hej', 'salåm', 'sæˈlɒːm'],
     ]),
   },
   {
@@ -97,9 +102,9 @@ export const vocabUnits: VocabUnit[] = [
     titleEntry: defineEntry({ id: 'vocabulary-unit-3-title', kind: 'phrase', fa: 'خانه و آسمان', da: 'Hjem og himmel', pron: { da: 'khåne o åsemån', ipa: 'xɒːne o ɒːsemɒːn' } }),
     summary: 'Hus, regn, måne, nat — og to farver mere',
     words: words('3', [
-      ['khane', 'خانه', 'خانه', 'hus, hjem', 'khåne', 'xɒːne'],
-      ['baran', 'باران', 'باران', 'regn', 'bårån', 'bɒːɾɒːn'],
-      ['aseman', 'آسمان', 'آسِمان', 'himmel', 'åsemån', 'ɒːsemɒːn'],
+      ['khane', 'خانه', 'خانه', 'hus, hjem', 'khåne', 'xɒːˈne'],
+      ['baran', 'باران', 'باران', 'regn', 'bårån', 'bɒːˈɾɒːn'],
+      ['aseman', 'آسمان', 'آسِمان', 'himmel', 'åsemån', 'ɒːseˈmɒːn'],
       ['mah', 'ماه', 'ماه', 'måne', 'måh', 'mɒːh'],
       ['shab', 'شب', 'شَب', 'nat', 'sjab', 'ʃæb'],
       ['gol', 'گل', 'گُل', 'blomst', 'gol', 'ɡol'],

@@ -7,6 +7,7 @@ import './SplitCard.css'
 import type { PersianEntry } from '../catalog/types'
 import { PersianText } from './PersianText'
 import { PersonalNameText } from './PersonalName'
+import { OptionalAudioControl } from './OptionalAudioControl'
 
 export interface SplitCardProps {
   word: WordCard
@@ -42,10 +43,12 @@ export function SplitCard({ word, greetingEntry, personalSpelling, daGreeting }:
               </>
             )}
             <PronLine {...greetingEntry.pron} />
+            <OptionalAudioControl audioId={greetingEntry.audioId} />
           </div>
         )}
         <FaSpecimen entry={word.entry} />
         <PronLine {...word.pron} />
+        <OptionalAudioControl audioId={word.entry.audioId} />
       </div>
 
       <RuleDivider />

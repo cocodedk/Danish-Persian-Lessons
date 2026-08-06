@@ -6,8 +6,8 @@ const find = buildQuestions('find')
 const match = buildQuestions('match')
 
 describe('exercise questions', () => {
-  it('asks about every specimen once, in teaching order', () => {
-    expect(find.map((q) => q.itemId)).toEqual(teachingOrder)
+  it('asks about every stable-sound specimen once, in teaching order', () => {
+    expect(find.map((q) => q.itemId)).toEqual(teachingOrder.filter((id) => id !== 'alef'))
     expect(match.map((q) => q.itemId)).toEqual(letters.map((l) => l.id))
   })
 

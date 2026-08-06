@@ -77,3 +77,23 @@
   margin-block: 1rem;
   font-family: var(--font-latin);
 }
+
+.lesson--name > .ruled-section > :not(.lesson__title),
+.name__practice {
+  max-inline-size: var(--task-max);
+}
+
+@media (min-width: 64rem) {
+  .name__practice {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.8fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    max-inline-size: var(--shell-max);
+  }
+
+  .name__practice > .name-assembly {
+    position: sticky;
+    inset-block-start: var(--rule-step);
+    align-self: start;
+  }
+}

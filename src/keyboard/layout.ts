@@ -76,6 +76,15 @@ export const KEYBOARD_ROWS: KeyDef[][] = ROW_IDS.map((row) => row.map(keyFor))
 
 export const KEYBOARD_KEYS: KeyDef[] = KEYBOARD_ROWS.flat()
 
+/** Maps a hardware Persian-layout key without guessing from Latin QWERTY.
+ * Shift+Space is the conventional physical shortcut for a ZWNJ. */
+export function keyForPhysicalInput(key: string, shiftKey = false): KeyDef | undefined {
+  if (key === 'Backspace') return SIGN_KEYS.backspace
+  if (key === ZWNJ || (key === SPACE && shiftKey)) return SIGN_KEYS.zwnj
+  if (key === SPACE) return SIGN_KEYS.space
+  return KEYBOARD_KEYS.find((candidate) => candidate.glyph === key)
+}
+
 /** Every code point this keyboard can write — letters, the ZWNJ, the space. */
 const TYPEABLE = new Set(KEYBOARD_KEYS.filter((key) => key.glyph).map((key) => key.glyph))
 

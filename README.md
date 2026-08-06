@@ -87,6 +87,7 @@ Danish-Persian-Lessons/
 ├── index.html · vite.config.ts · package.json
 ├── docs/
 │   ├── plans/                  # numbered implementation plans; agents execute these
+│   ├── specs/                  # normative cross-plan product, learning, and accessibility specs
 │   └── design/
 │       └── ART-DIRECTION.md    # the "exercise notebook" design system
 ├── .github/workflows/          # ci.yml (checks) and deploy-pages.yml (Pages)

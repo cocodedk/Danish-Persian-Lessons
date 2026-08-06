@@ -12,6 +12,7 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    exclude: ['e2e/**', 'node_modules/**', 'dist/**'],
     setupFiles: ['./src/test/setup.ts'],
     // Stylesheets stay stubbed in tests, except `?raw` imports: jsdom computes
     // no layout, so the rules that carry design decisions (the logical margin

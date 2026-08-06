@@ -2,7 +2,7 @@
 // out of a tray of its letters and two strangers. What the lesson says on the
 // way down to it is nameLesson.test.tsx.
 import { describe, it, expect } from 'vitest'
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { setProfile } from '../progress/profile'
 import { isNameLessonDone } from '../progress/nameLesson'
 import { assemblyBank, nameGlyphs } from '../name/bank'
@@ -27,7 +27,7 @@ describe('the name-assembly exercise', () => {
     expect(line()).toBe('سا')
   })
 
-  it('a wrong letter costs nothing: it does not stick, and the app says «دوباره»', () => {
+  it('a wrong letter costs nothing: it does not stick, and the app says «دوباره»', async () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/lesson/navn')
 
@@ -37,6 +37,8 @@ describe('the name-assembly exercise', () => {
     expect(screen.getByText(/Prøv igen, du mister ingenting/)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Prøv én gang til' }))
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Sæt navnet sammen igen' })).toHaveFocus())
 
     // …and the letter is still there to use when its turn comes.
     tapTile('س')

@@ -14,6 +14,30 @@ describe('the typed Persian catalog', () => {
       expect(entry.pron.da.trim(), entry.id).not.toBe('')
       expect(entry.pron.ipa.trim(), entry.id).not.toBe('')
       expect(entry.pron.ipa, entry.id).not.toMatch(/^\[|\]$/)
+      if (entry.pron.ipa === '∅') {
+        expect(entry.audioId, entry.id).toBeUndefined()
+        expect(entry.audioNotApplicable?.trim(), entry.id).not.toBe('')
+      } else {
+        expect(entry.audioId, entry.id).toBe(entry.id)
+        expect(entry.audioNotApplicable, entry.id).toBeUndefined()
+      }
+    }
+  })
+
+  it('keeps contextual reading cue spans inside their written entry', () => {
+    for (const entry of persianCatalog) {
+      if (entry.kind === 'word' || entry.kind === 'phrase') {
+        expect(entry.readingCues?.length, entry.id).toBeGreaterThan(0)
+      }
+      const length = [...entry.fa].length
+      for (const cue of entry.readingCues ?? []) {
+        expect(cue.start, entry.id).toBeGreaterThanOrEqual(0)
+        expect(cue.end, entry.id).toBeGreaterThanOrEqual(cue.start)
+        expect(cue.end, entry.id).toBeLessThanOrEqual(length)
+        if (cue.start === cue.end) expect(cue.role, entry.id).toBe('short-vowel')
+        expect(cue.display.trim(), entry.id).not.toBe('')
+        expect(cue.helpDa.trim(), entry.id).not.toBe('')
+      }
     }
   })
 

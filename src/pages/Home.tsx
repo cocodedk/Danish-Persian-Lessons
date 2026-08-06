@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { RuledSection } from '../components/RuledSection'
 import { SplitCard } from '../components/SplitCard'
 import { LessonCard } from '../components/LessonCard'
@@ -16,6 +16,8 @@ import { unitDoneCount } from '../progress/vocab'
 import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
 import { GREETING_ENTRY, GREETING_WITH_NAME_ENTRY, daGreeting } from '../content/greetings'
+import { dueReviewQuestions } from '../review/tasks'
+import { isRetained, reviewStates } from '../review/scheduler'
 import './Home.css'
 
 export default function Home() {
@@ -71,56 +73,114 @@ export default function Home() {
   // The name lesson only exists for a learner who has a spelling, so the word
   // units number themselves after whatever is actually on the page.
   const firstWordNumber = profile.faSpelling ? 3 : 2
+  const reviewDue = dueReviewQuestions().length
+  const reviewHistory = reviewStates()
+  const retrieved = reviewHistory.filter((state) => state.successfulRetrievals > 0).length
+  const retained = reviewHistory.filter(isRetained).length
+  const nextUnit = vocabUnits.find((unit) => unitDoneCount(unit) < unit.words.length)
+  const nextStep =
+    reviewDue > 0
+      ? {
+          to: '/repetition',
+          title: 'Tag en kort repetition',
+          meta: `${reviewDue} ${reviewDue === 1 ? 'opgave venter' : 'opgaver venter'}`,
+        }
+      : cleared < ALPHABET_TOTAL
+      ? {
+          to: '/lesson/alphabet',
+          title: cleared === 0 ? 'Start med alfabetet' : 'Fortsæt med alfabetet',
+          meta: `${ALPHABET_TOTAL - cleared} tegn tilbage`,
+        }
+      : profile.faSpelling && !isNameLessonDone()
+        ? { to: '/lesson/navn', title: 'Fortsæt med dit navn', meta: 'Læs og skriv dit eget navn' }
+        : nextUnit
+          ? {
+              to: `/lesson/ord/${nextUnit.id}`,
+              title: `Fortsæt med ${nextUnit.title.toLocaleLowerCase('da')}`,
+              meta: `${nextUnit.words.length - unitDoneCount(nextUnit)} ord tilbage`,
+            }
+          : { to: '/lesson/ord/1/skriv', title: 'Øv din skrivning', meta: 'Gentag en kort skriverunde' }
 
   return (
     <main className="home">
       <RuledSection>
-        <SplitCard
-          word={DEMO_WORD}
-          greetingEntry={profile.faSpelling ? GREETING_WITH_NAME_ENTRY : GREETING_ENTRY}
-          personalSpelling={profile.faSpelling}
-          daGreeting={daGreeting(profile.name)}
-        />
-        <StreakLine streak={rewards.streak} />
-        <RewardShelf level={rewards.level} stickers={rewards.stickers} />
-        <h2 className="home__lessons" lang="da">
-          Lektioner
-        </h2>
-        <LessonCard
-          number={1}
-          title="Alfabetet"
-          summary="Start her: læseretning, 32 bogstaver og seks vokaltegn"
-          progress={`${cleared} af ${ALPHABET_TOTAL} klaret`}
-          to="/lesson/alphabet"
-        />
-        {/* Only a learner who has a Persian spelling has this lesson at all. */}
-        {profile.faSpelling && (
-          <LessonCard
-            number={2}
-            title="Dit navn"
-            summary="Læs og skriv dit eget navn med persiske bogstaver"
-            progress={isNameLessonDone() ? 'Klaret' : 'Klar, når du er'}
-            to="/lesson/navn"
+        <header className="home__masthead">
+          <h1 className="home__title">Lær persisk skrift</h1>
+          <SettingsCorner
+            name={profile.name}
+            faSpelling={profile.faSpelling}
+            onSave={handleNameSave}
+            onDelete={handleNameDelete}
           />
-        )}
-        {vocabUnits.map((unit, index) => (
-          <LessonCard
-            key={unit.id}
-            number={firstWordNumber + index}
-            title={unit.title}
-            summary={unit.summary}
-            progress={`${unitDoneCount(unit)} af ${unit.words.length} ord klaret`}
-            to={`/lesson/ord/${unit.id}`}
-          />
-        ))}
-        <TypingRounds faSpelling={profile.faSpelling} />
+          <Link className="home__continue" to={nextStep.to}>
+            <span className="home__continue-label">Fortsæt</span>
+            <strong>{nextStep.title}</strong>
+            <span>{nextStep.meta}</span>
+          </Link>
+        </header>
+        <div className="home__workspace">
+          <section className="home__hero" aria-label="Dagens persiske eksempel">
+            <SplitCard
+              word={DEMO_WORD}
+              greetingEntry={profile.faSpelling ? GREETING_WITH_NAME_ENTRY : GREETING_ENTRY}
+              personalSpelling={profile.faSpelling}
+              daGreeting={daGreeting(profile.name)}
+            />
+            <StreakLine streak={rewards.streak} />
+            <RewardShelf level={rewards.level} stickers={rewards.stickers} />
+          </section>
+          <section className="home__learning" aria-labelledby="home-lessons">
+            <h2 className="home__lessons" id="home-lessons" lang="da">
+              Lektioner
+            </h2>
+            {reviewHistory.length > 0 && (
+              <p className="home__review-summary">
+                {reviewHistory.length} mødt · {retrieved} husket mindst én gang · {retained} husket over tid
+                {reviewDue > 0 ? ` · ${reviewDue} venter nu` : ''}
+              </p>
+            )}
+            <div className="home__lesson-grid">
+              {reviewDue > 0 && (
+                <LessonCard
+                  number={0}
+                  title="Kort repetition"
+                  summary="Cirka fem minutter — det, der venter, kommer først"
+                  progress={`${reviewDue} ${reviewDue === 1 ? 'opgave venter' : 'opgaver venter'}`}
+                  to="/repetition"
+                />
+              )}
+              <LessonCard
+                number={1}
+                title="Alfabetet"
+                summary="Start her: læseretning, 32 bogstaver og seks vokaltegn"
+                progress={`${cleared} af ${ALPHABET_TOTAL} set eller øvet`}
+                to="/lesson/alphabet"
+              />
+              {/* Only a learner who has a Persian spelling has this lesson at all. */}
+              {profile.faSpelling && (
+                <LessonCard
+                  number={2}
+                  title="Dit navn"
+                  summary="Læs og skriv dit eget navn med persiske bogstaver"
+                  progress={isNameLessonDone() ? 'Klaret' : 'Klar, når du er'}
+                  to="/lesson/navn"
+                />
+              )}
+              {vocabUnits.map((unit, index) => (
+                <LessonCard
+                  key={unit.id}
+                  number={firstWordNumber + index}
+                  title={unit.title}
+                  summary={unit.summary}
+                  progress={`${unitDoneCount(unit)} af ${unit.words.length} ord gennemgået eller øvet`}
+                  to={`/lesson/ord/${unit.id}`}
+                />
+              ))}
+            </div>
+            <TypingRounds faSpelling={profile.faSpelling} />
+          </section>
+        </div>
       </RuledSection>
-      <SettingsCorner
-        name={profile.name}
-        faSpelling={profile.faSpelling}
-        onSave={handleNameSave}
-        onDelete={handleNameDelete}
-      />
     </main>
   )
 }

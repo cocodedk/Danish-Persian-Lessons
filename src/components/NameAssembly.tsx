@@ -10,6 +10,7 @@ import { PersonalNameText } from './PersonalName'
 import { PersianText } from './PersianText'
 import { nameLetters } from '../name/forms'
 import { PronLine } from './PronLine'
+import { useChallengeFocus } from './useChallengeFocus'
 import './NameAssembly.css'
 
 /** What the last wrong tap was: a letter of the name, or one of the strangers. */
@@ -38,6 +39,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
   const done = placed.length === target.length
   const missEntry = missed === 'later' ? TRY_AGAIN_ENTRY : NOT_IN_NAME_ENTRY
   const expected = letters[placed.length]
+  const [promptRef, focusPrompt] = useChallengeFocus<HTMLHeadingElement>()
 
   function pick(tile: Tile) {
     if (done) return
@@ -63,7 +65,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
 
   return (
     <section className="name-assembly">
-      <h2 className="alphabet__section-title">Sæt navnet sammen igen</h2>
+      <h2 ref={promptRef} tabIndex={-1} className="alphabet__section-title">Sæt navnet sammen igen</h2>
       <CompactPhraseRow entry={ASSEMBLE_ENTRY} />
       <p className="alphabet__note">
         Persisk skrives fra højre. Tryk derfor det første bogstav i navnet først. Det lander yderst
@@ -94,7 +96,10 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
         <RetryActions
           className="name__actions"
           solved={false}
-          onRetry={() => setMissed(null)}
+          onRetry={() => {
+            setMissed(null)
+            focusPrompt()
+          }}
           onAdvance={skipCurrent}
           advanceLabel="Næste"
         />

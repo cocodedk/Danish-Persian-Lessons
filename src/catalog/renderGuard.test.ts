@@ -8,6 +8,7 @@ const APPROVED = new Set([
   'components/FaSpecimen.tsx',
   'components/PersianText.tsx',
   'components/PersonalName.tsx',
+  'components/ReadingCues.tsx',
   'components/LearnerPersianInput.tsx',
 ])
 const PERSIAN = /[\u0600-\u06FF]/u

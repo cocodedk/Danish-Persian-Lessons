@@ -6,7 +6,7 @@ import type { PersianEntry } from '../catalog/types'
 /**
  * What the learner just did. The three seams plan 003 already exposes:
  * `answer` — one question answered right inside a round;
- * `item`   — a letter or vowel mark cleared ("Jeg kan den");
+ * `item`   — a letter, mark, or word encountered for the first time;
  * `page`   — a round or a lesson finished, which fills a notebook page.
  * And one more, plan 006's:
  * `replay` — a lesson finished again, having already been paid for. It

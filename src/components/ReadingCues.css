@@ -1,0 +1,53 @@
+.reading-cues {
+  inline-size: 100%;
+  margin-block-start: 0.5rem;
+  border-block-start: 1px solid var(--rule);
+  text-align: start;
+}
+
+.reading-cues :is(h2, h3, h4) {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.reading-cues__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reading-cues__cue {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-inline-size: 7rem;
+  max-inline-size: 11rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  text-align: center;
+}
+
+.reading-cues__glyph {
+  font-family: var(--font-naskh);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.reading-cues__cue .pron-line {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.reading-cues__help {
+  font-family: var(--font-latin);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}

@@ -102,7 +102,11 @@
   margin: 0.25rem 0 0;
   font-family: var(--font-latin);
   font-size: 0.9375rem;
-  opacity: 0.75;
+  opacity: 0.8;
+}
+
+.lesson-index__content {
+  min-inline-size: 0;
 }
 
 /* --- one letter -------------------------------------------------------- */
@@ -111,7 +115,7 @@
   margin: 0;
   font-family: var(--font-latin);
   font-size: 0.9375rem;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 /* A specimen is a display object: it centres on the sheet, whichever way the
@@ -142,4 +146,21 @@
   gap: 0.5rem;
   margin-block-start: var(--rule-step);
   font-family: var(--font-latin);
+}
+
+.letter__workspace {
+  max-inline-size: var(--task-max);
+}
+
+.letter__identity,
+.letter__practice {
+  min-inline-size: 0;
+}
+
+.letter__specimen,
+.letter__block,
+.letter__hint,
+.letter__badge,
+.letter__done {
+  max-inline-size: var(--specimen-max);
 }

@@ -58,7 +58,7 @@ export default function NameSpelling() {
   }
 
   return (
-    <LessonSheet title="Dit navn på persisk" bar={<BarLink to="/">Til forsiden</BarLink>}>
+    <LessonSheet className="lesson--name" title="Dit navn på persisk" bar={<BarLink to="/">Til forsiden</BarLink>}>
       <CompactPhraseRow entry={SPELLING_TITLE_ENTRY} />
       <p className="alphabet__lead">
         Sådan kan {profile.name} skrives med persiske bogstaver. Vælg den, der ligner dit navn mest,

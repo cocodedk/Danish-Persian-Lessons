@@ -107,7 +107,7 @@ describe('Home', () => {
 
     render(<Home />)
     expect(screen.getByText('Hej Babak!')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Babak' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Indstillinger for Babak' })).toBeInTheDocument()
   })
 
   it('puts the forside on the ruled sheet and lists the alphabet lesson with its progress', () => {
@@ -119,7 +119,7 @@ describe('Home', () => {
     expect(container.querySelectorAll('.ruled-section')).toHaveLength(1)
     const lesson = screen.getByRole('link', { name: /Alfabetet/ })
     expect(lesson).toHaveAttribute('href', '/lesson/alphabet')
-    expect(screen.getByText('0 af 39 klaret')).toBeInTheDocument()
+    expect(screen.getByText('0 af 39 set eller øvet')).toBeInTheDocument()
   })
 
   it('deleting the name from the settings corner reverts the greeting to plain Hej!', () => {
@@ -129,10 +129,22 @@ describe('Home', () => {
     })
     fireEvent.click(screen.getByText('Gem'))
 
-    fireEvent.click(screen.getByRole('button', { name: 'Babak' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Babak' }))
     fireEvent.click(screen.getByText('Slet'))
 
     expect(screen.getByText('Hej!')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Indstillinger' })).toBeInTheDocument()
+  })
+
+  it('closes settings with Escape and returns focus to its named control', () => {
+    setProfile({ name: 'Sara' })
+    render(<Home />)
+    const toggle = screen.getByRole('button', { name: 'Indstillinger for Sara' })
+    fireEvent.click(toggle)
+    expect(screen.getByRole('heading', { name: 'Indstillinger' })).toBeInTheDocument()
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(screen.queryByRole('heading', { name: 'Indstillinger' })).not.toBeInTheDocument()
+    expect(toggle).toHaveFocus()
   })
 })

@@ -43,6 +43,15 @@
   background-color: var(--red);
 }
 
+@media (min-width: 48rem) {
+  .ruled-section {
+    inline-size: min(100%, var(--shell-max));
+    margin-inline: auto;
+    padding-inline-end: var(--page-gutter);
+    border-inline: 1px solid var(--rule);
+  }
+}
+
 @media (forced-colors: active) {
   .ruled-section::before {
     background-color: CanvasText;

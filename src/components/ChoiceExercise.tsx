@@ -9,6 +9,8 @@ import type { Reward } from '../rewards/types'
 import { ChallengeReveal, CompactPhraseRow } from './EntryRenderers'
 import { PersianText } from './PersianText'
 import { useRoundOutcome } from './useRoundOutcome'
+import { useRevealInView } from './useRevealInView'
+import { useChallengeFocus } from './useChallengeFocus'
 import './ChoiceExercise.css'
 
 export interface ChoiceExerciseProps {
@@ -28,8 +30,11 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
   const [index, setIndex] = useState(0)
   const [solved, setSolved] = useState(false)
   const [attempted, setAttempted] = useState(false)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
   const round = useRoundOutcome(questions.length)
   const [reward, setReward] = useState<Reward | null>(null)
+  const feedbackRef = useRevealInView(attempted)
+  const [promptRef, focusPrompt] = useChallengeFocus<HTMLHeadingElement>()
 
   const question = questions[index]
   const isLast = index === questions.length - 1
@@ -40,6 +45,7 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
 
   function choose(choiceId: string) {
     if (attempted) return
+    setSelectedId(choiceId)
     if (choiceId === question.answerId) {
       setSolved(true)
       setAttempted(true)
@@ -58,6 +64,7 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
     setIndex((current) => current + 1)
     setSolved(false)
     setAttempted(false)
+    setSelectedId(null)
     setReward(null)
   }
 
@@ -68,7 +75,7 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
         <p>
           {round.completed
             ? 'Du kom hele runden igennem. Alt, du klarede, står stadig på lektionen.'
-            : 'Runden er slut. Kun de svar, du fandt, er markeret som lært.'}
+            : 'Runden er slut. Kun de svar, du fandt, er markeret som øvet.'}
         </p>
       </div>
     )
@@ -80,13 +87,14 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
         Spørgsmål {index + 1} af {questions.length}
       </p>
 
-      <h2 className="choice-exercise__prompt">{question.promptDa}</h2>
+      <h2 ref={promptRef} tabIndex={-1} className="choice-exercise__prompt">{question.promptDa}</h2>
       {question.showsFa && <FaSpecimen entry={question.entry} />}
       <PronLine {...question.entry.pron} />
 
       <ul className="choice-exercise__choices">
         {question.choices.map((choice) => {
           const right = solved && choice.id === question.answerId
+          const selected = selectedId === choice.id
           return (
             <li key={choice.id}>
               {/* The Persian glyph IS the accessible name — naming the choice
@@ -99,9 +107,10 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
                 type="button"
                 className={`choice-exercise__choice ${
                   right ? 'choice-exercise__choice--right' : ''
-                }`}
+                } ${selected ? 'choice-exercise__choice--selected' : ''}`}
                 dir={choiceDir}
                 lang={choiceLang === 'da' ? 'da' : undefined}
+                aria-pressed={selected}
                 onClick={() => choose(choice.id)}
               >
                 {choiceLang === 'fa' ? (
@@ -109,13 +118,18 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
                 ) : (
                   choice.glyph
                 )}
+                {selected && (
+                  <span className="choice-exercise__state">
+                    {right ? '✓ Rigtigt' : 'Valgt'}
+                  </span>
+                )}
               </button>
             </li>
           )
         })}
       </ul>
 
-      <div className="choice-exercise__feedback" role="status">
+      <div ref={feedbackRef} className="choice-exercise__feedback" role="status" aria-live="polite">
         {attempted && <ChallengeReveal entry={question.entry} />}
         {solved && <Celebration reward={reward} />}
         {attempted && !solved && (
@@ -129,7 +143,11 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
       {attempted && (
         <RetryActions
           solved={solved}
-          onRetry={() => setAttempted(false)}
+          onRetry={() => {
+            setAttempted(false)
+            setSelectedId(null)
+            focusPrompt()
+          }}
           onAdvance={advance}
           advanceLabel={isLast ? 'Afslut runden' : 'Næste'}
         />

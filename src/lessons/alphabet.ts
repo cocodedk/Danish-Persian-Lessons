@@ -34,7 +34,7 @@ const GHAF_GHEYN = { anchor: 'et dybt g/r bagerst i halsen', ipa: 'ɢ~ɣ' }
 // verbatim — homophone groups (derived from `ipa` equality, see alphabet.test.ts)
 // repeat the same hint by design: ث س ص all say "s" because they all sound [s].
 const ROWS: Row[] = [
-  { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'a i "kat"', ipa: 'æ', nameIpa: 'ʔælef', hint: 'a' },
+  { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'vokalbærer; lyden afhænger af ordet', ipa: '◌', nameIpa: 'ʔælef', hint: 'a' },
   { g: 'ب', id: 'be', fa: 'بِ', da: 'be', joins: true, anchor: 'b i "bil"', ipa: 'b', nameIpa: 'be', hint: 'b' },
   { g: 'پ', id: 'pe', fa: 'پِ', da: 'pe', joins: true, anchor: 'p i "pose"', ipa: 'p', nameIpa: 'pe', hint: 'p' },
   { g: 'ت', id: 'te', fa: 'تِ', da: 'te', joins: true, anchor: 't i "tak"', ipa: 't', nameIpa: 'te', hint: 't' },
@@ -70,7 +70,7 @@ const ROWS: Row[] = [
 
 /** One Danish line for the letters that surprise a reader. Nothing decorative. */
 const HINTS: Record<string, string> = {
-  alef: 'Alef har ingen lyd i sig selv — det bærer vokalen. Med madde ovenpå bliver lyden lang.',
+  alef: 'Alef er en vokalbærer. Først i et ord bærer den en vokal; efter en konsonant skriver den oftest langt å. Med madde ovenpå skriver den også langt å.',
   pe: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
   che: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
   'he-jimi': 'Der er to h-bogstaver. He-jimi har samme krop som jim, men ingen prik.',
@@ -79,8 +79,9 @@ const HINTS: Record<string, string> = {
   ghaf: 'Ghaf og gheyn lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
   gaf: 'Gaf er kaf med én streg mere og er et af persisks egne fire bogstaver.',
   vav: 'Vav er både v og den lange vokal u. Du møder begge brugsmåder i lektionerne.',
-  he: 'Det andet h kaldes he med to øjne, fordi formen midt i et ord får to åbninger.',
-  ye: 'Alene og sidst står ye uden prikker. Først og midt i et ord får det to prikker under.',
+  eyn: 'Eyn er et bogstav fra arabisk. I teheransk persisk kan det høres som et lille stød; den præcise rolle læres i hvert ord.',
+  he: 'He kan skrive h. Sidst i mange ord skriver det i stedet lyden e; lektionen viser rollen i hvert ord.',
+  ye: 'Ye kan skrive j eller den lange vokal i. Alene og sidst står det uden prikker; først og midt får det to prikker under.',
 }
 
 function formsFor(glyph: string, joins: boolean) {

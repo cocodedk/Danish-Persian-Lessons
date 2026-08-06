@@ -18,6 +18,7 @@
   font-family: var(--font-latin);
   font-size: 1.5rem;
   line-height: var(--rule-step);
+  overflow-wrap: anywhere;
 }
 
 /* The thumb zone: whatever the screen docks (the keyboard) and the bar under
@@ -28,13 +29,25 @@
   background: var(--paper);
 }
 
+@media (min-width: 48rem) {
+  .lesson {
+    background: var(--card);
+  }
+
+  .lesson-foot {
+    inline-size: min(100%, var(--shell-max));
+    margin-inline: auto;
+    border-inline: 1px solid var(--rule);
+  }
+}
+
 .lesson-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 0.25rem 1rem;
-  padding: 0.35rem 0.75rem;
+  padding: 0.35rem 0.75rem calc(0.35rem + env(safe-area-inset-bottom, 0px));
   border-block-start: 1px solid var(--rule);
   background: var(--paper);
 }

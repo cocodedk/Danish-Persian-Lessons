@@ -15,12 +15,14 @@ export interface LessonSheetProps {
    * It sits outside the `<nav>` on purpose; a keyboard is not navigation.
    */
   dock?: ReactNode
+  /** A surface modifier for responsive composition (typing, task, index). */
+  className?: string
 }
 
 /** A link in the bottom bar. Says where it goes, never "Learn more". */
-export function BarLink({ to, children }: { to: string; children: ReactNode }) {
+export function BarLink({ to, children, onClick }: { to: string; children: ReactNode; onClick?: () => void }) {
   return (
-    <Link className="lesson-bar__link" to={to}>
+    <Link className="lesson-bar__link" to={to} onClick={onClick}>
       {children}
     </Link>
   )
@@ -31,9 +33,9 @@ export function BarLink({ to, children }: { to: string; children: ReactNode }) {
  * (RuledSection owns it — nothing inside draws a second one), and a bar pinned
  * to the bottom of the viewport where a thumb can reach it.
  */
-export function LessonSheet({ title, children, bar, dock }: LessonSheetProps) {
+export function LessonSheet({ title, children, bar, dock, className }: LessonSheetProps) {
   return (
-    <main className="lesson" lang="da">
+    <main className={`lesson${className ? ` ${className}` : ''}`} lang="da">
       <RuledSection>
         <h1 className="lesson__title">{title}</h1>
         {children}

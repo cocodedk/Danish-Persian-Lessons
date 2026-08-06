@@ -54,5 +54,28 @@
 .vocab__cell-da {
   font-family: var(--font-latin);
   font-size: 0.875rem;
-  opacity: 0.75;
+  opacity: 0.8;
+}
+
+@media (min-width: 64rem) {
+  .vocab__grid {
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 12rem));
+    justify-content: start;
+  }
+
+  .lesson--word .split-card {
+    display: grid;
+    grid-template-columns: minmax(20rem, 1fr) 1px minmax(16rem, 0.7fr);
+    align-items: stretch;
+    max-inline-size: var(--task-max);
+  }
+
+  .lesson--word .split-card__pane--fa {
+    min-block-size: 24rem;
+  }
+
+  .lesson--word .rule-divider {
+    border-block-start: 0;
+    border-inline-start: 1px solid var(--rule);
+  }
 }

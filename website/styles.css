@@ -12,8 +12,8 @@
 :root {
   --paper: #F7F2E9;
   --ink:   #26211B;
-  --red:   #C9202C;
-  --blue:  #2456A6;
+  --red:   #941520;
+  --blue:  #174488;
   --rule:  #C7D3E2;
   --card:  #EFE8DA;
 
@@ -31,7 +31,7 @@
   :root { /* "chalkboard" */
     --paper: #161D1A;
     --ink:   #E9E5DB;
-    --red:   #E56A64;
+    --red:   #FF8F87;
     --blue:  #8FB3EA;
     --rule:  #3E5248;
     --card:  #1D2622;

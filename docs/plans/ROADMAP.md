@@ -39,8 +39,15 @@ the app exists, `npm run verify`) is green.
 - [ ] **P11 — [011-simple-puzzles.md](011-simple-puzzles.md)** (depends on P10): deterministic,
       tap-only match, ordering, and missing-letter breaks using only material already introduced.
 
+- [ ] **P12 — [012-aaa-learner-experience.md](012-aaa-learner-experience.md)** (depends on P10–P11):
+      the Accurate · Adaptive · Accessible release program — contextual Persian orthography and
+      native review, human pronunciation audio, short spaced-retrieval sessions, connected reading,
+      predictable navigation and visible feedback, mobile-first through intentional ultrawide
+      responsiveness, WCAG 2.2 AA plus selected AAA criteria, and a documented novice-usability
+      release packet. Normative specs live in [`docs/specs/`](../specs/).
+
 ## Later (not planned yet — do not build ahead)
 
-Audio pronunciation · spaced repetition on top of progress data · full writing practice (tracing
-letters with a finger, beyond the stroke-order drawings of P3) · PWA offline install · possible
-project rename (working title may change).
+Full writing practice (tracing letters with a finger, beyond the stroke-order drawings of P3) · PWA
+offline install · broader grammar/conversation curriculum · possible project rename (working title
+may change).

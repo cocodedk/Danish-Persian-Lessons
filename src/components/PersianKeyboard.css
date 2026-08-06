@@ -12,7 +12,7 @@
   gap: 0.25rem;
   /* Hand-sized wherever it is shown: a keyboard stretched across a laptop is
      no easier to reach, only stranger to look at. */
-  max-inline-size: 26rem;
+  max-inline-size: var(--keyboard-max);
   margin-inline: auto;
   padding: 0.25rem;
 }
@@ -71,7 +71,7 @@
    is a sighted teaching aid only. */
 .keyboard__hint {
   font-family: var(--font-latin);
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   line-height: 1;
   color: var(--orange);
 }
@@ -105,7 +105,7 @@
 
 .keyboard__caption {
   font-family: var(--font-latin);
-  font-size: 0.625rem;
+  font-size: 0.875rem;
   line-height: 1;
   color: var(--blue);
 }

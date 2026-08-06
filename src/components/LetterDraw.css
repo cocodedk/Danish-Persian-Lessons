@@ -94,7 +94,7 @@
 .letter-draw__step-number {
   font-family: var(--font-fa);
   font-size: 1rem;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .letter-draw__caption {
@@ -102,7 +102,7 @@
   font-family: var(--font-latin);
   font-size: 0.9375rem;
   text-align: center;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 @media (forced-colors: active) {
