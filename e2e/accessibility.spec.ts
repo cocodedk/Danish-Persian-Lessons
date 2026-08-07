@@ -26,7 +26,7 @@ test('representative routes retain enhanced target sizes at narrow width', async
     '#/lesson/alphabet/bogstav/be', '#/lesson/alphabet/ovelse/find',
     '#/lesson/ord/1', '#/lesson/ord/1/skriv', '#/puslespil/alphabet-1-match',
     '#/repetition', '#/dit-navn', '#/lesson/navn',
-    '#/ord-der-ligner',
+    '#/ord-der-ligner', '#/billedkilder', '#/lesson/ord/1/ab',
   ]
   for (const route of routes) {
     await open(page, route)
@@ -69,4 +69,26 @@ test('typing buffer and focus survive live resize and rotation', async ({ page }
   await expect(page.locator('.type__written')).toHaveText('آ')
   await expect(be).toBeFocused()
   expect(await page.locator('body').evaluate((body) => body.scrollWidth <= body.clientWidth)).toBe(true)
+})
+
+test('lesson photos reflow from phone to wide screen and with large text', async ({ page, browserName }) => {
+  test.skip(browserName !== 'chromium', 'One browser records the full photo size matrix')
+  for (const width of [320, 390, 768, 1280, 2560]) {
+    await page.setViewportSize({ width, height: 900 })
+    await open(page, '#/lesson/ord/1/ab')
+    const image = page.getByRole('img', { name: 'Et glas vand' })
+    await expect(image).toBeVisible()
+    const box = await image.boundingBox()
+    expect(box?.width).toBeLessThanOrEqual(448)
+    expect(Math.abs((box?.width ?? 0) / (box?.height ?? 1) - 4 / 3)).toBeLessThan(0.02)
+    expect(await page.locator('body').evaluate((body) => body.scrollWidth <= body.clientWidth)).toBe(true)
+  }
+
+  for (const rootSize of ['32px', '64px']) {
+    await page.setViewportSize({ width: 1280, height: 900 })
+    await open(page, '#/lesson/ord/1/ab')
+    await page.evaluate((size) => { document.documentElement.style.fontSize = size }, rootSize)
+    await expect(page.getByText('vand', { exact: true })).toBeVisible()
+    expect(await page.locator('body').evaluate((body) => body.scrollWidth <= body.clientWidth)).toBe(true)
+  }
 })

@@ -8,6 +8,7 @@ import type { PersianEntry } from '../catalog/types'
 import { PersianText } from './PersianText'
 import { PersonalNameText } from './PersonalName'
 import { OptionalAudioControl } from './OptionalAudioControl'
+import { LessonImage } from './LessonImage'
 
 export interface SplitCardProps {
   word: WordCard
@@ -16,6 +17,7 @@ export interface SplitCardProps {
   personalSpelling?: string
   /** "Hej {name}!" once a name exists, else "Hej!". */
   daGreeting?: string
+  lessonImageEntryId?: string
 }
 
 /**
@@ -26,7 +28,13 @@ export interface SplitCardProps {
  * The greetings belong to the forside. A word screen (plan 004) is the same
  * card with nothing above the word, so both lines are optional.
  */
-export function SplitCard({ word, greetingEntry, personalSpelling, daGreeting }: SplitCardProps) {
+export function SplitCard({
+  word,
+  greetingEntry,
+  personalSpelling,
+  daGreeting,
+  lessonImageEntryId,
+}: SplitCardProps) {
   return (
     <section className="split-card">
       {/* The pane keeps its RTL base direction so the greeting's pieces —
@@ -55,6 +63,7 @@ export function SplitCard({ word, greetingEntry, personalSpelling, daGreeting }:
 
       <div className="split-card__pane split-card__pane--da" lang="da">
         {daGreeting && <p className="split-card__greeting">{daGreeting}</p>}
+        {lessonImageEntryId && <LessonImage entryId={lessonImageEntryId} eager />}
         <DaWord>{word.da}</DaWord>
       </div>
     </section>

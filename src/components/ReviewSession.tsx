@@ -141,7 +141,12 @@ export function ReviewSession({ initialTasks }: { initialTasks: ReviewTask[] }) 
         })}
       </ul>
       <div ref={feedbackRef} className="review-session__feedback" role="status" aria-live="polite">
-        {attempted && <ChallengeReveal entry={question.entry} />}
+        {attempted && (
+          <ChallengeReveal
+            entry={question.entry}
+            imageEntryId={question.entry.id}
+          />
+        )}
         {correct && <Celebration reward={reward} tickLabel="Husket" />}
         {attempted && !correct && <p>Nu har du hele hjælpen. Opgaven kommer igen efter noget andet — eller i morgen.</p>}
       </div>

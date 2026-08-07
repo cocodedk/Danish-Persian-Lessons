@@ -57,6 +57,12 @@
   opacity: 0.8;
 }
 
+/* Keep the first photo whole above the thumb bar on a common phone. The text
+   can still grow beyond this minimum at large text sizes. */
+.lesson--word .split-card {
+  --pane-fa-height: clamp(18rem, 40dvh, 22rem);
+}
+
 @media (min-width: 64rem) {
   .vocab__grid {
     grid-template-columns: repeat(auto-fit, minmax(9rem, 12rem));
@@ -65,7 +71,7 @@
 
   .lesson--word .split-card {
     display: grid;
-    grid-template-columns: minmax(20rem, 1fr) 1px minmax(16rem, 0.7fr);
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 0.7fr);
     align-items: stretch;
     max-inline-size: var(--task-max);
   }

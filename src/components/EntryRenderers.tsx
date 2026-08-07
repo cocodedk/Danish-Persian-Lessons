@@ -7,6 +7,7 @@ import { PersianText } from './PersianText'
 import { PronLine } from './PronLine'
 import { ReadingCues } from './ReadingCues'
 import { OptionalAudioControl } from './OptionalAudioControl'
+import { LessonImage } from './LessonImage'
 import './EntryRenderers.css'
 
 /** The letter screen that teaches `entryId` — undefined when no screen does,
@@ -19,15 +20,18 @@ export function letterLessonPath(entryId: string): string | undefined {
 export function FullTeachingCard({
   entry,
   showReadingCues = true,
+  imageEntryId,
 }: {
   entry: PersianEntry
   showReadingCues?: boolean
+  imageEntryId?: string
 }) {
   return (
     <section className="entry-card" data-entry-id={entry.id}>
       <FaSpecimen entry={entry} />
       <PronLine {...entry.pron} />
       <OptionalAudioControl audioId={entry.audioId} />
+      {imageEntryId && <LessonImage entryId={imageEntryId} />}
       <DaWord>{entry.da}</DaWord>
       {showReadingCues && entry.readingCues && <ReadingCues entry={entry} />}
     </section>
@@ -83,11 +87,17 @@ export function DetailStrip({ entry, to, className = '', live }: DetailStripProp
   )
 }
 
-export function ChallengeReveal({ entry }: { entry: PersianEntry }) {
+export function ChallengeReveal({
+  entry,
+  imageEntryId,
+}: {
+  entry: PersianEntry
+  imageEntryId?: string
+}) {
   return (
     <div className="entry-reveal">
       <h3 className="entry-reveal__label">Se hele tegnet eller ordet</h3>
-      <FullTeachingCard entry={entry} />
+      <FullTeachingCard entry={entry} imageEntryId={imageEntryId} />
     </div>
   )
 }
