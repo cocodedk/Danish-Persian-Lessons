@@ -2,8 +2,7 @@
 # scripts/verify.sh
 #
 # Fast, offline sanity checks for the Danish-Persian-Lessons static site.
-# Used by: .githooks/pre-commit, .githooks/pre-push, and .github/workflows/ci.yml
-# (the CI "verify" job runs exactly this script).
+# Used by: .githooks/pre-commit and .githooks/pre-push.
 #
 # No network access. Expected to complete in ~2 seconds.
 # Prints one PASS/FAIL line per check; exits 1 if any check failed.

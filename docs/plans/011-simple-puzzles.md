@@ -1,6 +1,6 @@
 # Plan 011 — Simple Puzzle Breaks
 
-Status: implementation complete; native Persian review and CI approval remain release gates.
+Status: implementation complete; native Persian review remains a release gate.
 
 Depends on [Plan 010](010-beginner-content-contract.md). Puzzles use its catalog, renderers, reveal,
 and generosity rules.
@@ -39,7 +39,7 @@ Vocabulary groups choose their eligible kind deterministically. There is no runt
 - [x] Active answers hide companion metadata and every attempt produces a complete reveal.
 - [x] Visual board saved at `docs/design/previews/011-simple-puzzles-board.png`.
 - [ ] Native Persian review approves the puzzle prompts and every catalog value they expose.
-- [ ] CI `verify` is green on the plan PR. Local `npm run verify` must be green before handoff.
+- [ ] The owner records a green local `npm run verify` before handoff; remote CI is not required.
 
 ## Out of scope
 

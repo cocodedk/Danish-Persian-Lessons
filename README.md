@@ -56,7 +56,7 @@ bash scripts/verify.sh
 ```
 
 `install-hooks.sh` points `core.hooksPath` at `.githooks/`. That setting is per-clone, so every fresh clone
-needs it. `verify.sh` runs the same checks CI runs.
+needs it. `verify.sh` is the fast local content and structure check.
 
 To read the site the way a visitor does:
 
@@ -71,7 +71,7 @@ The React app lives at the repo root (scaffolded per
 ```bash
 npm ci
 npm run dev        # Vite dev server for the app
-npm run verify     # lint + tests + build + verify.sh — the same gate CI runs
+npm run verify     # lint + tests + build + verify.sh — the local release gate
 ```
 
 ## Architecture
@@ -90,7 +90,7 @@ Danish-Persian-Lessons/
 │   ├── specs/                  # normative cross-plan product, learning, and accessibility specs
 │   └── design/
 │       └── ART-DIRECTION.md    # the "exercise notebook" design system
-├── .github/workflows/          # ci.yml (checks) and deploy-pages.yml (Pages)
+├── .github/workflows/          # deploy-pages.yml (Pages)
 ├── .githooks/                  # pre-commit, commit-msg, pre-push
 ├── scripts/                    # install-hooks.sh, verify.sh
 └── CLAUDE.md                   # house rules for agents working in this repo

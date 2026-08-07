@@ -1,6 +1,6 @@
 # Plan 010 — Beginner Content Contract
 
-Status: implementation complete; native Persian review and CI approval remain release gates.
+Status: implementation complete; native Persian review remains a release gate.
 
 Depends on P1–P9. This plan does not rewrite those completed plans. It supersedes their narrower
 pronunciation rule wherever it conflicts with this contract.
@@ -80,7 +80,7 @@ remain exempt while composed; answer checking produces the same complete reveal.
 - [x] Visual board saved at `docs/design/previews/010-beginner-content-board.png`.
 - [ ] Native Persian review approves every new phrase, pronunciation, IPA value, sign explanation,
       and the outstanding vocabulary list.
-- [ ] CI `verify` is green on the plan PR. Local `npm run verify` must be green before handoff.
+- [ ] The owner records a green local `npm run verify` before handoff; remote CI is not required.
 
 ## Out of scope
 
