@@ -96,7 +96,10 @@ export async function prepareVisualState(page: Page, state: VisualState) {
     return expect(page.getByLabel('Farver')).toBeVisible()
   }
   if (state === 'connected-reading') return open(page, '#/lesson/ord/1/laes/1-1')
-  if (state === 'word-bridges') return open(page, '#/ord-der-ligner')
+  if (state === 'word-bridges') {
+    await open(page, '#/ord-der-ligner')
+    return expect(page.getByRole('heading', { name: 'Ord, der ligner' })).toBeVisible()
+  }
   if (state === 'celebration') {
     await page.evaluate((row) => localStorage.setItem('dpl.v1.rewards', row), envelope({
       stickers: [], level: 1, points: 9, practiceDates: [], giftsOpened: [], cheers: 0,

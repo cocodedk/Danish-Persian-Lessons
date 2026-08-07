@@ -18,7 +18,8 @@ export function RouteEffects() {
     const top = navigationType === 'POP' ? (scrollPositions.get(location.key) ?? 0) : 0
     window.scrollTo({ top, left: 0, behavior: 'auto' })
 
-    const frame = window.requestAnimationFrame(() => {
+    let observer: MutationObserver | undefined
+    const focusRoute = () => {
       const heading = document.querySelector<HTMLElement>('main h1')
       const main = document.querySelector<HTMLElement>('main')
       const target = heading ?? main
@@ -28,10 +29,21 @@ export function RouteEffects() {
         if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
         target.focus({ preventScroll: true })
       }
+      return Boolean(heading)
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      if (focusRoute()) return
+
+      observer = new MutationObserver(() => {
+        if (focusRoute()) observer?.disconnect()
+      })
+      observer.observe(document.body, { childList: true, subtree: true })
     })
 
     return () => {
       window.cancelAnimationFrame(frame)
+      observer?.disconnect()
       scrollPositions.set(activeKey.current, window.scrollY)
     }
   }, [location.key, navigationType])

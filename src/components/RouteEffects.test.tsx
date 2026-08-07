@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { useEffect, useState } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Link, MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { RouteEffects } from './RouteEffects'
@@ -6,6 +7,17 @@ import { RouteEffects } from './RouteEffects'
 function BackButton() {
   const navigate = useNavigate()
   return <button onClick={() => navigate(-1)}>Tilbage</button>
+}
+
+function DelayedPage() {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setReady(true), 50)
+    return () => window.clearTimeout(timer)
+  }, [])
+
+  return ready ? <main><h1>Sen side</h1></main> : <main><p>Henter siden …</p></main>
 }
 
 function Harness() {
@@ -22,11 +34,13 @@ function Harness() {
             </main>
           }
         />
+        <Route path="/lazy" element={<DelayedPage />} />
         <Route
           path="/two"
           element={
             <main>
               <h1>Anden side</h1>
+              <Link to="/lazy">Åbn sen side</Link>
               <BackButton />
             </main>
           }
@@ -61,5 +75,18 @@ describe('RouteEffects', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Tilbage' }))
     await vi.waitFor(() => expect(screen.getByRole('heading', { name: 'Første side' })).toHaveFocus())
     expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 420, left: 0, behavior: 'auto' })
+  })
+
+  it('focuses a heading that appears after a small page file loads', async () => {
+    render(<Harness />)
+
+    fireEvent.click(screen.getByRole('link', { name: 'Videre' }))
+    await vi.waitFor(() => expect(screen.getByRole('heading', { name: 'Anden side' })).toHaveFocus())
+
+    // This route first shows only its loading message, as a lazy page does.
+    fireEvent.click(screen.getByRole('link', { name: 'Åbn sen side' }))
+
+    await vi.waitFor(() => expect(screen.getByRole('heading', { name: 'Sen side' })).toHaveFocus())
+    expect(document.title).toBe('Sen side · Lær persisk')
   })
 })

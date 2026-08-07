@@ -1685,6 +1685,66 @@
       ]
     },
     {
+      "entryId": "word-bridge-pedar",
+      "domain": "bridges",
+      "transcript": "پِدَر",
+      "plainPersian": "پدر",
+      "danishMeaning": "far",
+      "soundDa": "pedar",
+      "ipa": "peˈdæɾ",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-pedar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-setareh",
+      "domain": "bridges",
+      "transcript": "سِتاره",
+      "plainPersian": "ستاره",
+      "danishMeaning": "stjerne",
+      "soundDa": "setåre",
+      "ipa": "seˈtɒːɾe",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-setareh.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-mah",
+      "domain": "bridges",
+      "transcript": "ماه",
+      "plainPersian": "ماه",
+      "danishMeaning": "måne",
+      "soundDa": "måh",
+      "ipa": "mɒːh",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-mah.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "vocabulary-unit-1-title",
       "domain": "vocabulary",
       "transcript": "آب و بابا",
