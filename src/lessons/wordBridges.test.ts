@@ -75,8 +75,20 @@ describe('Persian and Danish word bridges', () => {
       },
       danish: 'måne',
     })
+    expect(byId['dar-doer']).toMatchObject({
+      entry: {
+        fa: 'در',
+        faMarked: 'دَر',
+        da: 'dør',
+        pron: { da: 'dar', ipa: 'dæɾ' },
+        audioId: 'word-bridge-dar',
+      },
+      danish: 'dør',
+      clueDa: 'D og r går igen i dar og dør.',
+    })
     expect(byId['pedar-fader'].meaningDa).toContain('samme gamle familie')
     expect(byId['setareh-stjerne'].meaningDa).toContain('samme gamle familie')
     expect(byId['mah-maane'].meaningDa).toContain('samme gamle familie')
+    expect(byId['dar-doer'].meaningDa).toContain('samme gamle familie')
   })
 })

@@ -2920,6 +2920,64 @@
       ]
     },
     {
+      "id": "word-bridge-dar",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "در",
+      "faMarked": "دَر",
+      "da": "dør",
+      "soundDa": "dar",
+      "ipa": "dæɾ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-dar",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "vocabulary-unit-1-title",
       "domain": "vocabulary",
       "kind": "phrase",

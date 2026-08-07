@@ -1,6 +1,6 @@
 # Persian–Danish word bridges
 
-Status: seven researched starter rows. These are memory clues, not sound rules.
+Status: eight researched starter rows. These are memory clues, not sound rules.
 
 | Persian | Danish | What is safe to teach |
 |---|---|---|
@@ -11,6 +11,7 @@ Status: seven researched starter rows. These are memory clues, not sound rules.
 | پدر · pedar | fader / far | Same old word family and same meaning today. The old initial `p` became `f` in Germanic. |
 | ستاره · setåre | stjerne | Same old word family and same meaning today. |
 | ماه · måh | måne | Same old word family and same meaning today. Both words can be traced to the old moon/month family. |
+| در · dar | dør | Same old word family and same meaning today. |
 
 ## Why the warning matters
 
@@ -18,9 +19,8 @@ Status: seven researched starter rows. These are memory clues, not sound rules.
 rule for all words. Each future pair must store two or more source links and a plain note when the
 modern meanings differ.
 
-The first word rows and their screen add only a few KB to the raw first JavaScript file. The checked
-limit moved from 360 KB to 365 KB. The page stays in the first load, so route focus does not wait on
-a blank screen.
+The word rows and their screen load only when this lesson is opened. The route waits for the page
+before it moves focus to the heading.
 
 ## Sources checked
 
@@ -63,6 +63,11 @@ a blank screen.
   Gothic `mena`, and links the word with `måned`.
 - The Persian etymological dictionary above gives Persian `mâh` and older Iranian forms for both
   moon and month.
+- The University of Texas [Indo-European Lexicon door entry](https://lrc.la.utexas.edu/lex/master/0435)
+  lists Persian `dar` and Danish `dør` under the same old root.
+- [Den Danske Ordbog: dør](https://ordnet.dk/ddo/ordbog/d%C3%B8r) gives the Danish meaning and
+  older Nordic forms.
+- The Persian etymological dictionary above gives Persian `dar` and its older Iranian forms.
 
 ## Ideas checked but not added
 

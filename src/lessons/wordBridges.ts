@@ -155,6 +155,18 @@ const mah = defineEntry({
   readingCues: [consonant(0, 'م'), longAa(1), consonant(2, 'ه')],
 })
 
+const dar = defineEntry({
+  id: 'word-bridge-dar',
+  kind: 'word',
+  fa: 'در',
+  faMarked: 'دَر',
+  da: 'dør',
+  pron: { da: 'dar', ipa: 'dæɾ' },
+  readingCues: [
+    consonant(0, 'د'), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'ر'),
+  ],
+})
+
 /** Easy memory clues, not rules for changing one language into the other. */
 export const wordBridges: readonly WordBridge[] = [
   {
@@ -211,6 +223,14 @@ export const wordBridges: readonly WordBridge[] = [
     entry: mah,
     danish: 'måne',
     clueDa: 'Måh og måne starter med næsten samme lyd.',
+    meaningDa: 'De betyder det samme og er i samme gamle familie.',
+  },
+  {
+    id: 'dar-doer',
+    titleDa: 'Dar og dør',
+    entry: dar,
+    danish: 'dør',
+    clueDa: 'D og r går igen i dar og dør.',
     meaningDa: 'De betyder det samme og er i samme gamle familie.',
   },
 ]

@@ -2,7 +2,7 @@
 
 Status: infrastructure ready; zero recordings approved.
 
-`audio-recording-queue.json` is generated with `npm run review:audio`. It lists all 176 static
+`audio-recording-queue.json` is generated with `npm run review:audio`. It lists all 177 static
 pronounceable entries and their exact candidate transcript, IPA, expected file path, and reviewers.
 Its status is `draft-awaiting-content-approval`: do not record a row while its Persian, stress, IPA,
 or Danish cue still has an unresolved content decision.

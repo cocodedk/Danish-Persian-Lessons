@@ -34,4 +34,9 @@ export const wordBridgeSources: Record<string, readonly string[]> = {
     'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
     'https://ordnet.dk/ddo/ordbog/m%C3%A5ne',
   ],
+  'dar-doer': [
+    'https://lrc.la.utexas.edu/lex/master/0435',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/d%C3%B8r',
+  ],
 }

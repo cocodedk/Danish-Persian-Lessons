@@ -40,11 +40,11 @@ waiver. Empty signature fields block release.
 
 - 77 Vitest files, 547 tests passed;
 - production main files: 354,055-byte JS and 47,740-byte CSS; the word-bridge page is a separate
-  4,747-byte JS / 1,022-byte CSS chunk;
+  5,084-byte JS / 1,022-byte CSS chunk;
 - 89 Playwright cases passed across Chromium, Firefox, and WebKit;
 - 40 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 224
   Linux pixel comparisons run once in Chromium; equivalent core journeys still run in all engines;
-- the checked-in 179-row content manifest and 176-row audio queue regenerated with no diff;
+- the checked-in 180-row content manifest and 177-row audio queue regenerated with no diff;
   `git diff --check` passed.
 
 ## External release gates — open
@@ -66,7 +66,7 @@ waiver. Empty signature fields block release.
 - The 86 whole-item cues are honest candidates, not a claim of fine-grained decomposition. Reviewers
   must approve them or request contextual spans where the item is taught as reading material.
 - Connected phrases and microtexts are implementation candidates, not approved teaching copy.
-- The audio manifest is intentionally empty: 176 pronounceable rows lack approved recordings and 3
+- The audio manifest is intentionally empty: 177 pronounceable rows lack approved recordings and 3
   no-sound rows are explicitly not applicable. Generated speech is prohibited.
 - `npm audit` reports two high findings from the same React Router RSC-only advisory,
   [GHSA-qwww-vcr4-c8h2](https://github.com/advisories/GHSA-qwww-vcr4-c8h2). This static HashRouter app
