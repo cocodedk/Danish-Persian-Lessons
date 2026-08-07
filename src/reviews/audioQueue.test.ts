@@ -9,7 +9,7 @@ describe('audio recording handoff', () => {
     const missing = contentReviewManifest.rows.filter((row) => row.audioStatus === 'missing')
     expect(audioRecordingQueue.status).toBe('draft-awaiting-content-approval')
     expect(audioRecordingQueue.rows).toHaveLength(missing.length)
-    expect(audioRecordingQueue.rows).toHaveLength(176)
+    expect(audioRecordingQueue.rows).toHaveLength(177)
     expect(new Set(audioRecordingQueue.rows.map((row) => row.entryId)).size).toBe(missing.length)
     expect(new Set(audioRecordingQueue.rows.map((row) => row.expectedFile)).size).toBe(missing.length)
     for (const row of audioRecordingQueue.rows) {

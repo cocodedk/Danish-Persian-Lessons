@@ -1745,6 +1745,26 @@
       ]
     },
     {
+      "entryId": "word-bridge-dar",
+      "domain": "bridges",
+      "transcript": "دَر",
+      "plainPersian": "در",
+      "danishMeaning": "dør",
+      "soundDa": "dar",
+      "ipa": "dæɾ",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-dar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "vocabulary-unit-1-title",
       "domain": "vocabulary",
       "transcript": "آب و بابا",
