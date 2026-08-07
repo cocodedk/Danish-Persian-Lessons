@@ -1,26 +1,27 @@
 // Split out of alphabet.test.ts to stay under the 200-line cap (CLAUDE.md) —
-// the Latin sound hints (docs/plans/008-keyboard-danish-hints.md) are their
-// own concern: the dictated table, transcribed once, verbatim.
+// the short keyboard hints are their own concern: each must stay accurate and
+// small enough to read on the six-column board.
 import { describe, it, expect } from 'vitest'
 import { letters } from './alphabet'
 
 describe('keyboard Latin hints', () => {
-  // The dictated table, verbatim, glyph -> hint, one line of code per line of the table.
+  // Reviewed glyph -> sound or common job.
   const TABLE: Record<string, string> = {
-    'آ': 'å', 'ا': 'a', 'ب': 'b', 'پ': 'p', 'ت': 't', 'ث': 's', 'ج': 'dj', 'چ': 'tj',
+    'آ': 'å', 'ا': 'vokal', 'ب': 'b', 'پ': 'p', 'ت': 't', 'ث': 's', 'ج': 'dj', 'چ': 'tj',
     'ح': 'h', 'خ': 'kh', 'د': 'd', 'ذ': 'z', 'ر': 'r', 'ز': 'z', 'ژ': 'zj', 'س': 's',
-    'ش': 'sj', 'ص': 's', 'ض': 'z', 'ط': 't', 'ظ': 'z', 'ع': '’', 'غ': 'gh', 'ف': 'f',
-    'ق': 'gh', 'ک': 'k', 'گ': 'g', 'ل': 'l', 'م': 'm', 'ن': 'n', 'و': 'v', 'ه': 'h',
-    'ی': 'j',
+    'ش': 'sj', 'ص': 's', 'ض': 'z', 'ط': 't', 'ظ': 'z', 'ع': 'stop', 'غ': 'gh', 'ف': 'f',
+    'ق': 'gh', 'ک': 'k', 'گ': 'g', 'ل': 'l', 'م': 'm', 'ن': 'n', 'و': 'v/u', 'ه': 'h/e',
+    'ی': 'j/i',
   }
 
   it('has exactly 33 entries — the 32 letters plus آ', () => {
     expect(Object.keys(TABLE)).toHaveLength(33)
   })
 
-  it('hints are Latin-only: Danish letters and the ’ glottal mark, 1-3 chars', () => {
+  it('uses only short Latin hints and a slash for a second common job', () => {
     for (const hint of Object.values(TABLE)) {
-      expect(hint).toMatch(/^[a-zæøå’]{1,3}$/)
+      expect(hint).toMatch(/^[a-zæøå]+(?:\/[a-zæøå]+)?$/)
+      expect(hint.length).toBeLessThanOrEqual(5)
     }
   })
 
@@ -32,16 +33,17 @@ describe('keyboard Latin hints', () => {
     expect(madde?.latinHint, 'alef-madde').toBe(TABLE['آ'])
   })
 
-  it('repeats one hint across every homophone group, derived from sound.ipa equality', () => {
+  it('repeats one base hint across every homophone group', () => {
     const byIpa = new Map<string, string[]>()
     for (const letter of letters) {
-      byIpa.set(letter.sound.ipa, [...(byIpa.get(letter.sound.ipa) ?? []), letter.latinHint])
+      const baseHint = letter.latinHint.split('/')[0]
+      byIpa.set(letter.sound.ipa, [...(byIpa.get(letter.sound.ipa) ?? []), baseHint])
     }
     for (const [ipa, hints] of byIpa) {
       expect(new Set(hints).size, `letters sharing ipa "${ipa}": ${hints.join(', ')}`).toBe(1)
     }
     // The groups this finds are real, not a vacuous pass with none over size 1:
-    // س (sin), ز (ze), ت (te)/ط (ta), ح (he-jimi)/ه (he), and ق/غ each read alike.
+    // س, ز, ت/ط, ح/ه, and ق/غ each read alike. A key may still name a second job.
     const groupCount = [...byIpa.values()].filter((hints) => hints.length > 1).length
     expect(groupCount).toBe(5)
   })

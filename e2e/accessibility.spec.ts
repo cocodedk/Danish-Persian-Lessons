@@ -26,6 +26,7 @@ test('representative routes retain enhanced target sizes at narrow width', async
     '#/lesson/alphabet/bogstav/be', '#/lesson/alphabet/ovelse/find',
     '#/lesson/ord/1', '#/lesson/ord/1/skriv', '#/puslespil/alphabet-1-match',
     '#/repetition', '#/dit-navn', '#/lesson/navn',
+    '#/ord-der-ligner',
   ]
   for (const route of routes) {
     await open(page, route)

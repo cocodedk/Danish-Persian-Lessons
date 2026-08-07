@@ -121,13 +121,20 @@ test('wrong feedback is visibly selected and not hidden by the dock', async ({ p
 })
 
 test('typing remains keyboard-completable with enhanced targets', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 })
+  await page.setViewportSize({ width: 320, height: 844 })
   await open(page, '#/lesson/ord/1/skriv')
   const keys = page.locator('.keyboard__key')
   await expect(keys.first()).toBeVisible()
   for (const box of await keys.evaluateAll((items) => items.slice(0, 6).map((item) => item.getBoundingClientRect()))) {
     expect(box.width).toBeGreaterThanOrEqual(44)
     expect(box.height).toBeGreaterThanOrEqual(44)
+  }
+  for (const { caption, key } of await page.locator('.keyboard__caption, .keyboard__caption > span').evaluateAll((items) => items.map((item) => ({
+    caption: item.getBoundingClientRect(),
+    key: item.closest('.keyboard__key')!.getBoundingClientRect(),
+  })))) {
+    expect(caption.left).toBeGreaterThanOrEqual(key.left)
+    expect(caption.right).toBeLessThanOrEqual(key.right)
   }
   await page.getByRole('button', { name: 'alef med madde' }).click()
   await page.getByRole('button', { name: 'be' }).click()

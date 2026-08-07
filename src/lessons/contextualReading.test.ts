@@ -13,7 +13,7 @@ describe('contextual Persian reading', () => {
   it('does not claim plain alef has one universal sound', () => {
     const alef = letters.find((letter) => letter.id === 'alef')
     expect(alef?.sound).toEqual({
-      da: 'vokalbærer; lyden afhænger af ordet',
+      da: 'bærer en vokal; se hele ordet',
       ipa: '◌',
     })
   })

@@ -25,6 +25,11 @@ describe('the key map', () => {
     expect(ids.filter((id) => id === 'alef-madde')).toHaveLength(1)
   })
 
+  it('puts the letter keys in standard Persian alphabet order', () => {
+    const letterIds = KEYBOARD_KEYS.filter((key) => key.kind === 'letter').map((key) => key.id)
+    expect(letterIds).toEqual(['alef-madde', ...letters.map((letter) => letter.id)])
+  })
+
   it('carries the ZWNJ, the space and the backspace, each exactly once', () => {
     for (const id of ['zwnj', 'space', 'backspace']) {
       expect(ids.filter((each) => each === id), id).toHaveLength(1)

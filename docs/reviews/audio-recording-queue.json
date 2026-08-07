@@ -10,7 +10,7 @@
       "transcript": "ا",
       "plainPersian": "ا",
       "danishMeaning": "alef",
-      "soundDa": "vokalbærer; lyden afhænger af ordet",
+      "soundDa": "bærer en vokal; se hele ordet",
       "ipa": "◌",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-letter-alef.mp3",
@@ -307,11 +307,11 @@
     {
       "entryId": "alphabet-name-he-jimi",
       "domain": "alphabet",
-      "transcript": "حِ",
-      "plainPersian": "ح",
+      "transcript": "ح جیمی",
+      "plainPersian": "ح جیمی",
       "danishMeaning": "bogstavnavnet he jimi",
-      "soundDa": "he jimi",
-      "ipa": "he",
+      "soundDa": "he-ye djimi",
+      "ipa": "heje dʒiːmiː",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-name-he-jimi.mp3",
       "requiredBeforeRecording": [
@@ -810,8 +810,8 @@
       "transcript": "ع",
       "plainPersian": "ع",
       "danishMeaning": "eyn",
-      "soundDa": "stød, som i \"hånd\"",
-      "ipa": "ʔ",
+      "soundDa": "lille stop eller ingen lyd; se ordet",
+      "ipa": "ʔ~∅",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-letter-eyn.mp3",
       "requiredBeforeRecording": [
@@ -850,7 +850,7 @@
       "transcript": "غ",
       "plainPersian": "غ",
       "danishMeaning": "gheyn",
-      "soundDa": "et dybt g/r bagerst i halsen",
+      "soundDa": "dyb lyd i halsen",
       "ipa": "ɢ~ɣ",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-letter-gheyn.mp3",
@@ -871,7 +871,7 @@
       "plainPersian": "غین",
       "danishMeaning": "bogstavnavnet gheyn",
       "soundDa": "gheyn",
-      "ipa": "ɣejn",
+      "ipa": "ɢejn",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-name-gheyn.mp3",
       "requiredBeforeRecording": [
@@ -930,7 +930,7 @@
       "transcript": "ق",
       "plainPersian": "ق",
       "danishMeaning": "ghaf",
-      "soundDa": "et dybt g/r bagerst i halsen",
+      "soundDa": "dyb lyd i halsen",
       "ipa": "ɢ~ɣ",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-letter-ghaf.mp3",
@@ -1227,11 +1227,11 @@
     {
       "entryId": "alphabet-name-he",
       "domain": "alphabet",
-      "transcript": "هِ",
-      "plainPersian": "ه",
+      "transcript": "ه دو چشم",
+      "plainPersian": "ه دو چشم",
       "danishMeaning": "bogstavnavnet he do-tjeshm",
-      "soundDa": "he do-tjeshm",
-      "ipa": "he",
+      "soundDa": "he-ye do tjeshm",
+      "ipa": "heje do tʃeʃm",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-name-he.mp3",
       "requiredBeforeRecording": [
@@ -1594,6 +1594,86 @@
       "ipa": "sokuːn",
       "stressMarked": false,
       "expectedFile": "/audio/alphabet-mark-name-sokun.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-dandan",
+      "domain": "bridges",
+      "transcript": "دَندان",
+      "plainPersian": "دندان",
+      "danishMeaning": "tand",
+      "soundDa": "dandån",
+      "ipa": "dænˈdɒːn",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-dandan.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-setad",
+      "domain": "bridges",
+      "transcript": "سِتاد",
+      "plainPersian": "ستاد",
+      "danishMeaning": "hovedkontor",
+      "soundDa": "setåd",
+      "ipa": "seˈtɒːd",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-setad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-band",
+      "domain": "bridges",
+      "transcript": "بَند",
+      "plainPersian": "بند",
+      "danishMeaning": "bånd eller mur i vand",
+      "soundDa": "band",
+      "ipa": "bænd",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-band.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-seyl",
+      "domain": "bridges",
+      "transcript": "سِیل",
+      "plainPersian": "سیل",
+      "danishMeaning": "meget vand på land",
+      "soundDa": "seyl",
+      "ipa": "sejl",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-seyl.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",

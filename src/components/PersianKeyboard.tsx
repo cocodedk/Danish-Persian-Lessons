@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { KEYBOARD_KEYS, keyForPhysicalInput, type KeyDef } from '../keyboard/layout'
-import { ZWNJ_NAME_ENTRY } from '../content/faStrings'
 import { PersianText } from './PersianText'
 import { DetailStrip, letterLessonPath } from './EntryRenderers'
 import './PersianKeyboard.css'
@@ -46,7 +45,10 @@ function KeyCap({ shape }: { shape: KeyDef }) {
           <span />
           <span />
         </span>
-        <PersianText entry={ZWNJ_NAME_ENTRY} className="keyboard__caption" ariaHidden />
+        <span className="keyboard__caption" aria-hidden="true">
+          <span>halvt</span>
+          <span>mellemrum</span>
+        </span>
       </span>
     )
   }

@@ -177,6 +177,10 @@ export default function Home() {
                 />
               ))}
             </div>
+            <Link className="home__word-bridges" to="/ord-der-ligner">
+              <strong>Ord, der ligner</strong>
+              <span>Se ord, som persisk og dansk deler</span>
+            </Link>
             <TypingRounds faSpelling={profile.faSpelling} />
           </section>
         </div>

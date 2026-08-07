@@ -1,6 +1,6 @@
 # AAA Release Status
 
-Status: implementation candidate, not externally approved. Updated 2026-08-06.
+Status: implementation candidate, not externally approved. Updated 2026-08-07.
 
 AAA remains conjunctive: Accurate AND Adaptive AND Accessible. This file is evidence routing, not a
 waiver. Empty signature fields block release.
@@ -9,7 +9,7 @@ waiver. Empty signature fields block release.
 
 - contextual reading roles replace universal letter sounds; all 28 curriculum vocabulary words have
   exact, ordered written/unwritten cues with explicit carrier, silent, vowel, and consonant roles;
-- every catalog word/phrase now has a reviewable ordered cue: 34 contextual, 7 tokenized, and 82
+- every catalog word/phrase now has a reviewable ordered cue: 38 contextual, 7 tokenized, and 86
   whole-item candidates; the remaining 45 no-cue rows are letters, marks, or symbols;
 - route focus, unique titles, forward scroll reset, and Back restoration are browser-tested;
 - selected answer state, full in-view teaching feedback, retry focus, and compact typing-error flow
@@ -31,20 +31,20 @@ waiver. Empty signature fields block release.
   routes; production performance, network privacy, semantic contrast, and asset ceilings are enforced;
 - storage denial/full and corrupt saved rows preserve the active session and produce distinct,
   non-blocking status messages only when recovery information is needed;
-- 210 deterministic pixel baselines cover 15 required states at seven widths in both color schemes.
+- 224 deterministic pixel baselines cover 16 required states at seven widths in both color schemes.
   They compare cleanly but remain candidates until the three required visual reviewers sign.
 
 ## Latest automated run
 
-`npm run verify` passed on 2026-08-06 after regenerating both review artifacts:
+`npm run verify` passed on 2026-08-07 after regenerating both review artifacts:
 
-- 71 Vitest files, 527 tests passed;
-- production initial bundle: 359,420-byte JS and 46,546-byte CSS; the dormant audio player is a
+- 74 Vitest files, 538 tests passed;
+- production initial bundle: 363,654-byte JS and 47,994-byte CSS; the dormant audio player is a
   separate 1,576-byte JS / 407-byte CSS chunk;
 - 76 Playwright cases passed across Chromium, Firefox, and WebKit;
-- 38 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 210
+- 38 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 224
   Linux pixel comparisons run once in Chromium; equivalent core journeys still run in all engines;
-- the checked-in 172-row content manifest and 169-row audio queue regenerated with no diff;
+- the checked-in 176-row content manifest and 173-row audio queue regenerated with no diff;
   `git diff --check` passed.
 
 ## External release gates — open
@@ -61,12 +61,12 @@ waiver. Empty signature fields block release.
 
 ## Content and dependency gates — open
 
-- The generated manifest has 67 stress-review rows: 10 currently mark lexical stress and 57 still
+- The generated manifest has 75 stress-review rows: 12 currently mark lexical stress and 63 still
   require a phonetics decision and, where applicable, corrected source IPA.
-- The 82 whole-item cues are honest candidates, not a claim of fine-grained decomposition. Reviewers
+- The 86 whole-item cues are honest candidates, not a claim of fine-grained decomposition. Reviewers
   must approve them or request contextual spans where the item is taught as reading material.
 - Connected phrases and microtexts are implementation candidates, not approved teaching copy.
-- The audio manifest is intentionally empty: 169 pronounceable rows lack approved recordings and 3
+- The audio manifest is intentionally empty: 173 pronounceable rows lack approved recordings and 3
   no-sound rows are explicitly not applicable. Generated speech is prohibited.
 - `npm audit` reports two high findings from the same React Router RSC-only advisory,
   [GHSA-qwww-vcr4-c8h2](https://github.com/advisories/GHSA-qwww-vcr4-c8h2). This static HashRouter app

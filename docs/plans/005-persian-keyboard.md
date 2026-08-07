@@ -15,8 +15,8 @@ exercises for the vocab units, ending with the capstone: typing their own name.
 ## Steps
 
 1. **Keyboard component** `src/components/PersianKeyboard.tsx` (+ css): letters-only v1 — the 32
-   letters + ZWNJ (نیم‌فاصله, labeled) + backspace. Simplified layout inspired by the standard
-   Persian layout's letter placement, arranged in 3-4 rows that fit 360px with every key ≥44×44px
+   letters + ZWNJ (نیم‌فاصله, labeled) + backspace. Alphabetical letter order, arranged in 3-4 rows
+   that fit 360px with every key ≥44×44px
    in the bottom thumb zone. Key caps show the isolated glyph; `aria-label` = the letter's Danish
    name from alphabet data (single source). No shift layers, no digits, no punctuation in v1.
 2. **Input buffer** `src/keyboard/buffer.ts` — pure, TDD-first: append letter / ZWNJ / backspace;
@@ -77,9 +77,9 @@ Where the build does not do what this plan wrote, and why.
    silence gate 8 requires for no name at all, and the 006 mini-lesson still teaches the name.
 4. **Six rows of six, not the "3-4 rows" of step 1.** 36 keys at ≥44×44px on a 360px screen allow
    six columns at most — (360 − 8 padding − 5 × 4 gap) ÷ 6 ≈ 55px. Nine columns would be 40px and
-   fail the first acceptance box, so the box wins over the step's row count. Letter placement still
-   follows the standard Persian layout's order, with ژ beside ز and آ beside ا where the standard
-   layout hides them under a shift this keyboard does not have.
+   fail the first acceptance box, so the box wins over the step's row count. Letter placement follows
+   the beginner alphabet sequence from right to left, with آ directly before ا because it is the
+   extra taught specimen used by the first word, آب.
 5. **The writing line is docked in the thumb zone, not set in the middle of the sheet.** It is
    still Naskh ink on ruled paper (step 3), but pinned directly above the keys: at 360×640 a line
    placed in the sheet body scrolled out of sight the moment the keyboard opened, so the learner
@@ -140,8 +140,8 @@ marking is a child of the dock, never of the sheet); the pixel claim itself is b
 not jsdom-verified, and honestly cannot be the other way — jsdom computes no layout at all.
 
 Accepted without change:
-- The board's letter order follows the standard Persian layout, by this plan's own step 1 — not a
-  defect.
+- Superseded on 2026-08-07: the physical Persian-keyboard order was a learner-facing defect. The
+  board now follows the standard Persian alphabetical order.
 - Whether the logic here was built test-first cannot be reconstructed from commit order after the
   fact. That is a standing limit of "TDD for logic" as a project convention (CLAUDE.md), not a
   defect this round can prove one way or the other.

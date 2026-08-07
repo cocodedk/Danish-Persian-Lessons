@@ -14,7 +14,7 @@ their Danish text must describe the visible sign honestly.
 
 ## Scope and findings
 
-The audit covered all 172 typed catalog entries, the three connected microtexts, every dynamic
+The audit covered all 176 typed catalog entries, the three connected microtexts, every dynamic
 reward helper, and every learner-visible render site that places Persian text near Danish text.
 
 Confirmed mismatches corrected:
@@ -32,6 +32,8 @@ Confirmed mismatches corrected:
 9. Sticker labels and the bonus line no longer add “sticker,” “out of twenty,” or “as a gift” on
    the Danish side only.
 10. The name-choice prompt and six praise pairs now use direct, simple equivalents.
+11. The four word bridges state whether the modern meanings match. بند/bånd is a true old link;
+    بند/vand and سیل/sejle are clearly marked as memory pictures, not translations.
 
 ## Lexical floor
 

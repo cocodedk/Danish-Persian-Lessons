@@ -76,6 +76,28 @@
   line-height: 1.5;
 }
 
+.home__word-bridges {
+  display: grid;
+  gap: 0.1rem;
+  min-block-size: var(--tap-min);
+  margin-block-start: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.home__word-bridges strong {
+  color: var(--blue);
+  font-size: 1.0625rem;
+}
+
+.home__word-bridges span {
+  font-size: 0.9375rem;
+}
+
 .home__hero {
   --pane-fa-height: clamp(17rem, 42dvh, 24rem);
 }

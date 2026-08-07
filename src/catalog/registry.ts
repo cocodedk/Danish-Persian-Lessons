@@ -1,4 +1,5 @@
 import { alphabetCatalog } from './alphabet'
+import { bridgesCatalog } from './bridges'
 import { interfaceCatalog } from './interface'
 import { namesCatalog } from './names'
 import { rewardsCatalog } from './rewards'
@@ -7,6 +8,7 @@ import { vocabularyCatalog } from './vocabulary'
 
 export const catalogDomains = {
   alphabet: alphabetCatalog,
+  bridges: bridgesCatalog,
   vocabulary: vocabularyCatalog,
   interface: interfaceCatalog,
   names: namesCatalog,

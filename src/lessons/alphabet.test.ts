@@ -81,7 +81,7 @@ describe('the Persian alphabet', () => {
   it('gives ق and غ one sound, because Tehrani Persian says them the same', () => {
     const anchors = Object.fromEntries(letters.map((l) => [l.id, l.sound]))
     expect(anchors.ghaf).toEqual({
-      da: 'et dybt g/r bagerst i halsen',
+      da: 'dyb lyd i halsen',
       ipa: 'ɢ~ɣ',
     })
     expect(anchors.gheyn).toEqual(anchors.ghaf)
@@ -100,6 +100,25 @@ describe('the Persian alphabet', () => {
     expect(names['he-jimi']).toBe('he jimi')
     expect(names.he).toBe('he do-tjeshm')
     expect(new Set(letters.map((l) => l.name.da)).size).toBe(32)
+    const schoolNames = Object.fromEntries(letters.map((l) => [l.id, l.nameEntry]))
+    expect(schoolNames['he-jimi']).toMatchObject({
+      fa: 'ح جیمی',
+      pron: { da: 'he-ye djimi', ipa: 'heje dʒiːmiː' },
+    })
+    expect(schoolNames.he).toMatchObject({
+      fa: 'ه دو چشم',
+      pron: { da: 'he-ye do tjeshm', ipa: 'heje do tʃeʃm' },
+    })
+  })
+
+  it('does not present eyn as a Danish vowel or one fixed sound', () => {
+    const eyn = letters.find((letter) => letter.id === 'eyn')!
+    expect(eyn.sound).toEqual({
+      da: 'lille stop eller ingen lyd; se ordet',
+      ipa: 'ʔ~∅',
+    })
+    expect(eyn.latinHint).toBe('stop')
+    expect(eyn.hint).toContain('Dansk æ, ø, å og y kommer ikke fra eyn')
   })
 
   it('hangs آ on the alef entry, with its own sound and strokes', () => {

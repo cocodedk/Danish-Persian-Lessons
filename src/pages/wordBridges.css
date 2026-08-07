@@ -1,0 +1,70 @@
+.word-bridges__lead {
+  max-inline-size: var(--reading-max);
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.word-bridges__list {
+  display: grid;
+  gap: var(--rule-step);
+  margin-block-start: var(--rule-step);
+}
+
+.word-bridge {
+  display: grid;
+  gap: 0.75rem;
+  max-inline-size: var(--task-max);
+  padding-block-end: var(--rule-step);
+  border-block-end: 1px solid var(--rule);
+}
+
+.word-bridge h2 {
+  margin: 0;
+  font-size: 1.1875rem;
+}
+
+.word-bridge__pair {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.word-bridge__pair .entry-card {
+  min-inline-size: 0;
+}
+
+.word-bridge__pair .fa-specimen {
+  font-size: clamp(3.5rem, 17vw, 6rem);
+}
+
+.word-bridge__danish {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-block-size: 8rem;
+  padding: 0.75rem;
+  border: 1px solid var(--rule);
+  background: var(--card);
+}
+
+.word-bridge__danish span {
+  font-size: 0.875rem;
+}
+
+.word-bridge__danish strong {
+  font-size: clamp(2rem, 9vw, 3rem);
+}
+
+.word-bridge__clue,
+.word-bridge__meaning {
+  max-inline-size: var(--reading-max);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (min-width: 48rem) {
+  .word-bridge__pair {
+    grid-template-columns: minmax(0, 1.35fr) minmax(11rem, 0.65fr);
+    align-items: stretch;
+  }
+}

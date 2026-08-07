@@ -15,6 +15,7 @@ export const visualStates = [
   'typing-feedback',
   'name-settings',
   'connected-reading',
+  'word-bridges',
   'celebration',
   'session-summary',
 ] as const
@@ -95,6 +96,7 @@ export async function prepareVisualState(page: Page, state: VisualState) {
     return expect(page.getByRole('heading', { name: 'Indstillinger' })).toBeVisible()
   }
   if (state === 'connected-reading') return open(page, '#/lesson/ord/1/laes/1-1')
+  if (state === 'word-bridges') return open(page, '#/ord-der-ligner')
   if (state === 'celebration') {
     await page.evaluate((row) => localStorage.setItem('dpl.v1.rewards', row), envelope({
       stickers: [], level: 1, points: 9, practiceDates: [], giftsOpened: [], cheers: 0,

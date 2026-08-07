@@ -31,7 +31,7 @@ manifest row aloud; this table does not waive row-by-row review.
 | /ɾ/ | `r` | a single tapped or lightly rolled r | A Danish uvular r is not the target. |
 | /z/ | `z` | English z in “zoo” | A Dane may read `z` as /s/. |
 | /ɢ~ɣ/ | `gh` | deep g/r at the back of the throat | Tehrani ghaf and gheyn share this cue. |
-| /ʔ/ | apostrophe or an explicit “stød” cue | small break at vowel onset | Context and possible weakening require word-level review. |
+| /ʔ~∅/ | `stop` on the key; word-level spelling elsewhere | a small break or no separate sound | ع is not a Danish vowel and must be read in its word. |
 
 ## Whole-word rules
 
@@ -39,6 +39,7 @@ manifest row aloud; this table does not waive row-by-row review.
 - Use `å`, never `aa`, for /ɒː/ in the learner-facing cue.
 - Keep `kh`, `gh`, `sj`, `tj`, `dj`, and `zj` consistent with the table.
 - Do not hide the five known Danish traps: `z`, `kh`, post-vocalic `d`, word-final `h`, and `-rd`.
+- Do not map ع to Danish æ, ø, å, or y. Those are Danish vowels; ع has a different job.
 - Polysyllabic IPA must carry reviewed lexical stress. The Danish cue does not encode stress by
   itself; the human recording and IPA must make it available.
 - An exception is recorded on its manifest row. It does not silently create a second convention.

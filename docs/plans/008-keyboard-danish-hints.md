@@ -24,21 +24,23 @@ same hint (ث س ص all show "s"): the repetition is itself the lesson.
   Danish letter name from alphabet data — no double announcement).
 - Space/ZWNJ/backspace keys keep their existing captions — no orange hints there.
 
-## The hint table (dictated by Fable — builder must not change it silently; the critic's teacher
-persona may propose corrections, logged)
+## The hint table
+
+The first table was replaced after the whole-alphabet sound review on 2026-08-07. A key now names a
+base sound or a common job. A slash means that the letter often has both jobs.
 
 | | | | | | | | |
 |---|---|---|---|---|---|---|---|
-| آ å | ا a | ب b | پ p | ت t | ث s | ج dj | چ tj |
+| آ å | ا vokal | ب b | پ p | ت t | ث s | ج dj | چ tj |
 | ح h | خ kh | د d | ذ z | ر r | ز z | ژ zj | س s |
-| ش sj | ص s | ض z | ط t | ظ z | ع ’ | غ gh | ف f |
-| ق gh | ک k | گ g | ل l | م m | ن n | و v | ه h |
-| ی j | | | | | | | |
+| ش sj | ص s | ض z | ط t | ظ z | ع stop | غ gh | ف f |
+| ق gh | ک k | گ g | ل l | م m | ن n | و v/u | ه h/e |
+| ی j/i | | | | | | | |
 
 ## Steps
 
 1. Data: `latinHint: string` added to the `Letter` type and every row of `src/lessons/alphabet.ts`
-   per the table (آ's hint lives with the alef-madde specimen the keyboard already sources).
+   per the reviewed table (آ's hint lives with the alef-madde specimen the keyboard already sources).
    Test: all 33 keyboard letters have a non-empty hint; homophone groups share identical hints
    (derive the groups from `sound.ipa` equality and assert hint equality across each group).
 2. Keyboard: `PersianKeyboard.tsx` renders the hint span (aria-hidden, class `keyboard__hint`)
@@ -58,7 +60,7 @@ persona may propose corrections, logged)
 
 ## Acceptance
 
-- [x] Every letter key shows its dictated hint in orange under the glyph; table verbatim
+- [x] Every letter key shows its reviewed hint in orange under the glyph
 - [x] Homophone-group hint equality asserted from IPA data; guard/tests green
 - [x] `--orange` tokenized both schemes, ≥4.5:1 on its paper, in SEMANTIC_TOKENS + ART-DIRECTION
 - [x] Keys ≥44×44px at 360px, no overflow, both schemes; plan-005 dock visibility numbers still
@@ -104,7 +106,15 @@ Where the build does not do what this plan wrote, and why.
    `--orange` darkened #B4530A → #A94D09 (4.590:1 on `--card`, 5.019:1 on `--paper`); the
    dictated surface in step 3 was the planner's error, not the builder's.
 2. Hardened per critic notes: a letter key without a `latinHint` now throws (loud, like a missing
-   letter); hint charset pinned Latin-only (a-z æøå ’, 1-3 chars).
-3. Accepted notes, logged: ع's ’ reads as a speck at hint size (revisit alongside the planned
-   ع-through-stød lesson anchor); و→v and ی→j hide vowel duties (deliberate keyboard-affordance
-   simplification); zj/kh are coined transliterations, internally consistent.
+   letter); hint charset is pinned to short Latin text with one optional slash.
+3. Superseded on 2026-08-07: ع no longer uses the easy-to-miss mark `’`, and و, ه, and ی no longer
+   hide their common second jobs. Their keys now say `stop`, `v/u`, `h/e`, and `j/i`.
+
+## Sound review — 2026-08-07
+
+- Standard Tehrani Persian keeps the Arabic spellings, but not every Arabic sound. ح/ه, ت/ط,
+  ث/س/ص, and ذ/ز/ض/ظ are taught as same-sound spellings.
+- ع is not mapped to Danish æ, ø, å, or y. It may mark a small break or have no sound of its own;
+  the whole word decides what the learner hears.
+- Sources and the row-by-row decision are recorded in
+  [ALPHABET-PRONUNCIATION-REVIEW.md](../reviews/ALPHABET-PRONUNCIATION-REVIEW.md).

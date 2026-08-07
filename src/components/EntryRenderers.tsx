@@ -16,14 +16,20 @@ export function letterLessonPath(entryId: string): string | undefined {
   return specimenId ? `/lesson/alphabet/bogstav/${specimenId}` : undefined
 }
 
-export function FullTeachingCard({ entry }: { entry: PersianEntry }) {
+export function FullTeachingCard({
+  entry,
+  showReadingCues = true,
+}: {
+  entry: PersianEntry
+  showReadingCues?: boolean
+}) {
   return (
     <section className="entry-card" data-entry-id={entry.id}>
       <FaSpecimen entry={entry} />
       <PronLine {...entry.pron} />
       <OptionalAudioControl audioId={entry.audioId} />
       <DaWord>{entry.da}</DaWord>
-      {entry.readingCues && <ReadingCues entry={entry} />}
+      {showReadingCues && entry.readingCues && <ReadingCues entry={entry} />}
     </section>
   )
 }

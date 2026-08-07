@@ -1,6 +1,6 @@
 # Visual baseline review protocol
 
-Status: 210 deterministic baseline candidates generated; no human approval recorded.
+Status: 224 deterministic baseline candidates generated; no human approval recorded.
 
 The baselines in `e2e/visual.spec.ts-snapshots/` cover 15 representative states at 320, 390, 768,
 1024, 1440, 1920, and 2560 CSS pixels in light and dark schemes. `npm run e2e:run --

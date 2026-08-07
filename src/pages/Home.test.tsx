@@ -120,6 +120,10 @@ describe('Home', () => {
     const lesson = screen.getByRole('link', { name: /Alfabetet/ })
     expect(lesson).toHaveAttribute('href', '/lesson/alphabet')
     expect(screen.getByText('0 af 39 set eller øvet')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Ord, der ligner/ })).toHaveAttribute(
+      'href',
+      '/ord-der-ligner',
+    )
   })
 
   it('deleting the name from the settings corner reverts the greeting to plain Hej!', () => {

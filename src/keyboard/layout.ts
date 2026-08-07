@@ -1,9 +1,8 @@
-// The key map. Letter placement follows the standard Persian layout's order —
-// ض ص ث ق ف غ ع ه خ ح ج چ · ش س ی ب ل ا ت ن م ک گ · ظ ط ز ر ذ د پ و — reflowed
-// into six rows of six so every key can be at least 44×44px on a 360px screen
-// (docs/plans/005-persian-keyboard.md, Acceptance box 1). ژ sits beside ز and آ
-// beside ا, where the standard layout hides them under a shift this keyboard
-// does not have.
+// The key map follows the standard beginner alphabet sequence, from the right
+// side of each row: آ ا ب پ ت ث · ج چ ح خ د ذ · ر ز ژ س ش ص ·
+// ض ط ظ ع غ ف · ق ک گ ل م ن · و ه ی. It is split into six rows of six so
+// every key can be at least 44×44px on a 360px screen
+// (docs/plans/005-persian-keyboard.md, Acceptance box 1).
 //
 // Nothing here spells a letter's name or draws its glyph a second time: both
 // come from the alphabet data, which is the single source (CLAUDE.md).
@@ -32,12 +31,12 @@ export interface KeyDef {
  * The alphabet lesson already teaches it as a specimen of its own.
  */
 const ROW_IDS: string[][] = [
-  ['zad', 'sad', 'se', 'ghaf', 'fe', 'gheyn'],
-  ['eyn', 'he', 'khe', 'he-jimi', 'jim', 'che'],
-  ['shin', 'sin', 'ye', 'be', 'lam', 'alef'],
-  ['alef-madde', 'te', 'nun', 'mim', 'kaf', 'gaf'],
-  ['za', 'ta', 'ze', 'zhe', 're', 'zal'],
-  ['dal', 'pe', 'vav', 'space', 'zwnj', 'backspace'],
+  ['alef-madde', 'alef', 'be', 'pe', 'te', 'se'],
+  ['jim', 'che', 'he-jimi', 'khe', 'dal', 'zal'],
+  ['re', 'ze', 'zhe', 'sin', 'shin', 'sad'],
+  ['zad', 'ta', 'za', 'eyn', 'gheyn', 'fe'],
+  ['ghaf', 'kaf', 'gaf', 'lam', 'mim', 'nun'],
+  ['vav', 'he', 'ye', 'space', 'zwnj', 'backspace'],
 ]
 
 /**

@@ -62,6 +62,15 @@ describe('the keyboard', () => {
     }
   })
 
+  it('names both space keys visibly in Danish', () => {
+    const { container } = open('#/lesson/ord/1/skriv')
+    const captions = [...container.querySelectorAll('.keyboard__caption')]
+      .map((caption) => caption.children.length > 0
+        ? [...caption.children].map((line) => line.textContent).join(' ')
+        : caption.textContent)
+    expect(captions).toEqual(['mellemrum', 'halvt mellemrum'])
+  })
+
   it('will not start a word with a نیم‌فاصله and will not double one', () => {
     const { container } = open('#/lesson/ord/1/skriv')
 

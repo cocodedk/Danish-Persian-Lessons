@@ -20,6 +20,8 @@ interface Row {
   anchor: string
   ipa: string
   nameIpa: string
+  /** Danish help for saying the full school name when it differs from `da`. */
+  namePron?: string
   /** The Danish sound-hint shown on the keyboard key — see types.ts. */
   hint: string
 }
@@ -28,20 +30,19 @@ interface Row {
 const Z_ANCHOR = 'stemt s — som engelsk z i "zoo"'
 
 /** ق and غ have fallen together in Tehrani Persian: one sound, two spellings. */
-const GHAF_GHEYN = { anchor: 'et dybt g/r bagerst i halsen', ipa: 'ɢ~ɣ' }
+const GHAF_GHEYN = { anchor: 'dyb lyd i halsen', ipa: 'ɢ~ɣ' }
 
-// Latin hints are the dictated table in docs/plans/008-keyboard-danish-hints.md,
-// verbatim — homophone groups (derived from `ipa` equality, see alphabet.test.ts)
-// repeat the same hint by design: ث س ص all say "s" because they all sound [s].
+// A short key hint names the sound or job a learner needs first. Letters with
+// more than one common job show both; same-sound spellings repeat one hint.
 const ROWS: Row[] = [
-  { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'vokalbærer; lyden afhænger af ordet', ipa: '◌', nameIpa: 'ʔælef', hint: 'a' },
+  { g: 'ا', id: 'alef', fa: 'الف', da: 'alef', joins: false, anchor: 'bærer en vokal; se hele ordet', ipa: '◌', nameIpa: 'ʔælef', hint: 'vokal' },
   { g: 'ب', id: 'be', fa: 'بِ', da: 'be', joins: true, anchor: 'b i "bil"', ipa: 'b', nameIpa: 'be', hint: 'b' },
   { g: 'پ', id: 'pe', fa: 'پِ', da: 'pe', joins: true, anchor: 'p i "pose"', ipa: 'p', nameIpa: 'pe', hint: 'p' },
   { g: 'ت', id: 'te', fa: 'تِ', da: 'te', joins: true, anchor: 't i "tak"', ipa: 't', nameIpa: 'te', hint: 't' },
   { g: 'ث', id: 'se', fa: 'ثِ', da: 'se', joins: true, anchor: 's i "sol"', ipa: 's', nameIpa: 'se', hint: 's' },
   { g: 'ج', id: 'jim', fa: 'جیم', da: 'jim', joins: true, anchor: 'dj i "jazz"', ipa: 'dʒ', nameIpa: 'dʒiːm', hint: 'dj' },
   { g: 'چ', id: 'che', fa: 'چِ', da: 'che', joins: true, anchor: 'tj i "chips"', ipa: 'tʃ', nameIpa: 'tʃe', hint: 'tj' },
-  { g: 'ح', id: 'he-jimi', fa: 'حِ', da: 'he jimi', joins: true, anchor: 'h i "hus"', ipa: 'h', nameIpa: 'he', hint: 'h' },
+  { g: 'ح', id: 'he-jimi', fa: 'ح جیمی', da: 'he jimi', joins: true, anchor: 'h i "hus"', ipa: 'h', nameIpa: 'heje dʒiːmiː', namePron: 'he-ye djimi', hint: 'h' },
   { g: 'خ', id: 'khe', fa: 'خِ', da: 'khe', joins: true, anchor: 'ch i tysk "Bach"', ipa: 'x', nameIpa: 'xe', hint: 'kh' },
   { g: 'د', id: 'dal', fa: 'دال', da: 'dal', joins: false, anchor: 'd i "dag"', ipa: 'd', nameIpa: 'dɒːl', hint: 'd' },
   { g: 'ذ', id: 'zal', fa: 'ذال', da: 'zal', joins: false, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'zɒːl', hint: 'z' },
@@ -54,8 +55,8 @@ const ROWS: Row[] = [
   { g: 'ض', id: 'zad', fa: 'ضاد', da: 'zad', joins: true, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'zɒːd', hint: 'z' },
   { g: 'ط', id: 'ta', fa: 'طا', da: 'ta', joins: true, anchor: 't i "tak"', ipa: 't', nameIpa: 'tɒː', hint: 't' },
   { g: 'ظ', id: 'za', fa: 'ظا', da: 'za', joins: true, anchor: Z_ANCHOR, ipa: 'z', nameIpa: 'zɒː', hint: 'z' },
-  { g: 'ع', id: 'eyn', fa: 'عین', da: 'eyn', joins: true, anchor: 'stød, som i "hånd"', ipa: 'ʔ', nameIpa: 'ʔejn', hint: '’' },
-  { g: 'غ', id: 'gheyn', fa: 'غین', da: 'gheyn', joins: true, ...GHAF_GHEYN, nameIpa: 'ɣejn', hint: 'gh' },
+  { g: 'ع', id: 'eyn', fa: 'عین', da: 'eyn', joins: true, anchor: 'lille stop eller ingen lyd; se ordet', ipa: 'ʔ~∅', nameIpa: 'ʔejn', hint: 'stop' },
+  { g: 'غ', id: 'gheyn', fa: 'غین', da: 'gheyn', joins: true, ...GHAF_GHEYN, nameIpa: 'ɢejn', hint: 'gh' },
   { g: 'ف', id: 'fe', fa: 'فِ', da: 'fe', joins: true, anchor: 'f i "fisk"', ipa: 'f', nameIpa: 'fe', hint: 'f' },
   { g: 'ق', id: 'ghaf', fa: 'قاف', da: 'ghaf', joins: true, ...GHAF_GHEYN, nameIpa: 'ɢɒːf', hint: 'gh' },
   { g: 'ک', id: 'kaf', fa: 'کاف', da: 'kaf', joins: true, anchor: 'k i "kat"', ipa: 'k', nameIpa: 'kɒːf', hint: 'k' },
@@ -63,24 +64,37 @@ const ROWS: Row[] = [
   { g: 'ل', id: 'lam', fa: 'لام', da: 'lam', joins: true, anchor: 'l i "lys"', ipa: 'l', nameIpa: 'lɒːm', hint: 'l' },
   { g: 'م', id: 'mim', fa: 'میم', da: 'mim', joins: true, anchor: 'm i "mor"', ipa: 'm', nameIpa: 'miːm', hint: 'm' },
   { g: 'ن', id: 'nun', fa: 'نون', da: 'nun', joins: true, anchor: 'n i "nat"', ipa: 'n', nameIpa: 'nuːn', hint: 'n' },
-  { g: 'و', id: 'vav', fa: 'واو', da: 'vav', joins: false, anchor: 'v i "vand"', ipa: 'v', nameIpa: 'vɒːv', hint: 'v' },
-  { g: 'ه', id: 'he', fa: 'هِ', da: 'he do-tjeshm', joins: true, anchor: 'h i "hus"', ipa: 'h', nameIpa: 'he', hint: 'h' },
-  { g: 'ی', id: 'ye', fa: 'یِ', da: 'ye', joins: true, anchor: 'j i "ja"', ipa: 'j', nameIpa: 'je', hint: 'j' },
+  { g: 'و', id: 'vav', fa: 'واو', da: 'vav', joins: false, anchor: 'v i "vand"', ipa: 'v', nameIpa: 'vɒːv', hint: 'v/u' },
+  { g: 'ه', id: 'he', fa: 'ه دو چشم', da: 'he do-tjeshm', joins: true, anchor: 'h i "hus"', ipa: 'h', nameIpa: 'heje do tʃeʃm', namePron: 'he-ye do tjeshm', hint: 'h/e' },
+  { g: 'ی', id: 'ye', fa: 'یِ', da: 'ye', joins: true, anchor: 'j i "ja"', ipa: 'j', nameIpa: 'je', hint: 'j/i' },
 ]
 
 /** One Danish line for the letters that surprise a reader. Nothing decorative. */
+const SAME_S = 'På persisk lyder ث، س og ص alle som s. De skrives forskelligt.'
+const SAME_Z = 'På persisk lyder ذ، ز، ض og ظ alle som z. De skrives forskelligt.'
+const SAME_T = 'På persisk lyder ت og ط begge som t. De skrives forskelligt.'
+const SAME_H = 'På persisk lyder ح og ه begge som h. De skrives forskelligt.'
 const HINTS: Record<string, string> = {
-  alef: 'Alef er en vokalbærer. Først i et ord bærer den en vokal; efter en konsonant skriver den oftest langt å. Med madde ovenpå skriver den også langt å.',
+  alef: 'Alef bærer en vokal. Først i et ord kan den stå med a, e, o, i eller u. Efter en lyd skriver den tit langt å. Se altid hele ordet.',
   pe: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
+  te: SAME_T,
+  se: SAME_S,
   che: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
-  'he-jimi': 'Der er to h-bogstaver. He-jimi har samme krop som jim, men ingen prik.',
+  'he-jimi': `${SAME_H} Dette hedder he-ye djimi.`,
+  zal: SAME_Z,
   zhe: 'Et af de fire bogstaver, som persisk har ud over det arabiske alfabet.',
+  ze: SAME_Z,
+  sin: SAME_S,
+  sad: SAME_S,
+  zad: SAME_Z,
+  ta: SAME_T,
+  za: SAME_Z,
   gheyn: 'Gheyn og ghaf lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
-  ghaf: 'Ghaf og gheyn lyder ens i Teheran. Stavemåden skiller dem ad, ikke lyden.',
+  ghaf: 'Ghaf og gheyn lyder ens i Teheran. Først i et ord er lyden tit et kort stop. Mellem vokaler er den tit blød.',
   gaf: 'Gaf er kaf med én streg mere og er et af persisks egne fire bogstaver.',
   vav: 'Vav er både v og den lange vokal u. Du møder begge brugsmåder i lektionerne.',
-  eyn: 'Eyn er et bogstav fra arabisk. I teheransk persisk kan det høres som et lille stød; den præcise rolle læres i hvert ord.',
-  he: 'He kan skrive h. Sidst i mange ord skriver det i stedet lyden e; lektionen viser rollen i hvert ord.',
+  eyn: 'Eyn har ikke én dansk lyd. Det kan give et lille stop eller ingen lyd. Dansk æ, ø, å og y kommer ikke fra eyn. Se hele ordet.',
+  he: `${SAME_H} Dette hedder he-ye do tjeshm. Sidst i mange ord skriver det e.`,
   ye: 'Ye kan skrive j eller den lange vokal i. Alene og sidst står det uden prikker; først og midt får det to prikker under.',
 }
 
@@ -121,7 +135,7 @@ export const letters: Letter[] = ROWS.map((row) => ({
     fa: withoutMarks(row.fa),
     ...(row.fa !== withoutMarks(row.fa) ? { faMarked: row.fa } : {}),
     da: `bogstavnavnet ${row.da}`,
-    pron: { da: row.da, ipa: row.nameIpa },
+    pron: { da: row.namePron ?? row.da, ipa: row.nameIpa },
   }),
   glyph: row.g,
   name: { fa: row.fa, da: row.da },

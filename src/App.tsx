@@ -19,6 +19,7 @@ import PuzzleScreen from './pages/PuzzleScreen'
 import { RouteEffects } from './components/RouteEffects'
 import ReviewScreen from './pages/ReviewScreen'
 import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
+import WordBridgesScreen from './pages/WordBridgesScreen'
 import { PersistenceNotice } from './components/PersistenceNotice'
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
         <Route path="/puslespil/:id" element={<PuzzleScreen />} />
         <Route path="/repetition" element={<ReviewScreen />} />
+        <Route path="/ord-der-ligner" element={<WordBridgesScreen />} />
         {/* The learner's own name: how it is spelled, and the lesson that
             teaches it. Both send a learner without a name back to the forside. */}
         <Route path="/dit-navn" element={<NameSpelling />} />
