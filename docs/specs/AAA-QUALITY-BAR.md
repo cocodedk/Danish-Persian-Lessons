@@ -94,9 +94,9 @@ no unresolved critical/high finding.
 - Denied/full/corrupt storage MUST preserve the current session in memory and explain persistence
   limits only when the learner needs that information.
 
-## Automated evidence
+## Owner-run local evidence
 
-The clean-checkout gate MUST run:
+The owner-run clean-checkout gate MUST run locally:
 
 1. `npm run lint`
 2. all Vitest unit, component, integrity, migration, scheduler, and property tests
@@ -110,6 +110,8 @@ sticky/dock occlusion, 44×44 targets, no horizontal overflow, reduced motion, a
 storage denial. It MUST also cover responsive component bounds, layout modes, resizing without state
 loss, portrait/landscape, zoom reflow, and visual diffs from 320px through 2560px. Manual review
 remains required for language, screen readers, cognitive clarity, real touch use, and desktop balance.
+GitHub Actions and other CI systems are not release requirements. The release packet MUST record the
+local commit, commands, environment, date, and result.
 
 ## Human evidence
 

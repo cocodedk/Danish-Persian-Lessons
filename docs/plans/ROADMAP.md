@@ -46,6 +46,12 @@ the app exists, `npm run verify`) is green.
       responsiveness, WCAG 2.2 AA plus selected AAA criteria, and a documented novice-usability
       release packet. Normative specs live in [`docs/specs/`](../specs/).
 
+- [ ] **P13 — [013-real-lesson-images.md](013-real-lesson-images.md)** (depends on P12): a small pilot
+      of real lesson photos, downloaded and cleaned during authoring, served only by the app, placed
+      where they help without revealing retrieval answers, and checked by Persian, Danish,
+      accessibility, and beginner reviewers. No emoji, AI image, hotlink, or runtime image service.
+      Normative rules live in the [lesson image specification](../specs/AAA-LESSON-IMAGE-SPEC.md).
+
 ## Later (not planned yet — do not build ahead)
 
 Full writing practice (tracing letters with a finger, beyond the stroke-order drawings of P3) · PWA

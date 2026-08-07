@@ -150,7 +150,8 @@ These are reproducible baseline failures, not optional polish:
    critical/high findings and repeat affected tasks until the success thresholds pass.
 3. Run keyboard-only, VoiceOver/Safari, TalkBack/Chrome, and NVDA/Firefox journeys. An accessibility
    specialist signs the WCAG 2.2 AA audit and selected-AAA checklist.
-4. `npm run verify`, Playwright, the production build, and CI are green from a clean checkout.
+4. The owner runs `npm run verify`, Playwright, and the production build locally from a clean checkout
+   and records the commit, commands, environment, date, and result. CI is not required.
 
 ## Acceptance
 
@@ -170,7 +171,8 @@ These are reproducible baseline failures, not optional polish:
       preservation, input modes, and visual matrix in the responsive spec.
 - [ ] Core Web Vitals lab targets, bundle/asset budgets, and zero-runtime-fetch privacy rules pass.
 - [ ] Novice usability thresholds pass with no unresolved critical/high finding.
-- [ ] `npm run verify`, Playwright, production build, and CI pass from a clean checkout.
+- [ ] Owner-run `npm run verify`, Playwright, and the production build pass locally from a clean
+      checkout, with recorded evidence; CI is not required.
 - [ ] A fresh-context Iranian teacher, Danish learner, responsive art director, accessibility
       specialist, and maintainer can name no concrete release-blocking defect.
 
