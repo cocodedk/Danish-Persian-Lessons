@@ -77,3 +77,15 @@ test('the home route loads no lesson photo bytes', async ({ page }) => {
   await page.waitForLoadState('networkidle')
   expect(lessonImages).toEqual([])
 })
+
+test('an old cached page opens the new release without a hard reload', async ({ page }) => {
+  await page.route('**/version.js?check=*', (route) => route.fulfill({
+    contentType: 'application/javascript',
+    body: 'window.__DPL_LATEST_VERSION__="new-release";',
+  }))
+
+  await page.goto('./#/ord-der-ligner')
+  await expect.poll(() => new URL(page.url()).searchParams.get('app-version')).toBe('new-release')
+  expect(new URL(page.url()).hash).toBe('#/ord-der-ligner')
+  await expect(page.getByRole('heading', { name: 'Ord, der ligner' })).toBeVisible()
+})

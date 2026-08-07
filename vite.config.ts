@@ -2,11 +2,28 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const appVersion = (process.env.GITHUB_SHA || '000000000000').slice(0, 12)
+
 // The literal project path below is intentionally the one sanctioned place for
 // it outside the GitHub Actions workflows (see CLAUDE.md).
 export default defineConfig({
   base: '/Danish-Persian-Lessons/app/',
-  plugins: [react()],
+  define: {
+    __DPL_APP_VERSION__: JSON.stringify(appVersion),
+  },
+  plugins: [
+    react(),
+    {
+      name: 'app-version-file',
+      generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'version.js',
+          source: `window.__DPL_LATEST_VERSION__=${JSON.stringify(appVersion)};\n`,
+        })
+      },
+    },
+  ],
   build: {
     outDir: 'dist',
   },

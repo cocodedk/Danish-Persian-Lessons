@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import { armSound } from './rewards/sound'
+import { startVersionCheck } from './update/startVersionCheck'
 import './styles/fonts.css'
 import './styles/tokens.css'
 import './styles/global.css'
@@ -13,6 +14,7 @@ if (!rootEl) {
 
 // Listens for the first tap or key, and only then may a jingle ever play.
 armSound()
+startVersionCheck()
 
 createRoot(rootEl).render(
   <StrictMode>
