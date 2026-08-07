@@ -31,6 +31,8 @@ waiver. Empty signature fields block release.
   routes; production performance, network privacy, semantic contrast, and asset ceilings are enforced;
 - storage denial/full and corrupt saved rows preserve the active session and produce distinct,
   non-blocking status messages only when recovery information is needed;
+- a fresh, tiny release file lets an old GitHub Pages response move itself to the new app while
+  keeping the current lesson, so learners do not need a hard reload;
 - 224 deterministic pixel baselines cover 16 required states at seven widths in both color schemes.
   They compare cleanly but remain candidates until the three required visual reviewers sign.
 
@@ -38,10 +40,10 @@ waiver. Empty signature fields block release.
 
 `npm run verify` passed on 2026-08-07 after regenerating both review artifacts:
 
-- 77 Vitest files, 547 tests passed;
-- production main files: 354,055-byte JS and 47,740-byte CSS; the word-bridge page is a separate
+- 78 Vitest files, 550 tests passed;
+- production main files: 354,851-byte JS and 47,740-byte CSS; the word-bridge page is a separate
   5,084-byte JS / 1,022-byte CSS chunk;
-- 89 Playwright cases passed across Chromium, Firefox, and WebKit;
+- 92 Playwright cases passed across Chromium, Firefox, and WebKit;
 - 40 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 224
   Linux pixel comparisons run once in Chromium; equivalent core journeys still run in all engines;
 - the checked-in 180-row content manifest and 177-row audio queue regenerated with no diff;

@@ -50,6 +50,7 @@ check_contains() {
 # --- (a) required files exist -------------------------------------------------
 
 for f in \
+  dist/version.js \
   website/index.html \
   website/da/index.html \
   website/fa/index.html \
