@@ -1,0 +1,40 @@
+@media (min-width: 64rem) {
+  .lesson--typing {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(28rem, var(--keyboard-max));
+    align-items: start;
+    max-inline-size: var(--shell-max);
+    min-block-size: 100dvh;
+    margin-inline: auto;
+  }
+
+  .lesson--typing > .ruled-section {
+    inline-size: auto;
+    min-block-size: 100dvh;
+    margin: 0;
+    border-inline-end: 0;
+  }
+
+  .lesson--typing > .lesson-foot {
+    position: sticky;
+    inset-block: 0 auto;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    inline-size: auto;
+    block-size: 100dvh;
+    margin: 0;
+    padding-block-start: var(--rule-step);
+  }
+
+  .lesson--typing .lesson-bar {
+    margin-block-start: auto;
+  }
+
+  .lesson--typing .type__line-row,
+  .lesson--typing .type__feedback,
+  .lesson--typing .keyboard {
+    inline-size: min(calc(100% - 2rem), var(--keyboard-max));
+    max-inline-size: var(--keyboard-max);
+  }
+}

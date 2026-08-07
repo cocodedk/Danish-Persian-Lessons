@@ -2,14 +2,14 @@ import { useMemo, useState } from 'react'
 import { LetterBank } from './LetterBank'
 import { Button } from './Button'
 import { assemblyBank, assembledPrefix, nameGlyphs, type Tile } from '../name/bank'
-import { ASSEMBLE_ENTRY, NOT_IN_NAME_ENTRY, LATER_IN_NAME_DA } from '../name/copy'
-import { TRY_AGAIN_ENTRY } from '../content/faStrings'
+import { ASSEMBLE_ENTRY, NOT_IN_NAME_ENTRY, LATER_IN_NAME_ENTRY } from '../name/copy'
 import { CompactPhraseRow, ChallengeReveal } from './EntryRenderers'
 import { RetryActions } from './RetryActions'
 import { PersonalNameText } from './PersonalName'
 import { PersianText } from './PersianText'
 import { nameLetters } from '../name/forms'
 import { PronLine } from './PronLine'
+import { useChallengeFocus } from './useChallengeFocus'
 import './NameAssembly.css'
 
 /** What the last wrong tap was: a letter of the name, or one of the strangers. */
@@ -36,8 +36,9 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
   const [missed, setMissed] = useState<Missed | null>(null)
   const [skipped, setSkipped] = useState(false)
   const done = placed.length === target.length
-  const missEntry = missed === 'later' ? TRY_AGAIN_ENTRY : NOT_IN_NAME_ENTRY
+  const missEntry = missed === 'later' ? LATER_IN_NAME_ENTRY : NOT_IN_NAME_ENTRY
   const expected = letters[placed.length]
+  const [promptRef, focusPrompt] = useChallengeFocus<HTMLHeadingElement>()
 
   function pick(tile: Tile) {
     if (done) return
@@ -63,7 +64,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
 
   return (
     <section className="name-assembly">
-      <h2 className="alphabet__section-title">Sæt navnet sammen igen</h2>
+      <h2 ref={promptRef} tabIndex={-1} className="alphabet__section-title">Sæt navnet sammen igen</h2>
       <CompactPhraseRow entry={ASSEMBLE_ENTRY} />
       <p className="alphabet__note">
         Persisk skrives fra højre. Tryk derfor det første bogstav i navnet først. Det lander yderst
@@ -85,7 +86,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
           <div className="name-assembly__again">
             <PersianText entry={missEntry} />
             <PronLine {...missEntry.pron} />
-            <span lang="da">{missed === 'later' ? LATER_IN_NAME_DA : NOT_IN_NAME_ENTRY.da}</span>
+            <span lang="da">{missEntry.da}</span>
           </div>
         )}
       </div>
@@ -94,7 +95,10 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
         <RetryActions
           className="name__actions"
           solved={false}
-          onRetry={() => setMissed(null)}
+          onRetry={() => {
+            setMissed(null)
+            focusPrompt()
+          }}
           onAdvance={skipCurrent}
           advanceLabel="Næste"
         />

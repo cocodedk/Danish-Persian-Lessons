@@ -28,9 +28,10 @@ export default function ExerciseScreen() {
     <LessonSheet
       title={EXERCISE_TITLES[kind]}
       bar={<BarLink to="/lesson/alphabet">Til lektionen</BarLink>}
+      className="lesson--task"
     >
       <p className="alphabet__note">
-        Du kan stoppe når som helst. Det, du har klaret, bliver stående.
+        Du kan stoppe når som helst. Det, du har øvet, bliver stående.
       </p>
       <ChoiceExercise
         questions={questions}

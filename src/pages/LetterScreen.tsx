@@ -14,6 +14,7 @@ import { getProfile } from '../progress/profile'
 import { useCelebration } from '../rewards/useCelebration'
 import { NAME_LETTER_ENTRY } from '../content/faStrings'
 import './alphabet.css'
+import './alphabetWide.css'
 
 /** One letter: its shape, its sound, its four positions, and how it is written. */
 export default function LetterScreen() {
@@ -46,34 +47,38 @@ export default function LetterScreen() {
         </>
       }
     >
-      {/* "Tegn", not "bogstav": the 33 are the 32 letters plus the sign آ. */}
-      <p className="letter__eyebrow">
-        Tegn {index + 1} af {teachingOrder.length}
-      </p>
+      <div className="letter__workspace">
+        <div className="letter__identity">
+          {/* "Tegn", not "bogstav": the 33 are the 32 letters plus the sign آ. */}
+          <p className="letter__eyebrow">
+            Tegn {index + 1} af {teachingOrder.length}
+          </p>
 
-      <div className="letter__specimen">
-        <FullTeachingCard entry={specimen.entry} />
-        <CompactPhraseRow entry={specimen.nameEntry} />
-      </div>
+          <div className="letter__specimen">
+            <FullTeachingCard entry={specimen.entry} />
+            <CompactPhraseRow entry={specimen.nameEntry} />
+          </div>
 
-      {inMyName && (
-        <div className="letter__badge">
-          <ProgressTick granted label="I dit navn" />
-          <CompactPhraseRow entry={NAME_LETTER_ENTRY} />
+          {inMyName && (
+            <div className="letter__badge">
+              <ProgressTick granted label="I dit navn" />
+              <CompactPhraseRow entry={NAME_LETTER_ENTRY} />
+            </div>
+          )}
+          {letter?.hint && <p className="letter__hint">{letter.hint}</p>}
         </div>
-      )}
+        <div className="letter__practice">
+          {letter && (
+            <div className="letter__block">
+              <LetterForms forms={letter.forms} joinsLeft={letter.joinsLeft} entry={letter.entry} />
+            </div>
+          )}
 
-      {letter && (
-        <div className="letter__block">
-          <LetterForms forms={letter.forms} joinsLeft={letter.joinsLeft} entry={letter.entry} />
+          <div className="letter__block">
+            <LetterDraw strokes={specimen.strokes} name={specimen.name.da} />
+          </div>
         </div>
-      )}
-
-      <div className="letter__block">
-        <LetterDraw strokes={specimen.strokes} name={specimen.name.da} />
       </div>
-
-      {letter?.hint && <p className="letter__hint">{letter.hint}</p>}
 
       <div className="letter__done">
         {!cleared && (
@@ -84,18 +89,18 @@ export default function LetterScreen() {
               celebration.cheer('item')
             }}
           >
-            Jeg kan den
+            Jeg har set tegnet
           </Button>
         )}
         {cleared && celebration.reward === null && (
           <>
-            <ProgressTick granted label="Klaret" />
-            <span>Klaret</span>
+            <ProgressTick granted label="Set" />
+            <span>Set</span>
           </>
         )}
       </div>
       {celebration.reward !== null && (
-        <Celebration reward={celebration.reward} tickLabel="Klaret" />
+        <Celebration reward={celebration.reward} tickLabel="Set" />
       )}
       <RewardOverlays celebration={celebration} />
     </LessonSheet>

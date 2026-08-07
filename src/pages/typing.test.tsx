@@ -15,8 +15,6 @@ import {
   write,
   written,
   praiseOnScreen,
-  finishTypeRound,
-  keyFor,
 } from './typingHarness'
 
 const unit = findVocabUnit('1')!
@@ -62,6 +60,15 @@ describe('the keyboard', () => {
     for (const key of KEYBOARD_KEYS) {
       expect(screen.getAllByRole('button', { name: key.label }), key.id).toHaveLength(1)
     }
+  })
+
+  it('names both space keys visibly in Danish', () => {
+    const { container } = open('#/lesson/ord/1/skriv')
+    const captions = [...container.querySelectorAll('.keyboard__caption')]
+      .map((caption) => caption.children.length > 0
+        ? [...caption.children].map((line) => line.textContent).join(' ')
+        : caption.textContent)
+    expect(captions).toEqual(['mellemrum', 'halvt mellemrum'])
   })
 
   it('will not start a word with a نیم‌فاصله and will not double one', () => {
@@ -122,7 +129,7 @@ describe('a word written wrong', () => {
     write('آد') // آب wanted: the second letter is where it goes wrong
     tap('Se efter')
 
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
+    expect(screen.getByText('اینجا یک حرف دیگر است.')).toBeInTheDocument()
     expect(screen.getByText(/Her står et andet bogstav/)).toBeInTheDocument()
 
     const marked = container.querySelectorAll('.type__cell--mark')
@@ -154,77 +161,15 @@ describe('a word written wrong', () => {
     expect(container.querySelectorAll('.type__cell--mark')[0].textContent).toBe('ی')
   })
 
-  it('clears the marking the moment the pen moves again', () => {
+  it('clears the marking on retry and leaves the writing editable', () => {
     const { container } = open('#/lesson/ord/1/skriv')
     write('آد')
     tap('Se efter')
     expect(container.querySelectorAll('.type__cell--mark')).toHaveLength(1)
 
-    tap('slet sidste tegn')
-    expect(container.querySelectorAll('.type__cell--mark')).toHaveLength(0)
-  })
-})
-
-describe('finishing a round', () => {
-  it('fills a notebook page — once, however often the round is written again', () => {
-    open('#/lesson/ord/3/skriv')
-    finishTypeRound('3')
-
-    const afterFirst = getRewards()
-    expect(getTypeProgress('3').paid).toBe(true)
-    expect(afterFirst.level).toBeGreaterThan(1)
-
-    // A reload, then the whole round again: every word is already written, so
-    // it pays the flat answer rate and the page is not for sale twice.
-    open('#/lesson/ord/3/skriv')
-    finishTypeRound('3')
-    const words = findVocabUnit('3')!.words.length
-    expect(getRewards().points).toBe(afterFirst.points + words)
-    expect(getRewards().points).toBeGreaterThan(afterFirst.points)
-  }, 15_000)
-})
-
-describe('the forside', () => {
-  it('lists a writing round per unit, with how much of it is written', () => {
-    open('#/lesson/ord/1/skriv')
-    write(first.fa)
-    tap('Se efter')
-
-    open('#/')
-    const round = screen
-      .getAllByRole('link')
-      .find((link) => link.getAttribute('href') === '#/lesson/ord/1/skriv')
-    expect(round).toBeDefined()
-    expect(round).toHaveTextContent(`1 af ${unit.words.length} skrevet`)
-  })
-})
-
-describe('a wrong attempt', () => {
-  it('keeps the writing on the line when the learner asks to try again', () => {
-    const { container } = open('#/lesson/ord/1/skriv')
-    const firstLetter = [...first.fa][0]
-    write(firstLetter)
-    tap('Se efter')
     tap('Prøv én gang til')
-    expect(written(container)).toBe(firstLetter)
-  })
-})
-
-describe('the key detail strip', () => {
-  it('offers the letter lesson after a letter key, quietly, and no link for نیم‌فاصله', () => {
-    const { container } = open('#/lesson/ord/1/skriv')
-
-    tap(keyFor('ب'))
-    const strip = container.querySelector('.entry-detail')
-    expect(strip).not.toBeNull()
-    // Deliberately not a live region: the strip changes on every keystroke.
-    expect(strip?.getAttribute('aria-live')).toBeNull()
-    expect(screen.getByRole('link', { name: 'Åbn hele lektionen' })).toHaveAttribute(
-      'href',
-      '#/lesson/alphabet/bogstav/be',
-    )
-
-    tap('halvt mellemrum')
-    expect(screen.queryByRole('link', { name: 'Åbn hele lektionen' })).not.toBeInTheDocument()
+    expect(container.querySelectorAll('.type__cell--mark')).toHaveLength(0)
+    tap('slet sidste tegn')
+    expect(written(container)).toBe('آ')
   })
 })

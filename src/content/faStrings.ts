@@ -23,6 +23,12 @@ export const TYPE_EXTRA_SPACE_ENTRY = defineEntry({ id: 'interface-extra-space',
 export const TYPE_MISSING_ZWNJ_ENTRY = defineEntry({ id: 'interface-missing-zwnj', kind: 'phrase', fa: 'اینجا یک نیم‌فاصله جا افتاده.', da: 'Her mangler et halvt mellemrum.', pron: { da: 'indjå jek nim-fåsele djå oftåde', ipa: 'iːndʒɒː jek niːm fɒːsele dʒɒː ʔoftɒːde' } })
 export const TYPE_EXTRA_ZWNJ_ENTRY = defineEntry({ id: 'interface-extra-zwnj', kind: 'phrase', fa: 'اینجا یک نیم‌فاصله اضافه نوشته شده.', da: 'Her står et halvt mellemrum for meget.', pron: { da: 'indjå jek nim-fåsele ezåfe nevesjte sjode', ipa: 'iːndʒɒː jek niːm fɒːsele ʔezɒːfe neveʃte ʃode' } })
 
+/** Ordinary-letter feedback uses only common Persian words and says exactly
+ * the same thing as the Danish line. Minimum surface-word Zipf: 5.27. */
+export const TYPE_MISSING_LETTER_ENTRY = defineEntry({ id: 'interface-missing-letter', kind: 'phrase', fa: 'اینجا یک حرف کم است.', da: 'Her mangler et bogstav.', pron: { da: 'indjå jek harf kam ast', ipa: 'iːndʒɒː jek hæɾf kæm æst' } })
+export const TYPE_WRONG_LETTER_ENTRY = defineEntry({ id: 'interface-wrong-letter', kind: 'phrase', fa: 'اینجا یک حرف دیگر است.', da: 'Her står et andet bogstav.', pron: { da: 'indjå jek harfe digar ast', ipa: 'iːndʒɒː jek hæɾfe diːɡæɾ æst' } })
+export const TYPE_EXTRA_LETTER_ENTRY = defineEntry({ id: 'interface-extra-letter', kind: 'phrase', fa: 'اینجا یک حرف اضافه است.', da: 'Her er et bogstav for meget.', pron: { da: 'indjå jek harfe ezåfe ast', ipa: 'iːndʒɒː jek hæɾfe ʔezɒːfe æst' } })
+
 /** The two typing rounds (plan 005): the unit's words, and the capstone. */
 export const TYPE_WORDS_ENTRY = defineEntry({ id: 'interface-type-words', kind: 'phrase', fa: 'کلمه‌ها را بنویس', da: 'Skriv ordene', pron: { da: 'kalemehå rå benevis', ipa: 'kælemehɒː ɾɒː beneviːs' } })
 export const TYPE_NAME_ENTRY = defineEntry({ id: 'interface-type-name', kind: 'phrase', fa: 'نام خودت را بنویس', da: 'Skriv dit eget navn', pron: { da: 'nåme khodet rå benevis', ipa: 'nɒːme xodet ɾɒː beneviːs' } })
@@ -43,6 +49,9 @@ export const INTERFACE_ENTRIES = [
   TYPE_EXTRA_SPACE_ENTRY,
   TYPE_MISSING_ZWNJ_ENTRY,
   TYPE_EXTRA_ZWNJ_ENTRY,
+  TYPE_MISSING_LETTER_ENTRY,
+  TYPE_WRONG_LETTER_ENTRY,
+  TYPE_EXTRA_LETTER_ENTRY,
   TYPE_WORDS_ENTRY,
   TYPE_NAME_ENTRY,
   NAME_LETTER_ENTRY,

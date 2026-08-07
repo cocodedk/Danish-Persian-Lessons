@@ -15,8 +15,9 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
 ## The generosity rules (testable, non-negotiable)
 
 1. **Nothing is ever taken away**: levels never drop, stickers are permanent, points only go up.
-2. **Streaks never reset**: a missed day puts the streak *at rest* («stimen hviler» / «رشته‌ات
-   خوابیده») — one exercise wakes it at its previous value + 1. Total practice-days always grows.
+2. **Streaks never reset**: after a missed day the learner still sees «træningen fortsætter
+   stadig» / «تمرین هنوز ادامه دارد» — one exercise resumes at the previous value + 1. Total
+   practice-days always grows.
    The UI never shows a zero after progress exists, and never says "lost/mistet".
 3. **Every completion celebrates**: any exercise → at least a red margin tick + a warm, varied
    praise line. Milestones → sticker stamp (آفرین / ستارهٔ طلایی / the ۲۰ mark) + jingle.
@@ -25,7 +26,7 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
    deducted, no red-shame styling (the teacher's red pen marks the correction, not the child).
 5. **Surprise generosity**: occasional extra gifts on a deterministic schedule seeded by progress
    counts (no `Math.random` in logic paths — keep it testable): a bonus exercise
-   («یک تمرین جایزه!» / "En bonusøvelse i gave!"), a second sticker, a bigger fanfare.
+   («یک تمرین جایزه!» / "En bonusøvelse!"), a second sticker, a bigger fanfare.
 6. **Rewards may BE content**: a bonus exercise is a fun extra (find your name-letters in a word,
    a quick vowel-chip round) — framed as a gift, always skippable without loss.
 
@@ -40,7 +41,7 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
    user gesture; mute toggle persisted in `dpl.v1.settings`; default on.
 3. Components per ART-DIRECTION "Celebration & sound": `StickerStamp` (SVG آفرین / ۲۰ / star,
    stamps in), `InkConfetti` (`--red`/`--blue` dots on paper), `PageFlip` level-up overlay,
-   `StreakLine` for home ("5 dage · stimen hviler — én øvelse vækker den"). Reduced motion:
+   `StreakLine` for home ("Træningen fortsætter stadig"). Reduced motion:
    rewards appear instantly, still granted, zero animation.
 4. Wire into 003's exercises and lesson completion; expose one plain API for later plans.
 
@@ -69,10 +70,9 @@ every completion celebrates, nothing ever disappoints, and a reward can itself b
       animation-name none, confetti — decoration only — dropped)
 - [ ] Learner-persona critic answers "did any moment disappoint, shame, or nag?" with a flat no
       → for the critic round; the builder cannot sign its own persona review
-- [ ] Teacher-persona critic confirms the Persian praise is natural and varied (آفرین، ایول،
-      چه خوب و…) — and the Danish equally so (Flot! · Sådan! · Godt gået!)
-      → for the critic round; `humanizer-pa`/`humanizer-da` passes ran (احسنت → باریکلا, em dash
-      out of the Persian streak line)
+- [ ] Teacher-persona critic confirms the Persian praise is natural, simple, and varied (آفرین،
+      عالی، چه خوب، خیلی خوب، خوب بود، درست بود) — and that each Danish line mirrors its meaning
+      → for the critic round; the builder cannot approve its own bilingual review
 - [x] `npm run verify` + CI green; no new dependencies
 
 ## Decisions taken while building
@@ -118,8 +118,9 @@ adjudicated and built by the round-2 fix builder (PR #10), one line each:
   whichever date happened to be appended last. The same fix closes the `dayKey` guard: an invalid
   `Date` passed to `celebrate` still pays out points and stickers, but the practice-day append is
   skipped, so a bad clock can never write `"NaN-NaN-NaN"` to storage.
-- **Copy (teacher persona).** The welcome-back line «خوش آمدی!» read as a generic hello rather than
-  a return-specific one; changed to «خوش برگشتی!» (Danish «Velkommen tilbage!» unchanged).
+- **Copy (teacher persona).** The original welcome-back line was later simplified to
+  «دوباره سلام!» / “Hej igen!” during the whole-app parity review, keeping both sides exact and
+  using only high-frequency words.
 - **Sticker labels single-sourced.** `StickerStamp`'s SVGs quoted آفرین and ۲۰ as JSX literals of
   their own instead of reading `STICKER_LABELS`, so the text-rule guard — which walks
   `STICKER_LABELS` via `REWARD_FA_STRINGS` — never actually walked what the stamps rendered. They

@@ -1,5 +1,11 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { readJSON, writeJSON, keyExists } from './storage'
+import {
+  getStorageWarning,
+  keyExists,
+  readJSON,
+  subscribeStorageWarning,
+  writeJSON,
+} from './storage'
 
 beforeEach(() => {
   window.localStorage.clear()
@@ -19,6 +25,7 @@ describe('storage', () => {
     window.localStorage.setItem('dpl.v1.broken', '{not valid json')
     expect(() => readJSON('broken', 'fallback')).not.toThrow()
     expect(readJSON('broken', 'fallback')).toBe('fallback')
+    expect(getStorageWarning()).toBe('corrupt')
   })
 
   it('treats a mismatched schema version as absent', () => {
@@ -64,6 +71,7 @@ describe('storage', () => {
 
     expect(() => writeJSON('thing', { a: 1 })).not.toThrow()
     expect(readJSON('thing', null)).toEqual({ a: 1 })
+    expect(getStorageWarning()).toBe('memory')
 
     setSpy.mockRestore()
     getSpy.mockRestore()
@@ -87,5 +95,21 @@ describe('storage', () => {
 
     setSpy.mockRestore()
     expect(readJSON('thing', null)).toEqual({ a: 6 })
+  })
+
+  it('notifies the interface once when persistence becomes limited', () => {
+    const listener = vi.fn()
+    const unsubscribe = subscribeStorageWarning(listener)
+    const setSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('QuotaExceededError')
+    })
+
+    writeJSON('thing', { a: 1 })
+    writeJSON('thing', { a: 2 })
+
+    expect(listener).toHaveBeenCalledTimes(1)
+    expect(getStorageWarning()).toBe('memory')
+    unsubscribe()
+    setSpy.mockRestore()
   })
 })

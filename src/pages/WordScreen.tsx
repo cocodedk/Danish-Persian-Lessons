@@ -13,6 +13,7 @@ import { useCelebration } from '../rewards/useCelebration'
 import { NAME_LETTER_IN_WORD_ENTRY, NAME_LETTERS_IN_WORD_ENTRY } from '../content/faStrings'
 import { PersonalNameText } from '../components/PersonalName'
 import { CompactPhraseRow } from '../components/EntryRenderers'
+import { ReadingCues } from '../components/ReadingCues'
 import './alphabet.css'
 import './vocab.css'
 
@@ -43,6 +44,7 @@ export default function WordScreen() {
 
   return (
     <LessonSheet
+      className="lesson--word"
       title={`Ordet ${word.da}`}
       bar={
         <>
@@ -57,6 +59,7 @@ export default function WordScreen() {
       </p>
 
       <SplitCard word={word} />
+      <ReadingCues entry={word.entry} headingLevel={2} />
 
       {shared.length > 0 && (
         <div className="letter__badge vocab__badge">
@@ -79,18 +82,18 @@ export default function WordScreen() {
               celebration.cheer(learnWord(unit, word.id))
             }}
           >
-            Jeg kan det
+            Jeg har gennemgået ordet
           </Button>
         )}
         {cleared && celebration.reward === null && (
           <>
-            <ProgressTick granted label="Klaret" />
-            <span>Klaret</span>
+            <ProgressTick granted label="Gennemgået" />
+            <span>Gennemgået</span>
           </>
         )}
       </div>
       {celebration.reward !== null && (
-        <Celebration reward={celebration.reward} tickLabel="Klaret" />
+        <Celebration reward={celebration.reward} tickLabel="Gennemgået" />
       )}
       <RewardOverlays celebration={celebration} />
     </LessonSheet>

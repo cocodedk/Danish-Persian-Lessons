@@ -9,12 +9,12 @@ describe('praise pronunciation', () => {
   // The dictated table, verbatim, row order = PRAISE order, welcome-back last.
   const TABLE: Array<{ fa: string; da: string; ipa: string }> = [
     { fa: 'آفرین', da: 'åfarin', ipa: 'ɒːfæɾin' },
-    { fa: 'ایول', da: 'ejval', ipa: 'ejvæl' },
-    { fa: 'چه خوب', da: 'tje khub', ipa: 'tʃe xub' },
     { fa: 'عالی', da: 'åli', ipa: 'ɒːli' },
+    { fa: 'چه خوب', da: 'tje khub', ipa: 'tʃe xub' },
     { fa: 'خیلی خوب', da: 'khejli khub', ipa: 'xejli xub' },
-    { fa: 'باریکلا', da: 'bårikalå', ipa: 'bɒːɾikælɒː' },
-    { fa: 'خوش برگشتی', da: 'khosj bargasjti', ipa: 'xoʃ bæɾɡæʃti' },
+    { fa: 'خوب بود', da: 'khub bud', ipa: 'xub buːd' },
+    { fa: 'درست بود', da: 'dorost bud', ipa: 'doɾost buːd' },
+    { fa: 'دوباره سلام', da: 'dobåre salåm', ipa: 'dobɒːɾe sælɒːm' },
   ]
 
   it('has exactly seven rows — six praise pairs and the welcome-back line', () => {

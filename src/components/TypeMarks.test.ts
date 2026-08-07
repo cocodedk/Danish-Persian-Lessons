@@ -3,29 +3,40 @@
 // Pure function, so tested directly rather than through a rendered screen —
 // CLAUDE.md "TDD for logic".
 import { describe, it, expect } from 'vitest'
-import { noteFor } from './TypeMarks'
+import { render, screen } from '@testing-library/react'
+import { noteFor, TypeMarks } from './TypeMarks'
 import {
-  TRY_AGAIN_ENTRY,
   TYPE_MISSING_SPACE_ENTRY,
   TYPE_EXTRA_SPACE_ENTRY,
   TYPE_MISSING_ZWNJ_ENTRY,
   TYPE_EXTRA_ZWNJ_ENTRY,
+  TYPE_MISSING_LETTER_ENTRY,
+  TYPE_WRONG_LETTER_ENTRY,
+  TYPE_EXTRA_LETTER_ENTRY,
 } from '../content/faStrings'
 
 describe('an ordinary letter', () => {
-  it('keeps the three original lines, «دوباره» carrying the Persian half', () => {
+  it('uses one exact bilingual entry for each kind of difference', () => {
     expect(noteFor({ kind: 'wrong', index: 0, cellKind: 'letter' })).toEqual({
-      entry: TRY_AGAIN_ENTRY,
-      da: 'Her står et andet bogstav.',
+      entry: TYPE_WRONG_LETTER_ENTRY,
     })
     expect(noteFor({ kind: 'missing', index: 0, cellKind: 'letter' })).toEqual({
-      entry: TRY_AGAIN_ENTRY,
-      da: 'Her mangler et bogstav.',
+      entry: TYPE_MISSING_LETTER_ENTRY,
     })
     expect(noteFor({ kind: 'extra', index: 0, cellKind: 'letter' })).toEqual({
-      entry: TRY_AGAIN_ENTRY,
-      da: 'Her er et bogstav for meget.',
+      entry: TYPE_EXTRA_LETTER_ENTRY,
     })
+  })
+
+  it('renders no Danish-only sentence after the paired feedback', () => {
+    render(TypeMarks({
+      attempt: 'ب',
+      divergence: { kind: 'wrong', index: 0, cellKind: 'letter' },
+    }))
+
+    expect(screen.getByText(TYPE_WRONG_LETTER_ENTRY.fa)).toBeInTheDocument()
+    expect(screen.getByText(TYPE_WRONG_LETTER_ENTRY.da)).toBeInTheDocument()
+    expect(screen.queryByText(/mister ingenting/i)).not.toBeInTheDocument()
   })
 })
 
@@ -33,11 +44,9 @@ describe('a space or a نیم‌فاصله', () => {
   it('is named as missing, not as a letter', () => {
     expect(noteFor({ kind: 'missing', index: 0, cellKind: 'space' })).toEqual({
       entry: TYPE_MISSING_SPACE_ENTRY,
-      da: TYPE_MISSING_SPACE_ENTRY.da,
     })
     expect(noteFor({ kind: 'missing', index: 0, cellKind: 'zwnj' })).toEqual({
       entry: TYPE_MISSING_ZWNJ_ENTRY,
-      da: TYPE_MISSING_ZWNJ_ENTRY.da,
     })
   })
 
@@ -45,11 +54,9 @@ describe('a space or a نیم‌فاصله', () => {
     for (const kind of ['wrong', 'extra'] as const) {
       expect(noteFor({ kind, index: 0, cellKind: 'space' })).toEqual({
         entry: TYPE_EXTRA_SPACE_ENTRY,
-        da: TYPE_EXTRA_SPACE_ENTRY.da,
       })
       expect(noteFor({ kind, index: 0, cellKind: 'zwnj' })).toEqual({
         entry: TYPE_EXTRA_ZWNJ_ENTRY,
-        da: TYPE_EXTRA_ZWNJ_ENTRY.da,
       })
     }
   })
@@ -57,6 +64,6 @@ describe('a space or a نیم‌فاصله', () => {
 
 describe('a match', () => {
   it('says nothing — there is nothing to mark', () => {
-    expect(noteFor({ kind: 'match', index: -1, cellKind: 'letter' })).toEqual({ da: '' })
+    expect(noteFor({ kind: 'match', index: -1, cellKind: 'letter' })).toEqual({})
   })
 })

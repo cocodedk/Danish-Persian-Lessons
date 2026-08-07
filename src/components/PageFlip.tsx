@@ -20,7 +20,7 @@ const SHOWN_MS = 1400
  * either way (ART-DIRECTION "Motion").
  */
 export function PageFlip({ page, onDone }: PageFlipProps) {
-  const [line] = useState(() => filledPageLine(page))
+  const [line] = useState(filledPageLine)
 
   useEffect(() => {
     const timer = window.setTimeout(onDone, SHOWN_MS)
@@ -28,7 +28,7 @@ export function PageFlip({ page, onDone }: PageFlipProps) {
   }, [onDone])
 
   return (
-    <div className="page-flip" role="status">
+    <div className="page-flip" role="status" data-page={page}>
       <div className="page-flip__sheet">
         <PersianText entry={line} as="p" className="page-flip__fa" />
         <PronLine {...line.pron} />

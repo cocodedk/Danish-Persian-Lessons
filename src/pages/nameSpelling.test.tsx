@@ -124,23 +124,23 @@ describe('#/dit-navn — choosing how the name is spelled', () => {
   it('is reachable from the settings corner, before and after a spelling exists', () => {
     setProfile({ name: 'Sara' })
     open('#/')
-    fireEvent.click(screen.getByRole('button', { name: 'Sara' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Sara' }))
     expect(screen.getByRole('link', { name: 'Skriv navnet på persisk' })).toBeInTheDocument()
 
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/')
-    fireEvent.click(screen.getByRole('button', { name: 'Sara' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Sara' }))
     const link = screen.getByRole('link', { name: 'Ret navnet på persisk' })
     expect(link).toHaveAttribute('href', '#/dit-navn')
   })
 
-  it('says in both languages that the name stays on the phone', () => {
+  it('says in both languages that the name stays on this device', () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/')
-    fireEvent.click(screen.getByRole('button', { name: 'Sara' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Sara' }))
 
-    expect(screen.getByText(/Navnet gemmes kun på din telefon/)).toBeInTheDocument()
-    expect(screen.getByText('نامت فقط روی همین دستگاه می‌ماند.')).toBeInTheDocument()
+    expect(screen.getByText('Navnet er kun på denne enhed.')).toBeInTheDocument()
+    expect(screen.getByText('نام فقط در این دستگاه است.')).toBeInTheDocument()
   })
 
   it('spells a compound name with one space between the parts, however often it is tapped', () => {
@@ -168,7 +168,7 @@ describe('#/dit-navn — choosing how the name is spelled', () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/')
 
-    fireEvent.click(screen.getByRole('button', { name: 'Sara' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Sara' }))
     fireEvent.change(screen.getByLabelText('Dit navn'), { target: { value: 'Mette' } })
     fireEvent.click(screen.getByText('Gem'))
 

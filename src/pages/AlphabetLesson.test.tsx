@@ -22,6 +22,7 @@ describe('#/lesson/alphabet', () => {
   it('opens on orientation the first time, and teaches the right-to-left flip', () => {
     open('#/lesson/alphabet')
     expect(screen.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Næste: læseretning' }))
     expect(
       screen.getByRole('heading', { name: 'Persisk læses fra højre mod venstre' }),
     ).toBeInTheDocument()
@@ -33,12 +34,31 @@ describe('#/lesson/alphabet', () => {
 
   it('is skippable — the way out sits in the thumb bar from the first screen', () => {
     open('#/lesson/alphabet')
-    const onward = screen.getByRole('link', { name: 'Videre til bogstaverne' })
+    const onward = screen.getByRole('link', { name: 'Spring over og gå til alfabetet' })
     expect(onward).toHaveAttribute('href', '#/lesson/alphabet')
-    expect(getAlphabetProgress().orientationSeen).toBe(true)
+    expect(getAlphabetProgress().orientationSeen).toBe(false)
 
     fireEvent.click(onward)
+    expect(getAlphabetProgress().orientationSeen).toBe(true)
     expect(screen.getByRole('heading', { name: 'Alfabetet' })).toBeInTheDocument()
+  })
+
+  it('marks completion only after the learner reaches all six steps', () => {
+    open('#/lesson/alphabet')
+    expect(screen.getByText(/trin 1 af 6/)).toBeInTheDocument()
+    for (const label of [
+      'Næste: læseretning',
+      'Næste: bogstaver der binder',
+      'Næste: bogstavformer',
+      'Næste: store og små bogstaver',
+      'Næste: prikker',
+    ]) {
+      expect(getAlphabetProgress().orientationSeen).toBe(false)
+      fireEvent.click(screen.getByRole('button', { name: label }))
+    }
+    expect(screen.getByText(/trin 6 af 6/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Prikkerne er en del af bogstavet' })).toBeInTheDocument()
+    expect(getAlphabetProgress().orientationSeen).toBe(true)
   })
 
   it('is revisitable from the lesson index once it has been seen', () => {
@@ -54,7 +74,7 @@ describe('#/lesson/alphabet', () => {
     markOrientationSeen()
     const { container } = open('#/lesson/alphabet')
     expect(container.querySelectorAll('.alphabet__cell')).toHaveLength(33)
-    expect(screen.getByText('0 af 39 klaret')).toBeInTheDocument()
+    expect(screen.getByText('0 af 39 set eller øvet')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Find tegnet' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Match formerne' })).toBeInTheDocument()
   })
@@ -76,16 +96,16 @@ describe('a letter screen', () => {
 
   it('grants a tick that survives leaving the screen and coming back', () => {
     open('#/lesson/alphabet/bogstav/be')
-    fireEvent.click(screen.getByText('Jeg kan den'))
-    expect(screen.getByLabelText('Klaret')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('Jeg har set tegnet'))
+    expect(screen.getByLabelText('Set')).toBeInTheDocument()
     expect(getAlphabetProgress().letters).toEqual(['be'])
 
     fireEvent.click(screen.getByRole('link', { name: 'Alle bogstaver' }))
-    expect(screen.getByText('1 af 39 klaret')).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('button', { name: 'be, klaret' }))
+    expect(screen.getByText('1 af 39 set eller øvet')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'be, set eller øvet' }))
     fireEvent.click(screen.getByRole('link', { name: 'Åbn hele lektionen' }))
-    expect(screen.getByLabelText('Klaret')).toBeInTheDocument()
-    expect(screen.queryByText('Jeg kan den')).not.toBeInTheDocument()
+    expect(screen.getByLabelText('Set')).toBeInTheDocument()
+    expect(screen.queryByText('Jeg har set tegnet')).not.toBeInTheDocument()
   })
 
   it('says nothing about the learners name until plan 006 fills faSpelling in', () => {
@@ -121,9 +141,9 @@ describe('the vowel marks and the exercises', () => {
 
   it('keeps a mark ticked once the learner says they know it', () => {
     open('#/lesson/alphabet/vokaltegn')
-    fireEvent.click(screen.getAllByText('Jeg kan den')[0])
+    fireEvent.click(screen.getAllByText('Jeg har set tegnet')[0])
     expect(getAlphabetProgress().marks).toEqual(['zebar'])
-    expect(screen.getAllByText('Jeg kan den')).toHaveLength(5)
+    expect(screen.getAllByText('Jeg har set tegnet')).toHaveLength(5)
   })
 
   it('runs an exercise round and writes progress as it goes', () => {

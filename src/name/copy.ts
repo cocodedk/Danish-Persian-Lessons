@@ -4,12 +4,12 @@
 import { HAMZE_YE_ENTRY, nameLetters, type FormKey, type NameLetter } from './forms'
 import { defineEntry } from '../catalog/types'
 
-export const SPELLING_TITLE_ENTRY = defineEntry({ id: 'names-spelling-title', kind: 'phrase', fa: 'نامت به فارسی', da: 'Dit navn på persisk', pron: { da: 'nåmet be fårsi', ipa: 'nɒːmet be fɒːɾsiː' } })
-export const SPELLING_PICK_ENTRY = defineEntry({ id: 'names-spelling-pick', kind: 'phrase', fa: 'کدام را می‌پسندی؟', da: 'Hvilken kan du bedst lide?', pron: { da: 'kodåm rå mipasandi?', ipa: 'kodɒːm ɾɒː miːpæsændiː' } })
+export const SPELLING_TITLE_ENTRY = defineEntry({ id: 'names-spelling-title', kind: 'phrase', fa: 'نام به فارسی', da: 'Navn på persisk', pron: { da: 'nåm be fårsi', ipa: 'nɒːm be fɒːɾsiː' } })
+export const SPELLING_PICK_ENTRY = defineEntry({ id: 'names-spelling-pick', kind: 'phrase', fa: 'کدام را دوست داری؟', da: 'Hvilken kan du lide?', pron: { da: 'kodåm rå dust dåri?', ipa: 'kodɒːm ɾɒː duːst dɒːɾiː' } })
 
 /** The mini-lesson's own title, as the plan writes it. */
 export const WRITE_NAME_ENTRY = defineEntry({ id: 'names-write-name', kind: 'phrase', fa: 'نام خود را بنویس', da: 'Skriv dit eget navn', pron: { da: 'nåme khod rå benevis', ipa: 'nɒːme xod ɾɒː beneviːs' } })
-export const ASSEMBLE_ENTRY = defineEntry({ id: 'names-assemble', kind: 'phrase', fa: 'نامت را دوباره بچین', da: 'Sæt dit navn sammen igen', pron: { da: 'nåmet rå dobåre betjin', ipa: 'nɒːmet ɾɒː dobɒːɾe betʃiːn' } })
+export const ASSEMBLE_ENTRY = defineEntry({ id: 'names-assemble', kind: 'phrase', fa: 'نام را دوباره درست کن', da: 'Lav navnet igen', pron: { da: 'nåm rå dobåre dorost kon', ipa: 'nɒːm ɾɒː dobɒːɾe doɾost kon' } })
 
 /** What the tray of tappable letters is, over both banks. */
 export const LETTERS_ENTRY = defineEntry({ id: 'names-letters-label', kind: 'word', fa: 'حرف‌ها', da: 'Bogstaverne', pron: { da: 'harfhå', ipa: 'hæɾfhɒː' } })
@@ -22,11 +22,11 @@ export const LETTERS_ENTRY = defineEntry({ id: 'names-letters-label', kind: 'wor
  */
 export const NOT_IN_NAME_ENTRY = defineEntry({ id: 'names-not-in-name', kind: 'phrase', fa: 'این حرف در نام تو نیست. دوباره نگاه کن.', da: 'Det bogstav er ikke i dit navn. Kig igen.', pron: { da: 'in harf dar nåme to nist. dobåre negåh kon.', ipa: 'iːn hæɾf dæɾ nɒːme to niːst dobɒːɾe negɒːh kon' } })
 
-/** …and the one for a letter that IS in the name, further along. */
-export const LATER_IN_NAME_DA = 'Det bogstav kommer et andet sted i navnet. Prøv igen, du mister ingenting.'
+/** A common-word prompt for a correct name letter tapped too early. */
+export const LATER_IN_NAME_ENTRY = defineEntry({ id: 'names-letter-later', kind: 'phrase', fa: 'این حرف را بعد بزن.', da: 'Tryk på dette bogstav senere.', pron: { da: 'in harf rå ba’d bezan', ipa: 'iːn hæɾf ɾɒː bæʔd bezæn' } })
 
 /** The promise in the settings corner, said in both languages. */
-export const PRIVACY_ENTRY = defineEntry({ id: 'names-privacy', kind: 'phrase', fa: 'نامت فقط روی همین دستگاه می‌ماند.', da: 'Navnet gemmes kun på din telefon og sendes aldrig videre.', pron: { da: 'nåmet faghat ruje hamin dastgåh mimånad', ipa: 'nɒːmet fæɢæt ɾuːje hæmiːn dæstɡɒːh miːmɒːnæd' } })
+export const PRIVACY_ENTRY = defineEntry({ id: 'names-privacy', kind: 'phrase', fa: 'نام فقط در این دستگاه است.', da: 'Navnet er kun på denne enhed.', pron: { da: 'nåm faghat dar in dastgåh ast', ipa: 'nɒːm fæɢæt dæɾ iːn dæstɡɒːh æst' } })
 
 export const NAME_ENTRIES = [
   SPELLING_TITLE_ENTRY,
@@ -35,6 +35,7 @@ export const NAME_ENTRIES = [
   ASSEMBLE_ENTRY,
   LETTERS_ENTRY,
   NOT_IN_NAME_ENTRY,
+  LATER_IN_NAME_ENTRY,
   PRIVACY_ENTRY,
   HAMZE_YE_ENTRY,
 ]

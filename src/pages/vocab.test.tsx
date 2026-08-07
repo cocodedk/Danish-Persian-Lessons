@@ -32,19 +32,19 @@ describe('the forside lists the word units', () => {
       expect(card, each.title).toBeInTheDocument()
       expect(within(card).getByText(each.title)).toBeInTheDocument()
       expect(
-        within(card).getByText(`0 af ${each.words.length} ord klaret`),
+        within(card).getByText(`0 af ${each.words.length} ord gennemgået eller øvet`),
       ).toBeInTheDocument()
     }
   })
 
   it('counts a cleared word on the forside', () => {
     const word = open(`#/lesson/ord/1/${unit.words[0].id}`)
-    fireEvent.click(screen.getByRole('button', { name: 'Jeg kan det' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Jeg har gennemgået ordet' }))
     word.unmount()
 
     open('#/')
     const card = unitCard(unit.id)
-    expect(within(card).getByText(`1 af ${unit.words.length} ord klaret`)).toBeInTheDocument()
+    expect(within(card).getByText(`1 af ${unit.words.length} ord gennemgået eller øvet`)).toBeInTheDocument()
   })
 })
 
@@ -72,7 +72,7 @@ describe('a word screen', () => {
 
     const faPane = container.querySelector('.split-card__pane--fa')
     expect(faPane?.textContent).toContain(word.faMarked)
-    expect(screen.getByText(`${word.pron.da} · [${word.pron.ipa}]`)).toBeInTheDocument()
+    expect(screen.getAllByText(`${word.pron.da} · [${word.pron.ipa}]`).length).toBeGreaterThan(0)
     expect(screen.getByText(word.da)).toBeInTheDocument()
     // The approved specimen renderer owns Persian language and direction.
     expect(faPane?.querySelector('.fa-specimen')).toHaveAttribute('dir', 'rtl')
@@ -90,14 +90,14 @@ describe('a word screen', () => {
 
   it('ticks the word off and celebrates, and says so again on the next visit', () => {
     const first = open(`#/lesson/ord/1/${unit.words[0].id}`)
-    fireEvent.click(screen.getByRole('button', { name: 'Jeg kan det' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Jeg har gennemgået ordet' }))
     expect(praiseOnScreen()).toBe(true)
     expect(getRewards().points).toBe(2)
     first.unmount()
 
     open(`#/lesson/ord/1/${unit.words[0].id}`)
-    expect(screen.queryByRole('button', { name: 'Jeg kan det' })).not.toBeInTheDocument()
-    expect(screen.getByText('Klaret')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Jeg har gennemgået ordet' })).not.toBeInTheDocument()
+    expect(screen.getByText('Gennemgået')).toBeInTheDocument()
   })
 
   it('says nothing about the learner\'s name when there is no name', () => {

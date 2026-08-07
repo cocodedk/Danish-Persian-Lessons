@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getSettings, setSoundOn } from '../progress/settings'
 import { PRIVACY_ENTRY } from '../name/copy'
@@ -19,6 +19,18 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
   const [open, setOpen] = useState(false)
   const [draft, setDraft] = useState(name ?? '')
   const [sound, setSound] = useState(() => getSettings().sound)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return
+      setOpen(false)
+      toggleRef.current?.focus()
+    }
+    document.addEventListener('keydown', closeOnEscape)
+    return () => document.removeEventListener('keydown', closeOnEscape)
+  }, [open])
 
   function handleToggle() {
     setDraft(name ?? '')
@@ -39,8 +51,10 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
   return (
     <div className="settings-corner" lang="da">
       <button
+        ref={toggleRef}
         type="button"
         className="settings-corner__toggle"
+        aria-label={name ? `Indstillinger for ${name}` : 'Indstillinger'}
         aria-expanded={open}
         aria-controls="settings-corner-panel"
         onClick={handleToggle}
@@ -49,7 +63,8 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
       </button>
 
       {open && (
-        <div id="settings-corner-panel" className="settings-corner__panel">
+        <div id="settings-corner-panel" className="settings-corner__panel" aria-labelledby="settings-corner-title">
+          <h2 id="settings-corner-title">Indstillinger</h2>
           <label htmlFor="settings-corner-name">Dit navn</label>
           <input
             id="settings-corner-name"

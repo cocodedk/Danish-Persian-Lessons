@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import PuzzleScreen from './PuzzleScreen'
 import { alphabetGroups, puzzles } from '../puzzles/catalog'
@@ -23,7 +23,7 @@ function matchChoiceName(choice: { da: string; pron: { da: string; ipa: string }
 beforeEach(() => window.localStorage.clear())
 
 describe('a simple puzzle route', () => {
-  it('is skippable and hides the complete companion until an attempt', () => {
+  it('is skippable and hides the complete companion until an attempt', async () => {
     const puzzle = alphabetGroups[0].puzzle
     const task = puzzle.tasks[0]
     open(puzzle.id)
@@ -38,6 +38,8 @@ describe('a simple puzzle route', () => {
     expect(screen.getByText('Se hele tegnet eller ordet')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Prøv én gang til' }))
+    await waitFor(() => expect(screen.getByRole('group', { name: 'Aktiv opgave' })).toHaveFocus())
   })
 
   it('renders ordering tiles RTL and keeps repeated glyph tiles independently tappable', () => {

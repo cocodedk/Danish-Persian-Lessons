@@ -21,12 +21,37 @@ interface Envelope<T> {
 
 const memory = new Map<string, string>()
 
+export type StorageWarning = 'memory' | 'corrupt' | null
+
+let storageWarning: StorageWarning = null
+const warningListeners = new Set<() => void>()
+
+function flagStorageWarning(next: Exclude<StorageWarning, null>): void {
+  // A denied/full store is the stronger warning: it means new work cannot be
+  // persisted, whereas a corrupt row only affects something already stored.
+  if (storageWarning === next || storageWarning === 'memory') return
+  storageWarning = next
+  warningListeners.forEach((listener) => listener())
+}
+
+export function getStorageWarning(): StorageWarning {
+  return storageWarning
+}
+
+export function subscribeStorageWarning(listener: () => void): () => void {
+  warningListeners.add(listener)
+  return () => {
+    warningListeners.delete(listener)
+  }
+}
+
 function rawGet(key: string): string | null {
   if (memory.has(key)) return memory.get(key) ?? null
   try {
     return window.localStorage.getItem(key)
   } catch {
     // localStorage denied — no memory entry either, so there is nothing to read.
+    flagStorageWarning('memory')
     return null
   }
 }
@@ -39,6 +64,7 @@ function rawSet(key: string, value: string): void {
     window.localStorage.setItem(key, value)
   } catch {
     // localStorage denied or full — memory already holds the write.
+    flagStorageWarning('memory')
   }
 }
 
@@ -52,6 +78,8 @@ function rawSet(key: string, value: string): void {
  */
 export function resetMemoryCache(): void {
   memory.clear()
+  storageWarning = null
+  warningListeners.forEach((listener) => listener())
 }
 
 /**
@@ -72,15 +100,18 @@ export function readJSON<T>(key: string, fallback: T): T {
   try {
     const parsed = JSON.parse(raw) as Partial<Envelope<T>>
     if (!parsed || typeof parsed !== 'object' || parsed.schemaVersion !== SCHEMA_VERSION) {
+      flagStorageWarning('corrupt')
       return fallback
     }
     // A `null` value is a corrupt envelope, not legitimate content — an array
     // is still welcome (callers that store one already treat it as such).
     if (parsed.value === null || typeof parsed.value !== 'object') {
+      flagStorageWarning('corrupt')
       return fallback
     }
     return parsed.value as T
   } catch {
+    flagStorageWarning('corrupt')
     return fallback
   }
 }

@@ -1,0 +1,14 @@
+.connected-reading-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: var(--tap-min);
+  color: var(--blue);
+}
+
+.connected-reading-link [lang='fa'] {
+  font-family: var(--font-naskh);
+  font-size: 1.35rem;
+  font-weight: 700;
+}

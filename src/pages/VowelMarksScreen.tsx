@@ -39,7 +39,7 @@ export default function VowelMarksScreen() {
             <div className="marks__side">
               <CompactPhraseRow entry={mark.nameEntry} />
               {done ? (
-                <ProgressTick granted label="Klaret" />
+                <ProgressTick granted label="Set" />
               ) : (
                 <Button
                   variant="quiet"
@@ -49,11 +49,11 @@ export default function VowelMarksScreen() {
                     celebration.cheer('item')
                   }}
                 >
-                  Jeg kan den
+                  Jeg har set tegnet
                 </Button>
               )}
             </div>
-            {justDone === mark.id && <Celebration reward={celebration.reward} tickLabel="Klaret" />}
+            {justDone === mark.id && <Celebration reward={celebration.reward} tickLabel="Set" />}
           </div>
         )
       })}

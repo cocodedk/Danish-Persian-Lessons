@@ -16,7 +16,10 @@ import { ChallengeReveal, CompactPhraseRow } from './EntryRenderers'
 import { LearnerPersianInput } from './LearnerPersianInput'
 import { PersonalNameCompanion, type PersonalName } from './PersonalName'
 import { useRoundOutcome } from './useRoundOutcome'
+import { useRevealInView } from './useRevealInView'
+import { useChallengeFocus } from './useChallengeFocus'
 import './TypeExercise.css'
+import './TypeExerciseWide.css'
 
 export interface TypeTask {
   id: string
@@ -70,7 +73,8 @@ export function TypeExercise(props: TypeExerciseProps) {
   const [solved, setSolved] = useState(false)
   const [reward, setReward] = useState<Reward | null>(null)
   const round = useRoundOutcome(tasks.length)
-
+  const feedbackRef = useRevealInView(solved || divergence !== null)
+  const [promptRef, focusPrompt] = useChallengeFocus<HTMLHeadingElement>()
   const task = tasks[index]
   const isLast = index === tasks.length - 1
 
@@ -115,7 +119,7 @@ export function TypeExercise(props: TypeExerciseProps) {
           />
         )}
         <p className="type__note">
-          {round.completed ? doneLine : 'Runden er slut. Kun de rigtige svar er markeret som lært.'}
+          {round.completed ? doneLine : 'Runden er slut. Kun de rigtige svar er markeret som skrevet.'}
         </p>
         {overlays}
       </LessonSheet>
@@ -126,11 +130,9 @@ export function TypeExercise(props: TypeExerciseProps) {
     <LessonSheet
       title={title}
       bar={bar}
+      className="lesson--typing"
       dock={
         <>
-          {/* The float keeps the action beside the large writing line without
-              inflating its row. The state buffer opens no system keyboard and
-              is deliberately not a per-keystroke live region. */}
           <div className="type__line-row">
             <div className="type__action">
               {solved ? (
@@ -144,9 +146,10 @@ export function TypeExercise(props: TypeExerciseProps) {
               <span className="type__caret" aria-hidden="true" />
             </LearnerPersianInput>
           </div>
-          {/* The marking stays beside its writing line inside the sticky dock. */}
           {divergence && <TypeMarks attempt={buffer} divergence={divergence} />}
-          {!solved && <PersianKeyboard onPress={handlePress} label="Persisk tastatur" />}
+          {!solved && !divergence && (
+            <PersianKeyboard onPress={handlePress} label="Persisk tastatur" />
+          )}
         </>
       }
     >
@@ -158,7 +161,7 @@ export function TypeExercise(props: TypeExerciseProps) {
           </p>
         )}
       </div>
-      <h2 className="type__prompt">{task.promptDa}</h2>
+      <h2 ref={promptRef} tabIndex={-1} className="type__prompt">{task.promptDa}</h2>
       {task.pron && <PronLine {...task.pron} />}
       {help}
 
@@ -166,26 +169,31 @@ export function TypeExercise(props: TypeExerciseProps) {
         Du kan stoppe når som helst. Det, du har skrevet rigtigt, bliver stående.
       </p>
 
-      {(solved || divergence) && task.entry && <ChallengeReveal entry={task.entry} />}
-      {(solved || divergence) && task.personalName && (
-        <PersonalNameCompanion
-          spelling={task.personalName.spelling}
-          original={task.personalName.original}
-        />
-      )}
-      {solved && (
-        <Celebration reward={reward} tickLabel="Rigtigt" personalName={task.personalName} />
-      )}
-      {divergence && !solved && (
-        <RetryActions
-          solved={false}
-          // Only the marking goes — the writing stays on the line, so the
-          // learner fixes the one letter instead of starting over.
-          onRetry={() => setDivergence(null)}
-          onAdvance={advance}
-          advanceLabel={isLast ? 'Afslut runden' : 'Næste'}
-        />
-      )}
+      <div ref={feedbackRef} className="type__reveal">
+        {(solved || divergence) && task.entry && <ChallengeReveal entry={task.entry} />}
+        {(solved || divergence) && task.personalName && (
+          <PersonalNameCompanion
+            spelling={task.personalName.spelling}
+            original={task.personalName.original}
+          />
+        )}
+        {solved && (
+          <Celebration reward={reward} tickLabel="Rigtigt" personalName={task.personalName} />
+        )}
+        {divergence && !solved && (
+          <RetryActions
+            solved={false}
+            // Only the marking goes — the writing stays on the line, so the
+            // learner fixes the one letter instead of starting over.
+            onRetry={() => {
+              setDivergence(null)
+              focusPrompt()
+            }}
+            onAdvance={advance}
+            advanceLabel={isLast ? 'Afslut runden' : 'Næste'}
+          />
+        )}
+      </div>
       {overlays}
     </LessonSheet>
   )

@@ -14,6 +14,8 @@ import { findPuzzle } from '../puzzles/catalog'
 import type { MissingTask, PuzzleTask } from '../puzzles/types'
 import { useRoundOutcome } from '../components/useRoundOutcome'
 import { useCelebration } from '../rewards/useCelebration'
+import { useRevealInView } from '../components/useRevealInView'
+import { useChallengeFocus } from '../components/useChallengeFocus'
 import './puzzle.css'
 
 function MissingPrompt({ task }: { task: MissingTask }) {
@@ -42,8 +44,11 @@ export default function PuzzleScreen() {
   const [selected, setSelected] = useState<string[]>([])
   const [attempted, setAttempted] = useState(false)
   const [correct, setCorrect] = useState(false)
+  const [selectedChoice, setSelectedChoice] = useState<string | null>(null)
   const round = useRoundOutcome(puzzle?.tasks.length ?? 0)
   const celebration = useCelebration()
+  const feedbackRef = useRevealInView(attempted)
+  const [promptRef, focusPrompt] = useChallengeFocus<HTMLDivElement>()
 
   if (!puzzle) return <Navigate to="/" replace />
   const activePuzzle = puzzle
@@ -52,8 +57,9 @@ export default function PuzzleScreen() {
   // Buttons stay enabled after an attempt — disabling the focused control
   // would drop keyboard focus to <body> (same rule as ChoiceExercise). Taps
   // after the attempt simply do nothing.
-  function answer(isCorrect: boolean) {
+  function answer(isCorrect: boolean, choiceId?: string) {
     if (attempted) return
+    setSelectedChoice(choiceId ?? null)
     setAttempted(true)
     setCorrect(isCorrect)
     if (isCorrect) round.recordSuccess()
@@ -63,6 +69,8 @@ export default function PuzzleScreen() {
     setSelected([])
     setAttempted(false)
     setCorrect(false)
+    setSelectedChoice(null)
+    focusPrompt()
   }
 
   function advance() {
@@ -87,7 +95,7 @@ export default function PuzzleScreen() {
   if (round.finished) {
     const completed = round.completed
     return (
-      <LessonSheet title={activePuzzle.title} bar={<BarLink to={activePuzzle.backTo}>Til lektionen</BarLink>}>
+      <LessonSheet className="lesson--task" title={activePuzzle.title} bar={<BarLink to={activePuzzle.backTo}>Til lektionen</BarLink>}>
         {completed ? (
           <Celebration reward={celebration.reward} tickLabel="Puslespillet er klaret" />
         ) : (
@@ -102,16 +110,25 @@ export default function PuzzleScreen() {
   const ordered = task.kind === 'order' ? selected.map((tileId) => task.tiles.find((tile) => tile.id === tileId)?.glyph ?? '').join('') : ''
 
   return (
-    <LessonSheet title={activePuzzle.title} bar={<BarLink to={activePuzzle.backTo}>Spring over</BarLink>}>
+    <LessonSheet className="lesson--task" title={activePuzzle.title} bar={<BarLink to={activePuzzle.backTo}>Spring over</BarLink>}>
       <p className="puzzle__count">Lille pause {index + 1} af {activePuzzle.tasks.length}</p>
-      <TaskPrompt task={task} />
+      <div ref={promptRef} tabIndex={-1} role="group" aria-label="Aktiv opgave">
+        <TaskPrompt task={task} />
+      </div>
 
       {task.kind === 'match' && (
         <div className="puzzle__choices">
           {task.choices.map((choice) => (
-            <button key={choice.id} type="button" onClick={() => answer(choice.id === task.entry.id)}>
+            <button
+              key={choice.id}
+              type="button"
+              className={selectedChoice === choice.id ? 'puzzle__choice--selected' : undefined}
+              aria-pressed={selectedChoice === choice.id}
+              onClick={() => answer(choice.id === task.entry.id, choice.id)}
+            >
               <span>{choice.da}</span>
               <span>{formatPron(choice.pron)}</span>
+              {selectedChoice === choice.id && <strong>{correct ? '✓ Rigtigt' : 'Valgt'}</strong>}
             </button>
           ))}
         </div>
@@ -120,8 +137,18 @@ export default function PuzzleScreen() {
       {task.kind === 'missing' && (
         <div className="puzzle__choices puzzle__choices--letters" dir="rtl">
           {task.choices.map((choice) => (
-            <button key={choice.id} type="button" aria-label={choice.da} onClick={() => answer(choice.fa === [...task.entry.fa][task.missingAt])}>
+            <button
+              key={choice.id}
+              type="button"
+              className={selectedChoice === choice.id ? 'puzzle__choice--selected' : undefined}
+              aria-label={choice.da}
+              aria-pressed={selectedChoice === choice.id}
+              onClick={() => answer(choice.fa === [...task.entry.fa][task.missingAt], choice.id)}
+            >
               <PersianText entry={choice} ariaHidden />
+              {selectedChoice === choice.id && (
+                <span className="puzzle__choice-state">{correct ? '✓ Rigtigt' : 'Valgt'}</span>
+              )}
             </button>
           ))}
         </div>
@@ -153,7 +180,9 @@ export default function PuzzleScreen() {
 
       {/* A standing region, like the exercise screens': the reveal is
           announced when it appears instead of arriving unseen. */}
-      <div role="status">{attempted && <ChallengeReveal entry={task.entry} />}</div>
+      <div ref={feedbackRef} className="puzzle__feedback" role="status" aria-live="polite">
+        {attempted && <ChallengeReveal entry={task.entry} />}
+      </div>
       {attempted && (
         <RetryActions
           className="puzzle__actions"

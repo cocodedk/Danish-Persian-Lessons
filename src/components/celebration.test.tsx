@@ -109,7 +109,7 @@ describe('the streak line', () => {
 
     render(<StreakLine streak={{ value: 3, resting: true, today: false }} />)
     expect(screen.queryByLabelText('Øvet i dag')).not.toBeInTheDocument()
-    expect(screen.getByText('3 dage · stimen hviler — én øvelse vækker den')).toBeInTheDocument()
+    expect(screen.getByText('Træningen fortsætter stadig')).toBeInTheDocument()
   })
 })
 
@@ -132,13 +132,13 @@ describe('the gift', () => {
 })
 
 describe('the sticker shelf keeps what was earned', () => {
-  it('shows nothing until there is something to show, then names the page and the count', () => {
+  it('shows nothing until there is something to show, then mirrors the page line', () => {
     const { container, unmount } = render(<RewardShelf level={1} stickers={[]} />)
     expect(container).toBeEmptyDOMElement()
     unmount()
 
     render(<RewardShelf level={3} stickers={[{ id: 's1', kind: 'afarin' }]} />)
-    expect(screen.getByText(/Du er på side 3\. Du har 1 klistermærke\./)).toBeInTheDocument()
+    expect(screen.getByText('En ny side')).toBeInTheDocument()
     expect(screen.getByText('صفحهٔ تازه')).toBeInTheDocument()
     expect(screen.getByText('safheje tåze · [sæfheje tɒːze]')).toBeInTheDocument()
   })

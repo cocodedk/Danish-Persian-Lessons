@@ -56,7 +56,7 @@ describe('every exercise answer flows through the reward engine', () => {
     fireEvent.click(screen.getAllByRole('button').filter((b) => b.textContent === wrong)[0])
 
     expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText('— nu har du hele hjælpen. Du mister ingenting.')).toBeInTheDocument()
+    expect(screen.getByText('Prøv igen')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
     expect(getRewards().points).toBe(0)
@@ -72,8 +72,8 @@ describe('every exercise answer flows through the reward engine', () => {
       fireEvent.click(screen.getByText(i === questions.length - 1 ? 'Afslut runden' : 'Næste'))
     }
 
-    // The page-flip announces the level, and the round says nothing was lost.
-    expect(screen.getByText(/Side \d+ er fuld!/)).toBeInTheDocument()
+    // The page-flip mirrors «صفحه پر شد!» and the round says nothing was lost.
+    expect(screen.getByText('Siden er fuld!')).toBeInTheDocument()
     expect(screen.getByText(/Du kom hele runden igennem/)).toBeInTheDocument()
     const view = getRewards()
     expect(view.level).toBeGreaterThan(1)
@@ -107,9 +107,9 @@ describe('every exercise answer flows through the reward engine', () => {
 }, 20_000)
 
 describe('a letter cleared from its own screen celebrates too', () => {
-  it('praises "Jeg kan den" instead of only ticking it off', () => {
+  it('praises an encountered sign instead of only ticking it off', () => {
     open('#/lesson/alphabet/bogstav/be')
-    fireEvent.click(screen.getByText('Jeg kan den'))
+    fireEvent.click(screen.getByText('Jeg har set tegnet'))
 
     expect(praiseOnScreen()).toBe(true)
     expect(getRewards().points).toBe(2)
@@ -124,12 +124,12 @@ describe('the forside carries the streak', () => {
     first.unmount()
 
     const letter = open('#/lesson/alphabet/bogstav/be')
-    fireEvent.click(screen.getByText('Jeg kan den'))
+    fireEvent.click(screen.getByText('Jeg har set tegnet'))
     letter.unmount()
 
     open('#/')
     const home = screen.getByRole('main')
-    expect(within(home).getByText('1 dag · du har øvet i dag')).toBeInTheDocument()
+    expect(within(home).getByText('Du har øvet i dag')).toBeInTheDocument()
   })
 })
 
@@ -149,7 +149,7 @@ describe('a null envelope value never crashes the app', () => {
     home.unmount()
 
     const letter = open('#/lesson/alphabet/bogstav/be')
-    expect(screen.getByRole('button', { name: 'Jeg kan den' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Jeg har set tegnet' })).toBeInTheDocument()
     letter.unmount()
 
     const exercise = open('#/lesson/alphabet/ovelse/find')

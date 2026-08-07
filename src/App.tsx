@@ -16,10 +16,17 @@ import NameLesson from './pages/NameLesson'
 import LessonPlaceholder from './pages/LessonPlaceholder'
 import Kit from './pages/Kit'
 import PuzzleScreen from './pages/PuzzleScreen'
+import { RouteEffects } from './components/RouteEffects'
+import ReviewScreen from './pages/ReviewScreen'
+import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
+import WordBridgesScreen from './pages/WordBridgesScreen'
+import { PersistenceNotice } from './components/PersistenceNotice'
 
 export default function App() {
   return (
     <HashRouter>
+      <PersistenceNotice />
+      <RouteEffects />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lesson/alphabet" element={<AlphabetLesson />} />
@@ -33,8 +40,11 @@ export default function App() {
         <Route path="/lesson/ord/:unit/ovelse/:kind" element={<VocabExerciseScreen />} />
         {/* Static before dynamic: «skriv» is the typing round, never a word id. */}
         <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
+        <Route path="/lesson/ord/:unit/laes/:reading" element={<ConnectedReadingScreen />} />
         <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
         <Route path="/puslespil/:id" element={<PuzzleScreen />} />
+        <Route path="/repetition" element={<ReviewScreen />} />
+        <Route path="/ord-der-ligner" element={<WordBridgesScreen />} />
         {/* The learner's own name: how it is spelled, and the lesson that
             teaches it. Both send a learner without a name back to the forside. */}
         <Route path="/dit-navn" element={<NameSpelling />} />

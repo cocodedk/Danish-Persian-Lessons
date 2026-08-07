@@ -32,9 +32,10 @@ export default function VocabExerciseScreen() {
     <LessonSheet
       title={VOCAB_EXERCISE_TITLES[kind]}
       bar={<BarLink to={`/lesson/ord/${unit.id}`}>Til lektionen</BarLink>}
+      className="lesson--task"
     >
       <p className="alphabet__note">
-        Du kan stoppe når som helst. Det, du har klaret, bliver stående.
+        Du kan stoppe når som helst. Det, du har øvet, bliver stående.
       </p>
       <ChoiceExercise
         questions={questions}

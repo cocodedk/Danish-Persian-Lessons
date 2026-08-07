@@ -39,6 +39,9 @@ export interface OrientationToken {
   entry: PersianEntry
   /** A positional form derived from the parent letter. */
   form?: string
+  /** Context inside this word; overrides the isolated letter companion. */
+  contextualPron?: PersianEntry['pron']
+  contextualHelpDa?: string
 }
 
 export interface OrientationPoint {
@@ -58,7 +61,12 @@ export const ORIENTATION_POINTS: OrientationPoint[] = [
     id: 'join',
     heading: 'Bogstaverne holder i hånd',
     body: 'Fire bogstaver, ét ord. Persisk bindes sammen — næsten som når du selv skriver i hånden.',
-    fa: ['be', 'alef', 'be', 'alef'].map((id) => ({ entry: letter(id) })),
+    fa: [
+      { entry: letter('be') },
+      { entry: letter('alef'), contextualPron: { da: 'å i “år”', ipa: 'ɒː' }, contextualHelpDa: 'lang vokal her' },
+      { entry: letter('be') },
+      { entry: letter('alef'), contextualPron: { da: 'å i “år”', ipa: 'ɒː' }, contextualHelpDa: 'lang vokal her' },
+    ],
     result: word('baba'),
   },
   {

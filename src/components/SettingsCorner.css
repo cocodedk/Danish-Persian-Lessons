@@ -1,10 +1,8 @@
-/* Top corner, not bottom: the thumb zone belongs to the lessons now that the
-   forside carries a lesson list under the specimen (plan 003 step 1). */
+/* An inline corner in the home masthead. Keeping it in normal flow means its
+   full visible label never covers the title at narrow widths. */
 
 .settings-corner {
-  position: fixed;
-  inset-block-start: 0.75rem;
-  inset-inline-end: 0.75rem;
+  position: relative;
   z-index: 10;
   font-family: var(--font-latin);
 }
@@ -26,6 +24,10 @@
   inset-block-start: calc(100% + 0.5rem);
   inset-inline-end: 0;
   width: max(16rem, 100%);
+  max-width: calc(100vw - 1.5rem);
+  max-block-size: calc(100dvh - 5rem - env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -34,6 +36,11 @@
   border-radius: 3px;
   background: var(--card);
   box-shadow: 0 1px 0 var(--rule);
+}
+
+.settings-corner__panel h2 {
+  margin: 0;
+  font-size: 1.125rem;
 }
 
 .settings-corner__panel label {
@@ -119,7 +126,7 @@
   margin: 0;
   font-size: 1rem;
   color: var(--ink);
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .settings-corner__privacy[lang='fa'] {

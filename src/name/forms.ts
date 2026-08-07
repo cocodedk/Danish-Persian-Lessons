@@ -16,6 +16,8 @@ export interface NameLetter {
   glyph: string
   /** Catalog companion when the sign is known; personal output may be unknown. */
   entry?: PersianEntry
+  /** The spoken letter name, kept separate from its contextual sound role. */
+  nameEntry?: PersianEntry
   form: FormKey
   /** The form as the pen writes it, joining strokes included: بـ ـتـ ـک ر */
   formGlyph: string
@@ -37,6 +39,7 @@ interface Shape {
   nameDa: string
   sound?: Pron
   entry?: PersianEntry
+  nameEntry?: PersianEntry
 }
 
 /**
@@ -53,6 +56,7 @@ export const HAMZE_YE_ENTRY = defineEntry({
   fa: 'ئ',
   da: 'hamze over ye; ingen egen lyd',
   pron: NO_OWN_SOUND,
+  audioNotApplicable: 'Tegnet fungerer som bærer i et navn og har ingen egen lyd.',
 })
 
 function derive(
@@ -85,13 +89,14 @@ const SHAPES = new Map<string, Shape>([
       nameDa: letter.name.da,
       sound: letter.sound,
       entry: letter.entry,
+      nameEntry: letter.nameEntry,
     },
   ]),
   // آ is a sign on an alef, not the 33rd letter, so it carries no forms of its
   // own — and like alef it never joins to the left.
   [
     MADDE.glyph,
-    { ...derive(MADDE.glyph, false, MADDE.name.da, MADDE.entry), sound: MADDE.sound },
+    { ...derive(MADDE.glyph, false, MADDE.name.da, MADDE.entry), sound: MADDE.sound, nameEntry: MADDE.nameEntry },
   ],
   [HAMZE_YE_ENTRY.fa, { ...derive(HAMZE_YE_ENTRY.fa, true, 'hamze over ye', HAMZE_YE_ENTRY), sound: HAMZE_YE_ENTRY.pron }],
 ])
@@ -140,6 +145,7 @@ export function nameLetters(spelling: string): NameLetter[] {
       index: result.length,
       glyph: char,
       entry: shape.entry,
+      nameEntry: shape.nameEntry,
       form,
       formGlyph: shape.forms[form],
       forms: shape.forms,

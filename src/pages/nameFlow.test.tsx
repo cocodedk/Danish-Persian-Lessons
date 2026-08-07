@@ -114,7 +114,7 @@ describe('the learner’s name, capture to lesson', () => {
     fireEvent.click(screen.getByText('Gem stavemåden'))
     expect(screen.getByRole('link', { name: /Dit navn/ })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: 'Babak' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger for Babak' }))
     fireEvent.click(screen.getByText('Slet'))
 
     expect(getProfile()).toEqual({})

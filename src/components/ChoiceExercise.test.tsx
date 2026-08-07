@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { ChoiceExercise } from './ChoiceExercise'
 import { buildQuestions } from '../lessons/exercises'
 import { buildVocabQuestions } from '../lessons/vocabExercises'
@@ -37,12 +37,12 @@ describe('ChoiceExercise', () => {
     expect(screen.getByText(`${da} · [${ipa}]`)).toBeInTheDocument()
   })
 
-  it('reveals complete help after a wrong tap, offers retry or next, and takes nothing away', () => {
+  it('reveals complete help after a wrong tap, offers retry or next, and takes nothing away', async () => {
     const { onCorrect } = renderExercise()
     fireEvent.click(screen.getByText(wrongChoice(0)))
 
     expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText(/nu har du hele hjælpen/)).toBeInTheDocument()
+    expect(screen.getByText('Prøv igen')).toBeInTheDocument()
     expect(screen.getByText('Se hele tegnet eller ordet')).toBeInTheDocument()
     expect(screen.getByText('Prøv én gang til')).toBeInTheDocument()
     expect(screen.getByText('Næste')).toBeInTheDocument()
@@ -51,6 +51,7 @@ describe('ChoiceExercise', () => {
     expect(screen.getByText('Spørgsmål 1 af 2')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('Prøv én gang til'))
+    await waitFor(() => expect(screen.getByRole('heading', { name: questions[0].promptDa })).toHaveFocus())
     fireEvent.click(screen.getByText(rightChoice(0)))
     expect(onCorrect).toHaveBeenCalledWith(questions[0].itemId)
   })

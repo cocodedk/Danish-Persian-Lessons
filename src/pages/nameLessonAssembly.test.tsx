@@ -2,7 +2,7 @@
 // out of a tray of its letters and two strangers. What the lesson says on the
 // way down to it is nameLesson.test.tsx.
 import { describe, it, expect } from 'vitest'
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { setProfile } from '../progress/profile'
 import { isNameLessonDone } from '../progress/nameLesson'
 import { assemblyBank, nameGlyphs } from '../name/bank'
@@ -27,16 +27,18 @@ describe('the name-assembly exercise', () => {
     expect(line()).toBe('سا')
   })
 
-  it('a wrong letter costs nothing: it does not stick, and the app says «دوباره»', () => {
+  it('a letter tapped too early does not stick, and both languages say to use it later', async () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/lesson/navn')
 
     tapTile('ا') // the name starts with س, so this one waits its turn
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('')
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText(/Prøv igen, du mister ingenting/)).toBeInTheDocument()
+    expect(screen.getByText('این حرف را بعد بزن.')).toBeInTheDocument()
+    expect(screen.getByText('Tryk på dette bogstav senere.')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Prøv én gang til' }))
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Sæt navnet sammen igen' })).toHaveFocus())
 
     // …and the letter is still there to use when its turn comes.
     tapTile('س')
@@ -76,8 +78,8 @@ describe('the name-assembly exercise', () => {
 
     // The other branch, from the same screen: a letter of the name, out of turn.
     tapTile('ا')
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText(/kommer et andet sted i navnet/)).toBeInTheDocument()
+    expect(screen.getByText('این حرف را بعد بزن.')).toBeInTheDocument()
+    expect(screen.getByText('Tryk på dette bogstav senere.')).toBeInTheDocument()
     expect(screen.queryByText('Det bogstav er ikke i dit navn. Kig igen.')).not.toBeInTheDocument()
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('')
   })

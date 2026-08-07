@@ -5,6 +5,8 @@ import { DaWord } from './DaWord'
 import { FaSpecimen } from './FaSpecimen'
 import { PersianText } from './PersianText'
 import { PronLine } from './PronLine'
+import { ReadingCues } from './ReadingCues'
+import { OptionalAudioControl } from './OptionalAudioControl'
 import './EntryRenderers.css'
 
 /** The letter screen that teaches `entryId` — undefined when no screen does,
@@ -14,12 +16,20 @@ export function letterLessonPath(entryId: string): string | undefined {
   return specimenId ? `/lesson/alphabet/bogstav/${specimenId}` : undefined
 }
 
-export function FullTeachingCard({ entry }: { entry: PersianEntry }) {
+export function FullTeachingCard({
+  entry,
+  showReadingCues = true,
+}: {
+  entry: PersianEntry
+  showReadingCues?: boolean
+}) {
   return (
     <section className="entry-card" data-entry-id={entry.id}>
       <FaSpecimen entry={entry} />
       <PronLine {...entry.pron} />
+      <OptionalAudioControl audioId={entry.audioId} />
       <DaWord>{entry.da}</DaWord>
+      {showReadingCues && entry.readingCues && <ReadingCues entry={entry} />}
     </section>
   )
 }
@@ -29,6 +39,7 @@ export function CompactPhraseRow({ entry }: { entry: PersianEntry }) {
     <div className="entry-phrase" data-entry-id={entry.id}>
       <PersianText entry={entry} className="entry-phrase__fa" />
       <PronLine {...entry.pron} />
+      <OptionalAudioControl audioId={entry.audioId} />
       {/* Danish keeps its own direction even inside an RTL frame (the Kit's
           mirrored sample), like PronLine does. */}
       <span lang="da" dir="ltr">
@@ -58,6 +69,7 @@ export function DetailStrip({ entry, to, className = '', live }: DetailStripProp
       <PersianText entry={entry} className="entry-detail__fa" />
       <div className="entry-detail__help">
         <PronLine {...entry.pron} />
+        <OptionalAudioControl audioId={entry.audioId} />
         <span lang="da" dir="ltr">
           {entry.da}
         </span>
@@ -74,7 +86,7 @@ export function DetailStrip({ entry, to, className = '', live }: DetailStripProp
 export function ChallengeReveal({ entry }: { entry: PersianEntry }) {
   return (
     <div className="entry-reveal">
-      <p className="entry-reveal__label">Se hele tegnet eller ordet</p>
+      <h3 className="entry-reveal__label">Se hele tegnet eller ordet</h3>
       <FullTeachingCard entry={entry} />
     </div>
   )

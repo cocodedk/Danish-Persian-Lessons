@@ -30,5 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install browser test engines
+        run: npx playwright install --with-deps chromium firefox webkit
+
       - name: Run verification (lint, tests, build, scripts/verify.sh)
         run: npm run verify

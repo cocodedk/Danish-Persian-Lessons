@@ -1,6 +1,6 @@
 // The moves both halves of the vocabulary-screens suite make: reset storage
 // and the profile before each case, open a route on a fresh App, read whether
-// praise is on screen, and walk a whole unit's word screens tapping "Jeg kan
+// praise is on screen, and walk a whole unit's word screens tapping "Jeg har
 // det". Test-only — the file is not named *.test.tsx, so vitest collects
 // nothing from it and nothing in the app imports it. It exists so the two
 // suites can stay under the line cap without keeping two copies of the same
@@ -33,11 +33,11 @@ export function praiseOnScreen(): boolean {
   return PRAISE.some((line) => screen.queryAllByText(line.fa).length > 0)
 }
 
-/** Walks a unit's word screens and taps "Jeg kan det" on every one of them. */
+/** Walks a unit's word screens and records every one as reviewed. */
 export function clearWholeUnit(unitId: string): void {
   for (const word of findVocabUnit(unitId)!.words) {
     const view = open(`#/lesson/ord/${unitId}/${word.id}`)
-    const button = screen.queryByRole('button', { name: 'Jeg kan det' })
+    const button = screen.queryByRole('button', { name: 'Jeg har gennemgået ordet' })
     if (button) fireEvent.click(button)
     view.unmount()
   }

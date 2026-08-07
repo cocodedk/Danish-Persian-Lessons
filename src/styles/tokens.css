@@ -11,20 +11,21 @@
   /* Palette — raw values */
   --paper-light: #f7f2e9;
   --ink-light: #26211b;
-  --red-light: #c9202c;
-  --blue-light: #2456a6;
+  /* P12 deepens the original pen colours so normal-size text reaches the
+     selected WCAG AAA 7:1 contrast target on both paper and cards. */
+  --red-light: #941520;
+  --blue-light: #174488;
   --rule-light: #c7d3e2;
   --card-light: #efe8da;
   /* The gold-star sticker, the one celebration colour ART-DIRECTION names
      outside the palette table («ستارهٔ طلایی»). Used for that sticker only. */
   --gold-light: #b8862b;
-  /* Latin sound hints on the keyboard keys — the pencil orange
-     (docs/plans/008-keyboard-danish-hints.md). Measured ≥4.5:1 on --paper. */
-  --orange-light: #a94d09;
+  /* Latin sound hints on the keyboard keys — the pencil orange. */
+  --orange-light: #793500;
 
   --paper-dark: #161d1a;
   --ink-dark: #e9e5db;
-  --red-dark: #e56a64;
+  --red-dark: #ff8f87;
   --blue-dark: #8fb3ea;
   --rule-dark: #3e5248;
   --card-dark: #1d2622;
@@ -39,6 +40,17 @@
   /* App-specific spacing (docs/design/ART-DIRECTION.md "App-specific tokens") */
   --pane-fa-height: 55dvh;
   --tap-min: 44px;
+
+  /* Responsive content measures. Wide screens reveal relationships; they do
+     not stretch a phone composition until its controls drift apart. */
+  --shell-max: 80rem;
+  --reading-max: 42rem;
+  --task-max: 52rem;
+  --specimen-max: 34rem;
+  --keyboard-max: 34rem;
+  --rail-min: 18rem;
+  --rail-max: 24rem;
+  --page-gutter: clamp(1rem, 4vw, 4rem);
 
   /* Notebook ruling: one rule every --rule-step, shifted so the baseline of
      text set at that line-height lands on the rule. --margin-gutter is the

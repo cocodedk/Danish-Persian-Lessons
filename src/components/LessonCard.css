@@ -39,7 +39,7 @@
 
 .lesson-card__progress {
   font-size: 0.9375rem;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 @media (hover: hover) {

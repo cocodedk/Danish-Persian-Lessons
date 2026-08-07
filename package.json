@@ -9,14 +9,20 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest",
-    "verify": "npm run lint && npm run test -- --run && npm run build && bash scripts/verify.sh"
+    "e2e": "npm run build && playwright test",
+    "e2e:run": "playwright test",
+    "review:content": "node scripts/export-content-review.mjs",
+    "review:audio": "node scripts/export-audio-review.mjs",
+    "verify": "npm run lint && npm run test -- --run && npm run build && bash scripts/verify.sh && npm run e2e:run"
   },
   "dependencies": {
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.2"
+    "react-router-dom": "7.18.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.62.1",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.18",

@@ -64,6 +64,7 @@
 @media (max-width: 30rem) {
   .entry-detail {
     grid-template-columns: auto 1fr;
+    padding-block: 0.5rem;
   }
 
   .entry-detail__link {

@@ -116,13 +116,16 @@ describe('the streak rests — it never resets', () => {
     }
   })
 
-  it('says the streak is resting, never that it was lost', () => {
+  it('says in both languages that practice still continues', () => {
     for (let day = 1; day <= 5; day += 1) celebrate('answer', at(2026, 3, day))
     const line = streakLine(getRewards(at(2026, 3, 15)).streak)
 
-    expect(line.da).toBe('5 dage · stimen hviler — én øvelse vækker den')
-    expect(line.fa).toBe('رشتهٔ تمرین خوابیده')
-    expect(line.pron).toEqual({ da: 'resjteje tamrin khåbide', ipa: 'ɾeʃteje tæmɾiːn xɒːbiːde' })
+    expect(line.da).toBe('Træningen fortsætter stadig')
+    expect(line.fa).toBe('تمرین هنوز ادامه دارد')
+    expect(line.pron).toEqual({
+      da: 'tamrin hanuz edåme dårad',
+      ipa: 'tæmɾiːn hænuːz ʔedɒːme dɒːɾæd',
+    })
     for (const word of GUILT_WORDS) {
       expect(line.da.toLowerCase()).not.toContain(word)
       expect(line.fa).not.toContain(word)
@@ -132,8 +135,12 @@ describe('the streak rests — it never resets', () => {
   it('speaks warmly on the day the learner is actually here', () => {
     celebrate('answer', at(2026, 3, 1))
     expect(streakLine(getRewards(at(2026, 3, 1, 12)).streak).da).toBe(
-      '1 dag · du har øvet i dag',
+      'Du har øvet i dag',
     )
-    expect(streakLine(getRewards(at(2026, 3, 2, 12)).streak).da).toBe('1 dag · stimen er vågen')
+    expect(streakLine(getRewards(at(2026, 3, 2, 12)).streak).da).toBe(
+      'Træningen fortsætter',
+    )
+    expect(streakLine(getRewards(at(2026, 3, 2, 12)).streak).fa).toBe('تمرین ادامه دارد')
   })
+
 })

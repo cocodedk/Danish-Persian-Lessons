@@ -1,0 +1,27 @@
+.audio-control {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: var(--font-latin);
+  font-size: 0.875rem;
+}
+
+.audio-control button {
+  min-block-size: var(--tap-min);
+  padding-inline: 0.65rem;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.audio-control button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.audio-control [role='status'] {
+  flex-basis: 100%;
+}

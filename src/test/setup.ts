@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/vitest'
-import { afterEach } from 'vitest'
+import { afterEach, vi } from 'vitest'
 import { cleanup } from '@testing-library/react'
 import { resetMemoryCache } from '../progress/storage'
 
@@ -14,6 +14,11 @@ Storage.prototype.clear = function clear(this: Storage) {
   resetMemoryCache()
   return nativeClear.call(this)
 }
+
+// jsdom has no layout viewport. Route semantics are tested through the calls,
+// while browser geometry belongs to Playwright.
+Object.defineProperty(window, 'scrollTo', { value: vi.fn(), writable: true })
+Object.defineProperty(window, 'scrollY', { value: 0, writable: true })
 
 afterEach(() => {
   cleanup()

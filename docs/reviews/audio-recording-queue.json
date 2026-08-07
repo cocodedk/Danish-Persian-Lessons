@@ -1,0 +1,3468 @@
+{
+  "schemaVersion": 1,
+  "status": "draft-awaiting-content-approval",
+  "source": "src/reviews/contentManifest.ts",
+  "instructions": "Do not record a row until its Persian, IPA, stress, and transcript are approved.",
+  "rows": [
+    {
+      "entryId": "alphabet-letter-alef",
+      "domain": "alphabet",
+      "transcript": "ا",
+      "plainPersian": "ا",
+      "danishMeaning": "alef",
+      "soundDa": "bærer en vokal; se hele ordet",
+      "ipa": "◌",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-alef.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-alef",
+      "domain": "alphabet",
+      "transcript": "الف",
+      "plainPersian": "الف",
+      "danishMeaning": "bogstavnavnet alef",
+      "soundDa": "alef",
+      "ipa": "ʔælef",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-alef.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-be",
+      "domain": "alphabet",
+      "transcript": "ب",
+      "plainPersian": "ب",
+      "danishMeaning": "be",
+      "soundDa": "b i \"bil\"",
+      "ipa": "b",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-be.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-be",
+      "domain": "alphabet",
+      "transcript": "بِ",
+      "plainPersian": "ب",
+      "danishMeaning": "bogstavnavnet be",
+      "soundDa": "be",
+      "ipa": "be",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-be.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-pe",
+      "domain": "alphabet",
+      "transcript": "پ",
+      "plainPersian": "پ",
+      "danishMeaning": "pe",
+      "soundDa": "p i \"pose\"",
+      "ipa": "p",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-pe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-pe",
+      "domain": "alphabet",
+      "transcript": "پِ",
+      "plainPersian": "پ",
+      "danishMeaning": "bogstavnavnet pe",
+      "soundDa": "pe",
+      "ipa": "pe",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-pe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-te",
+      "domain": "alphabet",
+      "transcript": "ت",
+      "plainPersian": "ت",
+      "danishMeaning": "te",
+      "soundDa": "t i \"tak\"",
+      "ipa": "t",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-te.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-te",
+      "domain": "alphabet",
+      "transcript": "تِ",
+      "plainPersian": "ت",
+      "danishMeaning": "bogstavnavnet te",
+      "soundDa": "te",
+      "ipa": "te",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-te.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-se",
+      "domain": "alphabet",
+      "transcript": "ث",
+      "plainPersian": "ث",
+      "danishMeaning": "se",
+      "soundDa": "s i \"sol\"",
+      "ipa": "s",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-se.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-se",
+      "domain": "alphabet",
+      "transcript": "ثِ",
+      "plainPersian": "ث",
+      "danishMeaning": "bogstavnavnet se",
+      "soundDa": "se",
+      "ipa": "se",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-se.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-jim",
+      "domain": "alphabet",
+      "transcript": "ج",
+      "plainPersian": "ج",
+      "danishMeaning": "jim",
+      "soundDa": "dj i \"jazz\"",
+      "ipa": "dʒ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-jim.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-jim",
+      "domain": "alphabet",
+      "transcript": "جیم",
+      "plainPersian": "جیم",
+      "danishMeaning": "bogstavnavnet jim",
+      "soundDa": "jim",
+      "ipa": "dʒiːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-jim.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-che",
+      "domain": "alphabet",
+      "transcript": "چ",
+      "plainPersian": "چ",
+      "danishMeaning": "che",
+      "soundDa": "tj i \"chips\"",
+      "ipa": "tʃ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-che.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-che",
+      "domain": "alphabet",
+      "transcript": "چِ",
+      "plainPersian": "چ",
+      "danishMeaning": "bogstavnavnet che",
+      "soundDa": "che",
+      "ipa": "tʃe",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-che.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-he-jimi",
+      "domain": "alphabet",
+      "transcript": "ح",
+      "plainPersian": "ح",
+      "danishMeaning": "he jimi",
+      "soundDa": "h i \"hus\"",
+      "ipa": "h",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-he-jimi.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-he-jimi",
+      "domain": "alphabet",
+      "transcript": "ح جیمی",
+      "plainPersian": "ح جیمی",
+      "danishMeaning": "bogstavnavnet he jimi",
+      "soundDa": "he-ye djimi",
+      "ipa": "heje dʒiːmiː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-he-jimi.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-khe",
+      "domain": "alphabet",
+      "transcript": "خ",
+      "plainPersian": "خ",
+      "danishMeaning": "khe",
+      "soundDa": "ch i tysk \"Bach\"",
+      "ipa": "x",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-khe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-khe",
+      "domain": "alphabet",
+      "transcript": "خِ",
+      "plainPersian": "خ",
+      "danishMeaning": "bogstavnavnet khe",
+      "soundDa": "khe",
+      "ipa": "xe",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-khe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-dal",
+      "domain": "alphabet",
+      "transcript": "د",
+      "plainPersian": "د",
+      "danishMeaning": "dal",
+      "soundDa": "d i \"dag\"",
+      "ipa": "d",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-dal.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-dal",
+      "domain": "alphabet",
+      "transcript": "دال",
+      "plainPersian": "دال",
+      "danishMeaning": "bogstavnavnet dal",
+      "soundDa": "dal",
+      "ipa": "dɒːl",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-dal.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-zal",
+      "domain": "alphabet",
+      "transcript": "ذ",
+      "plainPersian": "ذ",
+      "danishMeaning": "zal",
+      "soundDa": "stemt s — som engelsk z i \"zoo\"",
+      "ipa": "z",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-zal.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-zal",
+      "domain": "alphabet",
+      "transcript": "ذال",
+      "plainPersian": "ذال",
+      "danishMeaning": "bogstavnavnet zal",
+      "soundDa": "zal",
+      "ipa": "zɒːl",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-zal.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-re",
+      "domain": "alphabet",
+      "transcript": "ر",
+      "plainPersian": "ر",
+      "danishMeaning": "re",
+      "soundDa": "rullet r, som spansk \"pero\"",
+      "ipa": "ɾ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-re.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-re",
+      "domain": "alphabet",
+      "transcript": "رِ",
+      "plainPersian": "ر",
+      "danishMeaning": "bogstavnavnet re",
+      "soundDa": "re",
+      "ipa": "ɾe",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-re.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-ze",
+      "domain": "alphabet",
+      "transcript": "ز",
+      "plainPersian": "ز",
+      "danishMeaning": "ze",
+      "soundDa": "stemt s — som engelsk z i \"zoo\"",
+      "ipa": "z",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-ze.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-ze",
+      "domain": "alphabet",
+      "transcript": "زِ",
+      "plainPersian": "ز",
+      "danishMeaning": "bogstavnavnet ze",
+      "soundDa": "ze",
+      "ipa": "ze",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-ze.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-zhe",
+      "domain": "alphabet",
+      "transcript": "ژ",
+      "plainPersian": "ژ",
+      "danishMeaning": "zhe",
+      "soundDa": "som j i fransk \"journal\" — stemt sj",
+      "ipa": "ʒ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-zhe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-zhe",
+      "domain": "alphabet",
+      "transcript": "ژِ",
+      "plainPersian": "ژ",
+      "danishMeaning": "bogstavnavnet zhe",
+      "soundDa": "zhe",
+      "ipa": "ʒe",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-zhe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-sin",
+      "domain": "alphabet",
+      "transcript": "س",
+      "plainPersian": "س",
+      "danishMeaning": "sin",
+      "soundDa": "s i \"sol\"",
+      "ipa": "s",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-sin.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-sin",
+      "domain": "alphabet",
+      "transcript": "سین",
+      "plainPersian": "سین",
+      "danishMeaning": "bogstavnavnet sin",
+      "soundDa": "sin",
+      "ipa": "siːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-sin.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-shin",
+      "domain": "alphabet",
+      "transcript": "ش",
+      "plainPersian": "ش",
+      "danishMeaning": "shin",
+      "soundDa": "sj i \"sjal\"",
+      "ipa": "ʃ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-shin.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-shin",
+      "domain": "alphabet",
+      "transcript": "شین",
+      "plainPersian": "شین",
+      "danishMeaning": "bogstavnavnet shin",
+      "soundDa": "shin",
+      "ipa": "ʃiːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-shin.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-sad",
+      "domain": "alphabet",
+      "transcript": "ص",
+      "plainPersian": "ص",
+      "danishMeaning": "sad",
+      "soundDa": "s i \"sol\"",
+      "ipa": "s",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-sad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-sad",
+      "domain": "alphabet",
+      "transcript": "صاد",
+      "plainPersian": "صاد",
+      "danishMeaning": "bogstavnavnet sad",
+      "soundDa": "sad",
+      "ipa": "sɒːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-sad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-zad",
+      "domain": "alphabet",
+      "transcript": "ض",
+      "plainPersian": "ض",
+      "danishMeaning": "zad",
+      "soundDa": "stemt s — som engelsk z i \"zoo\"",
+      "ipa": "z",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-zad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-zad",
+      "domain": "alphabet",
+      "transcript": "ضاد",
+      "plainPersian": "ضاد",
+      "danishMeaning": "bogstavnavnet zad",
+      "soundDa": "zad",
+      "ipa": "zɒːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-zad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-ta",
+      "domain": "alphabet",
+      "transcript": "ط",
+      "plainPersian": "ط",
+      "danishMeaning": "ta",
+      "soundDa": "t i \"tak\"",
+      "ipa": "t",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-ta.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-ta",
+      "domain": "alphabet",
+      "transcript": "طا",
+      "plainPersian": "طا",
+      "danishMeaning": "bogstavnavnet ta",
+      "soundDa": "ta",
+      "ipa": "tɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-ta.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-za",
+      "domain": "alphabet",
+      "transcript": "ظ",
+      "plainPersian": "ظ",
+      "danishMeaning": "za",
+      "soundDa": "stemt s — som engelsk z i \"zoo\"",
+      "ipa": "z",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-za.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-za",
+      "domain": "alphabet",
+      "transcript": "ظا",
+      "plainPersian": "ظا",
+      "danishMeaning": "bogstavnavnet za",
+      "soundDa": "za",
+      "ipa": "zɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-za.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-eyn",
+      "domain": "alphabet",
+      "transcript": "ع",
+      "plainPersian": "ع",
+      "danishMeaning": "eyn",
+      "soundDa": "lille stop eller ingen lyd; se ordet",
+      "ipa": "ʔ~∅",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-eyn.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-eyn",
+      "domain": "alphabet",
+      "transcript": "عین",
+      "plainPersian": "عین",
+      "danishMeaning": "bogstavnavnet eyn",
+      "soundDa": "eyn",
+      "ipa": "ʔejn",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-eyn.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-gheyn",
+      "domain": "alphabet",
+      "transcript": "غ",
+      "plainPersian": "غ",
+      "danishMeaning": "gheyn",
+      "soundDa": "dyb lyd i halsen",
+      "ipa": "ɢ~ɣ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-gheyn.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-gheyn",
+      "domain": "alphabet",
+      "transcript": "غین",
+      "plainPersian": "غین",
+      "danishMeaning": "bogstavnavnet gheyn",
+      "soundDa": "gheyn",
+      "ipa": "ɢejn",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-gheyn.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-fe",
+      "domain": "alphabet",
+      "transcript": "ف",
+      "plainPersian": "ف",
+      "danishMeaning": "fe",
+      "soundDa": "f i \"fisk\"",
+      "ipa": "f",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-fe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-fe",
+      "domain": "alphabet",
+      "transcript": "فِ",
+      "plainPersian": "ف",
+      "danishMeaning": "bogstavnavnet fe",
+      "soundDa": "fe",
+      "ipa": "fe",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-fe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-ghaf",
+      "domain": "alphabet",
+      "transcript": "ق",
+      "plainPersian": "ق",
+      "danishMeaning": "ghaf",
+      "soundDa": "dyb lyd i halsen",
+      "ipa": "ɢ~ɣ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-ghaf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-ghaf",
+      "domain": "alphabet",
+      "transcript": "قاف",
+      "plainPersian": "قاف",
+      "danishMeaning": "bogstavnavnet ghaf",
+      "soundDa": "ghaf",
+      "ipa": "ɢɒːf",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-ghaf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-kaf",
+      "domain": "alphabet",
+      "transcript": "ک",
+      "plainPersian": "ک",
+      "danishMeaning": "kaf",
+      "soundDa": "k i \"kat\"",
+      "ipa": "k",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-kaf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-kaf",
+      "domain": "alphabet",
+      "transcript": "کاف",
+      "plainPersian": "کاف",
+      "danishMeaning": "bogstavnavnet kaf",
+      "soundDa": "kaf",
+      "ipa": "kɒːf",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-kaf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-gaf",
+      "domain": "alphabet",
+      "transcript": "گ",
+      "plainPersian": "گ",
+      "danishMeaning": "gaf",
+      "soundDa": "g i \"gul\"",
+      "ipa": "ɡ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-gaf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-gaf",
+      "domain": "alphabet",
+      "transcript": "گاف",
+      "plainPersian": "گاف",
+      "danishMeaning": "bogstavnavnet gaf",
+      "soundDa": "gaf",
+      "ipa": "ɡɒːf",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-gaf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-lam",
+      "domain": "alphabet",
+      "transcript": "ل",
+      "plainPersian": "ل",
+      "danishMeaning": "lam",
+      "soundDa": "l i \"lys\"",
+      "ipa": "l",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-lam.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-lam",
+      "domain": "alphabet",
+      "transcript": "لام",
+      "plainPersian": "لام",
+      "danishMeaning": "bogstavnavnet lam",
+      "soundDa": "lam",
+      "ipa": "lɒːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-lam.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-mim",
+      "domain": "alphabet",
+      "transcript": "م",
+      "plainPersian": "م",
+      "danishMeaning": "mim",
+      "soundDa": "m i \"mor\"",
+      "ipa": "m",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-mim.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-mim",
+      "domain": "alphabet",
+      "transcript": "میم",
+      "plainPersian": "میم",
+      "danishMeaning": "bogstavnavnet mim",
+      "soundDa": "mim",
+      "ipa": "miːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-mim.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-nun",
+      "domain": "alphabet",
+      "transcript": "ن",
+      "plainPersian": "ن",
+      "danishMeaning": "nun",
+      "soundDa": "n i \"nat\"",
+      "ipa": "n",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-nun.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-nun",
+      "domain": "alphabet",
+      "transcript": "نون",
+      "plainPersian": "نون",
+      "danishMeaning": "bogstavnavnet nun",
+      "soundDa": "nun",
+      "ipa": "nuːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-nun.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-vav",
+      "domain": "alphabet",
+      "transcript": "و",
+      "plainPersian": "و",
+      "danishMeaning": "vav",
+      "soundDa": "v i \"vand\"",
+      "ipa": "v",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-vav.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-vav",
+      "domain": "alphabet",
+      "transcript": "واو",
+      "plainPersian": "واو",
+      "danishMeaning": "bogstavnavnet vav",
+      "soundDa": "vav",
+      "ipa": "vɒːv",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-vav.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-he",
+      "domain": "alphabet",
+      "transcript": "ه",
+      "plainPersian": "ه",
+      "danishMeaning": "he do-tjeshm",
+      "soundDa": "h i \"hus\"",
+      "ipa": "h",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-he.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-he",
+      "domain": "alphabet",
+      "transcript": "ه دو چشم",
+      "plainPersian": "ه دو چشم",
+      "danishMeaning": "bogstavnavnet he do-tjeshm",
+      "soundDa": "he-ye do tjeshm",
+      "ipa": "heje do tʃeʃm",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-he.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-letter-ye",
+      "domain": "alphabet",
+      "transcript": "ی",
+      "plainPersian": "ی",
+      "danishMeaning": "ye",
+      "soundDa": "j i \"ja\"",
+      "ipa": "j",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-letter-ye.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-ye",
+      "domain": "alphabet",
+      "transcript": "یِ",
+      "plainPersian": "ی",
+      "danishMeaning": "bogstavnavnet ye",
+      "soundDa": "ye",
+      "ipa": "je",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-ye.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-alef-madde",
+      "domain": "alphabet",
+      "transcript": "آ",
+      "plainPersian": "آ",
+      "danishMeaning": "alef med madde",
+      "soundDa": "å i \"år\"",
+      "ipa": "ɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-alef-madde.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-name-alef-madde",
+      "domain": "alphabet",
+      "transcript": "آ",
+      "plainPersian": "آ",
+      "danishMeaning": "navnet alef med madde",
+      "soundDa": "å",
+      "ipa": "ɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-name-alef-madde.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-zebar",
+      "domain": "alphabet",
+      "transcript": "اَ",
+      "plainPersian": "ا",
+      "danishMeaning": "zebar",
+      "soundDa": "a i \"kat\"",
+      "ipa": "æ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-zebar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-zebar",
+      "domain": "alphabet",
+      "transcript": "زبر",
+      "plainPersian": "زبر",
+      "danishMeaning": "tegnnavnet zebar",
+      "soundDa": "zebar",
+      "ipa": "zæbæɾ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-zebar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-zir",
+      "domain": "alphabet",
+      "transcript": "اِ",
+      "plainPersian": "ا",
+      "danishMeaning": "zir",
+      "soundDa": "e i \"let\"",
+      "ipa": "e",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-zir.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-zir",
+      "domain": "alphabet",
+      "transcript": "زیر",
+      "plainPersian": "زیر",
+      "danishMeaning": "tegnnavnet zir",
+      "soundDa": "zir",
+      "ipa": "ziːɾ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-zir.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-pish",
+      "domain": "alphabet",
+      "transcript": "اُ",
+      "plainPersian": "ا",
+      "danishMeaning": "pish",
+      "soundDa": "o i \"foto\"",
+      "ipa": "o",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-pish.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-pish",
+      "domain": "alphabet",
+      "transcript": "پیش",
+      "plainPersian": "پیش",
+      "danishMeaning": "tegnnavnet pish",
+      "soundDa": "pish",
+      "ipa": "piːʃ",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-pish.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-aa",
+      "domain": "alphabet",
+      "transcript": "آ",
+      "plainPersian": "آ",
+      "danishMeaning": "alef med madde",
+      "soundDa": "å i \"år\"",
+      "ipa": "ɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-aa.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-aa",
+      "domain": "alphabet",
+      "transcript": "آ",
+      "plainPersian": "آ",
+      "danishMeaning": "tegnnavnet alef med madde",
+      "soundDa": "alef med madde",
+      "ipa": "ɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-aa.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-u",
+      "domain": "alphabet",
+      "transcript": "او",
+      "plainPersian": "او",
+      "danishMeaning": "alef og vav",
+      "soundDa": "u i \"du\"",
+      "ipa": "uː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-u.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-u",
+      "domain": "alphabet",
+      "transcript": "او",
+      "plainPersian": "او",
+      "danishMeaning": "tegnnavnet alef og vav",
+      "soundDa": "alef og vav",
+      "ipa": "uː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-u.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-i",
+      "domain": "alphabet",
+      "transcript": "ای",
+      "plainPersian": "ای",
+      "danishMeaning": "alef og ye",
+      "soundDa": "i i \"vi\"",
+      "ipa": "iː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-i.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-i",
+      "domain": "alphabet",
+      "transcript": "ای",
+      "plainPersian": "ای",
+      "danishMeaning": "tegnnavnet alef og ye",
+      "soundDa": "alef og ye",
+      "ipa": "iː",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-i.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-tashdid",
+      "domain": "alphabet",
+      "transcript": "تشدید",
+      "plainPersian": "تشدید",
+      "danishMeaning": "tegnnavnet tashdid",
+      "soundDa": "tasjdid",
+      "ipa": "tæʃdiːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-tashdid.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "alphabet-mark-name-sokun",
+      "domain": "alphabet",
+      "transcript": "سکون",
+      "plainPersian": "سکون",
+      "danishMeaning": "tegnnavnet sokun",
+      "soundDa": "sokun",
+      "ipa": "sokuːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/alphabet-mark-name-sokun.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-dandan",
+      "domain": "bridges",
+      "transcript": "دَندان",
+      "plainPersian": "دندان",
+      "danishMeaning": "tand",
+      "soundDa": "dandån",
+      "ipa": "dænˈdɒːn",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-dandan.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-setad",
+      "domain": "bridges",
+      "transcript": "سِتاد",
+      "plainPersian": "ستاد",
+      "danishMeaning": "hovedkontor",
+      "soundDa": "setåd",
+      "ipa": "seˈtɒːd",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-setad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-band",
+      "domain": "bridges",
+      "transcript": "بَند",
+      "plainPersian": "بند",
+      "danishMeaning": "bånd eller mur i vand",
+      "soundDa": "band",
+      "ipa": "bænd",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-band.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-seyl",
+      "domain": "bridges",
+      "transcript": "سِیل",
+      "plainPersian": "سیل",
+      "danishMeaning": "meget vand på land",
+      "soundDa": "seyl",
+      "ipa": "sejl",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-seyl.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-unit-1-title",
+      "domain": "vocabulary",
+      "transcript": "آب و بابا",
+      "plainPersian": "آب و بابا",
+      "danishMeaning": "Vand og far",
+      "soundDa": "åb o båbå",
+      "ipa": "ɒːb o bɒːbɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-unit-1-title.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-ab",
+      "domain": "vocabulary",
+      "transcript": "آب",
+      "plainPersian": "آب",
+      "danishMeaning": "vand",
+      "soundDa": "åb",
+      "ipa": "ɒːb",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-ab.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-baba",
+      "domain": "vocabulary",
+      "transcript": "بابا",
+      "plainPersian": "بابا",
+      "danishMeaning": "far",
+      "soundDa": "båbå",
+      "ipa": "bɒːbɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-baba.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-bad",
+      "domain": "vocabulary",
+      "transcript": "باد",
+      "plainPersian": "باد",
+      "danishMeaning": "vind",
+      "soundDa": "båd",
+      "ipa": "bɒːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-bad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-abi",
+      "domain": "vocabulary",
+      "transcript": "آبی",
+      "plainPersian": "آبی",
+      "danishMeaning": "blå",
+      "soundDa": "åbi",
+      "ipa": "ɒːˈbiː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-1-abi.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-nan",
+      "domain": "vocabulary",
+      "transcript": "نان",
+      "plainPersian": "نان",
+      "danishMeaning": "brød",
+      "soundDa": "nån",
+      "ipa": "nɒːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-nan.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-madar",
+      "domain": "vocabulary",
+      "transcript": "مادَر",
+      "plainPersian": "مادر",
+      "danishMeaning": "mor",
+      "soundDa": "mådar",
+      "ipa": "mɒːˈdæɾ",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-1-madar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-man",
+      "domain": "vocabulary",
+      "transcript": "مَن",
+      "plainPersian": "من",
+      "danishMeaning": "jeg",
+      "soundDa": "man",
+      "ipa": "mæn",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-man.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-to",
+      "domain": "vocabulary",
+      "transcript": "تو",
+      "plainPersian": "تو",
+      "danishMeaning": "du",
+      "soundDa": "to",
+      "ipa": "to",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-to.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-ma",
+      "domain": "vocabulary",
+      "transcript": "ما",
+      "plainPersian": "ما",
+      "danishMeaning": "vi",
+      "soundDa": "må",
+      "ipa": "mɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-ma.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-u",
+      "domain": "vocabulary",
+      "transcript": "او",
+      "plainPersian": "او",
+      "danishMeaning": "han eller hun",
+      "soundDa": "u",
+      "ipa": "uː",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-u.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-in",
+      "domain": "vocabulary",
+      "transcript": "این",
+      "plainPersian": "این",
+      "danishMeaning": "denne, dette",
+      "soundDa": "in",
+      "ipa": "iːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-in.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-an",
+      "domain": "vocabulary",
+      "transcript": "آن",
+      "plainPersian": "آن",
+      "danishMeaning": "den, det (derovre)",
+      "soundDa": "ån",
+      "ipa": "ɒːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-1-an.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-unit-2-title",
+      "domain": "vocabulary",
+      "transcript": "مَدرِسه",
+      "plainPersian": "مدرسه",
+      "danishMeaning": "Skole",
+      "soundDa": "madrese",
+      "ipa": "mædɾese",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-unit-2-title.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-medad",
+      "domain": "vocabulary",
+      "transcript": "مِداد",
+      "plainPersian": "مداد",
+      "danishMeaning": "blyant",
+      "soundDa": "medåd",
+      "ipa": "meˈdɒːd",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-2-medad.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-ketab",
+      "domain": "vocabulary",
+      "transcript": "کِتاب",
+      "plainPersian": "کتاب",
+      "danishMeaning": "bog",
+      "soundDa": "ketåb",
+      "ipa": "keˈtɒːb",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-2-ketab.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-miz",
+      "domain": "vocabulary",
+      "transcript": "میز",
+      "plainPersian": "میز",
+      "danishMeaning": "bord",
+      "soundDa": "miz",
+      "ipa": "miːz",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-2-miz.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-dar",
+      "domain": "vocabulary",
+      "transcript": "دَر",
+      "plainPersian": "در",
+      "danishMeaning": "dør",
+      "soundDa": "dar",
+      "ipa": "dæɾ",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-2-dar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-dast",
+      "domain": "vocabulary",
+      "transcript": "دَست",
+      "plainPersian": "دست",
+      "danishMeaning": "hånd",
+      "soundDa": "dast",
+      "ipa": "dæst",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-2-dast.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-dust",
+      "domain": "vocabulary",
+      "transcript": "دوست",
+      "plainPersian": "دوست",
+      "danishMeaning": "ven",
+      "soundDa": "dust",
+      "ipa": "duːst",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-2-dust.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-madrese",
+      "domain": "vocabulary",
+      "transcript": "مَدرِسه",
+      "plainPersian": "مدرسه",
+      "danishMeaning": "skole",
+      "soundDa": "madrese",
+      "ipa": "mædɾeˈse",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-2-madrese.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-2-salam",
+      "domain": "vocabulary",
+      "transcript": "سَلام",
+      "plainPersian": "سلام",
+      "danishMeaning": "hej",
+      "soundDa": "salåm",
+      "ipa": "sæˈlɒːm",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-2-salam.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-unit-3-title",
+      "domain": "vocabulary",
+      "transcript": "خانه و آسمان",
+      "plainPersian": "خانه و آسمان",
+      "danishMeaning": "Hjem og himmel",
+      "soundDa": "khåne o åsemån",
+      "ipa": "xɒːne o ɒːsemɒːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-unit-3-title.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-khane",
+      "domain": "vocabulary",
+      "transcript": "خانه",
+      "plainPersian": "خانه",
+      "danishMeaning": "hus, hjem",
+      "soundDa": "khåne",
+      "ipa": "xɒːˈne",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-3-khane.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-baran",
+      "domain": "vocabulary",
+      "transcript": "باران",
+      "plainPersian": "باران",
+      "danishMeaning": "regn",
+      "soundDa": "bårån",
+      "ipa": "bɒːˈɾɒːn",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-3-baran.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-aseman",
+      "domain": "vocabulary",
+      "transcript": "آسِمان",
+      "plainPersian": "آسمان",
+      "danishMeaning": "himmel",
+      "soundDa": "åsemån",
+      "ipa": "ɒːseˈmɒːn",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-3-aseman.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-mah",
+      "domain": "vocabulary",
+      "transcript": "ماه",
+      "plainPersian": "ماه",
+      "danishMeaning": "måne",
+      "soundDa": "måh",
+      "ipa": "mɒːh",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-3-mah.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-shab",
+      "domain": "vocabulary",
+      "transcript": "شَب",
+      "plainPersian": "شب",
+      "danishMeaning": "nat",
+      "soundDa": "sjab",
+      "ipa": "ʃæb",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-3-shab.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-gol",
+      "domain": "vocabulary",
+      "transcript": "گُل",
+      "plainPersian": "گل",
+      "danishMeaning": "blomst",
+      "soundDa": "gol",
+      "ipa": "ɡol",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-3-gol.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-sabz",
+      "domain": "vocabulary",
+      "transcript": "سَبز",
+      "plainPersian": "سبز",
+      "danishMeaning": "grøn",
+      "soundDa": "sabz",
+      "ipa": "sæbz",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-3-sabz.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-3-zard",
+      "domain": "vocabulary",
+      "transcript": "زَرد",
+      "plainPersian": "زرد",
+      "danishMeaning": "gul",
+      "soundDa": "zard",
+      "ipa": "zæɾd",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-3-zard.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-function-o",
+      "domain": "vocabulary",
+      "transcript": "و",
+      "plainPersian": "و",
+      "danishMeaning": "og",
+      "soundDa": "o",
+      "ipa": "o",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-function-o.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-function-ast",
+      "domain": "vocabulary",
+      "transcript": "اَست",
+      "plainPersian": "است",
+      "danishMeaning": "er",
+      "soundDa": "ast",
+      "ipa": "æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-function-ast.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-function-ezafe",
+      "domain": "vocabulary",
+      "transcript": "ـِ",
+      "plainPersian": "ـِ",
+      "danishMeaning": "ezafe: binder to ord sammen",
+      "soundDa": "e",
+      "ipa": "e",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-function-ezafe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-1-1",
+      "domain": "vocabulary",
+      "transcript": "آب و باد",
+      "plainPersian": "آب و باد",
+      "danishMeaning": "vand og vind",
+      "soundDa": "åb o båd",
+      "ipa": "ɒːb o bɒːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-1-1.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-1-2",
+      "domain": "vocabulary",
+      "transcript": "مادَر و مَن",
+      "plainPersian": "مادر و من",
+      "danishMeaning": "mor og jeg",
+      "soundDa": "mådar o man",
+      "ipa": "mɒːdæɾ o mæn",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-1-2.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-1-3",
+      "domain": "vocabulary",
+      "transcript": "این و آن",
+      "plainPersian": "این و آن",
+      "danishMeaning": "denne og den der",
+      "soundDa": "in o ån",
+      "ipa": "iːn o ɒːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-1-3.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-2-1",
+      "domain": "vocabulary",
+      "transcript": "کِتاب و مِداد",
+      "plainPersian": "کتاب و مداد",
+      "danishMeaning": "bog og blyant",
+      "soundDa": "ketåb o medåd",
+      "ipa": "ketɒːb o medɒːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-2-1.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-2-2",
+      "domain": "vocabulary",
+      "transcript": "دَستِ دوست",
+      "plainPersian": "دست دوست",
+      "danishMeaning": "vennens hånd",
+      "soundDa": "daste dust",
+      "ipa": "dæste duːst",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-2-2.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-3-1",
+      "domain": "vocabulary",
+      "transcript": "ماه و آسِمان",
+      "plainPersian": "ماه و آسمان",
+      "danishMeaning": "måne og himmel",
+      "soundDa": "måh o åsemån",
+      "ipa": "mɒːh o ɒːsemɒːn",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-3-1.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-3-2",
+      "domain": "vocabulary",
+      "transcript": "گُلِ زَرد",
+      "plainPersian": "گل زرد",
+      "danishMeaning": "gul blomst",
+      "soundDa": "gole zard",
+      "ipa": "ɡole zæɾd",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-3-2.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-1-text",
+      "domain": "vocabulary",
+      "transcript": "این آب اَست. آن نان اَست. او بابا اَست.",
+      "plainPersian": "این آب است. آن نان است. او بابا است.",
+      "danishMeaning": "Dette er vand. Det der er brød. Han eller hun er far.",
+      "soundDa": "in åb ast. ån nån ast. u båbå ast",
+      "ipa": "iːn ɒːb æst. ɒːn nɒːn æst. uː bɒːbɒː æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-1-text.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-2-text",
+      "domain": "vocabulary",
+      "transcript": "این مَدرِسه اَست. این میز اَست. این کِتاب اَست. او دوستِ مَن اَست.",
+      "plainPersian": "این مدرسه است. این میز است. این کتاب است. او دوست من است.",
+      "danishMeaning": "Dette er en skole. Dette er et bord. Dette er en bog. Han eller hun er min ven.",
+      "soundDa": "in madrese ast. in miz ast. in ketåb ast. u duste man ast",
+      "ipa": "iːn mædɾese æst. iːn miːz æst. iːn ketɒːb æst. uː duːste mæn æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-2-text.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-3-text",
+      "domain": "vocabulary",
+      "transcript": "این خانه اَست. آسِمان آبی اَست. ماه زَرد اَست. شَب اَست.",
+      "plainPersian": "این خانه است. آسمان آبی است. ماه زرد است. شب است.",
+      "danishMeaning": "Dette er et hus. Himlen er blå. Månen er gul. Det er nat.",
+      "soundDa": "in khåne ast. åsemån åbi ast. måh zard ast. sjab ast",
+      "ipa": "iːn xɒːne æst. ɒːsemɒːn ɒːbiː æst. mɒːh zæɾd æst. ʃæb æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-3-text.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-greeting",
+      "domain": "interface",
+      "transcript": "سلام!",
+      "plainPersian": "سلام!",
+      "danishMeaning": "Hej!",
+      "soundDa": "salåm",
+      "ipa": "sælɒːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-greeting.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-greeting-with-name",
+      "domain": "interface",
+      "transcript": "سلام،",
+      "plainPersian": "سلام،",
+      "danishMeaning": "Hej",
+      "soundDa": "salåm",
+      "ipa": "sælɒːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-greeting-with-name.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-kit-write-line",
+      "domain": "interface",
+      "transcript": "روی خط بنویس.",
+      "plainPersian": "روی خط بنویس.",
+      "danishMeaning": "Skriv på linjen.",
+      "soundDa": "ruje khat benevis",
+      "ipa": "ɾuːje xæt beneviːs",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-kit-write-line.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-capture-prompt",
+      "domain": "interface",
+      "transcript": "نام تو چیست؟",
+      "plainPersian": "نام تو چیست؟",
+      "danishMeaning": "Hvad hedder du?",
+      "soundDa": "nåme to tjist?",
+      "ipa": "nɒːme to tʃiːst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-capture-prompt.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-lesson-placeholder",
+      "domain": "interface",
+      "transcript": "این درس هنوز آماده نیست.",
+      "plainPersian": "این درس هنوز آماده نیست.",
+      "danishMeaning": "Denne lektion er ikke klar endnu.",
+      "soundDa": "in dars hanuz åmåde nist",
+      "ipa": "iːn dæɾs hænuːz ʔɒːmɒːde niːst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-lesson-placeholder.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-try-again",
+      "domain": "interface",
+      "transcript": "دوباره",
+      "plainPersian": "دوباره",
+      "danishMeaning": "Prøv igen",
+      "soundDa": "dobåre",
+      "ipa": "dobɒːɾe",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-try-again.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-zwnj-name",
+      "domain": "interface",
+      "transcript": "نیم‌فاصله",
+      "plainPersian": "نیم‌فاصله",
+      "danishMeaning": "halvt mellemrum",
+      "soundDa": "nim-fåsele",
+      "ipa": "niːm fɒːsele",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-zwnj-name.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-missing-space",
+      "domain": "interface",
+      "transcript": "اینجا یک فاصله جا افتاده.",
+      "plainPersian": "اینجا یک فاصله جا افتاده.",
+      "danishMeaning": "Her mangler et mellemrum.",
+      "soundDa": "indjå jek fåsele djå oftåde",
+      "ipa": "iːndʒɒː jek fɒːsele dʒɒː ʔoftɒːde",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-missing-space.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-extra-space",
+      "domain": "interface",
+      "transcript": "اینجا یک فاصله اضافه نوشته شده.",
+      "plainPersian": "اینجا یک فاصله اضافه نوشته شده.",
+      "danishMeaning": "Her står et mellemrum for meget.",
+      "soundDa": "indjå jek fåsele ezåfe nevesjte sjode",
+      "ipa": "iːndʒɒː jek fɒːsele ʔezɒːfe neveʃte ʃode",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-extra-space.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-missing-zwnj",
+      "domain": "interface",
+      "transcript": "اینجا یک نیم‌فاصله جا افتاده.",
+      "plainPersian": "اینجا یک نیم‌فاصله جا افتاده.",
+      "danishMeaning": "Her mangler et halvt mellemrum.",
+      "soundDa": "indjå jek nim-fåsele djå oftåde",
+      "ipa": "iːndʒɒː jek niːm fɒːsele dʒɒː ʔoftɒːde",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-missing-zwnj.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-extra-zwnj",
+      "domain": "interface",
+      "transcript": "اینجا یک نیم‌فاصله اضافه نوشته شده.",
+      "plainPersian": "اینجا یک نیم‌فاصله اضافه نوشته شده.",
+      "danishMeaning": "Her står et halvt mellemrum for meget.",
+      "soundDa": "indjå jek nim-fåsele ezåfe nevesjte sjode",
+      "ipa": "iːndʒɒː jek niːm fɒːsele ʔezɒːfe neveʃte ʃode",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-extra-zwnj.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-missing-letter",
+      "domain": "interface",
+      "transcript": "اینجا یک حرف کم است.",
+      "plainPersian": "اینجا یک حرف کم است.",
+      "danishMeaning": "Her mangler et bogstav.",
+      "soundDa": "indjå jek harf kam ast",
+      "ipa": "iːndʒɒː jek hæɾf kæm æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-missing-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-wrong-letter",
+      "domain": "interface",
+      "transcript": "اینجا یک حرف دیگر است.",
+      "plainPersian": "اینجا یک حرف دیگر است.",
+      "danishMeaning": "Her står et andet bogstav.",
+      "soundDa": "indjå jek harfe digar ast",
+      "ipa": "iːndʒɒː jek hæɾfe diːɡæɾ æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-wrong-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-extra-letter",
+      "domain": "interface",
+      "transcript": "اینجا یک حرف اضافه است.",
+      "plainPersian": "اینجا یک حرف اضافه است.",
+      "danishMeaning": "Her er et bogstav for meget.",
+      "soundDa": "indjå jek harfe ezåfe ast",
+      "ipa": "iːndʒɒː jek hæɾfe ʔezɒːfe æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-extra-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-type-words",
+      "domain": "interface",
+      "transcript": "کلمه‌ها را بنویس",
+      "plainPersian": "کلمه‌ها را بنویس",
+      "danishMeaning": "Skriv ordene",
+      "soundDa": "kalemehå rå benevis",
+      "ipa": "kælemehɒː ɾɒː beneviːs",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-type-words.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-type-name",
+      "domain": "interface",
+      "transcript": "نام خودت را بنویس",
+      "plainPersian": "نام خودت را بنویس",
+      "danishMeaning": "Skriv dit eget navn",
+      "soundDa": "nåme khodet rå benevis",
+      "ipa": "nɒːme xodet ɾɒː beneviːs",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-type-name.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-name-letter",
+      "domain": "interface",
+      "transcript": "این حرف در نام توست",
+      "plainPersian": "این حرف در نام توست",
+      "danishMeaning": "Dette bogstav er i dit navn",
+      "soundDa": "in harf dar nåme tost",
+      "ipa": "iːn hæɾf dæɾ nɒːme tost",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-name-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-name-letter-in-word",
+      "domain": "interface",
+      "transcript": "حرفی از نام تو در این کلمه هست",
+      "plainPersian": "حرفی از نام تو در این کلمه هست",
+      "danishMeaning": "Et bogstav fra dit navn er i dette ord",
+      "soundDa": "harfi az nåme to dar in kaleme hast",
+      "ipa": "hæɾfiː ʔæz nɒːme to dæɾ iːn kæleme hæst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-name-letter-in-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-name-letters-in-word",
+      "domain": "interface",
+      "transcript": "حرف‌هایی از نام تو در این کلمه هست",
+      "plainPersian": "حرف‌هایی از نام تو در این کلمه هست",
+      "danishMeaning": "Bogstaver fra dit navn er i dette ord",
+      "soundDa": "harfhåji az nåme to dar in kaleme hast",
+      "ipa": "hæɾfhɒːjiː ʔæz nɒːme to dæɾ iːn kæleme hæst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-name-letters-in-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-orientation-tehran",
+      "domain": "interface",
+      "transcript": "تهران",
+      "plainPersian": "تهران",
+      "danishMeaning": "Teheran",
+      "soundDa": "tehrån",
+      "ipa": "tehˈɾɒːn",
+      "stressMarked": true,
+      "expectedFile": "/audio/interface-orientation-tehran.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-spelling-title",
+      "domain": "names",
+      "transcript": "نام به فارسی",
+      "plainPersian": "نام به فارسی",
+      "danishMeaning": "Navn på persisk",
+      "soundDa": "nåm be fårsi",
+      "ipa": "nɒːm be fɒːɾsiː",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-spelling-title.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-spelling-pick",
+      "domain": "names",
+      "transcript": "کدام را دوست داری؟",
+      "plainPersian": "کدام را دوست داری؟",
+      "danishMeaning": "Hvilken kan du lide?",
+      "soundDa": "kodåm rå dust dåri?",
+      "ipa": "kodɒːm ɾɒː duːst dɒːɾiː",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-spelling-pick.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-write-name",
+      "domain": "names",
+      "transcript": "نام خود را بنویس",
+      "plainPersian": "نام خود را بنویس",
+      "danishMeaning": "Skriv dit eget navn",
+      "soundDa": "nåme khod rå benevis",
+      "ipa": "nɒːme xod ɾɒː beneviːs",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-write-name.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-assemble",
+      "domain": "names",
+      "transcript": "نام را دوباره درست کن",
+      "plainPersian": "نام را دوباره درست کن",
+      "danishMeaning": "Lav navnet igen",
+      "soundDa": "nåm rå dobåre dorost kon",
+      "ipa": "nɒːm ɾɒː dobɒːɾe doɾost kon",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-assemble.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-letters-label",
+      "domain": "names",
+      "transcript": "حرف‌ها",
+      "plainPersian": "حرف‌ها",
+      "danishMeaning": "Bogstaverne",
+      "soundDa": "harfhå",
+      "ipa": "hæɾfhɒː",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-letters-label.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-not-in-name",
+      "domain": "names",
+      "transcript": "این حرف در نام تو نیست. دوباره نگاه کن.",
+      "plainPersian": "این حرف در نام تو نیست. دوباره نگاه کن.",
+      "danishMeaning": "Det bogstav er ikke i dit navn. Kig igen.",
+      "soundDa": "in harf dar nåme to nist. dobåre negåh kon.",
+      "ipa": "iːn hæɾf dæɾ nɒːme to niːst dobɒːɾe negɒːh kon",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-not-in-name.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-letter-later",
+      "domain": "names",
+      "transcript": "این حرف را بعد بزن.",
+      "plainPersian": "این حرف را بعد بزن.",
+      "danishMeaning": "Tryk på dette bogstav senere.",
+      "soundDa": "in harf rå ba’d bezan",
+      "ipa": "iːn hæɾf ɾɒː bæʔd bezæn",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-letter-later.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "names-privacy",
+      "domain": "names",
+      "transcript": "نام فقط در این دستگاه است.",
+      "plainPersian": "نام فقط در این دستگاه است.",
+      "danishMeaning": "Navnet er kun på denne enhed.",
+      "soundDa": "nåm faghat dar in dastgåh ast",
+      "ipa": "nɒːm fæɢæt dæɾ iːn dæstɡɒːh æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-privacy.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-afarin",
+      "domain": "rewards",
+      "transcript": "آفرین",
+      "plainPersian": "آفرین",
+      "danishMeaning": "Flot!",
+      "soundDa": "åfarin",
+      "ipa": "ɒːfæɾin",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-afarin.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-ali",
+      "domain": "rewards",
+      "transcript": "عالی",
+      "plainPersian": "عالی",
+      "danishMeaning": "Super!",
+      "soundDa": "åli",
+      "ipa": "ɒːli",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-ali.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-che-khub",
+      "domain": "rewards",
+      "transcript": "چه خوب",
+      "plainPersian": "چه خوب",
+      "danishMeaning": "Hvor fint!",
+      "soundDa": "tje khub",
+      "ipa": "tʃe xub",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-che-khub.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-kheyli-khub",
+      "domain": "rewards",
+      "transcript": "خیلی خوب",
+      "plainPersian": "خیلی خوب",
+      "danishMeaning": "Rigtig godt!",
+      "soundDa": "khejli khub",
+      "ipa": "xejli xub",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-kheyli-khub.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-khub-bud",
+      "domain": "rewards",
+      "transcript": "خوب بود",
+      "plainPersian": "خوب بود",
+      "danishMeaning": "Det var godt!",
+      "soundDa": "khub bud",
+      "ipa": "xub buːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-khub-bud.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-dorost-bud",
+      "domain": "rewards",
+      "transcript": "درست بود",
+      "plainPersian": "درست بود",
+      "danishMeaning": "Det var rigtigt!",
+      "soundDa": "dorost bud",
+      "ipa": "doɾost buːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-dorost-bud.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-name-praise",
+      "domain": "rewards",
+      "transcript": "آفرین،",
+      "plainPersian": "آفرین،",
+      "danishMeaning": "Flot",
+      "soundDa": "åfarin",
+      "ipa": "ɒːfæɾin",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-name-praise.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-sticker-afarin",
+      "domain": "rewards",
+      "transcript": "آفرین",
+      "plainPersian": "آفرین",
+      "danishMeaning": "Flot!",
+      "soundDa": "åfarin",
+      "ipa": "ɒːfæɾin",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-sticker-afarin.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-sticker-bist",
+      "domain": "rewards",
+      "transcript": "۲۰",
+      "plainPersian": "۲۰",
+      "danishMeaning": "Tyve",
+      "soundDa": "bist",
+      "ipa": "biːst",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-sticker-bist.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-sticker-star",
+      "domain": "rewards",
+      "transcript": "ستارهٔ طلایی",
+      "plainPersian": "ستارهٔ طلایی",
+      "danishMeaning": "Guldstjerne",
+      "soundDa": "setåreje talåji",
+      "ipa": "setɒːɾeje tælɒːjiː",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-sticker-star.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-gift",
+      "domain": "rewards",
+      "transcript": "یک تمرین جایزه!",
+      "plainPersian": "یک تمرین جایزه!",
+      "danishMeaning": "En bonusøvelse!",
+      "soundDa": "jek tamrine djåjeze",
+      "ipa": "jek tæmɾiːne dʒɒːjeze",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-gift.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-welcome-back",
+      "domain": "rewards",
+      "transcript": "دوباره سلام!",
+      "plainPersian": "دوباره سلام!",
+      "danishMeaning": "Hej igen!",
+      "soundDa": "dobåre salåm",
+      "ipa": "dobɒːɾe sælɒːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-welcome-back.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-page-filled",
+      "domain": "rewards",
+      "transcript": "صفحه پر شد!",
+      "plainPersian": "صفحه پر شد!",
+      "danishMeaning": "Siden er fuld!",
+      "soundDa": "safhe por sjod",
+      "ipa": "sæfhe poɾ ʃod",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-page-filled.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-current-page",
+      "domain": "rewards",
+      "transcript": "صفحهٔ تازه",
+      "plainPersian": "صفحهٔ تازه",
+      "danishMeaning": "En ny side",
+      "soundDa": "safheje tåze",
+      "ipa": "sæfheje tɒːze",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-current-page.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-streak-resting",
+      "domain": "rewards",
+      "transcript": "تمرین هنوز ادامه دارد",
+      "plainPersian": "تمرین هنوز ادامه دارد",
+      "danishMeaning": "Træningen fortsætter stadig",
+      "soundDa": "tamrin hanuz edåme dårad",
+      "ipa": "tæmɾiːn hænuːz ʔedɒːme dɒːɾæd",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-streak-resting.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-streak-today",
+      "domain": "rewards",
+      "transcript": "امروز تمرین کردی",
+      "plainPersian": "امروز تمرین کردی",
+      "danishMeaning": "Du har øvet i dag",
+      "soundDa": "emruz tamrin kardi",
+      "ipa": "ʔemɾuːz tæmɾiːn kæɾdiː",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-streak-today.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-streak-awake",
+      "domain": "rewards",
+      "transcript": "تمرین ادامه دارد",
+      "plainPersian": "تمرین ادامه دارد",
+      "danishMeaning": "Træningen fortsætter",
+      "soundDa": "tamrin edåme dårad",
+      "ipa": "tæmɾiːn ʔedɒːme dɒːɾæd",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-streak-awake.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    }
+  ]
+}
