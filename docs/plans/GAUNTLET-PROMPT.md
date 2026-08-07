@@ -16,7 +16,7 @@ smallest thing that satisfies the gate.
 
 UNIT OF WORK = one plan. For each plan: builder implements on branch `feature/<plan-slug>`;
 a fresh-context critic judges against the gate; loop builder→critic until the gate is fully green;
-then PR to main (CI `verify` must pass), merge, next plan. Never touch main directly. Conventional
+then PR to main, merge, next plan. Never touch main directly. Conventional
 commits. Never `git push --no-verify`.
 
 BUILDERS: Sonnet for mechanical units (scaffold, config, data plumbing); Opus for UI, pedagogy,
@@ -26,7 +26,7 @@ unit the critic has failed twice. CRITICS: always Opus, always fresh context, ne
 THE GATE for every plan — all countable, all must pass:
 1. Every box in the plan's `## Acceptance` checklist.
 2. `npm run verify` green (eslint, vitest including the Persian text-rule guard, build, scripts/verify.sh).
-3. CI `verify` job green on the PR.
+3. The owner records a green local `npm run verify`; remote CI is not required.
 4. 360px portrait: no horizontal scroll, tap targets ≥ 44px, primary nav reachable by thumb.
 5. Persian content: `dir="rtl"` correct; the orientation lesson teaches RIGHT-to-LEFT correctly;
    Persian code points only (ک ی, digits ۰–۹); ZWNJ where grammar requires; diacritics only on

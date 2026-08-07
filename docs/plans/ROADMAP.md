@@ -7,7 +7,7 @@ the app exists, `npm run verify`) is green.
 
 ## Phases
 
-- [x] **P0 — Infrastructure** (done 2026-08-03): repo, CI, Pages deploy, trilingual landing site,
+- [x] **P0 — Infrastructure** (done 2026-08-03): repo, local gates, Pages deploy, trilingual landing site,
       hooks, hygiene, CLAUDE.md, art direction, this roadmap.
 - [x] **P1 — [001-scaffold-app.md](001-scaffold-app.md)** (merged 2026-08-03, PR #5, two critic
       rounds): app live at `/app/`, split-screen shell + pronunciation line, name capture, storage,

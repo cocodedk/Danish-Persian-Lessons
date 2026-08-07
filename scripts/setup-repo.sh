@@ -1,9 +1,7 @@
 #!/bin/sh
 set -eu
 
-# One-time repo administration. Run this AFTER the GitHub repo exists and the
-# first CI run has completed (so the "verify" status check has reported at
-# least once and can be referenced by branch protection).
+# One-time repo administration. Run this after the GitHub repo exists.
 
 REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
 DEFAULT_BRANCH=$(gh repo view --json defaultBranchRef -q .defaultBranchRef.name)
@@ -22,10 +20,7 @@ gh repo edit "$REPO" \
 # --- (b) Branch protection ---------------------------------------------------
 PROTECTION_PAYLOAD=$(cat <<'JSON'
 {
-  "required_status_checks": {
-    "strict": true,
-    "contexts": ["verify"]
-  },
+  "required_status_checks": null,
   "enforce_admins": false,
   "required_pull_request_reviews": {
     "dismiss_stale_reviews": false,
@@ -81,7 +76,7 @@ echo ""
 echo "=== setup-repo.sh summary for $REPO ==="
 echo "Merge settings:    squash + rebase merge enabled, merge commits disabled, branch deleted on merge"
 if [ "$PROTECTION_APPLIED" = "yes" ]; then
-    echo "Branch protection: ACTIVE on '$DEFAULT_BRANCH' (required check: verify, no force-push, no deletion)"
+    echo "Branch protection: ACTIVE on '$DEFAULT_BRANCH' (PRs required, no force-push, no deletion)"
 else
     echo "Branch protection: NOT ACTIVE (plan limitation) -- local pre-push hook is the only guard"
 fi

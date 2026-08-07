@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Subset the self-hosted Andika woff2 to the glyphs this app actually renders.
 
-Authoring-time only: run it by hand, commit the result. Nothing in the build,
-the tests or CI depends on it, and it adds no npm dependency — it needs only
+Authoring-time only: run it by hand, commit the result. Nothing in the build or
+local tests depends on it, and it adds no npm dependency — it needs only
 python3 with fontTools (`pip install fonttools brotli`).
 
 Andika ships full SIL coverage (~247 KB per weight). The app renders Danish,
