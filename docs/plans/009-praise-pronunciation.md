@@ -14,12 +14,12 @@ match the plan-008 key hints: kh = خ, sj = ش, tj = چ, å = آ)
 | فارسی | dansk lydskrift | IPA |
 |---|---|---|
 | آفرین | åfarin | [ɒːfæɾin] |
-| ایول | ejval | [ejvæl] |
-| چه خوب | tje khub | [tʃe xub] |
 | عالی | åli | [ɒːli] |
+| چه خوب | tje khub | [tʃe xub] |
 | خیلی خوب | khejli khub | [xejli xub] |
-| باریکلا | bårikalå | [bɒːɾikælɒː] |
-| خوش برگشتی | khosj bargasjti | [xoʃ bæɾɡæʃti] |
+| خوب بود | khub bud | [xub buːd] |
+| درست بود | dorost bud | [doɾost buːd] |
+| دوباره سلام | dobåre salåm | [dobɒːɾe sælɒːm] |
 
 ## Steps
 
@@ -71,6 +71,10 @@ Where the build does not do what this plan wrote, and why.
    needed anyway, stacking fa/pron/da vertically — the same shape as the praise row above it, and
    every specimen elsewhere in the app — read better than wrapping a third inline item into the old
    flex row.
+4. **The 2026-08-07 whole-app parity review superseded three low-frequency rows.** «ایول» and
+   «باریکلا» became «خوب بود» and «درست بود»; «خوش برگشتی» became «دوباره سلام». The replacement
+   words are simpler, each Danish line now mirrors the Persian, and all non-cultural-exception
+   praise tokens score Zipf 5.37 or higher. «آفرین» remains as the familiar school praise.
 
 ## Critic round 1 (2026-08-04) — FAIL, adjudicated by Fable
 

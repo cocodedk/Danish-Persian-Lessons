@@ -42,7 +42,7 @@ describe('ChoiceExercise', () => {
     fireEvent.click(screen.getByText(wrongChoice(0)))
 
     expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText(/nu har du hele hjælpen/)).toBeInTheDocument()
+    expect(screen.getByText('Prøv igen')).toBeInTheDocument()
     expect(screen.getByText('Se hele tegnet eller ordet')).toBeInTheDocument()
     expect(screen.getByText('Prøv én gang til')).toBeInTheDocument()
     expect(screen.getByText('Næste')).toBeInTheDocument()

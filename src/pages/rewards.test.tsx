@@ -56,7 +56,7 @@ describe('every exercise answer flows through the reward engine', () => {
     fireEvent.click(screen.getAllByRole('button').filter((b) => b.textContent === wrong)[0])
 
     expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText('— nu har du hele hjælpen. Du mister ingenting.')).toBeInTheDocument()
+    expect(screen.getByText('Prøv igen')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
     expect(getRewards().points).toBe(0)
@@ -72,8 +72,8 @@ describe('every exercise answer flows through the reward engine', () => {
       fireEvent.click(screen.getByText(i === questions.length - 1 ? 'Afslut runden' : 'Næste'))
     }
 
-    // The page-flip announces the level, and the round says nothing was lost.
-    expect(screen.getByText(/Side \d+ er fuld!/)).toBeInTheDocument()
+    // The page-flip mirrors «صفحه پر شد!» and the round says nothing was lost.
+    expect(screen.getByText('Siden er fuld!')).toBeInTheDocument()
     expect(screen.getByText(/Du kom hele runden igennem/)).toBeInTheDocument()
     const view = getRewards()
     expect(view.level).toBeGreaterThan(1)
@@ -129,7 +129,7 @@ describe('the forside carries the streak', () => {
 
     open('#/')
     const home = screen.getByRole('main')
-    expect(within(home).getByText('1 dag · du har øvet i dag')).toBeInTheDocument()
+    expect(within(home).getByText('Du har øvet i dag')).toBeInTheDocument()
   })
 })
 

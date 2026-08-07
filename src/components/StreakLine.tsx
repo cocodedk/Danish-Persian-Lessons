@@ -12,8 +12,8 @@ export interface StreakLineProps {
 /**
  * How many days the learner has practised, and where the streak stands. Before
  * the first day there is nothing to say, so nothing is said — an empty counter
- * would only be a reproach. A resting streak is described as resting, never as
- * broken or lost.
+ * would only be a reproach. Both language lines say that practice continues;
+ * neither introduces a sleeping or broken-streak metaphor.
  */
 export function StreakLine({ streak }: StreakLineProps) {
   if (streak.value < 1) return null

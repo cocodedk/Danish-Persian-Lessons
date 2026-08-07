@@ -27,14 +27,14 @@ describe('the name-assembly exercise', () => {
     expect(line()).toBe('سا')
   })
 
-  it('a wrong letter costs nothing: it does not stick, and the app says «دوباره»', async () => {
+  it('a letter tapped too early does not stick, and both languages say to use it later', async () => {
     setProfile({ name: 'Sara', faSpelling: 'سارا' })
     open('#/lesson/navn')
 
     tapTile('ا') // the name starts with س, so this one waits its turn
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('')
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText(/Prøv igen, du mister ingenting/)).toBeInTheDocument()
+    expect(screen.getByText('این حرف را بعد بزن.')).toBeInTheDocument()
+    expect(screen.getByText('Tryk på dette bogstav senere.')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Prøv én gang til' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Næste' })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Prøv én gang til' }))
@@ -78,8 +78,8 @@ describe('the name-assembly exercise', () => {
 
     // The other branch, from the same screen: a letter of the name, out of turn.
     tapTile('ا')
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
-    expect(screen.getByText(/kommer et andet sted i navnet/)).toBeInTheDocument()
+    expect(screen.getByText('این حرف را بعد بزن.')).toBeInTheDocument()
+    expect(screen.getByText('Tryk på dette bogstav senere.')).toBeInTheDocument()
     expect(screen.queryByText('Det bogstav er ikke i dit navn. Kig igen.')).not.toBeInTheDocument()
     expect(document.querySelector('.name-assembly__line')?.textContent).toBe('')
   })

@@ -2,8 +2,7 @@ import { useMemo, useState } from 'react'
 import { LetterBank } from './LetterBank'
 import { Button } from './Button'
 import { assemblyBank, assembledPrefix, nameGlyphs, type Tile } from '../name/bank'
-import { ASSEMBLE_ENTRY, NOT_IN_NAME_ENTRY, LATER_IN_NAME_DA } from '../name/copy'
-import { TRY_AGAIN_ENTRY } from '../content/faStrings'
+import { ASSEMBLE_ENTRY, NOT_IN_NAME_ENTRY, LATER_IN_NAME_ENTRY } from '../name/copy'
 import { CompactPhraseRow, ChallengeReveal } from './EntryRenderers'
 import { RetryActions } from './RetryActions'
 import { PersonalNameText } from './PersonalName'
@@ -37,7 +36,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
   const [missed, setMissed] = useState<Missed | null>(null)
   const [skipped, setSkipped] = useState(false)
   const done = placed.length === target.length
-  const missEntry = missed === 'later' ? TRY_AGAIN_ENTRY : NOT_IN_NAME_ENTRY
+  const missEntry = missed === 'later' ? LATER_IN_NAME_ENTRY : NOT_IN_NAME_ENTRY
   const expected = letters[placed.length]
   const [promptRef, focusPrompt] = useChallengeFocus<HTMLHeadingElement>()
 
@@ -87,7 +86,7 @@ export function NameAssembly({ spelling, onDone }: NameAssemblyProps) {
           <div className="name-assembly__again">
             <PersianText entry={missEntry} />
             <PronLine {...missEntry.pron} />
-            <span lang="da">{missed === 'later' ? LATER_IN_NAME_DA : NOT_IN_NAME_ENTRY.da}</span>
+            <span lang="da">{missEntry.da}</span>
           </div>
         )}
       </div>

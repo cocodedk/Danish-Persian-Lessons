@@ -54,9 +54,7 @@ export function Celebration({ reward, tickLabel = 'Rigtigt', personalName }: Cel
         <div className="celebration__welcome">
           <PersianText entry={WELCOME_BACK} className="celebration__fa" />
           <PronLine {...WELCOME_BACK.pron} />
-          <span lang="da">
-            {WELCOME_BACK.da} Stimen er vågen igen, nu {reward.streak.value} dage.
-          </span>
+          <span lang="da">{WELCOME_BACK.da}</span>
         </div>
       )}
 

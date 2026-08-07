@@ -88,7 +88,7 @@ describe('reward engine — surprise gifts run on a schedule, never on chance', 
     for (let i = 0; i < 40 && !gift; i += 1) gift = celebrate('answer', DAY).gift
     expect(gift).not.toBeNull()
     expect(gift?.entry.fa).toBe('یک تمرین جایزه!')
-    expect(gift?.entry.da).toBe('En bonusøvelse i gave!')
+    expect(gift?.entry.da).toBe('En bonusøvelse!')
   })
 
   it('costs nothing to ignore a gift — the next completion still pays in full', () => {

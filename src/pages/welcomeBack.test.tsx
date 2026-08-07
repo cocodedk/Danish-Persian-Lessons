@@ -49,9 +49,11 @@ describe('coming back after ten days away', () => {
   it('greets the learner on the forside with a resting streak, not a broken one', () => {
     open('#/')
 
-    expect(screen.getByText('5 dage · stimen hviler — én øvelse vækker den')).toBeInTheDocument()
-    expect(screen.getByText('رشتهٔ تمرین خوابیده')).toBeInTheDocument()
-    expect(screen.getByText('resjteje tamrin khåbide · [ɾeʃteje tæmɾiːn xɒːbiːde]')).toBeInTheDocument()
+    expect(screen.getByText('Træningen fortsætter stadig')).toBeInTheDocument()
+    expect(screen.getByText('تمرین هنوز ادامه دارد')).toBeInTheDocument()
+    expect(
+      screen.getByText('tamrin hanuz edåme dårad · [tæmɾiːn hænuːz ʔedɒːme dɒːɾæd]'),
+    ).toBeInTheDocument()
     expect(screen.getByText('Hej Sara!')).toBeInTheDocument()
     expectNoGuilt()
   })
@@ -60,11 +62,9 @@ describe('coming back after ten days away', () => {
     open('#/lesson/alphabet/bogstav/be')
     fireEvent.click(screen.getByText('Jeg har set tegnet'))
 
-    expect(screen.getByText('خوش برگشتی!')).toBeInTheDocument()
-    expect(screen.getByText('khosj bargasjti · [xoʃ bæɾɡæʃti]')).toBeInTheDocument()
-    expect(
-      screen.getByText('Velkommen tilbage! Stimen er vågen igen, nu 6 dage.'),
-    ).toBeInTheDocument()
+    expect(screen.getByText('دوباره سلام!')).toBeInTheDocument()
+    expect(screen.getByText('dobåre salåm · [dobɒːɾe sælɒːm]')).toBeInTheDocument()
+    expect(screen.getByText('Hej igen!')).toBeInTheDocument()
     expectNoGuilt()
 
     // Persian, then the pron line, then Danish — the same order as the praise
@@ -90,7 +90,7 @@ describe('coming back after ten days away', () => {
     expect(after.stickers.length).toBeGreaterThanOrEqual(before.stickers.length)
 
     open('#/')
-    expect(screen.getByText('6 dage · du har øvet i dag')).toBeInTheDocument()
+    expect(screen.getByText('Du har øvet i dag')).toBeInTheDocument()
     expectNoGuilt()
   })
 })

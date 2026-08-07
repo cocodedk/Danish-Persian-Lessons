@@ -22,17 +22,14 @@ export function RewardShelf({ level, stickers }: RewardShelfProps) {
   if (stickers.length === 0) return null
 
   const shown = stickers.slice(-SHOWN)
-  const line = currentPageLine(level)
+  const line = currentPageLine()
 
   return (
-    <section className="reward-shelf" aria-label="Dine klistermærker">
+    <section className="reward-shelf" aria-label="Dine klistermærker" data-level={level}>
       <div className="reward-shelf__line">
         <PersianText entry={line} className="reward-shelf__fa" />
         <PronLine {...line.pron} />
-        <span className="reward-shelf__da" lang="da">
-          {line.da} Du har {stickers.length}{' '}
-          {stickers.length === 1 ? 'klistermærke' : 'klistermærker'}.
-        </span>
+        <span className="reward-shelf__da" lang="da">{line.da}</span>
       </div>
       <div className="reward-shelf__stamps">
         {shown.map((sticker) => (

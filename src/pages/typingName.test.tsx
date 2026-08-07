@@ -96,7 +96,7 @@ describe('with a name', () => {
 
     write('سارد')
     tap('Se efter')
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
+    expect(screen.getByText('اینجا یک حرف دیگر است.')).toBeInTheDocument()
     expect(container.querySelectorAll('.type__cell--mark')).toHaveLength(1)
     expect(getRewards().points).toBe(0)
   })

@@ -120,7 +120,7 @@ describe('a word written wrong', () => {
     write('آد') // آب wanted: the second letter is where it goes wrong
     tap('Se efter')
 
-    expect(screen.getByText('دوباره')).toBeInTheDocument()
+    expect(screen.getByText('اینجا یک حرف دیگر است.')).toBeInTheDocument()
     expect(screen.getByText(/Her står et andet bogstav/)).toBeInTheDocument()
 
     const marked = container.querySelectorAll('.type__cell--mark')

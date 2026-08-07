@@ -4,7 +4,13 @@ Status: ready for external review; no approval is implied by an empty decisions 
 
 `content-review-manifest.json` is generated from the typed catalog with `npm run review:content`.
 It contains the exact Persian text, marked teaching form, Danish help, Danish sound spelling, IPA,
-contextual cues, role-sensitive flag, stress flag, and audio status for all 168 catalog entries.
+contextual cues, role-sensitive flag, stress flag, and audio status for all 172 catalog entries.
+
+Every direct bilingual block also follows `BILINGUAL-PARITY-REVIEW.md`: Danish may use natural word
+order, but it may not add or omit a claim made by the Persian. Reviewers inspect both the manifest
+row and the assembled screen because runtime counters or helper text can create a mismatch that is
+not present in static catalog data. Non-technical status and corrective copy targets Zipf 4.8 or
+higher; any exception needs a written curriculum reason and native approval.
 
 Cue coverage is intentionally explicit. `contextual` rows carry span-level teaching candidates;
 `token` rows decompose connected text; `whole-word` rows preserve the authoritative whole

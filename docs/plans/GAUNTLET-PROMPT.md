@@ -66,7 +66,7 @@ CRITIC PERSONAS — every round, five independent verdicts; the harshest wins:
 - The Iranian first-grade teacher (native Persian): is every Persian string correct, natural, and
   ordered like the primer? Vowel marks in red, on specimens only? Are the stroke-order drawings how
   she would actually draw each letter on the board — pen right-to-left, dots last? Is every IPA
-  value correct for standard Tehrani Persian? Is the praise (آفرین، ایول، چه خوب) varied and warm?
+  value correct for standard Tehrani Persian? Is the praise (آفرین، عالی، چه خوب) simple and warm?
   Would she put her red pen through anything — including the transliterated names?
 - The Danish learner (native, du-form) on a phone in the bus: one-handed usable? Every Danish word
   plain and warm? Read the dansk lydskrift aloud — does it actually sound like the Persian word?

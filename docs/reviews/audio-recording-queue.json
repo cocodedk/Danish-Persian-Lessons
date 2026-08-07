@@ -2429,7 +2429,7 @@
       "domain": "vocabulary",
       "transcript": "این آب اَست. آن نان اَست. او بابا اَست.",
       "plainPersian": "این آب است. آن نان است. او بابا است.",
-      "danishMeaning": "Dette er vand, det der er brød, og personen er far.",
+      "danishMeaning": "Dette er vand. Det der er brød. Han eller hun er far.",
       "soundDa": "in åb ast. ån nån ast. u båbå ast",
       "ipa": "iːn ɒːb æst. ɒːn nɒːn æst. uː bɒːbɒː æst",
       "stressMarked": false,
@@ -2449,7 +2449,7 @@
       "domain": "vocabulary",
       "transcript": "این مَدرِسه اَست. این میز اَست. این کِتاب اَست. او دوستِ مَن اَست.",
       "plainPersian": "این مدرسه است. این میز است. این کتاب است. او دوست من است.",
-      "danishMeaning": "Det er en skole med et bord og en bog; personen er min ven.",
+      "danishMeaning": "Dette er en skole. Dette er et bord. Dette er en bog. Han eller hun er min ven.",
       "soundDa": "in madrese ast. in miz ast. in ketåb ast. u duste man ast",
       "ipa": "iːn mædɾese æst. iːn miːz æst. iːn ketɒːb æst. uː duːste mæn æst",
       "stressMarked": false,
@@ -2469,7 +2469,7 @@
       "domain": "vocabulary",
       "transcript": "این خانه اَست. آسِمان آبی اَست. ماه زَرد اَست. شَب اَست.",
       "plainPersian": "این خانه است. آسمان آبی است. ماه زرد است. شب است.",
-      "danishMeaning": "Det er et hus; himlen er blå, månen er gul, og det er nat.",
+      "danishMeaning": "Dette er et hus. Himlen er blå. Månen er gul. Det er nat.",
       "soundDa": "in khåne ast. åsemån åbi ast. måh zard ast. sjab ast",
       "ipa": "iːn xɒːne æst. ɒːsemɒːn ɒːbiː æst. mɒːh zæɾd æst. ʃæb æst",
       "stressMarked": false,
@@ -2705,6 +2705,66 @@
       ]
     },
     {
+      "entryId": "interface-missing-letter",
+      "domain": "interface",
+      "transcript": "اینجا یک حرف کم است.",
+      "plainPersian": "اینجا یک حرف کم است.",
+      "danishMeaning": "Her mangler et bogstav.",
+      "soundDa": "indjå jek harf kam ast",
+      "ipa": "iːndʒɒː jek hæɾf kæm æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-missing-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-wrong-letter",
+      "domain": "interface",
+      "transcript": "اینجا یک حرف دیگر است.",
+      "plainPersian": "اینجا یک حرف دیگر است.",
+      "danishMeaning": "Her står et andet bogstav.",
+      "soundDa": "indjå jek harfe digar ast",
+      "ipa": "iːndʒɒː jek hæɾfe diːɡæɾ æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-wrong-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "interface-extra-letter",
+      "domain": "interface",
+      "transcript": "اینجا یک حرف اضافه است.",
+      "plainPersian": "اینجا یک حرف اضافه است.",
+      "danishMeaning": "Her er et bogstav for meget.",
+      "soundDa": "indjå jek harfe ezåfe ast",
+      "ipa": "iːndʒɒː jek hæɾfe ʔezɒːfe æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/interface-extra-letter.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "interface-type-words",
       "domain": "interface",
       "transcript": "کلمه‌ها را بنویس",
@@ -2827,11 +2887,11 @@
     {
       "entryId": "names-spelling-title",
       "domain": "names",
-      "transcript": "نامت به فارسی",
-      "plainPersian": "نامت به فارسی",
-      "danishMeaning": "Dit navn på persisk",
-      "soundDa": "nåmet be fårsi",
-      "ipa": "nɒːmet be fɒːɾsiː",
+      "transcript": "نام به فارسی",
+      "plainPersian": "نام به فارسی",
+      "danishMeaning": "Navn på persisk",
+      "soundDa": "nåm be fårsi",
+      "ipa": "nɒːm be fɒːɾsiː",
       "stressMarked": false,
       "expectedFile": "/audio/names-spelling-title.mp3",
       "requiredBeforeRecording": [
@@ -2847,11 +2907,11 @@
     {
       "entryId": "names-spelling-pick",
       "domain": "names",
-      "transcript": "کدام را می‌پسندی؟",
-      "plainPersian": "کدام را می‌پسندی؟",
-      "danishMeaning": "Hvilken kan du bedst lide?",
-      "soundDa": "kodåm rå mipasandi?",
-      "ipa": "kodɒːm ɾɒː miːpæsændiː",
+      "transcript": "کدام را دوست داری؟",
+      "plainPersian": "کدام را دوست داری؟",
+      "danishMeaning": "Hvilken kan du lide?",
+      "soundDa": "kodåm rå dust dåri?",
+      "ipa": "kodɒːm ɾɒː duːst dɒːɾiː",
       "stressMarked": false,
       "expectedFile": "/audio/names-spelling-pick.mp3",
       "requiredBeforeRecording": [
@@ -2887,11 +2947,11 @@
     {
       "entryId": "names-assemble",
       "domain": "names",
-      "transcript": "نامت را دوباره بچین",
-      "plainPersian": "نامت را دوباره بچین",
-      "danishMeaning": "Sæt dit navn sammen igen",
-      "soundDa": "nåmet rå dobåre betjin",
-      "ipa": "nɒːmet ɾɒː dobɒːɾe betʃiːn",
+      "transcript": "نام را دوباره درست کن",
+      "plainPersian": "نام را دوباره درست کن",
+      "danishMeaning": "Lav navnet igen",
+      "soundDa": "nåm rå dobåre dorost kon",
+      "ipa": "nɒːm ɾɒː dobɒːɾe doɾost kon",
       "stressMarked": false,
       "expectedFile": "/audio/names-assemble.mp3",
       "requiredBeforeRecording": [
@@ -2945,13 +3005,33 @@
       ]
     },
     {
+      "entryId": "names-letter-later",
+      "domain": "names",
+      "transcript": "این حرف را بعد بزن.",
+      "plainPersian": "این حرف را بعد بزن.",
+      "danishMeaning": "Tryk på dette bogstav senere.",
+      "soundDa": "in harf rå ba’d bezan",
+      "ipa": "iːn hæɾf ɾɒː bæʔd bezæn",
+      "stressMarked": false,
+      "expectedFile": "/audio/names-letter-later.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "names-privacy",
       "domain": "names",
-      "transcript": "نامت فقط روی همین دستگاه می‌ماند.",
-      "plainPersian": "نامت فقط روی همین دستگاه می‌ماند.",
-      "danishMeaning": "Navnet gemmes kun på din telefon og sendes aldrig videre.",
-      "soundDa": "nåmet faghat ruje hamin dastgåh mimånad",
-      "ipa": "nɒːmet fæɢæt ɾuːje hæmiːn dæstɡɒːh miːmɒːnæd",
+      "transcript": "نام فقط در این دستگاه است.",
+      "plainPersian": "نام فقط در این دستگاه است.",
+      "danishMeaning": "Navnet er kun på denne enhed.",
+      "soundDa": "nåm faghat dar in dastgåh ast",
+      "ipa": "nɒːm fæɢæt dæɾ iːn dæstɡɒːh æst",
       "stressMarked": false,
       "expectedFile": "/audio/names-privacy.mp3",
       "requiredBeforeRecording": [
@@ -2985,51 +3065,11 @@
       ]
     },
     {
-      "entryId": "rewards-praise-eyval",
-      "domain": "rewards",
-      "transcript": "ایول",
-      "plainPersian": "ایول",
-      "danishMeaning": "Sådan!",
-      "soundDa": "ejval",
-      "ipa": "ejvæl",
-      "stressMarked": false,
-      "expectedFile": "/audio/rewards-praise-eyval.mp3",
-      "requiredBeforeRecording": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics"
-      ],
-      "requiredTakeReview": [
-        "iranian-persian-2",
-        "phonetics"
-      ]
-    },
-    {
-      "entryId": "rewards-praise-che-khub",
-      "domain": "rewards",
-      "transcript": "چه خوب",
-      "plainPersian": "چه خوب",
-      "danishMeaning": "Godt gået!",
-      "soundDa": "tje khub",
-      "ipa": "tʃe xub",
-      "stressMarked": false,
-      "expectedFile": "/audio/rewards-praise-che-khub.mp3",
-      "requiredBeforeRecording": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics"
-      ],
-      "requiredTakeReview": [
-        "iranian-persian-2",
-        "phonetics"
-      ]
-    },
-    {
       "entryId": "rewards-praise-ali",
       "domain": "rewards",
       "transcript": "عالی",
       "plainPersian": "عالی",
-      "danishMeaning": "Rigtig fint!",
+      "danishMeaning": "Super!",
       "soundDa": "åli",
       "ipa": "ɒːli",
       "stressMarked": false,
@@ -3045,11 +3085,31 @@
       ]
     },
     {
+      "entryId": "rewards-praise-che-khub",
+      "domain": "rewards",
+      "transcript": "چه خوب",
+      "plainPersian": "چه خوب",
+      "danishMeaning": "Hvor fint!",
+      "soundDa": "tje khub",
+      "ipa": "tʃe xub",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-che-khub.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "rewards-praise-kheyli-khub",
       "domain": "rewards",
       "transcript": "خیلی خوب",
       "plainPersian": "خیلی خوب",
-      "danishMeaning": "Dygtig!",
+      "danishMeaning": "Rigtig godt!",
       "soundDa": "khejli khub",
       "ipa": "xejli xub",
       "stressMarked": false,
@@ -3065,15 +3125,35 @@
       ]
     },
     {
-      "entryId": "rewards-praise-barikala",
+      "entryId": "rewards-praise-khub-bud",
       "domain": "rewards",
-      "transcript": "باریکلا",
-      "plainPersian": "باریکلا",
-      "danishMeaning": "Sådan skal det være!",
-      "soundDa": "bårikalå",
-      "ipa": "bɒːɾikælɒː",
+      "transcript": "خوب بود",
+      "plainPersian": "خوب بود",
+      "danishMeaning": "Det var godt!",
+      "soundDa": "khub bud",
+      "ipa": "xub buːd",
       "stressMarked": false,
-      "expectedFile": "/audio/rewards-praise-barikala.mp3",
+      "expectedFile": "/audio/rewards-praise-khub-bud.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "rewards-praise-dorost-bud",
+      "domain": "rewards",
+      "transcript": "درست بود",
+      "plainPersian": "درست بود",
+      "danishMeaning": "Det var rigtigt!",
+      "soundDa": "dorost bud",
+      "ipa": "doɾost buːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/rewards-praise-dorost-bud.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -3109,7 +3189,7 @@
       "domain": "rewards",
       "transcript": "آفرین",
       "plainPersian": "آفرین",
-      "danishMeaning": "Klistermærke: flot klaret",
+      "danishMeaning": "Flot!",
       "soundDa": "åfarin",
       "ipa": "ɒːfæɾin",
       "stressMarked": false,
@@ -3129,7 +3209,7 @@
       "domain": "rewards",
       "transcript": "۲۰",
       "plainPersian": "۲۰",
-      "danishMeaning": "Klistermærke: tyve ud af tyve",
+      "danishMeaning": "Tyve",
       "soundDa": "bist",
       "ipa": "biːst",
       "stressMarked": false,
@@ -3149,7 +3229,7 @@
       "domain": "rewards",
       "transcript": "ستارهٔ طلایی",
       "plainPersian": "ستارهٔ طلایی",
-      "danishMeaning": "Klistermærke: guldstjerne",
+      "danishMeaning": "Guldstjerne",
       "soundDa": "setåreje talåji",
       "ipa": "setɒːɾeje tælɒːjiː",
       "stressMarked": false,
@@ -3169,7 +3249,7 @@
       "domain": "rewards",
       "transcript": "یک تمرین جایزه!",
       "plainPersian": "یک تمرین جایزه!",
-      "danishMeaning": "En bonusøvelse i gave!",
+      "danishMeaning": "En bonusøvelse!",
       "soundDa": "jek tamrine djåjeze",
       "ipa": "jek tæmɾiːne dʒɒːjeze",
       "stressMarked": false,
@@ -3187,11 +3267,11 @@
     {
       "entryId": "rewards-welcome-back",
       "domain": "rewards",
-      "transcript": "خوش برگشتی!",
-      "plainPersian": "خوش برگشتی!",
-      "danishMeaning": "Velkommen tilbage!",
-      "soundDa": "khosj bargasjti",
-      "ipa": "xoʃ bæɾɡæʃti",
+      "transcript": "دوباره سلام!",
+      "plainPersian": "دوباره سلام!",
+      "danishMeaning": "Hej igen!",
+      "soundDa": "dobåre salåm",
+      "ipa": "dobɒːɾe sælɒːm",
       "stressMarked": false,
       "expectedFile": "/audio/rewards-welcome-back.mp3",
       "requiredBeforeRecording": [
@@ -3247,11 +3327,11 @@
     {
       "entryId": "rewards-streak-resting",
       "domain": "rewards",
-      "transcript": "رشتهٔ تمرین خوابیده",
-      "plainPersian": "رشتهٔ تمرین خوابیده",
-      "danishMeaning": "Øvestimen hviler",
-      "soundDa": "resjteje tamrin khåbide",
-      "ipa": "ɾeʃteje tæmɾiːn xɒːbiːde",
+      "transcript": "تمرین هنوز ادامه دارد",
+      "plainPersian": "تمرین هنوز ادامه دارد",
+      "danishMeaning": "Træningen fortsætter stadig",
+      "soundDa": "tamrin hanuz edåme dårad",
+      "ipa": "tæmɾiːn hænuːz ʔedɒːme dɒːɾæd",
       "stressMarked": false,
       "expectedFile": "/audio/rewards-streak-resting.mp3",
       "requiredBeforeRecording": [
@@ -3287,11 +3367,11 @@
     {
       "entryId": "rewards-streak-awake",
       "domain": "rewards",
-      "transcript": "رشتهٔ تمرین بیدار است",
-      "plainPersian": "رشتهٔ تمرین بیدار است",
-      "danishMeaning": "Øvestimen er vågen",
-      "soundDa": "resjteje tamrin bidår ast",
-      "ipa": "ɾeʃteje tæmɾiːn biːdɒːɾ æst",
+      "transcript": "تمرین ادامه دارد",
+      "plainPersian": "تمرین ادامه دارد",
+      "danishMeaning": "Træningen fortsætter",
+      "soundDa": "tamrin edåme dårad",
+      "ipa": "tæmɾiːn ʔedɒːme dɒːɾæd",
       "stressMarked": false,
       "expectedFile": "/audio/rewards-streak-awake.mp3",
       "requiredBeforeRecording": [

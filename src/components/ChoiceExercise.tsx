@@ -135,7 +135,6 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
         {attempted && !solved && (
           <div className="choice-exercise__again">
             <CompactPhraseRow entry={TRY_AGAIN_ENTRY} />
-            <span> — nu har du hele hjælpen. Du mister ingenting.</span>
           </div>
         )}
       </div>

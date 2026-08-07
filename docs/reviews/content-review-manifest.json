@@ -4849,7 +4849,7 @@
       "kind": "phrase",
       "fa": "این آب است. آن نان است. او بابا است.",
       "faMarked": "این آب اَست. آن نان اَست. او بابا اَست.",
-      "da": "Dette er vand, det der er brød, og personen er far.",
+      "da": "Dette er vand. Det der er brød. Han eller hun er far.",
       "soundDa": "in åb ast. ån nån ast. u båbå ast",
       "ipa": "iːn ɒːb æst. ɒːn nɒːn æst. uː bɒːbɒː æst",
       "stressReviewRequired": true,
@@ -4973,7 +4973,7 @@
       "kind": "phrase",
       "fa": "این مدرسه است. این میز است. این کتاب است. او دوست من است.",
       "faMarked": "این مَدرِسه اَست. این میز اَست. این کِتاب اَست. او دوستِ مَن اَست.",
-      "da": "Det er en skole med et bord og en bog; personen er min ven.",
+      "da": "Dette er en skole. Dette er et bord. Dette er en bog. Han eller hun er min ven.",
       "soundDa": "in madrese ast. in miz ast. in ketåb ast. u duste man ast",
       "ipa": "iːn mædɾese æst. iːn miːz æst. iːn ketɒːb æst. uː duːste mæn æst",
       "stressReviewRequired": true,
@@ -5152,7 +5152,7 @@
       "kind": "phrase",
       "fa": "این خانه است. آسمان آبی است. ماه زرد است. شب است.",
       "faMarked": "این خانه اَست. آسِمان آبی اَست. ماه زَرد اَست. شَب اَست.",
-      "da": "Det er et hus; himlen er blå, månen er gul, og det er nat.",
+      "da": "Dette er et hus. Himlen er blå. Månen er gul. Det er nat.",
       "soundDa": "in khåne ast. åsemån åbi ast. måh zard ast. sjab ast",
       "ipa": "iːn xɒːne æst. ɒːsemɒːn ɒːbiː æst. mɒːh zæɾd æst. ʃæb æst",
       "stressReviewRequired": true,
@@ -5666,6 +5666,111 @@
       ]
     },
     {
+      "id": "interface-missing-letter",
+      "domain": "interface",
+      "kind": "phrase",
+      "fa": "اینجا یک حرف کم است.",
+      "da": "Her mangler et bogstav.",
+      "soundDa": "indjå jek harf kam ast",
+      "ipa": "iːndʒɒː jek hæɾf kæm æst",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 20,
+          "display": "اینجا یک حرف کم است.",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "indjå jek harf kam ast",
+            "ipa": "iːndʒɒː jek hæɾf kæm æst"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "interface-missing-letter",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "interface-wrong-letter",
+      "domain": "interface",
+      "kind": "phrase",
+      "fa": "اینجا یک حرف دیگر است.",
+      "da": "Her står et andet bogstav.",
+      "soundDa": "indjå jek harfe digar ast",
+      "ipa": "iːndʒɒː jek hæɾfe diːɡæɾ æst",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 22,
+          "display": "اینجا یک حرف دیگر است.",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "indjå jek harfe digar ast",
+            "ipa": "iːndʒɒː jek hæɾfe diːɡæɾ æst"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "interface-wrong-letter",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "interface-extra-letter",
+      "domain": "interface",
+      "kind": "phrase",
+      "fa": "اینجا یک حرف اضافه است.",
+      "da": "Her er et bogstav for meget.",
+      "soundDa": "indjå jek harfe ezåfe ast",
+      "ipa": "iːndʒɒː jek hæɾfe ʔezɒːfe æst",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 23,
+          "display": "اینجا یک حرف اضافه است.",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "indjå jek harfe ezåfe ast",
+            "ipa": "iːndʒɒː jek hæɾfe ʔezɒːfe æst"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "interface-extra-letter",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "interface-type-words",
       "domain": "interface",
       "kind": "phrase",
@@ -5879,22 +5984,22 @@
       "id": "names-spelling-title",
       "domain": "names",
       "kind": "phrase",
-      "fa": "نامت به فارسی",
-      "da": "Dit navn på persisk",
-      "soundDa": "nåmet be fårsi",
-      "ipa": "nɒːmet be fɒːɾsiː",
+      "fa": "نام به فارسی",
+      "da": "Navn på persisk",
+      "soundDa": "nåm be fårsi",
+      "ipa": "nɒːm be fɒːɾsiː",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 13,
-          "display": "نامت به فارسی",
+          "end": 12,
+          "display": "نام به فارسی",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "nåmet be fårsi",
-            "ipa": "nɒːmet be fɒːɾsiː"
+            "da": "nåm be fårsi",
+            "ipa": "nɒːm be fɒːɾsiː"
           }
         }
       ],
@@ -5914,22 +6019,22 @@
       "id": "names-spelling-pick",
       "domain": "names",
       "kind": "phrase",
-      "fa": "کدام را می‌پسندی؟",
-      "da": "Hvilken kan du bedst lide?",
-      "soundDa": "kodåm rå mipasandi?",
-      "ipa": "kodɒːm ɾɒː miːpæsændiː",
+      "fa": "کدام را دوست داری؟",
+      "da": "Hvilken kan du lide?",
+      "soundDa": "kodåm rå dust dåri?",
+      "ipa": "kodɒːm ɾɒː duːst dɒːɾiː",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 17,
-          "display": "کدام را می‌پسندی؟",
+          "end": 18,
+          "display": "کدام را دوست داری؟",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "kodåm rå mipasandi?",
-            "ipa": "kodɒːm ɾɒː miːpæsændiː"
+            "da": "kodåm rå dust dåri?",
+            "ipa": "kodɒːm ɾɒː duːst dɒːɾiː"
           }
         }
       ],
@@ -5984,22 +6089,22 @@
       "id": "names-assemble",
       "domain": "names",
       "kind": "phrase",
-      "fa": "نامت را دوباره بچین",
-      "da": "Sæt dit navn sammen igen",
-      "soundDa": "nåmet rå dobåre betjin",
-      "ipa": "nɒːmet ɾɒː dobɒːɾe betʃiːn",
+      "fa": "نام را دوباره درست کن",
+      "da": "Lav navnet igen",
+      "soundDa": "nåm rå dobåre dorost kon",
+      "ipa": "nɒːm ɾɒː dobɒːɾe doɾost kon",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 19,
-          "display": "نامت را دوباره بچین",
+          "end": 21,
+          "display": "نام را دوباره درست کن",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "nåmet rå dobåre betjin",
-            "ipa": "nɒːmet ɾɒː dobɒːɾe betʃiːn"
+            "da": "nåm rå dobåre dorost kon",
+            "ipa": "nɒːm ɾɒː dobɒːɾe doɾost kon"
           }
         }
       ],
@@ -6086,25 +6191,60 @@
       ]
     },
     {
-      "id": "names-privacy",
+      "id": "names-letter-later",
       "domain": "names",
       "kind": "phrase",
-      "fa": "نامت فقط روی همین دستگاه می‌ماند.",
-      "da": "Navnet gemmes kun på din telefon og sendes aldrig videre.",
-      "soundDa": "nåmet faghat ruje hamin dastgåh mimånad",
-      "ipa": "nɒːmet fæɢæt ɾuːje hæmiːn dæstɡɒːh miːmɒːnæd",
+      "fa": "این حرف را بعد بزن.",
+      "da": "Tryk på dette bogstav senere.",
+      "soundDa": "in harf rå ba’d bezan",
+      "ipa": "iːn hæɾf ɾɒː bæʔd bezæn",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 33,
-          "display": "نامت فقط روی همین دستگاه می‌ماند.",
+          "end": 19,
+          "display": "این حرف را بعد بزن.",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "nåmet faghat ruje hamin dastgåh mimånad",
-            "ipa": "nɒːmet fæɢæt ɾuːje hæmiːn dæstɡɒːh miːmɒːnæd"
+            "da": "in harf rå ba’d bezan",
+            "ipa": "iːn hæɾf ɾɒː bæʔd bezæn"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "names-letter-later",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "names-privacy",
+      "domain": "names",
+      "kind": "phrase",
+      "fa": "نام فقط در این دستگاه است.",
+      "da": "Navnet er kun på denne enhed.",
+      "soundDa": "nåm faghat dar in dastgåh ast",
+      "ipa": "nɒːm fæɢæt dæɾ iːn dæstɡɒːh æst",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 26,
+          "display": "نام فقط در این دستگاه است.",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "nåm faghat dar in dastgåh ast",
+            "ipa": "nɒːm fæɢæt dæɾ iːn dæstɡɒːh æst"
           }
         }
       ],
@@ -6179,81 +6319,11 @@
       ]
     },
     {
-      "id": "rewards-praise-eyval",
-      "domain": "rewards",
-      "kind": "word",
-      "fa": "ایول",
-      "da": "Sådan!",
-      "soundDa": "ejval",
-      "ipa": "ejvæl",
-      "stressReviewRequired": true,
-      "stressMarked": false,
-      "readingCues": [
-        {
-          "start": 0,
-          "end": 4,
-          "display": "ایول",
-          "role": "whole",
-          "helpDa": "Læs hele ordet samlet",
-          "pron": {
-            "da": "ejval",
-            "ipa": "ejvæl"
-          }
-        }
-      ],
-      "cueCoverage": "whole-word",
-      "roleSensitive": true,
-      "audioId": "rewards-praise-eyval",
-      "audioNotApplicable": null,
-      "audioStatus": "missing",
-      "requiredReviews": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics",
-        "danish"
-      ]
-    },
-    {
-      "id": "rewards-praise-che-khub",
-      "domain": "rewards",
-      "kind": "phrase",
-      "fa": "چه خوب",
-      "da": "Godt gået!",
-      "soundDa": "tje khub",
-      "ipa": "tʃe xub",
-      "stressReviewRequired": true,
-      "stressMarked": false,
-      "readingCues": [
-        {
-          "start": 0,
-          "end": 6,
-          "display": "چه خوب",
-          "role": "whole",
-          "helpDa": "Læs hele udtrykket samlet",
-          "pron": {
-            "da": "tje khub",
-            "ipa": "tʃe xub"
-          }
-        }
-      ],
-      "cueCoverage": "whole-word",
-      "roleSensitive": true,
-      "audioId": "rewards-praise-che-khub",
-      "audioNotApplicable": null,
-      "audioStatus": "missing",
-      "requiredReviews": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics",
-        "danish"
-      ]
-    },
-    {
       "id": "rewards-praise-ali",
       "domain": "rewards",
       "kind": "word",
       "fa": "عالی",
-      "da": "Rigtig fint!",
+      "da": "Super!",
       "soundDa": "åli",
       "ipa": "ɒːli",
       "stressReviewRequired": true,
@@ -6284,11 +6354,46 @@
       ]
     },
     {
+      "id": "rewards-praise-che-khub",
+      "domain": "rewards",
+      "kind": "phrase",
+      "fa": "چه خوب",
+      "da": "Hvor fint!",
+      "soundDa": "tje khub",
+      "ipa": "tʃe xub",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 6,
+          "display": "چه خوب",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "tje khub",
+            "ipa": "tʃe xub"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "rewards-praise-che-khub",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "rewards-praise-kheyli-khub",
       "domain": "rewards",
       "kind": "phrase",
       "fa": "خیلی خوب",
-      "da": "Dygtig!",
+      "da": "Rigtig godt!",
       "soundDa": "khejli khub",
       "ipa": "xejli xub",
       "stressReviewRequired": true,
@@ -6319,31 +6424,66 @@
       ]
     },
     {
-      "id": "rewards-praise-barikala",
+      "id": "rewards-praise-khub-bud",
       "domain": "rewards",
-      "kind": "word",
-      "fa": "باریکلا",
-      "da": "Sådan skal det være!",
-      "soundDa": "bårikalå",
-      "ipa": "bɒːɾikælɒː",
+      "kind": "phrase",
+      "fa": "خوب بود",
+      "da": "Det var godt!",
+      "soundDa": "khub bud",
+      "ipa": "xub buːd",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
           "end": 7,
-          "display": "باریکلا",
+          "display": "خوب بود",
           "role": "whole",
-          "helpDa": "Læs hele ordet samlet",
+          "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "bårikalå",
-            "ipa": "bɒːɾikælɒː"
+            "da": "khub bud",
+            "ipa": "xub buːd"
           }
         }
       ],
       "cueCoverage": "whole-word",
       "roleSensitive": true,
-      "audioId": "rewards-praise-barikala",
+      "audioId": "rewards-praise-khub-bud",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "rewards-praise-dorost-bud",
+      "domain": "rewards",
+      "kind": "phrase",
+      "fa": "درست بود",
+      "da": "Det var rigtigt!",
+      "soundDa": "dorost bud",
+      "ipa": "doɾost buːd",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "درست بود",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "dorost bud",
+            "ipa": "doɾost buːd"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "rewards-praise-dorost-bud",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [
@@ -6393,7 +6533,7 @@
       "domain": "rewards",
       "kind": "word",
       "fa": "آفرین",
-      "da": "Klistermærke: flot klaret",
+      "da": "Flot!",
       "soundDa": "åfarin",
       "ipa": "ɒːfæɾin",
       "stressReviewRequired": true,
@@ -6428,7 +6568,7 @@
       "domain": "rewards",
       "kind": "symbol",
       "fa": "۲۰",
-      "da": "Klistermærke: tyve ud af tyve",
+      "da": "Tyve",
       "soundDa": "bist",
       "ipa": "biːst",
       "stressReviewRequired": false,
@@ -6451,7 +6591,7 @@
       "domain": "rewards",
       "kind": "phrase",
       "fa": "ستارهٔ طلایی",
-      "da": "Klistermærke: guldstjerne",
+      "da": "Guldstjerne",
       "soundDa": "setåreje talåji",
       "ipa": "setɒːɾeje tælɒːjiː",
       "stressReviewRequired": true,
@@ -6486,7 +6626,7 @@
       "domain": "rewards",
       "kind": "phrase",
       "fa": "یک تمرین جایزه!",
-      "da": "En bonusøvelse i gave!",
+      "da": "En bonusøvelse!",
       "soundDa": "jek tamrine djåjeze",
       "ipa": "jek tæmɾiːne dʒɒːjeze",
       "stressReviewRequired": true,
@@ -6520,22 +6660,22 @@
       "id": "rewards-welcome-back",
       "domain": "rewards",
       "kind": "phrase",
-      "fa": "خوش برگشتی!",
-      "da": "Velkommen tilbage!",
-      "soundDa": "khosj bargasjti",
-      "ipa": "xoʃ bæɾɡæʃti",
+      "fa": "دوباره سلام!",
+      "da": "Hej igen!",
+      "soundDa": "dobåre salåm",
+      "ipa": "dobɒːɾe sælɒːm",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 11,
-          "display": "خوش برگشتی!",
+          "end": 12,
+          "display": "دوباره سلام!",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "khosj bargasjti",
-            "ipa": "xoʃ bæɾɡæʃti"
+            "da": "dobåre salåm",
+            "ipa": "dobɒːɾe sælɒːm"
           }
         }
       ],
@@ -6625,22 +6765,22 @@
       "id": "rewards-streak-resting",
       "domain": "rewards",
       "kind": "phrase",
-      "fa": "رشتهٔ تمرین خوابیده",
-      "da": "Øvestimen hviler",
-      "soundDa": "resjteje tamrin khåbide",
-      "ipa": "ɾeʃteje tæmɾiːn xɒːbiːde",
+      "fa": "تمرین هنوز ادامه دارد",
+      "da": "Træningen fortsætter stadig",
+      "soundDa": "tamrin hanuz edåme dårad",
+      "ipa": "tæmɾiːn hænuːz ʔedɒːme dɒːɾæd",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 19,
-          "display": "رشتهٔ تمرین خوابیده",
+          "end": 21,
+          "display": "تمرین هنوز ادامه دارد",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "resjteje tamrin khåbide",
-            "ipa": "ɾeʃteje tæmɾiːn xɒːbiːde"
+            "da": "tamrin hanuz edåme dårad",
+            "ipa": "tæmɾiːn hænuːz ʔedɒːme dɒːɾæd"
           }
         }
       ],
@@ -6695,22 +6835,22 @@
       "id": "rewards-streak-awake",
       "domain": "rewards",
       "kind": "phrase",
-      "fa": "رشتهٔ تمرین بیدار است",
-      "da": "Øvestimen er vågen",
-      "soundDa": "resjteje tamrin bidår ast",
-      "ipa": "ɾeʃteje tæmɾiːn biːdɒːɾ æst",
+      "fa": "تمرین ادامه دارد",
+      "da": "Træningen fortsætter",
+      "soundDa": "tamrin edåme dårad",
+      "ipa": "tæmɾiːn ʔedɒːme dɒːɾæd",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
-          "end": 21,
-          "display": "رشتهٔ تمرین بیدار است",
+          "end": 16,
+          "display": "تمرین ادامه دارد",
           "role": "whole",
           "helpDa": "Læs hele udtrykket samlet",
           "pron": {
-            "da": "resjteje tamrin bidår ast",
-            "ipa": "ɾeʃteje tæmɾiːn biːdɒːɾ æst"
+            "da": "tamrin edåme dårad",
+            "ipa": "tæmɾiːn ʔedɒːme dɒːɾæd"
           }
         }
       ],
