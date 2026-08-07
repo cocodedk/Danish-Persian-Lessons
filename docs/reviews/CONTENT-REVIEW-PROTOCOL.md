@@ -4,7 +4,7 @@ Status: ready for external review; no approval is implied by an empty decisions 
 
 `content-review-manifest.json` is generated from the typed catalog with `npm run review:content`.
 It contains the exact Persian text, marked teaching form, Danish help, Danish sound spelling, IPA,
-contextual cues, role-sensitive flag, stress flag, and audio status for all 176 catalog entries.
+contextual cues, role-sensitive flag, stress flag, and audio status for all 179 catalog entries.
 
 Every direct bilingual block also follows `BILINGUAL-PARITY-REVIEW.md`: Danish may use natural word
 order, but it may not add or omit a claim made by the Persian. Reviewers inspect both the manifest

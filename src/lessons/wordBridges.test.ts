@@ -47,5 +47,36 @@ describe('Persian and Danish word bridges', () => {
       clueDa: 'Seyl og sejle lyder næsten ens.',
     })
     expect(byId['seyl-sejle'].meaningDa).toContain('Byen sejlede i vand')
+    expect(byId['pedar-fader']).toMatchObject({
+      entry: {
+        fa: 'پدر',
+        faMarked: 'پِدَر',
+        da: 'far',
+        pron: { da: 'pedar', ipa: 'peˈdæɾ' },
+      },
+      danish: 'fader eller far',
+      clueDa: 'P i pedar svarer til f i fader.',
+    })
+    expect(byId['setareh-stjerne']).toMatchObject({
+      entry: {
+        fa: 'ستاره',
+        faMarked: 'سِتاره',
+        da: 'stjerne',
+        pron: { da: 'setåre', ipa: 'seˈtɒːɾe' },
+      },
+      danish: 'stjerne',
+    })
+    expect(byId['mah-maane']).toMatchObject({
+      entry: {
+        fa: 'ماه',
+        da: 'måne',
+        pron: { da: 'måh', ipa: 'mɒːh' },
+        audioId: 'word-bridge-mah',
+      },
+      danish: 'måne',
+    })
+    expect(byId['pedar-fader'].meaningDa).toContain('samme gamle familie')
+    expect(byId['setareh-stjerne'].meaningDa).toContain('samme gamle familie')
+    expect(byId['mah-maane'].meaningDa).toContain('samme gamle familie')
   })
 })

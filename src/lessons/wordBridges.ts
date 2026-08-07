@@ -58,6 +58,17 @@ function writtenEy(start: number): ReadingCue {
   }
 }
 
+function writtenFinalE(start: number): ReadingCue {
+  return {
+    start,
+    end: start + 1,
+    display: 'ه',
+    role: 'written-vowel',
+    helpDa: 'He sidst i dette ord skriver lyden e',
+    pron: { da: 'e i “let”', ipa: 'e' },
+  }
+}
+
 const dandan = defineEntry({
   id: 'word-bridge-dandan',
   kind: 'word',
@@ -109,6 +120,41 @@ const seyl = defineEntry({
   ],
 })
 
+const pedar = defineEntry({
+  id: 'word-bridge-pedar',
+  kind: 'word',
+  fa: 'پدر',
+  faMarked: 'پِدَر',
+  da: 'far',
+  pron: { da: 'pedar', ipa: 'peˈdæɾ' },
+  readingCues: [
+    consonant(0, 'پ'), shortVowel(1, '◌ِ', 'e i “let”', 'e'), consonant(1, 'د'),
+    shortVowel(2, '◌َ', 'a i “kat”', 'æ'), consonant(2, 'ر'),
+  ],
+})
+
+const setareh = defineEntry({
+  id: 'word-bridge-setareh',
+  kind: 'word',
+  fa: 'ستاره',
+  faMarked: 'سِتاره',
+  da: 'stjerne',
+  pron: { da: 'setåre', ipa: 'seˈtɒːɾe' },
+  readingCues: [
+    consonant(0, 'س'), shortVowel(1, '◌ِ', 'e i “let”', 'e'), consonant(1, 'ت'),
+    longAa(2), consonant(3, 'ر'), writtenFinalE(4),
+  ],
+})
+
+const mah = defineEntry({
+  id: 'word-bridge-mah',
+  kind: 'word',
+  fa: 'ماه',
+  da: 'måne',
+  pron: { da: 'måh', ipa: 'mɒːh' },
+  readingCues: [consonant(0, 'م'), longAa(1), consonant(2, 'ه')],
+})
+
 /** Easy memory clues, not rules for changing one language into the other. */
 export const wordBridges: readonly WordBridge[] = [
   {
@@ -142,6 +188,30 @@ export const wordBridges: readonly WordBridge[] = [
     danish: 'sejle',
     clueDa: 'Seyl og sejle lyder næsten ens.',
     meaningDa: 'De er ikke i samme gamle familie. سیل er meget vand på land. På dansk kan vi sige: “Byen sejlede i vand.”',
+  },
+  {
+    id: 'pedar-fader',
+    titleDa: 'Pedar og fader',
+    entry: pedar,
+    danish: 'fader eller far',
+    clueDa: 'P i pedar svarer til f i fader.',
+    meaningDa: 'De betyder det samme og er i samme gamle familie.',
+  },
+  {
+    id: 'setareh-stjerne',
+    titleDa: 'Setåre og stjerne',
+    entry: setareh,
+    danish: 'stjerne',
+    clueDa: 'S, t og r går igen i setåre og stjerne.',
+    meaningDa: 'De betyder det samme og er i samme gamle familie.',
+  },
+  {
+    id: 'mah-maane',
+    titleDa: 'Måh og måne',
+    entry: mah,
+    danish: 'måne',
+    clueDa: 'Måh og måne starter med næsten samme lyd.',
+    meaningDa: 'De betyder det samme og er i samme gamle familie.',
   },
 ]
 

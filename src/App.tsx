@@ -20,10 +20,10 @@ import PuzzleScreen from './pages/PuzzleScreen'
 import { RouteEffects } from './components/RouteEffects'
 import ReviewScreen from './pages/ReviewScreen'
 import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
-import WordBridgesScreen from './pages/WordBridgesScreen'
 import { PersistenceNotice } from './components/PersistenceNotice'
 
 const ImageCreditsScreen = lazy(() => import('./pages/ImageCreditsScreen'))
+const WordBridgesScreen = lazy(() => import('./pages/WordBridgesScreen'))
 
 export default function App() {
   return (
@@ -47,7 +47,14 @@ export default function App() {
         <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
         <Route path="/puslespil/:id" element={<PuzzleScreen />} />
         <Route path="/repetition" element={<ReviewScreen />} />
-        <Route path="/ord-der-ligner" element={<WordBridgesScreen />} />
+        <Route
+          path="/ord-der-ligner"
+          element={(
+            <Suspense fallback={<main><p>Henter siden …</p></main>}>
+              <WordBridgesScreen />
+            </Suspense>
+          )}
+        />
         <Route
           path="/billedkilder"
           element={(

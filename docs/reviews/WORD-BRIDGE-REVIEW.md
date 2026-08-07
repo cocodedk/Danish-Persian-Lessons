@@ -1,6 +1,6 @@
 # Persian–Danish word bridges
 
-Status: four researched starter rows. These are memory clues, not sound rules.
+Status: seven researched starter rows. These are memory clues, not sound rules.
 
 | Persian | Danish | What is safe to teach |
 |---|---|---|
@@ -8,6 +8,9 @@ Status: four researched starter rows. These are memory clues, not sound rules.
 | ستاد · setåd | sted | A useful old stand/place link, but not a translation today. ستاد means headquarters; `sted` means place. |
 | بند · band | bånd | Both words are tied to “bind”. بند can also be a wall that holds water, but it does not mean water or river. |
 | سیل · seyl | sejle | The words sound close and Danish `sejle` can be used when a place is full of water. They do not come from the same old word. |
+| پدر · pedar | fader / far | Same old word family and same meaning today. The old initial `p` became `f` in Germanic. |
+| ستاره · setåre | stjerne | Same old word family and same meaning today. |
+| ماه · måh | måne | Same old word family and same meaning today. Both words can be traced to the old moon/month family. |
 
 ## Why the warning matters
 
@@ -43,3 +46,30 @@ a blank screen.
   gives the Arabic water meaning behind the Persian loan.
 - [Den Danske Ordbog: sejle](https://ordnet.dk/ddo/ordbog/sejle) gives both the different Nordic
   history and the Danish use for a place that is full of water.
+- The University of Texas [Indo-European Lexicon father entry](https://lrc.la.utexas.edu/lex/master/1521)
+  lists Avestan `pitar-` and Danish `fader` under the same old root.
+- [Den Danske Ordbog: far/fader](https://ordnet.dk/ddo/ordbog/11012328) gives Old Norse `faðir`,
+  Old English `fæder`, and Latin `pater` as related forms.
+- The Persian etymological dictionary above gives Persian `pedar` through Avestan `pitar`.
+- The University of Texas [Indo-European Lexicon star entry](https://lrc.la.utexas.edu/lex/master/1895)
+  lists Avestan star forms and Danish `stjerne` under the same old root.
+- [Den Danske Ordbog: stjerne](https://ordnet.dk/ddo/ordbog/stjerne) gives Old Norse `stjarna`,
+  Old English `steorra`, and Latin `stella`.
+- The Persian etymological dictionary above gives `setâreh` through Avestan and Middle Persian
+  star forms.
+- The University of Texas [Indo-European Lexicon moon/month entry](https://lrc.la.utexas.edu/lex/master/1292)
+  gives Danish `maane` and Old Norse `máni` under the old moon/month root.
+- [Den Danske Ordbog: måne](https://ordnet.dk/ddo/ordbog/m%C3%A5ne) gives Old Norse `máni` and
+  Gothic `mena`, and links the word with `måned`.
+- The Persian etymological dictionary above gives Persian `mâh` and older Iranian forms for both
+  moon and month.
+
+## Ideas checked but not added
+
+- `Farvahar` was not added as a link to Danish `far`. Encyclopaedia Iranica traces the word to
+  [fravaši](https://www.iranicaonline.org/articles/fravasi/), a protective spiritual being tied to
+  the souls of the dead. It does not mean father or God.
+- `ماه · måh` was not linked to Danish `maj` or `majestæt`. [Maj](https://ordnet.dk/ddo/ordbog/maj)
+  comes from Latin *Maius*. [Majestæt](https://ordnet.dk/ddo/ordbog?query=majest%C3%A6t) comes from
+  Latin *maiestas*. Danish `j` has a y-sound here, so neither word has the Persian final `h` sound.
+  The safe bridge is `ماه · måne`.

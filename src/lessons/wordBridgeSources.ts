@@ -19,4 +19,19 @@ export const wordBridgeSources: Record<string, readonly string[]> = {
     'https://www.arabicacademy.gov.eg/ar/%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB/%D9%85%D8%B9%D8%AC%D9%85/%D8%A7%D9%84%D9%85%D8%B9%D8%AC%D9%85-%D8%A7%D9%84%D9%88%D8%B3%D9%8A%D8%B7-19/%D8%B3%D9%8A%D9%84?exact_search=true',
     'https://ordnet.dk/ddo/ordbog/sejle',
   ],
+  'pedar-fader': [
+    'https://lrc.la.utexas.edu/lex/master/1521',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/11012328',
+  ],
+  'setareh-stjerne': [
+    'https://lrc.la.utexas.edu/lex/master/1895',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/stjerne',
+  ],
+  'mah-maane': [
+    'https://lrc.la.utexas.edu/lex/master/1292',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/m%C3%A5ne',
+  ],
 }

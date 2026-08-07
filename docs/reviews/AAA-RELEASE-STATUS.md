@@ -38,13 +38,13 @@ waiver. Empty signature fields block release.
 
 `npm run verify` passed on 2026-08-07 after regenerating both review artifacts:
 
-- 74 Vitest files, 538 tests passed;
-- production initial bundle: 363,654-byte JS and 47,994-byte CSS; the dormant audio player is a
-  separate 1,576-byte JS / 407-byte CSS chunk;
-- 76 Playwright cases passed across Chromium, Firefox, and WebKit;
-- 38 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 224
+- 77 Vitest files, 547 tests passed;
+- production main files: 354,055-byte JS and 47,740-byte CSS; the word-bridge page is a separate
+  4,747-byte JS / 1,022-byte CSS chunk;
+- 89 Playwright cases passed across Chromium, Firefox, and WebKit;
+- 40 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 224
   Linux pixel comparisons run once in Chromium; equivalent core journeys still run in all engines;
-- the checked-in 176-row content manifest and 173-row audio queue regenerated with no diff;
+- the checked-in 179-row content manifest and 176-row audio queue regenerated with no diff;
   `git diff --check` passed.
 
 ## External release gates — open
@@ -61,12 +61,12 @@ waiver. Empty signature fields block release.
 
 ## Content and dependency gates — open
 
-- The generated manifest has 75 stress-review rows: 12 currently mark lexical stress and 63 still
+- The generated manifest has 77 stress-review rows: 14 currently mark lexical stress and 63 still
   require a phonetics decision and, where applicable, corrected source IPA.
 - The 86 whole-item cues are honest candidates, not a claim of fine-grained decomposition. Reviewers
   must approve them or request contextual spans where the item is taught as reading material.
 - Connected phrases and microtexts are implementation candidates, not approved teaching copy.
-- The audio manifest is intentionally empty: 173 pronounceable rows lack approved recordings and 3
+- The audio manifest is intentionally empty: 176 pronounceable rows lack approved recordings and 3
   no-sound rows are explicitly not applicable. Generated speech is prohibited.
 - `npm audit` reports two high findings from the same React Router RSC-only advisory,
   [GHSA-qwww-vcr4-c8h2](https://github.com/advisories/GHSA-qwww-vcr4-c8h2). This static HashRouter app
