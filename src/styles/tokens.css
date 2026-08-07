@@ -1,6 +1,6 @@
 /* Design tokens transcribed from docs/design/ART-DIRECTION.md — the notebook
    ("دفتر مشق") palette, type, and app-specific spacing rules. Light + dark
-   ("chalkboard") both ship from day one via prefers-color-scheme.
+   paper both ship from day one via prefers-color-scheme.
 
    The palette is declared once as raw -*-light / -*-dark values, then bound to
    the semantic tokens the components use. `.scheme-light` / `.scheme-dark`
@@ -23,12 +23,12 @@
   /* Latin sound hints on the keyboard keys — the pencil orange. */
   --orange-light: #793500;
 
-  --paper-dark: #161d1a;
+  --paper-dark: #191918;
   --ink-dark: #e9e5db;
   --red-dark: #ff8f87;
-  --blue-dark: #8fb3ea;
-  --rule-dark: #3e5248;
-  --card-dark: #1d2622;
+  --blue-dark: #91c9ef;
+  --rule-dark: #4b4842;
+  --card-dark: #232220;
   --gold-dark: #e3b75c;
   --orange-dark: #f2a25c;
 
@@ -86,7 +86,7 @@
    the .scheme-* classes below only outrank this rule on descendants. */
 @media (prefers-color-scheme: dark) {
   :root:not(.scheme-light) {
-    /* "Chalkboard" */
+    /* Warm dark paper, with no green cast. */
     --paper: var(--paper-dark);
     --ink: var(--ink-dark);
     --red: var(--red-dark);

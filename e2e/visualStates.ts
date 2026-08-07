@@ -93,7 +93,7 @@ export async function prepareVisualState(page: Page, state: VisualState) {
   if (state === 'name-settings') {
     await open(page, '#/')
     await page.getByRole('button', { name: 'Indstillinger for Sara' }).click()
-    return expect(page.getByRole('heading', { name: 'Indstillinger' })).toBeVisible()
+    return expect(page.getByLabel('Farver')).toBeVisible()
   }
   if (state === 'connected-reading') return open(page, '#/lesson/ord/1/laes/1-1')
   if (state === 'word-bridges') return open(page, '#/ord-der-ligner')

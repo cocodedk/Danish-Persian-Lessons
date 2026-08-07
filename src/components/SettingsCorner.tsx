@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getSettings, setSoundOn } from '../progress/settings'
 import { PRIVACY_ENTRY } from '../name/copy'
 import { CompactPhraseRow } from './EntryRenderers'
 import { PersonalNameText } from './PersonalName'
 import './SettingsCorner.css'
+
+const ColorModeControl = lazy(() => import('./ColorModeControl'))
 
 export interface SettingsCornerProps {
   name?: string
@@ -113,6 +115,9 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
             />
             <span>Lyd ved ros og nye sider</span>
           </label>
+          <Suspense fallback={null}>
+            <ColorModeControl />
+          </Suspense>
           <Link className="settings-corner__link" to="/billedkilder">
             Billedkilder
           </Link>

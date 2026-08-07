@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+try {
+  const row = JSON.parse(localStorage.getItem('dpl.v1.colorMode') || 'null')
+  const mode = row?.schemaVersion === 1 ? row.value?.colorMode : null
+  if (mode === 'light' || mode === 'dark') document.documentElement.classList.add(`scheme-${mode}`)
+} catch { /* The device colours remain in use when storage is blocked. */ }
+</script>
 <title>Danish-Persian Lessons</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>

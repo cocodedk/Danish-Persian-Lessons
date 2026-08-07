@@ -42,7 +42,7 @@ describe('design tokens', () => {
     }
   })
 
-  it('keeps the chalkboard on prefers-color-scheme too, not only on .scheme-dark', () => {
+  it('keeps dark paper on prefers-color-scheme too, not only on .scheme-dark', () => {
     const media = block(':root:not\\(\\.scheme-light\\)')
     for (const token of SEMANTIC_TOKENS) {
       expect(media).toContain(`${token}: var(${token}-dark)`)

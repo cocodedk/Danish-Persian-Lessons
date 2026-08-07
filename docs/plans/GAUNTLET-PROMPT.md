@@ -35,7 +35,7 @@ THE GATE for every plan — all countable, all must pass:
    sign, symbol, and phrase has Danish help and shows its pronunciation twice — dansk lydskrift + IPA
    — from the typed catalog, never improvised. UI phrases are undiacriticized; teaching diacritics live
    in `faMarked`. Learner names show original Latin spelling and letter-by-letter help, never invented IPA.
-6. Dark scheme (chalkboard tokens) and `prefers-reduced-motion` verified — reduced motion swaps
+6. Dark scheme (dark-paper tokens) and `prefers-reduced-motion` verified — reduced motion swaps
    teaching animations for numbered step diagrams and still grants every reward.
 7. Zero colors or font-families outside src/styles/tokens.css; zero dependencies beyond the plan's
    list. Reward jingles remain WebAudio-synthesized; Plan 012's reviewed instructional pronunciation

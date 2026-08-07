@@ -99,6 +99,22 @@
   accent-color: var(--blue);
 }
 
+.settings-corner__colors {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.settings-corner__colors select {
+  min-height: var(--tap-min);
+  inline-size: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
 .settings-corner__spelling {
   display: flex;
   align-items: center;

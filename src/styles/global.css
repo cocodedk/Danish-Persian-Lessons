@@ -69,6 +69,18 @@ input {
   color: inherit;
 }
 
+/* Browsers otherwise turn visited, unstyled links purple. App links keep one
+   clear pen-blue in every state; component rules may still style buttons. */
+:where(a:link, a:visited) {
+  color: var(--blue);
+}
+
+@media (hover: hover) {
+  :where(a:hover) {
+    color: var(--blue-hover);
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
