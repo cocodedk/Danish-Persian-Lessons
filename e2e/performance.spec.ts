@@ -50,8 +50,30 @@ test('production journeys make no external, fetch, or XHR request', async ({ pag
   await page.goto('./#/lesson/alphabet')
   await page.waitForLoadState('networkidle')
   await page.goto('./#/repetition')
+  await page.goto('./#/lesson/ord/1/ab')
+  await expect(page.getByRole('img', { name: 'Et glas vand' })).toBeVisible()
+  await page.goto('./#/billedkilder')
+  await expect(page.getByRole('heading', { name: 'Billedkilder' })).toBeVisible()
 
   const origin = new URL(page.url()).origin
   expect(requests.every((request) => new URL(request.url).origin === origin)).toBe(true)
   expect(requests.filter((request) => ['fetch', 'xhr'].includes(request.type))).toEqual([])
+  const routeImages = requests.filter((request) => (
+    request.type === 'image' && request.url.includes('/lesson-images/')
+  ))
+  expect(routeImages.length).toBeGreaterThanOrEqual(1)
+  expect(routeImages.length).toBeLessThanOrEqual(2)
+  expect(routeImages.every((request) => request.url.includes('/ab-480.'))).toBe(true)
+})
+
+test('the home route loads no lesson photo bytes', async ({ page }) => {
+  const lessonImages: string[] = []
+  page.on('request', (request) => {
+    if (request.resourceType() === 'image' && request.url().includes('/lesson-images/')) {
+      lessonImages.push(request.url())
+    }
+  })
+  await page.goto('./#/')
+  await page.waitForLoadState('networkidle')
+  expect(lessonImages).toEqual([])
 })

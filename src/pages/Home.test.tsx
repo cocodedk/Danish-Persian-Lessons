@@ -151,4 +151,14 @@ describe('Home', () => {
     expect(screen.queryByRole('heading', { name: 'Indstillinger' })).not.toBeInTheDocument()
     expect(toggle).toHaveFocus()
   })
+
+  it('links to the local image credits from settings', () => {
+    setProfile({})
+    render(<Home />)
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger' }))
+    expect(screen.getByRole('link', { name: 'Billedkilder' })).toHaveAttribute(
+      'href',
+      '/billedkilder',
+    )
+  })
 })

@@ -1,0 +1,31 @@
+.image-credits__intro {
+  max-inline-size: var(--reading-max);
+}
+
+.image-credits__list {
+  display: grid;
+  gap: 1rem;
+  max-inline-size: var(--reading-max);
+  padding: 0;
+  list-style: none;
+}
+
+.image-credits__list li {
+  padding: 0.75rem;
+  border: 1px solid var(--rule);
+  background: var(--card);
+}
+
+.image-credits__list h2,
+.image-credits__list p {
+  margin: 0;
+}
+
+.image-credits__list h2 {
+  margin-block-end: 0.25rem;
+  font-size: 1.125rem;
+}
+
+.image-credits__list p + p {
+  margin-block-start: 0.25rem;
+}

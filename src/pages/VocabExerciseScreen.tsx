@@ -43,6 +43,7 @@ export default function VocabExerciseScreen() {
         // missing, the unit pays its notebook page, once and only once.
         onCorrect={(wordId) => celebration.cheer(learnWord(unit, wordId))}
         onComplete={() => celebration.cheer('page')}
+        showLessonImages
       />
       <RewardOverlays celebration={celebration} />
     </LessonSheet>

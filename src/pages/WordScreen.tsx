@@ -45,7 +45,7 @@ export default function WordScreen() {
   return (
     <LessonSheet
       className="lesson--word"
-      title={`Ordet ${word.da}`}
+      title={`Ord ${index + 1}`}
       bar={
         <>
           {previous && <BarLink to={`${unitPath}/${previous.id}`}>Forrige</BarLink>}
@@ -58,7 +58,7 @@ export default function WordScreen() {
         Ord {index + 1} af {unit.words.length} — {unit.title}
       </p>
 
-      <SplitCard word={word} />
+      <SplitCard word={word} lessonImageEntryId={word.entry.id} />
       <ReadingCues entry={word.entry} headingLevel={2} />
 
       {shared.length > 0 && (

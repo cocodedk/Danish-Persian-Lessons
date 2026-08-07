@@ -113,6 +113,9 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
             />
             <span>Lyd ved ros og nye sider</span>
           </label>
+          <Link className="settings-corner__link" to="/billedkilder">
+            Billedkilder
+          </Link>
           <CompactPhraseRow entry={PRIVACY_ENTRY} />
         </div>
       )}

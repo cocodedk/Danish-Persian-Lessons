@@ -44,7 +44,9 @@ export function GuidedReviewModel({
   const hasComparison = task.question.choices.some(
     (choice) => choice.id !== task.question.answerId && choice.entry.id !== task.question.entry.id,
   )
-  const title = `${kindLabel(task)}: ${task.question.entry.da}`
+  const title = task.question.entry.id.startsWith('vocabulary-')
+    ? kindLabel(task)
+    : `${kindLabel(task)}: ${task.question.entry.da}`
   const revealRef = useRevealInView(phase === 'model' ? false : phase)
 
   return (
@@ -58,7 +60,10 @@ export function GuidedReviewModel({
           <FullTeachingCard entry={entry} />
         </section>
       ))}
-      <FullTeachingCard entry={task.question.entry} />
+      <FullTeachingCard
+        entry={task.question.entry}
+        imageEntryId={task.question.entry.id}
+      />
       {phase === 'model' && (
         <Button onClick={() => setPhase(hasComparison ? 'compare' : 'guide')}>
           {hasComparison ? 'Se forskellen' : 'Øv med hjælp'}

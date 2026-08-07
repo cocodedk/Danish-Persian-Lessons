@@ -149,6 +149,37 @@ test('initial routes never request the dormant audio corpus', async ({ page }) =
   expect(audioRequests).toEqual([])
 })
 
+test('a word photo follows Persian and sound, and stays hidden until a quiz answer', async ({ page }) => {
+  await open(page, '#/lesson/ord/1/ab')
+  const image = page.getByRole('img', { name: 'Et glas vand' })
+  await expect(image).toBeVisible()
+  expect(await page.evaluate(() => window.scrollY)).toBe(0)
+  const orderIsRight = await page.locator('.split-card').evaluate((card) => {
+    const persian = card.querySelector('.fa-specimen')!
+    const sound = card.querySelector('.pron-line')!
+    const photo = card.querySelector('img')!
+    const danish = card.querySelector('.da-word')!
+    const follows = (first: Element, second: Element) =>
+      Boolean(first.compareDocumentPosition(second) & Node.DOCUMENT_POSITION_FOLLOWING)
+    return follows(persian, sound) && follows(sound, photo) && follows(photo, danish)
+  })
+  expect(orderIsRight).toBe(true)
+
+  await open(page, '#/lesson/ord/1/ovelse/ord')
+  await expect(page.getByRole('img', { name: 'Et glas vand' })).toHaveCount(0)
+  await page.getByRole('button', { name: 'far' }).click()
+  await expect(page.getByRole('img', { name: 'Et glas vand' })).toBeVisible()
+})
+
+test('a word lesson remains complete when lesson images are blocked', async ({ page }) => {
+  await page.route('**/lesson-images/**', (route) => route.abort())
+  await open(page, '#/lesson/ord/1/ab')
+  await expect(page.getByText('آب', { exact: true })).toBeVisible()
+  await expect(page.getByText('åb · [ɒːb]')).toBeVisible()
+  await expect(page.getByText('vand', { exact: true })).toBeVisible()
+  expect(await page.locator('body').evaluate((body) => body.scrollWidth <= body.clientWidth)).toBe(true)
+})
+
 test('dark scheme and reduced motion retain the first-run route', async ({ browser }) => {
   const page = await browser.newPage({
     viewport: { width: 390, height: 844 },

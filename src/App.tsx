@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import AlphabetLesson from './pages/AlphabetLesson'
@@ -22,6 +23,8 @@ import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
 import WordBridgesScreen from './pages/WordBridgesScreen'
 import { PersistenceNotice } from './components/PersistenceNotice'
 
+const ImageCreditsScreen = lazy(() => import('./pages/ImageCreditsScreen'))
+
 export default function App() {
   return (
     <HashRouter>
@@ -45,6 +48,14 @@ export default function App() {
         <Route path="/puslespil/:id" element={<PuzzleScreen />} />
         <Route path="/repetition" element={<ReviewScreen />} />
         <Route path="/ord-der-ligner" element={<WordBridgesScreen />} />
+        <Route
+          path="/billedkilder"
+          element={(
+            <Suspense fallback={<main><p>Henter siden …</p></main>}>
+              <ImageCreditsScreen />
+            </Suspense>
+          )}
+        />
         {/* The learner's own name: how it is spelled, and the lesson that
             teaches it. Both send a learner without a name back to the forside. */}
         <Route path="/dit-navn" element={<NameSpelling />} />

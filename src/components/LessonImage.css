@@ -1,0 +1,25 @@
+.lesson-image,
+.lesson-image picture {
+  display: block;
+  inline-size: min(100%, 28rem);
+}
+
+.lesson-image {
+  margin-block: 0.75rem;
+}
+
+.lesson-image--loading {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rule);
+  background: var(--card);
+}
+
+.lesson-image img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  object-fit: cover;
+}

@@ -19,6 +19,7 @@ export interface ChoiceExerciseProps {
   onCorrect: (itemId: string) => Reward | void
   /** Fires once, when the last question is answered. */
   onComplete: () => Reward | void
+  showLessonImages?: boolean
 }
 
 /**
@@ -26,7 +27,12 @@ export interface ChoiceExerciseProps {
  * every choice open and keeps the ticks already earned — CLAUDE.md's
  * generosity rule. There is no score and no timer, by design.
  */
-export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerciseProps) {
+export function ChoiceExercise({
+  questions,
+  onCorrect,
+  onComplete,
+  showLessonImages,
+}: ChoiceExerciseProps) {
   const [index, setIndex] = useState(0)
   const [solved, setSolved] = useState(false)
   const [attempted, setAttempted] = useState(false)
@@ -130,7 +136,12 @@ export function ChoiceExercise({ questions, onCorrect, onComplete }: ChoiceExerc
       </ul>
 
       <div ref={feedbackRef} className="choice-exercise__feedback" role="status" aria-live="polite">
-        {attempted && <ChallengeReveal entry={question.entry} />}
+        {attempted && (
+          <ChallengeReveal
+            entry={question.entry}
+            imageEntryId={showLessonImages ? question.entry.id : undefined}
+          />
+        )}
         {solved && <Celebration reward={reward} />}
         {attempted && !solved && (
           <div className="choice-exercise__again">
