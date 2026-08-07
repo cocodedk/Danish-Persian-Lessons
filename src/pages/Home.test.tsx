@@ -161,4 +161,20 @@ describe('Home', () => {
       '/billedkilder',
     )
   })
+
+  it('lets the learner choose light or dark colours', async () => {
+    setProfile({})
+    render(<Home />)
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger' }))
+    const colors = await screen.findByLabelText('Farver')
+
+    fireEvent.change(colors, { target: { value: 'dark' } })
+    expect(document.documentElement).toHaveClass('scheme-dark')
+
+    fireEvent.change(colors, { target: { value: 'light' } })
+    expect(document.documentElement).toHaveClass('scheme-light')
+
+    fireEvent.change(colors, { target: { value: 'system' } })
+    expect(document.documentElement).not.toHaveClass('scheme-light', 'scheme-dark')
+  })
 })

@@ -18,18 +18,18 @@ Persian notebooks mirror it). Red is never decoration: it marks exactly what a t
 
 ## Palette
 
-| Token | Light | Dark ("chalkboard") | Role |
+| Token | Light | Dark paper | Role |
 |---|---|---|---|
-| `--paper` | `#F7F2E9` | `#161D1A` | page background |
+| `--paper` | `#F7F2E9` | `#191918` | page background |
 | `--ink` | `#26211B` | `#E9E5DB` | text, letterforms |
 | `--red` | `#C9202C` | `#E56A64` | vowel marks, madde, margin line, active/correction accents |
-| `--blue` | `#2456A6` | `#8FB3EA` | links, buttons, interactive (BIC-pen blue) |
-| `--rule` | `#C7D3E2` | `#3E5248` | notebook ruling, hairlines |
-| `--card` | `#EFE8DA` | `#1D2622` | cards, wells |
+| `--blue` | `#2456A6` | `#91C9EF` | links, buttons, interactive (BIC-pen blue) |
+| `--rule` | `#C7D3E2` | `#4B4842` | notebook ruling, hairlines |
+| `--card` | `#EFE8DA` | `#232220` | cards, wells |
 | `--orange` | `#A94D09` | `#F2A25C` | Latin sound hints — the pencil orange |
 
-Dark mode is the chalkboard: green-tinted near-black, chalk-warm text. Both schemes ship from day one
-(`prefers-color-scheme`). No gradients. No drop shadows except a 1px paper-edge on raised cards.
+Dark mode is warm charcoal paper with no green cast and chalk-warm text. The learner can choose light,
+dark, or the phone/PC setting. No gradients. No drop shadows except a 1px paper-edge on raised cards.
 
 ## Typography
 

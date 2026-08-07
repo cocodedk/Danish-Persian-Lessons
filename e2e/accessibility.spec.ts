@@ -42,6 +42,23 @@ test('representative routes retain enhanced target sizes at narrow width', async
   }
 })
 
+test('the learner can choose and keep light or dark colours', async ({ page }) => {
+  await open(page, '#/')
+  await page.getByRole('button', { name: 'Indstillinger for Sara' }).click()
+  const colors = page.getByLabel('Farver')
+
+  await expect(colors).toHaveValue('system')
+  await colors.selectOption('dark')
+  await expect(page.locator('html')).toHaveClass(/scheme-dark/)
+
+  await page.reload()
+  await expect(page.locator('html')).toHaveClass(/scheme-dark/)
+
+  await page.getByRole('button', { name: 'Indstillinger for Sara' }).click()
+  await page.getByLabel('Farver').selectOption('light')
+  await expect(page.locator('html')).toHaveClass(/scheme-light/)
+})
+
 test('400 percent reflow equivalent and text-spacing overrides do not lose content', async ({ page }) => {
   // A 1280px desktop viewport at 400% browser zoom exposes about 320 CSS px.
   await page.setViewportSize({ width: 320, height: 844 })

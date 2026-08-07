@@ -26,7 +26,7 @@ export default function Kit() {
       <header>
         <h1 className="kit__title">Notesbogs-kittet</h1>
         <p className="kit__intro">
-          Hver komponent vist på papir og på tavlen, begge læseretninger. Den røde margenstreg
+          Hver del vist på lyst og mørkt papir, i begge læseretninger. Den røde margenstreg
           skifter side af sig selv.
         </p>
         <Link className="kit__back" to="/">
