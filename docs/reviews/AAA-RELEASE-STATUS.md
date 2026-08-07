@@ -39,7 +39,7 @@ waiver. Empty signature fields block release.
 `npm run verify` passed on 2026-08-07 after regenerating both review artifacts:
 
 - 77 Vitest files, 547 tests passed;
-- production main files: 354,054-byte JS and 47,740-byte CSS; the word-bridge page is a separate
+- production main files: 354,055-byte JS and 47,740-byte CSS; the word-bridge page is a separate
   4,747-byte JS / 1,022-byte CSS chunk;
 - 89 Playwright cases passed across Chromium, Firefox, and WebKit;
 - 40 cases skipped intentionally: geometry, performance timing, forced-colors emulation, and the 224
