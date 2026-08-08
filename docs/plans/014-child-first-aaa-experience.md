@@ -1,6 +1,6 @@
 # Plan 014 — Child-First AAA Experience
 
-Status: implemented and release-verified; merge pending. This plan turns the research in
+Status: complete. This plan turns the research in
 [`docs/pedagogical_approach/`](../pedagogical_approach/) into one complete, reviewable vertical slice.
 
 Depends on Plan 012's learning, navigation, reward, and accessibility contracts and Plan 013's
@@ -103,7 +103,7 @@ Unknown child mission IDs return to `/opdag`. Existing lesson routes remain open
 - [x] Mobile and desktop visual evidence shows no overlap, overflow, hidden action, or blank image.
 - [x] Existing course, lesson, progress, storage, and reward tests remain green.
 - [x] `npm run verify` passes from the release commit.
-- [ ] The release commit is merged to `main`, main is verified, and the feature branch is removed.
+- [x] The release commit is merged to `main`, main is verified, and the feature branch is removed.
 
 ## Out of scope
 
