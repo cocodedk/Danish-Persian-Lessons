@@ -32,7 +32,7 @@ export default function WordScreen() {
   const unit = findVocabUnit(unitId)
   const index = unit ? unit.words.findIndex((word) => word.id === wordId) : -1
   if (!unit || index < 0) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   const word = unit.words[index]

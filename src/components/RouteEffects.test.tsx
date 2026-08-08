@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { useEffect, useState } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Link, MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom'
-import { RouteEffects } from './RouteEffects'
+import { routeDocumentTitle, RouteEffects } from './RouteEffects'
 
 function BackButton() {
   const navigate = useNavigate()
@@ -56,6 +56,12 @@ beforeEach(() => {
 })
 
 describe('RouteEffects', () => {
+  it('gives the child journey stable product titles', () => {
+    expect(routeDocumentTitle('/', 'Persisk på din måde')).toBe('Vælg din vej · Lær persisk skrift')
+    expect(routeDocumentTitle('/opdag', 'Vælg et persisk ord')).toBe('Ordværksted · Lær persisk skrift')
+    expect(routeDocumentTitle('/opdag/ord/ab', 'vand')).toBe('vand · Ordværksted')
+  })
+
   it('starts a forward route at the top and focuses its heading', async () => {
     render(<Harness />)
     fireEvent.click(screen.getByRole('link', { name: 'Videre' }))

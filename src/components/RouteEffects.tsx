@@ -3,6 +3,13 @@ import { useLocation, useNavigationType } from 'react-router-dom'
 
 const scrollPositions = new Map<string, number>()
 
+export function routeDocumentTitle(pathname: string, heading: string): string {
+  if (pathname === '/') return 'Vælg din vej · Lær persisk skrift'
+  if (pathname === '/opdag') return 'Ordværksted · Lær persisk skrift'
+  if (pathname.startsWith('/opdag/ord/')) return `${heading} · Ordværksted`
+  return `${heading} · Lær persisk`
+}
+
 /**
  * HashRouter does not provide document navigation semantics on its own. This
  * restores them: forward routes start at their heading, while browser history
@@ -24,7 +31,7 @@ export function RouteEffects() {
       const main = document.querySelector<HTMLElement>('main')
       const target = heading ?? main
       const title = heading?.textContent?.trim() || 'Lær persisk skrift'
-      document.title = `${title} · Lær persisk`
+      document.title = routeDocumentTitle(location.pathname, title)
       if (target) {
         if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
         target.focus({ preventScroll: true })

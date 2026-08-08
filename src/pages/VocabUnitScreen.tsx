@@ -30,7 +30,7 @@ export default function VocabUnitScreen() {
   const cleared = useMemo(() => (unit ? getVocabProgress(unit.id).words : []), [unit])
   const puzzleDone = useMemo(completedPuzzles, [])
   if (!unit) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   const done = unit.words.filter((word) => cleared.includes(word.id)).length

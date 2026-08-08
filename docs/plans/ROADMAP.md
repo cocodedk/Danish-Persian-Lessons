@@ -52,6 +52,11 @@ the app exists, `npm run verify`) is green.
       accessibility, and beginner reviewers. No emoji, AI image, hotlink, or runtime image service.
       Normative rules live in the [lesson image specification](../specs/AAA-LESSON-IMAGE-SPEC.md).
 
+- [ ] **P14 — [014-child-first-aaa-experience.md](014-child-first-aaa-experience.md)** (depends on
+      P12–P13): a child-first front door, three reviewed visual word missions, guided and memory
+      building, a permanent collection, and a separate grown-up course entrance under the same
+      accurate, adaptive, accessible foundation. Normative child specs live in [`docs/specs/`](../specs/).
+
 ## Later (not planned yet — do not build ahead)
 
 Full writing practice (tracing letters with a finger, beyond the stroke-order drawings of P3) · PWA

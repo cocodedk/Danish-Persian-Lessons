@@ -22,7 +22,7 @@ test('critical routes stay bounded from phone to ultrawide', async ({ page, brow
     320, 360, 390, 430, 479, 480, 481, 600, 767, 768, 769, 820,
     1023, 1024, 1025, 1280, 1440, 1599, 1600, 1601, 1920, 2560,
   ]
-  const routes = ['#/', '#/lesson/alphabet', '#/lesson/alphabet/bogstav/be', '#/lesson/ord/2/madrese', '#/lesson/ord/1/skriv', '#/repetition']
+  const routes = ['#/', '#/opdag', '#/opdag/ord/ab', '#/lesson/alphabet', '#/lesson/alphabet/bogstav/be', '#/lesson/ord/2/madrese', '#/lesson/ord/1/skriv', '#/repetition']
   for (const width of widths) {
     await page.setViewportSize({ width, height: width < 700 ? 844 : 900 })
     for (const route of routes) {

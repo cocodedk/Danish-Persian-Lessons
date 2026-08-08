@@ -50,7 +50,7 @@ export default function PuzzleScreen() {
   const feedbackRef = useRevealInView(attempted)
   const [promptRef, focusPrompt] = useChallengeFocus<HTMLDivElement>()
 
-  if (!puzzle) return <Navigate to="/" replace />
+  if (!puzzle) return <Navigate to="/kursus" replace />
   const activePuzzle = puzzle
   const task = activePuzzle.tasks[index]
 

@@ -27,7 +27,7 @@ export default function TypeNameScreen() {
 
   const { faSpelling, name } = profile
   if (!faSpelling || !canType(faSpelling)) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   return (

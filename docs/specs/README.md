@@ -1,7 +1,8 @@
 # AAA Specification Suite
 
 Status: normative for [Plan 012](../plans/012-aaa-learner-experience.md), with the lesson-image
-extension in [Plan 013](../plans/013-real-lesson-images.md).
+extension in [Plan 013](../plans/013-real-lesson-images.md) and the child-first extension in
+[Plan 014](../plans/014-child-first-aaa-experience.md).
 
 AAA means **Accurate, Adaptive, Accessible**. It is a product quality bar, not a claim that every WCAG
 2.2 Level AAA success criterion applies to every page. W3C itself advises against requiring whole-site
@@ -19,6 +20,10 @@ directly improve this learning experience.
    intentional tablet/desktop composition, layout bounds, viewport dynamics, and visual QA.
 5. [AAA lesson image specification](AAA-LESSON-IMAGE-SPEC.md) — accurate learning use, local image
    delivery, source rights, privacy, accessibility, asset budgets, and human review.
+6. [AAA child experience specification](AAA-CHILD-EXPERIENCE-SPEC.md) — child agency, dual front
+   doors, motivation, collection, privacy, and accessibility.
+7. [AAA child first-run specification](AAA-CHILD-FIRST-RUN-SPEC.md) — exact routes, mission state,
+   persistence, feedback, responsive bounds, and browser acceptance journeys.
 
 ## Normative language
 
@@ -26,6 +31,7 @@ directly improve this learning experience.
 reason to diverge. **MAY** is optional. A screenshot, test, or checklist proves only the behavior it
 actually covers; absence of a detected failure is not proof of broad conformance.
 
-Precedence is Plan 012, then Plan 013 for lesson photos, then this suite in the order above, then
-`CLAUDE.md`, then `docs/design/ART-DIRECTION.md`, then older plans. Explicit learner safety, privacy,
-or linguistic accuracy requirements always take the stricter interpretation.
+Precedence is Plan 012, then Plan 013 for lesson photos, then Plan 014 for child routes, then this
+suite in the order above, then `CLAUDE.md`, then `docs/design/ART-DIRECTION.md`, then older plans.
+Explicit learner safety, privacy, or linguistic accuracy requirements always take the stricter
+interpretation.

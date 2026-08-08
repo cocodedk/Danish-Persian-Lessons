@@ -18,7 +18,7 @@ async function open(page: Page, hash = '#/') {
 test.beforeEach(async ({ page }) => seed(page))
 
 test('representative routes have no automatic axe violations', async ({ page }) => {
-  for (const route of ['#/', '#/lesson/alphabet', '#/lesson/ord/2/madrese', '#/lesson/ord/1/skriv', '#/repetition']) {
+  for (const route of ['#/', '#/opdag', '#/opdag/ord/ab', '#/lesson/alphabet', '#/lesson/ord/2/madrese', '#/lesson/ord/1/skriv', '#/repetition']) {
     await open(page, route)
     const results = await new AxeBuilder({ page }).analyze()
     expect(results.violations, route).toEqual([])
@@ -104,7 +104,7 @@ test('dark representative routes have no automatic axe violations', async ({ bro
   const context = await browser.newContext({ colorScheme: 'dark', viewport: { width: 390, height: 844 } })
   const page = await context.newPage()
   await seed(page)
-  for (const route of ['#/', '#/repetition']) {
+  for (const route of ['#/', '#/opdag', '#/opdag/ord/ab', '#/repetition']) {
     await open(page, route)
     const results = await new AxeBuilder({ page }).analyze()
     expect(results.violations, route).toEqual([])
@@ -190,6 +190,8 @@ test('dark scheme and reduced motion retain the first-run route', async ({ brows
     Storage.prototype.setItem = () => { throw new DOMException('denied') }
   })
   await open(page)
+  await expect(page.getByRole('heading', { name: 'Persisk på din måde' })).toBeVisible()
+  await page.getByRole('button', { name: 'Åbn kursus og noter' }).click()
   await expect(page.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Spring over og gå til alfabetet' })).toBeVisible()
   await page.close()

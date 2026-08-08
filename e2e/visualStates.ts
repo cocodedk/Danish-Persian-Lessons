@@ -2,6 +2,11 @@ import { expect, type Page } from '@playwright/test'
 
 export const visualWidths = [320, 390, 768, 1024, 1440, 1920, 2560] as const
 export const visualStates = [
+  'journey-gate',
+  'child-workshop',
+  'child-build',
+  'child-reveal',
+  'child-complete',
   'home',
   'orientation',
   'index-top',
@@ -64,6 +69,12 @@ async function sessionSummary(page: Page) {
 }
 
 export async function prepareVisualState(page: Page, state: VisualState) {
+  if (state === 'journey-gate') {
+    await page.goto(`./?visual-reset=${resetId += 1}#/`)
+    await page.evaluate(() => localStorage.clear())
+    await page.reload()
+    return expect(page.getByRole('heading', { name: 'Persisk på din måde' })).toBeVisible()
+  }
   if (state === 'orientation') {
     await page.goto(`./?visual-reset=${resetId += 1}#/`)
     await page.evaluate(() => localStorage.clear())
@@ -71,7 +82,31 @@ export async function prepareVisualState(page: Page, state: VisualState) {
     return open(page, '#/lesson/alphabet')
   }
   await reset(page, state === 'name-settings' ? { name: 'Sara', faSpelling: 'سارا' } : {})
-  if (state === 'home') return open(page, '#/')
+  if (state === 'child-workshop') return open(page, '#/opdag')
+  if (state === 'child-build') {
+    await open(page, '#/opdag/ord/ab')
+    await page.getByRole('button', { name: 'Byg ordet' }).click()
+    return expect(page.getByText('Følg markeringen fra højre.')).toBeVisible()
+  }
+  if (state === 'child-reveal') {
+    await open(page, '#/opdag/ord/ab')
+    await page.getByRole('button', { name: 'Byg ordet' }).click()
+    await page.getByRole('button', { name: 'Vælg ب' }).click()
+    return expect(page.getByRole('button', { name: 'Prøv igen' })).toBeVisible()
+  }
+  if (state === 'child-complete') {
+    await open(page, '#/opdag/ord/ab')
+    await page.getByRole('button', { name: 'Byg ordet' }).click()
+    for (const name of ['Vælg آ, næste tegn', 'Vælg ب, næste tegn', 'Vælg آ', 'Vælg ب']) {
+      await page.getByRole('button', { name }).click()
+    }
+    await expect(page.getByText('Nu er آب i din samling.')).toBeVisible()
+    return expect(page.locator('.page-flip')).toHaveCount(0)
+  }
+  if (state === 'home') {
+    await open(page, '#/')
+    return page.evaluate(() => scrollTo(0, 0))
+  }
   if (state === 'index-top') return open(page, '#/lesson/alphabet')
   if (state === 'index-scrolled') {
     await open(page, '#/lesson/alphabet')

@@ -21,9 +21,16 @@ import { RouteEffects } from './components/RouteEffects'
 import ReviewScreen from './pages/ReviewScreen'
 import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
 import { PersistenceNotice } from './components/PersistenceNotice'
+import JourneyGate from './pages/JourneyGate'
 
 const ImageCreditsScreen = lazy(() => import('./pages/ImageCreditsScreen'))
 const WordBridgesScreen = lazy(() => import('./pages/WordBridgesScreen'))
+const ChildHome = lazy(() => import('./pages/ChildHome'))
+const ChildWordMission = lazy(() => import('./pages/ChildWordMission'))
+
+function LoadingRoute({ children }: { children: React.ReactNode }) {
+  return <Suspense fallback={<main><p>Henter siden …</p></main>}>{children}</Suspense>
+}
 
 export default function App() {
   return (
@@ -31,7 +38,10 @@ export default function App() {
       <PersistenceNotice />
       <RouteEffects />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<JourneyGate />} />
+        <Route path="/opdag" element={<LoadingRoute><ChildHome /></LoadingRoute>} />
+        <Route path="/opdag/ord/:id" element={<LoadingRoute><ChildWordMission /></LoadingRoute>} />
+        <Route path="/kursus" element={<Home />} />
         <Route path="/lesson/alphabet" element={<AlphabetLesson />} />
         <Route path="/lesson/alphabet/intro" element={<Orientation />} />
         <Route path="/lesson/alphabet/bogstav/:id" element={<LetterScreen />} />
@@ -72,7 +82,7 @@ export default function App() {
         <Route path="/lesson/:id" element={<LessonPlaceholder />} />
         {/* Review surface for the design kit — direct URL only, never linked from home. */}
         <Route path="/kit" element={<Kit />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/kursus" replace />} />
       </Routes>
     </HashRouter>
   )

@@ -25,7 +25,7 @@ export default function VocabExerciseScreen() {
 
   const unit = findVocabUnit(unitId)
   if (!unit || !isVocabExerciseKind(kind)) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   return (

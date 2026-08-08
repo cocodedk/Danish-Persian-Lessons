@@ -19,10 +19,13 @@ beforeEach(() => {
 })
 
 describe('Home', () => {
-  it('opens orientation before asking for a name on a true first launch', () => {
+  it('offers both journeys before opening course orientation on a true first launch', () => {
     window.localStorage.clear()
     window.location.hash = ''
     rtlRender(<App />)
+
+    expect(screen.getByRole('heading', { name: 'Persisk på din måde' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Åbn kursus og noter' }))
     expect(screen.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeInTheDocument()
     expect(screen.queryByLabelText('Hvad hedder du?')).not.toBeInTheDocument()
   })

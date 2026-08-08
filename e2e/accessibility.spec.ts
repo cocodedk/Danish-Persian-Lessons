@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => seed(page))
 test('representative routes retain enhanced target sizes at narrow width', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 844 })
   const routes = [
-    '#/', '#/lesson/alphabet', '#/lesson/alphabet/intro',
+    '#/', '#/opdag', '#/opdag/ord/ab', '#/lesson/alphabet', '#/lesson/alphabet/intro',
     '#/lesson/alphabet/bogstav/be', '#/lesson/alphabet/ovelse/find',
     '#/lesson/ord/1', '#/lesson/ord/1/skriv', '#/puslespil/alphabet-1-match',
     '#/repetition', '#/dit-navn', '#/lesson/navn',
@@ -62,7 +62,7 @@ test('the learner can choose and keep light or dark colours', async ({ page }) =
 test('400 percent reflow equivalent and text-spacing overrides do not lose content', async ({ page }) => {
   // A 1280px desktop viewport at 400% browser zoom exposes about 320 CSS px.
   await page.setViewportSize({ width: 320, height: 844 })
-  for (const route of ['#/', '#/lesson/alphabet/intro', '#/lesson/ord/1/ab', '#/repetition']) {
+  for (const route of ['#/', '#/opdag', '#/opdag/ord/ab', '#/lesson/alphabet/intro', '#/lesson/ord/1/ab', '#/repetition']) {
     await open(page, route)
     await page.addStyleTag({ content: `
       * { line-height: 1.5 !important; letter-spacing: .12em !important; word-spacing: .16em !important; }

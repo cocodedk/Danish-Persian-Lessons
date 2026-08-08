@@ -8,6 +8,7 @@ import { getAlphabetProgress, markOrientationSeen } from '../progress/alphabet'
 import { MIRROR_DEMO, ORIENTATION_POINTS } from '../content/orientation'
 import type { OrientationPoint } from '../content/orientation'
 import { Button } from '../components/Button'
+import { setJourneyChoice } from '../progress/journey'
 import './Orientation.css'
 
 /** The flip, felt: a Danish word turned around, with the sweep that turns it. */
@@ -82,9 +83,14 @@ export default function Orientation() {
       title="Sådan virker persisk skrift"
       bar={
         firstVisit ? (
-          <BarLink to="/lesson/alphabet" onClick={markOrientationSeen}>
-            {step === 5 ? 'Gå til alfabetet' : 'Spring over og gå til alfabetet'}
-          </BarLink>
+          <>
+            <BarLink to="/lesson/alphabet" onClick={markOrientationSeen}>
+              {step === 5 ? 'Gå til alfabetet' : 'Spring over og gå til alfabetet'}
+            </BarLink>
+            <BarLink to="/opdag" onClick={() => setJourneyChoice('child')}>
+              Til ordværkstedet
+            </BarLink>
+          </>
         ) : (
           <>
             <BarLink to="/">Til forsiden</BarLink>

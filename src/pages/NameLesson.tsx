@@ -27,7 +27,7 @@ export default function NameLesson() {
 
   const { faSpelling, name } = profile
   if (!faSpelling) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   /**

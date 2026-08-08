@@ -12,6 +12,19 @@
   line-height: var(--rule-step);
 }
 
+.home__identity {
+  display: grid;
+  justify-items: start;
+  gap: 0.1rem;
+}
+
+.home__child-switch {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--tap-min);
+  font-size: 0.9375rem;
+}
+
 .home__masthead {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

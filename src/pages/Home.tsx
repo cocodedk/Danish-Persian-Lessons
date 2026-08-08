@@ -18,6 +18,7 @@ import { DEMO_WORD } from '../content/demoWord'
 import { GREETING_ENTRY, GREETING_WITH_NAME_ENTRY, daGreeting } from '../content/greetings'
 import { dueReviewQuestions } from '../review/tasks'
 import { isRetained, reviewStates } from '../review/scheduler'
+import { setJourneyChoice } from '../progress/journey'
 import './Home.css'
 
 export default function Home() {
@@ -105,7 +106,12 @@ export default function Home() {
     <main className="home">
       <RuledSection>
         <header className="home__masthead">
-          <h1 className="home__title">Lær persisk skrift</h1>
+          <div className="home__identity">
+            <h1 className="home__title">Lær persisk skrift</h1>
+            <Link className="home__child-switch" to="/opdag" onClick={() => setJourneyChoice('child')}>
+              Ordværksted
+            </Link>
+          </div>
           <SettingsCorner
             name={profile.name}
             faSpelling={profile.faSpelling}

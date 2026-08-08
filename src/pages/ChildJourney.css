@@ -1,0 +1,147 @@
+.child-home > .ruled-section {
+  min-block-size: 100dvh;
+}
+
+.child-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-block-end: 1rem;
+}
+
+.child-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.child-header > a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--tap-min);
+}
+
+.child-eyebrow {
+  margin: 0;
+  color: var(--red);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.child-missions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.child-mission-card {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.9fr) minmax(8rem, 1.1fr);
+  min-block-size: 8rem;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.child-mission-card .lesson-image,
+.child-mission-card .lesson-image picture {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+}
+
+.child-mission-card .lesson-image img {
+  block-size: 100%;
+  border: 0;
+  border-inline-end: 1px solid var(--rule);
+  border-radius: 0;
+}
+
+.child-mission-card__label {
+  display: grid;
+  align-content: center;
+  gap: 0.1rem;
+  padding: 0.75rem;
+}
+
+.child-mission-card__label [lang='fa'] {
+  font-family: var(--font-fa-display);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.child-mission-card__label strong {
+  font-size: 1.125rem;
+}
+
+.child-mission-card__label span:last-child {
+  color: var(--blue);
+  font-size: 0.875rem;
+}
+
+.child-collection {
+  margin-block-start: 1.5rem;
+  padding-block-start: 0.5rem;
+  border-block-start: 2px solid var(--blue);
+}
+
+.child-collection h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.child-collection p {
+  margin: 0.25rem 0;
+}
+
+.child-collection ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.child-collection .entry-phrase {
+  background: var(--card);
+}
+
+@media (min-width: 48rem) {
+  .child-home {
+    background: var(--card);
+  }
+
+  .child-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .child-missions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .child-mission-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .child-mission-card .lesson-image,
+  .child-mission-card .lesson-image picture {
+    block-size: auto;
+  }
+
+  .child-mission-card .lesson-image img {
+    block-size: auto;
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .child-collection ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

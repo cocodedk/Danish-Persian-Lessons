@@ -28,7 +28,7 @@ export default function NameSpelling() {
 
   // No name, nothing to spell. The skip path never lands here.
   if (!profile.name) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   const suggestions = suggestSpellings(profile.name)

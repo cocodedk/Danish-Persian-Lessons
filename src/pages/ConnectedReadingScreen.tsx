@@ -24,7 +24,7 @@ export default function ConnectedReadingScreen() {
   const [reward, setReward] = useState<Reward | null>(null)
   const feedbackRef = useRevealInView(revealed || selected !== null)
 
-  if (!reading) return <Navigate to="/" replace />
+  if (!reading) return <Navigate to="/kursus" replace />
   const supportEntries = reading.taughtEntryIds.map((id) => readingFunctionEntries.find((entry) => entry.id === id)!)
   const attempted = selected !== null
   const correct = selected === reading.question.answerDa

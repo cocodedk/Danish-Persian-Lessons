@@ -19,7 +19,7 @@ export default function TypeWordScreen() {
 
   const unit = findVocabUnit(unitId)
   if (!unit) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/kursus" replace />
   }
 
   const tasks: TypeTask[] = unit.words.map((word) => ({

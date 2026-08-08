@@ -14,6 +14,13 @@ test.describe('visual regression candidates awaiting human sign-off', () => {
         for (const state of visualStates) {
           await prepareVisualState(page, state)
           await page.evaluate(() => document.fonts.ready)
+          await expect(page.locator('.lesson-image--loading')).toHaveCount(0)
+          await page.waitForFunction(() => (
+            [...document.images].every((image) => image.complete && image.naturalWidth > 0)
+          ))
+          await page.locator('img').evaluateAll((images) => Promise.all(
+            images.map((image) => (image as HTMLImageElement).decode()),
+          ))
           await expect(page).toHaveScreenshot(`${state}-${scheme}-${width}.png`, {
             animations: 'disabled',
             caret: 'hide',

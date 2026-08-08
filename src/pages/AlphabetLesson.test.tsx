@@ -5,6 +5,7 @@ import { setProfile } from '../progress/profile'
 import { markOrientationSeen, getAlphabetProgress } from '../progress/alphabet'
 import { alphabetGroups } from '../puzzles/catalog'
 import { payPuzzle } from '../progress/puzzles'
+import { getJourneyChoice } from '../progress/journey'
 
 /** Opens the app at a hash route, the way a shared link would. */
 function open(hash: string) {
@@ -41,6 +42,13 @@ describe('#/lesson/alphabet', () => {
     fireEvent.click(onward)
     expect(getAlphabetProgress().orientationSeen).toBe(true)
     expect(screen.getByRole('heading', { name: 'Alfabetet' })).toBeInTheDocument()
+  })
+
+  it('lets a child return to the word workshop during first orientation', async () => {
+    open('#/lesson/alphabet')
+    fireEvent.click(screen.getByRole('link', { name: 'Til ordværkstedet' }))
+    expect(await screen.findByRole('heading', { name: 'Vælg et persisk ord' })).toBeInTheDocument()
+    expect(getJourneyChoice()).toBe('child')
   })
 
   it('marks completion only after the learner reaches all six steps', () => {

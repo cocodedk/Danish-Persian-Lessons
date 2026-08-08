@@ -66,14 +66,18 @@ test('production journeys make no external, fetch, or XHR request', async ({ pag
   expect(routeImages.every((request) => request.url.includes('/ab-480.'))).toBe(true)
 })
 
-test('the home route loads no lesson photo bytes', async ({ page }) => {
+test('the course home route loads no lesson photo bytes', async ({ page }) => {
   const lessonImages: string[] = []
+  await page.addInitScript(([profile, alphabet]) => {
+    localStorage.setItem('dpl.v1.profile', profile)
+    localStorage.setItem('dpl.v1.alphabet', alphabet)
+  }, [envelope({}), envelope({ letters: [], marks: [], orientationSeen: true })])
   page.on('request', (request) => {
     if (request.resourceType() === 'image' && request.url().includes('/lesson-images/')) {
       lessonImages.push(request.url())
     }
   })
-  await page.goto('./#/')
+  await page.goto('./#/kursus')
   await page.waitForLoadState('networkidle')
   expect(lessonImages).toEqual([])
 })
