@@ -51,7 +51,7 @@ export function WordBuilder({ mission, guided, onComplete, onContinue }: WordBui
   return (
     <section className="word-builder" aria-label={`Byg ${mission.word.da}`}>
       <p className="word-builder__instruction">
-        {guided ? 'Følg markeringen fra højre.' : 'Byg ordet igen uden hjælp'}
+        {guided ? '1 af 2 · Følg markeringen fra højre.' : '2 af 2 · Byg ordet uden hjælp.'}
       </p>
       <div className="word-builder__slots" dir="rtl" aria-label={`Bygget: ${built || 'tomt'}`}>
         {letters.map((glyph, index) => (

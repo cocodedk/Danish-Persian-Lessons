@@ -29,6 +29,32 @@
   margin-inline: auto;
 }
 
+.child-word__round-plan {
+  max-inline-size: 34rem;
+  margin: 0 auto;
+  font-weight: 700;
+  text-align: center;
+}
+
+.child-word__round-ready {
+  display: grid;
+  gap: 0.75rem;
+  max-inline-size: 30rem;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  border-block: 2px solid var(--blue);
+  background: var(--card);
+}
+
+.child-word__round-ready h2,
+.child-word__round-ready p {
+  margin: 0;
+}
+
+.child-word__round-ready > .btn {
+  inline-size: 100%;
+}
+
 .child-word__saved {
   margin: 0;
   padding: 0.5rem 0.75rem;

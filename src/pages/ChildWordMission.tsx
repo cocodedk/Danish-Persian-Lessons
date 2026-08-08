@@ -14,7 +14,7 @@ import { useCelebration } from '../rewards/useCelebration'
 import './ChildJourney.css'
 import './ChildWordMission.css'
 
-type Phase = 'model' | 'guide' | 'recall' | 'complete'
+type Phase = 'model' | 'guide' | 'ready' | 'recall' | 'complete'
 type Completion = 'success' | 'revealed' | null
 
 export default function ChildWordMission() {
@@ -55,6 +55,9 @@ export default function ChildWordMission() {
             <section className="child-word__model">
               <h2 className="visually-hidden">Se ordet</h2>
               <FullTeachingCard entry={mission.word.entry} imageEntryId={mission.imageEntryId} />
+              <p className="child-word__round-plan">
+                Du bygger ordet to gange: først med hjælp, så selv.
+              </p>
               <Button onClick={() => setPhase('guide')}>Byg ordet</Button>
             </section>
           )}
@@ -63,9 +66,18 @@ export default function ChildWordMission() {
             <WordBuilder
               mission={mission}
               guided
-              onComplete={() => setPhase('recall')}
-              onContinue={() => setPhase('recall')}
+              onComplete={() => setPhase('ready')}
+              onContinue={() => setPhase('ready')}
             />
+          )}
+
+          {phase === 'ready' && (
+            <section className="child-word__round-ready" aria-labelledby="round-ready-title">
+              <p className="child-eyebrow">1 af 2 færdig</p>
+              <h2 id="round-ready-title">Du byggede ordet med hjælp</h2>
+              <p>Byg det én gang selv, så kommer det i din samling.</p>
+              <Button onClick={() => setPhase('recall')}>Prøv selv</Button>
+            </section>
           )}
 
           {phase === 'recall' && (

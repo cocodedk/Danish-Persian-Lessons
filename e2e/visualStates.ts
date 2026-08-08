@@ -5,6 +5,7 @@ export const visualStates = [
   'journey-gate',
   'child-workshop',
   'child-build',
+  'child-round-ready',
   'child-reveal',
   'child-complete',
   'home',
@@ -86,7 +87,14 @@ export async function prepareVisualState(page: Page, state: VisualState) {
   if (state === 'child-build') {
     await open(page, '#/opdag/ord/ab')
     await page.getByRole('button', { name: 'Byg ordet' }).click()
-    return expect(page.getByText('Følg markeringen fra højre.')).toBeVisible()
+    return expect(page.getByText('1 af 2 · Følg markeringen fra højre.')).toBeVisible()
+  }
+  if (state === 'child-round-ready') {
+    await open(page, '#/opdag/ord/ab')
+    await page.getByRole('button', { name: 'Byg ordet' }).click()
+    await page.getByRole('button', { name: 'Vælg آ, næste tegn' }).click()
+    await page.getByRole('button', { name: 'Vælg ب, næste tegn' }).click()
+    return expect(page.getByRole('button', { name: 'Prøv selv' })).toBeVisible()
   }
   if (state === 'child-reveal') {
     await open(page, '#/opdag/ord/ab')
@@ -97,9 +105,11 @@ export async function prepareVisualState(page: Page, state: VisualState) {
   if (state === 'child-complete') {
     await open(page, '#/opdag/ord/ab')
     await page.getByRole('button', { name: 'Byg ordet' }).click()
-    for (const name of ['Vælg آ, næste tegn', 'Vælg ب, næste tegn', 'Vælg آ', 'Vælg ب']) {
+    for (const name of ['Vælg آ, næste tegn', 'Vælg ب, næste tegn']) {
       await page.getByRole('button', { name }).click()
     }
+    await page.getByRole('button', { name: 'Prøv selv' }).click()
+    for (const name of ['Vælg آ', 'Vælg ب']) await page.getByRole('button', { name }).click()
     await expect(page.getByText('Nu er آب i din samling.')).toBeVisible()
     return expect(page.locator('.page-flip')).toHaveCount(0)
   }

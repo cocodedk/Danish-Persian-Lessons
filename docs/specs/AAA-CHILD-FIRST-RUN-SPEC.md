@@ -81,31 +81,41 @@ Danish sound spelling, meaning, or image metadata.
 ## Mission state machine
 
 ```text
-model -> guide -> recall -> complete
-           |        |
-           +-> reveal/wrong -> retry or continue
+model -> guide -> ready -> recall -> complete
+           |                 |
+           +-> reveal/wrong  +-> reveal/wrong
 ```
 
 ### Model
 
 - Show the local image and complete teaching card.
+- State visibly that the learner will build twice: first with help, then independently.
 - The action `Byg ordet` enters Guide.
 - Optional reviewed audio MAY be replayed; absence MUST not create empty chrome.
 
 ### Guide
 
 - Render one slot per Unicode code point in logical Persian order.
+- Label the board `1 af 2` so the learner knows this is the guided round.
 - Render one button per source letter, including separate IDs for repeated letters.
 - Visually and textually identify the next correct tile.
 - A correct activation moves that tile into the next slot and announces the result.
 - A wrong activation sets non-color selected state, explains that another tile comes first, shows the
   complete target, and offers `Prøv igen` and `Gå videre`.
 - `Prøv igen` returns to the same build with the placed prefix preserved.
-- `Gå videre` enters Recall without awarding collection state.
+- `Gå videre` enters Ready without awarding collection state.
+- Completing or continuing Guide enters Ready rather than silently clearing the board.
+
+### Ready
+
+- Acknowledge that the guided round is complete.
+- State that one independent build remains and that success adds the word to the collection.
+- `Prøv selv` enters Recall; the transition MUST require a deliberate activation.
 
 ### Recall
 
 - Clear placed tiles and hide the answer-defining word while keeping image and Danish meaning.
+- Label the board `2 af 2` and say that this round is without help.
 - Use the same tap-to-place interaction without highlighting the next tile.
 - A correct complete build enters Complete.
 - A wrong activation follows the same reveal contract and offers Retry or Continue.

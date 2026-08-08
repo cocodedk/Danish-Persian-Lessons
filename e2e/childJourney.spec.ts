@@ -17,6 +17,8 @@ async function completeWater(page: Page) {
   await page.getByRole('button', { name: 'Byg ordet' }).click()
   await page.getByRole('button', { name: 'Vælg آ, næste tegn' }).click()
   await page.getByRole('button', { name: 'Vælg ب, næste tegn' }).click()
+  await expect(page.getByText('Byg det én gang selv, så kommer det i din samling.')).toBeVisible()
+  await page.getByRole('button', { name: 'Prøv selv' }).click()
   await page.getByRole('button', { name: 'Vælg آ' }).click()
   await page.getByRole('button', { name: 'Vælg ب' }).click()
   await expect(page.getByText('Nu er آب i din samling.')).toBeVisible()
@@ -68,7 +70,13 @@ test('word building is keyboard operable, recoverable, and bounded at 320px', as
   await page.getByRole('button', { name: 'Prøv igen' }).click()
   await expect(page.getByLabel('Tegn du kan vælge')).toBeFocused()
 
-  for (const name of ['Vælg آ, næste tegn', 'Vælg ب, næste tegn', 'Vælg آ', 'Vælg ب']) {
+  for (const name of ['Vælg آ, næste tegn', 'Vælg ب, næste tegn']) {
+    const tile = page.getByRole('button', { name })
+    await tile.focus()
+    await page.keyboard.press('Enter')
+  }
+  await page.getByRole('button', { name: 'Prøv selv' }).click()
+  for (const name of ['Vælg آ', 'Vælg ب']) {
     const tile = page.getByRole('button', { name })
     await tile.focus()
     await page.keyboard.press('Enter')

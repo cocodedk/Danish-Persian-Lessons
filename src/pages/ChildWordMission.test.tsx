@@ -17,10 +17,14 @@ function renderMission(path = '/opdag/ord/ab') {
 }
 
 function finishGuideAndRecall() {
+  expect(screen.getByText('Du bygger ordet to gange: først med hjælp, så selv.')).toBeVisible()
   fireEvent.click(screen.getByRole('button', { name: 'Byg ordet' }))
   fireEvent.click(screen.getByRole('button', { name: 'Vælg آ, næste tegn' }))
   fireEvent.click(screen.getByRole('button', { name: 'Vælg ب, næste tegn' }))
-  expect(screen.getByText('Byg ordet igen uden hjælp')).toBeVisible()
+  expect(screen.getByRole('heading', { name: 'Du byggede ordet med hjælp' })).toBeVisible()
+  expect(screen.getByText('Byg det én gang selv, så kommer det i din samling.')).toBeVisible()
+  fireEvent.click(screen.getByRole('button', { name: 'Prøv selv' }))
+  expect(screen.getByText('2 af 2 · Byg ordet uden hjælp.')).toBeVisible()
   fireEvent.click(screen.getByRole('button', { name: 'Vælg آ' }))
   fireEvent.click(screen.getByRole('button', { name: 'Vælg ب' }))
 }
@@ -62,6 +66,7 @@ describe('ChildWordMission', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Byg ordet' }))
     fireEvent.click(screen.getByRole('button', { name: 'Vælg آ, næste tegn' }))
     fireEvent.click(screen.getByRole('button', { name: 'Vælg ب, næste tegn' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Prøv selv' }))
     fireEvent.click(screen.getByRole('button', { name: 'Vælg ب' }))
     fireEvent.click(screen.getByRole('button', { name: 'Gå videre' }))
 
