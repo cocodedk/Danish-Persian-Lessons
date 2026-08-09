@@ -2,7 +2,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const appVersion = (process.env.GITHUB_SHA || '000000000000').slice(0, 12)
+const appVersion = process.env.DPL_APP_VERSION
+  || (process.env.GITHUB_SHA || '000000000000').slice(0, 12)
 
 // The literal project path below is intentionally the one sanctioned place for
 // it outside the GitHub Actions workflows (see CLAUDE.md).

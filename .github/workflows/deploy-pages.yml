@@ -3,19 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'website/**'
-      - 'llms.txt'
-      - 'src/**'
-      - 'public/**'
-      - 'package*.json'
-      - 'vite.config.ts'
-      - 'index.html'
-      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -36,6 +27,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine release version
+        id: release
+        run: node scripts/release-version.mjs >> "$GITHUB_OUTPUT"
 
       - name: Set up Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -48,6 +45,8 @@ jobs:
 
       - name: Build the app
         run: npm run build
+        env:
+          DPL_APP_VERSION: ${{ github.event_name == 'push' && steps.release.outputs.version || '' }}
 
       - name: Compose the published site
         run: |
@@ -77,3 +76,20 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+
+      - name: Publish GitHub release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -eu
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Release $RELEASE_TAG already exists."
+            exit 0
+          fi
+          gh release create "$RELEASE_TAG" \
+            --target "$GITHUB_SHA" \
+            --title "Version $RELEASE_VERSION" \
+            --generate-notes
