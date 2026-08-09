@@ -140,6 +140,13 @@ export const wordBridges: readonly WordBridge[] = [
     meaningDa: 'De betyder ikke det samme. سیل er en oversvømmelse; på dansk kan vi sige: “Byen sejlede i vand.”',
     historyDa: 'De er ikke i samme gamle familie. Dette er kun en lydlig huskebro.',
   },
+  {
+    id: 'dust-dus', titleDa: 'Dust og dus', entry: b.dust, category: 'memory',
+    danish: 'dus', danishIpa: 'ˈdus', danishGlossDa: 'på uformelig tiltale',
+    clueDa: 'Persisk dust og dansk dus lyder næsten ens.',
+    meaningDa: 'دوست betyder ven. At være dus betyder, at man er fortrolig og siger “du” til hinanden.',
+    historyDa: 'Ordene har forskellig historie. Dette er en lydlig huskebro, ikke et fælles ophav.',
+  },
 ]
 
 export const wordBridgeCatalog: PersianEntry[] = wordBridges.map((bridge) => bridge.entry)

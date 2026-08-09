@@ -8,7 +8,7 @@ describe('child word missions', () => {
       'madar', 'khane', 'in', 'an', 'ma', 'u',
     ])
     expect(childMissions.filter(({ imageEntryId }) => imageEntryId).map(({ id }) => id))
-      .toEqual(['ab', 'nan', 'khane'])
+      .toEqual(childMissions.map(({ id }) => id))
   })
 
   it('finds only known mission ids', () => {

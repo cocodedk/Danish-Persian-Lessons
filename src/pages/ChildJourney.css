@@ -49,18 +49,13 @@
   text-decoration: none;
 }
 
-.child-mission-card .lesson-image,
-.child-mission-card .lesson-image picture {
-  inline-size: 100%;
-  block-size: 100%;
-  margin: 0;
-}
-
-.child-mission-card .lesson-image img {
-  block-size: 100%;
-  border: 0;
+.child-mission-card__image {
+  min-inline-size: 0;
+  overflow: hidden;
   border-inline-end: 1px solid var(--rule);
-  border-radius: 0;
+  background-color: var(--paper);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .child-mission-card--image {

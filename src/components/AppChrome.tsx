@@ -26,14 +26,12 @@ export function AppChrome() {
 
   return (
     <>
-      <header className="app-toolbar" aria-label="Appværktøjer">
-        <SettingsCorner
-          name={profile.name}
-          faSpelling={profile.faSpelling}
-          onSave={saveName}
-          onDelete={clearName}
-        />
-      </header>
+      <SettingsCorner
+        name={profile.name}
+        faSpelling={profile.faSpelling}
+        onSave={saveName}
+        onDelete={clearName}
+      />
       <AreaNav />
     </>
   )

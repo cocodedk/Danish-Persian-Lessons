@@ -3699,6 +3699,74 @@
       ]
     },
     {
+      "id": "word-bridge-dust",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "دوست",
+      "da": "ven",
+      "soundDa": "dust",
+      "ipa": "duːst",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Våv skriver den lange u-lyd her",
+          "pron": {
+            "da": "u i “hus”, men lang",
+            "ipa": "uː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ت",
+          "role": "consonant",
+          "helpDa": "te: t i \"tak\"",
+          "pron": {
+            "da": "t i \"tak\"",
+            "ipa": "t"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-dust",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "vocabulary-unit-1-title",
       "domain": "vocabulary",
       "kind": "phrase",

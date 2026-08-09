@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react'
+import { lessonImageForEntry } from '../images/catalog'
 import './LessonImage.css'
 
 const LessonImageRenderer = lazy(() => import('./LessonImageRenderer'))
-const PILOT_ENTRY = /^vocabulary-(1-(ab|nan)|2-(medad|ketab|miz|dar)|3-(khane|gol))$/
 
 export function LessonImage({
   entryId,
@@ -11,7 +11,7 @@ export function LessonImage({
   entryId: string
   eager?: boolean
 }) {
-  if (!PILOT_ENTRY.test(entryId)) return null
+  if (!lessonImageForEntry(entryId)) return null
   return (
     <Suspense fallback={<div className="lesson-image lesson-image--loading" aria-hidden="true" />}>
       <LessonImageRenderer entryId={entryId} eager={eager} />

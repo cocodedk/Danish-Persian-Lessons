@@ -9,7 +9,7 @@
       "creditId": "image-ab",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "ab-480.jpg", "webp": "ab-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "ab-120.jpg" }, { "width": 480, "height": 360, "jpeg": "ab-480.jpg", "webp": "ab-480.webp" },
         { "width": 960, "height": 720, "jpeg": "ab-960.jpg", "webp": "ab-960.webp" }
       ],
       "creator": "Alabama Extension",
@@ -33,7 +33,7 @@
       "creditId": "image-nan",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "nan-480.jpg", "webp": "nan-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "nan-120.jpg" }, { "width": 480, "height": 360, "jpeg": "nan-480.jpg", "webp": "nan-480.webp" },
         { "width": 960, "height": 720, "jpeg": "nan-960.jpg", "webp": "nan-960.webp" }
       ],
       "creator": "Mehrraz",
@@ -57,7 +57,7 @@
       "creditId": "image-medad",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "medad-480.jpg", "webp": "medad-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "medad-120.jpg" }, { "width": 480, "height": 360, "jpeg": "medad-480.jpg", "webp": "medad-480.webp" },
         { "width": 960, "height": 720, "jpeg": "medad-960.jpg", "webp": "medad-960.webp" }
       ],
       "creator": "Ziongarage",
@@ -81,7 +81,7 @@
       "creditId": "image-ketab",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "ketab-480.jpg", "webp": "ketab-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "ketab-120.jpg" }, { "width": 480, "height": 360, "jpeg": "ketab-480.jpg", "webp": "ketab-480.webp" },
         { "width": 960, "height": 720, "jpeg": "ketab-960.jpg", "webp": "ketab-960.webp" }
       ],
       "creator": "Beatriz Pérez Moya",
@@ -105,7 +105,7 @@
       "creditId": "image-miz",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "miz-480.jpg", "webp": "miz-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "miz-120.jpg" }, { "width": 480, "height": 360, "jpeg": "miz-480.jpg", "webp": "miz-480.webp" },
         { "width": 960, "height": 720, "jpeg": "miz-960.jpg", "webp": "miz-960.webp" }
       ],
       "creator": "Ellywa",
@@ -129,7 +129,7 @@
       "creditId": "image-dar",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "dar-480.jpg", "webp": "dar-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "dar-120.jpg" }, { "width": 480, "height": 360, "jpeg": "dar-480.jpg", "webp": "dar-480.webp" },
         { "width": 960, "height": 720, "jpeg": "dar-960.jpg", "webp": "dar-960.webp" }
       ],
       "creator": "Harci",
@@ -153,7 +153,7 @@
       "creditId": "image-khane",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "khane-480.jpg", "webp": "khane-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "khane-120.jpg" }, { "width": 480, "height": 360, "jpeg": "khane-480.jpg", "webp": "khane-480.webp" },
         { "width": 960, "height": 720, "jpeg": "khane-960.jpg", "webp": "khane-960.webp" }
       ],
       "creator": "Scott Webb",
@@ -177,7 +177,7 @@
       "creditId": "image-gol",
       "width": 960, "height": 720, "focalPoint": "50% 50%",
       "variants": [
-        { "width": 480, "height": 360, "jpeg": "gol-480.jpg", "webp": "gol-480.webp" },
+        { "width": 120, "height": 90, "jpeg": "gol-120.jpg" }, { "width": 480, "height": 360, "jpeg": "gol-480.jpg", "webp": "gol-480.webp" },
         { "width": 960, "height": 720, "jpeg": "gol-960.jpg", "webp": "gol-960.webp" }
       ],
       "creator": "Retro Lenses",

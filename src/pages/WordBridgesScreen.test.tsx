@@ -14,18 +14,18 @@ function renderScreen() {
 }
 
 describe('the word-bridge lesson', () => {
-  it('opens with a compact, grouped overview of all nineteen bridges', () => {
+  it('opens with a compact, grouped overview of all twenty bridges', () => {
     const { container } = renderScreen()
 
     expect(screen.getByRole('heading', { name: 'Ord, der ligner' })).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: 'Hovedområder' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('aria-current', 'page')
     expect(screen.getByRole('link', { name: 'Til ordværkstedet' })).toHaveAttribute('href', '/opdag')
-    expect(screen.getByText('19 ordbroer')).toBeInTheDocument()
-    for (const heading of ['Familien', 'I hverdagen', 'Tre tal', 'Krop og himmel', 'En lydlig huskebro']) {
+    expect(screen.getByText('20 ordbroer')).toBeInTheDocument()
+    for (const heading of ['Familien', 'I hverdagen', 'Tre tal', 'Krop og himmel', 'Lydlige huskebroer']) {
       expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument()
     }
-    expect(container.querySelectorAll('details')).toHaveLength(19)
+    expect(container.querySelectorAll('details')).toHaveLength(20)
     expect(container.querySelectorAll('details[open]')).toHaveLength(1)
     expect(container.querySelector('.entry-card')).not.toBeInTheDocument()
   })
@@ -38,6 +38,7 @@ describe('the word-bridge lesson', () => {
       ['در', 'dar'], ['نام', 'nåm'], ['موش', 'mush'], ['گرم', 'garm'], ['نو', 'now'],
       ['دو', 'do'], ['شش', 'shesh'], ['نه', 'noh'], ['دندان', 'dandån'], ['ناف', 'nåf'],
       ['ماه', 'måh'], ['ستاره', 'setåre'], ['بند', 'band'],
+      ['دوست', 'dust'],
     ]
 
     for (const [persian, persianPron] of expected) {

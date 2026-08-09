@@ -26,6 +26,7 @@ export interface LessonImage {
   width: 960
   height: 720
   focalPoint: `${number}% ${number}%`
+  cardSrc: string
   sources: Array<{
     type: 'image/webp' | 'image/jpeg'
     srcSet: string

@@ -13,7 +13,7 @@ const sections: readonly {
   { category: 'everyday', title: 'I hverdagen', lead: 'Ord fra hjemmet, naturen og sproget omkring dig.' },
   { category: 'numbers', title: 'Tre tal', lead: 'Talord, der stadig kan genkendes på tværs af sprogene.' },
   { category: 'world', title: 'Krop og himmel', lead: 'Fra tænder og navle til månen og stjernerne.' },
-  { category: 'memory', title: 'En lydlig huskebro', lead: 'God at huske med, men ikke en fælles ordfamilie.' },
+  { category: 'memory', title: 'Lydlige huskebroer', lead: 'Gode at huske med, men ikke fælles ordfamilier.' },
 ]
 
 export default function WordBridgesScreen() {
@@ -24,7 +24,7 @@ export default function WordBridgesScreen() {
       bar={<BarLink to="/opdag">Til ordværkstedet</BarLink>}
     >
       <header className="word-bridges__intro">
-        <p className="word-bridges__eyebrow">19 ordbroer</p>
+        <p className="word-bridges__eyebrow">{wordBridges.length} ordbroer</p>
         <p className="word-bridges__lead">
           Persisk og dansk gemmer på ord fra samme gamle familie.
           Kan du finde lydene, der stadig ligner hinanden?

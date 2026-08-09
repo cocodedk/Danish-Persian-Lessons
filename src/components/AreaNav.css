@@ -31,9 +31,9 @@
 .area-nav a {
   display: grid;
   place-items: center;
-  min-block-size: 3.75rem;
+  min-block-size: var(--tap-min);
   min-inline-size: 0;
-  padding: 0.25rem;
+  padding: 0.125rem 0.25rem;
   color: var(--blue);
   font-size: 0.875rem;
   line-height: 1.2;

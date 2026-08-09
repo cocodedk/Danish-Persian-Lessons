@@ -24,7 +24,7 @@ const suppliedPairs = [
 
 describe('Persian and Danish word bridges', () => {
   it('keeps every pair unique, sourced, and ready for a full word reading', () => {
-    expect(wordBridges).toHaveLength(19)
+    expect(wordBridges).toHaveLength(20)
     expect(new Set(wordBridges.map((bridge) => bridge.id)).size).toBe(wordBridges.length)
     for (const bridge of wordBridges) {
       expect(wordBridgeSources[bridge.id]?.length).toBeGreaterThanOrEqual(2)
@@ -42,7 +42,7 @@ describe('Persian and Danish word bridges', () => {
     }
   })
 
-  it('labels the two extra teaching bridges without overstating them', () => {
+  it('labels the three extra teaching bridges without overstating them', () => {
     const byId = Object.fromEntries(wordBridges.map((bridge) => [bridge.id, bridge]))
     expect(byId['setad-sted']).toMatchObject({
       category: 'everyday', entry: { fa: 'ستاد', da: 'hovedkontor' }, danish: 'sted',
@@ -52,5 +52,10 @@ describe('Persian and Danish word bridges', () => {
       category: 'memory', entry: { fa: 'سیل', da: 'oversvømmelse' }, danish: 'sejle',
     })
     expect(byId['seyl-sejle'].historyDa).toContain('ikke i samme gamle familie')
+    expect(byId['dust-dus']).toMatchObject({
+      category: 'memory', entry: { fa: 'دوست', da: 'ven', pron: { ipa: 'duːst' } },
+      danish: 'dus', danishIpa: 'ˈdus',
+    })
+    expect(byId['dust-dus'].historyDa).toContain('ikke et fælles ophav')
   })
 })

@@ -44,4 +44,10 @@ export const bridgeEntriesB = {
     readingCues: [consonant(0, 'س'), shortVowel(1, '◌ِ', 'e i “let”', 'e'),
       writtenVowel(1, 'ی', 'ej i “nej”', 'ej', 'Ye er med i lyden ey her'), consonant(2, 'ل')],
   }),
+  dust: bridgeEntry({
+    id: 'dust', fa: 'دوست', da: 'ven', pronDa: 'dust', ipa: 'duːst',
+    readingCues: [consonant(0, 'د'),
+      writtenVowel(1, 'و', 'u i “hus”, men lang', 'uː', 'Våv skriver den lange u-lyd her'),
+      consonant(2, 'س'), consonant(3, 'ت')],
+  }),
 } as const

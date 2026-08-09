@@ -1,6 +1,9 @@
 import { LessonSheet, BarLink } from '../components/LessonSheet'
 import manifest from '../images/lesson-images.json'
+import generatedManifest from '../images/lesson-images.generated.json'
 import './ImageCreditsScreen.css'
+
+const images = [...manifest.images, ...generatedManifest.images]
 
 export default function ImageCreditsScreen() {
   return (
@@ -9,11 +12,11 @@ export default function ImageCreditsScreen() {
         Her kan du se, hvor billederne kommer fra. Alle billeder ligger i appen.
       </p>
       <ul className="image-credits__list">
-        {manifest.images.map((image) => (
+        {images.map((image) => (
           <li key={image.creditId} id={image.creditId}>
             <h2>{image.altDa}</h2>
             <p>
-              Foto: {image.creator} · {image.sourceName}
+              {'creditLabel' in image ? image.creditLabel : 'Foto'}: {image.creator} · {image.sourceName}
             </p>
             <p>
               <a href={image.sourcePage} target="_blank" rel="noreferrer">
@@ -24,7 +27,7 @@ export default function ImageCreditsScreen() {
                 {image.license}
               </a>
             </p>
-            <p>Vi har beskåret billedet, gjort det mindre og fjernet gemte data.</p>
+            <p>Vi har gjort billedet mindre og fjernet gemte data.</p>
           </li>
         ))}
       </ul>
