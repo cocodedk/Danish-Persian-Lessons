@@ -1,6 +1,8 @@
 .settings-corner {
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  inset-block-start: max(0.75rem, env(safe-area-inset-top, 0px));
+  inset-inline-end: max(0.75rem, env(safe-area-inset-right, 0px));
+  z-index: 40;
   font-family: var(--font-latin);
 }
 
@@ -15,6 +17,7 @@
   background: var(--card);
   color: var(--ink);
   font-size: 1rem;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--ink) 16%, transparent);
   cursor: pointer;
 }
 

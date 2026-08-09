@@ -9,7 +9,7 @@
 .ruled-section {
   position: relative;
   padding-block: var(--rule-step);
-  padding-inline: calc(var(--margin-gutter) + 0.9rem) 1rem;
+  padding-inline: 1rem;
   line-height: var(--rule-step);
   background-color: var(--paper);
   background-image: linear-gradient(
@@ -38,7 +38,7 @@
   content: '';
   position: absolute;
   inset-block: 0;
-  inset-inline-start: var(--margin-gutter);
+  inset-inline-start: 0.5rem;
   inline-size: 2px;
   background-color: var(--red);
 }
@@ -47,7 +47,7 @@
   .ruled-section {
     inline-size: min(100%, var(--shell-max));
     margin-inline: auto;
-    padding-inline-end: var(--page-gutter);
+    padding-inline: var(--page-gutter);
     border-inline: 1px solid var(--rule);
   }
 }

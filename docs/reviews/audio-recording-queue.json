@@ -1985,6 +1985,26 @@
       ]
     },
     {
+      "entryId": "word-bridge-dust",
+      "domain": "bridges",
+      "transcript": "دوست",
+      "plainPersian": "دوست",
+      "danishMeaning": "ven",
+      "soundDa": "dust",
+      "ipa": "duːst",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-dust.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "vocabulary-unit-1-title",
       "domain": "vocabulary",
       "transcript": "آب و بابا",

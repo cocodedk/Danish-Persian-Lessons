@@ -20,9 +20,17 @@ describe('LessonImageRenderer', () => {
     expect(source).toHaveAttribute('srcset', expect.stringContaining('/lesson-images/ab-480.webp 480w'))
   })
 
-  it('renders nothing for a word outside the pilot', () => {
-    const { container } = render(
+  it('renders a new starter illustration and nothing outside the catalog', () => {
+    const newImage = render(
       <LessonImageRenderer entryId="vocabulary-1-baba" eager={false} />,
+    )
+    expect(screen.getByRole('img', { name: 'En far med sit barn' })).toHaveAttribute(
+      'src', '/lesson-images/baba-480.jpg',
+    )
+    newImage.unmount()
+
+    const { container } = render(
+      <LessonImageRenderer entryId="vocabulary-1-pesar" eager={false} />,
     )
     expect(container).toBeEmptyDOMElement()
   })

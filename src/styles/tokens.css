@@ -55,11 +55,9 @@
   --page-gutter: clamp(1rem, 4vw, 4rem);
 
   /* Notebook ruling: one rule every --rule-step, shifted so the baseline of
-     text set at that line-height lands on the rule. --margin-gutter is the
-     inline-start inset of the single red margin line. */
+     text set at that line-height lands on the rule. */
   --rule-step: 2.25rem;
   --rule-shift: 1.625rem;
-  --margin-gutter: 2.25rem;
 
   /* Where the teacher's red stops, measured down from the top of the line box
      in em, tuned against Noto Naskh Arabic at line-height 2. --madde-cut is

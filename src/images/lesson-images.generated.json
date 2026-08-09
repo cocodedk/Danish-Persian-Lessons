@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "id": "salam", "entryIds": ["vocabulary-2-salam"], "purpose": "meaning-model",
+      "altDa": "Et barn vinker", "creditId": "image-salam", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "salam-120.jpg" }, { "width": 480, "height": 360, "jpeg": "salam-480.jpg", "webp": "salam-480.webp" }, { "width": 960, "height": 720, "jpeg": "salam-960.jpg", "webp": "salam-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "A child waving hello", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "0467e49b4f6357d0b20dacabeee01a0b3bd9c527829ae6d6b3eb92c4f633a5ae",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "man", "entryIds": ["vocabulary-1-man"], "purpose": "meaning-model",
+      "altDa": "Et barn peger på sig", "creditId": "image-man", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "man-120.jpg" }, { "width": 480, "height": 360, "jpeg": "man-480.jpg", "webp": "man-480.webp" }, { "width": 960, "height": 720, "jpeg": "man-960.jpg", "webp": "man-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "A child pointing to themself", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "e8a722a17d252e84709a40566ec1a100784aa5be1374d66a84d14f6a9d3c6c8d",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "to", "entryIds": ["vocabulary-1-to"], "purpose": "meaning-model",
+      "altDa": "Et barn viser en anden", "creditId": "image-to", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "75% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "to-120.jpg" }, { "width": 480, "height": 360, "jpeg": "to-480.jpg", "webp": "to-480.webp" }, { "width": 960, "height": 720, "jpeg": "to-960.jpg", "webp": "to-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "One child indicating another", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "eedac728a8f9f65b43548a49796c36f365e8701b7f07644850e3ab6a97742783",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "dust", "entryIds": ["vocabulary-2-dust"], "purpose": "meaning-model",
+      "altDa": "To venner sammen", "creditId": "image-dust", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "dust-120.jpg" }, { "width": 480, "height": 360, "jpeg": "dust-480.jpg", "webp": "dust-480.webp" }, { "width": 960, "height": 720, "jpeg": "dust-960.jpg", "webp": "dust-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "Two child friends together", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "6be711871ddb541eb86256a096c163058347a08d88387d54a560f67f69cce6f6",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "baba", "entryIds": ["vocabulary-1-baba"], "purpose": "meaning-model",
+      "altDa": "En far med sit barn", "creditId": "image-baba", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "baba-120.jpg" }, { "width": 480, "height": 360, "jpeg": "baba-480.jpg", "webp": "baba-480.webp" }, { "width": 960, "height": 720, "jpeg": "baba-960.jpg", "webp": "baba-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "A father with his child", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "5d441e6567b975b323f1439e020fce2ef21521fb80c64d8dbdb1cd52841cd9d8",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "madar", "entryIds": ["vocabulary-1-madar"], "purpose": "meaning-model",
+      "altDa": "En mor med sit barn", "creditId": "image-madar", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "madar-120.jpg" }, { "width": 480, "height": 360, "jpeg": "madar-480.jpg", "webp": "madar-480.webp" }, { "width": 960, "height": 720, "jpeg": "madar-960.jpg", "webp": "madar-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "A mother with her child", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "1bc81591ca63b69baf54e392efb9d84b9087a40b6cd83c1846a1f1a8ae65a04b",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "in", "entryIds": ["vocabulary-1-in"], "purpose": "meaning-model",
+      "altDa": "Denne bold er tæt på", "creditId": "image-in", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "in-120.jpg" }, { "width": 480, "height": 360, "jpeg": "in-480.jpg", "webp": "in-480.webp" }, { "width": 960, "height": 720, "jpeg": "in-960.jpg", "webp": "in-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "A child pointing to a nearby ball", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "00dc5ba2dd3d057b74bfa0afa4783ba19815ec136c725202913b269b1dc2a43d",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "an", "entryIds": ["vocabulary-1-an"], "purpose": "meaning-model",
+      "altDa": "Den bold er derovre", "creditId": "image-an", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "84% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "an-120.jpg" }, { "width": 480, "height": 360, "jpeg": "an-480.jpg", "webp": "an-480.webp" }, { "width": 960, "height": 720, "jpeg": "an-960.jpg", "webp": "an-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "A child pointing to a distant ball", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "5b56b5160b26e33e6d3e142fc2c0f34bf7dcfd268d87297fa96781a8219ad654",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "ma", "entryIds": ["vocabulary-1-ma"], "purpose": "meaning-model",
+      "altDa": "Tre børn sammen", "creditId": "image-ma", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "ma-120.jpg" }, { "width": 480, "height": 360, "jpeg": "ma-480.jpg", "webp": "ma-480.webp" }, { "width": 960, "height": 720, "jpeg": "ma-960.jpg", "webp": "ma-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "Three children together", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "5ff1535902973492ce7b3a7de4ca30c8e0d4ca1988228eec387600c511ba7ccd",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    },
+    {
+      "id": "u", "entryIds": ["vocabulary-1-u"], "purpose": "meaning-model",
+      "altDa": "Et barn alene", "creditId": "image-u", "creditLabel": "Illustration",
+      "width": 960, "height": 720, "focalPoint": "50% 50%",
+      "variants": [{ "width": 120, "height": 90, "jpeg": "u-120.jpg" }, { "width": 480, "height": 360, "jpeg": "u-480.jpg", "webp": "u-480.webp" }, { "width": 960, "height": 720, "jpeg": "u-960.jpg", "webp": "u-960.webp" }],
+      "creator": "OpenAI image generation", "sourceName": "Danish-Persian-Lessons",
+      "sourceTitle": "One child standing alone", "sourcePage": "https://github.com/cocodedk/Danish-Persian-Lessons",
+      "license": "Project-generated illustration", "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "downloadedAt": "2026-08-09", "originalSha256": "cd12b3ffb727c6376fa66f03a302370d45e67087ccd6087bd075a82e67b973f4",
+      "edits": ["Gjort mindre", "Metadata fjernet"], "peopleOrPrivateProperty": "none",
+      "rightsReviewedBy": "Codex - generated asset review; owner review pending", "ownerReview": "pending"
+    }
+  ]
+}

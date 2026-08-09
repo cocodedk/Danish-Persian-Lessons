@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { childMissions } from '../child/missions'
 import { RuledSection } from '../components/RuledSection'
-import { LessonImage } from '../components/LessonImage'
+import { lessonImageForEntry, lessonImageUrl } from '../images/catalog'
 import { PersianText } from '../components/PersianText'
 import { CompactPhraseRow } from '../components/EntryRenderers'
 import { PronLine } from '../components/PronLine'
@@ -11,18 +11,34 @@ import { getChildCollection } from '../progress/childCollection'
 import './ChildJourney.css'
 import './ChildNumbers.css'
 
+function CardImage({ entryId }: { entryId: string }) {
+  const image = lessonImageForEntry(entryId)!
+  return (
+    <span
+      className="child-mission-card__image"
+      aria-hidden="true"
+      style={{
+        backgroundImage: `url(${lessonImageUrl(image.cardSrc)})`,
+        backgroundPosition: image.focalPoint,
+      }}
+    />
+  )
+}
+
 function MissionGrid({
   missions,
   collectedIds,
+  showImages,
 }: {
   missions: typeof childMissions
   collectedIds: string[]
+  showImages: boolean
 }) {
   return (
     <div className="child-missions">
-      {missions.map((mission, index) => {
+      {missions.map((mission) => {
         const collectedWord = collectedIds.includes(mission.id)
-        const cardClass = mission.imageEntryId
+        const cardClass = showImages && mission.imageEntryId
           ? 'child-mission-card child-mission-card--image'
           : 'child-mission-card'
         return (
@@ -33,8 +49,8 @@ function MissionGrid({
             aria-label={`Vælg ${mission.word.da}`}
             aria-describedby={`mission-pron-${mission.id}`}
           >
-            {mission.imageEntryId && (
-              <LessonImage entryId={mission.imageEntryId} eager={index === 0} />
+            {showImages && mission.imageEntryId && (
+              <CardImage entryId={mission.imageEntryId} />
             )}
             <div className="child-mission-card__label">
               <PersianText entry={mission.word.entry} marked />
@@ -52,6 +68,8 @@ function MissionGrid({
 export default function ChildHome() {
   const collectedIds = getChildCollection()
   const collected = childMissions.filter(({ id }) => collectedIds.includes(id))
+  const showImages = !/AppleWebKit/.test(navigator.userAgent)
+    || /(?:Chrome|Chromium|Edg|OPR|Android)/.test(navigator.userAgent)
 
   return (
     <main className="child-home" lang="da">
@@ -63,7 +81,11 @@ export default function ChildHome() {
           </div>
         </header>
         <section aria-label="Startord du kan vælge">
-          <MissionGrid missions={childMissions.slice(0, 4)} collectedIds={collectedIds} />
+          <MissionGrid
+            missions={childMissions.slice(0, 4)}
+            collectedIds={collectedIds}
+            showImages={showImages}
+          />
         </section>
 
         <section className="child-conversation" aria-labelledby="child-conversation-title">
@@ -79,7 +101,11 @@ export default function ChildHome() {
 
         <section className="child-more" aria-labelledby="child-more-title">
           <h2 id="child-more-title">Flere enkle ord</h2>
-          <MissionGrid missions={childMissions.slice(4)} collectedIds={collectedIds} />
+          <MissionGrid
+            missions={childMissions.slice(4)}
+            collectedIds={collectedIds}
+            showImages={showImages}
+          />
         </section>
 
         <section className="child-numbers" aria-labelledby="child-numbers-title">
