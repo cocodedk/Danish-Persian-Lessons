@@ -1,6 +1,3 @@
-/* An inline corner in the home masthead. Keeping it in normal flow means its
-   full visible label never covers the title at narrow widths. */
-
 .settings-corner {
   position: relative;
   z-index: 10;
@@ -8,9 +5,11 @@
 }
 
 .settings-corner__toggle {
-  min-height: var(--tap-min);
-  min-width: var(--tap-min);
-  padding: 0.4rem 0.9rem;
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.25rem;
   border: 1px solid var(--rule);
   border-radius: 3px;
   background: var(--card);
@@ -19,11 +18,16 @@
   cursor: pointer;
 }
 
+.settings-corner__gear {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
 .settings-corner__panel {
   position: absolute;
   inset-block-start: calc(100% + 0.5rem);
   inset-inline-end: 0;
-  width: max(16rem, 100%);
+  width: min(22rem, calc(100vw - 1.5rem));
   max-width: calc(100vw - 1.5rem);
   max-block-size: calc(100dvh - 5rem - env(safe-area-inset-bottom, 0px));
   overflow-y: auto;

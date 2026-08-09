@@ -45,8 +45,10 @@ export default function VocabUnitScreen() {
           {done} af {unit.words.length} ord gennemgået eller øvet
         </span>
       </p>
-      <CompactPhraseRow entry={unit.titleEntry} />
-      <p className="alphabet__lead">{unit.summary}. Følg gerne grupperne, eller hop frit rundt.</p>
+      <div className="vocab__unit-phrase">
+        <CompactPhraseRow entry={unit.titleEntry} />
+      </div>
+      <p className="alphabet__lead">{unit.summary}. Vælg frit.</p>
 
       <h2 className="alphabet__section-title">Ord for ord</h2>
       <div className="lesson-index">

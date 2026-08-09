@@ -15,10 +15,10 @@ describe('child collection', () => {
 
   it('keeps canonical order and ignores unknown or duplicate stored ids', () => {
     writeJSON('child-collection', {
-      completedMissionIds: ['gol', 'unknown', 'ab', 'gol'],
+      completedMissionIds: ['ab', 'unknown', 'salam', 'ab'],
     })
 
-    expect(getChildCollection()).toEqual(['ab', 'gol'])
+    expect(getChildCollection()).toEqual(['salam', 'ab'])
   })
 
   it('does not add an unknown mission', () => {

@@ -10,6 +10,24 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 47.99rem) and (max-height: 44rem) {
+  .vocab__unit-phrase .entry-phrase {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 0.75rem;
+  }
+
+  .vocab__unit-phrase .pron-line {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .vocab__unit-phrase .entry-phrase > span:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
 /* A word needs more room than a letter: two lines, so the pair stays a pair. */
 .vocab__grid {
   direction: rtl;

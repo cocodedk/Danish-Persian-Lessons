@@ -41,7 +41,7 @@ test('fresh child journey collects a word, returns, and switches both ways', asy
 
   await page.goto('./#/')
   await expect(page.getByRole('heading', { name: 'Vælg et persisk ord' })).toBeVisible()
-  await page.getByRole('link', { name: 'Kursus og noter' }).click()
+  await page.getByRole('link', { name: 'Lektioner' }).click()
   await expect(page.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeVisible()
   await page.getByRole('link', { name: 'Til ordværkstedet' }).click()
   await expect(page.getByRole('heading', { name: 'Vælg et persisk ord' })).toBeVisible()

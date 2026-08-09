@@ -80,6 +80,22 @@
   margin: 0;
 }
 
+@media (max-width: 47.99rem) and (max-height: 44rem) {
+  .journey-gate__invitation .lesson-image,
+  .journey-gate__invitation .lesson-image picture {
+    block-size: 8rem;
+  }
+
+  .journey-gate__invitation .lesson-image--loading {
+    aspect-ratio: auto;
+  }
+
+  .journey-gate__invitation .lesson-image img {
+    block-size: 100%;
+    aspect-ratio: auto;
+  }
+}
+
 @media (min-width: 48rem) {
   .journey-gate {
     background: var(--card);

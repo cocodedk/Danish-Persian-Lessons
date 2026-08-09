@@ -2,7 +2,9 @@ import type { Pron } from '../lessons/types'
 import './PronLine.css'
 
 /** Dansk lydskrift + IPA, both from lesson data — never improvised in the UI. */
-export type PronLineProps = Pron
+export interface PronLineProps extends Pron {
+  id?: string
+}
 
 /** The one written form of a pronunciation: dansk lydskrift, then IPA in
  * brackets — for the rare spot (a button label) that cannot hold a PronLine. */
@@ -15,10 +17,10 @@ export function formatPron({ da, ipa }: Pron): string {
  * the Persian pane but is Danish text, so it carries its own lang and dir.
  * See docs/design/ART-DIRECTION.md "Pronunciation line".
  */
-export function PronLine(pron: PronLineProps) {
+export function PronLine({ id, ...pron }: PronLineProps) {
   return (
-    <p className="pron-line" lang="da" dir="ltr">
-      {formatPron(pron)}
+    <p id={id} className="pron-line" lang="da" dir="ltr">
+      {pron.da} · <wbr />[{pron.ipa}]
     </p>
   )
 }

@@ -3,13 +3,19 @@ import { render as rtlRender, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import Home from './Home'
 import App from '../App'
+import { AppChrome } from '../components/AppChrome'
 import { markOrientationSeen } from '../progress/alphabet'
 import { completeAlphabet } from './typingHarness'
 import { setProfile } from '../progress/profile'
 
 /** The forside links into the lessons, so it needs a router around it. */
 function render(ui: React.ReactElement) {
-  return rtlRender(<MemoryRouter>{ui}</MemoryRouter>)
+  return rtlRender(
+    <MemoryRouter initialEntries={['/kursus']}>
+      <AppChrome />
+      {ui}
+    </MemoryRouter>,
+  )
 }
 
 beforeEach(() => {
@@ -94,9 +100,9 @@ describe('Home', () => {
       expect(screen.getByText(`Hej ${name}!`)).toBeInTheDocument()
       unmount()
 
-      render(<Home />)
+      const reload = render(<Home />)
       expect(screen.getByText(`Hej ${name}!`)).toBeInTheDocument()
-      unmount()
+      reload.unmount()
     }
   })
 

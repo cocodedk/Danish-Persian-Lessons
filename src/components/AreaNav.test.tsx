@@ -22,20 +22,29 @@ describe('AreaNav', () => {
     const nav = screen.getByRole('navigation', { name: 'Hovedområder' })
     const links = within(nav).getAllByRole('link')
 
-    expect(links.map((link) => link.textContent)).toEqual(['Byg ord', 'Ordbroer', 'Kursus'])
+    expect(links.map((link) => link.textContent)).toEqual(['Ord', 'Ordbroer', 'Lektioner'])
     expect(links.map((link) => link.getAttribute('href'))).toEqual(['/opdag', '/ord-der-ligner', '/kursus'])
-    expect(within(nav).getByRole('link', { name: /Byg ord/ })).toHaveAttribute('aria-current', 'page')
+    expect(within(nav).getByRole('link', { name: 'Ord' })).toHaveAttribute('aria-current', 'page')
   })
 
   it('preserves the chosen journey when moving between the shared hubs', () => {
     renderNav('/ord-der-ligner')
     expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('aria-current', 'page')
 
-    fireEvent.click(screen.getByRole('link', { name: 'Kursus og noter' }))
+    fireEvent.click(screen.getByRole('link', { name: 'Lektioner' }))
     expect(getJourneyChoice()).toBe('course')
-    expect(screen.getByRole('link', { name: 'Kursus og noter' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Lektioner' })).toHaveAttribute('aria-current', 'page')
 
-    fireEvent.click(screen.getByRole('link', { name: /Byg ord/ }))
+    fireEvent.click(screen.getByRole('link', { name: 'Ord' }))
     expect(getJourneyChoice()).toBe('child')
+  })
+
+  it('keeps child word pages and lesson pages inside their parent destination', () => {
+    const { unmount } = renderNav('/opdag/ord/ab')
+    expect(screen.getByRole('link', { name: 'Ord' })).toHaveAttribute('aria-current', 'page')
+    unmount()
+
+    renderNav('/lesson/alphabet')
+    expect(screen.getByRole('link', { name: 'Lektioner' })).toHaveAttribute('aria-current', 'page')
   })
 })

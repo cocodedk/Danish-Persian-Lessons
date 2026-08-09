@@ -25,7 +25,7 @@ export default function ColorModeControl() {
       >
         <option value="system">Som på telefon eller pc</option>
         <option value="light">Lys</option>
-        <option value="dark">Mørk</option>
+        <option value="dark">Mørk pink</option>
       </select>
     </label>
   )

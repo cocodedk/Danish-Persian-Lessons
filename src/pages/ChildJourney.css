@@ -33,13 +33,14 @@
 
 .child-missions {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
 .child-mission-card {
   display: grid;
-  grid-template-columns: minmax(7rem, 0.9fr) minmax(8rem, 1.1fr);
-  min-block-size: 8rem;
+  grid-template-columns: minmax(0, 1fr);
+  min-block-size: 7.5rem;
   overflow: hidden;
   border: 1px solid var(--ink);
   border-radius: 6px;
@@ -62,22 +63,32 @@
   border-radius: 0;
 }
 
+.child-mission-card--image {
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+}
+
 .child-mission-card__label {
   display: grid;
   align-content: center;
   gap: 0.1rem;
-  padding: 0.75rem;
+  padding: 0.45rem 0.6rem;
 }
 
 .child-mission-card__label [lang='fa'] {
   font-family: var(--font-fa-display);
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .child-mission-card__label strong {
-  font-size: 1.125rem;
+  font-size: 1rem;
+}
+
+.child-mission-card .pron-line {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
 }
 
 .child-mission-card__label span:last-child {
@@ -85,15 +96,44 @@
   font-size: 0.875rem;
 }
 
+.child-conversation,
+.child-more,
+.child-numbers,
 .child-collection {
   margin-block-start: 1.5rem;
   padding-block-start: 0.5rem;
   border-block-start: 2px solid var(--blue);
 }
 
+.child-conversation h2,
+.child-more h2,
+.child-numbers h2,
 .child-collection h2 {
   margin: 0;
   font-size: 1.25rem;
+}
+
+.child-conversation ol {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.child-conversation li {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--card);
+}
+
+.child-more .child-missions {
+  margin-block-start: 0.5rem;
+}
+
+.child-collection {
+  border-block-start-color: var(--red);
 }
 
 .child-collection p {
@@ -125,20 +165,8 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .child-mission-card {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-  }
-
-  .child-mission-card .lesson-image,
-  .child-mission-card .lesson-image picture {
-    block-size: auto;
-  }
-
-  .child-mission-card .lesson-image img {
-    block-size: auto;
-    border-inline-end: 0;
-    border-block-end: 1px solid var(--rule);
+  .child-conversation ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .child-collection ul {

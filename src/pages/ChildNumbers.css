@@ -1,0 +1,42 @@
+.child-numbers ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.child-numbers li {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--card);
+}
+
+.child-number__digit {
+  font-family: var(--font-fa-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.child-numbers .entry-phrase__fa {
+  font-size: 1.1rem;
+}
+
+.child-numbers .pron-line {
+  margin-block-start: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 48rem) {
+  .child-numbers ol {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

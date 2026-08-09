@@ -6607,6 +6607,668 @@
       ]
     },
     {
+      "id": "conversation-introduction",
+      "domain": "conversation",
+      "kind": "phrase",
+      "fa": "من … هستم.",
+      "faMarked": "مَن … هَستَم.",
+      "da": "Jeg hedder …",
+      "soundDa": "man … hastam",
+      "ipa": "mæn … ˈhæstæm",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 10,
+          "display": "من … هستم.",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "man … hastam",
+            "ipa": "mæn … ˈhæstæm"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "conversation-introduction",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "conversation-goodbye",
+      "domain": "conversation",
+      "kind": "word",
+      "fa": "خداحافظ!",
+      "faMarked": "خُداحافِظ!",
+      "da": "farvel",
+      "soundDa": "khodåfez",
+      "ipa": "xodɒːˈfez",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "خداحافظ!",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "khodåfez",
+            "ipa": "xodɒːˈfez"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "conversation-goodbye",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-1-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱",
+      "da": "Tallet en",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-1-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "یک",
+      "faMarked": "یِک",
+      "da": "en",
+      "soundDa": "jek",
+      "ipa": "jek",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "یک",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "jek",
+            "ipa": "jek"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-1-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-2-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۲",
+      "da": "Tallet to",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-2-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "دو",
+      "faMarked": "دو",
+      "da": "to",
+      "soundDa": "do",
+      "ipa": "do",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "دو",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "do",
+            "ipa": "do"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-2-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-3-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۳",
+      "da": "Tallet tre",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-3-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "سه",
+      "faMarked": "سِه",
+      "da": "tre",
+      "soundDa": "se",
+      "ipa": "se",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "سه",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "se",
+            "ipa": "se"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-3-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-4-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۴",
+      "da": "Tallet fire",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-4-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "چهار",
+      "faMarked": "چَهار",
+      "da": "fire",
+      "soundDa": "tjahår",
+      "ipa": "tʃæˈhɒːɾ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "چهار",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "tjahår",
+            "ipa": "tʃæˈhɒːɾ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-4-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-5-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۵",
+      "da": "Tallet fem",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-5-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "پنج",
+      "faMarked": "پَنج",
+      "da": "fem",
+      "soundDa": "pandj",
+      "ipa": "pændʒ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "پنج",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "pandj",
+            "ipa": "pændʒ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": false,
+      "audioId": "number-5-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-6-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۶",
+      "da": "Tallet seks",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-6-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "شش",
+      "faMarked": "شِش",
+      "da": "seks",
+      "soundDa": "sjesj",
+      "ipa": "ʃeʃ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "شش",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "sjesj",
+            "ipa": "ʃeʃ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": false,
+      "audioId": "number-6-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-7-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۷",
+      "da": "Tallet syv",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-7-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "هفت",
+      "faMarked": "هَفت",
+      "da": "syv",
+      "soundDa": "haft",
+      "ipa": "hæft",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "هفت",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "haft",
+            "ipa": "hæft"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-7-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-8-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۸",
+      "da": "Tallet otte",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-8-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "هشت",
+      "faMarked": "هَشت",
+      "da": "otte",
+      "soundDa": "hasjt",
+      "ipa": "hæʃt",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "هشت",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "hasjt",
+            "ipa": "hæʃt"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-8-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-9-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۹",
+      "da": "Tallet ni",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-9-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "نه",
+      "faMarked": "نُه",
+      "da": "ni",
+      "soundDa": "noh",
+      "ipa": "noh",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "نه",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "noh",
+            "ipa": "noh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-9-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-10-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۰",
+      "da": "Tallet ti",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-10-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "ده",
+      "faMarked": "دَه",
+      "da": "ti",
+      "soundDa": "dah",
+      "ipa": "dæh",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "ده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "dah",
+            "ipa": "dæh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-10-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "interface-greeting",
       "domain": "interface",
       "kind": "word",

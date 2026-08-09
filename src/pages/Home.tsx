@@ -1,15 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { RuledSection } from '../components/RuledSection'
 import { SplitCard } from '../components/SplitCard'
 import { LessonCard } from '../components/LessonCard'
 import { NameCapture } from '../components/NameCapture'
-import { SettingsCorner } from '../components/SettingsCorner'
 import { StreakLine } from '../components/StreakLine'
 import { RewardShelf } from '../components/RewardShelf'
 import { TypingRounds } from '../components/TypingRounds'
-import { AreaNav } from '../components/AreaNav'
-import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
+import { getProfile, setProfile, hasProfileRecord, subscribeProfile } from '../progress/profile'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
 import { isNameLessonDone } from '../progress/nameLesson'
 import { vocabUnits } from '../lessons/vocab'
@@ -28,6 +26,8 @@ export default function Home() {
   const alphabetProgress = getAlphabetProgress()
   const cleared = doneCount(alphabetProgress)
 
+  useEffect(() => subscribeProfile(() => setProfileState(getProfile())), [])
+
   function handleNameSubmit(name: string) {
     const trimmed = name.trim()
     const next = trimmed ? { ...profile, name: trimmed } : { ...profile }
@@ -43,21 +43,6 @@ export default function Home() {
     // Persist the profile as-is (even empty) so the app never asks again.
     setProfile(profile)
     setNeedsCapture(false)
-  }
-
-  function handleNameSave(name: string) {
-    const trimmed = name.trim()
-    // A different name is a different spelling: keeping the old one would leave
-    // the greeting, the badges and the mini-lesson spelling somebody else.
-    const kept = trimmed && trimmed !== profile.name ? undefined : profile.faSpelling
-    const next = { ...profile, name: trimmed || undefined, faSpelling: trimmed ? kept : undefined }
-    setProfile(next)
-    setProfileState(next)
-  }
-
-  function handleNameDelete() {
-    clearName()
-    setProfileState(getProfile())
   }
 
   if (!alphabetProgress.orientationSeen && needsCapture) {
@@ -109,19 +94,12 @@ export default function Home() {
           <div className="home__identity">
             <h1 className="home__title">Lær persisk skrift</h1>
           </div>
-          <SettingsCorner
-            name={profile.name}
-            faSpelling={profile.faSpelling}
-            onSave={handleNameSave}
-            onDelete={handleNameDelete}
-          />
           <Link className="home__continue" to={nextStep.to}>
             <span className="home__continue-label">Fortsæt</span>
             <strong>{nextStep.title}</strong>
             <span>{nextStep.meta}</span>
           </Link>
         </header>
-        <AreaNav />
         <div className="home__workspace">
           <section className="home__hero" aria-label="Dagens persiske eksempel">
             <SplitCard
