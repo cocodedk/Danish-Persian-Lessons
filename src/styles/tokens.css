@@ -23,14 +23,16 @@
   /* Latin sound hints on the keyboard keys — the pencil orange. */
   --orange-light: #793500;
 
-  --paper-dark: #191918;
-  --ink-dark: #e9e5db;
-  --red-dark: #ff8f87;
-  --blue-dark: #91c9ef;
-  --rule-dark: #4b4842;
-  --card-dark: #232220;
-  --gold-dark: #e3b75c;
-  --orange-dark: #f2a25c;
+  /* Deep berry paper with pink ink accents. Cyan remains the secondary pen
+     colour so links and focus are distinct from rewards and corrections. */
+  --paper-dark: #240b1a;
+  --ink-dark: #fff2f8;
+  --red-dark: #ff9dcc;
+  --blue-dark: #9be8e3;
+  --rule-dark: #75405e;
+  --card-dark: #351126;
+  --gold-dark: #ffd479;
+  --orange-dark: #ffc38f;
 
   /* Type — self-hosted, see src/styles/fonts.css */
   --font-latin: 'Andika', 'Segoe UI', system-ui, sans-serif;
@@ -86,7 +88,7 @@
    the .scheme-* classes below only outrank this rule on descendants. */
 @media (prefers-color-scheme: dark) {
   :root:not(.scheme-light) {
-    /* Warm dark paper, with no green cast. */
+    /* Deep berry paper, shared with the explicit dark control. */
     --paper: var(--paper-dark);
     --ink: var(--ink-dark);
     --red: var(--red-dark);

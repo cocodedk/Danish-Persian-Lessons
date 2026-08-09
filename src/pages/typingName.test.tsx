@@ -28,7 +28,7 @@ describe('without a name', () => {
 
   it('sends a hand-typed URL quietly back to the forside', () => {
     open('#/lesson/navn/skriv')
-    expect(screen.getByText('Lektioner')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Lektioner' })).toBeInTheDocument()
   })
 })
 
@@ -40,7 +40,7 @@ describe('with a spelling the keyboard cannot write', () => {
     forside.unmount()
 
     open('#/lesson/navn/skriv')
-    expect(screen.getByText('Lektioner')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Lektioner' })).toBeInTheDocument()
   })
 })
 

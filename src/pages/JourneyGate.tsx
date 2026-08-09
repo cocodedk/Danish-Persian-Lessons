@@ -10,7 +10,7 @@ import './JourneyGate.css'
 export default function JourneyGate() {
   const navigate = useNavigate()
   const choice = getJourneyChoice()
-  const firstMission = childMissions[0]
+  const firstMission = childMissions.find(({ imageEntryId }) => imageEntryId) ?? childMissions[0]
 
   if (choice) return <Navigate to={choice === 'child' ? '/opdag' : '/kursus'} replace />
   if (hasCourseHistory()) return <Navigate to="/kursus" replace />
@@ -31,7 +31,7 @@ export default function JourneyGate() {
           </header>
 
           <section className="journey-gate__invitation" aria-label="Første persiske ord">
-            <LessonImage entryId={firstMission.imageEntryId} eager />
+            {firstMission.imageEntryId && <LessonImage entryId={firstMission.imageEntryId} eager />}
             <div className="journey-gate__word">
               <PersianText entry={firstMission.word.entry} marked />
               <span>{firstMission.word.da}</span>

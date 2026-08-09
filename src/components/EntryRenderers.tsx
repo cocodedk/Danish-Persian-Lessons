@@ -38,10 +38,16 @@ export function FullTeachingCard({
   )
 }
 
-export function CompactPhraseRow({ entry }: { entry: PersianEntry }) {
+export function CompactPhraseRow({
+  entry,
+  marked = false,
+}: {
+  entry: PersianEntry
+  marked?: boolean
+}) {
   return (
     <div className="entry-phrase" data-entry-id={entry.id}>
-      <PersianText entry={entry} className="entry-phrase__fa" />
+      <PersianText entry={entry} className="entry-phrase__fa" marked={marked} />
       <PronLine {...entry.pron} />
       <OptionalAudioControl audioId={entry.audioId} />
       {/* Danish keeps its own direction even inside an RTL frame (the Kit's

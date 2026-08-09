@@ -2865,6 +2865,246 @@
       ]
     },
     {
+      "entryId": "conversation-introduction",
+      "domain": "conversation",
+      "transcript": "مَن … هَستَم.",
+      "plainPersian": "من … هستم.",
+      "danishMeaning": "Jeg hedder …",
+      "soundDa": "man … hastam",
+      "ipa": "mæn … ˈhæstæm",
+      "stressMarked": true,
+      "expectedFile": "/audio/conversation-introduction.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "conversation-goodbye",
+      "domain": "conversation",
+      "transcript": "خُداحافِظ!",
+      "plainPersian": "خداحافظ!",
+      "danishMeaning": "farvel",
+      "soundDa": "khodåfez",
+      "ipa": "xodɒːˈfez",
+      "stressMarked": true,
+      "expectedFile": "/audio/conversation-goodbye.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-1-word",
+      "domain": "numbers",
+      "transcript": "یِک",
+      "plainPersian": "یک",
+      "danishMeaning": "en",
+      "soundDa": "jek",
+      "ipa": "jek",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-1-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-2-word",
+      "domain": "numbers",
+      "transcript": "دو",
+      "plainPersian": "دو",
+      "danishMeaning": "to",
+      "soundDa": "do",
+      "ipa": "do",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-2-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-3-word",
+      "domain": "numbers",
+      "transcript": "سِه",
+      "plainPersian": "سه",
+      "danishMeaning": "tre",
+      "soundDa": "se",
+      "ipa": "se",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-3-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-4-word",
+      "domain": "numbers",
+      "transcript": "چَهار",
+      "plainPersian": "چهار",
+      "danishMeaning": "fire",
+      "soundDa": "tjahår",
+      "ipa": "tʃæˈhɒːɾ",
+      "stressMarked": true,
+      "expectedFile": "/audio/number-4-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-5-word",
+      "domain": "numbers",
+      "transcript": "پَنج",
+      "plainPersian": "پنج",
+      "danishMeaning": "fem",
+      "soundDa": "pandj",
+      "ipa": "pændʒ",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-5-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-6-word",
+      "domain": "numbers",
+      "transcript": "شِش",
+      "plainPersian": "شش",
+      "danishMeaning": "seks",
+      "soundDa": "sjesj",
+      "ipa": "ʃeʃ",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-6-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-7-word",
+      "domain": "numbers",
+      "transcript": "هَفت",
+      "plainPersian": "هفت",
+      "danishMeaning": "syv",
+      "soundDa": "haft",
+      "ipa": "hæft",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-7-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-8-word",
+      "domain": "numbers",
+      "transcript": "هَشت",
+      "plainPersian": "هشت",
+      "danishMeaning": "otte",
+      "soundDa": "hasjt",
+      "ipa": "hæʃt",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-8-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-9-word",
+      "domain": "numbers",
+      "transcript": "نُه",
+      "plainPersian": "نه",
+      "danishMeaning": "ni",
+      "soundDa": "noh",
+      "ipa": "noh",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-9-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "number-10-word",
+      "domain": "numbers",
+      "transcript": "دَه",
+      "plainPersian": "ده",
+      "danishMeaning": "ti",
+      "soundDa": "dah",
+      "ipa": "dæh",
+      "stressMarked": false,
+      "expectedFile": "/audio/number-10-word.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "interface-greeting",
       "domain": "interface",
       "transcript": "سلام!",

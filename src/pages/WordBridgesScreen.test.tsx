@@ -2,10 +2,12 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import WordBridgesScreen from './WordBridgesScreen'
+import { AppChrome } from '../components/AppChrome'
 
 function renderScreen() {
   return render(
     <MemoryRouter initialEntries={['/ord-der-ligner']}>
+      <AppChrome />
       <WordBridgesScreen />
     </MemoryRouter>,
   )

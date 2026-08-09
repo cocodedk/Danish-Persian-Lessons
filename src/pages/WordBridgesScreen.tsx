@@ -1,5 +1,4 @@
 import { LessonSheet, BarLink } from '../components/LessonSheet'
-import { AreaNav } from '../components/AreaNav'
 import { wordBridges, type WordBridgeCategory } from '../lessons/wordBridges'
 import { WordBridgeRow } from './WordBridgeRow'
 import './wordBridges.css'
@@ -24,7 +23,6 @@ export default function WordBridgesScreen() {
       className="word-bridges"
       bar={<BarLink to="/opdag">Til ordværkstedet</BarLink>}
     >
-      <AreaNav />
       <header className="word-bridges__intro">
         <p className="word-bridges__eyebrow">19 ordbroer</p>
         <p className="word-bridges__lead">

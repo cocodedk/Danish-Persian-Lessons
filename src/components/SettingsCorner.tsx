@@ -16,7 +16,7 @@ export interface SettingsCornerProps {
   onDelete: () => void
 }
 
-/** A small, unobtrusive corner control where the name can be edited or deleted. */
+/** The persistent app settings disclosure. */
 export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsCornerProps) {
   const [open, setOpen] = useState(false)
   const [draft, setDraft] = useState(name ?? '')
@@ -61,7 +61,7 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
         aria-controls="settings-corner-panel"
         onClick={handleToggle}
       >
-        {name ? name : 'Indstillinger'}
+        <span className="settings-corner__gear" aria-hidden="true">⚙</span>
       </button>
 
       {open && (

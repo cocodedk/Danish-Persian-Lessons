@@ -2,16 +2,13 @@ import { describe, expect, it } from 'vitest'
 import { childMissions, findChildMission, tilesForMission } from './missions'
 
 describe('child word missions', () => {
-  it('uses exactly the three canonical image-backed vocabulary entries', () => {
-    expect(childMissions.map(({ id, word, imageEntryId }) => ({
-      id,
-      entryId: word.entry.id,
-      imageEntryId,
-    }))).toEqual([
-      { id: 'ab', entryId: 'vocabulary-1-ab', imageEntryId: 'vocabulary-1-ab' },
-      { id: 'nan', entryId: 'vocabulary-1-nan', imageEntryId: 'vocabulary-1-nan' },
-      { id: 'gol', entryId: 'vocabulary-3-gol', imageEntryId: 'vocabulary-3-gol' },
+  it('starts with useful words for meeting people and immediate needs', () => {
+    expect(childMissions.map(({ id }) => id)).toEqual([
+      'salam', 'man', 'to', 'dust', 'ab', 'nan', 'baba',
+      'madar', 'khane', 'in', 'an', 'ma', 'u',
     ])
+    expect(childMissions.filter(({ imageEntryId }) => imageEntryId).map(({ id }) => id))
+      .toEqual(['ab', 'nan', 'khane'])
   })
 
   it('finds only known mission ids', () => {

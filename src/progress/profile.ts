@@ -9,6 +9,7 @@ export interface Profile {
 
 const KEY = 'profile'
 const EMPTY_PROFILE: Profile = {}
+const PROFILE_CHANGE_EVENT = 'dpl:profile-change'
 
 export function getProfile(): Profile {
   return readJSON<Profile>(KEY, EMPTY_PROFILE)
@@ -16,6 +17,13 @@ export function getProfile(): Profile {
 
 export function setProfile(profile: Profile): void {
   writeJSON<Profile>(KEY, profile)
+  if (typeof window !== 'undefined') window.dispatchEvent(new Event(PROFILE_CHANGE_EVENT))
+}
+
+export function subscribeProfile(listener: () => void): () => void {
+  if (typeof window === 'undefined') return () => undefined
+  window.addEventListener(PROFILE_CHANGE_EVENT, listener)
+  return () => window.removeEventListener(PROFILE_CHANGE_EVENT, listener)
 }
 
 /**

@@ -90,6 +90,6 @@ describe('the two rounds', () => {
 
   it('sends an unknown round back to the forside', () => {
     open('#/lesson/ord/1/ovelse/hop')
-    expect(screen.getByText('Lektioner')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Lektioner' })).toBeInTheDocument()
   })
 })

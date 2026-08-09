@@ -41,7 +41,7 @@ describe('the prompt', () => {
 
   it('sends a URL that names no unit back to the forside', () => {
     open('#/lesson/ord/9/skriv')
-    expect(screen.getByText('Lektioner')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Lektioner' })).toBeInTheDocument()
   })
 })
 

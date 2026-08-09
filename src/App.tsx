@@ -22,6 +22,7 @@ import ReviewScreen from './pages/ReviewScreen'
 import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
 import { PersistenceNotice } from './components/PersistenceNotice'
 import JourneyGate from './pages/JourneyGate'
+import { AppChrome } from './components/AppChrome'
 
 const ImageCreditsScreen = lazy(() => import('./pages/ImageCreditsScreen'))
 const WordBridgesScreen = lazy(() => import('./pages/WordBridgesScreen'))
@@ -37,53 +38,56 @@ export default function App() {
     <HashRouter>
       <PersistenceNotice />
       <RouteEffects />
-      <Routes>
-        <Route path="/" element={<JourneyGate />} />
-        <Route path="/opdag" element={<LoadingRoute><ChildHome /></LoadingRoute>} />
-        <Route path="/opdag/ord/:id" element={<LoadingRoute><ChildWordMission /></LoadingRoute>} />
-        <Route path="/kursus" element={<Home />} />
-        <Route path="/lesson/alphabet" element={<AlphabetLesson />} />
-        <Route path="/lesson/alphabet/intro" element={<Orientation />} />
-        <Route path="/lesson/alphabet/bogstav/:id" element={<LetterScreen />} />
-        <Route path="/lesson/alphabet/vokaltegn" element={<VowelMarksScreen />} />
-        <Route path="/lesson/alphabet/ovelse/:kind" element={<ExerciseScreen />} />
-        <Route path="/lesson/alphabet/gave/:n" element={<BonusScreen />} />
-        {/* The grade-1 word units. Any unit, any word, any time — no gating. */}
-        <Route path="/lesson/ord/:unit" element={<VocabUnitScreen />} />
-        <Route path="/lesson/ord/:unit/ovelse/:kind" element={<VocabExerciseScreen />} />
-        {/* Static before dynamic: «skriv» is the typing round, never a word id. */}
-        <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
-        <Route path="/lesson/ord/:unit/laes/:reading" element={<ConnectedReadingScreen />} />
-        <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
-        <Route path="/puslespil/:id" element={<PuzzleScreen />} />
-        <Route path="/repetition" element={<ReviewScreen />} />
-        <Route
-          path="/ord-der-ligner"
-          element={(
-            <Suspense fallback={<main><p>Henter siden …</p></main>}>
-              <WordBridgesScreen />
-            </Suspense>
-          )}
-        />
-        <Route
-          path="/billedkilder"
-          element={(
-            <Suspense fallback={<main><p>Henter siden …</p></main>}>
-              <ImageCreditsScreen />
-            </Suspense>
-          )}
-        />
-        {/* The learner's own name: how it is spelled, and the lesson that
-            teaches it. Both send a learner without a name back to the forside. */}
-        <Route path="/dit-navn" element={<NameSpelling />} />
-        <Route path="/lesson/navn" element={<NameLesson />} />
-        {/* The capstone. Dormant without a spelling this keyboard can write. */}
-        <Route path="/lesson/navn/skriv" element={<TypeNameScreen />} />
-        <Route path="/lesson/:id" element={<LessonPlaceholder />} />
-        {/* Review surface for the design kit — direct URL only, never linked from home. */}
-        <Route path="/kit" element={<Kit />} />
-        <Route path="*" element={<Navigate to="/kursus" replace />} />
-      </Routes>
+      <AppChrome />
+      <div className="app-content">
+        <Routes>
+          <Route path="/" element={<JourneyGate />} />
+          <Route path="/opdag" element={<LoadingRoute><ChildHome /></LoadingRoute>} />
+          <Route path="/opdag/ord/:id" element={<LoadingRoute><ChildWordMission /></LoadingRoute>} />
+          <Route path="/kursus" element={<Home />} />
+          <Route path="/lesson/alphabet" element={<AlphabetLesson />} />
+          <Route path="/lesson/alphabet/intro" element={<Orientation />} />
+          <Route path="/lesson/alphabet/bogstav/:id" element={<LetterScreen />} />
+          <Route path="/lesson/alphabet/vokaltegn" element={<VowelMarksScreen />} />
+          <Route path="/lesson/alphabet/ovelse/:kind" element={<ExerciseScreen />} />
+          <Route path="/lesson/alphabet/gave/:n" element={<BonusScreen />} />
+          {/* The grade-1 word units. Any unit, any word, any time — no gating. */}
+          <Route path="/lesson/ord/:unit" element={<VocabUnitScreen />} />
+          <Route path="/lesson/ord/:unit/ovelse/:kind" element={<VocabExerciseScreen />} />
+          {/* Static before dynamic: «skriv» is the typing round, never a word id. */}
+          <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
+          <Route path="/lesson/ord/:unit/laes/:reading" element={<ConnectedReadingScreen />} />
+          <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
+          <Route path="/puslespil/:id" element={<PuzzleScreen />} />
+          <Route path="/repetition" element={<ReviewScreen />} />
+          <Route
+            path="/ord-der-ligner"
+            element={(
+              <Suspense fallback={<main><p>Henter siden …</p></main>}>
+                <WordBridgesScreen />
+              </Suspense>
+            )}
+          />
+          <Route
+            path="/billedkilder"
+            element={(
+              <Suspense fallback={<main><p>Henter siden …</p></main>}>
+                <ImageCreditsScreen />
+              </Suspense>
+            )}
+          />
+          {/* The learner's own name: how it is spelled, and the lesson that
+              teaches it. Both send a learner without a name back to the forside. */}
+          <Route path="/dit-navn" element={<NameSpelling />} />
+          <Route path="/lesson/navn" element={<NameLesson />} />
+          {/* The capstone. Dormant without a spelling this keyboard can write. */}
+          <Route path="/lesson/navn/skriv" element={<TypeNameScreen />} />
+          <Route path="/lesson/:id" element={<LessonPlaceholder />} />
+          {/* Review surface for the design kit — direct URL only, never linked from home. */}
+          <Route path="/kit" element={<Kit />} />
+          <Route path="*" element={<Navigate to="/kursus" replace />} />
+        </Routes>
+      </div>
     </HashRouter>
   )
 }
