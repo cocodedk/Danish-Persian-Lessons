@@ -2,93 +2,55 @@ import { describe, expect, it } from 'vitest'
 import { wordBridges } from './wordBridges'
 import { wordBridgeSources } from './wordBridgeSources'
 
+const suppliedPairs = [
+  ['pedar-fader', 'پدر', 'peˈdæɾ', 'fader', 'ˈfæːðʌ'],
+  ['madar-moder', 'مادر', 'mɒːˈdæɾ', 'moder', 'ˈmoːðʌ'],
+  ['baradar-broder', 'برادر', 'bæɾɒːˈdæɾ', 'broder', 'ˈbʁoːðʌ'],
+  ['doxtar-datter', 'دختر', 'doxˈtæɾ', 'datter', 'ˈdadʌ'],
+  ['dar-doer', 'در', 'dæɾ', 'dør', 'ˈdɶˀɐ̯'],
+  ['nam-navn', 'نام', 'nɒːm', 'navn', 'ˈnɑwˀn'],
+  ['mush-mus', 'موش', 'muːʃ', 'mus', 'ˈmuˀs'],
+  ['garm-varm', 'گرم', 'ɡæɾm', 'varm', 'ˈvɑːm'],
+  ['now-ny', 'نو', 'nou̯', 'ny', 'ˈnyˀ'],
+  ['do-to', 'دو', 'do', 'to', 'ˈtoˀ'],
+  ['shesh-seks', 'شش', 'ʃeʃ', 'seks', 'ˈsɛgs'],
+  ['noh-ni', 'نه', 'noh', 'ni', 'ˈniˀ'],
+  ['dandan-tand', 'دندان', 'dænˈdɒːn', 'tand', 'ˈtanˀ'],
+  ['naf-navle', 'ناف', 'nɒːf', 'navle', 'ˈnɑwlə'],
+  ['mah-maane', 'ماه', 'mɒːh', 'måne', 'ˈmɔːnə'],
+  ['setareh-stjerne', 'ستاره', 'seˈtɒːɾe', 'stjerne', 'ˈsdjæɐ̯nə'],
+  ['band-baand', 'بند', 'bænd', 'bånd', 'ˈbɔnˀ'],
+] as const
+
 describe('Persian and Danish word bridges', () => {
   it('keeps every pair unique, sourced, and ready for a full word reading', () => {
+    expect(wordBridges).toHaveLength(19)
     expect(new Set(wordBridges.map((bridge) => bridge.id)).size).toBe(wordBridges.length)
     for (const bridge of wordBridges) {
       expect(wordBridgeSources[bridge.id]?.length).toBeGreaterThanOrEqual(2)
       expect(bridge.entry.readingCues?.some((cue) => cue.role !== 'whole')).toBe(true)
       expect(bridge.entry.pron.ipa).toBeTruthy()
       expect(bridge.clueDa.toLocaleLowerCase('da')).not.toContain('altid')
+      expect(bridge.historyDa).toBeTruthy()
     }
   })
 
-  it('keeps the exact and changed meanings apart', () => {
+  it('keeps the seventeen supplied cognates and IPA transcriptions intact', () => {
     const byId = Object.fromEntries(wordBridges.map((bridge) => [bridge.id, bridge]))
-    expect(byId['dandan-tand']).toMatchObject({
-      entry: { fa: 'دندان', da: 'tand', pron: { da: 'dandån', ipa: 'dænˈdɒːn' } },
-      danish: 'tand',
-      meaningDa: 'De betyder det samme i dag: tand.',
-    })
+    for (const [id, fa, persianIpa, danish, danishIpa] of suppliedPairs) {
+      expect(byId[id]).toMatchObject({ entry: { fa, pron: { ipa: persianIpa } }, danish, danishIpa })
+    }
+  })
+
+  it('labels the two extra teaching bridges without overstating them', () => {
+    const byId = Object.fromEntries(wordBridges.map((bridge) => [bridge.id, bridge]))
     expect(byId['setad-sted']).toMatchObject({
-      entry: { fa: 'ستاد', da: 'hovedkontor', pron: { da: 'setåd', ipa: 'seˈtɒːd' } },
-      danish: 'sted',
+      category: 'everyday', entry: { fa: 'ستاد', da: 'hovedkontor' }, danish: 'sted',
     })
     expect(byId['setad-sted'].meaningDa).toContain('ikke det samme')
-    expect(byId['band-baand']).toMatchObject({
-      entry: {
-        fa: 'بند',
-        faMarked: 'بَند',
-        da: 'bånd eller mur i vand',
-        pron: { da: 'band', ipa: 'bænd' },
-      },
-      danish: 'bånd',
-      clueDa: 'Begge ord hænger sammen med at binde.',
-    })
-    expect(byId['band-baand'].meaningDa).toContain('betyder ikke vand eller flod')
     expect(byId['seyl-sejle']).toMatchObject({
-      entry: {
-        fa: 'سیل',
-        faMarked: 'سِیل',
-        da: 'meget vand på land',
-        pron: { da: 'seyl', ipa: 'sejl' },
-      },
-      danish: 'sejle',
-      clueDa: 'Seyl og sejle lyder næsten ens.',
+      category: 'memory', entry: { fa: 'سیل', da: 'oversvømmelse' }, danish: 'sejle',
     })
-    expect(byId['seyl-sejle'].meaningDa).toContain('Byen sejlede i vand')
-    expect(byId['pedar-fader']).toMatchObject({
-      entry: {
-        fa: 'پدر',
-        faMarked: 'پِدَر',
-        da: 'far',
-        pron: { da: 'pedar', ipa: 'peˈdæɾ' },
-      },
-      danish: 'fader eller far',
-      clueDa: 'P i pedar svarer til f i fader.',
-    })
-    expect(byId['setareh-stjerne']).toMatchObject({
-      entry: {
-        fa: 'ستاره',
-        faMarked: 'سِتاره',
-        da: 'stjerne',
-        pron: { da: 'setåre', ipa: 'seˈtɒːɾe' },
-      },
-      danish: 'stjerne',
-    })
-    expect(byId['mah-maane']).toMatchObject({
-      entry: {
-        fa: 'ماه',
-        da: 'måne',
-        pron: { da: 'måh', ipa: 'mɒːh' },
-        audioId: 'word-bridge-mah',
-      },
-      danish: 'måne',
-    })
-    expect(byId['dar-doer']).toMatchObject({
-      entry: {
-        fa: 'در',
-        faMarked: 'دَر',
-        da: 'dør',
-        pron: { da: 'dar', ipa: 'dæɾ' },
-        audioId: 'word-bridge-dar',
-      },
-      danish: 'dør',
-      clueDa: 'D og r går igen i dar og dør.',
-    })
-    expect(byId['pedar-fader'].meaningDa).toContain('samme gamle familie')
-    expect(byId['setareh-stjerne'].meaningDa).toContain('samme gamle familie')
-    expect(byId['mah-maane'].meaningDa).toContain('samme gamle familie')
-    expect(byId['dar-doer'].meaningDa).toContain('samme gamle familie')
+    expect(byId['seyl-sejle'].historyDa).toContain('ikke i samme gamle familie')
   })
 })

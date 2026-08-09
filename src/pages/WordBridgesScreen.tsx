@@ -1,33 +1,60 @@
-import { FullTeachingCard } from '../components/EntryRenderers'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
-import { wordBridges } from '../lessons/wordBridges'
+import { AreaNav } from '../components/AreaNav'
+import { wordBridges, type WordBridgeCategory } from '../lessons/wordBridges'
+import { WordBridgeRow } from './WordBridgeRow'
 import './wordBridges.css'
+import './wordBridgesWide.css'
 
-/** A growing set of safe memory clues shared by Persian and Danish. */
+const sections: readonly {
+  category: WordBridgeCategory
+  title: string
+  lead: string
+}[] = [
+  { category: 'family', title: 'Familien', lead: 'Fire ord for mennesker tæt på dig.' },
+  { category: 'everyday', title: 'I hverdagen', lead: 'Ord fra hjemmet, naturen og sproget omkring dig.' },
+  { category: 'numbers', title: 'Tre tal', lead: 'Talord, der stadig kan genkendes på tværs af sprogene.' },
+  { category: 'world', title: 'Krop og himmel', lead: 'Fra tænder og navle til månen og stjernerne.' },
+  { category: 'memory', title: 'En lydlig huskebro', lead: 'God at huske med, men ikke en fælles ordfamilie.' },
+]
+
 export default function WordBridgesScreen() {
   return (
-    <LessonSheet title="Ord, der ligner" bar={<BarLink to="/">Til forsiden</BarLink>}>
-      <p className="word-bridges__lead">
-        Nogle persiske og danske ord ligner hinanden. Nogle er i samme gamle familie.
-        De kan hjælpe dig med at huske. Det er et spor, ikke en regel for alle ord.
-      </p>
+    <LessonSheet
+      title="Ord, der ligner"
+      className="word-bridges"
+      bar={<BarLink to="/opdag">Til ordværkstedet</BarLink>}
+    >
+      <AreaNav />
+      <header className="word-bridges__intro">
+        <p className="word-bridges__eyebrow">19 ordbroer</p>
+        <p className="word-bridges__lead">
+          Persisk og dansk gemmer på ord fra samme gamle familie.
+          Kan du finde lydene, der stadig ligner hinanden?
+        </p>
+        <p className="word-bridges__note">
+          Et lydspor hjælper hukommelsen. Det er ikke en regel for alle ord.
+        </p>
+      </header>
 
-      <div className="word-bridges__list">
-        {wordBridges.map((bridge) => (
-          <article className="word-bridge" key={bridge.id}>
-            <h2>{bridge.titleDa}</h2>
-            <div className="word-bridge__pair">
-              <FullTeachingCard entry={bridge.entry} showReadingCues={false} />
-              <section className="word-bridge__danish" aria-label={`Det danske ord ${bridge.danish}`}>
-                <span>Dansk</span>
-                <strong>{bridge.danish}</strong>
-              </section>
+      {sections.map((section) => {
+        const bridges = wordBridges.filter((bridge) => bridge.category === section.category)
+        return (
+          <section className="word-bridges__section" key={section.category} aria-labelledby={`bridges-${section.category}`}>
+            <div className="word-bridges__heading">
+              <div>
+                <h2 id={`bridges-${section.category}`}>{section.title}</h2>
+                <p>{section.lead}</p>
+              </div>
+              <span aria-label={`${bridges.length} ordbroer`}>{bridges.length}</span>
             </div>
-            <p className="word-bridge__clue"><strong>Se:</strong> {bridge.clueDa}</p>
-            <p className="word-bridge__meaning">{bridge.meaningDa}</p>
-          </article>
-        ))}
-      </div>
+            <div className="word-bridges__list">
+              {bridges.map((bridge) => (
+                <WordBridgeRow bridge={bridge} featured={bridge.id === wordBridges[0].id} key={bridge.id} />
+              ))}
+            </div>
+          </section>
+        )
+      })}
     </LessonSheet>
   )
 }

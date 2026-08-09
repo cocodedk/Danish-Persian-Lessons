@@ -3,48 +3,57 @@ import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import WordBridgesScreen from './WordBridgesScreen'
 
+function renderScreen() {
+  return render(
+    <MemoryRouter initialEntries={['/ord-der-ligner']}>
+      <WordBridgesScreen />
+    </MemoryRouter>,
+  )
+}
+
 describe('the word-bridge lesson', () => {
-  it('shows all proposed pairs without turning the clue into a rule', () => {
-    render(<MemoryRouter><WordBridgesScreen /></MemoryRouter>)
+  it('opens with a compact, grouped overview of all nineteen bridges', () => {
+    const { container } = renderScreen()
 
     expect(screen.getByRole('heading', { name: 'Ord, der ligner' })).toBeInTheDocument()
-    expect(screen.getByText(/Nogle persiske og danske ord ligner hinanden/)).toBeInTheDocument()
-    expect(screen.getByText('دندان')).toBeInTheDocument()
-    expect(screen.getByText('dandån · [dænˈdɒːn]')).toBeInTheDocument()
-    expect(screen.getByText('ستاد')).toBeInTheDocument()
-    expect(screen.getByText('setåd · [seˈtɒːd]')).toBeInTheDocument()
-    expect(screen.getAllByText('بند')).toHaveLength(1)
-    expect(screen.getByText('band · [bænd]')).toBeInTheDocument()
-    expect(screen.getAllByText('bånd')).toHaveLength(1)
-    expect(screen.getAllByText('سیل')).toHaveLength(1)
-    expect(screen.getByText('seyl · [sejl]')).toBeInTheDocument()
-    expect(screen.getAllByText('sejle')).toHaveLength(1)
-    expect(screen.getByText('پدر')).toBeInTheDocument()
-    expect(screen.getByText('pedar · [peˈdæɾ]')).toBeInTheDocument()
-    expect(screen.getByText('fader eller far')).toBeInTheDocument()
-    expect(screen.getByText('ستاره')).toBeInTheDocument()
-    expect(screen.getByText('setåre · [seˈtɒːɾe]')).toBeInTheDocument()
-    expect(screen.getAllByText('stjerne')).toHaveLength(2)
-    expect(screen.getByText('ماه')).toBeInTheDocument()
-    expect(screen.getByText('måh · [mɒːh]')).toBeInTheDocument()
-    expect(screen.getAllByText('måne')).toHaveLength(2)
-    expect(screen.getByText('در')).toBeInTheDocument()
-    expect(screen.getByText('dar · [dæɾ]')).toBeInTheDocument()
-    expect(screen.getAllByText('dør')).toHaveLength(2)
-    expect(screen.getByText(/ikke en regel for alle ord/)).toBeInTheDocument()
-    expect(screen.queryByText('Læs trin for trin')).not.toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Hovedområder' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Til ordværkstedet' })).toHaveAttribute('href', '/opdag')
+    expect(screen.getByText('19 ordbroer')).toBeInTheDocument()
+    for (const heading of ['Familien', 'I hverdagen', 'Tre tal', 'Krop og himmel', 'En lydlig huskebro']) {
+      expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument()
+    }
+    expect(container.querySelectorAll('details')).toHaveLength(19)
+    expect(container.querySelectorAll('details[open]')).toHaveLength(1)
+    expect(container.querySelector('.entry-card')).not.toBeInTheDocument()
   })
 
-  it('keeps changed meanings and the water memory clue clear', () => {
-    render(<MemoryRouter><WordBridgesScreen /></MemoryRouter>)
+  it('shows every supplied Persian word and keeps both IPA columns available', () => {
+    renderScreen()
 
-    expect(screen.getByText('De betyder det samme i dag: tand.')).toBeInTheDocument()
+    const expected = [
+      ['پدر', 'pedar'], ['مادر', 'mådar'], ['برادر', 'barådar'], ['دختر', 'dokhtar'],
+      ['در', 'dar'], ['نام', 'nåm'], ['موش', 'mush'], ['گرم', 'garm'], ['نو', 'now'],
+      ['دو', 'do'], ['شش', 'shesh'], ['نه', 'noh'], ['دندان', 'dandån'], ['ناف', 'nåf'],
+      ['ماه', 'måh'], ['ستاره', 'setåre'], ['بند', 'band'],
+    ]
+
+    for (const [persian, persianPron] of expected) {
+      expect(screen.getByText(persian)).toBeInTheDocument()
+      expect(screen.getByText(persianPron)).toBeInTheDocument()
+    }
+    expect(screen.getByText(/Persisk \[peˈdæɾ\].*dansk \[ˈfæːðʌ\]/)).toBeInTheDocument()
+    expect(screen.getByText(/Persisk \[bænd\].*dansk \[ˈbɔnˀ\]/)).toBeInTheDocument()
+  })
+
+  it('does not turn a resemblance into a general sound rule', () => {
+    renderScreen()
+
+    expect(screen.getByText(/ikke en regel for alle ord/)).toBeInTheDocument()
     expect(screen.getByText(/De betyder ikke det samme i dag/)).toBeInTheDocument()
     expect(screen.getByText(/persiske ord betyder hovedkontor/)).toBeInTheDocument()
-    expect(screen.getByText(/En بند kan også være en mur, der holder vand/)).toBeInTheDocument()
-    expect(screen.getByText(/بند betyder ikke vand eller flod/)).toBeInTheDocument()
+    expect(screen.getByText(/بند kan også være en mur, der holder vand/)).toBeInTheDocument()
     expect(screen.getByText(/De er ikke i samme gamle familie/)).toBeInTheDocument()
-    expect(screen.getByText(/Byen sejlede i vand/)).toBeInTheDocument()
-    expect(screen.getAllByText('De betyder det samme og er i samme gamle familie.')).toHaveLength(4)
+    expect(screen.getByText(/kun en lydlig huskebro/)).toBeInTheDocument()
   })
 })

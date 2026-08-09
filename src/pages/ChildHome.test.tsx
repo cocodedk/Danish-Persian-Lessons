@@ -11,6 +11,7 @@ function renderHome() {
       <Routes>
         <Route path="/opdag" element={<ChildHome />} />
         <Route path="/kursus" element={<h1>Hele kurset</h1>} />
+        <Route path="/ord-der-ligner" element={<h1>Ordbroer</h1>} />
       </Routes>
     </MemoryRouter>,
   )
@@ -25,7 +26,15 @@ describe('ChildHome', () => {
     expect(screen.getByRole('link', { name: 'Vælg vand' })).toHaveAttribute('href', '/opdag/ord/ab')
     expect(screen.getByRole('link', { name: 'Vælg brød' })).toHaveAttribute('href', '/opdag/ord/nan')
     expect(screen.getByRole('link', { name: 'Vælg blomst' })).toHaveAttribute('href', '/opdag/ord/gol')
+    expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('href', '/ord-der-ligner')
+    expect(screen.getByRole('link', { name: /Byg ord/ })).toHaveAttribute('aria-current', 'page')
     expect(screen.getByText('Dit første ord venter ovenfor.')).toBeInTheDocument()
+  })
+
+  it('opens the word bridges directly from the workshop', () => {
+    renderHome()
+    fireEvent.click(screen.getByRole('link', { name: 'Ordbroer' }))
+    expect(screen.getByRole('heading', { name: 'Ordbroer' })).toBeInTheDocument()
   })
 
   it('marks a collected mission in text without locking the others', () => {

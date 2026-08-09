@@ -32,7 +32,7 @@ Confirmed mismatches corrected:
 9. Sticker labels and the bonus line no longer add “sticker,” “out of twenty,” or “as a gift” on
    the Danish side only.
 10. The name-choice prompt and six praise pairs now use direct, simple equivalents.
-11. The eight word bridges state whether the modern meanings match. بند/bånd is a true old link;
+11. The nineteen word bridges state whether the modern meanings match. بند/bånd is a true old link;
     بند/vand and سیل/sejle are clearly marked as memory pictures, not translations.
 
 ## Lexical floor

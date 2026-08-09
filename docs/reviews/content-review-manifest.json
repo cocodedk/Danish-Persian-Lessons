@@ -2383,6 +2383,957 @@
       ]
     },
     {
+      "id": "word-bridge-pedar",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "پدر",
+      "faMarked": "پِدَر",
+      "da": "far",
+      "soundDa": "pedar",
+      "ipa": "peˈdæɾ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "پ",
+          "role": "consonant",
+          "helpDa": "pe: p i \"pose\"",
+          "pron": {
+            "da": "p i \"pose\"",
+            "ipa": "p"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 2,
+          "end": 2,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-pedar",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-madar",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "مادر",
+      "faMarked": "مادَر",
+      "da": "mor",
+      "soundDa": "mådar",
+      "ipa": "mɒːˈdæɾ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 3,
+          "end": 3,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-madar",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-baradar",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "برادر",
+      "faMarked": "بَرادَر",
+      "da": "bror",
+      "soundDa": "barådar",
+      "ipa": "bæɾɒːˈdæɾ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ب",
+          "role": "consonant",
+          "helpDa": "be: b i \"bil\"",
+          "pron": {
+            "da": "b i \"bil\"",
+            "ipa": "b"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 4,
+          "end": 4,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-baradar",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-doxtar",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "دختر",
+      "faMarked": "دُختَر",
+      "da": "datter",
+      "soundDa": "dokhtar",
+      "ipa": "doxˈtæɾ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ُ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "o i “ost”",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "خ",
+          "role": "consonant",
+          "helpDa": "khe: ch i tysk \"Bach\"",
+          "pron": {
+            "da": "ch i tysk \"Bach\"",
+            "ipa": "x"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ت",
+          "role": "consonant",
+          "helpDa": "te: t i \"tak\"",
+          "pron": {
+            "da": "t i \"tak\"",
+            "ipa": "t"
+          }
+        },
+        {
+          "start": 3,
+          "end": 3,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-doxtar",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-dar",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "در",
+      "faMarked": "دَر",
+      "da": "dør",
+      "soundDa": "dar",
+      "ipa": "dæɾ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-dar",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-nam",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "نام",
+      "da": "navn",
+      "soundDa": "nåm",
+      "ipa": "nɒːm",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-nam",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-mush",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "موش",
+      "da": "mus",
+      "soundDa": "mush",
+      "ipa": "muːʃ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Vav skriver langt u her",
+          "pron": {
+            "da": "u i “mus”",
+            "ipa": "uː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ش",
+          "role": "consonant",
+          "helpDa": "shin: sj i \"sjal\"",
+          "pron": {
+            "da": "sj i \"sjal\"",
+            "ipa": "ʃ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-mush",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-garm",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "گرم",
+      "faMarked": "گَرم",
+      "da": "varm eller hed",
+      "soundDa": "garm",
+      "ipa": "ɡæɾm",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "گ",
+          "role": "consonant",
+          "helpDa": "gaf: g i \"gul\"",
+          "pron": {
+            "da": "g i \"gul\"",
+            "ipa": "ɡ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-garm",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-now",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "نو",
+      "da": "ny",
+      "soundDa": "now",
+      "ipa": "nou̯",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Vav er med i lyden ow her",
+          "pron": {
+            "da": "ow i “show”",
+            "ipa": "ou̯"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-now",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-band",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "بند",
+      "faMarked": "بَند",
+      "da": "bånd, binding eller led",
+      "soundDa": "band",
+      "ipa": "bænd",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ب",
+          "role": "consonant",
+          "helpDa": "be: b i \"bil\"",
+          "pron": {
+            "da": "b i \"bil\"",
+            "ipa": "b"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-band",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-setad",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "ستاد",
+      "faMarked": "سِتاد",
+      "da": "hovedkontor",
+      "soundDa": "setåd",
+      "ipa": "seˈtɒːd",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ت",
+          "role": "consonant",
+          "helpDa": "te: t i \"tak\"",
+          "pron": {
+            "da": "t i \"tak\"",
+            "ipa": "t"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-setad",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-do",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "دو",
+      "da": "to",
+      "soundDa": "do",
+      "ipa": "do",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Vav skriver lyden o her",
+          "pron": {
+            "da": "o i “to”",
+            "ipa": "o"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-do",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-shesh",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "شش",
+      "faMarked": "شِش",
+      "da": "seks",
+      "soundDa": "shesh",
+      "ipa": "ʃeʃ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ش",
+          "role": "consonant",
+          "helpDa": "shin: sj i \"sjal\"",
+          "pron": {
+            "da": "sj i \"sjal\"",
+            "ipa": "ʃ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ش",
+          "role": "consonant",
+          "helpDa": "shin: sj i \"sjal\"",
+          "pron": {
+            "da": "sj i \"sjal\"",
+            "ipa": "ʃ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-shesh",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-noh",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "نه",
+      "faMarked": "نُه",
+      "da": "ni",
+      "soundDa": "noh",
+      "ipa": "noh",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ُ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "o i “ost”",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ه",
+          "role": "consonant",
+          "helpDa": "he do-tjeshm: h i \"hus\"",
+          "pron": {
+            "da": "h i \"hus\"",
+            "ipa": "h"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-noh",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "word-bridge-dandan",
       "domain": "bridges",
       "kind": "word",
@@ -2474,122 +3425,19 @@
       ]
     },
     {
-      "id": "word-bridge-setad",
+      "id": "word-bridge-naf",
       "domain": "bridges",
       "kind": "word",
-      "fa": "ستاد",
-      "faMarked": "سِتاد",
-      "da": "hovedkontor",
-      "soundDa": "setåd",
-      "ipa": "seˈtɒːd",
-      "stressReviewRequired": true,
-      "stressMarked": true,
-      "readingCues": [
-        {
-          "start": 0,
-          "end": 1,
-          "display": "س",
-          "role": "consonant",
-          "helpDa": "sin: s i \"sol\"",
-          "pron": {
-            "da": "s i \"sol\"",
-            "ipa": "s"
-          }
-        },
-        {
-          "start": 1,
-          "end": 1,
-          "display": "◌ِ",
-          "role": "short-vowel",
-          "helpDa": "Den korte lyd høres, men skrives tit ikke",
-          "pron": {
-            "da": "e i “let”",
-            "ipa": "e"
-          }
-        },
-        {
-          "start": 1,
-          "end": 2,
-          "display": "ت",
-          "role": "consonant",
-          "helpDa": "te: t i \"tak\"",
-          "pron": {
-            "da": "t i \"tak\"",
-            "ipa": "t"
-          }
-        },
-        {
-          "start": 2,
-          "end": 3,
-          "display": "ا",
-          "role": "long-vowel",
-          "helpDa": "Alef skriver langt å her",
-          "pron": {
-            "da": "å i “år”",
-            "ipa": "ɒː"
-          }
-        },
-        {
-          "start": 3,
-          "end": 4,
-          "display": "د",
-          "role": "consonant",
-          "helpDa": "dal: d i \"dag\"",
-          "pron": {
-            "da": "d i \"dag\"",
-            "ipa": "d"
-          }
-        }
-      ],
-      "cueCoverage": "contextual",
-      "roleSensitive": true,
-      "audioId": "word-bridge-setad",
-      "audioNotApplicable": null,
-      "audioStatus": "missing",
-      "requiredReviews": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics",
-        "danish"
-      ]
-    },
-    {
-      "id": "word-bridge-band",
-      "domain": "bridges",
-      "kind": "word",
-      "fa": "بند",
-      "faMarked": "بَند",
-      "da": "bånd eller mur i vand",
-      "soundDa": "band",
-      "ipa": "bænd",
+      "fa": "ناف",
+      "da": "navle",
+      "soundDa": "nåf",
+      "ipa": "nɒːf",
       "stressReviewRequired": false,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
           "end": 1,
-          "display": "ب",
-          "role": "consonant",
-          "helpDa": "be: b i \"bil\"",
-          "pron": {
-            "da": "b i \"bil\"",
-            "ipa": "b"
-          }
-        },
-        {
-          "start": 1,
-          "end": 1,
-          "display": "◌َ",
-          "role": "short-vowel",
-          "helpDa": "Den korte lyd høres, men skrives tit ikke",
-          "pron": {
-            "da": "a i “kat”",
-            "ipa": "æ"
-          }
-        },
-        {
-          "start": 1,
-          "end": 2,
           "display": "ن",
           "role": "consonant",
           "helpDa": "nun: n i \"nat\"",
@@ -2599,20 +3447,31 @@
           }
         },
         {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
           "start": 2,
           "end": 3,
-          "display": "د",
+          "display": "ف",
           "role": "consonant",
-          "helpDa": "dal: d i \"dag\"",
+          "helpDa": "fe: f i \"fisk\"",
           "pron": {
-            "da": "d i \"dag\"",
-            "ipa": "d"
+            "da": "f i \"fisk\"",
+            "ipa": "f"
           }
         }
       ],
       "cueCoverage": "contextual",
-      "roleSensitive": false,
-      "audioId": "word-bridge-band",
+      "roleSensitive": true,
+      "audioId": "word-bridge-naf",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [
@@ -2623,145 +3482,53 @@
       ]
     },
     {
-      "id": "word-bridge-seyl",
+      "id": "word-bridge-mah",
       "domain": "bridges",
       "kind": "word",
-      "fa": "سیل",
-      "faMarked": "سِیل",
-      "da": "meget vand på land",
-      "soundDa": "seyl",
-      "ipa": "sejl",
+      "fa": "ماه",
+      "da": "måne eller måned",
+      "soundDa": "måh",
+      "ipa": "mɒːh",
       "stressReviewRequired": false,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
           "end": 1,
-          "display": "س",
+          "display": "م",
           "role": "consonant",
-          "helpDa": "sin: s i \"sol\"",
+          "helpDa": "mim: m i \"mor\"",
           "pron": {
-            "da": "s i \"sol\"",
-            "ipa": "s"
-          }
-        },
-        {
-          "start": 1,
-          "end": 1,
-          "display": "◌ِ",
-          "role": "short-vowel",
-          "helpDa": "Den korte lyd høres, men skrives tit ikke",
-          "pron": {
-            "da": "e i “let”",
-            "ipa": "e"
+            "da": "m i \"mor\"",
+            "ipa": "m"
           }
         },
         {
           "start": 1,
           "end": 2,
-          "display": "ی",
-          "role": "written-vowel",
-          "helpDa": "Ye er med i lyden ey her",
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
           "pron": {
-            "da": "ej i “nej”",
-            "ipa": "ej"
+            "da": "å i “år”",
+            "ipa": "ɒː"
           }
         },
         {
           "start": 2,
           "end": 3,
-          "display": "ل",
+          "display": "ه",
           "role": "consonant",
-          "helpDa": "lam: l i \"lys\"",
+          "helpDa": "he do-tjeshm: h i \"hus\"",
           "pron": {
-            "da": "l i \"lys\"",
-            "ipa": "l"
+            "da": "h i \"hus\"",
+            "ipa": "h"
           }
         }
       ],
       "cueCoverage": "contextual",
       "roleSensitive": true,
-      "audioId": "word-bridge-seyl",
-      "audioNotApplicable": null,
-      "audioStatus": "missing",
-      "requiredReviews": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics",
-        "danish"
-      ]
-    },
-    {
-      "id": "word-bridge-pedar",
-      "domain": "bridges",
-      "kind": "word",
-      "fa": "پدر",
-      "faMarked": "پِدَر",
-      "da": "far",
-      "soundDa": "pedar",
-      "ipa": "peˈdæɾ",
-      "stressReviewRequired": true,
-      "stressMarked": true,
-      "readingCues": [
-        {
-          "start": 0,
-          "end": 1,
-          "display": "پ",
-          "role": "consonant",
-          "helpDa": "pe: p i \"pose\"",
-          "pron": {
-            "da": "p i \"pose\"",
-            "ipa": "p"
-          }
-        },
-        {
-          "start": 1,
-          "end": 1,
-          "display": "◌ِ",
-          "role": "short-vowel",
-          "helpDa": "Den korte lyd høres, men skrives tit ikke",
-          "pron": {
-            "da": "e i “let”",
-            "ipa": "e"
-          }
-        },
-        {
-          "start": 1,
-          "end": 2,
-          "display": "د",
-          "role": "consonant",
-          "helpDa": "dal: d i \"dag\"",
-          "pron": {
-            "da": "d i \"dag\"",
-            "ipa": "d"
-          }
-        },
-        {
-          "start": 2,
-          "end": 2,
-          "display": "◌َ",
-          "role": "short-vowel",
-          "helpDa": "Den korte lyd høres, men skrives tit ikke",
-          "pron": {
-            "da": "a i “kat”",
-            "ipa": "æ"
-          }
-        },
-        {
-          "start": 2,
-          "end": 3,
-          "display": "ر",
-          "role": "consonant",
-          "helpDa": "re: rullet r, som spansk \"pero\"",
-          "pron": {
-            "da": "rullet r, som spansk \"pero\"",
-            "ipa": "ɾ"
-          }
-        }
-      ],
-      "cueCoverage": "contextual",
-      "roleSensitive": false,
-      "audioId": "word-bridge-pedar",
+      "audioId": "word-bridge-mah",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [
@@ -2843,7 +3610,7 @@
           "end": 5,
           "display": "ه",
           "role": "written-vowel",
-          "helpDa": "He sidst i dette ord skriver lyden e",
+          "helpDa": "He sidst i ordet skriver lyden e",
           "pron": {
             "da": "e i “let”",
             "ipa": "e"
@@ -2863,111 +3630,65 @@
       ]
     },
     {
-      "id": "word-bridge-mah",
+      "id": "word-bridge-seyl",
       "domain": "bridges",
       "kind": "word",
-      "fa": "ماه",
-      "da": "måne",
-      "soundDa": "måh",
-      "ipa": "mɒːh",
+      "fa": "سیل",
+      "faMarked": "سِیل",
+      "da": "oversvømmelse",
+      "soundDa": "seyl",
+      "ipa": "sejl",
       "stressReviewRequired": false,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
           "end": 1,
-          "display": "م",
+          "display": "س",
           "role": "consonant",
-          "helpDa": "mim: m i \"mor\"",
+          "helpDa": "sin: s i \"sol\"",
           "pron": {
-            "da": "m i \"mor\"",
-            "ipa": "m"
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
           }
         },
         {
           "start": 1,
           "end": 2,
-          "display": "ا",
-          "role": "long-vowel",
-          "helpDa": "Alef skriver langt å her",
+          "display": "ی",
+          "role": "written-vowel",
+          "helpDa": "Ye er med i lyden ey her",
           "pron": {
-            "da": "å i “år”",
-            "ipa": "ɒː"
+            "da": "ej i “nej”",
+            "ipa": "ej"
           }
         },
         {
           "start": 2,
           "end": 3,
-          "display": "ه",
+          "display": "ل",
           "role": "consonant",
-          "helpDa": "he do-tjeshm: h i \"hus\"",
+          "helpDa": "lam: l i \"lys\"",
           "pron": {
-            "da": "h i \"hus\"",
-            "ipa": "h"
+            "da": "l i \"lys\"",
+            "ipa": "l"
           }
         }
       ],
       "cueCoverage": "contextual",
       "roleSensitive": true,
-      "audioId": "word-bridge-mah",
-      "audioNotApplicable": null,
-      "audioStatus": "missing",
-      "requiredReviews": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics",
-        "danish"
-      ]
-    },
-    {
-      "id": "word-bridge-dar",
-      "domain": "bridges",
-      "kind": "word",
-      "fa": "در",
-      "faMarked": "دَر",
-      "da": "dør",
-      "soundDa": "dar",
-      "ipa": "dæɾ",
-      "stressReviewRequired": false,
-      "stressMarked": false,
-      "readingCues": [
-        {
-          "start": 0,
-          "end": 1,
-          "display": "د",
-          "role": "consonant",
-          "helpDa": "dal: d i \"dag\"",
-          "pron": {
-            "da": "d i \"dag\"",
-            "ipa": "d"
-          }
-        },
-        {
-          "start": 1,
-          "end": 1,
-          "display": "◌َ",
-          "role": "short-vowel",
-          "helpDa": "Den korte lyd høres, men skrives tit ikke",
-          "pron": {
-            "da": "a i “kat”",
-            "ipa": "æ"
-          }
-        },
-        {
-          "start": 1,
-          "end": 2,
-          "display": "ر",
-          "role": "consonant",
-          "helpDa": "re: rullet r, som spansk \"pero\"",
-          "pron": {
-            "da": "rullet r, som spansk \"pero\"",
-            "ipa": "ɾ"
-          }
-        }
-      ],
-      "cueCoverage": "contextual",
-      "roleSensitive": false,
-      "audioId": "word-bridge-dar",
+      "audioId": "word-bridge-seyl",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [

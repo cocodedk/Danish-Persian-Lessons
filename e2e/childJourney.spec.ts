@@ -33,6 +33,12 @@ test('fresh child journey collects a word, returns, and switches both ways', asy
   await page.getByRole('link', { name: 'Færdig for nu' }).click()
   await expect(page.getByText('I din samling')).toBeVisible()
 
+  await page.getByRole('link', { name: 'Ordbroer' }).click()
+  await expect(page.getByRole('heading', { name: 'Ord, der ligner' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('aria-current', 'page')
+  await page.getByRole('link', { name: 'Til ordværkstedet' }).click()
+  await expect(page.getByRole('heading', { name: 'Vælg et persisk ord' })).toBeVisible()
+
   await page.goto('./#/')
   await expect(page.getByRole('heading', { name: 'Vælg et persisk ord' })).toBeVisible()
   await page.getByRole('link', { name: 'Kursus og noter' }).click()

@@ -1605,15 +1605,195 @@
       ]
     },
     {
-      "entryId": "word-bridge-dandan",
+      "entryId": "word-bridge-pedar",
       "domain": "bridges",
-      "transcript": "دَندان",
-      "plainPersian": "دندان",
-      "danishMeaning": "tand",
-      "soundDa": "dandån",
-      "ipa": "dænˈdɒːn",
+      "transcript": "پِدَر",
+      "plainPersian": "پدر",
+      "danishMeaning": "far",
+      "soundDa": "pedar",
+      "ipa": "peˈdæɾ",
       "stressMarked": true,
-      "expectedFile": "/audio/word-bridge-dandan.mp3",
+      "expectedFile": "/audio/word-bridge-pedar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-madar",
+      "domain": "bridges",
+      "transcript": "مادَر",
+      "plainPersian": "مادر",
+      "danishMeaning": "mor",
+      "soundDa": "mådar",
+      "ipa": "mɒːˈdæɾ",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-madar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-baradar",
+      "domain": "bridges",
+      "transcript": "بَرادَر",
+      "plainPersian": "برادر",
+      "danishMeaning": "bror",
+      "soundDa": "barådar",
+      "ipa": "bæɾɒːˈdæɾ",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-baradar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-doxtar",
+      "domain": "bridges",
+      "transcript": "دُختَر",
+      "plainPersian": "دختر",
+      "danishMeaning": "datter",
+      "soundDa": "dokhtar",
+      "ipa": "doxˈtæɾ",
+      "stressMarked": true,
+      "expectedFile": "/audio/word-bridge-doxtar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-dar",
+      "domain": "bridges",
+      "transcript": "دَر",
+      "plainPersian": "در",
+      "danishMeaning": "dør",
+      "soundDa": "dar",
+      "ipa": "dæɾ",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-dar.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-nam",
+      "domain": "bridges",
+      "transcript": "نام",
+      "plainPersian": "نام",
+      "danishMeaning": "navn",
+      "soundDa": "nåm",
+      "ipa": "nɒːm",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-nam.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-mush",
+      "domain": "bridges",
+      "transcript": "موش",
+      "plainPersian": "موش",
+      "danishMeaning": "mus",
+      "soundDa": "mush",
+      "ipa": "muːʃ",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-mush.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-garm",
+      "domain": "bridges",
+      "transcript": "گَرم",
+      "plainPersian": "گرم",
+      "danishMeaning": "varm eller hed",
+      "soundDa": "garm",
+      "ipa": "ɡæɾm",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-garm.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-now",
+      "domain": "bridges",
+      "transcript": "نو",
+      "plainPersian": "نو",
+      "danishMeaning": "ny",
+      "soundDa": "now",
+      "ipa": "nou̯",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-now.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-band",
+      "domain": "bridges",
+      "transcript": "بَند",
+      "plainPersian": "بند",
+      "danishMeaning": "bånd, binding eller led",
+      "soundDa": "band",
+      "ipa": "bænd",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-band.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -1645,15 +1825,15 @@
       ]
     },
     {
-      "entryId": "word-bridge-band",
+      "entryId": "word-bridge-do",
       "domain": "bridges",
-      "transcript": "بَند",
-      "plainPersian": "بند",
-      "danishMeaning": "bånd eller mur i vand",
-      "soundDa": "band",
-      "ipa": "bænd",
+      "transcript": "دو",
+      "plainPersian": "دو",
+      "danishMeaning": "to",
+      "soundDa": "do",
+      "ipa": "do",
       "stressMarked": false,
-      "expectedFile": "/audio/word-bridge-band.mp3",
+      "expectedFile": "/audio/word-bridge-do.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -1665,15 +1845,15 @@
       ]
     },
     {
-      "entryId": "word-bridge-seyl",
+      "entryId": "word-bridge-shesh",
       "domain": "bridges",
-      "transcript": "سِیل",
-      "plainPersian": "سیل",
-      "danishMeaning": "meget vand på land",
-      "soundDa": "seyl",
-      "ipa": "sejl",
+      "transcript": "شِش",
+      "plainPersian": "شش",
+      "danishMeaning": "seks",
+      "soundDa": "shesh",
+      "ipa": "ʃeʃ",
       "stressMarked": false,
-      "expectedFile": "/audio/word-bridge-seyl.mp3",
+      "expectedFile": "/audio/word-bridge-shesh.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -1685,15 +1865,75 @@
       ]
     },
     {
-      "entryId": "word-bridge-pedar",
+      "entryId": "word-bridge-noh",
       "domain": "bridges",
-      "transcript": "پِدَر",
-      "plainPersian": "پدر",
-      "danishMeaning": "far",
-      "soundDa": "pedar",
-      "ipa": "peˈdæɾ",
+      "transcript": "نُه",
+      "plainPersian": "نه",
+      "danishMeaning": "ni",
+      "soundDa": "noh",
+      "ipa": "noh",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-noh.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-dandan",
+      "domain": "bridges",
+      "transcript": "دَندان",
+      "plainPersian": "دندان",
+      "danishMeaning": "tand",
+      "soundDa": "dandån",
+      "ipa": "dænˈdɒːn",
       "stressMarked": true,
-      "expectedFile": "/audio/word-bridge-pedar.mp3",
+      "expectedFile": "/audio/word-bridge-dandan.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-naf",
+      "domain": "bridges",
+      "transcript": "ناف",
+      "plainPersian": "ناف",
+      "danishMeaning": "navle",
+      "soundDa": "nåf",
+      "ipa": "nɒːf",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-naf.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "word-bridge-mah",
+      "domain": "bridges",
+      "transcript": "ماه",
+      "plainPersian": "ماه",
+      "danishMeaning": "måne eller måned",
+      "soundDa": "måh",
+      "ipa": "mɒːh",
+      "stressMarked": false,
+      "expectedFile": "/audio/word-bridge-mah.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -1725,35 +1965,15 @@
       ]
     },
     {
-      "entryId": "word-bridge-mah",
+      "entryId": "word-bridge-seyl",
       "domain": "bridges",
-      "transcript": "ماه",
-      "plainPersian": "ماه",
-      "danishMeaning": "måne",
-      "soundDa": "måh",
-      "ipa": "mɒːh",
+      "transcript": "سِیل",
+      "plainPersian": "سیل",
+      "danishMeaning": "oversvømmelse",
+      "soundDa": "seyl",
+      "ipa": "sejl",
       "stressMarked": false,
-      "expectedFile": "/audio/word-bridge-mah.mp3",
-      "requiredBeforeRecording": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics"
-      ],
-      "requiredTakeReview": [
-        "iranian-persian-2",
-        "phonetics"
-      ]
-    },
-    {
-      "entryId": "word-bridge-dar",
-      "domain": "bridges",
-      "transcript": "دَر",
-      "plainPersian": "در",
-      "danishMeaning": "dør",
-      "soundDa": "dar",
-      "ipa": "dæɾ",
-      "stressMarked": false,
-      "expectedFile": "/audio/word-bridge-dar.mp3",
+      "expectedFile": "/audio/word-bridge-seyl.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",

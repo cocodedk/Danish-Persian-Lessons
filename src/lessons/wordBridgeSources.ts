@@ -24,6 +24,21 @@ export const wordBridgeSources: Record<string, readonly string[]> = {
     'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
     'https://ordnet.dk/ddo/ordbog/11012328',
   ],
+  'madar-moder': [
+    'https://lrc.la.utexas.edu/lex/master/1228',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/moder',
+  ],
+  'baradar-broder': [
+    'https://lrc.la.utexas.edu/lex/master/0288',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/broder',
+  ],
+  'doxtar-datter': [
+    'https://lrc.la.utexas.edu/lex/master/0432',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/datter',
+  ],
   'setareh-stjerne': [
     'https://lrc.la.utexas.edu/lex/master/1895',
     'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
@@ -38,5 +53,42 @@ export const wordBridgeSources: Record<string, readonly string[]> = {
     'https://lrc.la.utexas.edu/lex/master/0435',
     'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
     'https://ordnet.dk/ddo/ordbog/d%C3%B8r',
+  ],
+  'nam-navn': [
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/navn',
+  ],
+  'mush-mus': [
+    'https://lrc.la.utexas.edu/lex/master/1344',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/mus',
+  ],
+  'garm-varm': [
+    'https://lrc.la.utexas.edu/lex/master/0755',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/varm',
+  ],
+  'now-ny': [
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/ny',
+  ],
+  'do-to': [
+    'https://lrc.la.utexas.edu/lex/master/0369',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/to',
+  ],
+  'shesh-seks': [
+    'https://lrc.la.utexas.edu/lex/master/1929',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/seks',
+  ],
+  'noh-ni': [
+    'https://lrc.la.utexas.edu/lex/master/0484',
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/ni',
+  ],
+  'naf-navle': [
+    'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
+    'https://ordnet.dk/ddo/ordbog/navle',
   ],
 }

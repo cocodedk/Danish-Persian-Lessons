@@ -1,0 +1,29 @@
+@media (min-width: 40rem) {
+  .word-bridge__summary {
+    grid-template-columns: minmax(12rem, 1fr) 4rem minmax(12rem, 1fr) 2rem;
+    min-block-size: 9.25rem;
+    padding-inline: 1.25rem 0.75rem;
+  }
+
+  .word-bridge__span::before,
+  .word-bridge__span::after {
+    border-block-start: 1px solid var(--blue);
+  }
+
+  .word-bridge__fa {
+    font-size: 2.75rem;
+  }
+
+  .word-bridge__da {
+    font-size: 1.625rem;
+  }
+
+  .word-bridge__pron,
+  .word-bridge__gloss {
+    font-size: 0.9375rem;
+  }
+
+  .word-bridge__details {
+    padding: 1rem 1.25rem;
+  }
+}

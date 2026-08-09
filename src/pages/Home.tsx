@@ -8,6 +8,7 @@ import { SettingsCorner } from '../components/SettingsCorner'
 import { StreakLine } from '../components/StreakLine'
 import { RewardShelf } from '../components/RewardShelf'
 import { TypingRounds } from '../components/TypingRounds'
+import { AreaNav } from '../components/AreaNav'
 import { getProfile, setProfile, hasProfileRecord, clearName } from '../progress/profile'
 import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alphabet'
 import { isNameLessonDone } from '../progress/nameLesson'
@@ -18,7 +19,6 @@ import { DEMO_WORD } from '../content/demoWord'
 import { GREETING_ENTRY, GREETING_WITH_NAME_ENTRY, daGreeting } from '../content/greetings'
 import { dueReviewQuestions } from '../review/tasks'
 import { isRetained, reviewStates } from '../review/scheduler'
-import { setJourneyChoice } from '../progress/journey'
 import './Home.css'
 
 export default function Home() {
@@ -108,9 +108,6 @@ export default function Home() {
         <header className="home__masthead">
           <div className="home__identity">
             <h1 className="home__title">Lær persisk skrift</h1>
-            <Link className="home__child-switch" to="/opdag" onClick={() => setJourneyChoice('child')}>
-              Ordværksted
-            </Link>
           </div>
           <SettingsCorner
             name={profile.name}
@@ -124,6 +121,7 @@ export default function Home() {
             <span>{nextStep.meta}</span>
           </Link>
         </header>
+        <AreaNav />
         <div className="home__workspace">
           <section className="home__hero" aria-label="Dagens persiske eksempel">
             <SplitCard
@@ -183,10 +181,6 @@ export default function Home() {
                 />
               ))}
             </div>
-            <Link className="home__word-bridges" to="/ord-der-ligner">
-              <strong>Ord, der ligner</strong>
-              <span>Se persiske og danske ord, der ligner hinanden</span>
-            </Link>
             <TypingRounds faSpelling={profile.faSpelling} />
           </section>
         </div>

@@ -4,8 +4,8 @@ import { RuledSection } from '../components/RuledSection'
 import { LessonImage } from '../components/LessonImage'
 import { PersianText } from '../components/PersianText'
 import { CompactPhraseRow } from '../components/EntryRenderers'
+import { AreaNav } from '../components/AreaNav'
 import { getChildCollection } from '../progress/childCollection'
-import { setJourneyChoice } from '../progress/journey'
 import './ChildJourney.css'
 
 export default function ChildHome() {
@@ -20,10 +20,8 @@ export default function ChildHome() {
             <p className="child-eyebrow">Ordværksted</p>
             <h1>Vælg et persisk ord</h1>
           </div>
-          <Link to="/kursus" onClick={() => setJourneyChoice('course')}>
-            Kursus og noter
-          </Link>
         </header>
+        <AreaNav />
 
         <section className="child-missions" aria-label="Ord du kan vælge">
           {childMissions.map((mission, index) => {

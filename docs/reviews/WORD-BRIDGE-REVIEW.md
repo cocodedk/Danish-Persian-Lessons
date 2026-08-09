@@ -1,80 +1,77 @@
-# Persian–Danish word bridges
+# Persian-Danish word bridges
 
-Status: eight researched starter rows. These are memory clues, not sound rules.
+Status: nineteen reviewed teaching rows. Seventeen are same-meaning cognates supplied for the
+lesson, one has a related history but a shifted modern meaning, and one is only a sound mnemonic.
 
-| Persian | Danish | What is safe to teach |
+The learner page presents a resemblance as a memory clue, never as a mechanical sound rule. Every
+row stores at least two review sources outside the learner bundle and includes contextual Persian
+reading cues.
+
+## Same-meaning cognates
+
+| Persian and IPA | Danish and IPA | What is safe to teach |
 |---|---|---|
-| دندان · dandån | tand | Same old word family and same meaning today. The first Persian `d` lines up with Danish `t`. |
-| ستاد · setåd | sted | A useful old stand/place link, but not a translation today. ستاد means headquarters; `sted` means place. |
-| بند · band | bånd | Both words are tied to “bind”. بند can also be a wall that holds water, but it does not mean water or river. |
-| سیل · seyl | sejle | The words sound close and Danish `sejle` can be used when a place is full of water. They do not come from the same old word. |
-| پدر · pedar | fader / far | Same old word family and same meaning today. The old initial `p` became `f` in Germanic. |
-| ستاره · setåre | stjerne | Same old word family and same meaning today. |
-| ماه · måh | måne | Same old word family and same meaning today. Both words can be traced to the old moon/month family. |
-| در · dar | dør | Same old word family and same meaning today. |
+| پدر · /peˈdæɾ/ | fader · /ˈfæːðʌ/ | Same old word family and same meaning. The initial Persian `p` corresponds to Germanic `f`. |
+| مادر · /mɒːˈdæɾ/ | moder · /ˈmoːðʌ/ | Same old mother word. The `m`, long vowel, and dental consonant remain visible. |
+| برادر · /bæɾɒːˈdæɾ/ | broder · /ˈbʁoːðʌ/ | Same old brother word through the Iranian and Germanic branches. |
+| دختر · /doxˈtæɾ/ | datter · /ˈdadʌ/ | Same old daughter word, although later sound changes obscure the match. |
+| در · /dæɾ/ | dør · /ˈdɶˀɐ̯/ | Same old door word and same modern meaning. |
+| نام · /nɒːm/ | navn · /ˈnɑwˀn/ | Same old name word through Old Persian `nāma` and Old Norse `nafn`. |
+| موش · /muːʃ/ | mus · /ˈmuˀs/ | Same old mouse word; the modern forms remain unusually close. |
+| گرم · /ɡæɾm/ | varm · /ˈvɑːm/ | Same old heat/warm family. The shared `arm` sound is a useful clue. |
+| نو · /nou̯/ | ny · /ˈnyˀ/ | Same old new word through Old Persian `nava` and Old Norse `nýr`. |
+| دو · /do/ | to · /ˈtoˀ/ | Same old word for two; the first consonant differs in the modern forms. |
+| شش · /ʃeʃ/ | seks · /ˈsɛgs/ | Same old word for six and still recognisable across both languages. |
+| نه · /noh/ | ni · /ˈniˀ/ | Same old word for nine through Old Persian `nava` and Old Norse `níu`. |
+| دندان · /dænˈdɒːn/ | tand · /ˈtanˀ/ | Same old tooth family. Persian preserves a longer, repeated-looking form. |
+| ناف · /nɒːf/ | navle · /ˈnɑwlə/ | Same old navel family; the `n` and `v/f` frame remains visible. |
+| ماه · /mɒːh/ | måne · /ˈmɔːnə/ | Same moon/month family. Persian can mean both moon and month. |
+| ستاره · /seˈtɒːɾe/ | stjerne · /ˈsdjæɐ̯nə/ | Same old star family; both preserve a recognisable `s-t-r` frame. |
+| بند · /bænd/ | bånd · /ˈbɔnˀ/ | Same bind/bond family. Persian can also mean a joint or a wall that holds water. |
 
-## Why the warning matters
+## Two qualified bridges
 
-`d` and `t` do not always replace each other. The app calls the match a clue and says it is not a
-rule for all words. Each future pair must store two or more source links and a plain note when the
-modern meanings differ.
+| Persian | Danish | Qualification |
+|---|---|---|
+| ستاد · setåd | sted | A useful old stand/place relation, but not a translation today. ستاد means headquarters. |
+| سیل · seyl | sejle | A sound mnemonic only. سیل means flood; the two words are not historical relatives. |
 
-The word rows and their screen load only when this lesson is opened. The route waits for the page
-before it moves focus to the heading.
+The second row may use the Danish image “Byen sejlede i vand”, but the page must keep the warning
+that the resemblance is not etymological.
 
-## Sources checked
+## Source policy
 
-- The University of Texas [Indo-European Lexicon tooth entry](https://lrc.la.utexas.edu/lex/master/0441)
-  lists Danish `tand` and Iranian `dantan-` under one root.
+The canonical source map is `src/lessons/wordBridgeSources.ts`. It deliberately stays outside the
+learner bundle. The following source families were checked:
+
+- The University of Texas [Indo-European Lexicon](https://lrc.la.utexas.edu/lex/master) for
+  cross-branch reflexes. Direct entries cover father, mother, brother, daughter, door, mouse, warm,
+  two, six, nine, tooth, moon/month, and star.
 - An [etymological dictionary of Persian](https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf)
-  gives Persian دندان from Avestan `danta, dantan`.
-- [Den Danske Ordbog: tand](https://ordnet.dk/ddo/ordbog/tand) gives the Danish history and meaning.
-- [Dehkhoda: ستاد](https://vajehyab.com/dehkhoda/%D8%B3%D8%AA%D8%A7%D8%AF-2) ties the older
-  Persian form to ایستاد, “stood”.
-- [Den Danske Ordbog: sted](https://ordnet.dk/ddo/ordbog/sted) ties Danish `sted` to older
-  `staðr/stede` and `stad`.
-- [Amid: ستاد](https://vajehyab.com/amid/%D8%B3%D8%AA%D8%A7%D8%AF) gives the modern Persian
-  meaning as a centre that runs or leads work.
-- [Encyclopaedia Iranica: بند](https://www.iranicaonline.org/articles/band-dam/) gives the old
-  bind/bond link and the use of بند for walls that hold or lead water.
-- [Den Danske Ordbog: bånd](https://ordnet.dk/ddo/ordbog/b%C3%A5nd) links `bånd` to `binde`.
-- [Den Danske Ordbog: vand](https://ordnet.dk/ddo/ordbog/vand) gives a different history for
-  `vand`, from Old Norse `vatn`.
-- [Encyclopaedia Iranica: floods](https://www.iranicaonline.org/articles/floods/) gives `sayl` and
-  `sayl-āb` as Persian words for floods.
-- [The Arabic Language Academy: سيل](https://www.arabicacademy.gov.eg/ar/%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB/%D9%85%D8%B9%D8%AC%D9%85/%D8%A7%D9%84%D9%85%D8%B9%D8%AC%D9%85-%D8%A7%D9%84%D9%88%D8%B3%D9%8A%D8%B7-19/%D8%B3%D9%8A%D9%84?exact_search=true)
-  gives the Arabic water meaning behind the Persian loan.
-- [Den Danske Ordbog: sejle](https://ordnet.dk/ddo/ordbog/sejle) gives both the different Nordic
-  history and the Danish use for a place that is full of water.
-- The University of Texas [Indo-European Lexicon father entry](https://lrc.la.utexas.edu/lex/master/1521)
-  lists Avestan `pitar-` and Danish `fader` under the same old root.
-- [Den Danske Ordbog: far/fader](https://ordnet.dk/ddo/ordbog/11012328) gives Old Norse `faðir`,
-  Old English `fæder`, and Latin `pater` as related forms.
-- The Persian etymological dictionary above gives Persian `pedar` through Avestan `pitar`.
-- The University of Texas [Indo-European Lexicon star entry](https://lrc.la.utexas.edu/lex/master/1895)
-  lists Avestan star forms and Danish `stjerne` under the same old root.
-- [Den Danske Ordbog: stjerne](https://ordnet.dk/ddo/ordbog/stjerne) gives Old Norse `stjarna`,
-  Old English `steorra`, and Latin `stella`.
-- The Persian etymological dictionary above gives `setâreh` through Avestan and Middle Persian
-  star forms.
-- The University of Texas [Indo-European Lexicon moon/month entry](https://lrc.la.utexas.edu/lex/master/1292)
-  gives Danish `maane` and Old Norse `máni` under the old moon/month root.
-- [Den Danske Ordbog: måne](https://ordnet.dk/ddo/ordbog/m%C3%A5ne) gives Old Norse `máni` and
-  Gothic `mena`, and links the word with `måned`.
-- The Persian etymological dictionary above gives Persian `mâh` and older Iranian forms for both
-  moon and month.
-- The University of Texas [Indo-European Lexicon door entry](https://lrc.la.utexas.edu/lex/master/0435)
-  lists Persian `dar` and Danish `dør` under the same old root.
-- [Den Danske Ordbog: dør](https://ordnet.dk/ddo/ordbog/d%C3%B8r) gives the Danish meaning and
-  older Nordic forms.
-- The Persian etymological dictionary above gives Persian `dar` and its older Iranian forms.
+  for the Persian forms and their older Iranian history.
+- [Den Danske Ordbog](https://ordnet.dk/ddo) for each Danish form, pronunciation context, modern
+  meaning, and the older Nordic or Germanic forms where available.
+- [Encyclopaedia Iranica: band](https://www.iranicaonline.org/articles/band-dam/) for the bind/bond
+  relation and the Persian water-wall sense.
+- [Dehkhoda: ستاد](https://vajehyab.com/dehkhoda/%D8%B3%D8%AA%D8%A7%D8%AF-2) and
+  [DDO: sted](https://ordnet.dk/ddo/ordbog/sted) for the qualified stand/place row.
+- [Encyclopaedia Iranica: floods](https://www.iranicaonline.org/articles/floods/), the
+  [Arabic Language Academy: سيل](https://www.arabicacademy.gov.eg/ar/%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB/%D9%85%D8%B9%D8%AC%D9%85/%D8%A7%D9%84%D9%85%D8%B9%D8%AC%D9%85-%D8%A7%D9%84%D9%88%D8%B3%D9%8A%D8%B7-19/%D8%B3%D9%8A%D9%84?exact_search=true),
+  and [DDO: sejle](https://ordnet.dk/ddo/ordbog/sejle) for the non-cognate water mnemonic.
+
+## Review guardrails
+
+- Never describe one letter correspondence as something that happens “always”.
+- Keep Persian pronunciation, Danish-friendly reading help, and IPA as separate fields.
+- State plainly when present-day meanings differ.
+- Put detailed history behind the comparison row so it supports curiosity without dominating the
+  first glance.
+- Require at least two source links before adding another pair.
 
 ## Ideas checked but not added
 
-- `Farvahar` was not added as a link to Danish `far`. Encyclopaedia Iranica traces the word to
-  [fravaši](https://www.iranicaonline.org/articles/fravasi/), a protective spiritual being tied to
-  the souls of the dead. It does not mean father or God.
-- `ماه · måh` was not linked to Danish `maj` or `majestæt`. [Maj](https://ordnet.dk/ddo/ordbog/maj)
-  comes from Latin *Maius*. [Majestæt](https://ordnet.dk/ddo/ordbog?query=majest%C3%A6t) comes from
-  Latin *maiestas*. Danish `j` has a y-sound here, so neither word has the Persian final `h` sound.
-  The safe bridge is `ماه · måne`.
+- `Farvahar` is not a bridge to Danish `far`. Encyclopaedia Iranica traces it to
+  [fravaši](https://www.iranicaonline.org/articles/fravasi/), a protective spiritual being.
+- `ماه` is not linked to Danish `maj` or `majestæt`. [Maj](https://ordnet.dk/ddo/ordbog/maj) comes
+  from Latin *Maius*, while `majestæt` comes through Latin *maiestas*. The safe bridge is `ماه` and
+  `måne`.
