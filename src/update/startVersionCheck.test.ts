@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { refreshUrl, startVersionCheck } from './startVersionCheck'
+import { refreshUrl, startVersionCheck, startVersionMonitor } from './startVersionCheck'
 
 describe('release version check', () => {
   it('keeps the route while adding the new version to the page URL', () => {
@@ -38,5 +38,36 @@ describe('release version check', () => {
       'https://example.com/app/?app-version=new#/ord-der-ligner',
     )
     expect(script).not.toBeInTheDocument()
+  })
+
+  it('rechecks focused and long-open tabs while preserving the current route', () => {
+    vi.useFakeTimers()
+    const replace = vi.fn()
+    let tick = 0
+    const stop = startVersionMonitor({
+      currentVersion: 'old',
+      baseUrl: '/app/',
+      intervalMs: 60_000,
+      now: () => ++tick,
+      readLatestVersion: () => 'new',
+      replace,
+    })
+
+    expect(document.querySelectorAll('script[src*="version.js"]')).toHaveLength(1)
+    window.location.hash = '#/opdag/ord/ab'
+    window.dispatchEvent(new Event('focus'))
+
+    const focusedCheck = document.querySelector<HTMLScriptElement>('script[src*="version.js"]')!
+    expect(focusedCheck.src).toContain('check=2')
+    focusedCheck.dispatchEvent(new Event('load'))
+    expect(replace.mock.calls.at(-1)?.[0]).toContain('#/opdag/ord/ab')
+
+    vi.advanceTimersByTime(60_000)
+    expect(document.querySelector<HTMLScriptElement>('script[src*="version.js"]')?.src)
+      .toContain('check=3')
+
+    stop()
+    expect(document.querySelectorAll('script[src*="version.js"]')).toHaveLength(0)
+    vi.useRealTimers()
   })
 })

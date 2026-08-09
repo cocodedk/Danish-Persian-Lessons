@@ -8,6 +8,11 @@ interface VersionCheckOptions {
   replace?: (url: string) => void
 }
 
+interface VersionMonitorOptions extends VersionCheckOptions {
+  intervalMs?: number
+  window?: Window
+}
+
 const safeVersion = /^[a-zA-Z0-9._-]{1,64}$/
 
 export function refreshUrl(
@@ -52,4 +57,44 @@ export function startVersionCheck(options: VersionCheckOptions = {}): HTMLScript
   script.addEventListener('error', () => script.remove())
   doc.head.append(script)
   return script
+}
+
+/** Keeps long-open and back-forward-cached tabs on the latest deployed build. */
+export function startVersionMonitor(options: VersionMonitorOptions = {}): () => void {
+  const {
+    intervalMs = 60_000,
+    window: target = window,
+    pageUrl,
+    ...checkOptions
+  } = options
+  let activeScript: HTMLScriptElement | null = null
+
+  const check = () => {
+    activeScript?.remove()
+    activeScript = startVersionCheck({
+      ...checkOptions,
+      document: checkOptions.document ?? target.document,
+      pageUrl: pageUrl ?? target.location.href,
+    })
+  }
+  const checkWhenVisible = () => {
+    if (!target.document.hidden) check()
+  }
+  const checkWhenRestored = (event: PageTransitionEvent) => {
+    if (event.persisted) check()
+  }
+
+  check()
+  const timer = target.setInterval(check, intervalMs)
+  target.addEventListener('focus', check)
+  target.addEventListener('pageshow', checkWhenRestored)
+  target.document.addEventListener('visibilitychange', checkWhenVisible)
+
+  return () => {
+    target.clearInterval(timer)
+    target.removeEventListener('focus', check)
+    target.removeEventListener('pageshow', checkWhenRestored)
+    target.document.removeEventListener('visibilitychange', checkWhenVisible)
+    activeScript?.remove()
+  }
 }

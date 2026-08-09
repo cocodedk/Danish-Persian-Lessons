@@ -93,3 +93,21 @@ test('an old cached page opens the new release without a hard reload', async ({ 
   expect(new URL(page.url()).hash).toBe('#/ord-der-ligner')
   await expect(page.getByRole('heading', { name: 'Ord, der ligner' })).toBeVisible()
 })
+
+test('a long-open tab refreshes the release when it regains focus', async ({ page }) => {
+  let latest = (process.env.GITHUB_SHA || '000000000000').slice(0, 12)
+  await page.route('**/version.js?check=*', (route) => route.fulfill({
+    contentType: 'application/javascript',
+    body: `window.__DPL_LATEST_VERSION__=${JSON.stringify(latest)};`,
+  }))
+
+  await page.goto('./#/opdag/ord/ab')
+  await expect(page.getByRole('heading', { name: 'vand' })).toBeVisible()
+  latest = 'focused-release'
+  await page.evaluate(() => window.dispatchEvent(new Event('focus')))
+
+  await expect.poll(() => new URL(page.url()).searchParams.get('app-version'))
+    .toBe('focused-release')
+  expect(new URL(page.url()).hash).toBe('#/opdag/ord/ab')
+  await expect(page.getByRole('heading', { name: 'vand' })).toBeVisible()
+})
