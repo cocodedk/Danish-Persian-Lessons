@@ -14,6 +14,7 @@ import { NAME_LETTER_IN_WORD_ENTRY, NAME_LETTERS_IN_WORD_ENTRY } from '../conten
 import { PersonalNameText } from '../components/PersonalName'
 import { CompactPhraseRow } from '../components/EntryRenderers'
 import { ReadingCues } from '../components/ReadingCues'
+import { ColorSwatch } from '../components/ColorSwatch'
 import './alphabet.css'
 import './vocab.css'
 
@@ -58,6 +59,7 @@ export default function WordScreen() {
         Ord {index + 1} af {unit.words.length} — {unit.title}
       </p>
 
+      {word.swatch && <ColorSwatch color={word.swatch} size="large" />}
       <SplitCard word={word} lessonImageEntryId={word.entry.id} />
       <ReadingCues entry={word.entry} headingLevel={2} />
 

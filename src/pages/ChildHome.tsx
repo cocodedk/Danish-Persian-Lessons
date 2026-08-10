@@ -7,9 +7,14 @@ import { CompactPhraseRow } from '../components/EntryRenderers'
 import { PronLine } from '../components/PronLine'
 import { conversationBasics } from '../lessons/conversation'
 import { beginnerNumbers } from '../lessons/numbers'
+import { findVocabUnit } from '../lessons/vocab'
+import { ColorSwatch } from '../components/ColorSwatch'
 import { getChildCollection } from '../progress/childCollection'
 import './ChildJourney.css'
 import './ChildNumbers.css'
+import './ChildColors.css'
+
+const colorUnit = findVocabUnit('4')!
 
 function CardImage({ entryId }: { entryId: string }) {
   const image = lessonImageForEntry(entryId)!
@@ -106,6 +111,21 @@ export default function ChildHome() {
             collectedIds={collectedIds}
             showImages={showImages}
           />
+        </section>
+
+        <section className="child-colors" aria-labelledby="child-colors-title">
+          <h2 id="child-colors-title">Farver</h2>
+          <Link className="child-colors__lesson" to="/lesson/ord/4">
+            <span className="child-colors__swatches" aria-hidden="true">
+              {colorUnit.words.map((word) => (
+                word.swatch && <ColorSwatch key={word.id} color={word.swatch} />
+              ))}
+            </span>
+            <span>
+              <PersianText entry={colorUnit.titleEntry} />
+              <strong>Lær otte farver</strong>
+            </span>
+          </Link>
         </section>
 
         <section className="child-numbers" aria-labelledby="child-numbers-title">

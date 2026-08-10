@@ -12,7 +12,8 @@ describe('deterministic simple puzzle breaks', () => {
     }
     for (const groups of Object.values(vocabularyGroups)) {
       for (const group of groups) {
-        expect(group.itemIds.length).toBe(4)
+        expect(group.itemIds.length).toBeGreaterThanOrEqual(2)
+        expect(group.itemIds.length).toBeLessThanOrEqual(4)
         expect(group.puzzle.tasks.length).toBeGreaterThanOrEqual(2)
         expect(group.puzzle.tasks.length).toBeLessThanOrEqual(4)
       }

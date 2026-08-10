@@ -19,10 +19,10 @@ const STARTER_SET: Array<[string, string]> = [
 ]
 
 describe('grade-1 vocabulary data', () => {
-  it('is three units of roughly eight words, all reachable by id', () => {
-    expect(vocabUnits).toHaveLength(3)
+  it('is four focused units of at least six words, all reachable by id', () => {
+    expect(vocabUnits).toHaveLength(4)
     for (const unit of vocabUnits) {
-      expect(unit.words.length, unit.id).toBeGreaterThanOrEqual(8)
+      expect(unit.words.length, unit.id).toBeGreaterThanOrEqual(6)
       expect(findVocabUnit(unit.id)).toBe(unit)
     }
     expect(findVocabUnit('nope')).toBeUndefined()
@@ -39,7 +39,7 @@ describe('grade-1 vocabulary data', () => {
     }
   })
 
-  it('keeps ids unique across all three units', () => {
+  it('keeps ids unique across all units', () => {
     const ids = allVocabWords.map((word) => word.id)
     expect(new Set(ids).size).toBe(ids.length)
   })
@@ -64,13 +64,33 @@ describe('grade-1 vocabulary data', () => {
       'aseman',
       'shab',
       'gol',
+      'qermez',
       'sabz',
       'zard',
+      'sefid',
+      'narenji',
+      'surati',
     ])
     // The others are long vowels all the way through — آب، بابا، نان have
     // nothing to mark, which is exactly why the primer opens on them.
     expect(withoutMarks('مَدرِسه')).toBe('مدرسه')
     expect(withoutMarks('آب')).toBe('آب')
+  })
+
+  it('gives the separate color lesson eight distinct visual swatches', () => {
+    const colors = findVocabUnit('4')!
+    expect(colors.title).toBe('Farver')
+    expect(colors.words).toHaveLength(8)
+    expect(new Set(colors.words.map((word) => word.swatch)).size).toBe(8)
+    expect(colors.words.every((word) => word.swatch)).toBe(true)
+  })
+
+  it('preserves the stable entry ids of colors moved from earlier lessons', () => {
+    const colors = findVocabUnit('4')!
+    const entryId = (wordId: string) => colors.words.find((word) => word.id === wordId)!.entry.id
+    expect(entryId('abi')).toBe('vocabulary-1-abi')
+    expect(entryId('sabz')).toBe('vocabulary-3-sabz')
+    expect(entryId('zard')).toBe('vocabulary-3-zard')
   })
 
   it('holds the unique-answer invariant: no two words in a unit share a meaning or a sound', () => {

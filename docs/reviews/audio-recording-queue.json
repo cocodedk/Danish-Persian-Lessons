@@ -2085,26 +2085,6 @@
       ]
     },
     {
-      "entryId": "vocabulary-1-abi",
-      "domain": "vocabulary",
-      "transcript": "آبی",
-      "plainPersian": "آبی",
-      "danishMeaning": "blå",
-      "soundDa": "åbi",
-      "ipa": "ɒːˈbiː",
-      "stressMarked": true,
-      "expectedFile": "/audio/vocabulary-1-abi.mp3",
-      "requiredBeforeRecording": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics"
-      ],
-      "requiredTakeReview": [
-        "iranian-persian-2",
-        "phonetics"
-      ]
-    },
-    {
       "entryId": "vocabulary-1-nan",
       "domain": "vocabulary",
       "transcript": "نان",
@@ -2585,6 +2565,66 @@
       ]
     },
     {
+      "entryId": "vocabulary-unit-4-title",
+      "domain": "vocabulary",
+      "transcript": "رنگ‌ها",
+      "plainPersian": "رنگ‌ها",
+      "danishMeaning": "Farver",
+      "soundDa": "ranghå",
+      "ipa": "ɾæŋˈhɒː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-unit-4-title.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-4-qermez",
+      "domain": "vocabulary",
+      "transcript": "قِرمِز",
+      "plainPersian": "قرمز",
+      "danishMeaning": "rød",
+      "soundDa": "ghermez",
+      "ipa": "ɢ~ɣeɾˈmez",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-4-qermez.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-1-abi",
+      "domain": "vocabulary",
+      "transcript": "آبی",
+      "plainPersian": "آبی",
+      "danishMeaning": "blå",
+      "soundDa": "åbi",
+      "ipa": "ɒːˈbiː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-1-abi.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "vocabulary-3-sabz",
       "domain": "vocabulary",
       "transcript": "سَبز",
@@ -2614,6 +2654,86 @@
       "ipa": "zæɾd",
       "stressMarked": false,
       "expectedFile": "/audio/vocabulary-3-zard.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-4-siyah",
+      "domain": "vocabulary",
+      "transcript": "سیاه",
+      "plainPersian": "سیاه",
+      "danishMeaning": "sort",
+      "soundDa": "siyåh",
+      "ipa": "siˈjɒːh",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-4-siyah.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-4-sefid",
+      "domain": "vocabulary",
+      "transcript": "سِفید",
+      "plainPersian": "سفید",
+      "danishMeaning": "hvid",
+      "soundDa": "sefid",
+      "ipa": "seˈfiːd",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-4-sefid.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-4-narenji",
+      "domain": "vocabulary",
+      "transcript": "نارَنجی",
+      "plainPersian": "نارنجی",
+      "danishMeaning": "orange",
+      "soundDa": "nårenji",
+      "ipa": "nɒːɾænˈdʒiː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-4-narenji.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-4-surati",
+      "domain": "vocabulary",
+      "transcript": "صورَتی",
+      "plainPersian": "صورتی",
+      "danishMeaning": "lyserød",
+      "soundDa": "surati",
+      "ipa": "suːɾæˈtiː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-4-surati.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -2807,13 +2927,53 @@
     {
       "entryId": "reading-3-2",
       "domain": "vocabulary",
-      "transcript": "گُلِ زَرد",
-      "plainPersian": "گل زرد",
-      "danishMeaning": "gul blomst",
-      "soundDa": "gole zard",
-      "ipa": "ɡole zæɾd",
+      "transcript": "شَب و باران",
+      "plainPersian": "شب و باران",
+      "danishMeaning": "nat og regn",
+      "soundDa": "sjab o bårån",
+      "ipa": "ʃæb o bɒːɾɒːn",
       "stressMarked": false,
       "expectedFile": "/audio/reading-3-2.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-4-1",
+      "domain": "vocabulary",
+      "transcript": "قِرمِز و آبی",
+      "plainPersian": "قرمز و آبی",
+      "danishMeaning": "rød og blå",
+      "soundDa": "ghermez o åbi",
+      "ipa": "ɢeɾmez o ɒːbiː",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-4-1.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-4-2",
+      "domain": "vocabulary",
+      "transcript": "سیاه و سِفید",
+      "plainPersian": "سیاه و سفید",
+      "danishMeaning": "sort og hvid",
+      "soundDa": "siyåh o sefid",
+      "ipa": "sijɒːh o sefiːd",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-4-2.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -2867,13 +3027,33 @@
     {
       "entryId": "reading-3-text",
       "domain": "vocabulary",
-      "transcript": "این خانه اَست. آسِمان آبی اَست. ماه زَرد اَست. شَب اَست.",
-      "plainPersian": "این خانه است. آسمان آبی است. ماه زرد است. شب است.",
-      "danishMeaning": "Dette er et hus. Himlen er blå. Månen er gul. Det er nat.",
-      "soundDa": "in khåne ast. åsemån åbi ast. måh zard ast. sjab ast",
-      "ipa": "iːn xɒːne æst. ɒːsemɒːn ɒːbiː æst. mɒːh zæɾd æst. ʃæb æst",
+      "transcript": "این خانه اَست. این آسِمان اَست. این ماه اَست. شَب اَست.",
+      "plainPersian": "این خانه است. این آسمان است. این ماه است. شب است.",
+      "danishMeaning": "Dette er et hus. Dette er himlen. Dette er månen. Det er nat.",
+      "soundDa": "in khåne ast. in åsemån ast. in måh ast. sjab ast",
+      "ipa": "iːn xɒːne æst. iːn ɒːsemɒːn æst. iːn mɒːh æst. ʃæb æst",
       "stressMarked": false,
       "expectedFile": "/audio/reading-3-text.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-4-text",
+      "domain": "vocabulary",
+      "transcript": "این قِرمِز و آبی اَست. آن سَبز و زَرد اَست. این سیاه و سِفید اَست. آن نارَنجی و صورَتی اَست.",
+      "plainPersian": "این قرمز و آبی است. آن سبز و زرد است. این سیاه و سفید است. آن نارنجی و صورتی است.",
+      "danishMeaning": "Denne er rød og blå. Den der er grøn og gul. Denne er sort og hvid. Den der er orange og lyserød.",
+      "soundDa": "in ghermez o åbi ast. ån sabz o zard ast. in siyåh o sefid ast. ån nårenji o surati ast",
+      "ipa": "iːn ɢeɾmez o ɒːbiː æst. ɒːn sæbz o zæɾd æst. iːn sijɒːh o sefiːd æst. ɒːn nɒːɾændʒiː o suːɾætiː æst",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-4-text.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",

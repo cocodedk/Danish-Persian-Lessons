@@ -68,8 +68,12 @@ describe('bilingual parity', () => {
         'Dette er en skole. Dette er et bord. Dette er en bog. Han eller hun er min ven.',
       ],
       [
-        'این خانه است. آسمان آبی است. ماه زرد است. شب است.',
-        'Dette er et hus. Himlen er blå. Månen er gul. Det er nat.',
+        'این خانه است. این آسمان است. این ماه است. شب است.',
+        'Dette er et hus. Dette er himlen. Dette er månen. Det er nat.',
+      ],
+      [
+        'این قرمز و آبی است. آن سبز و زرد است. این سیاه و سفید است. آن نارنجی و صورتی است.',
+        'Denne er rød og blå. Den der er grøn og gul. Denne er sort og hvid. Den der er orange og lyserød.',
       ],
     ])
   })

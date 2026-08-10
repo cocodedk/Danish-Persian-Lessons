@@ -1,0 +1,27 @@
+.color-swatch {
+  display: block;
+  flex: 0 0 auto;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--swatch);
+}
+
+.color-swatch--small {
+  inline-size: 2.25rem;
+  block-size: 1.35rem;
+}
+
+.color-swatch--large {
+  inline-size: min(100%, 28rem);
+  block-size: clamp(5rem, 18vw, 9rem);
+  margin: 0.75rem auto;
+}
+
+.color-swatch--red { --swatch: var(--swatch-red); }
+.color-swatch--blue { --swatch: var(--swatch-blue); }
+.color-swatch--green { --swatch: var(--swatch-green); }
+.color-swatch--yellow { --swatch: var(--swatch-yellow); }
+.color-swatch--black { --swatch: var(--swatch-black); }
+.color-swatch--white { --swatch: var(--swatch-white); }
+.color-swatch--orange { --swatch: var(--swatch-orange); }
+.color-swatch--pink { --swatch: var(--swatch-pink); }
