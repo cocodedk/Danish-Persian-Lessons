@@ -40,11 +40,6 @@
   gap: 0.25rem;
 }
 
-.child-animals__photos .lesson-image {
-  inline-size: 100%;
-  margin: 0;
-}
-
 .child-animals__photos .lesson-image img {
   border-radius: 2px;
 }
