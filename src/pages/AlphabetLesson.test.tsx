@@ -48,7 +48,7 @@ describe('#/lesson/alphabet', () => {
     open('#/lesson/alphabet')
     fireEvent.click(screen.getByRole('link', { name: 'Til ordværkstedet' }))
     expect(await screen.findByRole('heading', { name: 'Vælg et persisk ord' })).toBeInTheDocument()
-    expect(getJourneyChoice()).toBe('child')
+    expect(getJourneyChoice()).toBe('words')
   })
 
   it('marks completion only after the learner reaches all six steps', () => {

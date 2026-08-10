@@ -87,7 +87,7 @@ export default function Orientation() {
             <BarLink to="/lesson/alphabet" onClick={markOrientationSeen}>
               {step === 5 ? 'Gå til alfabetet' : 'Spring over og gå til alfabetet'}
             </BarLink>
-            <BarLink to="/opdag" onClick={() => setJourneyChoice('child')}>
+            <BarLink to="/opdag" onClick={() => setJourneyChoice('words')}>
               Til ordværkstedet
             </BarLink>
           </>

@@ -1,0 +1,35 @@
+.voice-recorder {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper) 88%, var(--blue));
+}
+
+.voice-recorder h2,
+.voice-recorder p {
+  margin: 0;
+}
+
+.voice-recorder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.voice-recorder button {
+  min-block-size: var(--tap-min);
+  padding-inline: 0.9rem;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--blue);
+  font: inherit;
+  font-weight: 700;
+}
+
+.voice-recorder button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}

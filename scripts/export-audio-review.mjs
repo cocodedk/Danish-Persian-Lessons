@@ -2,7 +2,11 @@ import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 
-const server = await createServer({ appType: 'custom', logLevel: 'silent', server: { middlewareMode: true } })
+const server = await createServer({
+  appType: 'custom',
+  logLevel: 'silent',
+  server: { middlewareMode: true, watch: { ignored: ['**/.audio/**'] } },
+})
 
 try {
   const module = await server.ssrLoadModule('/src/reviews/audioQueue.ts')

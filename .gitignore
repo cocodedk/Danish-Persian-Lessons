@@ -4,8 +4,12 @@ dist/
 coverage/
 .vite/
 *.log
+__pycache__/
 test-results/
 playwright-report/
+
+# Local audio authoring environment and unreviewed drafts
+.audio/
 
 # Env
 .env

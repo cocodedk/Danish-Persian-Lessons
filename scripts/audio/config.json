@@ -1,0 +1,15 @@
+{
+  "voiceModel": "fa_IR-ganji-medium",
+  "voiceModelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "voiceSource": "https://huggingface.co/rhasspy/piper-voices/tree/main/fa/fa_IR/ganji/medium",
+  "sampleRate": 22050,
+  "lengthScale": 1.1,
+  "integratedLufs": -20,
+  "minimumClipSeconds": 0.7,
+  "normalization": "two-pass-dynamic-v1",
+  "correctionLimiter": "limit=0.80:attack=5:release=50:level=false",
+  "truePeakDbtp": -1,
+  "bitrate": "48k",
+  "maxClipBytes": 100000
+}

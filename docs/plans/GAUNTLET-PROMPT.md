@@ -56,7 +56,7 @@ THE GATE for every plan — all countable, all must pass:
     already introduced. No drag, timer, score, lives, audio dependency, random generation, or locks;
     `dpl.v1.puzzles` pays the normal item reward once per completed puzzle ID.
 12. AAA learner experience (012 onward): all three pillars pass independently — Accurate contextual
-    Persian with signed native review and human audio; Adaptive short, local-only spaced retrieval and
+    Persian with signed native review and reviewed audio; Adaptive short, local-only spaced retrieval and
     connected reading; Accessible visible feedback, predictable route focus/scroll, intentionally
     composed mobile/tablet/desktop/ultrawide layouts, WCAG 2.2 AA plus the selected AAA set,
     assistive-technology journeys, and novice usability evidence. The complete release packet in

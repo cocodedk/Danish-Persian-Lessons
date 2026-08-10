@@ -2,10 +2,10 @@
 
 ## Project Overview
 
-A free, mobile-first, purely static web app that teaches Danish speakers to READ Persian (Farsi),
-published on GitHub Pages at https://cocodedk.github.io/Danish-Persian-Lessons/. It assumes no spoken,
-written, or reading knowledge of Persian. Heritage speakers and hesitant readers remain welcome, but
-every Persian item must also work for an absolute beginner. Reading comes first; audio is later.
+A free, mobile-first, purely static web app that teaches Danish speakers to HEAR and SPEAK Persian
+(Farsi) first, with reading and writing kept open as a separate path. It assumes no spoken, written,
+or reading knowledge of Persian. Heritage speakers and hesitant readers remain welcome, but every
+Persian item must also work for an absolute beginner.
 "Danish-Persian-Lessons" is a working title —
 never hardcode it outside `vite.config.ts` and the workflows.
 
@@ -26,7 +26,10 @@ never hardcode it outside `vite.config.ts` and the workflows.
 - Teaching before testing (plan 010): orientation opens before optional name capture; every app-owned
   Persian letter, mark, word, sign, and phrase has Danish help, dansk lydskrift, and standard Tehrani
   IPA from the typed catalog. Exercises may hide answer metadata only while an attempt is active.
-- The curriculum recommends orientation → alphabet → name → vocabulary, but no lesson or puzzle
+- Speaking first (plan 015): picture → reviewed sound → meaning → learner speech. Persian text remains
+  visible but is never required to start speaking. The talk path opens only when its complete first
+  corpus has one named native Persian approval per clip; local drafts are never public.
+- The curriculum recommends speaking → useful words → optional script and alphabet, but no lesson or puzzle
   ever locks another. Puzzle breaks are skippable and replayable (plan 011).
 - Rewards are generous by design (plan 007): every completion celebrates — praise, stickers,
   jingles, levels, bonus-exercise gifts; nothing is ever taken away; streaks rest, never reset;
@@ -36,15 +39,18 @@ never hardcode it outside `vite.config.ts` and the workflows.
 
 ## Curriculum (order matters — no rush)
 
-0. **Orientation**: how Persian writing works — written RIGHT to LEFT, letters join and change
-   shape, no capitals, dots matter (opens plan 003's lesson; shown, not told).
-1. **Alphabet**: the 32 letters, positional forms, a stroke-order drawing for every letter
+0. **Hear and speak**: short picture-book pages model a word or sentence with reviewed Persian audio,
+   Danish meaning, Danish sound help, and IPA. The learner listens, says it, and may hear their own
+   short recording. That recording stays in memory and disappears on leaving the page.
+1. **Useful words**: greetings, animals, daily words, colours, and numbers. Everyday Tehrani and
+   formal standard forms sit side by side when they truly differ.
+2. **Writing orientation**: Persian runs right to left, letters join and change shape, there are no
+   capitals, and dots matter.
+3. **Alphabet and name**: the 32 letters, positional forms, and the learner's own name. It includes
+   a stroke-order drawing for every letter
    (pen right-to-left, dots last), then the vowel marks — زبر (اَ), زیر (اِ), پیش (اُ) and long
    آ او ای — with Danish sound anchors (a i "kat", e i "let", o i "foto", å i "år", u i "du", i i "vi").
-2. **Your name** («نامِ تو»): straight after the alphabet the learner reads and assembles their own
-   name in Persian letters — the motivation hook (plan 006).
-3. **Grade-1 vocabulary**, Iranian first-grade primer order: آب، بابا، نان، مادر… plus من، تو، او، ما، شما، این/آن.
-4. **Exercises**: recognize → match → type (on-screen Persian keyboard component, plan 005).
+4. **Read and write**: grade-1 words, reading cues, matching, and the on-screen Persian keyboard.
 
 Every app-owned Persian letter, word, sign, symbol, and phrase carries Danish help plus pronunciation
 **twice** — dansk lydskrift ("åb") and IPA ([ɒːb], standard Tehrani Persian) — in the typed

@@ -1,12 +1,17 @@
 import type { PronunciationAudio } from './types'
+import approvedRows from './approved.generated.json'
 
-/** Reviewed human recordings land here. This intentionally remains empty
- * until speaker consent and native review evidence exist; generated or browser
- * speech must never masquerade as the release corpus. */
-export const pronunciationAudio: PronunciationAudio[] = []
+/** Only the approval script writes this release corpus. Generated clips carry
+ * their model provenance; human clips carry speaker consent. Both require a
+ * named native Persian reviewer. */
+export const pronunciationAudio = approvedRows as PronunciationAudio[]
 
-const byEntry = new Map(pronunciationAudio.map((row) => [row.entryId, row]))
+const byClip = new Map(pronunciationAudio.map((row) => [row.clipId, row]))
 
-export function findPronunciationAudio(entryId: string | undefined) {
-  return entryId ? byEntry.get(entryId) : undefined
+export function findPronunciationAudio(clipId: string | undefined) {
+  return clipId ? byClip.get(clipId) : undefined
+}
+
+export function pronunciationAudioUrl(file: string, base = import.meta.env.BASE_URL): string {
+  return `${base}${file.replace(/^\//, '')}`
 }

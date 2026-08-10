@@ -3,7 +3,7 @@
 Status: implementation candidate. Native Danish and Persian approval is required before release.
 
 The short Danish line is a reading bridge, not phonetic transcription. IPA remains the precise
-reference, and approved human audio remains the pronunciation authority. A reviewer must read every
+reference, and approved audio remains the pronunciation authority. A reviewer must read every
 manifest row aloud; this table does not waive row-by-row review.
 
 ## Vowels

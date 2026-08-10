@@ -68,7 +68,7 @@ presentation and journey split, not two independent products.
 
 The existing release definition remains valuable:
 
-- **Accurate:** Persian form, contextual sound, Danish help, IPA, and human audio agree.
+- **Accurate:** Persian form, contextual sound, Danish help, IPA, and reviewed audio agree.
 - **Adaptive:** practice stays short and revisits what the learner is ready to retrieve.
 - **Accessible:** every action works across touch, keyboard, assistive technology, sound-off, and
   reduced-motion use.

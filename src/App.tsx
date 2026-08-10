@@ -28,6 +28,8 @@ const ImageCreditsScreen = lazy(() => import('./pages/ImageCreditsScreen'))
 const WordBridgesScreen = lazy(() => import('./pages/WordBridgesScreen'))
 const ChildHome = lazy(() => import('./pages/ChildHome'))
 const ChildWordMission = lazy(() => import('./pages/ChildWordMission'))
+const SpeakingHome = lazy(() => import('./pages/SpeakingHome'))
+const SpeakingPage = lazy(() => import('./pages/SpeakingPage'))
 
 function LoadingRoute({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={<main><p>Henter siden …</p></main>}>{children}</Suspense>
@@ -44,6 +46,8 @@ export default function App() {
           <Route path="/" element={<JourneyGate />} />
           <Route path="/opdag" element={<LoadingRoute><ChildHome /></LoadingRoute>} />
           <Route path="/opdag/ord/:id" element={<LoadingRoute><ChildWordMission /></LoadingRoute>} />
+          <Route path="/tal" element={<LoadingRoute><SpeakingHome /></LoadingRoute>} />
+          <Route path="/tal/:lesson/:page" element={<LoadingRoute><SpeakingPage /></LoadingRoute>} />
           <Route path="/kursus" element={<Home />} />
           <Route path="/lesson/alphabet" element={<AlphabetLesson />} />
           <Route path="/lesson/alphabet/intro" element={<Orientation />} />

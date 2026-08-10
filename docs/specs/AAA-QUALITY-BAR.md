@@ -27,7 +27,7 @@ waivable.
 - Every app-owned Persian item MUST exist in the catalog with stable ID, natural Danish help,
   documented Danish sound spelling, reviewed standard-Tehrani IPA, and contextual role where a glyph
   has more than one pronunciation or function.
-- Every pronounceable static entry MUST have approved human audio. `∅`, learner-generated names, and
+- Every pronounceable static spoken form MUST have approved, provenance-tracked audio. `∅`, learner-generated names, and
   explicitly non-pronounceable controls MUST document why audio does not apply.
 - Two independent native Iranian Persian reviewers MUST approve the content manifest. At least one
   reviewer MUST have primary-literacy teaching or curriculum experience.

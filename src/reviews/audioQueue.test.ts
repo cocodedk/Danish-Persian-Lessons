@@ -5,18 +5,20 @@ import { contentReviewManifest } from './contentManifest'
 import { audioRecordingQueue } from './audioQueue'
 
 describe('audio recording handoff', () => {
-  it('contains every and only missing pronounceable entry with a unique local target', () => {
+  it('contains every missing spoken form with a unique local draft target', () => {
     const missing = contentReviewManifest.rows.filter((row) => row.audioStatus === 'missing')
-    expect(audioRecordingQueue.status).toBe('draft-awaiting-content-approval')
+    expect(audioRecordingQueue.status).toBe('draft-awaiting-native-review')
     expect(audioRecordingQueue.rows).toHaveLength(missing.length)
     expect(audioRecordingQueue.rows).toHaveLength(222)
-    expect(new Set(audioRecordingQueue.rows.map((row) => row.entryId)).size).toBe(missing.length)
-    expect(new Set(audioRecordingQueue.rows.map((row) => row.expectedFile)).size).toBe(missing.length)
+    expect(new Set(audioRecordingQueue.rows.map((row) => row.clipId)).size).toBe(missing.length)
+    expect(new Set(audioRecordingQueue.rows.map((row) => row.expectedDraft)).size).toBe(missing.length)
+    expect(audioRecordingQueue.rows.filter((row) => row.scope === 'talk')).toHaveLength(97)
     for (const row of audioRecordingQueue.rows) {
       const source = missing.find((candidate) => candidate.id === row.entryId)!
       expect(row.transcript).toBe(source.faMarked ?? source.fa)
-      expect(row.expectedFile).toBe(`/audio/${row.entryId}.mp3`)
-      expect(row.requiredTakeReview).toEqual(['iranian-persian-2', 'phonetics'])
+      expect(row.synthesisText).toBe(row.transcript)
+      expect(row.expectedDraft).toBe(`.audio/work/${row.clipId}.mp3`)
+      expect(row.requiredTakeReview).toEqual(['native-persian'])
     }
   })
 

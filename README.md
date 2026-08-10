@@ -1,14 +1,14 @@
 # Danish-Persian Lessons
 
-This free web app teaches Persian reading from the first right-to-left step, with Danish as the language of
-instruction. It assumes no spoken Persian and no knowledge of the script. It also works for heritage speakers
-who understand Persian but never learned to read it, and for readers who want a gentler restart. Every Persian
-item comes with a Danish explanation, an approachable Danish pronunciation, and precise IPA. It runs in the
-browser, with nothing to install and no account to create.
+This free web app is moving to a speaking-first way of learning Persian, with Danish as the language
+of instruction. The existing reading and writing course stays open. The new talk path uses pictures,
+reviewed Persian sound, an approachable Danish pronunciation, and precise IPA. It will become the
+first path only after all 97 launch clips have been checked by a named native Persian speaker. The
+app runs in the browser, with nothing to install and no account to create.
 
-«آموزش خواندن و نوشتن فارسی برای دانمارکی‌زبان‌ها»
+«آموزش گفتاری و نوشتاری فارسی برای دانمارکی‌زبان‌ها»
 
-Lær at læse persisk, helt fra alfabetet.
+Lær at tale persisk. Læs og skriv, når du vil.
 
 ## Website
 
@@ -18,8 +18,10 @@ Lær at læse persisk, helt fra alfabetet.
 
 ## Features
 
-- Lessons start at the alphabet, then move to the marks that make letters pronounceable: زیر، زبر، پیش and
-  the long vowels آ او ای. The marks are drawn in red, the way a teacher writes them over a pupil's word.
+- The reviewed talk path starts with pictures, short words, and short sentences. Learners hear a
+  model, say it, and can record and replay their own voice without saving or sending it.
+- Reading and writing remain available, starting with the alphabet and the vowel marks زیر، زبر، پیش
+  and the long vowels آ او ای.
 - Word cards are split down the middle. Persian on top, set right-to-left and large enough for the
   diacritics to breathe, with the Danish word below it, quieter.
 - Vocabulary follows the Iranian first-grade reader (آب/vand, نان/brød, من/jeg, تو/du), so words arrive in
@@ -29,7 +31,7 @@ Lær at læse persisk, helt fra alfabetet.
 - Progress is written to `localStorage` and stays on the device. No accounts, no analytics, nothing sent
   anywhere. The flip side of that: clearing your browser data clears your progress.
 - Built for a phone. One hand, thumb reach, 360px upward. Bigger screens get the same layout with more air.
-- The app recommends orientation, alphabet, your name, then vocabulary, while leaving every lesson open.
+- The app will recommend speaking first when its reviewed launch audio is complete. Every path stays open.
 - Short tap-only puzzle breaks use material already taught. They are skippable, replayable, and never unlock
   required content.
 - An on-screen Persian keyboard supports typing without a Persian keyboard layout installed.
@@ -42,6 +44,8 @@ The landing site is live in all three languages, and so is the app.
 What ships at [`/app/`](https://cocodedk.github.io/Danish-Persian-Lessons/app/) includes orientation,
 the alphabet and vowel marks, personal-name spelling, first-reader vocabulary, a Persian keyboard,
 generous feedback, and short puzzle breaks. There is no signup and no waiting list.
+The speaking screens and audio pipeline are present but stay closed while the checked-in audio
+manifest is incomplete, so an unreviewed generated voice can never become the learner's model.
 
 ## Build from Source
 
@@ -74,6 +78,23 @@ npm run dev        # Vite dev server for the app
 npm run verify     # lint + tests + build + verify.sh — the local release gate
 ```
 
+
+## Make and review Persian audio
+
+Audio is made locally. Piper creates drafts; it does not publish them. A named native Persian speaker
+must check each clip before the approval script can copy it into the app.
+
+```bash
+npm run audio:setup
+npm run audio:queue
+npm run audio:generate -- --scope talk
+npm run audio:review
+npm run audio:approve -- --decisions /path/to/audio-decisions.json
+npm run audio:verify
+```
+
+Drafts and the review page stay under ignored `.audio/`. Approved, content-hashed MP3 files go to
+`public/audio/`, with their loudness reports and source details checked into the repository.
 ## Architecture
 
 ```
