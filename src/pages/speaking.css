@@ -1,0 +1,151 @@
+.speaking-home > .ruled-section {
+  min-block-size: 100dvh;
+}
+
+.speaking-home__header {
+  display: grid;
+  gap: 0.5rem;
+  max-inline-size: 42rem;
+  margin-block-end: 1.5rem;
+}
+
+.speaking-home__header h1,
+.speaking-home__header p {
+  margin: 0;
+}
+
+.speaking-home__header h1 {
+  font-size: clamp(2.25rem, 8vw, 4rem);
+  line-height: 1.05;
+}
+
+.speaking-lessons {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.speaking-lesson-card {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 34%) 1fr;
+  gap: 0.8rem;
+  align-items: stretch;
+  min-block-size: 8.5rem;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.speaking-lesson-card .lesson-image {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+}
+
+.speaking-lesson-card .lesson-image img {
+  block-size: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+.speaking-lesson-card > .color-swatch {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.speaking-lesson-card > div {
+  display: grid;
+  align-content: center;
+  gap: 0.2rem;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+}
+
+.speaking-number {
+  display: grid;
+  place-items: center;
+  min-block-size: 12rem;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper) 82%, var(--yellow));
+  color: var(--ink);
+  font-size: clamp(5rem, 30vw, 11rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.speaking-number--small {
+  min-block-size: 100%;
+  border: 0;
+  border-radius: 0;
+  font-size: 4.5rem;
+}
+
+.speaking-lesson-card h3,
+.speaking-lesson-card p {
+  margin: 0;
+}
+
+.speaking-lesson-card [lang='fa'] {
+  font-family: var(--font-fa-display);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.speaking-page {
+  display: grid;
+  gap: 1rem;
+  max-inline-size: 46rem;
+  margin-inline: auto;
+}
+
+.speaking-page > .lesson-image {
+  inline-size: 100%;
+  margin: 0;
+}
+
+.speaking-page > .lesson-image img {
+  border-color: var(--ink);
+  border-radius: 4px;
+}
+
+.speaking-page__count {
+  margin-block-start: 0;
+  text-align: center;
+}
+
+.speaking-page__practice {
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  text-align: center;
+}
+
+.speaking-page__practice p {
+  margin: 0;
+}
+
+.speaking-page__done {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 48rem) {
+  .speaking-lessons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .speaking-page:has(> .lesson-image) {
+    grid-template-columns: minmax(18rem, 1fr) minmax(20rem, 1fr);
+    align-items: start;
+  }
+
+  .speaking-page:has(> .lesson-image) > .lesson-image {
+    grid-row: 1 / span 3;
+  }
+}

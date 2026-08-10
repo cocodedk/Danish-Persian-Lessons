@@ -9,6 +9,7 @@ vi.mock('../audio/manifest', () => ({
     locale: 'fa-IR',
     transcript: 'آب',
   } : undefined,
+  pronunciationAudioUrl: (file: string) => `/Danish-Persian-Lessons/app/${file.replace(/^\//, '')}`,
 }))
 
 describe('pronunciation audio controls', () => {
@@ -23,22 +24,23 @@ describe('pronunciation audio controls', () => {
     const { container } = render(<AudioControl audioId="word-ab" />)
     const audio = container.querySelector('audio')!
     expect(audio).toHaveAttribute('preload', 'none')
+    expect(audio).toHaveAttribute('src', '/Danish-Persian-Lessons/app/audio/word-ab.mp3')
     expect(audio).not.toHaveAttribute('autoplay')
 
     fireEvent.click(screen.getByRole('button', { name: 'Langsom 0,8×' }))
-    fireEvent.click(screen.getByRole('button', { name: 'Afspil udtale af آب' }))
-    expect(await screen.findByRole('button', { name: 'Stop udtale af آب' })).toBeEnabled()
+    fireEvent.click(screen.getByRole('button', { name: 'Hør آب' }))
+    expect(await screen.findByRole('button', { name: 'Stop lyden for آب' })).toBeEnabled()
     expect(audio.playbackRate).toBe(0.8)
 
     fireEvent.click(screen.getByRole('button', { name: 'Slå udtalelyd fra' }))
     expect(audio.muted).toBe(true)
-    fireEvent.click(screen.getByRole('button', { name: 'Stop udtale af آب' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Stop lyden for آب' }))
     expect(HTMLMediaElement.prototype.pause).toHaveBeenCalled()
   })
 
   it('stops the previous clip before another starts', async () => {
     render(<><AudioControl audioId="one" /><AudioControl audioId="two" /></>)
-    const play = screen.getAllByRole('button', { name: 'Afspil udtale af آب' })
+    const play = screen.getAllByRole('button', { name: 'Hør آب' })
     fireEvent.click(play[0])
     await screen.findAllByText('Afspiller')
     fireEvent.click(play[1])
@@ -48,7 +50,7 @@ describe('pronunciation audio controls', () => {
   it('stays usable when playback fails', async () => {
     vi.mocked(HTMLMediaElement.prototype.play).mockRejectedValueOnce(new Error('missing'))
     render(<AudioControl audioId="word-ab" />)
-    fireEvent.click(screen.getByRole('button', { name: 'Afspil udtale af آب' }))
-    expect(await screen.findByRole('status')).toHaveTextContent('Du kan stadig læse hjælpen')
+    fireEvent.click(screen.getByRole('button', { name: 'Hør آب' }))
+    expect(await screen.findByRole('status')).toHaveTextContent('Du kan stadig se hjælpen')
   })
 })

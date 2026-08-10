@@ -1,17 +1,35 @@
-export interface PronunciationAudio {
+interface AudioBase {
+  clipId: string
   entryId: string
+  formId: string
   file: string
   locale: 'fa-IR'
-  speakerId: string
   transcript: string
   durationMs: number
   channels: 1
   integratedLufs: number
   truePeakDbtp: number
   loudnessReportRef: string
-  /** Required only when the file exceeds the 100 KB target. */
   sizeException?: string
   reviewedBy: string[]
-  consentRef: string
   license: string
 }
+
+export interface GeneratedPronunciationAudio extends AudioBase {
+  source: 'piper'
+  engineVersion: string
+  voiceModel: string
+  modelSha256: string
+  synthesisText: string
+  sourceTextHash: string
+}
+
+export interface HumanPronunciationAudio extends AudioBase {
+  source: 'human'
+  speakerId: string
+  consentRef: string
+}
+
+export type PronunciationAudio =
+  | GeneratedPronunciationAudio
+  | HumanPronunciationAudio

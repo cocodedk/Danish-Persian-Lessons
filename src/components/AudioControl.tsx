@@ -1,21 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
-import { findPronunciationAudio } from '../audio/manifest'
+import { findPronunciationAudio, pronunciationAudioUrl } from '../audio/manifest'
+import { activateAudio, releaseAudio } from '../audio/playback'
 import './AudioControl.css'
 
-let activeAudio: HTMLAudioElement | null = null
-
-export function AudioControl({ audioId }: { audioId?: string }) {
+export function AudioControl({
+  audioId,
+  onPlay,
+}: {
+  audioId?: string
+  onPlay?: () => void
+}) {
   const row = findPronunciationAudio(audioId)
   const audio = useRef<HTMLAudioElement>(null)
   const [slow, setSlow] = useState(false)
   const [muted, setMuted] = useState(false)
   const [playing, setPlaying] = useState(false)
+  const [played, setPlayed] = useState(false)
   const [failed, setFailed] = useState(false)
 
   useEffect(() => () => {
     const node = audio.current
     if (node) node.pause()
-    if (activeAudio === node) activeAudio = null
+    if (node) releaseAudio(node)
   }, [])
 
   if (!row) return null
@@ -23,16 +29,17 @@ export function AudioControl({ audioId }: { audioId?: string }) {
   async function replay() {
     const node = audio.current
     if (!node) return
-    if (activeAudio && activeAudio !== node) activeAudio.pause()
-    activeAudio = node
+    activateAudio(node)
     node.currentTime = 0
     node.playbackRate = slow ? 0.8 : 1
     try {
       await node.play()
       setPlaying(true)
+      setPlayed(true)
       setFailed(false)
+      onPlay?.()
     } catch {
-      if (activeAudio === node) activeAudio = null
+      releaseAudio(node)
       setPlaying(false)
       setFailed(true)
     }
@@ -43,7 +50,7 @@ export function AudioControl({ audioId }: { audioId?: string }) {
     if (!node) return
     node.pause()
     node.currentTime = 0
-    if (activeAudio === node) activeAudio = null
+    releaseAudio(node)
     setPlaying(false)
   }
 
@@ -62,11 +69,17 @@ export function AudioControl({ audioId }: { audioId?: string }) {
     <div className="audio-control">
       {/* `preload="none"` is the privacy/performance contract: the corpus is
           fetched only after the learner explicitly asks to hear a clip. */}
-      <audio ref={audio} preload="none" src={row.file} onPause={() => setPlaying(false)} onEnded={stop} />
-      <button type="button" aria-label={`Afspil udtale af ${row.transcript}`} onClick={replay}>
-        {playing ? 'Afspiller' : 'Hør igen'}
+      <audio
+        ref={audio}
+        preload="none"
+        src={pronunciationAudioUrl(row.file)}
+        onPause={() => setPlaying(false)}
+        onEnded={stop}
+      />
+      <button type="button" aria-label={`Hør ${row.transcript}`} onClick={replay}>
+        {playing ? 'Afspiller' : played ? 'Hør igen' : 'Hør'}
       </button>
-      <button type="button" aria-label={`Stop udtale af ${row.transcript}`} disabled={!playing} onClick={stop}>
+      <button type="button" aria-label={`Stop lyden for ${row.transcript}`} disabled={!playing} onClick={stop}>
         Stop
       </button>
       <button type="button" aria-pressed={!slow} onClick={() => chooseSpeed(false)}>Normal 1×</button>
@@ -76,7 +89,7 @@ export function AudioControl({ audioId }: { audioId?: string }) {
       <button type="button" aria-pressed={muted} aria-label={muted ? 'Slå udtalelyd til' : 'Slå udtalelyd fra'} onClick={toggleMute}>
         {muted ? 'Lyd til' : 'Lyd fra'}
       </button>
-      {failed && <span role="status">Lyden kunne ikke afspilles. Du kan stadig læse hjælpen.</span>}
+      {failed && <span role="status">Lyden virker ikke. Du kan stadig se hjælpen.</span>}
     </div>
   )
 }

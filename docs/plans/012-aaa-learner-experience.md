@@ -28,7 +28,7 @@ Where an older plan conflicts, this plan and its specs win. `CLAUDE.md` and
 
 Ship a trustworthy beginner course, not merely a polished script gallery. “AAA” means:
 
-- **Accurate:** contextual Persian orthography, sound, IPA, Danish help, and human audio agree.
+- **Accurate:** contextual Persian orthography, sound, IPA, Danish help, and reviewed audio agree.
 - **Adaptive:** short retrieval sessions revisit material over time and distinguish exposure from
   retained learning.
 - **Accessible:** every action responds visibly, every route starts predictably, and the complete app
@@ -62,7 +62,7 @@ These are reproducible baseline failures, not optional polish:
 - No milestone may knowingly leave a learner-facing contradiction live. Use a dormant capability or
   finish the vertical slice before exposing it.
 - Permitted new development dependencies: `@playwright/test` and `@axe-core/playwright`. There are no
-  new runtime dependencies. Human audio is static, lazy-loaded content.
+  new runtime dependencies. Reviewed audio is static, lazy-loaded content.
 - Preserve all add-only rewards. Review due state may change; earned ticks, stickers, levels, and
   completion records never decrease.
 - Record native review decisions and usability findings as evidence, not chat summaries.
@@ -111,12 +111,13 @@ These are reproducible baseline failures, not optional polish:
 4. Use fluid tokens and component container queries with tested fallbacks. Resizing, zooming, split
    screen, and rotation preserve selection, input, scroll restoration, and task state.
 
-## Milestone 4 — Native human audio
+## Milestone 4 — Native-reviewed audio
 
-1. Record every static pronounceable catalog entry with a native standard-Tehrani speaker. Letter
-   sound/function and letter name remain separate entries. Dynamic learner names never invent audio.
-2. Validate files, IDs, transcripts, speaker consent, licence, loudness, duration, and asset budgets
-   through one checked manifest.
+1. Generate local drafts or record a native standard-Tehrani speaker for every static spoken form.
+   Letter sound/function and letter name remain separate. Dynamic learner names never invent audio.
+2. Require a named native Persian review for generated clips. Human recordings also keep speaker
+   consent. Validate files, IDs, transcripts, provenance, licence, loudness, duration, and asset
+   budgets through one checked manifest.
 3. Add an explicit replay control beside pronunciation help. Never autoplay. Mute and playback speed
    are learner-controlled; an unavailable clip never blocks reading or completion.
 4. Lazy-load clips on demand and verify that initial page load does not request the audio corpus.
@@ -161,7 +162,7 @@ These are reproducible baseline failures, not optional polish:
       letter-to-word pronunciation contradiction.
 - [ ] Every forward route opens at its heading; Back restores prior position; unique titles ship.
 - [ ] Wrong, correct, skipped, and typed attempts reveal visible help without dock occlusion.
-- [ ] Human audio covers 100% of static pronounceable entries and remains optional, lazy, and offline-safe.
+- [ ] Reviewed audio covers 100% of static spoken forms and remains optional, lazy, and offline-safe.
 - [ ] Default review sessions are short, deterministic, spaced, cumulative, and local-only.
 - [ ] Exposure, successful retrieval, retained learning, and due review are distinct states in copy
       and storage.

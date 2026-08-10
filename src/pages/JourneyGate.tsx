@@ -5,19 +5,26 @@ import { PersianText } from '../components/PersianText'
 import { Button } from '../components/Button'
 import { childMissions } from '../child/missions'
 import { getJourneyChoice, hasCourseHistory, setJourneyChoice } from '../progress/journey'
+import { talkAudioReady } from '../speaking/lessons'
 import './JourneyGate.css'
 
 export default function JourneyGate() {
   const navigate = useNavigate()
   const choice = getJourneyChoice()
+  const speakingReady = talkAudioReady()
   const firstMission = childMissions.find(({ imageEntryId }) => imageEntryId) ?? childMissions[0]
 
-  if (choice) return <Navigate to={choice === 'child' ? '/opdag' : '/kursus'} replace />
+  if (choice) {
+    const target = choice === 'speak' && speakingReady
+      ? '/tal' : choice === 'words' ? '/opdag' : '/kursus'
+    return <Navigate to={target} replace />
+  }
   if (hasCourseHistory()) return <Navigate to="/kursus" replace />
+  if (speakingReady) return <Navigate to="/tal" replace />
 
-  function choose(next: 'child' | 'course') {
+  function choose(next: 'words' | 'script') {
     setJourneyChoice(next)
-    navigate(next === 'child' ? '/opdag' : '/kursus')
+    navigate(next === 'words' ? '/opdag' : '/kursus')
   }
 
   return (
@@ -36,12 +43,12 @@ export default function JourneyGate() {
               <PersianText entry={firstMission.word.entry} marked />
               <span>{firstMission.word.da}</span>
             </div>
-            <Button onClick={() => choose('child')}>Lav et persisk ord</Button>
+            <Button onClick={() => choose('words')}>Lav et persisk ord</Button>
           </section>
 
           <section className="journey-gate__course" aria-label="Hele kurset">
             <p>Vil du se alfabetet, udtalen og alle noterne?</p>
-            <Button variant="quiet" onClick={() => choose('course')}>
+            <Button variant="quiet" onClick={() => choose('script')}>
               Åbn kursus og noter
             </Button>
           </section>

@@ -32,11 +32,11 @@ describe('AreaNav', () => {
     expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('aria-current', 'page')
 
     fireEvent.click(screen.getByRole('link', { name: 'Lektioner' }))
-    expect(getJourneyChoice()).toBe('course')
+    expect(getJourneyChoice()).toBe('script')
     expect(screen.getByRole('link', { name: 'Lektioner' })).toHaveAttribute('aria-current', 'page')
 
     fireEvent.click(screen.getByRole('link', { name: 'Ord' }))
-    expect(getJourneyChoice()).toBe('child')
+    expect(getJourneyChoice()).toBe('words')
   })
 
   it('keeps child word pages and lesson pages inside their parent destination', () => {

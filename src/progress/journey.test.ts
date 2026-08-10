@@ -10,11 +10,21 @@ describe('journey preference', () => {
   })
 
   it('round-trips each supported choice', () => {
-    setJourneyChoice('child')
-    expect(getJourneyChoice()).toBe('child')
+    setJourneyChoice('words')
+    expect(getJourneyChoice()).toBe('words')
 
-    setJourneyChoice('course')
-    expect(getJourneyChoice()).toBe('course')
+    setJourneyChoice('script')
+    expect(getJourneyChoice()).toBe('script')
+
+    setJourneyChoice('speak')
+    expect(getJourneyChoice()).toBe('speak')
+  })
+
+  it('migrates old saved choices', () => {
+    writeJSON('journey', { choice: 'child' })
+    expect(getJourneyChoice()).toBe('words')
+    writeJSON('journey', { choice: 'course' })
+    expect(getJourneyChoice()).toBe('script')
   })
 
   it('ignores corrupt and unknown stored choices', () => {

@@ -1,41 +1,62 @@
-# Human audio review protocol
+# Reviewed Persian audio protocol
 
-Status: infrastructure ready; zero recordings approved.
+Status: scripts ready; zero clips approved. The public talk path stays closed.
 
-`audio-recording-queue.json` is generated with `npm run review:audio`. It lists all 177 static
-pronounceable entries and their exact candidate transcript, IPA, expected file path, and reviewers.
-Its status is `draft-awaiting-content-approval`: do not record a row while its Persian, stress, IPA,
-or Danish cue still has an unresolved content decision.
+`npm run audio:queue` writes the checked-in review queue. It currently has 222 missing spoken
+forms: 97 for the first talk corpus and 125 for the writing path. Each row fixes the Persian text,
+Danish meaning, Danish sound spelling, IPA, register, source hash input, and draft path.
 
-## Before recording
+## 1. Make local drafts
 
-1. The two Iranian reviewers and phonetics reviewer approve the row's Persian, transcript, IPA, and
-   stress in the content-review decisions.
-2. Record one native standard-Tehrani speaker profile with qualification, environment, microphone,
-   consent reference, and licence. Keep private personal consent outside the public repository; the
-   manifest stores only its controlled reference.
-3. Use the queue's exact filename under `public/audio/`. Letter sound/function and letter name are
-   separate entries and must not share one recording.
+```bash
+npm run audio:setup
+npm run audio:queue
+npm run audio:generate -- --scope talk
+```
 
-## Take requirements
+`audio:setup` creates an ignored Python environment and downloads the checksummed Persian Ganji
+voice. `audio:generate` runs Piper locally, makes mono MP3 drafts, normalizes them, and writes actual
+loudness and true-peak measurements. All output stays under ignored `.audio/`; this step cannot
+write the public manifest.
 
-- quiet, non-reverberant, mono recording with no clipped release or processing artifact;
-- integrated loudness from -22 to -18 LUFS and true peak no higher than -1 dBTP;
-- normal natural pace; the app produces optional 0.8× playback from the same approved take;
-- target at most 100 KB. A larger intelligible phrase needs a concrete `sizeException`;
-- no generated voice, browser speech synthesis, or fabricated whole-name recording.
+Use `--clip <clip-id>` to make one draft or `--scope writing` for the later script path.
 
-Save the machine-readable loudness output as `docs/reviews/audio/<entry-id>.json`. Add the manifest
-row only after the file and report exist. The source checks require the file, mono channel count,
-metrics, duration, consent/licence references, and two unique take reviewers.
+## 2. Native Persian review
 
-## Independent review
+```bash
+npm run audio:review
+```
 
-The second native Iranian reviewer checks the take against the approved transcript without relying
-on the filename. The phonetics reviewer independently checks segmental pronunciation, length,
-stress, trimming, and alignment. Both reviewer IDs go in `reviewedBy`; the speaker alone cannot count
-as both approvals.
+Open the local page printed by the command. Enter a stable reviewer ID. For every clip, read the
+Persian and Danish meaning, check the Danish sound help and IPA, then listen at normal speed. Approve
+only when the clip is clear, natural, and matches all four. Leave the box empty when a word, sound,
+stress, pace, or meaning is wrong. Add a short note when useful. Download the decision file.
 
-Run `npm run test -- --run src/audio/manifest.test.ts src/reviews/audioQueue.test.ts`, then the full
-`npm run verify`. A passing manifest check proves artifact integrity, not speaker consent or human
-accuracy by itself; those signatures remain required in the release packet.
+One named native Persian reviewer is required for every generated clip. The tool does not infer or
+invent approval. A human recording may replace a generated clip later; it must also carry speaker,
+consent, licence, and review data.
+
+## 3. Publish only approved clips
+
+```bash
+npm run audio:approve -- --decisions /path/to/audio-decisions.json
+```
+
+The approval script rejects unnamed reviews, missing drafts, loudness outside -22 to -18 LUFS, true
+peak above -1 dBTP, and files over 100 KB without a note. It copies only approved clips to
+`public/audio/` with a content hash in the filename. It also writes a release report and the
+generated manifest row with the Piper version, model checksum, exact synthesis text, and source hash.
+
+Browser speech synthesis and runtime generation are forbidden. The app plays only checked-in files
+that have passed this step.
+
+## 4. Verify
+
+```bash
+npm run audio:verify
+npm run verify
+```
+
+Verification checks the manifest, native review IDs, local file presence, content hashes, channels,
+measurements, reports, size notes, and stray public MP3 files. A green check proves file integrity
+and recorded approval data; it cannot prove that the reviewer listened carefully.

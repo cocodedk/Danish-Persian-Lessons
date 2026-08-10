@@ -60,38 +60,59 @@ from a helper sequence that states `[b] [æ] [b] [k]`.
 - `lydskrift` MUST use one published Danish convention table. Each mapping includes Danish examples,
   ambiguity notes, and the related IPA. New spellings require Danish and Persian approval.
 - IPA is precise reference; Danish sound spelling is the immediate bridge. Both remain available,
-  but neither substitutes for hearing a native recording.
+  but neither substitutes for hearing a reviewed recording.
 - A word's `fa`, marked teaching form, IPA, Danish cue, meaning, reading cues, and audio transcript MUST
   agree in one review row. Any mismatch blocks release.
 
-## Human audio specification
+## Reviewed audio specification
 
 ### Coverage and manifest
 
-Every static pronounceable `PersianEntry` MUST reference an audio manifest row containing:
+Every static pronounceable `SpokenForm` MUST reference one approved manifest row. The manifest
+records a stable clip and form ID, measurements, review, licence, and exact source details:
 
 ```ts
-interface PronunciationAudio {
+interface AudioBase {
+  clipId: string
   entryId: string
+  formId: string
   file: string
   locale: 'fa-IR'
-  speakerId: string
   transcript: string
   durationMs: number
+  channels: 1
+  integratedLufs: number
+  truePeakDbtp: number
+  loudnessReportRef: string
   reviewedBy: string[]
-  consentRef: string
   license: string
 }
+
+type PronunciationAudio = AudioBase & (
+  | {
+      source: 'piper'
+      engineVersion: string
+      voiceModel: string
+      modelSha256: string
+      synthesisText: string
+      sourceTextHash: string
+    }
+  | { source: 'human'; speakerId: string; consentRef: string }
+)
 ```
 
-Displayed letter sound/function and displayed letter name are separate entries and recordings.
-Non-pronounceable symbols use an explicit `audioNotApplicable` reason. Dynamic learner names have
-letter/context cues but no fabricated full-name audio or IPA.
+Everyday Tehrani and formal standard Persian are separate `SpokenForm` rows when they differ.
+Displayed letter sound/function and letter name remain separate. Non-pronounceable symbols use an
+explicit `audioNotApplicable` reason. Dynamic learner names have letter/context cues but no
+fabricated full-name audio or IPA.
 
 ### Recording quality
 
-- One native standard-Tehrani speaker records in a quiet, non-reverberant environment. A second native
-  reviewer checks every take against the approved transcript and IPA.
+- Piper may create local draft clips from one checksummed Persian voice model. Draft files stay
+  ignored and MUST NOT enter the manifest or public app.
+- One named native Persian reviewer MUST hear each generated draft and check it against the Persian,
+  Danish meaning, Danish sound spelling, and IPA before approval. A human recording also carries its
+  speaker and consent reference.
 - Files MUST be mono, consistently normalized, free of clipping/noise processing artifacts, and
   trimmed without cutting consonant releases. Target integrated loudness is -20 LUFS ±2 and true peak
   no higher than -1 dBTP.
@@ -99,13 +120,15 @@ letter/context cues but no fabricated full-name audio or IPA.
   intelligibility. The manifest check records all exceptions.
 - Audio is learner-initiated, replayable, and optionally slowed to 0.8× with pitch preservation. It
   MUST never be the only carrier of instructions, correctness, or meaning.
+- Browser speech synthesis and all runtime audio generation are forbidden. Only checked-in,
+  content-hashed files from the approval step may play in the app.
 
 ## Teaching sequence
 
 Every new mapping follows this order:
 
 1. **Orient:** show what is new and where attention belongs.
-2. **Model:** show form, contextual sound, human audio, Danish cue, IPA, and meaning.
+2. **Model:** show form, contextual sound, reviewed audio, Danish cue, IPA, and meaning.
 3. **Discriminate:** compare it with one useful near-neighbour and explain the distinction.
 4. **Guide:** complete one supported tap/read/assembly action with help visible.
 5. **Retrieve:** answer once without answer-defining help.

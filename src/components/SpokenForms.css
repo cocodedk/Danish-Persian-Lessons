@@ -1,0 +1,41 @@
+.spoken-forms {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.spoken-form {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.9rem;
+  border-block-start: 3px solid var(--blue);
+  background: var(--paper);
+  text-align: center;
+}
+
+.spoken-form h2,
+.spoken-form p {
+  margin: 0;
+}
+
+.spoken-form h2 {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.spoken-form__fa {
+  font-family: var(--font-fa-display);
+  font-size: clamp(3rem, 15vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.spoken-form__meaning {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+@media (min-width: 48rem) {
+  .spoken-forms:has(.spoken-form + .spoken-form) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

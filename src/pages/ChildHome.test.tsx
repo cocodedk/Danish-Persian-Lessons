@@ -92,6 +92,6 @@ describe('ChildHome', () => {
     renderHome()
     fireEvent.click(screen.getByRole('link', { name: 'Lektioner' }))
     expect(screen.getByRole('heading', { name: 'Hele kurset' })).toBeInTheDocument()
-    expect(getJourneyChoice()).toBe('course')
+    expect(getJourneyChoice()).toBe('script')
   })
 })

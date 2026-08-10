@@ -1,6 +1,6 @@
 import { keyExists, readJSON, writeJSON } from './storage'
 
-export type JourneyChoice = 'child' | 'course'
+export type JourneyChoice = 'speak' | 'words' | 'script'
 
 interface JourneyPreference {
   choice?: unknown
@@ -25,7 +25,10 @@ const LEGACY_COURSE_KEYS = [
 
 export function getJourneyChoice(): JourneyChoice | undefined {
   const { choice } = readJSON<JourneyPreference>(KEY, {})
-  return choice === 'child' || choice === 'course' ? choice : undefined
+  if (choice === 'speak' || choice === 'words' || choice === 'script') return choice
+  if (choice === 'child') return 'words'
+  if (choice === 'course') return 'script'
+  return undefined
 }
 
 export function setJourneyChoice(choice: JourneyChoice): void {

@@ -5,6 +5,20 @@ export interface Pronunciation {
   ipa: string
 }
 
+export type SpokenRegister = 'neutral' | 'everyday' | 'formal'
+
+/** One way an entry is actually said. Most words have one neutral form;
+ * conversation may put everyday Tehrani beside formal standard Persian. */
+export interface SpokenForm {
+  id: string
+  register: SpokenRegister
+  fa: string
+  faMarked?: string
+  da: string
+  pron: Pronunciation
+  audioId: string
+}
+
 export type ReadingCueRole =
   | 'consonant'
   | 'long-vowel'
@@ -42,6 +56,23 @@ export interface PersianEntry {
   audioId?: string
   /** Why this entry has no recording when it intentionally carries no sound. */
   audioNotApplicable?: string
+  /** Explicit spoken variants. Omit when the canonical form is also how the
+   * entry is said; spokenFormsFor derives the neutral form in that case. */
+  spokenForms?: readonly SpokenForm[]
+}
+
+export function spokenFormsFor(entry: PersianEntry): readonly SpokenForm[] {
+  if (entry.audioNotApplicable) return []
+  if (entry.spokenForms?.length) return entry.spokenForms
+  return [{
+    id: 'neutral',
+    register: 'neutral',
+    fa: entry.fa,
+    ...(entry.faMarked ? { faMarked: entry.faMarked } : {}),
+    da: entry.da,
+    pron: entry.pron,
+    audioId: entry.audioId ?? entry.id,
+  }]
 }
 
 /** Keeps catalog declarations narrow without adding a runtime dependency. */

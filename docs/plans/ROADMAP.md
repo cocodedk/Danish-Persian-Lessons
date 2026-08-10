@@ -41,7 +41,7 @@ the app exists, `npm run verify`) is green.
 
 - [ ] **P12 — [012-aaa-learner-experience.md](012-aaa-learner-experience.md)** (depends on P10–P11):
       the Accurate · Adaptive · Accessible release program — contextual Persian orthography and
-      native review, human pronunciation audio, short spaced-retrieval sessions, connected reading,
+      native review, reviewed pronunciation audio, short spaced-retrieval sessions, connected reading,
       predictable navigation and visible feedback, mobile-first through intentional ultrawide
       responsiveness, WCAG 2.2 AA plus selected AAA criteria, and a documented novice-usability
       release packet. Normative specs live in [`docs/specs/`](../specs/).
@@ -56,6 +56,11 @@ the app exists, `npm run verify`) is green.
       P12–P13): a child-first front door, three reviewed visual word missions, guided and memory
       building, a permanent collection, and a separate grown-up course entrance under the same
       accurate, adaptive, accessible foundation. Normative child specs live in [`docs/specs/`](../specs/).
+
+- [ ] **P15 — [015-speaking-first-audio.md](015-speaking-first-audio.md)**: speaking becomes the first
+      path only after 97 locally generated Persian clips pass named native review. The scripts,
+      provenance model, picture-book screens, private voice replay, separate progress, and complete
+      launch gate are implemented; audio review and public activation remain open.
 
 ## Later (not planned yet — do not build ahead)
 

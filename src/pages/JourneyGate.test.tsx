@@ -26,18 +26,18 @@ describe('JourneyGate', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Lav et persisk ord' }))
     expect(screen.getByRole('heading', { name: 'Ordværksted' })).toBeInTheDocument()
-    expect(getJourneyChoice()).toBe('child')
+    expect(getJourneyChoice()).toBe('words')
   })
 
   it('opens and saves the grown-up course choice', () => {
     renderGate()
     fireEvent.click(screen.getByRole('button', { name: 'Åbn kursus og noter' }))
     expect(screen.getByRole('heading', { name: 'Hele kurset' })).toBeInTheDocument()
-    expect(getJourneyChoice()).toBe('course')
+    expect(getJourneyChoice()).toBe('script')
   })
 
   it('routes a returning learner through the saved front door', () => {
-    setJourneyChoice('child')
+    setJourneyChoice('words')
     renderGate()
     expect(screen.getByRole('heading', { name: 'Ordværksted' })).toBeInTheDocument()
     expect(screen.queryByText('Persisk på din måde')).not.toBeInTheDocument()

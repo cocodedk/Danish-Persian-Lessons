@@ -5,7 +5,7 @@ import { createServer } from 'vite'
 const server = await createServer({
   appType: 'custom',
   logLevel: 'silent',
-  server: { middlewareMode: true },
+  server: { middlewareMode: true, watch: { ignored: ['**/.audio/**'] } },
 })
 
 try {
