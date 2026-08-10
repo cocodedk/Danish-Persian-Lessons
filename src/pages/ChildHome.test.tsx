@@ -66,6 +66,15 @@ describe('ChildHome', () => {
     expect(within(section).getByText('دَه')).toBeVisible()
   })
 
+  it('opens a separate animal lesson with clear photo choices', () => {
+    renderHome()
+    const section = screen.getByRole('heading', { name: 'Dyr' }).closest('section')!
+    const link = within(section).getByRole('link', { name: /Lær otte dyr/ })
+    expect(link).toHaveAttribute('href', '/lesson/ord/5')
+    expect(link.querySelectorAll('.lesson-image--thumbnail')).toHaveLength(4)
+    expect(within(link).getByText('حیوان‌ها')).toBeVisible()
+  })
+
   it('opens the word bridges directly from the workshop', () => {
     renderHome()
     fireEvent.click(screen.getByRole('link', { name: 'Ordbroer' }))

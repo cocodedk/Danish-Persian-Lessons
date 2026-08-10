@@ -28,12 +28,6 @@
   color: var(--ink);
 }
 
-.celebration__da {
-  font-family: var(--font-latin);
-  font-size: 1rem;
-  color: var(--ink);
-}
-
 .celebration__welcome {
   /* Stacked, not a wrapping row — fa, pron, da, the same order and shape as
      the praise row above it (and every other specimen in the app). */

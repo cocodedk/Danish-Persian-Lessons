@@ -6,6 +6,7 @@ import { startVersionMonitor } from './update/startVersionCheck'
 import './styles/fonts.css'
 import './styles/tokens.css'
 import './styles/global.css'
+import './styles/sharedPatterns.css'
 
 const rootEl = document.getElementById('root')
 if (!rootEl) {

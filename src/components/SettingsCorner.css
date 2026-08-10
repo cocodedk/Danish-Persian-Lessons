@@ -145,13 +145,6 @@
   font-size: 1rem;
 }
 
-.settings-corner__privacy {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--ink);
-  opacity: 0.8;
-}
-
 .settings-corner__privacy[lang='fa'] {
   font-family: var(--font-fa);
   font-size: 1.125rem;

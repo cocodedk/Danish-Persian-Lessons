@@ -1,0 +1,68 @@
+.child-animals__lesson {
+  display: grid;
+  grid-template-areas:
+    'photos title'
+    'photos copy';
+  grid-template-columns: minmax(8rem, 1fr) minmax(7rem, auto);
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  min-block-size: var(--tap-min);
+  margin-block-start: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.child-animals__title {
+  display: grid;
+  grid-area: title;
+  gap: 0.1rem;
+}
+
+.child-animals__title [lang='fa'] {
+  font-family: var(--font-fa-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.child-animals__title .pron-line {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.child-animals__photos {
+  display: grid;
+  grid-area: photos;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.child-animals__photos .lesson-image {
+  inline-size: 100%;
+  margin: 0;
+}
+
+.child-animals__photos .lesson-image img {
+  border-radius: 2px;
+}
+
+.child-animals__lesson strong {
+  grid-area: copy;
+}
+
+@media (max-width: 24rem) {
+  .child-animals__lesson {
+    grid-template-areas:
+      'title'
+      'photos'
+      'copy';
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .child-animals__photos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

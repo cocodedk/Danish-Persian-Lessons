@@ -19,8 +19,8 @@ const STARTER_SET: Array<[string, string]> = [
 ]
 
 describe('grade-1 vocabulary data', () => {
-  it('is four focused units of at least six words, all reachable by id', () => {
-    expect(vocabUnits).toHaveLength(4)
+  it('is five focused units of at least six words, all reachable by id', () => {
+    expect(vocabUnits).toHaveLength(5)
     for (const unit of vocabUnits) {
       expect(unit.words.length, unit.id).toBeGreaterThanOrEqual(6)
       expect(findVocabUnit(unit.id)).toBe(unit)
@@ -70,6 +70,11 @@ describe('grade-1 vocabulary data', () => {
       'sefid',
       'narenji',
       'surati',
+      'gorbe',
+      'sag',
+      'parande',
+      'asb',
+      'khargush',
     ])
     // The others are long vowels all the way through — آب، بابا، نان have
     // nothing to mark, which is exactly why the primer opens on them.
@@ -83,6 +88,21 @@ describe('grade-1 vocabulary data', () => {
     expect(colors.words).toHaveLength(8)
     expect(new Set(colors.words.map((word) => word.swatch)).size).toBe(8)
     expect(colors.words.every((word) => word.swatch)).toBe(true)
+  })
+
+  it('gives the separate animal lesson eight common animals', () => {
+    const animals = findVocabUnit('5')!
+    expect(animals.title).toBe('Dyr')
+    expect(animals.words.map((word) => word.da)).toEqual([
+      'kat',
+      'hund',
+      'fugl',
+      'fisk',
+      'hest',
+      'ko',
+      'kanin',
+      'mus',
+    ])
   })
 
   it('preserves the stable entry ids of colors moved from earlier lessons', () => {

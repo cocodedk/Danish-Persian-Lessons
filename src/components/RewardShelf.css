@@ -12,19 +12,6 @@
   margin: 0 0 0.5rem;
 }
 
-.reward-shelf__fa {
-  font-family: var(--font-fa);
-  font-size: 1.125rem;
-  line-height: 1.9;
-  color: var(--ink);
-}
-
-.reward-shelf__da {
-  font-family: var(--font-latin);
-  font-size: 1rem;
-  color: var(--ink);
-}
-
 .reward-shelf__stamps {
   display: flex;
   flex-wrap: wrap;

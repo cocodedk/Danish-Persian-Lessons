@@ -19,9 +19,17 @@ const items = [
   ['miz', 2, 'Et træbord'],
   ['dar', 2, 'En gammel trædør'],
   ['gol', 3, 'En lyserød blomst'],
+  ['gorbe', 5, 'En kat'],
+  ['sag', 5, 'En hund'],
+  ['parande', 5, 'En fugl'],
+  ['mahi', 5, 'En fisk i vand'],
+  ['asb', 5, 'En hest'],
+  ['gav', 5, 'En ko'],
+  ['khargush', 5, 'En kanin'],
+  ['mush', 5, 'En mus'],
 ] as const
 
-const focalPoints: Partial<Record<(typeof items)[number][0], string>> = {
+const focalPoints: Partial<Record<(typeof items)[number][0], `${number}% ${number}%`>> = {
   to: '75% 50%',
   an: '84% 50%',
 }

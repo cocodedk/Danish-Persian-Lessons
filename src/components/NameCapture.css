@@ -36,12 +36,6 @@
   color: var(--ink);
 }
 
-.name-capture__rule {
-  border: 0;
-  border-block-start: 1px solid var(--rule);
-  margin: 0;
-}
-
 .name-capture form {
   display: flex;
   flex-direction: column;
@@ -63,13 +57,6 @@
   background: var(--card);
   color: var(--ink);
   font-size: 1.0625rem;
-}
-
-.name-capture__hint {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--ink);
-  opacity: 0.8;
 }
 
 .name-capture__actions {

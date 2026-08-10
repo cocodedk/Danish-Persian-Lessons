@@ -6,8 +6,9 @@ const imageDir = join(root, 'public', 'lesson-images')
 const manifestPaths = ['lesson-images.json', 'lesson-images.generated.json']
   .map((name) => join(root, 'src', 'images', name))
 const expectedIds = [
-  'ab', 'an', 'baba', 'dar', 'dust', 'gol', 'in', 'ketab', 'khane',
-  'ma', 'madar', 'man', 'medad', 'miz', 'nan', 'salam', 'to', 'u',
+  'ab', 'an', 'asb', 'baba', 'dar', 'dust', 'gav', 'gol', 'gorbe', 'in',
+  'ketab', 'khane', 'khargush', 'ma', 'madar', 'mahi', 'man', 'medad',
+  'miz', 'mush', 'nan', 'parande', 'sag', 'salam', 'to', 'u',
 ]
 const errors = []
 
@@ -81,7 +82,7 @@ const manifests = await Promise.all(manifestPaths.map(async (path) => (
 )))
 const images = manifests.flatMap((manifest) => manifest.images)
 const ids = images.map((image) => image.id).sort()
-if (JSON.stringify(ids) !== JSON.stringify(expectedIds)) fail('Kataloget skal have alle 18 lokale billeder')
+if (JSON.stringify(ids) !== JSON.stringify(expectedIds)) fail('Kataloget skal have alle 26 lokale billeder')
 
 const listedFiles = new Set()
 const entryIds = new Set()

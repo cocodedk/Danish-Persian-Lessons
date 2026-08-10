@@ -16,7 +16,9 @@ export default function ImageCreditsScreen() {
           <li key={image.creditId} id={image.creditId}>
             <h2>{image.altDa}</h2>
             <p>
-              {'creditLabel' in image ? image.creditLabel : 'Foto'}: {image.creator} · {image.sourceName}
+              {'creditLabel' in image && typeof image.creditLabel === 'string'
+                ? image.creditLabel
+                : 'Foto'}: {image.creator} · {image.sourceName}
             </p>
             <p>
               <a href={image.sourcePage} target="_blank" rel="noreferrer">

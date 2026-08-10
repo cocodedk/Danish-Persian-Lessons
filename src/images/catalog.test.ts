@@ -23,6 +23,14 @@ const imageEntryIds = [
   'vocabulary-2-miz',
   'vocabulary-2-dar',
   'vocabulary-3-gol',
+  'vocabulary-5-gorbe',
+  'vocabulary-5-sag',
+  'vocabulary-5-parande',
+  'vocabulary-5-mahi',
+  'vocabulary-5-asb',
+  'vocabulary-5-gav',
+  'vocabulary-5-khargush',
+  'vocabulary-5-mush',
 ]
 
 const sourceImages = [...manifest.images, ...generatedManifest.images]
@@ -30,7 +38,7 @@ const sourceImages = [...manifest.images, ...generatedManifest.images]
 describe('lesson image catalog', () => {
   it('contains the complete starter set and matches the source records', () => {
     expect(lessonImages.flatMap((image) => image.entryIds)).toEqual(imageEntryIds)
-    expect(sourceImages).toHaveLength(18)
+    expect(sourceImages).toHaveLength(26)
 
     for (const image of lessonImages) {
       const source = sourceImages.find((item) => item.id === image.id)

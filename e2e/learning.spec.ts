@@ -149,7 +149,7 @@ test('initial routes never request the dormant audio corpus', async ({ page }) =
   expect(audioRequests).toEqual([])
 })
 
-test('a word photo follows Persian and sound, and stays hidden until a quiz answer', async ({ page }) => {
+test('a word shows Persian, sound, Danish and its photo, and hides the photo until a quiz answer', async ({ page }) => {
   await open(page, '#/lesson/ord/1/ab')
   const image = page.getByRole('img', { name: 'Et glas vand' })
   await expect(image).toBeVisible()
@@ -161,7 +161,7 @@ test('a word photo follows Persian and sound, and stays hidden until a quiz answ
     const danish = card.querySelector('.da-word')!
     const follows = (first: Element, second: Element) =>
       Boolean(first.compareDocumentPosition(second) & Node.DOCUMENT_POSITION_FOLLOWING)
-    return follows(persian, sound) && follows(sound, photo) && follows(photo, danish)
+    return follows(persian, sound) && follows(sound, danish) && follows(danish, photo)
   })
   expect(orderIsRight).toBe(true)
 
