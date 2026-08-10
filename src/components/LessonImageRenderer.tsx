@@ -13,18 +13,35 @@ function localSrcSet(srcSet: string): string {
 export default function LessonImageRenderer({
   entryId,
   eager,
+  size = 'teaching',
 }: {
   entryId: string
   eager: boolean
+  size?: 'teaching' | 'thumbnail'
 }) {
   const image = lessonImageForEntry(entryId)
   if (!image) return null
+  if (size === 'thumbnail') {
+    return (
+      <div className="lesson-image lesson-image--thumbnail">
+        <img
+          src={lessonImageUrl(image.cardSrc)}
+          width="120"
+          height="90"
+          alt={image.altDa}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          style={{ objectPosition: image.focalPoint }}
+        />
+      </div>
+    )
+  }
   const webp = image.sources.find((source) => source.type === 'image/webp')!
   const jpeg = image.sources.find((source) => source.type === 'image/jpeg')!
   const fallback = jpeg.srcSet.split(' ')[0]
 
   return (
-    <div className="lesson-image">
+    <div className="lesson-image lesson-image--teaching">
       <picture>
         <source
           type={webp.type}

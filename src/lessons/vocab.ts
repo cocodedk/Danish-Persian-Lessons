@@ -130,6 +130,22 @@ export const vocabUnits: VocabUnit[] = [
       ['surati', 'صورتی', 'صورَتی', 'lyserød', 'surati', 'suːɾæˈtiː', 'pink'],
     ]),
   },
+  {
+    id: '5',
+    title: 'Dyr',
+    titleEntry: defineEntry({ id: 'vocabulary-unit-5-title', kind: 'phrase', fa: 'حیوان‌ها', da: 'Dyr', pron: { da: 'heyvånhå', ipa: 'hejvɒːnˈhɒː' } }),
+    summary: 'Kat, hund, fugl, fisk og fire dyr mere',
+    words: words('5', [
+      ['gorbe', 'گربه', 'گُربه', 'kat', 'gorbe', 'ɡoɾˈbe'],
+      ['sag', 'سگ', 'سَگ', 'hund', 'sag', 'sæɡ'],
+      ['parande', 'پرنده', 'پَرَنده', 'fugl', 'parande', 'pæˈɾænde'],
+      ['mahi', 'ماهی', 'ماهی', 'fisk', 'måhi', 'mɒːˈhiː'],
+      ['asb', 'اسب', 'اَسب', 'hest', 'asb', 'æsb'],
+      ['gav', 'گاو', 'گاو', 'ko', 'gåv', 'ɡɒːv'],
+      ['khargush', 'خرگوش', 'خَرگوش', 'kanin', 'khargusj', 'xæɾˈɡuːʃ'],
+      ['mush', 'موش', 'موش', 'mus', 'musj', 'muːʃ'],
+    ]),
+  },
 ]
 
 /** The unit with this id, or undefined — a hand-typed URL names no unit. */

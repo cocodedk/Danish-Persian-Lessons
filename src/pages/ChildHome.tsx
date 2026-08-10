@@ -4,6 +4,7 @@ import { RuledSection } from '../components/RuledSection'
 import { lessonImageForEntry, lessonImageUrl } from '../images/catalog'
 import { PersianText } from '../components/PersianText'
 import { CompactPhraseRow } from '../components/EntryRenderers'
+import { LessonImage } from '../components/LessonImage'
 import { PronLine } from '../components/PronLine'
 import { conversationBasics } from '../lessons/conversation'
 import { beginnerNumbers } from '../lessons/numbers'
@@ -13,8 +14,10 @@ import { getChildCollection } from '../progress/childCollection'
 import './ChildJourney.css'
 import './ChildNumbers.css'
 import './ChildColors.css'
+import './ChildAnimals.css'
 
 const colorUnit = findVocabUnit('4')!
+const animalUnit = findVocabUnit('5')!
 
 function CardImage({ entryId }: { entryId: string }) {
   const image = lessonImageForEntry(entryId)!
@@ -125,6 +128,22 @@ export default function ChildHome() {
               <PersianText entry={colorUnit.titleEntry} />
               <strong>Lær otte farver</strong>
             </span>
+          </Link>
+        </section>
+
+        <section className="child-colors child-animals" aria-labelledby="child-animals-title">
+          <h2 id="child-animals-title">Dyr</h2>
+          <Link className="child-animals__lesson" to="/lesson/ord/5">
+            <div className="child-animals__title">
+              <PersianText entry={animalUnit.titleEntry} />
+              <PronLine {...animalUnit.titleEntry.pron} />
+            </div>
+            <div className="child-animals__photos">
+              {animalUnit.words.slice(0, 4).map((word) => (
+                <LessonImage key={word.id} entryId={word.entry.id} size="thumbnail" />
+              ))}
+            </div>
+            <strong>Lær otte dyr</strong>
           </Link>
         </section>
 

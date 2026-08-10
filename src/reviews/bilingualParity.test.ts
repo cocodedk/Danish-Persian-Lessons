@@ -75,6 +75,10 @@ describe('bilingual parity', () => {
         'این قرمز و آبی است. آن سبز و زرد است. این سیاه و سفید است. آن نارنجی و صورتی است.',
         'Denne er rød og blå. Den der er grøn og gul. Denne er sort og hvid. Den der er orange og lyserød.',
       ],
+      [
+        'این پرنده است. آن ماهی است. این خرگوش است. آن موش است.',
+        'Dette er en fugl. Det der er en fisk. Dette er en kanin. Det der er en mus.',
+      ],
     ])
   })
 

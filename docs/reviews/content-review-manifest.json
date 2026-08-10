@@ -6155,6 +6155,622 @@
       ]
     },
     {
+      "id": "vocabulary-unit-5-title",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "حیوان‌ها",
+      "da": "Dyr",
+      "soundDa": "heyvånhå",
+      "ipa": "hejvɒːnˈhɒː",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "حیوان‌ها",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "heyvånhå",
+            "ipa": "hejvɒːnˈhɒː"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "vocabulary-unit-5-title",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-gorbe",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "گربه",
+      "faMarked": "گُربه",
+      "da": "kat",
+      "soundDa": "gorbe",
+      "ipa": "ɡoɾˈbe",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "گ",
+          "role": "consonant",
+          "helpDa": "gaf: g i \"gul\"",
+          "pron": {
+            "da": "g i \"gul\"",
+            "ipa": "ɡ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ُ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "o i “foto”",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ب",
+          "role": "consonant",
+          "helpDa": "be: b i \"bil\"",
+          "pron": {
+            "da": "b i \"bil\"",
+            "ipa": "b"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ه",
+          "role": "written-vowel",
+          "helpDa": "He sidst i dette ord skriver lyden e",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-gorbe",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-sag",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "سگ",
+      "faMarked": "سَگ",
+      "da": "hund",
+      "soundDa": "sag",
+      "ipa": "sæɡ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "گ",
+          "role": "consonant",
+          "helpDa": "gaf: g i \"gul\"",
+          "pron": {
+            "da": "g i \"gul\"",
+            "ipa": "ɡ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "vocabulary-5-sag",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-parande",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "پرنده",
+      "faMarked": "پَرَنده",
+      "da": "fugl",
+      "soundDa": "parande",
+      "ipa": "pæˈɾænde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "پ",
+          "role": "consonant",
+          "helpDa": "pe: p i \"pose\"",
+          "pron": {
+            "da": "p i \"pose\"",
+            "ipa": "p"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 2,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "display": "ه",
+          "role": "written-vowel",
+          "helpDa": "He sidst i dette ord skriver lyden e",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-parande",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-mahi",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "ماهی",
+      "faMarked": "ماهی",
+      "da": "fisk",
+      "soundDa": "måhi",
+      "ipa": "mɒːˈhiː",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ه",
+          "role": "consonant",
+          "helpDa": "he do-tjeshm: h i \"hus\"",
+          "pron": {
+            "da": "h i \"hus\"",
+            "ipa": "h"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ی",
+          "role": "long-vowel",
+          "helpDa": "Ye skriver langt i her",
+          "pron": {
+            "da": "i i “vi”",
+            "ipa": "iː"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-mahi",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-asb",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "اسب",
+      "faMarked": "اَسب",
+      "da": "hest",
+      "soundDa": "asb",
+      "ipa": "æsb",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ا",
+          "role": "carrier",
+          "helpDa": "Alef bærer vokalen først i ordet; den har ikke en ekstra lyd her"
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ب",
+          "role": "consonant",
+          "helpDa": "be: b i \"bil\"",
+          "pron": {
+            "da": "b i \"bil\"",
+            "ipa": "b"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-asb",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-gav",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "گاو",
+      "faMarked": "گاو",
+      "da": "ko",
+      "soundDa": "gåv",
+      "ipa": "ɡɒːv",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "گ",
+          "role": "consonant",
+          "helpDa": "gaf: g i \"gul\"",
+          "pron": {
+            "da": "g i \"gul\"",
+            "ipa": "ɡ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "و",
+          "role": "consonant",
+          "helpDa": "vav: v i \"vand\"",
+          "pron": {
+            "da": "v i \"vand\"",
+            "ipa": "v"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-gav",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-khargush",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "خرگوش",
+      "faMarked": "خَرگوش",
+      "da": "kanin",
+      "soundDa": "khargusj",
+      "ipa": "xæɾˈɡuːʃ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "خ",
+          "role": "consonant",
+          "helpDa": "khe: ch i tysk \"Bach\"",
+          "pron": {
+            "da": "ch i tysk \"Bach\"",
+            "ipa": "x"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "گ",
+          "role": "consonant",
+          "helpDa": "gaf: g i \"gul\"",
+          "pron": {
+            "da": "g i \"gul\"",
+            "ipa": "ɡ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Vav skriver langt u her",
+          "pron": {
+            "da": "u i “du”",
+            "ipa": "uː"
+          }
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "display": "ش",
+          "role": "consonant",
+          "helpDa": "shin: sj i \"sjal\"",
+          "pron": {
+            "da": "sj i \"sjal\"",
+            "ipa": "ʃ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-khargush",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-5-mush",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "موش",
+      "faMarked": "موش",
+      "da": "mus",
+      "soundDa": "musj",
+      "ipa": "muːʃ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Vav skriver langt u her",
+          "pron": {
+            "da": "u i “du”",
+            "ipa": "uː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ش",
+          "role": "consonant",
+          "helpDa": "shin: sj i \"sjal\"",
+          "pron": {
+            "da": "sj i \"sjal\"",
+            "ipa": "ʃ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-mush",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "reading-function-o",
       "domain": "vocabulary",
       "kind": "word",
@@ -6800,6 +7416,122 @@
       "cueCoverage": "token",
       "roleSensitive": true,
       "audioId": "reading-4-2",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "reading-5-1",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "گربه و سگ",
+      "faMarked": "گُربه و سَگ",
+      "da": "kat og hund",
+      "soundDa": "gorbe o sag",
+      "ipa": "ɡoɾˈbe o sæɡ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "گربه",
+          "role": "whole",
+          "helpDa": "kat",
+          "pron": {
+            "da": "gorbe",
+            "ipa": "ɡoɾˈbe"
+          }
+        },
+        {
+          "start": 5,
+          "end": 6,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 7,
+          "end": 9,
+          "display": "سگ",
+          "role": "whole",
+          "helpDa": "hund",
+          "pron": {
+            "da": "sag",
+            "ipa": "sæɡ"
+          }
+        }
+      ],
+      "cueCoverage": "token",
+      "roleSensitive": true,
+      "audioId": "reading-5-1",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "reading-5-2",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "اسب و گاو",
+      "faMarked": "اَسب و گاو",
+      "da": "hest og ko",
+      "soundDa": "asb o gåv",
+      "ipa": "æsb o ɡɒːv",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "اسب",
+          "role": "whole",
+          "helpDa": "hest",
+          "pron": {
+            "da": "asb",
+            "ipa": "æsb"
+          }
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 6,
+          "end": 9,
+          "display": "گاو",
+          "role": "whole",
+          "helpDa": "ko",
+          "pron": {
+            "da": "gåv",
+            "ipa": "ɡɒːv"
+          }
+        }
+      ],
+      "cueCoverage": "token",
+      "roleSensitive": true,
+      "audioId": "reading-5-2",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [
@@ -7494,6 +8226,163 @@
       "cueCoverage": "token",
       "roleSensitive": true,
       "audioId": "reading-4-text",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "reading-5-text",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "این پرنده است. آن ماهی است. این خرگوش است. آن موش است.",
+      "faMarked": "این پَرَنده اَست. آن ماهی اَست. این خَرگوش اَست. آن موش اَست.",
+      "da": "Dette er en fugl. Det der er en fisk. Dette er en kanin. Det der er en mus.",
+      "soundDa": "in parande ast. ån måhi ast. in khargusj ast. ån musj ast",
+      "ipa": "iːn pæˈɾænde æst. ɒːn mɒːˈhiː æst. iːn xæɾˈɡuːʃ æst. ɒːn muːʃ æst",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "این",
+          "role": "whole",
+          "helpDa": "denne, dette",
+          "pron": {
+            "da": "in",
+            "ipa": "iːn"
+          }
+        },
+        {
+          "start": 4,
+          "end": 9,
+          "display": "پرنده",
+          "role": "whole",
+          "helpDa": "fugl",
+          "pron": {
+            "da": "parande",
+            "ipa": "pæˈɾænde"
+          }
+        },
+        {
+          "start": 10,
+          "end": 13,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        },
+        {
+          "start": 15,
+          "end": 17,
+          "display": "آن",
+          "role": "whole",
+          "helpDa": "den, det (derovre)",
+          "pron": {
+            "da": "ån",
+            "ipa": "ɒːn"
+          }
+        },
+        {
+          "start": 18,
+          "end": 22,
+          "display": "ماهی",
+          "role": "whole",
+          "helpDa": "fisk",
+          "pron": {
+            "da": "måhi",
+            "ipa": "mɒːˈhiː"
+          }
+        },
+        {
+          "start": 23,
+          "end": 26,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        },
+        {
+          "start": 28,
+          "end": 31,
+          "display": "این",
+          "role": "whole",
+          "helpDa": "denne, dette",
+          "pron": {
+            "da": "in",
+            "ipa": "iːn"
+          }
+        },
+        {
+          "start": 32,
+          "end": 37,
+          "display": "خرگوش",
+          "role": "whole",
+          "helpDa": "kanin",
+          "pron": {
+            "da": "khargusj",
+            "ipa": "xæɾˈɡuːʃ"
+          }
+        },
+        {
+          "start": 38,
+          "end": 41,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        },
+        {
+          "start": 43,
+          "end": 45,
+          "display": "آن",
+          "role": "whole",
+          "helpDa": "den, det (derovre)",
+          "pron": {
+            "da": "ån",
+            "ipa": "ɒːn"
+          }
+        },
+        {
+          "start": 46,
+          "end": 49,
+          "display": "موش",
+          "role": "whole",
+          "helpDa": "mus",
+          "pron": {
+            "da": "musj",
+            "ipa": "muːʃ"
+          }
+        },
+        {
+          "start": 50,
+          "end": 53,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        }
+      ],
+      "cueCoverage": "token",
+      "roleSensitive": true,
+      "audioId": "reading-5-text",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [

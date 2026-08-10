@@ -1,0 +1,30 @@
+.streak-line__fa,
+.reward-shelf__fa {
+  font-family: var(--font-fa);
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+.streak-line__da,
+.reward-shelf__da,
+.celebration__da {
+  font-family: var(--font-latin);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.rule-divider,
+.name-capture__rule {
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+  margin: 0;
+}
+
+.name-capture__hint,
+.settings-corner__privacy {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ink);
+  opacity: 0.8;
+}

@@ -2745,6 +2745,186 @@
       ]
     },
     {
+      "entryId": "vocabulary-unit-5-title",
+      "domain": "vocabulary",
+      "transcript": "حیوان‌ها",
+      "plainPersian": "حیوان‌ها",
+      "danishMeaning": "Dyr",
+      "soundDa": "heyvånhå",
+      "ipa": "hejvɒːnˈhɒː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-unit-5-title.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-gorbe",
+      "domain": "vocabulary",
+      "transcript": "گُربه",
+      "plainPersian": "گربه",
+      "danishMeaning": "kat",
+      "soundDa": "gorbe",
+      "ipa": "ɡoɾˈbe",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-5-gorbe.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-sag",
+      "domain": "vocabulary",
+      "transcript": "سَگ",
+      "plainPersian": "سگ",
+      "danishMeaning": "hund",
+      "soundDa": "sag",
+      "ipa": "sæɡ",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-5-sag.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-parande",
+      "domain": "vocabulary",
+      "transcript": "پَرَنده",
+      "plainPersian": "پرنده",
+      "danishMeaning": "fugl",
+      "soundDa": "parande",
+      "ipa": "pæˈɾænde",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-5-parande.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-mahi",
+      "domain": "vocabulary",
+      "transcript": "ماهی",
+      "plainPersian": "ماهی",
+      "danishMeaning": "fisk",
+      "soundDa": "måhi",
+      "ipa": "mɒːˈhiː",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-5-mahi.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-asb",
+      "domain": "vocabulary",
+      "transcript": "اَسب",
+      "plainPersian": "اسب",
+      "danishMeaning": "hest",
+      "soundDa": "asb",
+      "ipa": "æsb",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-5-asb.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-gav",
+      "domain": "vocabulary",
+      "transcript": "گاو",
+      "plainPersian": "گاو",
+      "danishMeaning": "ko",
+      "soundDa": "gåv",
+      "ipa": "ɡɒːv",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-5-gav.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-khargush",
+      "domain": "vocabulary",
+      "transcript": "خَرگوش",
+      "plainPersian": "خرگوش",
+      "danishMeaning": "kanin",
+      "soundDa": "khargusj",
+      "ipa": "xæɾˈɡuːʃ",
+      "stressMarked": true,
+      "expectedFile": "/audio/vocabulary-5-khargush.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "vocabulary-5-mush",
+      "domain": "vocabulary",
+      "transcript": "موش",
+      "plainPersian": "موش",
+      "danishMeaning": "mus",
+      "soundDa": "musj",
+      "ipa": "muːʃ",
+      "stressMarked": false,
+      "expectedFile": "/audio/vocabulary-5-mush.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "reading-function-o",
       "domain": "vocabulary",
       "transcript": "و",
@@ -2985,6 +3165,46 @@
       ]
     },
     {
+      "entryId": "reading-5-1",
+      "domain": "vocabulary",
+      "transcript": "گُربه و سَگ",
+      "plainPersian": "گربه و سگ",
+      "danishMeaning": "kat og hund",
+      "soundDa": "gorbe o sag",
+      "ipa": "ɡoɾˈbe o sæɡ",
+      "stressMarked": true,
+      "expectedFile": "/audio/reading-5-1.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-5-2",
+      "domain": "vocabulary",
+      "transcript": "اَسب و گاو",
+      "plainPersian": "اسب و گاو",
+      "danishMeaning": "hest og ko",
+      "soundDa": "asb o gåv",
+      "ipa": "æsb o ɡɒːv",
+      "stressMarked": false,
+      "expectedFile": "/audio/reading-5-2.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
       "entryId": "reading-1-text",
       "domain": "vocabulary",
       "transcript": "این آب اَست. آن نان اَست. او بابا اَست.",
@@ -3054,6 +3274,26 @@
       "ipa": "iːn ɢeɾmez o ɒːbiː æst. ɒːn sæbz o zæɾd æst. iːn sijɒːh o sefiːd æst. ɒːn nɒːɾændʒiː o suːɾætiː æst",
       "stressMarked": false,
       "expectedFile": "/audio/reading-4-text.mp3",
+      "requiredBeforeRecording": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics"
+      ],
+      "requiredTakeReview": [
+        "iranian-persian-2",
+        "phonetics"
+      ]
+    },
+    {
+      "entryId": "reading-5-text",
+      "domain": "vocabulary",
+      "transcript": "این پَرَنده اَست. آن ماهی اَست. این خَرگوش اَست. آن موش اَست.",
+      "plainPersian": "این پرنده است. آن ماهی است. این خرگوش است. آن موش است.",
+      "danishMeaning": "Dette er en fugl. Det der er en fisk. Dette er en kanin. Det der er en mus.",
+      "soundDa": "in parande ast. ån måhi ast. in khargusj ast. ån musj ast",
+      "ipa": "iːn pæˈɾænde æst. ɒːn mɒːˈhiː æst. iːn xæɾˈɡuːʃ æst. ɒːn muːʃ æst",
+      "stressMarked": true,
+      "expectedFile": "/audio/reading-5-text.mp3",
       "requiredBeforeRecording": [
         "iranian-persian-1",
         "iranian-persian-2",

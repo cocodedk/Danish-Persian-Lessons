@@ -14,19 +14,6 @@
   grid-row: 1 / span 3;
 }
 
-.streak-line__fa {
-  font-family: var(--font-fa);
-  font-size: 1.125rem;
-  line-height: 1.9;
-  color: var(--ink);
-}
-
-.streak-line__da {
-  font-family: var(--font-latin);
-  font-size: 1rem;
-  color: var(--ink);
-}
-
 /* A resting streak is drawn a shade quieter — asleep, not gone. Nothing here
    turns red: red is the teacher's correction pen, and there is no correction. */
 .streak-line--resting .streak-line__fa,

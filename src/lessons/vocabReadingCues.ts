@@ -84,6 +84,14 @@ const CUES: Record<string, ReadingCue[]> = {
   sefid: [consonant(0, 'س'), shortVowel(1, '◌ِ', 'e i “let”', 'e'), consonant(1, 'ف'), ii(2), consonant(3, 'د')],
   narenji: [consonant(0, 'ن'), aa(1), consonant(2, 'ر'), shortVowel(3, '◌َ', 'a i “kat”', 'æ'), consonant(3, 'ن'), consonant(4, 'ج'), ii(5)],
   surati: [consonant(0, 'ص'), uu(1), consonant(2, 'ر'), shortVowel(3, '◌َ', 'a i “kat”', 'æ'), consonant(3, 'ت'), ii(4)],
+  gorbe: [consonant(0, 'گ'), shortVowel(1, '◌ُ', 'o i “foto”', 'o'), consonant(1, 'ر'), consonant(2, 'ب'), writtenVowel(3, 'ه', 'e i “let”', 'e', 'He sidst i dette ord skriver lyden e')],
+  sag: [consonant(0, 'س'), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'گ')],
+  parande: [consonant(0, 'پ'), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'ر'), shortVowel(2, '◌َ', 'a i “kat”', 'æ'), consonant(2, 'ن'), consonant(3, 'د'), writtenVowel(4, 'ه', 'e i “let”', 'e', 'He sidst i dette ord skriver lyden e')],
+  mahi: [consonant(0, 'م'), aa(1), consonant(2, 'ه'), ii(3)],
+  asb: [carrier(0), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'س'), consonant(2, 'ب')],
+  gav: [consonant(0, 'گ'), aa(1), consonant(2, 'و')],
+  khargush: [consonant(0, 'خ'), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'ر'), consonant(2, 'گ'), uu(3), consonant(4, 'ش')],
+  mush: [consonant(0, 'م'), uu(1), consonant(2, 'ش')],
 }
 
 export function vocabReadingCues(id: string): ReadingCue[] {

@@ -63,8 +63,8 @@ export function SplitCard({
 
       <div className="split-card__pane split-card__pane--da" lang="da">
         {daGreeting && <p className="split-card__greeting">{daGreeting}</p>}
-        {lessonImageEntryId && <LessonImage entryId={lessonImageEntryId} eager />}
         <DaWord>{word.da}</DaWord>
+        {lessonImageEntryId && <LessonImage entryId={lessonImageEntryId} eager />}
       </div>
     </section>
   )
