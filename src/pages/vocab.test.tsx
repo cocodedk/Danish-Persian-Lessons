@@ -3,7 +3,7 @@
 // finishing a unit pays and how the two exercise rounds play is
 // vocabRounds.test.tsx.
 import { describe, it, expect } from 'vitest'
-import { screen, fireEvent, within } from '@testing-library/react'
+import { screen, fireEvent, waitFor, within } from '@testing-library/react'
 import { setProfile } from '../progress/profile'
 import { getRewards } from '../rewards/engine'
 import { vocabUnits, findVocabUnit } from '../lessons/vocab'
@@ -56,6 +56,16 @@ describe('any unit, any word, any time', () => {
     expect(screen.getByText(third.titleEntry.fa)).toBeInTheDocument()
     for (const word of third.words) {
       expect(screen.getAllByText(word.fa).length).toBeGreaterThan(0)
+    }
+  })
+
+  it('shows a photo on every animal choice', async () => {
+    const { container } = open('#/lesson/ord/5')
+    const animals = findVocabUnit('5')!
+    await waitFor(() => expect(container.querySelectorAll('.vocab__cell img')).toHaveLength(8))
+    for (const word of animals.words) {
+      const button = screen.getByRole('button', { name: `Vælg ${word.da}` })
+      expect(button.querySelector('img')).not.toBeNull()
     }
   })
 

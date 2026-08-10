@@ -16,6 +16,7 @@ import { completedPuzzles } from '../progress/puzzles'
 import { connectedPhrases, connectedTexts } from '../lessons/connectedReading'
 import { ConnectedReadingLink } from '../components/ConnectedReadingLink'
 import { ColorSwatch } from '../components/ColorSwatch'
+import { LessonImage } from '../components/LessonImage'
 
 /**
  * One vocabulary unit: every word in it, how far the learner got, and the two
@@ -72,9 +73,11 @@ export default function VocabUnitScreen() {
                       <button
                         type="button"
                         className={`vocab__cell ${cleared.includes(word.id) ? 'vocab__cell--done' : ''}`}
+                        aria-label={`Vælg ${word.da}`}
                         aria-pressed={selected.id === word.id}
                         onClick={() => setSelectedId(word.id)}
                       >
+                        <LessonImage entryId={word.entry.id} size="thumbnail" />
                         <PersianText entry={word.entry} className="vocab__cell-fa" ariaHidden />
                         {word.swatch && <ColorSwatch color={word.swatch} />}
                         <span className="vocab__cell-da" lang="da" dir="ltr">{word.da}</span>
