@@ -15,6 +15,7 @@ import { vocabularyGroups } from '../puzzles/catalog'
 import { completedPuzzles } from '../progress/puzzles'
 import { connectedPhrases, connectedTexts } from '../lessons/connectedReading'
 import { ConnectedReadingLink } from '../components/ConnectedReadingLink'
+import { ColorSwatch } from '../components/ColorSwatch'
 
 /**
  * One vocabulary unit: every word in it, how far the learner got, and the two
@@ -75,6 +76,7 @@ export default function VocabUnitScreen() {
                         onClick={() => setSelectedId(word.id)}
                       >
                         <PersianText entry={word.entry} className="vocab__cell-fa" ariaHidden />
+                        {word.swatch && <ColorSwatch color={word.swatch} />}
                         <span className="vocab__cell-da" lang="da" dir="ltr">{word.da}</span>
                       </button>
                     </li>

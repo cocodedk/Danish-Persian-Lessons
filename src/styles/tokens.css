@@ -34,6 +34,16 @@
   --gold-dark: #ffd479;
   --orange-dark: #ffc38f;
 
+  /* Literal colors used as lesson content, independent of the UI scheme. */
+  --swatch-red: #d32f2f;
+  --swatch-blue: #1976d2;
+  --swatch-green: #2e7d32;
+  --swatch-yellow: #f7c948;
+  --swatch-black: #171717;
+  --swatch-white: #fff;
+  --swatch-orange: #ef7d00;
+  --swatch-pink: #ec5f91;
+
   /* Type — self-hosted, see src/styles/fonts.css */
   --font-latin: 'Andika', 'Segoe UI', system-ui, sans-serif;
   --font-fa: 'Vazirmatn', 'Noto Naskh Arabic', system-ui, sans-serif;

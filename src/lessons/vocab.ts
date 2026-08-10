@@ -20,10 +20,14 @@ export interface VocabWord extends WordCard {
   id: string
   /** Required here, unlike the optional field on WordCard: every card is vocalized. */
   faMarked: string
+  /** Educational color field shown instead of a stock illustration. */
+  swatch?: ColorSwatchId
 }
 
+export type ColorSwatchId = 'red' | 'blue' | 'green' | 'yellow' | 'black' | 'white' | 'orange' | 'pink'
+
 export interface VocabUnit {
-  /** '1' | '2' | '3' — the route segment and the `dpl.v1.vocab.<unit>` suffix. */
+  /** Route segment and the `dpl.v1.vocab.<unit>` suffix. */
   id: string
   /** Danish heading. */
   title: string
@@ -34,16 +38,16 @@ export interface VocabUnit {
   words: VocabWord[]
 }
 
-/** id · fa · faMarked · dansk · dansk lydskrift · IPA (standard Tehrani). */
-type Row = [string, string, string, string, string, string]
+/** id · fa · faMarked · dansk · dansk lydskrift · IPA · swatch · stable entry id. */
+type Row = [string, string, string, string, string, string, ColorSwatchId?, string?]
 
 function words(unitId: string, rows: Row[]): VocabWord[] {
-  return rows.map(([id, fa, faMarked, da, lyd, ipa]) => {
+  return rows.map(([id, fa, faMarked, da, lyd, ipa, swatch, entryId]) => {
     const pron = { da: lyd, ipa }
     return {
       id,
       entry: defineEntry({
-        id: `vocabulary-${unitId}-${id}`,
+        id: entryId ?? `vocabulary-${unitId}-${id}`,
         kind: 'word',
         fa,
         faMarked,
@@ -55,6 +59,7 @@ function words(unitId: string, rows: Row[]): VocabWord[] {
       faMarked,
       da,
       pron,
+      ...(swatch ? { swatch } : {}),
     }
   })
 }
@@ -69,7 +74,6 @@ export const vocabUnits: VocabUnit[] = [
       ['ab', 'آب', 'آب', 'vand', 'åb', 'ɒːb'],
       ['baba', 'بابا', 'بابا', 'far', 'båbå', 'bɒːbɒː'],
       ['bad', 'باد', 'باد', 'vind', 'båd', 'bɒːd'],
-      ['abi', 'آبی', 'آبی', 'blå', 'åbi', 'ɒːˈbiː'],
       ['nan', 'نان', 'نان', 'brød', 'nån', 'nɒːn'],
       ['madar', 'مادر', 'مادَر', 'mor', 'mådar', 'mɒːˈdæɾ'],
       ['man', 'من', 'مَن', 'jeg', 'man', 'mæn'],
@@ -100,7 +104,7 @@ export const vocabUnits: VocabUnit[] = [
     id: '3',
     title: 'Hjem og himmel',
     titleEntry: defineEntry({ id: 'vocabulary-unit-3-title', kind: 'phrase', fa: 'خانه و آسمان', da: 'Hjem og himmel', pron: { da: 'khåne o åsemån', ipa: 'xɒːne o ɒːsemɒːn' } }),
-    summary: 'Hus, regn, måne, nat — og to farver mere',
+    summary: 'Hus, regn, himmel, måne, nat og blomst',
     words: words('3', [
       ['khane', 'خانه', 'خانه', 'hus, hjem', 'khåne', 'xɒːˈne'],
       ['baran', 'باران', 'باران', 'regn', 'bårån', 'bɒːˈɾɒːn'],
@@ -108,8 +112,22 @@ export const vocabUnits: VocabUnit[] = [
       ['mah', 'ماه', 'ماه', 'måne', 'måh', 'mɒːh'],
       ['shab', 'شب', 'شَب', 'nat', 'sjab', 'ʃæb'],
       ['gol', 'گل', 'گُل', 'blomst', 'gol', 'ɡol'],
-      ['sabz', 'سبز', 'سَبز', 'grøn', 'sabz', 'sæbz'],
-      ['zard', 'زرد', 'زَرد', 'gul', 'zard', 'zæɾd'],
+    ]),
+  },
+  {
+    id: '4',
+    title: 'Farver',
+    titleEntry: defineEntry({ id: 'vocabulary-unit-4-title', kind: 'phrase', fa: 'رنگ‌ها', da: 'Farver', pron: { da: 'ranghå', ipa: 'ɾæŋˈhɒː' } }),
+    summary: 'Otte farver du kan pege på og bruge med det samme',
+    words: words('4', [
+      ['qermez', 'قرمز', 'قِرمِز', 'rød', 'ghermez', 'ɢ~ɣeɾˈmez', 'red'],
+      ['abi', 'آبی', 'آبی', 'blå', 'åbi', 'ɒːˈbiː', 'blue', 'vocabulary-1-abi'],
+      ['sabz', 'سبز', 'سَبز', 'grøn', 'sabz', 'sæbz', 'green', 'vocabulary-3-sabz'],
+      ['zard', 'زرد', 'زَرد', 'gul', 'zard', 'zæɾd', 'yellow', 'vocabulary-3-zard'],
+      ['siyah', 'سیاه', 'سیاه', 'sort', 'siyåh', 'siˈjɒːh', 'black'],
+      ['sefid', 'سفید', 'سِفید', 'hvid', 'sefid', 'seˈfiːd', 'white'],
+      ['narenji', 'نارنجی', 'نارَنجی', 'orange', 'nårenji', 'nɒːɾænˈdʒiː', 'orange'],
+      ['surati', 'صورتی', 'صورَتی', 'lyserød', 'surati', 'suːɾæˈtiː', 'pink'],
     ]),
   },
 ]

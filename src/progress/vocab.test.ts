@@ -39,6 +39,12 @@ describe('vocabulary progress', () => {
     expect(getVocabProgress(unit.id).words).toEqual(['ab'])
   })
 
+  it('keeps completed color words when they move into the color lesson', () => {
+    markWordDone('1', 'abi')
+    markWordDone('3', 'zard')
+    expect(getVocabProgress('4').words).toEqual(['abi', 'zard'])
+  })
+
   it('counts only the words that belong to the unit', () => {
     markWordDone(unit.id, 'ab')
     markWordDone(unit.id, 'not-a-word')

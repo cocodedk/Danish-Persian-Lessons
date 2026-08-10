@@ -30,7 +30,18 @@ function normalize(raw: Partial<VocabProgress>): VocabProgress {
 }
 
 export function getVocabProgress(unitId: string): VocabProgress {
-  return normalize(readJSON<Partial<VocabProgress>>(key(unitId), {}))
+  const current = normalize(readJSON<Partial<VocabProgress>>(key(unitId), {}))
+  if (unitId !== '4') return current
+
+  // Colors used to sit in units 1 and 3. Keep that work when they move into
+  // their own lesson; old unit rows remain untouched and are simply ignored.
+  const moved = [
+    ['1', 'abi'],
+    ['3', 'sabz'],
+    ['3', 'zard'],
+  ].filter(([oldUnit, wordId]) => getVocabProgress(oldUnit).words.includes(wordId))
+    .map(([, wordId]) => wordId)
+  return { ...current, words: [...new Set([...current.words, ...moved])] }
 }
 
 export function markWordDone(unitId: string, wordId: string): VocabProgress {

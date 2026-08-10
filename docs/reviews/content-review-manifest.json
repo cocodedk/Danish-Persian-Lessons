@@ -3976,64 +3976,6 @@
       ]
     },
     {
-      "id": "vocabulary-1-abi",
-      "domain": "vocabulary",
-      "kind": "word",
-      "fa": "آبی",
-      "faMarked": "آبی",
-      "da": "blå",
-      "soundDa": "åbi",
-      "ipa": "ɒːˈbiː",
-      "stressReviewRequired": true,
-      "stressMarked": true,
-      "readingCues": [
-        {
-          "start": 0,
-          "end": 1,
-          "display": "آ",
-          "role": "long-vowel",
-          "helpDa": "Alef med madde skriver langt å",
-          "pron": {
-            "da": "å i “år”",
-            "ipa": "ɒː"
-          }
-        },
-        {
-          "start": 1,
-          "end": 2,
-          "display": "ب",
-          "role": "consonant",
-          "helpDa": "be: b i \"bil\"",
-          "pron": {
-            "da": "b i \"bil\"",
-            "ipa": "b"
-          }
-        },
-        {
-          "start": 2,
-          "end": 3,
-          "display": "ی",
-          "role": "long-vowel",
-          "helpDa": "Ye skriver langt i her",
-          "pron": {
-            "da": "i i “vi”",
-            "ipa": "iː"
-          }
-        }
-      ],
-      "cueCoverage": "contextual",
-      "roleSensitive": true,
-      "audioId": "vocabulary-1-abi",
-      "audioNotApplicable": null,
-      "audioStatus": "missing",
-      "requiredReviews": [
-        "iranian-persian-1",
-        "iranian-persian-2",
-        "phonetics",
-        "danish"
-      ]
-    },
-    {
       "id": "vocabulary-1-nan",
       "domain": "vocabulary",
       "kind": "word",
@@ -5549,6 +5491,190 @@
       ]
     },
     {
+      "id": "vocabulary-unit-4-title",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "رنگ‌ها",
+      "da": "Farver",
+      "soundDa": "ranghå",
+      "ipa": "ɾæŋˈhɒː",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 6,
+          "display": "رنگ‌ها",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "ranghå",
+            "ipa": "ɾæŋˈhɒː"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "vocabulary-unit-4-title",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-4-qermez",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "قرمز",
+      "faMarked": "قِرمِز",
+      "da": "rød",
+      "soundDa": "ghermez",
+      "ipa": "ɢ~ɣeɾˈmez",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ق",
+          "role": "consonant",
+          "helpDa": "ghaf: dyb lyd i halsen",
+          "pron": {
+            "da": "dyb lyd i halsen",
+            "ipa": "ɢ~ɣ"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        },
+        {
+          "start": 3,
+          "end": 3,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ز",
+          "role": "consonant",
+          "helpDa": "ze: stemt s — som engelsk z i \"zoo\"",
+          "pron": {
+            "da": "stemt s — som engelsk z i \"zoo\"",
+            "ipa": "z"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "vocabulary-4-qermez",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-1-abi",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "آبی",
+      "faMarked": "آبی",
+      "da": "blå",
+      "soundDa": "åbi",
+      "ipa": "ɒːˈbiː",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "آ",
+          "role": "long-vowel",
+          "helpDa": "Alef med madde skriver langt å",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ب",
+          "role": "consonant",
+          "helpDa": "be: b i \"bil\"",
+          "pron": {
+            "da": "b i \"bil\"",
+            "ipa": "b"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ی",
+          "role": "long-vowel",
+          "helpDa": "Ye skriver langt i her",
+          "pron": {
+            "da": "i i “vi”",
+            "ipa": "iː"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-1-abi",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "vocabulary-3-sabz",
       "domain": "vocabulary",
       "kind": "word",
@@ -5677,6 +5803,348 @@
       "cueCoverage": "contextual",
       "roleSensitive": false,
       "audioId": "vocabulary-3-zard",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-4-siyah",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "سیاه",
+      "faMarked": "سیاه",
+      "da": "sort",
+      "soundDa": "siyåh",
+      "ipa": "siˈjɒːh",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ی",
+          "role": "written-vowel",
+          "helpDa": "Ye skriver i-lyden og glider over i y før å",
+          "pron": {
+            "da": "i efterfulgt af y",
+            "ipa": "ij"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ه",
+          "role": "consonant",
+          "helpDa": "he do-tjeshm: h i \"hus\"",
+          "pron": {
+            "da": "h i \"hus\"",
+            "ipa": "h"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-4-siyah",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-4-sefid",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "سفید",
+      "faMarked": "سِفید",
+      "da": "hvid",
+      "soundDa": "sefid",
+      "ipa": "seˈfiːd",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ف",
+          "role": "consonant",
+          "helpDa": "fe: f i \"fisk\"",
+          "pron": {
+            "da": "f i \"fisk\"",
+            "ipa": "f"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ی",
+          "role": "long-vowel",
+          "helpDa": "Ye skriver langt i her",
+          "pron": {
+            "da": "i i “vi”",
+            "ipa": "iː"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-4-sefid",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-4-narenji",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "نارنجی",
+      "faMarked": "نارَنجی",
+      "da": "orange",
+      "soundDa": "nårenji",
+      "ipa": "nɒːɾænˈdʒiː",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 3,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "display": "ج",
+          "role": "consonant",
+          "helpDa": "jim: dj i \"jazz\"",
+          "pron": {
+            "da": "dj i \"jazz\"",
+            "ipa": "dʒ"
+          }
+        },
+        {
+          "start": 5,
+          "end": 6,
+          "display": "ی",
+          "role": "long-vowel",
+          "helpDa": "Ye skriver langt i her",
+          "pron": {
+            "da": "i i “vi”",
+            "ipa": "iː"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-4-narenji",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-4-surati",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "صورتی",
+      "faMarked": "صورَتی",
+      "da": "lyserød",
+      "soundDa": "surati",
+      "ipa": "suːɾæˈtiː",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ص",
+          "role": "consonant",
+          "helpDa": "sad: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "و",
+          "role": "long-vowel",
+          "helpDa": "Vav skriver langt u her",
+          "pron": {
+            "da": "u i “du”",
+            "ipa": "uː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 3,
+          "display": "◌َ",
+          "role": "short-vowel",
+          "helpDa": "Den korte vokal høres, men tegnet udelades normalt i almindelig skrift",
+          "pron": {
+            "da": "a i “kat”",
+            "ipa": "æ"
+          }
+        },
+        {
+          "start": 3,
+          "end": 4,
+          "display": "ت",
+          "role": "consonant",
+          "helpDa": "te: t i \"tak\"",
+          "pron": {
+            "da": "t i \"tak\"",
+            "ipa": "t"
+          }
+        },
+        {
+          "start": 4,
+          "end": 5,
+          "display": "ی",
+          "role": "long-vowel",
+          "helpDa": "Ye skriver langt i her",
+          "pron": {
+            "da": "i i “vi”",
+            "ipa": "iː"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "vocabulary-4-surati",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [
@@ -6171,51 +6639,167 @@
       "id": "reading-3-2",
       "domain": "vocabulary",
       "kind": "phrase",
-      "fa": "گل زرد",
-      "faMarked": "گُلِ زَرد",
-      "da": "gul blomst",
-      "soundDa": "gole zard",
-      "ipa": "ɡole zæɾd",
+      "fa": "شب و باران",
+      "faMarked": "شَب و باران",
+      "da": "nat og regn",
+      "soundDa": "sjab o bårån",
+      "ipa": "ʃæb o bɒːɾɒːn",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
         {
           "start": 0,
           "end": 2,
-          "display": "گل",
+          "display": "شب",
           "role": "whole",
-          "helpDa": "blomst",
+          "helpDa": "nat",
           "pron": {
-            "da": "gol",
-            "ipa": "ɡol"
-          }
-        },
-        {
-          "start": 2,
-          "end": 2,
-          "display": "◌ِ",
-          "role": "short-vowel",
-          "helpDa": "ezafe: binder to ord sammen",
-          "pron": {
-            "da": "e",
-            "ipa": "e"
+            "da": "sjab",
+            "ipa": "ʃæb"
           }
         },
         {
           "start": 3,
-          "end": 6,
-          "display": "زرد",
+          "end": 4,
+          "display": "و",
           "role": "whole",
-          "helpDa": "gul",
+          "helpDa": "og",
           "pron": {
-            "da": "zard",
-            "ipa": "zæɾd"
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 5,
+          "end": 10,
+          "display": "باران",
+          "role": "whole",
+          "helpDa": "regn",
+          "pron": {
+            "da": "bårån",
+            "ipa": "bɒːˈɾɒːn"
           }
         }
       ],
-      "cueCoverage": "contextual",
-      "roleSensitive": false,
+      "cueCoverage": "token",
+      "roleSensitive": true,
       "audioId": "reading-3-2",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "reading-4-1",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "قرمز و آبی",
+      "faMarked": "قِرمِز و آبی",
+      "da": "rød og blå",
+      "soundDa": "ghermez o åbi",
+      "ipa": "ɢeɾmez o ɒːbiː",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "قرمز",
+          "role": "whole",
+          "helpDa": "rød",
+          "pron": {
+            "da": "ghermez",
+            "ipa": "ɢ~ɣeɾˈmez"
+          }
+        },
+        {
+          "start": 5,
+          "end": 6,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 7,
+          "end": 10,
+          "display": "آبی",
+          "role": "whole",
+          "helpDa": "blå",
+          "pron": {
+            "da": "åbi",
+            "ipa": "ɒːˈbiː"
+          }
+        }
+      ],
+      "cueCoverage": "token",
+      "roleSensitive": true,
+      "audioId": "reading-4-1",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "reading-4-2",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "سیاه و سفید",
+      "faMarked": "سیاه و سِفید",
+      "da": "sort og hvid",
+      "soundDa": "siyåh o sefid",
+      "ipa": "sijɒːh o sefiːd",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "سیاه",
+          "role": "whole",
+          "helpDa": "sort",
+          "pron": {
+            "da": "siyåh",
+            "ipa": "siˈjɒːh"
+          }
+        },
+        {
+          "start": 5,
+          "end": 6,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 7,
+          "end": 11,
+          "display": "سفید",
+          "role": "whole",
+          "helpDa": "hvid",
+          "pron": {
+            "da": "sefid",
+            "ipa": "seˈfiːd"
+          }
+        }
+      ],
+      "cueCoverage": "token",
+      "roleSensitive": true,
+      "audioId": "reading-4-2",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [
@@ -6532,11 +7116,11 @@
       "id": "reading-3-text",
       "domain": "vocabulary",
       "kind": "phrase",
-      "fa": "این خانه است. آسمان آبی است. ماه زرد است. شب است.",
-      "faMarked": "این خانه اَست. آسِمان آبی اَست. ماه زَرد اَست. شَب اَست.",
-      "da": "Dette er et hus. Himlen er blå. Månen er gul. Det er nat.",
-      "soundDa": "in khåne ast. åsemån åbi ast. måh zard ast. sjab ast",
-      "ipa": "iːn xɒːne æst. ɒːsemɒːn ɒːbiː æst. mɒːh zæɾd æst. ʃæb æst",
+      "fa": "این خانه است. این آسمان است. این ماه است. شب است.",
+      "faMarked": "این خانه اَست. این آسِمان اَست. این ماه اَست. شَب اَست.",
+      "da": "Dette er et hus. Dette er himlen. Dette er månen. Det er nat.",
+      "soundDa": "in khåne ast. in åsemån ast. in måh ast. sjab ast",
+      "ipa": "iːn xɒːne æst. iːn ɒːsemɒːn æst. iːn mɒːh æst. ʃæb æst",
       "stressReviewRequired": true,
       "stressMarked": false,
       "readingCues": [
@@ -6575,24 +7159,24 @@
         },
         {
           "start": 14,
-          "end": 19,
+          "end": 17,
+          "display": "این",
+          "role": "whole",
+          "helpDa": "denne, dette",
+          "pron": {
+            "da": "in",
+            "ipa": "iːn"
+          }
+        },
+        {
+          "start": 18,
+          "end": 23,
           "display": "آسمان",
           "role": "whole",
           "helpDa": "himmel",
           "pron": {
             "da": "åsemån",
             "ipa": "ɒːseˈmɒːn"
-          }
-        },
-        {
-          "start": 20,
-          "end": 23,
-          "display": "آبی",
-          "role": "whole",
-          "helpDa": "blå",
-          "pron": {
-            "da": "åbi",
-            "ipa": "ɒːˈbiː"
           }
         },
         {
@@ -6609,23 +7193,23 @@
         {
           "start": 29,
           "end": 32,
+          "display": "این",
+          "role": "whole",
+          "helpDa": "denne, dette",
+          "pron": {
+            "da": "in",
+            "ipa": "iːn"
+          }
+        },
+        {
+          "start": 33,
+          "end": 36,
           "display": "ماه",
           "role": "whole",
           "helpDa": "måne",
           "pron": {
             "da": "måh",
             "ipa": "mɒːh"
-          }
-        },
-        {
-          "start": 33,
-          "end": 36,
-          "display": "زرد",
-          "role": "whole",
-          "helpDa": "gul",
-          "pron": {
-            "da": "zard",
-            "ipa": "zæɾd"
           }
         },
         {
@@ -6665,6 +7249,251 @@
       "cueCoverage": "token",
       "roleSensitive": true,
       "audioId": "reading-3-text",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "reading-4-text",
+      "domain": "vocabulary",
+      "kind": "phrase",
+      "fa": "این قرمز و آبی است. آن سبز و زرد است. این سیاه و سفید است. آن نارنجی و صورتی است.",
+      "faMarked": "این قِرمِز و آبی اَست. آن سَبز و زَرد اَست. این سیاه و سِفید اَست. آن نارَنجی و صورَتی اَست.",
+      "da": "Denne er rød og blå. Den der er grøn og gul. Denne er sort og hvid. Den der er orange og lyserød.",
+      "soundDa": "in ghermez o åbi ast. ån sabz o zard ast. in siyåh o sefid ast. ån nårenji o surati ast",
+      "ipa": "iːn ɢeɾmez o ɒːbiː æst. ɒːn sæbz o zæɾd æst. iːn sijɒːh o sefiːd æst. ɒːn nɒːɾændʒiː o suːɾætiː æst",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "این",
+          "role": "whole",
+          "helpDa": "denne, dette",
+          "pron": {
+            "da": "in",
+            "ipa": "iːn"
+          }
+        },
+        {
+          "start": 4,
+          "end": 8,
+          "display": "قرمز",
+          "role": "whole",
+          "helpDa": "rød",
+          "pron": {
+            "da": "ghermez",
+            "ipa": "ɢ~ɣeɾˈmez"
+          }
+        },
+        {
+          "start": 9,
+          "end": 10,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 11,
+          "end": 14,
+          "display": "آبی",
+          "role": "whole",
+          "helpDa": "blå",
+          "pron": {
+            "da": "åbi",
+            "ipa": "ɒːˈbiː"
+          }
+        },
+        {
+          "start": 15,
+          "end": 18,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        },
+        {
+          "start": 20,
+          "end": 22,
+          "display": "آن",
+          "role": "whole",
+          "helpDa": "den, det (derovre)",
+          "pron": {
+            "da": "ån",
+            "ipa": "ɒːn"
+          }
+        },
+        {
+          "start": 23,
+          "end": 26,
+          "display": "سبز",
+          "role": "whole",
+          "helpDa": "grøn",
+          "pron": {
+            "da": "sabz",
+            "ipa": "sæbz"
+          }
+        },
+        {
+          "start": 27,
+          "end": 28,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 29,
+          "end": 32,
+          "display": "زرد",
+          "role": "whole",
+          "helpDa": "gul",
+          "pron": {
+            "da": "zard",
+            "ipa": "zæɾd"
+          }
+        },
+        {
+          "start": 33,
+          "end": 36,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        },
+        {
+          "start": 38,
+          "end": 41,
+          "display": "این",
+          "role": "whole",
+          "helpDa": "denne, dette",
+          "pron": {
+            "da": "in",
+            "ipa": "iːn"
+          }
+        },
+        {
+          "start": 42,
+          "end": 46,
+          "display": "سیاه",
+          "role": "whole",
+          "helpDa": "sort",
+          "pron": {
+            "da": "siyåh",
+            "ipa": "siˈjɒːh"
+          }
+        },
+        {
+          "start": 47,
+          "end": 48,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 49,
+          "end": 53,
+          "display": "سفید",
+          "role": "whole",
+          "helpDa": "hvid",
+          "pron": {
+            "da": "sefid",
+            "ipa": "seˈfiːd"
+          }
+        },
+        {
+          "start": 54,
+          "end": 57,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        },
+        {
+          "start": 59,
+          "end": 61,
+          "display": "آن",
+          "role": "whole",
+          "helpDa": "den, det (derovre)",
+          "pron": {
+            "da": "ån",
+            "ipa": "ɒːn"
+          }
+        },
+        {
+          "start": 62,
+          "end": 68,
+          "display": "نارنجی",
+          "role": "whole",
+          "helpDa": "orange",
+          "pron": {
+            "da": "nårenji",
+            "ipa": "nɒːɾænˈdʒiː"
+          }
+        },
+        {
+          "start": 69,
+          "end": 70,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "og",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 71,
+          "end": 76,
+          "display": "صورتی",
+          "role": "whole",
+          "helpDa": "lyserød",
+          "pron": {
+            "da": "surati",
+            "ipa": "suːɾæˈtiː"
+          }
+        },
+        {
+          "start": 77,
+          "end": 80,
+          "display": "است",
+          "role": "whole",
+          "helpDa": "er",
+          "pron": {
+            "da": "ast",
+            "ipa": "æst"
+          }
+        }
+      ],
+      "cueCoverage": "token",
+      "roleSensitive": true,
+      "audioId": "reading-4-text",
       "audioNotApplicable": null,
       "audioStatus": "missing",
       "requiredReviews": [

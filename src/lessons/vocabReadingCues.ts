@@ -79,6 +79,11 @@ const CUES: Record<string, ReadingCue[]> = {
   gol: [consonant(0, 'گ'), shortVowel(1, '◌ُ', 'o i “foto”', 'o'), consonant(1, 'ل')],
   sabz: [consonant(0, 'س'), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'ب'), consonant(2, 'ز')],
   zard: [consonant(0, 'ز'), shortVowel(1, '◌َ', 'a i “kat”', 'æ'), consonant(1, 'ر'), consonant(2, 'د')],
+  qermez: [consonant(0, 'ق'), shortVowel(1, '◌ِ', 'e i “let”', 'e'), consonant(1, 'ر'), consonant(2, 'م'), shortVowel(3, '◌ِ', 'e i “let”', 'e'), consonant(3, 'ز')],
+  siyah: [consonant(0, 'س'), writtenVowel(1, 'ی', 'i efterfulgt af y', 'ij', 'Ye skriver i-lyden og glider over i y før å'), aa(2), consonant(3, 'ه')],
+  sefid: [consonant(0, 'س'), shortVowel(1, '◌ِ', 'e i “let”', 'e'), consonant(1, 'ف'), ii(2), consonant(3, 'د')],
+  narenji: [consonant(0, 'ن'), aa(1), consonant(2, 'ر'), shortVowel(3, '◌َ', 'a i “kat”', 'æ'), consonant(3, 'ن'), consonant(4, 'ج'), ii(5)],
+  surati: [consonant(0, 'ص'), uu(1), consonant(2, 'ر'), shortVowel(3, '◌َ', 'a i “kat”', 'æ'), consonant(3, 'ت'), ii(4)],
 }
 
 export function vocabReadingCues(id: string): ReadingCue[] {

@@ -93,6 +93,7 @@
 
 .child-conversation,
 .child-more,
+.child-colors,
 .child-numbers,
 .child-collection {
   margin-block-start: 1.5rem;
@@ -102,6 +103,7 @@
 
 .child-conversation h2,
 .child-more h2,
+.child-colors h2,
 .child-numbers h2,
 .child-collection h2 {
   margin: 0;
