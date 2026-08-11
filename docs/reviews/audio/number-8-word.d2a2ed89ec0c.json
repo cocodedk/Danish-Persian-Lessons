@@ -1,0 +1,23 @@
+{
+  "clipId": "number-8-word",
+  "entryId": "number-8-word",
+  "formId": "neutral",
+  "transcript": "هَشت",
+  "synthesisText": "هَشت",
+  "sourceTextHash": "1c59840db8b6f4dd9cc7974fd06f38fb6b11c8cdd0923e4df4cabc60c0d3be0f",
+  "draftFile": "work/number-8-word.1c59840db8b6.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -1.79,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/number-8-word.d2a2ed89ec0c.mp3"
+}

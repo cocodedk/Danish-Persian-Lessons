@@ -29,11 +29,15 @@ const legacyAreas: readonly Area[] = [
 const speakingAreas: readonly Area[] = [
   {
     to: '/tal', label: 'Tal', choice: 'speak',
-    current: (path) => path === '/tal' || path.startsWith('/tal/'),
+    current: (path) => path === '/tal' || path.startsWith('/tal/') || path === '/lydovelse',
   },
   {
     to: '/opdag', label: 'Ord', choice: 'words',
-    current: (path) => path === '/opdag' || path.startsWith('/opdag/') || path === '/ord-der-ligner',
+    current: (path) => path === '/opdag' || path.startsWith('/opdag/'),
+  },
+  {
+    to: '/ord-der-ligner', label: 'Ordbroer',
+    current: (path) => path === '/ord-der-ligner',
   },
   {
     to: '/kursus', label: 'Skrift', choice: 'script',

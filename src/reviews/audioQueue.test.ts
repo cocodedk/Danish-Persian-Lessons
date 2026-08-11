@@ -9,10 +9,10 @@ describe('audio recording handoff', () => {
     const missing = contentReviewManifest.rows.filter((row) => row.audioStatus === 'missing')
     expect(audioRecordingQueue.status).toBe('draft-awaiting-native-review')
     expect(audioRecordingQueue.rows).toHaveLength(missing.length)
-    expect(audioRecordingQueue.rows).toHaveLength(222)
+    expect(audioRecordingQueue.rows).toHaveLength(125)
     expect(new Set(audioRecordingQueue.rows.map((row) => row.clipId)).size).toBe(missing.length)
     expect(new Set(audioRecordingQueue.rows.map((row) => row.expectedDraft)).size).toBe(missing.length)
-    expect(audioRecordingQueue.rows.filter((row) => row.scope === 'talk')).toHaveLength(97)
+    expect(audioRecordingQueue.rows.filter((row) => row.scope === 'talk')).toHaveLength(0)
     for (const row of audioRecordingQueue.rows) {
       const source = missing.find((candidate) => candidate.id === row.entryId)!
       expect(row.transcript).toBe(source.faMarked ?? source.fa)

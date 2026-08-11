@@ -26,10 +26,10 @@ describe('AppChrome', () => {
     expect(screen.getByRole('heading', { name: 'Indstillinger' })).toBeVisible()
   })
 
-  it('marks lesson screens as part of Lektioner', () => {
+  it('marks lesson screens as part of Skrift', () => {
     renderChrome('/lesson/alphabet')
 
     expect(screen.getByRole('button', { name: 'Indstillinger' })).toBeVisible()
-    expect(screen.getByRole('link', { name: 'Lektioner' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Skrift' })).toHaveAttribute('aria-current', 'page')
   })
 })

@@ -24,6 +24,33 @@
   gap: 0.8rem;
 }
 
+.speaking-sound-exercise {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-block: 1.5rem;
+  padding: 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 0.5rem;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.speaking-sound-exercise > span {
+  font-size: 2.5rem;
+}
+
+.speaking-sound-exercise h2,
+.speaking-sound-exercise p {
+  margin: 0;
+}
+
+.speaking-sound-exercise strong {
+  color: var(--blue);
+}
+
 .speaking-lesson-card {
   display: grid;
   grid-template-columns: minmax(6.5rem, 34%) 1fr;

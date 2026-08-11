@@ -1,0 +1,23 @@
+{
+  "clipId": "reading-5-1",
+  "entryId": "reading-5-1",
+  "formId": "neutral",
+  "transcript": "گُربه و سَگ",
+  "synthesisText": "گُربه و سَگ",
+  "sourceTextHash": "0b03962efc7eb8559e71579517bc11a3c593fc1dd22efc85ac0cc2545fa434fd",
+  "draftFile": "work/reading-5-1.0b03962efc7e.mp3",
+  "durationMs": 1120,
+  "channels": 1,
+  "integratedLufs": -20.42,
+  "truePeakDbtp": -4.45,
+  "bytes": 6965,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/reading-5-1.6f3c16b9969b.mp3"
+}

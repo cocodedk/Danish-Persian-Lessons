@@ -1,0 +1,24 @@
+{
+  "clipId": "vocabulary-2-dast",
+  "entryId": "vocabulary-2-dast",
+  "formId": "neutral",
+  "transcript": "دَست",
+  "synthesisText": "دَست",
+  "sourceTextHash": "80525af7fdc7b4fd8691efd1da8411fa9868892ca39660e8ec8127d615d7dd13",
+  "draftFile": "work/vocabulary-2-dast.80525af7fdc7.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.85,
+  "loudnessCorrectionDb": 2.67,
+  "truePeakDbtp": -2.67,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-2-dast.54d0ba4657a5.mp3"
+}

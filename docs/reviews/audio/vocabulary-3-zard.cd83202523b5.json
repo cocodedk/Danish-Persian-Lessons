@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-3-zard",
+  "entryId": "vocabulary-3-zard",
+  "formId": "neutral",
+  "transcript": "زَرد",
+  "synthesisText": "زَرد",
+  "sourceTextHash": "abf32248999031370245e1473ebbc5ae21e41ddb3c531fbd918ed1a1228defe3",
+  "draftFile": "work/vocabulary-3-zard.abf322489990.mp3",
+  "durationMs": 840,
+  "channels": 1,
+  "integratedLufs": -20.42,
+  "truePeakDbtp": -3.56,
+  "bytes": 5241,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-3-zard.cd83202523b5.mp3"
+}

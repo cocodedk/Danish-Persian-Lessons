@@ -39,6 +39,7 @@ describe('speaking-first pages', () => {
     expect(screen.getByRole('heading', { name: 'Lær at tale persisk' })).toBeInTheDocument()
     expect(screen.getAllByText(/korte sider/)).toHaveLength(7)
     expect(screen.getByText('Hør. Sig det. Hør dig selv.')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Øv alle lyde/ })).toHaveAttribute('href', '/lydovelse')
   })
 
   it('opens one speak-and-replay page without asking the learner to read first', () => {

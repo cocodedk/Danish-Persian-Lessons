@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-dar",
+  "entryId": "word-bridge-dar",
+  "formId": "neutral",
+  "transcript": "دَر",
+  "synthesisText": "دَر",
+  "sourceTextHash": "2be4f67042dfaf69e95c12c2b40784bfc7166b8705daae463d6cfe6b4262e215",
+  "draftFile": "work/word-bridge-dar.2be4f67042df.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -21.9,
+  "truePeakDbtp": -1.19,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-dar.7714fbd1058c.mp3"
+}

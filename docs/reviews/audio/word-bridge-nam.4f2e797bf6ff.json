@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-nam",
+  "entryId": "word-bridge-nam",
+  "formId": "neutral",
+  "transcript": "نام",
+  "synthesisText": "نام",
+  "sourceTextHash": "93a90bbcdb2e6ad6ef204eec487210f5a0f2cda8a74b9440797dfb11f37b03d5",
+  "draftFile": "work/word-bridge-nam.93a90bbcdb2e.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.36,
+  "truePeakDbtp": -4.86,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-nam.4f2e797bf6ff.mp3"
+}

@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "decisions": [
+    {
+      "clipId": "word-bridge-pedar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-madar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-baradar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-doxtar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-dar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-nam",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-mush",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-garm",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-now",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-band",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-setad",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-do",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-shesh",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-noh",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-dandan",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-naf",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-mah",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-setareh",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-seyl",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "word-bridge-dust",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-unit-1-title",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-ab",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-baba",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-bad",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-nan",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-madar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-man",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-to",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-ma",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-u",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-in",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-an",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-unit-2-title",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-medad",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-ketab",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-miz",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-dar",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-dast",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-dust",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-madrese",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-2-salam",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-unit-3-title",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-khane",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-baran",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-aseman",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-mah",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-shab",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-gol",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-unit-4-title",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-4-qermez",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-1-abi",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-sabz",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-3-zard",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-4-siyah",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-4-sefid",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-4-narenji",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-4-surati",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-unit-5-title",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-gorbe",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-sag",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-parande",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-mahi",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-asb",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-gav",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-khargush",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "vocabulary-5-mush",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-function-o",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-function-ast",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-function-ezafe",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-1-1",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-1-2",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-1-3",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-2-1",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-2-2",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-3-1",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-3-2",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-4-1",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-4-2",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-5-1",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-5-2",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-1-text",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-2-text",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-3-text",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-4-text",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "reading-5-text",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "conversation-introduction",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "conversation-goodbye",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-1-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-2-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-3-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-4-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-5-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-6-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-7-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-8-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-9-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    },
+    {
+      "clipId": "number-10-word",
+      "approved": true,
+      "note": "Godkendt efter lytning på telefon.",
+      "reviewer": "cocodedk"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.audio-exercise__done {
+  inline-size: 100%;
+  min-block-size: var(--tap-min);
+  margin-block-start: 0.75rem;
+  padding-inline: 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 0.25rem;
+  background: var(--paper);
+  color: var(--blue);
+  font: inherit;
+  font-weight: 700;
+}
+
+.audio-exercise__done[aria-pressed='true'] {
+  background: var(--blue);
+  color: var(--paper);
+}

@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-1-man",
+  "entryId": "vocabulary-1-man",
+  "formId": "neutral",
+  "transcript": "مَن",
+  "synthesisText": "مَن",
+  "sourceTextHash": "86199a648d41c8c71a367a8859aa8b047c0bcb6eabc044617d3dc51537d50cf0",
+  "draftFile": "work/vocabulary-1-man.86199a648d41.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.46,
+  "truePeakDbtp": -4.92,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-1-man.2244ee58a584.mp3"
+}

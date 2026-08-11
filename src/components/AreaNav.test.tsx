@@ -17,13 +17,13 @@ function renderNav(path = '/opdag') {
 beforeEach(() => window.localStorage.clear())
 
 describe('AreaNav', () => {
-  it('keeps the three hubs in one stable order and marks the current page', () => {
+  it('keeps the four hubs in one stable order and marks the current page', () => {
     renderNav('/opdag')
     const nav = screen.getByRole('navigation', { name: 'Hovedområder' })
     const links = within(nav).getAllByRole('link')
 
-    expect(links.map((link) => link.textContent)).toEqual(['Ord', 'Ordbroer', 'Lektioner'])
-    expect(links.map((link) => link.getAttribute('href'))).toEqual(['/opdag', '/ord-der-ligner', '/kursus'])
+    expect(links.map((link) => link.textContent)).toEqual(['Tal', 'Ord', 'Ordbroer', 'Skrift'])
+    expect(links.map((link) => link.getAttribute('href'))).toEqual(['/tal', '/opdag', '/ord-der-ligner', '/kursus'])
     expect(within(nav).getByRole('link', { name: 'Ord' })).toHaveAttribute('aria-current', 'page')
   })
 
@@ -31,9 +31,9 @@ describe('AreaNav', () => {
     renderNav('/ord-der-ligner')
     expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute('aria-current', 'page')
 
-    fireEvent.click(screen.getByRole('link', { name: 'Lektioner' }))
+    fireEvent.click(screen.getByRole('link', { name: 'Skrift' }))
     expect(getJourneyChoice()).toBe('script')
-    expect(screen.getByRole('link', { name: 'Lektioner' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Skrift' })).toHaveAttribute('aria-current', 'page')
 
     fireEvent.click(screen.getByRole('link', { name: 'Ord' }))
     expect(getJourneyChoice()).toBe('words')
@@ -45,6 +45,6 @@ describe('AreaNav', () => {
     unmount()
 
     renderNav('/lesson/alphabet')
-    expect(screen.getByRole('link', { name: 'Lektioner' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Skrift' })).toHaveAttribute('aria-current', 'page')
   })
 })

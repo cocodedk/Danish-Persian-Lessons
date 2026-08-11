@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-1-ma",
+  "entryId": "vocabulary-1-ma",
+  "formId": "neutral",
+  "transcript": "ما",
+  "synthesisText": "ما",
+  "sourceTextHash": "d29c10c4979821f30d28a2ebf44071ffe9549fd56892da569293832c039f6ccb",
+  "draftFile": "work/vocabulary-1-ma.d29c10c49798.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.44,
+  "truePeakDbtp": -3.37,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-1-ma.8a0ff185ac8a.mp3"
+}

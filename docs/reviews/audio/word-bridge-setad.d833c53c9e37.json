@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-setad",
+  "entryId": "word-bridge-setad",
+  "formId": "neutral",
+  "transcript": "سِتاد",
+  "synthesisText": "سِتاد",
+  "sourceTextHash": "2e1711994321060918771dfc34b38af9cba3df4ce55132d3fb66e971a3074388",
+  "draftFile": "work/word-bridge-setad.2e1711994321.mp3",
+  "durationMs": 810,
+  "channels": 1,
+  "integratedLufs": -20.47,
+  "truePeakDbtp": -4.55,
+  "bytes": 5085,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-setad.d833c53c9e37.mp3"
+}

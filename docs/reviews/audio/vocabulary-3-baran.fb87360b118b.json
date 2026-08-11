@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-3-baran",
+  "entryId": "vocabulary-3-baran",
+  "formId": "neutral",
+  "transcript": "باران",
+  "synthesisText": "باران",
+  "sourceTextHash": "68f95302290ec69f7b5de8fc39abe5318db25d8336e7e97c307bcf2e3e36ea7d",
+  "draftFile": "work/vocabulary-3-baran.68f95302290e.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.49,
+  "truePeakDbtp": -5.73,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-3-baran.fb87360b118b.mp3"
+}

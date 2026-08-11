@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-5-gav",
+  "entryId": "vocabulary-5-gav",
+  "formId": "neutral",
+  "transcript": "گاو",
+  "synthesisText": "گاو",
+  "sourceTextHash": "814b2e1906f2b731b1cc13c9b791dd7bdc767d778385968874ea13f869daeffe",
+  "draftFile": "work/vocabulary-5-gav.814b2e1906f2.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.4,
+  "truePeakDbtp": -3.84,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-5-gav.05020994144c.mp3"
+}

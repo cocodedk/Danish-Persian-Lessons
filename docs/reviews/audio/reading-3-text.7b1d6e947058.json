@@ -1,0 +1,23 @@
+{
+  "clipId": "reading-3-text",
+  "entryId": "reading-3-text",
+  "formId": "neutral",
+  "transcript": "این خانه اَست. این آسِمان اَست. این ماه اَست. شَب اَست.",
+  "synthesisText": "این خانه اَست. این آسِمان اَست. این ماه اَست. شَب اَست.",
+  "sourceTextHash": "7c265cd7cb432e6382fcfa1610b0ba70e72f894a93fd6ad5a42472d395f4172d",
+  "draftFile": "work/reading-3-text.7c265cd7cb43.mp3",
+  "durationMs": 5540,
+  "channels": 1,
+  "integratedLufs": -20.61,
+  "truePeakDbtp": -1.96,
+  "bytes": 33454,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/reading-3-text.7b1d6e947058.mp3"
+}

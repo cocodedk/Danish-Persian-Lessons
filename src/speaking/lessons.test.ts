@@ -3,10 +3,10 @@ import { lessonImageForEntry } from '../images/catalog'
 import { requiredTalkClipIds, speakingLessons, talkAudioReady } from './lessons'
 
 describe('speaking lessons', () => {
-  it('waits for the complete first talk corpus', () => {
+  it('opens when the complete first talk corpus is approved', () => {
     expect(requiredTalkClipIds).toHaveLength(97)
     expect(new Set(requiredTalkClipIds).size).toBe(requiredTalkClipIds.length)
-    expect(talkAudioReady()).toBe(false)
+    expect(talkAudioReady()).toBe(true)
   })
 
   it('gives every picture-book page a clear visual', () => {
