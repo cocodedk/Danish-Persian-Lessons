@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-madar",
+  "entryId": "word-bridge-madar",
+  "formId": "neutral",
+  "transcript": "مادَر",
+  "synthesisText": "مادَر",
+  "sourceTextHash": "acd0b21c393117a45adad16660573d13a247951a96f962c41c55252abf277c70",
+  "draftFile": "work/word-bridge-madar.acd0b21c3931.mp3",
+  "durationMs": 910,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -5.65,
+  "bytes": 5711,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-madar.7bfa2871d133.mp3"
+}

@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-unit-4-title",
+  "entryId": "vocabulary-unit-4-title",
+  "formId": "neutral",
+  "transcript": "رنگ‌ها",
+  "synthesisText": "رنگ‌ها",
+  "sourceTextHash": "ecf950227f0a6a56b1cf790c9438e29acc7d679ac157c2e7aae52c7c43a5059e",
+  "draftFile": "work/vocabulary-unit-4-title.ecf950227f0a.mp3",
+  "durationMs": 1040,
+  "channels": 1,
+  "integratedLufs": -20.38,
+  "truePeakDbtp": -2.61,
+  "bytes": 6495,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-unit-4-title.7e2beaa98b77.mp3"
+}

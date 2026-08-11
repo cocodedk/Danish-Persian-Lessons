@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-baradar",
+  "entryId": "word-bridge-baradar",
+  "formId": "neutral",
+  "transcript": "بَرادَر",
+  "synthesisText": "بَرادَر",
+  "sourceTextHash": "64df71567506808ec4f4a701343dbcdac46fc442a69e6f42594c087a18d9cf55",
+  "draftFile": "work/word-bridge-baradar.64df71567506.mp3",
+  "durationMs": 810,
+  "channels": 1,
+  "integratedLufs": -20.41,
+  "truePeakDbtp": -1.62,
+  "bytes": 5085,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-baradar.f772c151c649.mp3"
+}

@@ -90,7 +90,7 @@ describe('ChildHome', () => {
 
   it('switches deliberately to the grown-up course', () => {
     renderHome()
-    fireEvent.click(screen.getByRole('link', { name: 'Lektioner' }))
+    fireEvent.click(screen.getByRole('link', { name: 'Skrift' }))
     expect(screen.getByRole('heading', { name: 'Hele kurset' })).toBeInTheDocument()
     expect(getJourneyChoice()).toBe('script')
   })

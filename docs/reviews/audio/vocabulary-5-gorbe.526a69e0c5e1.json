@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-5-gorbe",
+  "entryId": "vocabulary-5-gorbe",
+  "formId": "neutral",
+  "transcript": "گُربه",
+  "synthesisText": "گُربه",
+  "sourceTextHash": "d916881d442bee1df01aaca860152190f84026926cad9243469aa8eb62ea5ef3",
+  "draftFile": "work/vocabulary-5-gorbe.d916881d442b.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.4,
+  "truePeakDbtp": -3.37,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-5-gorbe.526a69e0c5e1.mp3"
+}

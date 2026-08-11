@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-5-mahi",
+  "entryId": "vocabulary-5-mahi",
+  "formId": "neutral",
+  "transcript": "ماهی",
+  "synthesisText": "ماهی",
+  "sourceTextHash": "b3083d3764c1c85939f08bbc44a900994260f6b4fe3f29e22f7cec0bb2617b1c",
+  "draftFile": "work/vocabulary-5-mahi.b3083d3764c1.mp3",
+  "durationMs": 860,
+  "channels": 1,
+  "integratedLufs": -20.41,
+  "truePeakDbtp": -3.15,
+  "bytes": 5398,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-5-mahi.110a58a18c70.mp3"
+}

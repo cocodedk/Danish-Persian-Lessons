@@ -4,7 +4,7 @@ import { LessonImage } from '../components/LessonImage'
 import { PersianText } from '../components/PersianText'
 import { RuledSection } from '../components/RuledSection'
 import { allSpeakingPractice } from '../progress/speaking'
-import { speakingLessons, talkAudioReady } from '../speaking/lessons'
+import { requiredTalkClipIds, speakingLessons, talkAudioReady } from '../speaking/lessons'
 import './speaking.css'
 
 export default function SpeakingHome() {
@@ -22,6 +22,14 @@ export default function SpeakingHome() {
           <p>Start med korte ord og sætninger. Skriften er med, men du skal ikke kunne læse den.</p>
           {(heard > 0 || spoken > 0) && <p>{heard} hørt · {spoken} øvet højt</p>}
         </header>
+        <Link className="speaking-sound-exercise" to="/lydovelse">
+          <span aria-hidden="true">🔊</span>
+          <div>
+            <h2>Øv alle lyde</h2>
+            <p>Find et ord. Hør det. Sig det højt.</p>
+            <strong>{requiredTalkClipIds.length} lyde</strong>
+          </div>
+        </Link>
         <section aria-labelledby="speaking-lessons-title">
           <h2 id="speaking-lessons-title">Vælg en lille lektion</h2>
           <div className="speaking-lessons">

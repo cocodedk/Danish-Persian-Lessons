@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-2-medad",
+  "entryId": "vocabulary-2-medad",
+  "formId": "neutral",
+  "transcript": "مِداد",
+  "synthesisText": "مِداد",
+  "sourceTextHash": "3ec2576732b4d2ddb72e4a14d47742d3d2a9b5205ac0865f5199b7c09c037ff5",
+  "draftFile": "work/vocabulary-2-medad.3ec2576732b4.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -3.97,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-2-medad.4572baf4658a.mp3"
+}

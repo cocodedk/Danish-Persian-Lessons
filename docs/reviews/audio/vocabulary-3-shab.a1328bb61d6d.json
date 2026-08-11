@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-3-shab",
+  "entryId": "vocabulary-3-shab",
+  "formId": "neutral",
+  "transcript": "شَب",
+  "synthesisText": "شَب",
+  "sourceTextHash": "00a29065854ebe59455b78b8adb1fbf0502aead50df637045aad6d4e4eddfe73",
+  "draftFile": "work/vocabulary-3-shab.00a29065854e.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.46,
+  "truePeakDbtp": -5.21,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-3-shab.a1328bb61d6d.mp3"
+}

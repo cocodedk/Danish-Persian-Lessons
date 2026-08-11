@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-2-dust",
+  "entryId": "vocabulary-2-dust",
+  "formId": "neutral",
+  "transcript": "دوست",
+  "synthesisText": "دوست",
+  "sourceTextHash": "477f210ae7ffd9b81c4d3e17197d9d3c092e1b847fd56cf3e735e8d8f1148418",
+  "draftFile": "work/vocabulary-2-dust.477f210ae7ff.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.48,
+  "truePeakDbtp": -5.8,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-2-dust.5f9b6b9e7f20.mp3"
+}

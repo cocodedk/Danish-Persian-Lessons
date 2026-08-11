@@ -1,0 +1,23 @@
+{
+  "clipId": "conversation-goodbye",
+  "entryId": "conversation-goodbye",
+  "formId": "neutral",
+  "transcript": "خُداحافِظ!",
+  "synthesisText": "خُداحافِظ!",
+  "sourceTextHash": "ca92751cb739d7fef57e95faf805d807c16e7acc21b73a8c610f9a73da8b475c",
+  "draftFile": "work/conversation-goodbye.ca92751cb739.mp3",
+  "durationMs": 1590,
+  "channels": 1,
+  "integratedLufs": -20.42,
+  "truePeakDbtp": -2.09,
+  "bytes": 9787,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/conversation-goodbye.29d96452d1d5.mp3"
+}

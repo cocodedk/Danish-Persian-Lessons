@@ -74,7 +74,7 @@ export async function prepareVisualState(page: Page, state: VisualState) {
     await page.goto(`./?visual-reset=${resetId += 1}#/`)
     await page.evaluate(() => localStorage.clear())
     await page.reload()
-    return expect(page.getByRole('heading', { name: 'Persisk på din måde' })).toBeVisible()
+    return expect(page.getByRole('heading', { name: 'Lær at tale persisk' })).toBeVisible()
   }
   if (state === 'orientation') {
     await page.goto(`./?visual-reset=${resetId += 1}#/`)

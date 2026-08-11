@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-1-madar",
+  "entryId": "vocabulary-1-madar",
+  "formId": "neutral",
+  "transcript": "مادَر",
+  "synthesisText": "مادَر",
+  "sourceTextHash": "b37826f024a6b2108d1dd166f84a9a2d3461af74ec96e3cda0713fafdaf92b3c",
+  "draftFile": "work/vocabulary-1-madar.b37826f024a6.mp3",
+  "durationMs": 860,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -5.42,
+  "bytes": 5398,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-1-madar.91cbffbe99f1.mp3"
+}

@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-band",
+  "entryId": "word-bridge-band",
+  "formId": "neutral",
+  "transcript": "بَند",
+  "synthesisText": "بَند",
+  "sourceTextHash": "a5df6c5ff471f109444b7c9034cd17bbb3b6eb9ed14694d166fadefcfc6f9c33",
+  "draftFile": "work/word-bridge-band.a5df6c5ff471.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -21.11,
+  "truePeakDbtp": -1.25,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-band.4344f2493179.mp3"
+}

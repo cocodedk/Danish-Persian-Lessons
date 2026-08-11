@@ -31,6 +31,7 @@ const ChildWordMission = lazy(() => import('./pages/ChildWordMission'))
 const SpeakingHome = lazy(() => import('./pages/SpeakingHome'))
 const SpeakingPage = lazy(() => import('./pages/SpeakingPage'))
 const AudioReviewPage = lazy(() => import('./pages/AudioReviewPage'))
+const AudioExercisePage = lazy(() => import('./pages/AudioExercisePage'))
 
 function LoadingRoute({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={<main><p>Henter siden …</p></main>}>{children}</Suspense>
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/opdag/ord/:id" element={<LoadingRoute><ChildWordMission /></LoadingRoute>} />
           <Route path="/tal" element={<LoadingRoute><SpeakingHome /></LoadingRoute>} />
           <Route path="/tal/:lesson/:page" element={<LoadingRoute><SpeakingPage /></LoadingRoute>} />
+          <Route path="/lydovelse" element={<LoadingRoute><AudioExercisePage /></LoadingRoute>} />
           <Route path="/lydreview" element={<LoadingRoute><AudioReviewPage /></LoadingRoute>} />
           <Route path="/kursus" element={<Home />} />
           <Route path="/lesson/alphabet" element={<AlphabetLesson />} />

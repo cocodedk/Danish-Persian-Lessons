@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-mah",
+  "entryId": "word-bridge-mah",
+  "formId": "neutral",
+  "transcript": "ماه",
+  "synthesisText": "ماه",
+  "sourceTextHash": "6f4be87ca5e363311e8b50b05bf0ec7a012e40a536b0b8045d8514c690a4496f",
+  "draftFile": "work/word-bridge-mah.6f4be87ca5e3.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.46,
+  "truePeakDbtp": -3.49,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-mah.fbd05454174e.mp3"
+}

@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-1-nan",
+  "entryId": "vocabulary-1-nan",
+  "formId": "neutral",
+  "transcript": "نان",
+  "synthesisText": "نان",
+  "sourceTextHash": "15b4beb7d6322b057ba5759e6121a5d912146f286fda88a81adc9bb1383b07ff",
+  "draftFile": "work/vocabulary-1-nan.15b4beb7d632.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.4,
+  "truePeakDbtp": -6.12,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-1-nan.244c577eea2a.mp3"
+}

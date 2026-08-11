@@ -25,14 +25,13 @@ beforeEach(() => {
 })
 
 describe('Home', () => {
-  it('offers both journeys before opening course orientation on a true first launch', () => {
+  it('opens the checked speaking lessons on a true first launch', async () => {
     window.localStorage.clear()
     window.location.hash = ''
     rtlRender(<App />)
 
-    expect(screen.getByRole('heading', { name: 'Persisk på din måde' })).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('button', { name: 'Åbn kursus og noter' }))
-    expect(screen.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Lær at tale persisk' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Øv alle lyde/ })).toBeInTheDocument()
     expect(screen.queryByLabelText('Hvad hedder du?')).not.toBeInTheDocument()
   })
 
@@ -129,10 +128,7 @@ describe('Home', () => {
     const lesson = screen.getByRole('link', { name: /Alfabetet/ })
     expect(lesson).toHaveAttribute('href', '/lesson/alphabet')
     expect(screen.getByText('0 af 39 set eller øvet')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Ordbroer' })).toHaveAttribute(
-      'href',
-      '/ord-der-ligner',
-    )
+    expect(screen.getByRole('link', { name: 'Tal' })).toHaveAttribute('href', '/tal')
   })
 
   it('deleting the name from the settings corner reverts the greeting to plain Hej!', () => {

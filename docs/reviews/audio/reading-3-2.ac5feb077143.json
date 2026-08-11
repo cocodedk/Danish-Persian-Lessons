@@ -1,0 +1,23 @@
+{
+  "clipId": "reading-3-2",
+  "entryId": "reading-3-2",
+  "formId": "neutral",
+  "transcript": "شَب و باران",
+  "synthesisText": "شَب و باران",
+  "sourceTextHash": "f8b1a12babfaa07e33cca7a12b68d2c6a15844975bc9f3248a12b32fc2a3349e",
+  "draftFile": "work/reading-3-2.f8b1a12babfa.mp3",
+  "durationMs": 890,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -5.23,
+  "bytes": 5555,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/reading-3-2.ac5feb077143.mp3"
+}

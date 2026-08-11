@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-4-siyah",
+  "entryId": "vocabulary-4-siyah",
+  "formId": "neutral",
+  "transcript": "سیاه",
+  "synthesisText": "سیاه",
+  "sourceTextHash": "d95c8c1f6420e65f97bf8f75507846da038ce00e2884c9026d1178e65ce2328f",
+  "draftFile": "work/vocabulary-4-siyah.d95c8c1f6420.mp3",
+  "durationMs": 940,
+  "channels": 1,
+  "integratedLufs": -20.46,
+  "truePeakDbtp": -5.89,
+  "bytes": 5868,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-4-siyah.09906840adf4.mp3"
+}

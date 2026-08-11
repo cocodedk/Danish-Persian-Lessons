@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-shesh",
+  "entryId": "word-bridge-shesh",
+  "formId": "neutral",
+  "transcript": "شِش",
+  "synthesisText": "شِش",
+  "sourceTextHash": "9224ace83b7fff1e794f6224df75d99a5d77526984ed22afde8e131bfe6df22f",
+  "draftFile": "work/word-bridge-shesh.9224ace83b7f.mp3",
+  "durationMs": 890,
+  "channels": 1,
+  "integratedLufs": -20.37,
+  "truePeakDbtp": -3.54,
+  "bytes": 5555,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-shesh.15c848ac636c.mp3"
+}

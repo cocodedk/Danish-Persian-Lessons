@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-setareh",
+  "entryId": "word-bridge-setareh",
+  "formId": "neutral",
+  "transcript": "سِتاره",
+  "synthesisText": "سِتاره",
+  "sourceTextHash": "aeba0b38510f51f2dd8cf085f0b0a03ba9762b0ef65909e2264df9aacf134009",
+  "draftFile": "work/word-bridge-setareh.aeba0b38510f.mp3",
+  "durationMs": 1120,
+  "channels": 1,
+  "integratedLufs": -20.48,
+  "truePeakDbtp": -5.16,
+  "bytes": 6965,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-setareh.2ec9c289171c.mp3"
+}

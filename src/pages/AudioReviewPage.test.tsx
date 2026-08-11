@@ -12,7 +12,7 @@ vi.mock('../components/AudioControl', () => ({
 describe('online audio review', () => {
   beforeEach(() => localStorage.clear())
 
-  it('shows all 97 drafts as unreviewed and keeps phone feedback', () => {
+  it('keeps the 97-card phone review after the sounds are approved', () => {
     render(
       <MemoryRouter>
         <AudioReviewPage />
@@ -20,7 +20,7 @@ describe('online audio review', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Tjek persisk lyd' })).toBeInTheDocument()
-    expect(screen.getByText('Ikke klar til elever')).toBeInTheDocument()
+    expect(screen.getByText('Lydtjek er færdigt')).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: /^Hør / })).toHaveLength(97)
 
     const goodButtons = screen.getAllByRole('button', { name: 'God' })

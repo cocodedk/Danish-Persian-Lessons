@@ -4,6 +4,7 @@ import { BarLink, LessonSheet } from '../components/LessonSheet'
 import { PersianText } from '../components/PersianText'
 import { PronLine } from '../components/PronLine'
 import { audioReviewRows } from '../audio/review'
+import { findPronunciationAudio } from '../audio/manifest'
 import './AudioReviewPage.css'
 
 type Mark = 'good' | 'wrong'
@@ -58,6 +59,10 @@ export default function AudioReviewPage() {
   const [message, setMessage] = useState('')
   const good = audioReviewRows.filter((row) => review.answers[row.clipId]?.mark === 'good').length
   const wrong = audioReviewRows.filter((row) => review.answers[row.clipId]?.mark === 'wrong').length
+  const allReleased = audioReviewRows.every((row) => {
+    const audio = findPronunciationAudio(row.clipId)
+    return audio?.source === 'piper' && audio.sourceTextHash === row.sourceTextHash
+  })
 
   const visibleRows = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase('da')
@@ -144,12 +149,24 @@ export default function AudioReviewPage() {
     <LessonSheet
       className="lesson--audio-review"
       title="Tjek persisk lyd"
-      bar={<BarLink to="/">Til forsiden</BarLink>}
+      bar={(
+        <>
+          <BarLink to="/">Til forsiden</BarLink>
+          <BarLink to="/lydovelse">Lydøvelse</BarLink>
+        </>
+      )}
     >
-      <section className="audio-review__warning" aria-label="Vigtig besked">
-        <strong>Ikke klar til elever</strong>
-        <p>Disse lyde er lavet af en maskine. De skal tjekkes af en persisk taler.</p>
-      </section>
+      {allReleased ? (
+        <section className="audio-review__ready" aria-label="Lydtjek er færdigt">
+          <strong>Lydtjek er færdigt</strong>
+          <p>Alle {audioReviewRows.length} lyde er godkendt og er nu med i lektionerne.</p>
+        </section>
+      ) : (
+        <section className="audio-review__warning" aria-label="Vigtig besked">
+          <strong>Ikke klar til elever</strong>
+          <p>Disse lyde er lavet af en maskine. De skal tjekkes af en persisk taler.</p>
+        </section>
+      )}
 
       <section className="audio-review__guide" aria-labelledby="audio-review-guide">
         <h2 id="audio-review-guide">Sådan gør du</h2>

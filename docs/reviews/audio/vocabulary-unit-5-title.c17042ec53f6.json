@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-unit-5-title",
+  "entryId": "vocabulary-unit-5-title",
+  "formId": "neutral",
+  "transcript": "حیوان‌ها",
+  "synthesisText": "حیوان‌ها",
+  "sourceTextHash": "f572038bc444ca03e41562e1f4d57e002b09572875d6220da6fffb0da738e5a9",
+  "draftFile": "work/vocabulary-unit-5-title.f572038bc444.mp3",
+  "durationMs": 1100,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -4.92,
+  "bytes": 6809,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-unit-5-title.c17042ec53f6.mp3"
+}

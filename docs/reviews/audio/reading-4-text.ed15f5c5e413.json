@@ -1,0 +1,23 @@
+{
+  "clipId": "reading-4-text",
+  "entryId": "reading-4-text",
+  "formId": "neutral",
+  "transcript": "این قِرمِز و آبی اَست. آن سَبز و زَرد اَست. این سیاه و سِفید اَست. آن نارَنجی و صورَتی اَست.",
+  "synthesisText": "این قِرمِز و آبی اَست. آن سَبز و زَرد اَست. این سیاه و سِفید اَست. آن نارَنجی و صورَتی اَست.",
+  "sourceTextHash": "f69dded73ae4f39aad8b68c87534f7fb149b6db047c3aa6003fc57a2b8cc492e",
+  "draftFile": "work/reading-4-text.f69dded73ae4.mp3",
+  "durationMs": 8830,
+  "channels": 1,
+  "integratedLufs": -20.41,
+  "truePeakDbtp": -2.32,
+  "bytes": 53202,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/reading-4-text.ed15f5c5e413.mp3"
+}

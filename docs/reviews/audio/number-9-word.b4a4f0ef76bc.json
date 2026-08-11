@@ -1,0 +1,23 @@
+{
+  "clipId": "number-9-word",
+  "entryId": "number-9-word",
+  "formId": "neutral",
+  "transcript": "نُه",
+  "synthesisText": "نُه",
+  "sourceTextHash": "0caf40d5f8edbd93a6999ca668bfe093c24e647ec0027fddc3b6a5946b5354a6",
+  "draftFile": "work/number-9-word.0caf40d5f8ed.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.46,
+  "truePeakDbtp": -3.71,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/number-9-word.b4a4f0ef76bc.mp3"
+}

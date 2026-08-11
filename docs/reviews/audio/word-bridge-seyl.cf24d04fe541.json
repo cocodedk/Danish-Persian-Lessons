@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-seyl",
+  "entryId": "word-bridge-seyl",
+  "formId": "neutral",
+  "transcript": "سِیل",
+  "synthesisText": "سِیل",
+  "sourceTextHash": "eb2b2467edf5b53f3acaf04693a94e6e8cfae24d1df9adcb343fe7b34ed08f15",
+  "draftFile": "work/word-bridge-seyl.eb2b2467edf5.mp3",
+  "durationMs": 810,
+  "channels": 1,
+  "integratedLufs": -20.38,
+  "truePeakDbtp": -6.47,
+  "bytes": 5085,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-seyl.cf24d04fe541.mp3"
+}

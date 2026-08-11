@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-mush",
+  "entryId": "word-bridge-mush",
+  "formId": "neutral",
+  "transcript": "موش",
+  "synthesisText": "موش",
+  "sourceTextHash": "a7f31cf7779b09cf4874a4f534d2f4f5d0aa4c82baa5bcdcd1699ae37b45eddd",
+  "draftFile": "work/word-bridge-mush.a7f31cf7779b.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.39,
+  "truePeakDbtp": -6.6,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-mush.a2afb88dfdb5.mp3"
+}

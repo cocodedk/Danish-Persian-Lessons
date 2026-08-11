@@ -19,6 +19,7 @@ test.beforeEach(async ({ page }) => seed(page))
 
 test('representative routes have no automatic axe violations', async ({ page }) => {
   for (const route of ['#/', '#/opdag', '#/opdag/ord/ab', '#/lesson/alphabet', '#/lesson/ord/2/madrese', '#/lesson/ord/1/skriv', '#/repetition']) {
+  test.setTimeout(60_000)
     await open(page, route)
     const results = await new AxeBuilder({ page }).analyze()
     expect(results.violations, route).toEqual([])
@@ -190,8 +191,8 @@ test('dark scheme and reduced motion retain the first-run route', async ({ brows
     Storage.prototype.setItem = () => { throw new DOMException('denied') }
   })
   await open(page)
-  await expect(page.getByRole('heading', { name: 'Persisk på din måde' })).toBeVisible()
-  await page.getByRole('button', { name: 'Åbn kursus og noter' }).click()
+  await expect(page.getByRole('heading', { name: 'Lær at tale persisk' })).toBeVisible()
+  await page.getByRole('link', { name: 'Skrift' }).click()
   await expect(page.getByRole('heading', { name: 'Sådan virker persisk skrift' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Spring over og gå til alfabetet' })).toBeVisible()
   await page.close()

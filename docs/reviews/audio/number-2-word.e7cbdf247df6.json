@@ -1,0 +1,23 @@
+{
+  "clipId": "number-2-word",
+  "entryId": "number-2-word",
+  "formId": "neutral",
+  "transcript": "دو",
+  "synthesisText": "دو",
+  "sourceTextHash": "e191fdf2076badc6e0876d11f3bbe1e6db586f49f7a9b8d4020586e384b97dc3",
+  "draftFile": "work/number-2-word.e191fdf2076b.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -3.23,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/number-2-word.e7cbdf247df6.mp3"
+}

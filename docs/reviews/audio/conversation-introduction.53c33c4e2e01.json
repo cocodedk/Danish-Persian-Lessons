@@ -1,0 +1,23 @@
+{
+  "clipId": "conversation-introduction",
+  "entryId": "conversation-introduction",
+  "formId": "neutral",
+  "transcript": "مَن … هَستَم.",
+  "synthesisText": "مَن … هَستَم.",
+  "sourceTextHash": "d1612befb2dd74cc3fc6a308d92fa0feeee1d610f264a292bd586f851e25b854",
+  "draftFile": "work/conversation-introduction.d1612befb2dd.mp3",
+  "durationMs": 1120,
+  "channels": 1,
+  "integratedLufs": -20.44,
+  "truePeakDbtp": -2.86,
+  "bytes": 6965,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/conversation-introduction.53c33c4e2e01.mp3"
+}

@@ -1,0 +1,23 @@
+{
+  "clipId": "word-bridge-garm",
+  "entryId": "word-bridge-garm",
+  "formId": "neutral",
+  "transcript": "گَرم",
+  "synthesisText": "گَرم",
+  "sourceTextHash": "84e4e1b96157c105ae602952fded2c2fa51bc427385c79cbcf40c579815c5dfa",
+  "draftFile": "work/word-bridge-garm.84e4e1b96157.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.48,
+  "truePeakDbtp": -3.52,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/word-bridge-garm.9095fc17ba93.mp3"
+}

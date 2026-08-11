@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-1-abi",
+  "entryId": "vocabulary-1-abi",
+  "formId": "neutral",
+  "transcript": "آبی",
+  "synthesisText": "آبی",
+  "sourceTextHash": "5abfc29465a9f7d07856b5de4c0a70a568cd2a53f2477fa43fd7178472c5fed8",
+  "draftFile": "work/vocabulary-1-abi.5abfc29465a9.mp3",
+  "durationMs": 890,
+  "channels": 1,
+  "integratedLufs": -20.47,
+  "truePeakDbtp": -1.84,
+  "bytes": 5555,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-1-abi.0bb87ce61ee8.mp3"
+}

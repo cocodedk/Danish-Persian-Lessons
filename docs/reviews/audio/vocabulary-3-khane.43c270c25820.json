@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-3-khane",
+  "entryId": "vocabulary-3-khane",
+  "formId": "neutral",
+  "transcript": "خانه",
+  "synthesisText": "خانه",
+  "sourceTextHash": "c0e3dedf7584f6a26fd6e99e46bd394d9df3e1023af9b33bf6b00623a4aab286",
+  "draftFile": "work/vocabulary-3-khane.c0e3dedf7584.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.91,
+  "truePeakDbtp": -1.66,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/vocabulary-3-khane.43c270c25820.mp3"
+}

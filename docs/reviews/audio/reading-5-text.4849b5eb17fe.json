@@ -1,0 +1,23 @@
+{
+  "clipId": "reading-5-text",
+  "entryId": "reading-5-text",
+  "formId": "neutral",
+  "transcript": "این پَرَنده اَست. آن ماهی اَست. این خَرگوش اَست. آن موش اَست.",
+  "synthesisText": "این پَرَنده اَست. آن ماهی اَست. این خَرگوش اَست. آن موش اَست.",
+  "sourceTextHash": "a1f24d02689cd77be1a48fb7ff56a63c67b5568dd911e999dfa36b8b94613ebc",
+  "draftFile": "work/reading-5-text.a1f24d02689c.mp3",
+  "durationMs": 5880,
+  "channels": 1,
+  "integratedLufs": -20.75,
+  "truePeakDbtp": -3.05,
+  "bytes": 35491,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/reading-5-text.4849b5eb17fe.mp3"
+}

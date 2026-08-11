@@ -1,0 +1,23 @@
+{
+  "clipId": "reading-function-ezafe",
+  "entryId": "reading-function-ezafe",
+  "formId": "neutral",
+  "transcript": "ـِ",
+  "synthesisText": "ـِ",
+  "sourceTextHash": "d09e72626ea31ce0a47d15ad848b21743a477e1e9e9416a938bccdf84a823393",
+  "draftFile": "work/reading-function-ezafe.d09e72626ea3.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.4,
+  "truePeakDbtp": -3.04,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på telefon.",
+  "releasedFile": "/audio/reading-function-ezafe.72fa441a7500.mp3"
+}
