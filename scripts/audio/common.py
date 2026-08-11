@@ -12,10 +12,12 @@ WORK = AUDIO_ROOT / "work"
 REPORTS = AUDIO_ROOT / "reports"
 VOICES = AUDIO_ROOT / "voices"
 PUBLIC_AUDIO = ROOT / "public" / "audio"
+PUBLIC_REVIEW_AUDIO = ROOT / "public" / "audio-review"
 REVIEW_AUDIO = ROOT / "docs" / "reviews" / "audio"
 QUEUE = ROOT / "docs" / "reviews" / "audio-recording-queue.json"
 CONFIG_PATH = ROOT / "scripts" / "audio" / "config.json"
 MANIFEST_DATA = ROOT / "src" / "audio" / "approved.generated.json"
+REVIEW_MANIFEST_DATA = ROOT / "src" / "audio" / "review.generated.json"
 
 
 def load_json(path: Path) -> Any:

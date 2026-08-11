@@ -81,20 +81,28 @@ npm run verify     # lint + tests + build + verify.sh — the local release gate
 
 ## Make and review Persian audio
 
-Audio is made locally. Piper creates drafts; it does not publish them. A named native Persian speaker
-must check each clip before the approval script can copy it into the app.
+Audio is made locally. Piper creates drafts; it does not make them approved. A named native Persian
+speaker must check each clip before it can become lesson audio.
 
 ```bash
 npm run audio:setup
 npm run audio:queue
 npm run audio:generate -- --scope talk
+npm run audio:publish-review
+npm run audio:verify-review
 npm run audio:review
 npm run audio:approve -- --decisions /path/to/audio-decisions.json
 npm run audio:verify
 ```
 
-Drafts and the review page stay under ignored `.audio/`. Approved, content-hashed MP3 files go to
-`public/audio/`, with their loudness reports and source details checked into the repository.
+Local drafts stay under ignored `.audio/`. `audio:publish-review` copies the current 97 talk
+drafts into a separate public review set. The direct phone page at `#/lydreview` marks every clip
+as unreviewed and can save, share, or download the reviewer's answers. It is not linked from the
+learner paths and does not change the approved lesson manifest.
+
+Approved, content-hashed MP3 files go to `public/audio/`, with their loudness reports and source
+details checked into the repository.
+
 ## Architecture
 
 ```
