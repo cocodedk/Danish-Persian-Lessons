@@ -17,11 +17,13 @@
     "audio:queue": "node scripts/export-audio-review.mjs",
     "audio:generate": ".audio/.venv/bin/python scripts/audio/generate.py",
     "audio:review": ".audio/.venv/bin/python scripts/audio/review.py --serve",
+    "audio:publish-review": ".audio/.venv/bin/python scripts/audio/publish_review.py",
     "audio:approve": ".audio/.venv/bin/python scripts/audio/approve.py",
     "audio:verify": "python3 scripts/audio/verify.py",
+    "audio:verify-review": "python3 scripts/audio/verify_review.py",
     "release:version": "node scripts/release-version.mjs",
     "verify:images": "node scripts/verify-lesson-images.mjs",
-    "verify": "npm run lint && npm run test -- --run && npm run build && npm run verify:images && npm run audio:verify && bash scripts/verify.sh && npm run e2e:run"
+    "verify": "npm run lint && npm run test -- --run && npm run build && npm run verify:images && npm run audio:verify && npm run audio:verify-review && bash scripts/verify.sh && npm run e2e:run"
   },
   "dependencies": {
     "react": "^19.2.8",

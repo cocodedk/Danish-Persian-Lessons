@@ -3,14 +3,21 @@ import { findPronunciationAudio, pronunciationAudioUrl } from '../audio/manifest
 import { activateAudio, releaseAudio } from '../audio/playback'
 import './AudioControl.css'
 
+export interface AudioControlSource {
+  file: string
+  transcript: string
+}
+
 export function AudioControl({
   audioId,
+  source,
   onPlay,
 }: {
   audioId?: string
+  source?: AudioControlSource
   onPlay?: () => void
 }) {
-  const row = findPronunciationAudio(audioId)
+  const row = source ?? findPronunciationAudio(audioId)
   const audio = useRef<HTMLAudioElement>(null)
   const [slow, setSlow] = useState(false)
   const [muted, setMuted] = useState(false)
