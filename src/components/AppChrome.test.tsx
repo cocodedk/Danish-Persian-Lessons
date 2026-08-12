@@ -32,4 +32,21 @@ describe('AppChrome', () => {
     expect(screen.getByRole('button', { name: 'Indstillinger' })).toBeVisible()
     expect(screen.getByRole('link', { name: 'Skrift' })).toHaveAttribute('aria-current', 'page')
   })
+
+  it('shows the release version and dedication on the About tab', () => {
+    renderChrome('/')
+    fireEvent.click(screen.getByRole('button', { name: 'Indstillinger' }))
+
+    const settingsTab = screen.getByRole('tab', { name: 'Indstillinger' })
+    const aboutTab = screen.getByRole('tab', { name: 'Om' })
+    expect(settingsTab).toHaveAttribute('aria-selected', 'true')
+
+    settingsTab.focus()
+    fireEvent.keyDown(settingsTab, { key: 'ArrowRight' })
+
+    expect(aboutTab).toHaveFocus()
+    expect(screen.getByRole('tabpanel', { name: 'Om' })).toBeVisible()
+    expect(screen.getByText(__DPL_APP_VERSION__, { exact: true })).toBeVisible()
+    expect(screen.getByText('Tilegnet Persian Bandpey.')).toBeVisible()
+  })
 })
