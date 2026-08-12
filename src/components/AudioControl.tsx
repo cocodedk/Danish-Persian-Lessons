@@ -3,6 +3,15 @@ import { findPronunciationAudio, pronunciationAudioUrl } from '../audio/manifest
 import { activateAudio, releaseAudio } from '../audio/playback'
 import './AudioControl.css'
 
+const NORMAL_PLAYBACK_RATE = 1
+const SLOW_PLAYBACK_RATE = 0.8
+
+function applyPlaybackRate(node: HTMLMediaElement, rate: number): void {
+  node.defaultPlaybackRate = rate
+  node.playbackRate = rate
+  node.preservesPitch = true
+}
+
 export interface AudioControlSource {
   file: string
   transcript: string
@@ -33,12 +42,12 @@ export function AudioControl({
 
   if (!row) return null
 
-  async function replay() {
+  async function replay(rate = slow ? SLOW_PLAYBACK_RATE : NORMAL_PLAYBACK_RATE) {
     const node = audio.current
     if (!node) return
     activateAudio(node)
     node.currentTime = 0
-    node.playbackRate = slow ? 0.8 : 1
+    applyPlaybackRate(node, rate)
     try {
       await node.play()
       setPlaying(true)
@@ -63,7 +72,7 @@ export function AudioControl({
 
   function chooseSpeed(value: boolean) {
     setSlow(value)
-    if (audio.current) audio.current.playbackRate = value ? 0.8 : 1
+    void replay(value ? SLOW_PLAYBACK_RATE : NORMAL_PLAYBACK_RATE)
   }
 
   function toggleMute() {
@@ -83,7 +92,7 @@ export function AudioControl({
         onPause={() => setPlaying(false)}
         onEnded={stop}
       />
-      <button type="button" aria-label={`Hør ${row.transcript}`} onClick={replay}>
+      <button type="button" aria-label={`Hør ${row.transcript}`} onClick={() => void replay()}>
         {playing ? 'Afspiller' : played ? 'Hør igen' : 'Hør'}
       </button>
       <button type="button" aria-label={`Stop lyden for ${row.transcript}`} disabled={!playing} onClick={stop}>
