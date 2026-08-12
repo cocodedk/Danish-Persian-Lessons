@@ -20,15 +20,17 @@ describe('pronunciation audio controls', () => {
 
   afterEach(() => vi.restoreAllMocks())
 
-  it('never autoplays and offers replay, stop, both speeds, and mute', async () => {
+  it('never autoplays and offers replay, stop, three speeds, and mute', async () => {
     const { container } = render(<AudioControl audioId="word-ab" />)
     const audio = container.querySelector('audio')!
     expect(audio).toHaveAttribute('preload', 'none')
-    expect(audio).toHaveAttribute('src', '/Danish-Persian-Lessons/app/audio/word-ab.mp3')
+    expect(audio).not.toHaveAttribute('src')
     expect(audio).not.toHaveAttribute('autoplay')
 
     fireEvent.click(screen.getByRole('button', { name: 'Langsom 0,8×' }))
+    expect(audio).toHaveAttribute('src', '/Danish-Persian-Lessons/app/audio/word-ab.mp3')
     fireEvent.click(screen.getByRole('button', { name: 'Hør آب' }))
+    expect(screen.getByRole('button', { name: 'Meget langsom 0,5×' })).toBeVisible()
     expect(await screen.findByRole('button', { name: 'Stop lyden for آب' })).toBeEnabled()
     expect(audio.playbackRate).toBe(0.8)
 
@@ -49,11 +51,34 @@ describe('pronunciation audio controls', () => {
     expect(audio.playbackRate).toBe(0.8)
     expect(audio.defaultPlaybackRate).toBe(0.8)
 
-    fireEvent.click(screen.getByRole('button', { name: 'Normal 1×' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Meget langsom 0,5×' }))
 
     expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2)
+    expect(audio.playbackRate).toBe(0.5)
+    expect(audio.defaultPlaybackRate).toBe(0.5)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Normal 1×' }))
+
+    expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(3)
     expect(audio.playbackRate).toBe(1)
     expect(audio.defaultPlaybackRate).toBe(1)
+    fireEvent.click(screen.getByRole('button', { name: 'Stop lyden for آب' }))
+  })
+
+  it('reapplies the chosen rate if playback startup resets it', async () => {
+    vi.mocked(HTMLMediaElement.prototype.play).mockImplementationOnce(function (this: HTMLMediaElement) {
+      this.playbackRate = 1
+      this.defaultPlaybackRate = 1
+      return Promise.resolve()
+    })
+    const { container } = render(<AudioControl audioId="word-ab" />)
+    const audio = container.querySelector('audio')!
+
+    fireEvent.click(screen.getByRole('button', { name: 'Langsom 0,8×' }))
+
+    expect(await screen.findByRole('button', { name: 'Stop lyden for آب' })).toBeEnabled()
+    expect(audio.playbackRate).toBe(0.8)
+    expect(audio.defaultPlaybackRate).toBe(0.8)
     fireEvent.click(screen.getByRole('button', { name: 'Stop lyden for آب' }))
   })
 

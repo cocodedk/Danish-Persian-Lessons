@@ -47,6 +47,6 @@ describe('AppChrome', () => {
     expect(aboutTab).toHaveFocus()
     expect(screen.getByRole('tabpanel', { name: 'Om' })).toBeVisible()
     expect(screen.getByText(__DPL_APP_VERSION__, { exact: true })).toBeVisible()
-    expect(screen.getByText('Tilegnet Persian Bandpey.')).toBeVisible()
+    expect(screen.getByText('Tilegnet Persia Bandpey.')).toBeVisible()
   })
 })

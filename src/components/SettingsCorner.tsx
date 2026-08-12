@@ -183,7 +183,7 @@ export function SettingsCorner({ name, faSpelling, onSave, onDelete }: SettingsC
               role="tabpanel"
               aria-labelledby="settings-corner-about-tab"
             >
-              <p style={dedicationStyle}>Tilegnet Persian Bandpey.</p>
+              <p style={dedicationStyle}>Tilegnet Persia Bandpey.</p>
               <p style={versionStyle}>
                 <span>Version</span>
                 <code>{__DPL_APP_VERSION__}</code>

@@ -13,7 +13,7 @@ const sections: readonly {
   { category: 'everyday', title: 'I hverdagen', lead: 'Ord fra hjemmet, naturen og sproget omkring dig.' },
   { category: 'numbers', title: 'Tre tal', lead: 'Talord, der stadig kan genkendes på tværs af sprogene.' },
   { category: 'world', title: 'Krop og himmel', lead: 'Fra tænder og navle til månen og stjernerne.' },
-  { category: 'memory', title: 'Lydlige huskebroer', lead: 'Gode at huske med, men ikke fælles ordfamilier.' },
+  { category: 'memory', title: 'Lydlige huskebroer', lead: 'Gode at huske med, også når betydning eller ordhistorie kræver en forklaring.' },
 ]
 
 export default function WordBridgesScreen() {

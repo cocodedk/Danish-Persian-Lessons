@@ -1765,6 +1765,72 @@
       ]
     },
     {
+      "clipId": "word-bridge-pas",
+      "entryId": "word-bridge-pas",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "bridges",
+      "transcript": "پاس",
+      "synthesisText": "پاس",
+      "plainPersian": "پاس",
+      "danishMeaning": "vagt, beskyttelse eller omsorg",
+      "soundDa": "pås",
+      "ipa": "pɒːs",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/word-bridge-pas.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "word-bridge-mord",
+      "entryId": "word-bridge-mord",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "bridges",
+      "transcript": "مُرد",
+      "synthesisText": "مُرد",
+      "plainPersian": "مرد",
+      "danishMeaning": "døde",
+      "soundDa": "mord",
+      "ipa": "moɾd",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/word-bridge-mord.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "word-bridge-leng",
+      "entryId": "word-bridge-leng",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "bridges",
+      "transcript": "لِنگ",
+      "synthesisText": "لِنگ",
+      "plainPersian": "لنگ",
+      "danishMeaning": "ben",
+      "soundDa": "leng",
+      "ipa": "leŋɡ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/word-bridge-leng.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
       "clipId": "interface-greeting",
       "entryId": "interface-greeting",
       "formId": "neutral",

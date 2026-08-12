@@ -2,8 +2,9 @@ import { findPronunciationAudio } from '../audio/manifest'
 import { catalogDomains, persianCatalog } from '../catalog/registry'
 import type { PersianEntry } from '../catalog/types'
 import { spokenFormsFor } from '../catalog/types'
+import { launchTalkClipIds } from '../speaking/launchCorpus'
 
-const TALK_DOMAINS = new Set(['bridges', 'conversation', 'numbers', 'vocabulary'])
+const LAUNCH_TALK_CLIPS = new Set<string>(launchTalkClipIds)
 
 type Domain = keyof typeof catalogDomains
 
@@ -29,7 +30,7 @@ export const audioRecordingQueue = {
         entryId: entry.id,
         formId: form.id,
         register: form.register,
-        scope: TALK_DOMAINS.has(domain) ? 'talk' : 'writing',
+        scope: LAUNCH_TALK_CLIPS.has(form.audioId) ? 'talk' : 'writing',
         domain,
         transcript: form.faMarked ?? form.fa,
         synthesisText: form.faMarked ?? form.fa,
