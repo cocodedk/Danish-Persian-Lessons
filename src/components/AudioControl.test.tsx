@@ -38,6 +38,25 @@ describe('pronunciation audio controls', () => {
     expect(HTMLMediaElement.prototype.pause).toHaveBeenCalled()
   })
 
+  it('plays immediately at the chosen speed', async () => {
+    const { container } = render(<AudioControl audioId="word-ab" />)
+    const audio = container.querySelector('audio')!
+
+    fireEvent.click(screen.getByRole('button', { name: 'Langsom 0,8×' }))
+
+    expect(await screen.findByRole('button', { name: 'Stop lyden for آب' })).toBeEnabled()
+    expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
+    expect(audio.playbackRate).toBe(0.8)
+    expect(audio.defaultPlaybackRate).toBe(0.8)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Normal 1×' }))
+
+    expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2)
+    expect(audio.playbackRate).toBe(1)
+    expect(audio.defaultPlaybackRate).toBe(1)
+    fireEvent.click(screen.getByRole('button', { name: 'Stop lyden for آب' }))
+  })
+
   it('stops the previous clip before another starts', async () => {
     render(<><AudioControl audioId="one" /><AudioControl audioId="two" /></>)
     const play = screen.getAllByRole('button', { name: 'Hør آب' })
