@@ -150,6 +150,25 @@ test('initial routes never request the dormant audio corpus', async ({ page }) =
   expect(audioRequests).toEqual([])
 })
 
+test('audio speed buttons apply 80 and 50 percent to the media element', async ({ page }) => {
+  await open(page, '#/lesson/ord/1/ab')
+  const audio = page.locator('audio').first()
+  await expect(audio).not.toHaveAttribute('src')
+
+  await page.getByRole('button', { name: 'Langsom 0,8×' }).first().click()
+  await expect(audio).toHaveAttribute('src', /\/audio\/vocabulary-1-ab\..*\.mp3$/)
+  await expect.poll(() => audio.evaluate((node: HTMLAudioElement) => node.playbackRate))
+    .toBe(0.8)
+  await expect.poll(() => audio.evaluate((node: HTMLAudioElement) => node.defaultPlaybackRate))
+    .toBe(0.8)
+
+  await page.getByRole('button', { name: 'Meget langsom 0,5×' }).first().click()
+  await expect.poll(() => audio.evaluate((node: HTMLAudioElement) => node.playbackRate))
+    .toBe(0.5)
+  await expect.poll(() => audio.evaluate((node: HTMLAudioElement) => node.defaultPlaybackRate))
+    .toBe(0.5)
+})
+
 test('a word shows Persian, sound, Danish and its photo, and hides the photo until a quiz answer', async ({ page }) => {
   await open(page, '#/lesson/ord/1/ab')
   const image = page.getByRole('img', { name: 'Et glas vand' })

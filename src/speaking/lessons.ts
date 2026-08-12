@@ -1,11 +1,10 @@
 import { findPronunciationAudio } from '../audio/manifest'
-import { catalogDomains } from '../catalog/registry'
 import type { PersianEntry } from '../catalog/types'
-import { spokenFormsFor } from '../catalog/types'
 import { lessonImageForEntry } from '../images/catalog'
 import { conversationBasics } from '../lessons/conversation'
 import { beginnerNumbers } from '../lessons/numbers'
 import { findVocabUnit, type ColorSwatchId } from '../lessons/vocab'
+import { launchTalkClipIds } from './launchCorpus'
 
 export interface SpeakingPage {
   id: string
@@ -78,16 +77,7 @@ export function findSpeakingPage(lessonId: string, pageId: string) {
   return index < 0 ? undefined : { lesson, page: lesson.pages[index], index }
 }
 
-const talkEntries = [
-  ...catalogDomains.bridges,
-  ...catalogDomains.conversation,
-  ...catalogDomains.numbers,
-  ...catalogDomains.vocabulary,
-]
-
-export const requiredTalkClipIds = [...new Set(talkEntries.flatMap((entry) =>
-  spokenFormsFor(entry).map((form) => form.audioId),
-))]
+export const requiredTalkClipIds: readonly string[] = launchTalkClipIds
 
 export function talkAudioReady(): boolean {
   return requiredTalkClipIds.length > 0

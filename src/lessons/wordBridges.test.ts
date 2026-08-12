@@ -24,7 +24,7 @@ const suppliedPairs = [
 
 describe('Persian and Danish word bridges', () => {
   it('keeps every pair unique, sourced, and ready for a full word reading', () => {
-    expect(wordBridges).toHaveLength(20)
+    expect(wordBridges).toHaveLength(23)
     expect(new Set(wordBridges.map((bridge) => bridge.id)).size).toBe(wordBridges.length)
     for (const bridge of wordBridges) {
       expect(wordBridgeSources[bridge.id]?.length).toBeGreaterThanOrEqual(2)
@@ -57,5 +57,23 @@ describe('Persian and Danish word bridges', () => {
       danish: 'dus', danishIpa: 'ˈdus',
     })
     expect(byId['dust-dus'].historyDa).toContain('ikke et fælles ophav')
+  })
+
+  it('keeps the three requested bridges as qualified memory clues', () => {
+    const byId = Object.fromEntries(wordBridges.map((bridge) => [bridge.id, bridge]))
+    expect(byId['pas-pas-paa']).toMatchObject({
+      category: 'memory', entry: { fa: 'پاس', da: 'vagt, beskyttelse eller omsorg' },
+      danish: 'pas på',
+    })
+    expect(byId['pas-pas-paa'].meaningDa).toContain('movåzeb båsh')
+    expect(byId['mord-mord']).toMatchObject({
+      category: 'memory', entry: { fa: 'مرد', faMarked: 'مُرد', da: 'døde' }, danish: 'mord',
+    })
+    expect(byId['mord-mord'].meaningDa).toContain('ikke det samme')
+    expect(byId['leng-lang']).toMatchObject({
+      category: 'memory', entry: { fa: 'لنگ', faMarked: 'لِنگ', da: 'ben' },
+      danish: 'lang, længe, langt',
+    })
+    expect(byId['leng-lang'].historyDa).toContain('ikke dokumenteret som et historisk dansk længdemål')
   })
 })

@@ -1,6 +1,7 @@
 import type { PersianEntry } from '../catalog/types'
 import { bridgeEntriesA as a } from './wordBridgeEntriesA'
 import { bridgeEntriesB as b } from './wordBridgeEntriesB'
+import { wordBridgeMemoryAdditions } from './wordBridgeMemoryAdditions'
 import type { WordBridge } from './wordBridgeTypes'
 
 export type { WordBridge, WordBridgeCategory } from './wordBridgeTypes'
@@ -147,6 +148,7 @@ export const wordBridges: readonly WordBridge[] = [
     meaningDa: 'دوست betyder ven. At være dus betyder, at man er fortrolig og siger “du” til hinanden.',
     historyDa: 'Ordene har forskellig historie. Dette er en lydlig huskebro, ikke et fælles ophav.',
   },
+  ...wordBridgeMemoryAdditions,
 ]
 
 export const wordBridgeCatalog: PersianEntry[] = wordBridges.map((bridge) => bridge.entry)

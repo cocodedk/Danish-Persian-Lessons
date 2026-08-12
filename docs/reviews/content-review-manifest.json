@@ -3767,6 +3767,201 @@
       ]
     },
     {
+      "id": "word-bridge-pas",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "پاس",
+      "da": "vagt, beskyttelse eller omsorg",
+      "soundDa": "pås",
+      "ipa": "pɒːs",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "پ",
+          "role": "consonant",
+          "helpDa": "pe: p i \"pose\"",
+          "pron": {
+            "da": "p i \"pose\"",
+            "ipa": "p"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ا",
+          "role": "long-vowel",
+          "helpDa": "Alef skriver langt å her",
+          "pron": {
+            "da": "å i “år”",
+            "ipa": "ɒː"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "س",
+          "role": "consonant",
+          "helpDa": "sin: s i \"sol\"",
+          "pron": {
+            "da": "s i \"sol\"",
+            "ipa": "s"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": true,
+      "audioId": "word-bridge-pas",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-mord",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "مرد",
+      "faMarked": "مُرد",
+      "da": "døde",
+      "soundDa": "mord",
+      "ipa": "moɾd",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "م",
+          "role": "consonant",
+          "helpDa": "mim: m i \"mor\"",
+          "pron": {
+            "da": "m i \"mor\"",
+            "ipa": "m"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ُ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "o i “ost”",
+            "ipa": "o"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ر",
+          "role": "consonant",
+          "helpDa": "re: rullet r, som spansk \"pero\"",
+          "pron": {
+            "da": "rullet r, som spansk \"pero\"",
+            "ipa": "ɾ"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "د",
+          "role": "consonant",
+          "helpDa": "dal: d i \"dag\"",
+          "pron": {
+            "da": "d i \"dag\"",
+            "ipa": "d"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-mord",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "word-bridge-leng",
+      "domain": "bridges",
+      "kind": "word",
+      "fa": "لنگ",
+      "faMarked": "لِنگ",
+      "da": "ben",
+      "soundDa": "leng",
+      "ipa": "leŋɡ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "ل",
+          "role": "consonant",
+          "helpDa": "lam: l i \"lys\"",
+          "pron": {
+            "da": "l i \"lys\"",
+            "ipa": "l"
+          }
+        },
+        {
+          "start": 1,
+          "end": 1,
+          "display": "◌ِ",
+          "role": "short-vowel",
+          "helpDa": "Den korte lyd høres, men skrives tit ikke",
+          "pron": {
+            "da": "e i “let”",
+            "ipa": "e"
+          }
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "display": "ن",
+          "role": "consonant",
+          "helpDa": "nun: n i \"nat\"",
+          "pron": {
+            "da": "n i \"nat\"",
+            "ipa": "n"
+          }
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "display": "گ",
+          "role": "consonant",
+          "helpDa": "gaf: g i \"gul\"",
+          "pron": {
+            "da": "g i \"gul\"",
+            "ipa": "ɡ"
+          }
+        }
+      ],
+      "cueCoverage": "contextual",
+      "roleSensitive": false,
+      "audioId": "word-bridge-leng",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "vocabulary-unit-1-title",
       "domain": "vocabulary",
       "kind": "phrase",

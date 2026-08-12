@@ -95,4 +95,19 @@ export const wordBridgeSources: Record<string, readonly string[]> = {
     'https://parsianjoman.org/wp-content/uploads/2022/12/An-Etymological-Dictionary-of-the-Persian-Language.pdf',
     'https://ordnet.dk/ddo/ordbog/navle',
   ],
+  'pas-pas-paa': [
+    'https://vajehyab.com/?q=%D9%BE%D8%A7%D8%B3',
+    'https://vajehyab.com/?q=%D9%85%D9%88%D8%A7%D8%B8%D8%A8',
+    'https://ordnet.dk/ddo/ordbog/passe',
+  ],
+  'mord-mord': [
+    'https://en.wiktionary.org/wiki/%D9%85%D8%B1%D8%AF#Persian',
+    'https://vajehyab.com/?q=%D9%85%D8%B1%D8%AF%D9%86',
+    'https://ordnet.dk/ddo/ordbog/mord',
+  ],
+  'leng-lang': [
+    'https://vajehyab.com/dehkhoda/%D9%84%D9%86%DA%AF-4',
+    'https://ordnet.dk/ddo/ordbog/lang',
+    'https://danmarkshistorien.lex.dk/Oversigt_over_%C3%A6ldre_m%C3%A5le-_og_v%C3%A6gtenheder',
+  ],
 }

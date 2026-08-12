@@ -7,6 +7,9 @@ describe('speaking lessons', () => {
     expect(requiredTalkClipIds).toHaveLength(97)
     expect(new Set(requiredTalkClipIds).size).toBe(requiredTalkClipIds.length)
     expect(talkAudioReady()).toBe(true)
+    for (const optionalBridge of ['word-bridge-pas', 'word-bridge-mord', 'word-bridge-leng']) {
+      expect(requiredTalkClipIds).not.toContain(optionalBridge)
+    }
   })
 
   it('gives every picture-book page a clear visual', () => {
