@@ -120,6 +120,10 @@ src/, public/       (arrive with plan 001: Vite React app, lessons data, progres
 - Tests guard the text rules too: fa strings reject Arabic ك/ي and ASCII digits (see plan 001).
 - Conventional Commits (`feat:` / `fix:` / `docs:` …) — the commit-msg hook enforces it.
 - No new dependencies unless the active plan names them.
+- **Never commit machine-specific absolute local paths** in any public repository content — code,
+  tests, scripts, configuration, documentation, generated artifacts, fixtures, examples. Use
+  repository-relative, resolved, or configured paths, or generic placeholders; scan the staged diff
+  for home/workspace path leaks before every commit and every handoff.
 
 ## Commands
 

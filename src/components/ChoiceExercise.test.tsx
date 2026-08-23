@@ -100,6 +100,23 @@ describe('ChoiceExercise', () => {
     expect(screen.getByText(/Kun de svar, du fandt/)).toBeInTheDocument()
   })
 
+  it('hides the pronunciation while a showsPron:false attempt is active, then reveals it', () => {
+    // A round whose answer IS the sound (plan 016's «Find betydningen») marks
+    // its questions showsPron:false — saying it aloud would hand the answer
+    // over. The reveal after the tap still owes the learner everything.
+    const question = { ...vocabQuestion('ketab'), showsPron: false }
+    const { da, ipa } = question.entry.pron
+    const spoken = `${da} · [${ipa}]`
+    render(
+      <ChoiceExercise questions={[question]} onCorrect={vi.fn()} onComplete={vi.fn()} />,
+    )
+    expect(screen.queryByText(spoken)).not.toBeInTheDocument()
+
+    const wrong = question.choices.find((c) => c.id !== question.answerId)!
+    fireEvent.click(screen.getByText(wrong.glyph))
+    expect(screen.getByText(spoken)).toBeInTheDocument()
+  })
+
   it('draws a vocab prompt marked above and below as a two-layer specimen, both marks red', () => {
     // مَدرِسه: a زبر over the م and a زیر under the ر — the single gradient
     // cut can only ever colour one of the two (plan 004's "Note on the red

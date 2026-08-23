@@ -129,6 +129,35 @@ local commit, commands, environment, date, and result.
 - Every critical/high observation is fixed and the affected task is rerun. Raw notes, task outcomes,
   device, date, and build commit are saved without production tracking or unnecessary personal data.
 
+## Testimonial provenance and consent
+
+This file owns provenance, consent, and release gating for testimonials. Composition and layout are
+owned by [DESIGN.md](../../DESIGN.md) and are not restated here. The app ships no testimonials today;
+every requirement below applies to any release that ships one. An unmet requirement is a Critical
+defect and is never waivable by the exception group.
+
+- Every quote MUST come from a real, identifiable person whose relationship to the product and
+  enough context to judge the quote are stated in the published attribution.
+- Published wording MUST be verbatim and approved by that source. Fabricated, composite, stock, or
+  silently paraphrased quotes and attributions are forbidden; any shortening or editing MUST be
+  marked and reapproved by the source before publication.
+- Dated written informed consent MUST exist and MUST name the exact public quote, every attribution
+  field, the portrait if one is used, the channels where it may appear, and how to withdraw.
+- Anyone under 18 MUST have separate guardian consent plus the young person's own assent, and MUST
+  pass a heightened necessity and privacy review recording why no adult source suffices. Not using
+  minors is the preferred outcome.
+- Attribution MUST be minimized to what the reader needs to judge the quote. Contact details, exact
+  address, employer, school, full name where a first name suffices, and any data not required for
+  that judgement MUST NOT be published.
+- Consent evidence and source identity MUST be stored privately outside this public repository.
+  Only a non-sensitive approval and provenance record or identifier may appear in release evidence,
+  the repository, or the release packet.
+- A documented revocation route MUST let a source withdraw at any time without giving a reason.
+  After withdrawal the quote, attribution, and portrait MUST NOT be published again, MUST be removed
+  in the next deploy, and the removal MUST be recorded.
+- Any material change to the quote, its surrounding context, or the image MUST be reapproved in
+  writing by the source before the changed version ships.
+
 ## Required release packet
 
 - commit and production-build identifiers
@@ -138,6 +167,9 @@ local commit, commands, environment, date, and result.
 - responsive geometry report, cross-viewport snapshots, and art-direction sign-off
 - novice protocol, anonymized findings, fixes, and rerun results
 - asset/performance report and privacy/network trace
+- for any release containing a testimonial: the non-sensitive testimonial approval and
+  provenance record, confirming dated consent, minimized attribution, private storage of the
+  consent evidence, and no withdrawn source in the shipped build
 - known low-severity issues with owners
 
 P12 may be checked complete only when every packet item exists and every MUST is proven.

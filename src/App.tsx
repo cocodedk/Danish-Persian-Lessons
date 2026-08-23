@@ -10,6 +10,8 @@ import BonusScreen from './pages/BonusScreen'
 import VocabUnitScreen from './pages/VocabUnitScreen'
 import WordScreen from './pages/WordScreen'
 import VocabExerciseScreen from './pages/VocabExerciseScreen'
+import CountingScreen from './pages/CountingScreen'
+import CountingExerciseScreen from './pages/CountingExerciseScreen'
 import TypeWordScreen from './pages/TypeWordScreen'
 import TypeNameScreen from './pages/TypeNameScreen'
 import NameSpelling from './pages/NameSpelling'
@@ -23,6 +25,7 @@ import ConnectedReadingScreen from './pages/ConnectedReadingScreen'
 import { PersistenceNotice } from './components/PersistenceNotice'
 import JourneyGate from './pages/JourneyGate'
 import { AppChrome } from './components/AppChrome'
+import { countingLesson } from './lessons/countingLesson'
 
 const ImageCreditsScreen = lazy(() => import('./pages/ImageCreditsScreen'))
 const WordBridgesScreen = lazy(() => import('./pages/WordBridgesScreen'))
@@ -49,6 +52,8 @@ export default function App() {
           <Route path="/opdag" element={<LoadingRoute><ChildHome /></LoadingRoute>} />
           <Route path="/opdag/ord/:id" element={<LoadingRoute><ChildWordMission /></LoadingRoute>} />
           <Route path="/tal" element={<LoadingRoute><SpeakingHome /></LoadingRoute>} />
+          {/* Counting lives on the course route now; old talk-shelf links still land. */}
+          <Route path="/tal/tal/:page" element={<Navigate to={countingLesson.path} replace />} />
           <Route path="/tal/:lesson/:page" element={<LoadingRoute><SpeakingPage /></LoadingRoute>} />
           <Route path="/lydovelse" element={<LoadingRoute><AudioExercisePage /></LoadingRoute>} />
           <Route path="/lydreview" element={<LoadingRoute><AudioReviewPage /></LoadingRoute>} />
@@ -66,6 +71,8 @@ export default function App() {
           <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
           <Route path="/lesson/ord/:unit/laes/:reading" element={<ConnectedReadingScreen />} />
           <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
+          <Route path="/lesson/taelle" element={<CountingScreen />} />
+          <Route path="/lesson/taelle/ovelse/:kind" element={<CountingExerciseScreen />} />
           <Route path="/puslespil/:id" element={<PuzzleScreen />} />
           <Route path="/repetition" element={<ReviewScreen />} />
           <Route

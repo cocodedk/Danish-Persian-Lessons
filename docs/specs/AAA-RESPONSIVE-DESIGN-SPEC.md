@@ -59,6 +59,22 @@ At 200–400% desktop zoom, effective container width—not physical monitor wid
   or empty pane grow without a content-based maximum on desktop.
 - CSS Grid/Flexbox provide fallback. Container queries SHOULD govern reusable components; JavaScript
   viewport checks, UA sniffing, and parallel mobile/desktop component trees are prohibited.
+- **Single column is the base state, multi-column is the enhancement.** Narrow and Compact render one
+  column by construction. Every multi-column composition in this document MUST be expressed as
+  progressive enhancement over that base, so a container-query-unaware engine, an unresolved container
+  size, a disabled or failed stylesheet layer, or 400% zoom degrades to one readable column with the
+  documented DOM order intact — never to a clipped, overlapping, or horizontally scrolling grid.
+- Multi-column tracks MUST be declared so they can collapse: use `minmax()`, `auto-fit`/`auto-fill`,
+  or explicit single-column defaults overridden inside the query. A fixed column count with a fixed
+  track width is a defect, because it cannot wrap when the container shrinks.
+- **Wrapping is allowed; clipping, truncation, and overflow are not.** Flex and grid containers holding
+  text, labels, chips, tags, or action rows MUST wrap rather than shrink their children below a legible
+  measure or push them past the container edge. Wrapped rows keep their ≥44×44 targets and visible
+  spacing; a wrapped item never overlaps its neighbour or the row below.
+- Danish compounds and Persian words MUST NOT be broken mid-word to force a fit. Where a long string
+  cannot fit, the container grows, wraps at a word boundary, or the type scale steps down within its
+  documented `clamp()` range — in that order. `overflow: hidden`, negative margins, and fixed
+  `width`/`height` MUST NOT be used to hide a fit failure.
 
 ## Surface contracts
 
@@ -125,6 +141,50 @@ At 200–400% desktop zoom, effective container width—not physical monitor wid
 
 - Mobile bottom navigation includes safe-area padding and remains in the thumb zone. Wide navigation
   is bounded to the sheet/task width and may become non-sticky when all actions remain visible.
+
+#### Primary destination labels
+
+[DESIGN.md](../../DESIGN.md) owns which hubs exist, their labels, their order, and which arrangement
+is active; this section owns only how they are measured and laid out. The active arrangement is either
+four destinations or the legacy three, and both MUST satisfy the following at every matrix width.
+
+- On Medium and wider, every destination in the active arrangement MUST render its full Danish label
+  as visible text beside or beneath its icon. No destination may be hidden, collapsed into an
+  overflow/“more” affordance, reduced to an icon-only control, or ellipsized at these widths.
+- The navigation bar sizes for the longest label in the active arrangement — currently `Ordbroer` —
+  at the largest supported text scale. Destinations share equal track widths so one long label does
+  not compress its neighbours.
+- **Compact/mobile fallback.** At Narrow and Compact widths, in landscape phone heights, and at 200%
+  text scale, the bar MUST NOT overflow horizontally and MUST NOT truncate a label into an ambiguous
+  prefix. In priority order it MAY: reduce inline padding and gap to their documented minima; step the
+  label type down within its `clamp()` range to the documented minimum legible size; wrap each label
+  onto at most two lines under its icon. Only when all three are exhausted at 320px MAY labels be
+  omitted entirely, and then every destination MUST become icon-only together, each with an accessible
+  name and a visible current-hub indicator that does not depend on the missing text.
+- Mixed states are prohibited: labels are shown for all destinations or for none. Truncation with an
+  ellipsis (`Ordbro…`), a fading mask, or a horizontally scrolling nav bar are release defects, since
+  two destinations MUST never be distinguishable only by a cut-off string.
+- The bar retains its ≥44×44 targets and safe-area padding in every fallback step. Changing viewport
+  size or text scale MAY move a destination between these steps but MUST NOT change route, order, or
+  `aria-current`.
+
+#### Rails, cards, and lesson content
+
+- A sticky or fixed rail, detail strip, card, dock, or reward shelf MUST NOT overlay, occlude, or
+  visually crowd lesson content in any resting state. Rails occupy their own grid or flex track and
+  reserve their own space; they MUST NOT be positioned over the content column with `position: fixed`,
+  a negative margin, or a translate that lets content pass beneath them.
+- The floating settings gear is the one deliberate exception: it floats by design, and its own
+  non-obscuring constraint is owned by [DESIGN.md](../../DESIGN.md). This specification adds only that
+  its resting position and any panel it opens MUST be placed from the measured chrome geometry below,
+  so neither crosses into the reading measure or the bottom navigation at any matrix size.
+- Where a rail cannot claim its own track — Narrow and Compact, short landscape heights, high zoom —
+  it MUST collapse into the normal document flow above or below the content, or into a dismissible
+  surface, rather than float over the lesson. The secondary rail keeps its `18–24rem` bound and never
+  steals width from the reading measure below the documented minimum.
+- Content regions adjacent to sticky UI MUST end with scrollable padding equal to the measured sticky
+  extent, so the last line, the final action, and any completion control can be scrolled fully clear.
+  “Reachable by scrolling under the bar” is not clearance.
 - Settings, celebration, reward shelf, dialogs, and teaching reveals have explicit min/max inline and
   block sizes. Overlays center within the visual viewport, reflow at 320px, and never scale to the
   entire desktop monitor.
@@ -135,12 +195,56 @@ At 200–400% desktop zoom, effective container width—not physical monitor wid
 
 - Use logical properties and modern dynamic viewport units with a stable fallback. Account for
   `env(safe-area-inset-*)`, browser chrome, standalone/fullscreen display, and landscape notches.
-- The virtual keyboard MUST NOT permanently resize, jump, or cover the writing line. Where supported,
-  visual-viewport changes keep the active control and its context visible without page-scale hacks.
 - No fixed height may clip translated copy, IPA, Persian marks, 200% text, or a two-line button.
   Minimum heights expand with content.
 - Resize/rotation MAY change visual placement but MUST NOT remount a task or move keyboard focus to
   the document start. Animating layout between modes is unnecessary and SHOULD be disabled.
+
+### Measured chrome clearance
+
+- Page content, sticky rails, docks, anchors, and scroll offsets MUST clear the **actual rendered**
+  extent of the header, floating gear, bottom navigation, footer, and keyboard dock, plus the relevant
+  `env(safe-area-inset-*)` value. Clearance is computed from measured geometry, not assumed.
+- A hard-coded constant such as `3rem`, `48px`, or `56px` standing in for a chrome height is a defect,
+  even when it happens to be correct at one width and one text scale. It breaks as soon as a label
+  wraps to two lines, the icon set changes, the learner raises text size to 200%, or a device reports
+  a non-zero safe-area inset.
+- The required mechanism is a single measured source of truth: each fixed or sticky region publishes
+  its own rendered block size (for example a runtime custom property fed by `ResizeObserver`, or the
+  element's own `offset`/border-box size), and every consumer derives its padding, `inset`,
+  `scroll-margin-block`, or `scroll-padding-block` from that value with `calc()` plus the safe-area
+  inset. Two independent constants describing the same bar are prohibited.
+- The measured value MUST update on resize, rotation, text-scale change, label wrapping, safe-area
+  change, and when a region is shown, hidden, or switched between sticky and static. Until a real
+  measurement exists, the fallback MUST over-reserve space rather than risk occlusion.
+- Scroll containers set `scroll-padding-block` from the same measured values so programmatic scrolls,
+  in-page anchors, and `:target` landings never come to rest underneath chrome.
+
+### Focus, anchors, and selection visibility
+
+- No focused control, in-page anchor target, heading landed on after navigation, or currently selected
+  item may be wholly or partially obscured by sticky, fixed, or docked UI at any matrix size or zoom
+  level. This is the layout obligation behind the selected-AAA criteria listed in the
+  [AAA quality bar](AAA-QUALITY-BAR.md); the accessibility requirements themselves are owned there and
+  in [AAA-UX-ACCESSIBILITY-SPEC.md](AAA-UX-ACCESSIBILITY-SPEC.md).
+- Keyboard, switch, and screen-reader focus moving into a scroll container MUST bring the focused
+  element fully into view — its complete focus indicator and its ≥44×44 target, not merely one edge —
+  using the measured clearance above rather than the default browser scroll position.
+- Anchors and headings receiving focus after forward navigation or Back restoration MUST come to rest
+  below the header and above the bottom navigation, with their text and any adjacent action visible
+  without a further manual scroll.
+- The selected tile, letter, word, choice, or list row MUST remain visible after selection, including
+  when selecting causes a detail strip, rail, feedback region, or reward surface to appear. If the new
+  surface would cover the selection, the layout reflows or scrolls to keep the selection visible; it
+  never leaves the learner with a highlighted item they cannot see.
+- The virtual keyboard MUST NOT permanently resize, jump, or cover the writing line. Where supported,
+  visual-viewport changes keep the active control and its context visible without page-scale hacks.
+- While a virtual keyboard is open, the focused input, its caret, its help/error text, and the primary
+  submit or next action MUST all remain within the visual viewport. Clearance uses the visual viewport
+  reported by the browser, not the layout viewport, and MUST NOT rely on a fixed keyboard-height
+  guess. Where the keyboard's size is unreported, the layout degrades to a scrollable single column
+  that can always bring the focused input and its action into view.
+- Closing the keyboard MUST restore the previous scroll position and leave no reserved empty band.
 
 ## Visual and geometry test matrix
 
@@ -158,10 +262,16 @@ Playwright MUST assert at every mode boundary and ±1px:
 - state, focus, selection, scroll, and input buffer survive live resize and rotation;
 - related controls remain inside the same bounded visual task/lesson region.
 
-Visual snapshots cover home, orientation, index at top/scrolled, detail, active/wrong/correct exercise,
-puzzle, typing with/without feedback, name/settings, connected reading, celebration, and session
-summary at `320, 390, 768, 1024, 1440, 1920, 2560` in both schemes. The art director approves balance,
-the Danish learner approves mobile reach and desktop orientation, and accessibility approves reflow.
+Automated assertions MUST also prove the contracts above: every destination label fully visible and
+non-overflowing in the active arrangement at every matrix width and text scale; multi-column
+compositions collapsing to one column when container queries are unavailable; sticky/fixed clearance
+derived from measured geometry rather than a constant; and focused, anchored, and selected elements
+fully visible with the emulated keyboard open.
+
+The visual-snapshot state inventory, the widths and schemes it covers, and the baseline procedure are
+owned by [docs/reviews/VISUAL-REVIEW-PROTOCOL.md](../reviews/VISUAL-REVIEW-PROTOCOL.md). Reviewer
+roles and approval/sign-off are owned by the [AAA quality bar](AAA-QUALITY-BAR.md). Neither is
+restated here; this specification supplies the responsive facts those reviews are judged against.
 
 ## Release acceptance
 
@@ -172,8 +282,13 @@ the Danish learner approves mobile reach and desktop orientation, and accessibil
 - Ultrawide: the notebook workspace never exceeds 80rem; cards/specimens/keyboards respect their
   bounds; outer space reads as intentional calm, not stretched controls or kilometer-long rules.
 - Tablet/split screen: no awkward half-desktop state, final-row stretching, or state reset.
-- All automated geometry/snapshot gates and manual real-device/desktop journeys pass with no open
-  critical/high defect and no medium defect lacking five-person written sign-off.
+- Navigation: every destination in the active arrangement is fully labelled from Medium upward and
+  fits without overflow or ambiguous truncation at 320px and 200% text scale.
+- Clearance: no focused control, anchor target, or selected item is obscured by sticky, fixed, or
+  keyboard UI, and no chrome clearance is derived from a hard-coded constant.
+- All automated geometry/snapshot gates and manual real-device/desktop journeys pass. Severity
+  definitions, the exception process, and reviewer sign-off authority are owned by the
+  [AAA quality bar](AAA-QUALITY-BAR.md).
 
 ## Sources
 

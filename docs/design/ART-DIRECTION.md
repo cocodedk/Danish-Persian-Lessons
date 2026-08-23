@@ -1,8 +1,19 @@
 # Art Direction — Danish-Persian Lessons
 
-Authority: Fable (art director). Executors implement this verbatim; propose changes as questions in the
-relevant plan file, never by silently diverging. Applies to the landing site, the React app, favicons,
-OG images, and every future visual artifact.
+Authority: Fable (art director). This file owns exactly five aspects:
+
+1. the notebook visual metaphor,
+2. component styling semantics,
+3. the teaching-mark and control color roles,
+4. card treatment, and
+5. the permitted motion categories.
+
+It applies to the landing site, the React app, favicons, OG images, and every future visual artifact.
+Every other aspect has its own authoritative source, listed in
+[`docs/specs/README.md`](../specs/README.md). This file does not override those sources and does not
+claim general precedence over plans or specifications; where it and an owner document both touch an
+aspect, the owner document decides the exact values and this file states only the visual intent.
+Propose changes as questions in the relevant plan file, never by silently diverging.
 
 ## Concept: «دفتر مشق» — the exercise notebook
 
@@ -16,34 +27,50 @@ as the structural system. The margin line sits LEFT on LTR pages and **RIGHT on 
 Persian notebooks mirror it). Red is never decoration: it marks exactly what a teacher's pen would mark
 (vowel signs, corrections, the active item).
 
-## Palette
+## Color roles
 
-| Token | Light | Dark paper | Role |
-|---|---|---|---|
-| `--paper` | `#F7F2E9` | `#191918` | page background |
-| `--ink` | `#26211B` | `#E9E5DB` | text, letterforms |
-| `--red` | `#C9202C` | `#E56A64` | vowel marks, madde, margin line, active/correction accents |
-| `--blue` | `#2456A6` | `#91C9EF` | links, buttons, interactive (BIC-pen blue) |
-| `--rule` | `#C7D3E2` | `#4B4842` | notebook ruling, hairlines |
-| `--card` | `#EFE8DA` | `#232220` | cards, wells |
-| `--orange` | `#A94D09` | `#F2A25C` | Latin sound hints — the pencil orange |
+The palette is semantic. Components use these tokens, never local color literals.
 
-Dark mode is warm charcoal paper with no green cast and chalk-warm text. The learner can choose light,
-dark, or the phone/PC setting. No gradients. No drop shadows except a 1px paper-edge on raised cards.
+| Token | Role |
+|---|---|
+| `--paper` | page background — the notebook sheet |
+| `--ink` | text and letterforms |
+| `--red` | the teacher's pen: vowel marks, madde, margin line, corrections, the active item |
+| `--blue` | links, buttons, focus, interactive surfaces (the BIC-pen blue) |
+| `--rule` | notebook ruling and hairlines |
+| `--card` | cards and wells |
+| `--orange` | Latin sound hints — the pencil orange |
+| `--gold` | the gold-star sticker («ستارهٔ طلایی») only |
 
-## Typography
+The exact values for every scheme live in [`src/styles/tokens.css`](../../src/styles/tokens.css);
+consult that file rather than any copy of the values here.
 
-| Role | Face | Weights | Why |
-|---|---|---|---|
-| Persian display (word specimens) | **Noto Naskh Arabic** | 700 | schoolbook Naskh; best-in-class diacritic placement |
-| Persian UI/body | **Vazirmatn** | 400 / 700 | the modern Persian web face |
-| Latin (Danish + English) | **Andika** | 400 / 700 | SIL literacy face — designed for people learning to read; that IS this product |
+Light mode is warm notebook paper. Dark mode is **deep berry paper** — recognizably pink/berry rather
+than a generic dark theme — with the pink pen carrying the teaching marks and a cyan secondary pen
+keeping links and focus distinct from rewards and corrections. The learner can choose light, dark, or
+the phone/PC setting.
 
-- Landing: Google Fonts (preconnect + `display=swap`). App (plan 001+): self-hosted woff2 in the repo.
-- Persian specimens: huge — `clamp(4.5rem, 20vw, 9rem)`, `line-height: 2` minimum (diacritics need air).
-- Persian body minimum 1.125rem; Latin body minimum 1rem (16px). Never letter-space Persian script.
-- Type IS the hero. The product's split-screen contract doubles as the brand: Persian word above,
-  Danish word below, separated by one notebook rule.
+## Card treatment
+
+Cards are individual learning objects, not decorative containers for whole sections. Flat matte
+surface on paper, delineated by the ruling rather than by depth. No gradients. No drop shadows except
+a hairline paper-edge on a raised card. No hover lifts beyond color.
+
+## Typography presentation
+
+The semantic face roles and the permitted-weight policy are owned by
+[`DESIGN.md`](../../DESIGN.md); the exact font files and numeric weights that ship are owned by
+[`src/styles/fonts.css`](../../src/styles/fonts.css). This file governs only how type is presented:
+
+- Type IS the hero. The product's split contract doubles as the brand: Persian word above, Danish word
+  below, separated by one notebook rule.
+- Persian specimens are huge and generously leaded — diacritics need vertical air, and a specimen that
+  crowds its اِعراب has failed regardless of the numbers.
+- Persian display uses the schoolbook Naskh voice; Latin uses the literacy face, which is the point of
+  a product about learning to read.
+- Persian script correctness, including letter-spacing, is owned by
+  [`docs/specs/AAA-LEARNING-SPEC.md`](../specs/AAA-LEARNING-SPEC.md); how type reflows across viewports
+  is owned by [`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](../specs/AAA-RESPONSIVE-DESIGN-SPEC.md).
 
 ## The specimen (hero + app card contract)
 
@@ -52,15 +79,17 @@ dark, or the phone/PC setting. No gradients. No drop shadows except a 1px paper-
 │            آب                │  ← Persian, Naskh, ink; diacritics/madde in --red
 │  ・aَ ・eِ ・oُ  (vowel chips)  │  ← red marks; the "these unlock reading" teaser
 ├──── notebook rule ───────────┤
-│           vand               │  ← Danish, Andika, --ink, calm and smaller
+│           vand               │  ← Danish, Latin literacy face, --ink, calmer
 └──────────────────────────────┘
 ```
 
-Persian pane gets ~55% of the vertical split (diacritic headroom), Danish ~45%.
+The Persian pane dominates the vertical split for diacritic headroom; the Danish pane stays calmer and
+smaller. The exact split geometry is owned by
+[`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](../specs/AAA-RESPONSIVE-DESIGN-SPEC.md).
 
-**Pronunciation line:** directly under the Persian word, inside the Persian pane — small Andika,
-`--ink` at ~75%: dansk lydskrift first, IPA in brackets — `åb · [ɒːb]`. Never in the Danish pane
-(meaning stays clean there). Both values come from lesson data, never improvised.
+**Pronunciation line:** directly under the Persian word, inside the Persian pane — small Latin type in
+muted `--ink`: dansk lydskrift first, IPA in brackets — `åb · [ɒːb]`. Never in the Danish pane (meaning
+stays clean there). Both values come from lesson data, never improvised.
 
 ## Beginner teaching surfaces
 
@@ -83,15 +112,18 @@ authority for exact Persian, Danish, and IPA.
 ## Motion
 
 Two kinds of motion only:
+
 1. **Teaching motion** — vowel marks "ink in" on specimens; letter stroke-order draws (SVG path
    draw: the pen moves right-to-left, dots land last). This motion explains; it is content.
 2. **Celebration motion** (the sanctioned exception to restraint) — sticker stamps thunk in,
-   ink-dot confetti in `--red`/`--blue` on paper, a notebook page-flip on level-up. Short (<1.5s),
-   joyful, never blocking, never punishing.
+   ink-dot confetti in `--red`/`--blue` on paper, a notebook page-flip on level-up. Brief, joyful,
+   never blocking, never punishing.
 
-Everything else static. Under `prefers-reduced-motion`: teaching motion falls back to numbered
-static step diagrams; celebrations still HAPPEN (a reward is never skipped) but appear instantly
-without animation. No scroll-jacking, no parallax, no hover lifts beyond color.
+Everything else is static. No scroll-jacking, no parallax, no hover lifts beyond color. Under reduced
+motion, teaching motion falls back to numbered static step diagrams and celebrations still HAPPEN — a
+reward is never skipped — but appear without animation. Durations and the exact reduced-motion
+behaviour are owned by
+[`docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`](../specs/AAA-UX-ACCESSIBILITY-SPEC.md).
 
 ## Celebration & sound
 
@@ -102,9 +134,9 @@ star (ستارهٔ طلایی), red margin ticks, and levels as filled notebook 
 til” is optional beside “Næste”. Points only go up, and a reward may itself be a gift exercise.
 Jingles are WebAudio-synthesized (no audio files, no dependencies) — a light santur-ish pluck for
 ticks, a warmer chime for stickers, a short fanfare for level-ups. Sound plays only after a user
-gesture, has its own mute toggle persisted in `dpl.v1.settings`, and is independent of the motion
-preference. Praise lines carry lydskrift + IPA like any teaching item (plan 009) — the pronunciation
-line sits between the Persian praise and its Danish line, same as everywhere else in the app.
+gesture, has its own persisted mute toggle, and is independent of the motion preference. Praise lines
+carry lydskrift + IPA like any teaching item (plan 009) — the pronunciation line sits between the
+Persian praise and its Danish line, same as everywhere else in the app.
 
 ## Copy voice
 
@@ -116,24 +148,28 @@ line sits between the Persian praise and its Danish line, same as everywhere els
 - Buttons say what happens: "Åbn appen", "Se koden på GitHub" — never "Learn more".
 - Full diacritics (اِعراب) appear on TEACHING specimens only, never on UI chrome or body Persian.
 
-## Accessibility floor (non-negotiable)
+## Accessibility
 
-Tap targets ≥ 44×44px · body ≥ 16px · visible keyboard focus (2px `--blue` outline, 2px offset) ·
-WCAG AA contrast in both schemes · `lang`/`dir` correct per element · no horizontal scroll at
-360/390/768/1280px · reduced motion respected.
+Nothing here may weaken the accessibility floor: no information depends on color, sound, motion, or
+images alone, and keyboard focus stays visibly drawn in the interactive pen colour. Target sizes,
+contrast levels, focus geometry, and the tested display modes are owned by
+[`docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`](../specs/AAA-UX-ACCESSIBILITY-SPEC.md); breakpoints, tested
+viewport widths, and layout bounds are owned by
+[`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](../specs/AAA-RESPONSIVE-DESIGN-SPEC.md).
 
 ## Favicon & OG
 
-- Favicon: `آ` (alef-madde) in ink Naskh on `--paper` rounded square (rx=6), madde stroke in `--red`.
-  One glyph — must read at 16px.
-- OG (1200×630): the specimen itself. Paper field, blue rules, red margin line at left, giant «آب»
-  ink Naskh with red madde, rule, "vand" in Andika, small caption "Learn to read Persian, in Danish",
+- Favicon: `آ` (alef-madde) in ink Naskh on a `--paper` rounded square, madde stroke in `--red`.
+  One glyph — it must still read at the smallest favicon size.
+- OG: the specimen itself. Paper field, blue rules, red margin line at left, giant «آب» ink Naskh with
+  red madde, rule, "vand" in the Latin literacy face, small caption "Learn to read Persian, in Danish",
   attribution strip bottom: "Babak Bandpey · cocode.dk". Type-driven; no illustration, no screenshot.
 
-## App-specific tokens (for plan 001+)
+## Illustration and progress marks
 
-- Split screen: Persian pane top `55dvh`-ish, Danish bottom; the divider is the notebook rule.
-- Navigation lives in the bottom thumb zone. Cards advance by tap/swipe; progress = small red
-  checkmarks in the margin (like a teacher marking مشق).
-- SVG only for letterform/stroke illustrations (ink on paper, red for the taught mark);
+- Progress reads as small red checkmarks in the margin, the way a teacher marks مشق.
+- SVG only for letterform and stroke illustrations (ink on paper, red for the taught mark);
   three.js only if a lesson genuinely needs 3D, lazy-loaded.
+- Navigation placement, hub composition, and their geometry are not owned here: see
+  [`DESIGN.md`](../../DESIGN.md) and
+  [`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](../specs/AAA-RESPONSIVE-DESIGN-SPEC.md).

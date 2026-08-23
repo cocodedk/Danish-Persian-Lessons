@@ -1,16 +1,28 @@
 # Danish-Persian Lessons Design Baseline
 
-Status: **frozen at release v0.3.0** (2026-08-09).
+Status: **living document**, last reviewed against released v0.10.0.
 
-This file records the approved product experience. It is the concise design contract for future
-work. Detailed specifications remain useful, but when an older plan or specification conflicts with
-this file or the released v0.3.0 interface, this baseline takes precedence.
+This file is the concise design contract for the product experience. It owns five aspects:
+
+1. the product promise,
+2. the information architecture and navigation decisions,
+3. the semantic typography roles and the permitted-weight policy,
+4. testimonial composition and layout, and
+5. the counting decision: one canonical 1-20 foundation lesson plus three separate rule lessons, four
+   lessons in a product-level sequence.
+
+Every other aspect has its own authoritative source, listed in
+[`docs/specs/README.md`](docs/specs/README.md). This file does not override those sources and does not
+claim general precedence over plans or specifications. Where this file and an owner document both
+touch an aspect, the owner document decides the exact values and this file states only the
+product-level intent. Explicit learner safety, privacy, or linguistic accuracy requirements always
+take the stricter interpretation.
 
 ## Product promise
 
-The app helps a curious beginner make sense of Persian writing without making practice feel like an
-obligation. It also keeps the complete Danish-Persian course available for a learner who wants more
-structure and detail.
+The app helps a curious beginner make sense of Persian writing and speech without making practice
+feel like an obligation. It also keeps the complete Danish-Persian course available for a learner who
+wants more structure and detail.
 
 - The child path MUST create a recognizable Persian result quickly.
 - The learner MUST be free to choose, retry, reveal, switch paths, or stop without penalty.
@@ -20,101 +32,162 @@ structure and detail.
 
 ## Information architecture
 
-The app has three persistent learner-facing hubs:
+The learner-facing hubs are:
 
-1. **Ord** (`/opdag`) - choose simple words, build them, and keep completed words.
-2. **Ordbroer** (`/ord-der-ligner`) - connect Persian and Danish through secure cognates or clearly
+1. **Tal** (`/tal`) - listen to reviewed Persian audio, repeat, and practise sounds.
+2. **Ord** (`/opdag`) - choose simple words, build them, and keep completed words.
+3. **Ordbroer** (`/ord-der-ligner`) - connect Persian and Danish through secure cognates or clearly
    labelled sound mnemonics.
-3. **Lektioner** (`/kursus`) - enter the complete, structured course.
+4. **Skrift** (`/kursus`) - enter the complete, structured course.
 
-The first visit MAY ask the learner to choose the child journey or the complete course. That choice
-changes routing and emphasis only. It MUST NOT fork or erase learning data.
+This is the reviewed-audio arrangement and the one released in v0.10.0.
+
+When the reviewed speaking audio is not available, the app falls back to the legacy three-hub
+arrangement: **Ord** (`/opdag`), **Ordbroer** (`/ord-der-ligner`), and **Lektioner** (`/kursus`). The
+`/kursus` hub is labelled `Skrift` only in the reviewed-audio arrangement and `Lektioner` in the
+fallback; the route itself never changes.
+
+Which arrangement is active is decided by a reviewed-audio readiness rule implemented in the speaking
+module; what counts as reviewed, approved audio is owned by
+[`docs/specs/AAA-LEARNING-SPEC.md`](docs/specs/AAA-LEARNING-SPEC.md). This file MUST NOT restate that
+rule, its inputs, or its thresholds. Both arrangements are part of the contract: every navigation
+requirement below applies to whichever one is active.
+
+The first visit MAY ask the learner to choose a journey. That choice changes routing and emphasis
+only. It MUST NOT fork or erase learning data.
 
 ## Global navigation
 
-- The three hubs MUST remain in a fixed bottom navigation bar, in the order `Ord`, `Ordbroer`,
-  `Lektioner`.
-- The bar MUST stay compact: a 44px minimum target height plus device safe-area padding.
+- The hubs MUST remain in a fixed bottom navigation bar, in the documented order for the active
+  arrangement: `Tal`, `Ord`, `Ordbroer`, `Skrift`, or `Ord`, `Ordbroer`, `Lektioner`.
+- The bar MUST stay compact, honouring the minimum target size and safe-area padding required by
+  [`docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`](docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md).
 - The current hub MUST be identified with text, color, and `aria-current`.
 - Settings MUST be available on every app route through one floating gear in the top-right corner.
 - The gear MUST float over the page without a full-width top toolbar.
 - The gear and its panel MUST not obscure the current task, focused control, or bottom navigation.
 - Forward navigation starts at the new page heading. Browser Back restores useful context.
-- A new primary hub, top bar, drawer, or competing navigation system requires explicit approval.
+- Adding, removing, or relabelling a hub, or introducing a top bar, drawer, or competing navigation
+  system, requires an explicit product decision recorded in this file.
 
 ## Visual language
 
 The material metaphor is an Iranian exercise notebook, `دفتر مشق`, interpreted with restrained
-Danish functional design.
+Danish functional design: matte paper, ruled lines, ink, and a teacher's margin. Cards are individual
+learning objects, not decorative containers for whole sections, and the interface stays bounded on
+wide screens rather than becoming a stretched phone UI.
 
-- Matte paper, horizontal blue rules, black ink, and one teacher-red margin line form the page.
-- The red margin line sits near the outer left edge on Danish/LTR pages. It MUST NOT make the content
-  appear pushed to the right.
-- Persian teaching marks and corrections use teacher red. Red is not general decoration.
-- Controls use pen blue. Pronunciation hints may use pencil orange.
-- Cards are individual learning objects, not decorative containers for whole sections.
-- Card corners stay restrained at 6px or less. No nested cards, gradient backgrounds, decorative
-  orbs, parallax, or hover-lift effects.
-- Content widths remain bounded on wide screens. The interface MUST not become a stretched phone UI.
+Light mode uses warm notebook paper; dark mode uses deep berry paper and stays recognizably
+pink/berry rather than a generic dark theme. Light, dark, and system modes remain available from
+Settings.
 
-## Color modes
-
-Light mode uses warm notebook paper. Dark mode uses deep berry paper with pink teaching accents and
-cyan controls. The dark appearance MUST remain recognizably pink/berry, not slate, green, brown, or
-generic charcoal.
-
-The semantic palette is defined only in `src/styles/tokens.css`. Components MUST use the shared
-tokens instead of introducing local color literals. Light, dark, and system modes remain available
-from Settings.
+The notebook metaphor, component styling semantics, teaching-mark and control color roles, card
+treatment, and the permitted motion categories are owned by
+[`docs/design/ART-DIRECTION.md`](docs/design/ART-DIRECTION.md). The semantic palette and other design
+tokens live in [`src/styles/tokens.css`](src/styles/tokens.css); components use the shared tokens
+instead of local color literals.
 
 ## Typography and language
+
+Semantic face roles are part of this contract:
 
 - Persian display words use Noto Naskh Arabic.
 - Persian UI and body text use Vazirmatn.
 - Danish and other Latin text use Andika, a literacy-oriented typeface.
+
+Weight rules:
+
 - Fonts remain self-hosted in the app.
-- Persian text MUST use correct `lang`, direction, code points, joining, ZWNJ, and diacritics.
-- Persian script is never letter-spaced.
-- Type does not scale with viewport width. It reflows within stable responsive containers.
-- Danish copy uses short, warm, concrete verbs and the informal `du` form.
+- Only the regular and bold faces actually declared in
+  [`src/styles/fonts.css`](src/styles/fonts.css) may be used. Not every family declares both.
+- Requesting a weight that file does not declare is forbidden, as is letting the browser synthesize a
+  missing bold or oblique. If a design needs another weight, add the real face file first.
+- The exact font files and numeric weights live in `src/styles/fonts.css`; consult that file rather
+  than any copy of the values here.
+
+Danish copy uses short, warm, concrete verbs and the informal `du` form. Persian script correctness -
+language and direction metadata, code points, joining, ZWNJ, diacritics, and letter-spacing - is
+owned by [`docs/specs/AAA-LEARNING-SPEC.md`](docs/specs/AAA-LEARNING-SPEC.md); how type reflows across
+viewports is owned by
+[`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md).
 
 ## Teaching order
 
-Complete teaching surfaces follow this hierarchy:
-
-1. Persian word or phrase.
-2. Danish-friendly sound spelling and IPA.
-3. Danish meaning or explanation.
-4. A concrete action.
-
-IPA remains available for accuracy but stays visually quieter than Danish sound spelling. Teaching
-data comes from canonical lesson entries and MUST NOT be improvised inside components.
+Complete teaching surfaces lead with the Persian word, support it with Danish-friendly sound spelling
+and IPA, give the Danish meaning, and end in a concrete action. The teaching hierarchy, the relative
+prominence of IPA, and the rule that teaching content comes from canonical lesson entries are owned
+by [`docs/specs/AAA-LEARNING-SPEC.md`](docs/specs/AAA-LEARNING-SPEC.md).
 
 ## Beginner workshop
 
-The workshop opens with choice, not explanation. It contains:
+The workshop opens with choice, not explanation. It offers a small set of simple, useful everyday
+words, a greetings section, colour and animal sections, a Persian number section, and a personal
+collection that acknowledges completed words without locking the others.
 
-- thirteen simple, useful words: hello, I, you, friend, water, bread, father, mother, house/home,
-  this, that, we, and he/she;
-- a separate section for hello, introduction, and goodbye;
-- a separate section for Persian numbers 1 through 10;
-- a personal collection that acknowledges completed words without locking the others.
+The workshop's number section is an entry point to the canonical 1-20 foundation lesson described
+under [Counting](#counting); it is not a separate number curriculum and MUST NOT keep its own range,
+title, or audio scope. Its heading, its count, and the numbers it names come from that lesson, so the
+workshop can never disagree with it.
 
-Every word card MUST show Persian, Danish meaning, Danish-friendly pronunciation, IPA, and a clear
-action. Chromium and Firefox cards also show a meaning illustration. WebKit cards intentionally use
-the complete text-only layout because its image renderer is unstable in this view.
+Every word card shows Persian, Danish meaning, Danish-friendly pronunciation, IPA, and a clear
+action. Some browsers show a meaning illustration and others intentionally use the complete
+text-only layout; illustration presence never removes meaning. Lesson images are local and
+rights-documented, with delivery, aspect, and asset rules owned by
+[`docs/specs/AAA-LESSON-IMAGE-SPEC.md`](docs/specs/AAA-LESSON-IMAGE-SPEC.md).
 
-Images are local, rights-documented 4:3 assets with stable dimensions and documented credits. Card
-thumbnails remain compact. Runtime pages MUST NOT depend on third-party image hosts.
+## Counting
+
+Recorded product decision: **there is exactly one canonical 1-20 foundation lesson**, covering 1
+through 20, at `/lesson/taelle`, **plus exactly three separate rule lessons** for 21-99, 100-900, and
+thousands. Counting is four lessons in total, taught in the sequence below. The exact routes of the
+three rule lessons are owned by the counting specification named below, not by this file.
+
+- The Tal shelf, the child workshop's number section, the course home, and the retired
+  `/tal/tal/:page` URLs are entry points or redirects into that same foundation lesson. None of them
+  is a separate 1-20 foundation, and none may hold its own range, ordering, or progress record for
+  it.
+- A surface that names the 1-20 range, the number of items, or the individual numbers MUST read them
+  from the canonical foundation lesson rather than restating them.
+- Any approved audio exposed inside that foundation lesson is a capability derived from
+  [`src/audio/approved.generated.json`](src/audio/approved.generated.json), and never creates a
+  separate lesson. The lesson MUST NOT promise, fake, or imply audio for numbers that have none, and
+  MUST NOT present those numbers as broken, incomplete, or lesser; they are complete teaching rows
+  that currently have no clip.
+- Adding a duplicate or competing 1-20 foundation lesson, or giving that foundation an alternate
+  range or an alternate progress record, requires an explicit product decision recorded in this
+  file. The three rule lessons below are not such duplicates; they teach ranges above 20.
+
+Counting grows in four stages, one lesson per stage, in this order:
+
+1. **1-20 foundation** - the individual number words, learned as items. This is the range the
+   canonical lesson teaches today.
+2. **21-99 composition rules** - how tens and units combine into a spoken number.
+3. **100-900 hundreds rules** - how the hundreds are formed and joined to the range below.
+4. **Thousands rules** - how thousands are formed and joined to the ranges below.
+
+Stages 2 through 4 teach rules rather than item lists, and each ships as its own separate rule lesson
+rather than extending `/lesson/taelle`.
+
+A dedicated
+[`docs/specs/AAA-COUNTING-CURRICULUM-SPEC.md`](docs/specs/AAA-COUNTING-CURRICULUM-SPEC.md) owns the
+exact rule-lesson routes, the ranges each stage teaches, worked-example coverage, the descriptor,
+data, and progress identities, audio-honesty behaviour, and the exercise mechanics that present
+them. Persian linguistic accuracy and the audio process are owned by
+[`docs/specs/AAA-LEARNING-SPEC.md`](docs/specs/AAA-LEARNING-SPEC.md), and the required review
+evidence and sign-off are owned by
+[`docs/specs/AAA-QUALITY-BAR.md`](docs/specs/AAA-QUALITY-BAR.md). This file states only the
+product-level sequence and MUST NOT carry those details. That specification MUST exist, and be
+listed in [`docs/specs/README.md`](docs/specs/README.md), before any stage 2, 3, or 4 lesson ships.
 
 ## Word building
 
-A mission uses an explicit model -> guide -> independent recall -> completion sequence.
+A mission uses an explicit model -> guide -> independent recall -> completion sequence, and the
+learner is told before starting that the word is built twice. The round labels, guidance mechanics,
+and completion bookkeeping are owned by
+[`docs/specs/AAA-LEARNING-SPEC.md`](docs/specs/AAA-LEARNING-SPEC.md).
 
-- The learner is told before starting that the word is built twice.
-- Guided work is labelled `1 af 2` and identifies the next useful action.
-- Independent recall is labelled `2 af 2` and deliberately removes that guidance.
-- A successful independent build adds the word to the collection once.
+The product promises that survive any change to those mechanics:
+
 - Reveal or continue-with-help remains available and MUST NOT claim independent mastery.
 - Wrong choices receive an explanation and retry path, never a red X, buzzer, loss, or shame.
 - `Færdig for nu` remains an honest exit after completion.
@@ -126,27 +199,43 @@ A mission uses an explicit model -> guide -> independent recall -> completion se
 - Each bridge keeps Persian, Persian IPA, meaning, Danish, Danish IPA, meaning, and source links.
 - New bridges require language review; recognizability alone is not enough for an etymology claim.
 
+The evidence a cognate claim needs and how bridge sources are verified are owned by
+[`docs/specs/AAA-LEARNING-SPEC.md`](docs/specs/AAA-LEARNING-SPEC.md).
+
 ## Feedback, rewards, sound, and motion
 
 - Feedback names what changed and keeps the next action nearby.
 - Rewards are generous and additive. No streak loss, debt, countdown, league, accuracy pressure, or
   social comparison.
-- Motion is reserved for teaching or brief celebration, stays under 1.5 seconds, and never blocks.
-- Reduced-motion mode presents the same information immediately.
+- Motion is reserved for teaching or brief celebration and never blocks the learner. The permitted
+  motion categories are owned by [`docs/design/ART-DIRECTION.md`](docs/design/ART-DIRECTION.md);
+  durations and reduced-motion behaviour are owned by
+  [`docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`](docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md).
 - Sound starts only after a user gesture, has a persistent setting, and carries no unique instruction.
 
 ## Accessibility and responsive behavior
 
-The goal is an AAA-quality learning experience. The measurable floor is WCAG 2.2 AA plus the selected
-AAA criteria defined in `docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`.
+The goal is an AAA-quality learning experience: every learner reaches the same meaning through touch,
+pointer, keyboard, or screen reader, and no information depends on color, sound, motion, or images
+alone. The measurable floor, the selected success criteria, target sizes, focus behaviour, contrast
+and scrim rules, and the tested display modes are owned by
+[`docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`](docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md).
 
-- Author-controlled targets are at least 44x44 CSS pixels.
-- Keyboard focus is visible and logical.
-- Touch, pointer, keyboard, and screen-reader operation receive equivalent actions and feedback.
-- Meaning, selection, correctness, and progress never rely on color, sound, motion, or images alone.
-- Pages reflow without horizontal scrolling from 320px through ultrawide viewports.
-- Fixed controls, the settings panel, feedback, and keyboards MUST NOT hide focused content.
-- Large text, text-spacing overrides, reduced motion, forced colors, and light/dark modes remain tested.
+### Desktop and mobile composition
+
+The product invariant: a wide screen MAY compose related content and a secondary rail side by side
+when that genuinely helps comprehension or control, and a compact layout MUST return to one logical
+column that follows DOM order. The same DOM, route, content model, and learner state serve both.
+
+- Side-by-side composition is a decision about meaning, not a way to fill width. A rail exists only
+  when it carries content related to the primary task.
+- Collapsing to one column MUST NOT reorder, duplicate, or hide meaning, and MUST NOT remount a task
+  or lose learner state.
+
+Breakpoints, layout modes, the wrapping fallback, bounded widths, rail geometry, and clearance from
+fixed or sticky chrome are owned by
+[`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md). Consult that
+file for the numbers; this file states only the invariant.
 
 ## Privacy and safety
 
@@ -155,23 +244,62 @@ AAA criteria defined in `docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`.
 - Personal content stays optional, editable, and deletable.
 - The adult course provides context, not surveillance or reward control over the child.
 
+## Future testimonial contract
+
+**Not built yet.** The app ships no testimonials today. This section is the contract that a future
+testimonial surface MUST satisfy before it may ship; it describes nothing currently in the product.
+
+Composition and layout:
+
+- A testimonial is a semantic `blockquote` with visible attribution, not styled body text and not a
+  decorative pull-quote without a source.
+- Attribution MUST state the person's relationship to the product and enough context to judge the
+  quote - for example a parent who used the child path, or a teacher who reviewed the course.
+- Desktop MAY use a bounded grid of testimonials. The grid keeps readable line lengths and stops
+  growing when added width no longer helps; it MUST NOT stretch quotes across the full viewport.
+- Compact widths MUST fall back to a single column in DOM order.
+- No carousel, auto-rotation, or any control that hides a quote behind a timer or a swipe.
+- No text placed over a portrait or any photograph. Portraits, if used, sit beside or above the quote
+  with their own contrast-safe surface.
+- No stock photography standing in for a real person, and no invented, composited, or paraphrased
+  quote presented as someone's words.
+
+Provenance and consent - who may be quoted, what evidence is required, and how consent is recorded -
+are owned by [`docs/specs/AAA-QUALITY-BAR.md`](docs/specs/AAA-QUALITY-BAR.md), not by this file.
+
+## Visual-change acceptance
+
+A change that alters what the learner sees is accepted on evidence, not on a screenshot that merely
+differs.
+
+- Regenerating a visual baseline records a candidate; it is not approval.
+- The baseline procedure and the inventory of states, viewport widths, and schemes a visual change
+  must cover are owned by
+  [`docs/reviews/VISUAL-REVIEW-PROTOCOL.md`](docs/reviews/VISUAL-REVIEW-PROTOCOL.md).
+- The automated geometry and accessibility assertions that run against those states are owned by
+  [`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md) and
+  [`docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`](docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md).
+- The reviewer roster, severity, release evidence, exceptions, and sign-off are owned by
+  [`docs/specs/AAA-QUALITY-BAR.md`](docs/specs/AAA-QUALITY-BAR.md).
+- A visual change that contradicts this file's product promise, information architecture, navigation
+  decisions, typography roles, testimonial contract, or counting decision needs this file updated in
+  the same change, together with the affected specifications, tests, baselines, and release notes.
+
+This section deliberately does not copy the matrices, state inventories, or reviewer rosters from
+those documents. Read them there.
+
 ## What may grow
 
 The app MAY add reviewed simple words, illustrations, audio, lessons, puzzles, bridges, and local
 personalization when they follow this contract. Accessibility, performance, language accuracy, and
 browser fixes may improve without separate design approval when they preserve the released behavior.
 
-Changing the navigation model, notebook identity, font system, palette character, teaching hierarchy,
-two-round learning contract, reward ethics, privacy model, or child-first tone requires an explicit
-product decision. Such a change MUST update this file, relevant specifications, tests, visual
-baselines, and the release notes in the same change.
+Changing the navigation model, the four-lesson counting decision, notebook identity, font system,
+palette character, teaching hierarchy, two-round learning contract, reward ethics, privacy model, or
+child-first tone requires an explicit product decision. Such a change MUST update this
+file, relevant specifications, tests, visual baselines, and the release notes in the same change.
 
-## Supporting documents
+## Where every other aspect is owned
 
-- `docs/design/ART-DIRECTION.md`
-- `docs/pedagogical_approach/RESEARCH-FINDINGS.md`
-- `docs/pedagogical_approach/AAA-EXPERIENCE-BLUEPRINT.md`
-- `docs/specs/AAA-CHILD-EXPERIENCE-SPEC.md`
-- `docs/specs/AAA-UX-ACCESSIBILITY-SPEC.md`
-- `docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`
-- `docs/specs/AAA-LESSON-IMAGE-SPEC.md`
+[`docs/specs/README.md`](docs/specs/README.md) is the map of record: it lists the single authoritative
+source for every aspect this file does not own.

@@ -2,7 +2,6 @@ import { findPronunciationAudio } from '../audio/manifest'
 import type { PersianEntry } from '../catalog/types'
 import { lessonImageForEntry } from '../images/catalog'
 import { conversationBasics } from '../lessons/conversation'
-import { beginnerNumbers } from '../lessons/numbers'
 import { findVocabUnit, type ColorSwatchId } from '../lessons/vocab'
 import { launchTalkClipIds } from './launchCorpus'
 
@@ -54,16 +53,6 @@ export const speakingLessons: SpeakingLesson[] = [
   vocabLesson('2', 'Ord du kan bruge i skolen.'),
   vocabLesson('3', 'Sig hus og blomst.'),
   vocabLesson('4', 'Hør og sig otte farver.'),
-  {
-    id: 'tal',
-    title: 'Tal fra 1 til 10',
-    summary: 'Hør og sig de første ti tal.',
-    pages: beginnerNumbers.map(({ value, word }) => ({
-      id: String(value),
-      entry: word,
-      number: value,
-    })),
-  },
 ]
 
 export function findSpeakingLesson(id: string): SpeakingLesson | undefined {

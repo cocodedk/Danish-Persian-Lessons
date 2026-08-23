@@ -1,1 +1,1 @@
-export { numberCatalog } from '../lessons/numbers'
+export { numberCatalog, countingCatalog } from '../lessons/numbers'

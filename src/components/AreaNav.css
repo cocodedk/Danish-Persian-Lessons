@@ -40,7 +40,10 @@
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
-  overflow-wrap: anywhere;
+  /* Labels are single words: never break mid-word. Only `overflow-wrap` needs
+     stating -- it is inherited, and `anywhere` is set on text elsewhere.
+     `word-break`/`hyphens` keep their defaults. */
+  overflow-wrap: normal;
 }
 
 .area-nav a[aria-current='page'] {

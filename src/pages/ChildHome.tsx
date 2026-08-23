@@ -7,7 +7,7 @@ import { CompactPhraseRow } from '../components/EntryRenderers'
 import { LessonImage } from '../components/LessonImage'
 import { PronLine } from '../components/PronLine'
 import { conversationBasics } from '../lessons/conversation'
-import { beginnerNumbers } from '../lessons/numbers'
+import { countingLesson } from '../lessons/countingLesson'
 import { findVocabUnit } from '../lessons/vocab'
 import { ColorSwatch } from '../components/ColorSwatch'
 import { getChildCollection } from '../progress/childCollection'
@@ -70,6 +70,31 @@ function MissionGrid({
         )
       })}
     </div>
+  )
+}
+
+/**
+ * The workshop's one door to counting. Its route, its title, its preview and
+ * its range are all read off `countingLesson`, so the workshop can never
+ * disagree with the lesson — and it promises reading, not listening, because
+ * only the first ten numbers have recorded audio.
+ */
+function CountingSection() {
+  const { numbers } = countingLesson
+  const first = numbers[0]
+  const last = numbers[numbers.length - 1]
+  return (
+    <section className="child-numbers" aria-labelledby="child-numbers-title">
+      <h2 id="child-numbers-title">{countingLesson.title}</h2>
+      <Link className="child-numbers__lesson" to={countingLesson.path}>
+        <PersianText entry={first.digit} className="child-number__digit" ariaHidden />
+        <span>
+          <PersianText entry={first.word} marked />
+          <strong>{countingLesson.summary}</strong>
+          <span>{numbers.length} tal fra {first.value} til {last.value}</span>
+        </span>
+      </Link>
+    </section>
   )
 }
 
@@ -147,17 +172,7 @@ export default function ChildHome() {
           </Link>
         </section>
 
-        <section className="child-numbers" aria-labelledby="child-numbers-title">
-          <h2 id="child-numbers-title">Tal fra 1 til 10</h2>
-          <ol>
-            {beginnerNumbers.map(({ value, digit, word }) => (
-              <li key={value}>
-                <PersianText entry={digit} className="child-number__digit" />
-                <CompactPhraseRow entry={word} marked />
-              </li>
-            ))}
-          </ol>
-        </section>
+        <CountingSection />
 
         <section className="child-collection" aria-labelledby="child-collection-title">
           <h2 id="child-collection-title">Mine persiske ord</h2>

@@ -12,6 +12,8 @@ import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alph
 import { isNameLessonDone } from '../progress/nameLesson'
 import { vocabUnits } from '../lessons/vocab'
 import { unitDoneCount } from '../progress/vocab'
+import { countingDoneCount } from '../progress/counting'
+import { countingLesson } from '../lessons/countingLesson'
 import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
 import { GREETING_ENTRY, GREETING_WITH_NAME_ENTRY, daGreeting } from '../content/greetings'
@@ -158,6 +160,13 @@ export default function Home() {
                   to={`/lesson/ord/${unit.id}`}
                 />
               ))}
+              <LessonCard
+                number={firstWordNumber + vocabUnits.length}
+                title={countingLesson.title}
+                summary={countingLesson.summary}
+                progress={`${countingDoneCount()} af ${countingLesson.numbers.length} tal gennemgået eller øvet`}
+                to={countingLesson.path}
+              />
             </div>
             <TypingRounds faSpelling={profile.faSpelling} />
           </section>

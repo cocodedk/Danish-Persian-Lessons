@@ -5,6 +5,7 @@ import ChildHome from './ChildHome'
 import { AppChrome } from '../components/AppChrome'
 import { addCollectedMission } from '../progress/childCollection'
 import { getJourneyChoice } from '../progress/journey'
+import { countingLesson } from '../lessons/countingLesson'
 
 function renderHome() {
   return render(
@@ -55,15 +56,27 @@ describe('ChildHome', () => {
     expect(within(section).getByText('Jeg hedder …')).toBeVisible()
   })
 
-  it('keeps Persian numbers in their own beginner section', () => {
+  it('sends counting to the one lesson instead of teaching ten numbers inline', () => {
     renderHome()
-    const section = screen.getByRole('heading', { name: 'Tal fra 1 til 10' }).closest('section')!
-    expect(within(section).getAllByRole('listitem')).toHaveLength(10)
-    expect(within(section).getByText('۱')).toBeVisible()
-    expect(within(section).getByText('یِک')).toBeVisible()
-    expect(within(section).getByText('jek · [jek]')).toBeVisible()
-    expect(within(section).getByText('۱۰')).toBeVisible()
-    expect(within(section).getByText('دَه')).toBeVisible()
+    expect(screen.queryByText('Tal fra 1 til 10')).toBeNull()
+    const section = screen.getByRole('heading', { name: countingLesson.title }).closest('section')!
+    const links = screen.getAllByRole('link')
+      .filter((link) => link.getAttribute('href') === countingLesson.path)
+    expect(links).toHaveLength(1)
+    expect(section).toContainElement(links[0])
+    expect(links[0]).toHaveTextContent(countingLesson.summary)
+    expect(links[0]).toHaveTextContent(`${countingLesson.numbers.length} tal fra 1 til 20`)
+    expect(within(section).queryAllByRole('listitem')).toHaveLength(0)
+    expect(section.textContent).not.toMatch(/hør|lyt/i)
+  })
+
+  it('previews the first Persian number with its own language marking', () => {
+    renderHome()
+    const section = screen.getByRole('heading', { name: countingLesson.title }).closest('section')!
+    const preview = within(section).getByText(countingLesson.numbers[0].word.faMarked!)
+    expect(preview).toHaveAttribute('lang', 'fa')
+    expect(preview).toHaveAttribute('dir', 'rtl')
+    expect(section.querySelector('.child-number__digit')).toHaveAttribute('aria-hidden', 'true')
   })
 
   it('opens a separate animal lesson with clear photo choices', () => {

@@ -3,6 +3,7 @@ import { ColorSwatch } from '../components/ColorSwatch'
 import { LessonImage } from '../components/LessonImage'
 import { PersianText } from '../components/PersianText'
 import { RuledSection } from '../components/RuledSection'
+import { countingLesson } from '../lessons/countingLesson'
 import { allSpeakingPractice } from '../progress/speaking'
 import { requiredTalkClipIds, speakingLessons, talkAudioReady } from '../speaking/lessons'
 import './speaking.css'
@@ -43,8 +44,6 @@ export default function SpeakingHome() {
                 >
                   {first.swatch ? (
                     <ColorSwatch color={first.swatch} size="large" />
-                  ) : first.number ? (
-                    <div className="speaking-number speaking-number--small" aria-hidden="true">{first.number}</div>
                   ) : (
                     <LessonImage entryId={first.imageEntryId ?? first.entry.id} size="thumbnail" />
                   )}
@@ -57,9 +56,31 @@ export default function SpeakingHome() {
                 </Link>
               )
             })}
+            <CountingCard />
           </div>
         </section>
       </RuledSection>
     </main>
+  )
+}
+
+/**
+ * The one counting lesson, shown on the talk shelf as a door to the course
+ * route that owns it. Its count and its preview number are read off
+ * `countingLesson.numbers`, so the shelf can never disagree with the lesson.
+ */
+function CountingCard() {
+  const first = countingLesson.numbers[0]
+  const last = countingLesson.numbers[countingLesson.numbers.length - 1]
+  return (
+    <Link className="speaking-lesson-card" to={countingLesson.path}>
+      <div className="speaking-number speaking-number--small" aria-hidden="true">{first.value}</div>
+      <div>
+        <PersianText entry={first.word} marked />
+        <h3>{countingLesson.title}</h3>
+        <p>{countingLesson.summary}</p>
+        <strong>{countingLesson.numbers.length} tal fra {first.value} til {last.value}</strong>
+      </div>
+    </Link>
   )
 }

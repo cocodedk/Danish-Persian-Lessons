@@ -9250,6 +9250,596 @@
       ]
     },
     {
+      "id": "number-11-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۱",
+      "da": "Tallet elleve",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-11-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "یازده",
+      "faMarked": "یازدَه",
+      "da": "elleve",
+      "soundDa": "jåzde",
+      "ipa": "jɒːzˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "یازده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "jåzde",
+            "ipa": "jɒːzˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-11-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-12-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۲",
+      "da": "Tallet tolv",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-12-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "دوازده",
+      "faMarked": "دوازدَه",
+      "da": "tolv",
+      "soundDa": "dovåzde",
+      "ipa": "dɒːzˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 6,
+          "display": "دوازده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "dovåzde",
+            "ipa": "dɒːzˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-12-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-13-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۳",
+      "da": "Tallet tretten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-13-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "سیزده",
+      "faMarked": "سیزدَه",
+      "da": "tretten",
+      "soundDa": "sizde",
+      "ipa": "siːzˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "سیزده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "sizde",
+            "ipa": "siːzˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-13-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-14-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۴",
+      "da": "Tallet fjorten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-14-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "چهارده",
+      "faMarked": "چَهاردَه",
+      "da": "fjorten",
+      "soundDa": "tjahårde",
+      "ipa": "tʃæːhɒːɾˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 6,
+          "display": "چهارده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "tjahårde",
+            "ipa": "tʃæːhɒːɾˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-14-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-15-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۵",
+      "da": "Tallet femten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-15-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "پانزده",
+      "faMarked": "پانزدَه",
+      "da": "femten",
+      "soundDa": "pånze",
+      "ipa": "pɒːnˈze",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 6,
+          "display": "پانزده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "pånze",
+            "ipa": "pɒːnˈze"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-15-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-16-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۶",
+      "da": "Tallet seksten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-16-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "شانزده",
+      "faMarked": "شانزدَه",
+      "da": "seksten",
+      "soundDa": "sjånze",
+      "ipa": "ʃɒːnˈze",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 6,
+          "display": "شانزده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "sjånze",
+            "ipa": "ʃɒːnˈze"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-16-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-17-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۷",
+      "da": "Tallet sytten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-17-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "هفده",
+      "faMarked": "هَفدَه",
+      "da": "sytten",
+      "soundDa": "hefde",
+      "ipa": "hæfˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "هفده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "hefde",
+            "ipa": "hæfˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-17-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-18-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۸",
+      "da": "Tallet atten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-18-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "هجده",
+      "faMarked": "هُجدَه",
+      "da": "atten",
+      "soundDa": "hedje",
+      "ipa": "hædʒˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "هجده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "hedje",
+            "ipa": "hædʒˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-18-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-19-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۱۹",
+      "da": "Tallet nitten",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-19-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "نوزده",
+      "faMarked": "نوزدَه",
+      "da": "nitten",
+      "soundDa": "nuzde",
+      "ipa": "nuːzˈde",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "نوزده",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "nuzde",
+            "ipa": "nuːzˈde"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-19-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-20-digit",
+      "domain": "numbers",
+      "kind": "symbol",
+      "fa": "۲۰",
+      "da": "Tallet tyve",
+      "soundDa": "∅",
+      "ipa": "∅",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [],
+      "cueCoverage": "none",
+      "roleSensitive": false,
+      "audioId": null,
+      "audioNotApplicable": "Talordet ved siden af bærer udtalen.",
+      "audioStatus": "not-applicable",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "number-20-word",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "بیست",
+      "faMarked": "بیست",
+      "da": "tyve",
+      "soundDa": "bist",
+      "ipa": "bist",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 4,
+          "display": "بیست",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "bist",
+            "ipa": "bist"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "number-20-word",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "interface-greeting",
       "domain": "interface",
       "kind": "word",
