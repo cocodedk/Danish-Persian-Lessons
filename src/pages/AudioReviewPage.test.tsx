@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { findPronunciationAudio } from '../audio/manifest'
+import { audioReviewRows } from '../audio/review'
 import AudioReviewPage from './AudioReviewPage'
 
 vi.mock('../components/AudioControl', () => ({
@@ -12,7 +14,7 @@ vi.mock('../components/AudioControl', () => ({
 describe('online audio review', () => {
   beforeEach(() => localStorage.clear())
 
-  it('keeps the 97-card phone review after the sounds are approved', () => {
+  it('renders the current review manifest and records answers', () => {
     render(
       <MemoryRouter>
         <AudioReviewPage />
@@ -20,8 +22,13 @@ describe('online audio review', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Tjek persisk lyd' })).toBeInTheDocument()
-    expect(screen.getByText('Lydtjek er færdigt')).toBeInTheDocument()
-    expect(screen.getAllByRole('button', { name: /^Hør / })).toHaveLength(97)
+    const allReleased = audioReviewRows.every((row) => {
+      const audio = findPronunciationAudio(row.clipId)
+      return audio?.source === 'piper' && audio.sourceTextHash === row.sourceTextHash
+    })
+    expect(screen.getByText(allReleased ? 'Lydtjek er færdigt' : 'Ikke klar til elever'))
+      .toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: /^Hør / })).toHaveLength(audioReviewRows.length)
 
     const goodButtons = screen.getAllByRole('button', { name: 'God' })
     fireEvent.click(goodButtons[0])
