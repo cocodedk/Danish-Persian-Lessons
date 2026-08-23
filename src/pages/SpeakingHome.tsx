@@ -3,8 +3,10 @@ import { ColorSwatch } from '../components/ColorSwatch'
 import { LessonImage } from '../components/LessonImage'
 import { PersianText } from '../components/PersianText'
 import { RuledSection } from '../components/RuledSection'
-import { countingLesson } from '../lessons/countingLesson'
+import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
+import type { CountingCurriculumEntry } from '../lessons/countingLesson'
 import { allSpeakingPractice } from '../progress/speaking'
+import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
 import { requiredTalkClipIds, speakingLessons, talkAudioReady } from '../speaking/lessons'
 import './speaking.css'
 
@@ -56,7 +58,9 @@ export default function SpeakingHome() {
                 </Link>
               )
             })}
-            <CountingCard />
+            {countingCurriculum.map((entry) => (
+              <CountingCard entry={entry} key={entry.path} />
+            ))}
           </div>
         </section>
       </RuledSection>
@@ -65,21 +69,35 @@ export default function SpeakingHome() {
 }
 
 /**
- * The one counting lesson, shown on the talk shelf as a door to the course
- * route that owns it. Its count and its preview number are read off
- * `countingLesson.numbers`, so the shelf can never disagree with the lesson.
+ * One counting lesson on the talk shelf, as a door to the course route that
+ * owns it. Everything on the card — where it goes, what it is called, what it
+ * says and which numbers it covers — is read off the curriculum descriptor, so
+ * the shelf can never disagree with the lesson it points at.
+ *
+ * Only the foundation shows a Persian preview, and only of its own first row.
+ * The rule lesson's Persian, lydskrift and IPA are candidate drafts that no
+ * reviewer has approved, so the shelf shows none of it: the badge carries the
+ * lesson's first number alone, which fits the fixed badge, and the text meta
+ * says the full range without claiming how any of it is said.
  */
-function CountingCard() {
-  const first = countingLesson.numbers[0]
-  const last = countingLesson.numbers[countingLesson.numbers.length - 1]
+function CountingCard({ entry }: { entry: CountingCurriculumEntry }) {
+  const [start, end] = entry.range
+  const foundation = entry === countingLesson ? countingLesson : null
   return (
-    <Link className="speaking-lesson-card" to={countingLesson.path}>
-      <div className="speaking-number speaking-number--small" aria-hidden="true">{first.value}</div>
+    <Link className="speaking-lesson-card" to={entry.path}>
+      <div className="speaking-number speaking-number--small" aria-hidden="true">
+        {foundation ? foundation.numbers[0].value : start}
+      </div>
       <div>
-        <PersianText entry={first.word} marked />
-        <h3>{countingLesson.title}</h3>
-        <p>{countingLesson.summary}</p>
-        <strong>{countingLesson.numbers.length} tal fra {first.value} til {last.value}</strong>
+        {foundation && <PersianText entry={foundation.numbers[0].word} marked />}
+        <h3>{entry.title}</h3>
+        <p>{entry.summary}</p>
+        <strong>
+          {foundation
+            ? `${foundation.numbers.length} tal fra ${start} til ${end}`
+            : `Tal fra ${start} til ${end}`}
+        </strong>
+        <p>{countingCurriculumProgressLine(entry)}</p>
       </div>
     </Link>
   )

@@ -139,21 +139,29 @@ made shared.
 
 ### A — worked-example coverage (from the specification, § 3.1)
 
-- [ ] the joining element between a ten and a unit, shown at least twice with different units
-- [ ] every ten in the range as its own base form, including any ten whose form is not predictable
+- [x] the joining element between a ten and a unit, shown at least twice with different units
+- [x] every ten in the range as its own base form, including any ten whose form is not predictable
       from the corresponding unit
-- [ ] a round ten with no unit
-- [ ] the lower boundary against lesson 1 (20 versus 21) and the upper boundary against lesson 3
+- [x] a round ten with no unit
+- [x] the lower boundary against lesson 1 (20 versus 21) and the upper boundary against lesson 3
       (99 versus 100)
-- [ ] at least one example whose unit is a number the learner already met in lesson 1, made explicit
+- [x] at least one example whose unit is a number the learner already met in lesson 1, made explicit
       as reuse
 
 ### A — close-out
 
 - [ ] Tests below that cover fixpoint A are green; `npm run verify` passes.
-- [ ] Staged diff scanned for machine-specific absolute paths (home/workspace leaks) — none present.
+- [x] Staged diff scanned for machine-specific absolute paths (home/workspace leaks) — none present.
 - [ ] Conventional Commits commit, stating that the 21-99 forms are candidates pending Gate A.
-- [ ] Any regenerated visual PNG baselines stay **out of the commit** until owner sign-off.
+- [x] Any regenerated visual PNG baselines stay **out of the commit** until owner sign-off.
+
+Current evidence: 111 unit files / 773 tests, ESLint, TypeScript, production build, image/audio
+verification and the repository verifier are green. The live app was inspected at 320, 1024 and
+1440 px on port 9000. The aggregate `npm run verify` remains open: the intentional new home card
+requires owner-approved 1440 px visual candidates, while this environment's Socket Firewall replaces
+Firefox navigations with its own connection page. All 36 Chromium functional flows passed; WebKit
+passed the aggregate run and then showed two unrelated navigation/storage flakes on repetition.
+Neither infrastructure result is being hidden by approving a baseline or weakening a test.
 
 ## Fixpoint B — 100-900
 

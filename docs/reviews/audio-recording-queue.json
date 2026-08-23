@@ -2051,6 +2051,358 @@
       ]
     },
     {
+      "clipId": "counting-2199-bindeled",
+      "entryId": "counting-2199-bindeled",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "و",
+      "synthesisText": "و",
+      "plainPersian": "و",
+      "danishMeaning": "og — bindeleddet mellem tieren og enteren",
+      "soundDa": "o",
+      "ipa": "o",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-bindeled.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-30",
+      "entryId": "counting-2199-ti-30",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "سی",
+      "synthesisText": "سی",
+      "plainPersian": "سی",
+      "danishMeaning": "tredive",
+      "soundDa": "si",
+      "ipa": "siː",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-30.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-40",
+      "entryId": "counting-2199-ti-40",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "چِهِل",
+      "synthesisText": "چِهِل",
+      "plainPersian": "چهل",
+      "danishMeaning": "fyrre",
+      "soundDa": "tjehel",
+      "ipa": "tʃehel",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-40.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-50",
+      "entryId": "counting-2199-ti-50",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "پَنجاه",
+      "synthesisText": "پَنجاه",
+      "plainPersian": "پنجاه",
+      "danishMeaning": "halvtreds",
+      "soundDa": "pandjåh",
+      "ipa": "pændʒɒːh",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-50.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-60",
+      "entryId": "counting-2199-ti-60",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "شَصت",
+      "synthesisText": "شَصت",
+      "plainPersian": "شصت",
+      "danishMeaning": "tres",
+      "soundDa": "sjast",
+      "ipa": "ʃæst",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-60.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-70",
+      "entryId": "counting-2199-ti-70",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هَفتاد",
+      "synthesisText": "هَفتاد",
+      "plainPersian": "هفتاد",
+      "danishMeaning": "halvfjerds",
+      "soundDa": "haftåd",
+      "ipa": "hæftɒːd",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-70.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-80",
+      "entryId": "counting-2199-ti-80",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هَشتاد",
+      "synthesisText": "هَشتاد",
+      "plainPersian": "هشتاد",
+      "danishMeaning": "firs",
+      "soundDa": "hasjtåd",
+      "ipa": "hæʃtɒːd",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-80.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-ti-90",
+      "entryId": "counting-2199-ti-90",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "نَوَد",
+      "synthesisText": "نَوَد",
+      "plainPersian": "نود",
+      "danishMeaning": "halvfems",
+      "soundDa": "navad",
+      "ipa": "nævæd",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-ti-90.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-21",
+      "entryId": "counting-2199-tal-21",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "بیست و یِک",
+      "synthesisText": "بیست و یِک",
+      "plainPersian": "بیست و یک",
+      "danishMeaning": "enogtyve",
+      "soundDa": "bist o jek",
+      "ipa": "bist o jek",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-21.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-31",
+      "entryId": "counting-2199-tal-31",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "سی و یِک",
+      "synthesisText": "سی و یِک",
+      "plainPersian": "سی و یک",
+      "danishMeaning": "enogtredive",
+      "soundDa": "si o jek",
+      "ipa": "siː o jek",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-31.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-48",
+      "entryId": "counting-2199-tal-48",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "چِهِل و هَشت",
+      "synthesisText": "چِهِل و هَشت",
+      "plainPersian": "چهل و هشت",
+      "danishMeaning": "otteogfyrre",
+      "soundDa": "tjehel o hasjt",
+      "ipa": "tʃehel o hæʃt",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-48.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-99",
+      "entryId": "counting-2199-tal-99",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "نَوَد و نُه",
+      "synthesisText": "نَوَد و نُه",
+      "plainPersian": "نود و نه",
+      "danishMeaning": "nioghalvfems",
+      "soundDa": "navad o noh",
+      "ipa": "nævæd o noh",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-99.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-42",
+      "entryId": "counting-2199-tal-42",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "چِهِل و دو",
+      "synthesisText": "چِهِل و دو",
+      "plainPersian": "چهل و دو",
+      "danishMeaning": "toogfyrre",
+      "soundDa": "tjehel o do",
+      "ipa": "tʃehel o do",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-42.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-57",
+      "entryId": "counting-2199-tal-57",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "پَنجاه و هَفت",
+      "synthesisText": "پَنجاه و هَفت",
+      "plainPersian": "پنجاه و هفت",
+      "danishMeaning": "syvoghalvtreds",
+      "soundDa": "pandjåh o haft",
+      "ipa": "pændʒɒːh o hæft",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-57.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-68",
+      "entryId": "counting-2199-tal-68",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "شَصت و هَشت",
+      "synthesisText": "شَصت و هَشت",
+      "plainPersian": "شصت و هشت",
+      "danishMeaning": "otteogtres",
+      "soundDa": "sjast o hasjt",
+      "ipa": "ʃæst o hæʃt",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-68.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-2199-tal-73",
+      "entryId": "counting-2199-tal-73",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هَفتاد و سِه",
+      "synthesisText": "هَفتاد و سِه",
+      "plainPersian": "هفتاد و سه",
+      "danishMeaning": "treoghalvfjerds",
+      "soundDa": "haftåd o se",
+      "ipa": "hæftɒːd o se",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-2199-tal-73.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
       "clipId": "interface-greeting",
       "entryId": "interface-greeting",
       "formId": "neutral",

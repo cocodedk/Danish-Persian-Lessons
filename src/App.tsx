@@ -12,6 +12,8 @@ import WordScreen from './pages/WordScreen'
 import VocabExerciseScreen from './pages/VocabExerciseScreen'
 import CountingScreen from './pages/CountingScreen'
 import CountingExerciseScreen from './pages/CountingExerciseScreen'
+import Counting21to99Screen from './pages/CountingRuleScreen'
+import Counting21to99ExerciseScreen from './pages/CountingRuleExerciseScreen'
 import TypeWordScreen from './pages/TypeWordScreen'
 import TypeNameScreen from './pages/TypeNameScreen'
 import NameSpelling from './pages/NameSpelling'
@@ -71,6 +73,10 @@ export default function App() {
           <Route path="/lesson/ord/:unit/skriv" element={<TypeWordScreen />} />
           <Route path="/lesson/ord/:unit/laes/:reading" element={<ConnectedReadingScreen />} />
           <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
+          {/* The rule lesson before the foundation and the generic «/lesson/:id»,
+              so «21-99» reads as its own lesson and never as a page of «taelle». */}
+          <Route path="/lesson/taelle/21-99" element={<Counting21to99Screen />} />
+          <Route path="/lesson/taelle/21-99/ovelse/:kind" element={<Counting21to99ExerciseScreen />} />
           <Route path="/lesson/taelle" element={<CountingScreen />} />
           <Route path="/lesson/taelle/ovelse/:kind" element={<CountingExerciseScreen />} />
           <Route path="/puslespil/:id" element={<PuzzleScreen />} />

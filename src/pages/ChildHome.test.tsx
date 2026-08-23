@@ -5,7 +5,11 @@ import ChildHome from './ChildHome'
 import { AppChrome } from '../components/AppChrome'
 import { addCollectedMission } from '../progress/childCollection'
 import { getJourneyChoice } from '../progress/journey'
-import { countingLesson } from '../lessons/countingLesson'
+import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
+import { counting21to99Lesson } from '../lessons/counting21to99'
+import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
+import { learnCountingItem } from '../progress/counting'
+import { counting21to99Progress } from '../progress/countingRules'
 
 function renderHome() {
   return render(
@@ -56,27 +60,96 @@ describe('ChildHome', () => {
     expect(within(section).getByText('Jeg hedder …')).toBeVisible()
   })
 
-  it('sends counting to the one lesson instead of teaching ten numbers inline', () => {
+  it('opens exactly the counting curriculum, in curriculum order', () => {
+    renderHome()
+    const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
+    const links = within(section).getAllByRole('link')
+    expect(links.map((link) => link.getAttribute('href'))).toEqual(
+      countingCurriculum.map((entry) => entry.path),
+    )
+    links.forEach((link) => {
+      expect(link).not.toHaveAttribute('aria-disabled')
+      expect(link.getAttribute('href')).toBeTruthy()
+    })
+  })
+
+  it('reads every line on every counting card off the descriptor and the adapter', () => {
+    renderHome()
+    const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
+    const links = within(section).getAllByRole('link')
+    countingCurriculum.forEach((entry, index) => {
+      const link = links[index]
+      const [start, end] = entry.range
+      expect(link).toHaveTextContent(entry.title)
+      expect(link).toHaveTextContent(entry.summary)
+      expect(link).toHaveTextContent(countingCurriculumProgressLine(entry))
+      expect(link).toHaveTextContent(
+        entry === countingLesson
+          ? `${countingLesson.numbers.length} tal fra ${start} til ${end}`
+          : `Tal fra ${start} til ${end}`,
+      )
+    })
+  })
+
+  it('sends counting to the lessons instead of teaching numbers inline', () => {
     renderHome()
     expect(screen.queryByText('Tal fra 1 til 10')).toBeNull()
-    const section = screen.getByRole('heading', { name: countingLesson.title }).closest('section')!
-    const links = screen.getAllByRole('link')
-      .filter((link) => link.getAttribute('href') === countingLesson.path)
-    expect(links).toHaveLength(1)
-    expect(section).toContainElement(links[0])
-    expect(links[0]).toHaveTextContent(countingLesson.summary)
-    expect(links[0]).toHaveTextContent(`${countingLesson.numbers.length} tal fra 1 til 20`)
+    const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
     expect(within(section).queryAllByRole('listitem')).toHaveLength(0)
+    expect(screen.getAllByRole('link')
+      .filter((link) => link.getAttribute('href') === countingLesson.path)).toHaveLength(1)
     expect(section.textContent).not.toMatch(/hør|lyt/i)
   })
 
-  it('previews the first Persian number with its own language marking', () => {
+  it('previews the foundation first number with its own language marking', () => {
     renderHome()
-    const section = screen.getByRole('heading', { name: countingLesson.title }).closest('section')!
+    const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
     const preview = within(section).getByText(countingLesson.numbers[0].word.faMarked!)
     expect(preview).toHaveAttribute('lang', 'fa')
     expect(preview).toHaveAttribute('dir', 'rtl')
-    expect(section.querySelector('.child-number__digit')).toHaveAttribute('aria-hidden', 'true')
+    const foundation = section.querySelector(`[href="${countingLesson.path}"]`)!
+    expect(foundation.querySelector('.child-number__digit')).toHaveAttribute('aria-hidden', 'true')
+    expect(foundation.querySelector('.child-number__digit')).toHaveAttribute('lang', 'fa')
+  })
+
+  it('claims no Persian or pronunciation for the unreviewed rule lesson', () => {
+    renderHome()
+    const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
+    const rule = section.querySelector<HTMLAnchorElement>(`[href="${counting21to99Lesson.path}"]`)!
+    expect(rule.querySelector('[lang="fa"]')).toBeNull()
+    const text = rule.textContent ?? ''
+    expect(text).not.toMatch(/[·\[\]]/)
+    expect(text).not.toMatch(/hør|lyt/i)
+    expect(rule.querySelector('.child-number__digit')).toHaveTextContent(
+      String(counting21to99Lesson.range[0]),
+    )
+  })
+
+  it('keeps the two counting progress stores apart across a remount', () => {
+    const { unmount } = renderHome()
+    unmount()
+    learnCountingItem(countingLesson.numbers[0].word.id)
+    const { unmount: unmount2 } = renderHome()
+    const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
+    const links = within(section).getAllByRole('link')
+    expect(links[0]).toHaveTextContent(
+      `1 af ${countingLesson.numbers.length} tal gennemgået eller øvet`,
+    )
+    expect(links[1]).toHaveTextContent(
+      `0 af ${counting21to99Progress.ids.length} dele gennemgået eller øvet`,
+    )
+    unmount2()
+    counting21to99Progress.markDone(counting21to99Progress.ids[0])
+    renderHome()
+    const after = within(
+      screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!,
+    ).getAllByRole('link')
+    expect(after[0]).toHaveTextContent(
+      `1 af ${countingLesson.numbers.length} tal gennemgået eller øvet`,
+    )
+    expect(after[1]).toHaveTextContent(
+      `1 af ${counting21to99Progress.ids.length} dele gennemgået eller øvet`,
+    )
   })
 
   it('opens a separate animal lesson with clear photo choices', () => {

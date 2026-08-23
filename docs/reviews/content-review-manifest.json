@@ -9840,6 +9840,581 @@
       ]
     },
     {
+      "id": "counting-2199-bindeled",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "و",
+      "da": "og — bindeleddet mellem tieren og enteren",
+      "soundDa": "o",
+      "ipa": "o",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 1,
+          "display": "و",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "o",
+            "ipa": "o"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-bindeled",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-30",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "سی",
+      "faMarked": "سی",
+      "da": "tredive",
+      "soundDa": "si",
+      "ipa": "siː",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 2,
+          "display": "سی",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "si",
+            "ipa": "siː"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-ti-30",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-40",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "چهل",
+      "faMarked": "چِهِل",
+      "da": "fyrre",
+      "soundDa": "tjehel",
+      "ipa": "tʃehel",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "چهل",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "tjehel",
+            "ipa": "tʃehel"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-ti-40",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-50",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "پنجاه",
+      "faMarked": "پَنجاه",
+      "da": "halvtreds",
+      "soundDa": "pandjåh",
+      "ipa": "pændʒɒːh",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "پنجاه",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "pandjåh",
+            "ipa": "pændʒɒːh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-ti-50",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-60",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "شصت",
+      "faMarked": "شَصت",
+      "da": "tres",
+      "soundDa": "sjast",
+      "ipa": "ʃæst",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "شصت",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "sjast",
+            "ipa": "ʃæst"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": false,
+      "audioId": "counting-2199-ti-60",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-70",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "هفتاد",
+      "faMarked": "هَفتاد",
+      "da": "halvfjerds",
+      "soundDa": "haftåd",
+      "ipa": "hæftɒːd",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "هفتاد",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "haftåd",
+            "ipa": "hæftɒːd"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-ti-70",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-80",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "هشتاد",
+      "faMarked": "هَشتاد",
+      "da": "firs",
+      "soundDa": "hasjtåd",
+      "ipa": "hæʃtɒːd",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "هشتاد",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "hasjtåd",
+            "ipa": "hæʃtɒːd"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-ti-80",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-ti-90",
+      "domain": "numbers",
+      "kind": "word",
+      "fa": "نود",
+      "faMarked": "نَوَد",
+      "da": "halvfems",
+      "soundDa": "navad",
+      "ipa": "nævæd",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "نود",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "navad",
+            "ipa": "nævæd"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-ti-90",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-21",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "بیست و یک",
+      "faMarked": "بیست و یِک",
+      "da": "enogtyve",
+      "soundDa": "bist o jek",
+      "ipa": "bist o jek",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 9,
+          "display": "بیست و یک",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "bist o jek",
+            "ipa": "bist o jek"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-21",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-31",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "سی و یک",
+      "faMarked": "سی و یِک",
+      "da": "enogtredive",
+      "soundDa": "si o jek",
+      "ipa": "siː o jek",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 7,
+          "display": "سی و یک",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "si o jek",
+            "ipa": "siː o jek"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-31",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-48",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "چهل و هشت",
+      "faMarked": "چِهِل و هَشت",
+      "da": "otteogfyrre",
+      "soundDa": "tjehel o hasjt",
+      "ipa": "tʃehel o hæʃt",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 9,
+          "display": "چهل و هشت",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "tjehel o hasjt",
+            "ipa": "tʃehel o hæʃt"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-48",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-99",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "نود و نه",
+      "faMarked": "نَوَد و نُه",
+      "da": "nioghalvfems",
+      "soundDa": "navad o noh",
+      "ipa": "nævæd o noh",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "نود و نه",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "navad o noh",
+            "ipa": "nævæd o noh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-99",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-42",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "چهل و دو",
+      "faMarked": "چِهِل و دو",
+      "da": "toogfyrre",
+      "soundDa": "tjehel o do",
+      "ipa": "tʃehel o do",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "چهل و دو",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "tjehel o do",
+            "ipa": "tʃehel o do"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-42",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-57",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "پنجاه و هفت",
+      "faMarked": "پَنجاه و هَفت",
+      "da": "syvoghalvtreds",
+      "soundDa": "pandjåh o haft",
+      "ipa": "pændʒɒːh o hæft",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 11,
+          "display": "پنجاه و هفت",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "pandjåh o haft",
+            "ipa": "pændʒɒːh o hæft"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-57",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-68",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "شصت و هشت",
+      "faMarked": "شَصت و هَشت",
+      "da": "otteogtres",
+      "soundDa": "sjast o hasjt",
+      "ipa": "ʃæst o hæʃt",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 9,
+          "display": "شصت و هشت",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "sjast o hasjt",
+            "ipa": "ʃæst o hæʃt"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-68",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-73",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "هفتاد و سه",
+      "faMarked": "هَفتاد و سِه",
+      "da": "treoghalvfjerds",
+      "soundDa": "haftåd o se",
+      "ipa": "hæftɒːd o se",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 10,
+          "display": "هفتاد و سه",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "haftåd o se",
+            "ipa": "hæftɒːd o se"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-73",
+      "audioNotApplicable": null,
+      "audioStatus": "missing",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "interface-greeting",
       "domain": "interface",
       "kind": "word",

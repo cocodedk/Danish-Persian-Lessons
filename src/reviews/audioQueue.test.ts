@@ -9,8 +9,9 @@ describe('audio recording handoff', () => {
     const missing = contentReviewManifest.rows.filter((row) => row.audioStatus === 'missing')
     expect(audioRecordingQueue.status).toBe('draft-awaiting-native-review')
     expect(audioRecordingQueue.rows).toHaveLength(missing.length)
-    // Plan 016 added the ten number words 11–20 (128 + 10).
-    expect(audioRecordingQueue.rows).toHaveLength(138)
+    // Plan 016 added the ten number words 11–20 (128 + 10); plan 017 added the
+    // sixteen candidate 21–99 rule rows, still awaiting review (138 + 16).
+    expect(audioRecordingQueue.rows).toHaveLength(154)
     expect(new Set(audioRecordingQueue.rows.map((row) => row.clipId)).size).toBe(missing.length)
     expect(new Set(audioRecordingQueue.rows.map((row) => row.expectedDraft)).size).toBe(missing.length)
     expect(audioRecordingQueue.rows.filter((row) => row.scope === 'talk')).toHaveLength(0)

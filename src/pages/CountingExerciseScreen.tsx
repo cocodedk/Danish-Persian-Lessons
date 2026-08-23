@@ -39,7 +39,9 @@ export default function CountingExerciseScreen() {
         // A number answered right is a number learned — and the twentieth
         // one pays the lesson's notebook page, once and only once.
         onCorrect={(itemId) => celebration.cheer(learnCountingItem(itemId))}
-        onComplete={() => celebration.cheer('page')}
+        // Finishing the round therefore has no page of its own to pay: it
+        // always replays — same praise, same tick, never a second payout.
+        onComplete={() => celebration.cheer('replay')}
       />
       <RewardOverlays celebration={celebration} />
     </LessonSheet>

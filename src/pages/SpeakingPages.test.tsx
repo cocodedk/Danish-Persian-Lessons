@@ -2,7 +2,9 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import App from '../App'
-import { countingLesson } from '../lessons/countingLesson'
+import { counting21to99Lesson } from '../lessons/counting21to99'
+import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
+import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
 import SpeakingHome from './SpeakingHome'
 import SpeakingPage from './SpeakingPage'
 
@@ -44,20 +46,65 @@ describe('speaking-first pages', () => {
     expect(screen.getByRole('link', { name: /Øv alle lyde/ })).toHaveAttribute('href', '/lydovelse')
   })
 
-  it('shows the one counting lesson as a door to the course route', () => {
+  it('shows every counting lesson in curriculum order as a door to its course route', () => {
+    render(
+      <MemoryRouter initialEntries={['/tal']}>
+        <Routes><Route path="/tal" element={<SpeakingHome />} /></Routes>
+      </MemoryRouter>,
+    )
+    const hrefs = screen.getAllByRole('link').map((link) => link.getAttribute('href'))
+    for (const entry of countingCurriculum) {
+      const card = screen.getByRole('link', { name: new RegExp(entry.title) })
+      expect(card, entry.path).toHaveAttribute('href', entry.path)
+      expect(card).toHaveTextContent(entry.summary)
+      expect(card).toHaveTextContent(`fra ${entry.range[0]} til ${entry.range[1]}`)
+      expect(card).toHaveTextContent(countingCurriculumProgressLine(entry))
+      // Every card is a live door: none of them is shown as a disabled stub.
+      expect(card).not.toHaveAttribute('aria-disabled')
+      expect(hrefs).toContain(entry.path)
+    }
+    // Teaching order on the shelf is the curriculum's order, not the DOM's luck.
+    const positions = countingCurriculum.map((entry) => hrefs.indexOf(entry.path))
+    expect(positions).toEqual([...positions].sort((a, b) => a - b))
+  })
+
+  it('keeps the foundation preview on the foundation card only', () => {
     render(
       <MemoryRouter initialEntries={['/tal']}>
         <Routes><Route path="/tal" element={<SpeakingHome />} /></Routes>
       </MemoryRouter>,
     )
     const card = screen.getByRole('link', { name: new RegExp(countingLesson.title) })
-    expect(card).toHaveAttribute('href', countingLesson.path)
-    expect(card).toHaveTextContent(countingLesson.summary)
-    expect(card).toHaveTextContent(`${countingLesson.numbers.length} tal fra 1 til 20`)
+    const first = countingLesson.numbers[0]
+    expect(card).toHaveTextContent(first.word.faMarked ?? first.word.fa)
+    expect(card).toHaveTextContent(`${countingLesson.numbers.length} tal`)
     // The retired «Tal fra 1 til 10» shelf lesson must not stand beside it.
     expect(screen.queryByText('Tal fra 1 til 10')).not.toBeInTheDocument()
     expect(screen.queryAllByRole('link').map((link) => link.getAttribute('href')))
       .not.toContain('/tal/tal/1')
+  })
+
+  it('claims no unreviewed Persian or pronunciation on the 21-99 card', () => {
+    render(
+      <MemoryRouter initialEntries={['/tal']}>
+        <Routes><Route path="/tal" element={<SpeakingHome />} /></Routes>
+      </MemoryRouter>,
+    )
+    const card = screen.getByRole('link', { name: new RegExp(counting21to99Lesson.title) })
+    // Not one letter of Persian script — that covers every candidate form and
+    // the joiner alike — and none of the candidate lydskrift or IPA either.
+    expect(card.textContent ?? '').not.toMatch(/[\u0600-\u06FF]/)
+    for (const candidate of ['tjehel', 'pandjåh', 'siː', 'tʃehel']) {
+      expect(card.textContent ?? '', candidate).not.toContain(candidate)
+    }
+    expect(card).toHaveTextContent(
+      `Tal fra ${counting21to99Lesson.range[0]} til ${counting21to99Lesson.range[1]}`,
+    )
+    // The badge is one fixed-size number, so it carries the range's first
+    // number alone; the full range stays in the text meta above.
+    const badge = card.querySelector('.speaking-number')
+    expect(badge).toHaveTextContent(String(counting21to99Lesson.range[0]))
+    expect(badge?.textContent ?? '').not.toContain('\u2013')
   })
 
   it('opens one speak-and-replay page without asking the learner to read first', () => {

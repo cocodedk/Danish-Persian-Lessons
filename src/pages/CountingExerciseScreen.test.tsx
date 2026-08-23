@@ -6,7 +6,7 @@ import { describe, it, expect } from 'vitest'
 import { screen, fireEvent } from '@testing-library/react'
 import { buildCountingQuestions } from '../lessons/countingExercises'
 import { getCountingProgress } from '../progress/counting'
-import { getRewards } from '../rewards/engine'
+import { getRewards, POINTS_PER_PAGE } from '../rewards/engine'
 import { freshVocabState, open, praiseOnScreen } from './vocabHarness'
 
 freshVocabState()
@@ -19,9 +19,29 @@ function firstQuestion(kind: 'betydning' | 'tal') {
   return buildCountingQuestions(kind)[0]
 }
 
-/** The choice button printed with `glyph`, whichever slot it landed in. */
+/**
+ * The choice button printed with `glyph`, whichever slot it landed in. Exact
+ * text first: the Danish number names nest as prefixes — "to" inside "tolv",
+ * "seks" inside "seksten" — so a prefix match alone would tap the wrong one.
+ */
 function choiceButton(glyph: string): HTMLElement {
-  return screen.getAllByRole('button').find((each) => each.textContent?.startsWith(glyph))!
+  const buttons = screen.getAllByRole('button')
+  return (
+    buttons.find((each) => each.textContent === glyph) ??
+    buttons.find((each) => each.textContent?.startsWith(glyph))!
+  )
+}
+
+/** Taps the right choice on every question of `kind`, stopping before the last
+ *  "Afslut runden" so the caller can read the ledger on either side of it. */
+function playWholeRound(kind: 'betydning' | 'tal'): void {
+  const questions = buildCountingQuestions(kind)
+  questions.forEach((question, index) => {
+    fireEvent.click(choiceButton(question.choices.find((c) => c.id === question.answerId)!.glyph))
+    if (index < questions.length - 1) {
+      fireEvent.click(screen.getByRole('button', { name: 'Næste' }))
+    }
+  })
 }
 
 describe('"Find betydningen": a Persian number, four Danish meanings', () => {
@@ -106,5 +126,33 @@ describe('a round that does not exist', () => {
 
     expect(screen.getByRole('heading', { name: 'Lektioner' })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: 'Find betydningen' })).not.toBeInTheDocument()
+  })
+})
+
+describe('a whole round, played through', () => {
+  it('pays the page once on the twentieth number and replays the finish', () => {
+    open(MEANING_ROUTE)
+
+    playWholeRound('betydning')
+
+    // The twentieth number completed the lesson, so `learnCountingItem` has
+    // already paid the notebook page — the ledger is standing on a page edge.
+    const words = buildCountingQuestions('betydning').map((question) => question.answerId)
+    expect(getCountingProgress().words).toEqual(words)
+    expect(getCountingProgress().paid).toBe(true)
+    const paidPoints = getRewards().points
+    expect(paidPoints).toBeGreaterThan(0)
+    expect(paidPoints % POINTS_PER_PAGE).toBe(0)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Afslut runden' }))
+
+    // Finishing the round celebrates, and takes nothing more: a second page
+    // event would have rounded the total up to the next page.
+    expect(screen.getByText(/Du kom hele runden igennem/)).toBeInTheDocument()
+    expect(praiseOnScreen()).toBe(true)
+    expect(getRewards().points).toBe(paidPoints)
+    // What was practised stays practised across the finish.
+    expect(getCountingProgress().words).toEqual(words)
+    expect(getCountingProgress().paid).toBe(true)
   })
 })
