@@ -9,3 +9,9 @@ Original prompt: read docs/reports/2026-08-23-plan016-status.md, and you act as 
 - Updated `DESIGN.md` and the specification authority map; added the counting curriculum contract for the three future rule lessons.
 - Current non-visual evidence: ESLint clean, 100 test files/660 tests passed, production build green, `scripts/verify.sh` green, main CSS 49,961 bytes.
 - Pending: checkpoint commit without the unapproved visual PNG candidates; then implement and verify the 21-99, 100-900, and thousands rule lessons as separate fixpoints.
+
+## 2026-08-23 Plan 017
+
+- Planned three separate implementation fixpoints: shared minimal infrastructure plus 21-99, then 100-900, then 1,000-9,999.
+- `byg` is a deterministic token-composition exercise shared by the three rule lessons; recognition rounds continue to use `ChoiceExercise`.
+- All new language forms remain candidate content blocked from release until Gate A human review evidence exists.

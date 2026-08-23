@@ -62,6 +62,17 @@ the app exists, `npm run verify`) is green.
       provenance model, picture-book screens, private voice replay, separate progress, and complete
       launch gate are implemented; audio review and public activation remain open.
 
+- [ ] **P16 — [016-counting-1-20.md](016-counting-1-20.md)**: counting 1–20 as one canonical
+      foundation — a single shared source for the numbers, their Persian digits, and their spoken and
+      written forms, reused everywhere instead of re-listed per lesson. An implementation checkpoint is
+      committed on its feature branch; the 11–20 language review and the visual owner sign-off are still
+      open release blockers.
+
+- [ ] **P17 — [017-counting-rules.md](017-counting-rules.md)** (depends on P16): the counting rules
+      beyond 20, delivered as three separate rule lessons and three fixpoints — 21–99, 100–900, and
+      1,000–9,999. Planned and in progress; every new language form is still a candidate and Gate A
+      remains blocked.
+
 ## Later (not planned yet — do not build ahead)
 
 Full writing practice (tracing letters with a finger, beyond the stroke-order drawings of P3) · PWA
