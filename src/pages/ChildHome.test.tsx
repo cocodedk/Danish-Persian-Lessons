@@ -5,6 +5,7 @@ import ChildHome from './ChildHome'
 import { AppChrome } from '../components/AppChrome'
 import { addCollectedMission } from '../progress/childCollection'
 import { getJourneyChoice } from '../progress/journey'
+import { formatCountingNumber, formatCountingRange } from '../lessons/countingDisplay'
 import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
 import { counting21to99Lesson } from '../lessons/counting21to99'
 import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
@@ -79,14 +80,13 @@ describe('ChildHome', () => {
     const links = within(section).getAllByRole('link')
     countingCurriculum.forEach((entry, index) => {
       const link = links[index]
-      const [start, end] = entry.range
       expect(link).toHaveTextContent(entry.title)
       expect(link).toHaveTextContent(entry.summary)
       expect(link).toHaveTextContent(countingCurriculumProgressLine(entry))
       expect(link).toHaveTextContent(
         entry === countingLesson
-          ? `${countingLesson.numbers.length} tal fra ${start} til ${end}`
-          : `Tal fra ${start} til ${end}`,
+          ? `${countingLesson.numbers.length} tal ${formatCountingRange(entry.range)}`
+          : `Tal ${formatCountingRange(entry.range)}`,
       )
     })
   })
@@ -112,17 +112,22 @@ describe('ChildHome', () => {
     expect(foundation.querySelector('.child-number__digit')).toHaveAttribute('lang', 'fa')
   })
 
-  it('claims no Persian or pronunciation for the unreviewed rule lesson', () => {
+  it('claims no Persian or pronunciation for any unreviewed rule lesson', () => {
     renderHome()
     const section = screen.getByRole('heading', { name: 'Tal på persisk' }).closest('section')!
+    for (const entry of countingCurriculum.filter((row) => row !== countingLesson)) {
+      const rule = section.querySelector<HTMLAnchorElement>(`[href="${entry.path}"]`)!
+      expect(rule.querySelector('[lang="fa"]'), entry.path).toBeNull()
+      const text = rule.textContent ?? ''
+      expect(text, entry.path).not.toMatch(/[·\[\]]/)
+      expect(text, entry.path).not.toMatch(/hør|lyt/i)
+      // The badge carries the range's first number as Danish writes it.
+      expect(rule.querySelector('.child-number__digit')).toHaveTextContent(
+        formatCountingNumber(entry.range[0]),
+      )
+    }
     const rule = section.querySelector<HTMLAnchorElement>(`[href="${counting21to99Lesson.path}"]`)!
-    expect(rule.querySelector('[lang="fa"]')).toBeNull()
-    const text = rule.textContent ?? ''
-    expect(text).not.toMatch(/[·\[\]]/)
-    expect(text).not.toMatch(/hør|lyt/i)
-    expect(rule.querySelector('.child-number__digit')).toHaveTextContent(
-      String(counting21to99Lesson.range[0]),
-    )
+    expect(rule).toHaveTextContent('Tal fra 21 til 99')
   })
 
   it('keeps the two counting progress stores apart across a remount', () => {

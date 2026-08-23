@@ -7,14 +7,15 @@
 // here asserts any of them; the headings come from the descriptors and the
 // round titles, the same Danish scaffolding the screens' own suites use.
 //
-// Both rule lessons run the same generic screens, so the round headings are
-// identical between them. The address is what tells the two apart, and every
+// All three rule lessons run the same generic screens, so the round headings
+// are identical between them. The address is what tells them apart, and every
 // round case pins it.
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import App from '../App'
 import { counting21to99Lesson } from '../lessons/counting21to99'
 import { counting100to900Lesson } from '../lessons/counting100to900'
+import { countingThousandsLesson } from '../lessons/countingThousands'
 import { countingLesson as foundation } from '../lessons/countingLesson'
 import { RULE_BUILD_TITLE, RULE_RECOGNITION_TITLES } from '../lessons/countingRuleExercises'
 
@@ -34,7 +35,7 @@ const rounds = [
   ['byg', RULE_BUILD_TITLE],
 ] as const
 
-const ruleLessons = [counting21to99Lesson, counting100to900Lesson]
+const ruleLessons = [counting21to99Lesson, counting100to900Lesson, countingThousandsLesson]
 
 beforeEach(() => {
   window.localStorage.clear()
@@ -81,9 +82,10 @@ for (const rule of ruleLessons) {
 }
 
 describe('the addresses the rule lessons are registered on', () => {
-  it('gives lesson 2 and lesson 3 their own exact paths', () => {
+  it('gives lessons 2, 3 and 4 their own exact paths', () => {
     expect(counting21to99Lesson.path).toBe('/lesson/taelle/21-99')
     expect(counting100to900Lesson.path).toBe('/lesson/taelle/100-900')
+    expect(countingThousandsLesson.path).toBe('/lesson/taelle/tusinder')
   })
 
   it('routes lesson 3 on «100-900» while the range it teaches stays 100-999', () => {
@@ -91,6 +93,28 @@ describe('the addresses the rule lessons are registered on', () => {
     // actually covers, and the two are deliberately not the same number.
     expect(counting100to900Lesson.path).toBe('/lesson/taelle/100-900')
     expect(counting100to900Lesson.range).toEqual([100, 999])
+  })
+
+  it('routes lesson 4 on the word «tusinder», over the range 1000-9999', () => {
+    // The path is a word rather than a span, because the span it covers has no
+    // single number to name it by.
+    expect(countingThousandsLesson.path).toBe('/lesson/taelle/tusinder')
+    expect(countingThousandsLesson.range).toEqual([1000, 9999])
+  })
+
+  it('reserves no address for 10000 — it is past every rule lesson', async () => {
+    // Lesson 4 stops at 9999. «10000» is not a fifth rule lesson and not a page
+    // of «taelle»: no route claims it, so it falls through the catch-all and
+    // leaves the counting family altogether. Where the catch-all sends a
+    // learner from there is the forside's business, not this suite's — what is
+    // pinned here is that the address opens no counting lesson and is not kept.
+    open('/lesson/taelle/10000')
+
+    await waitFor(() => expect(window.location.hash).not.toBe('#/lesson/taelle/10000'))
+    expect(window.location.hash.startsWith('#/lesson/taelle')).toBe(false)
+    for (const rule of [...ruleLessons, foundation]) {
+      expect(screen.queryByRole('heading', { name: rule.title })).not.toBeInTheDocument()
+    }
   })
 })
 

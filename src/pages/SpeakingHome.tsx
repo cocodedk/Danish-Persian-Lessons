@@ -3,6 +3,7 @@ import { ColorSwatch } from '../components/ColorSwatch'
 import { LessonImage } from '../components/LessonImage'
 import { PersianText } from '../components/PersianText'
 import { RuledSection } from '../components/RuledSection'
+import { formatCountingNumber, formatCountingRange } from '../lessons/countingDisplay'
 import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
 import type { CountingCurriculumEntry } from '../lessons/countingLesson'
 import { allSpeakingPractice } from '../progress/speaking'
@@ -81,12 +82,11 @@ export default function SpeakingHome() {
  * says the full range without claiming how any of it is said.
  */
 function CountingCard({ entry }: { entry: CountingCurriculumEntry }) {
-  const [start, end] = entry.range
   const foundation = entry === countingLesson ? countingLesson : null
   return (
     <Link className="speaking-lesson-card" to={entry.path}>
       <div className="speaking-number speaking-number--small" aria-hidden="true">
-        {foundation ? foundation.numbers[0].value : start}
+        {formatCountingNumber(foundation ? foundation.numbers[0].value : entry.range[0])}
       </div>
       <div>
         {foundation && <PersianText entry={foundation.numbers[0].word} marked />}
@@ -94,8 +94,8 @@ function CountingCard({ entry }: { entry: CountingCurriculumEntry }) {
         <p>{entry.summary}</p>
         <strong>
           {foundation
-            ? `${foundation.numbers.length} tal fra ${start} til ${end}`
-            : `Tal fra ${start} til ${end}`}
+            ? `${foundation.numbers.length} tal ${formatCountingRange(entry.range)}`
+            : `Tal ${formatCountingRange(entry.range)}`}
         </strong>
         <p>{countingCurriculumProgressLine(entry)}</p>
       </div>

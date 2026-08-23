@@ -198,7 +198,8 @@ is made in the shared piece and A's tests must stay green.
 
 - [ ] Tests green; `npm run verify` passes.
 - [x] Path scan of the staged diff — clean.
-- [ ] Conventional Commits commit, stating the 100-900 forms are candidates pending Gate A.
+- [x] Conventional Commits commit, stating the 100-900 forms are candidates pending Gate A —
+      `b5fb646 feat: add candidate 100-900 counting rule`.
 - [x] Visual PNG candidates left uncommitted.
 
 Current evidence: 113 unit files / 807 tests, ESLint, TypeScript, production build, image/audio
@@ -221,19 +222,26 @@ cross-browser test weakened here.
 
 ### C — worked-example coverage (§ 3.1)
 
-- [ ] the thousand word alone
-- [ ] a thousand multiplier from 2 to 9 with the thousand word
-- [ ] a thousand composed with a hundreds remainder (lesson 3)
-- [ ] a thousand composed with a 21-99 remainder (lesson 2)
-- [ ] a thousand composed with a 1-20 remainder (lesson 1, referenced)
-- [ ] the upper boundary of scope, 9,999
+- [x] the thousand word alone
+- [x] a thousand multiplier from 2 to 9 with the thousand word
+- [x] a thousand composed with a hundreds remainder (lesson 3)
+- [x] a thousand composed with a 21-99 remainder (lesson 2)
+- [x] a thousand composed with a 1-20 remainder (lesson 1, referenced)
+- [x] the upper boundary of scope, 9,999
 
 ### C — close-out
 
 - [ ] Tests green; `npm run verify` passes.
-- [ ] Path scan of the staged diff — clean.
+- [x] Path scan of the staged diff — clean.
 - [ ] Conventional Commits commit, stating the thousands forms are candidates pending Gate A.
-- [ ] Visual PNG candidates left uncommitted.
+- [x] Visual PNG candidates left uncommitted.
+
+Current evidence: 120 unit files / 864 tests, ESLint, TypeScript, production build, image/audio
+verification and the repository verifier are green. All 36 Chromium functional end-to-end tests
+pass against the production preview. The live lesson, repeated-joiner build round and four-card Tal
+shelf were inspected at 320, 1024 and 1440 px on port 9000. Aggregate verification remains open for
+the already-documented owner visual sign-off and environment-only Firefox/WebKit results; no
+baseline was approved or cross-browser test weakened here.
 
 ## Tests
 

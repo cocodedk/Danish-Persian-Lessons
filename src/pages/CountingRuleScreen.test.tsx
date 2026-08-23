@@ -125,8 +125,9 @@ describe('the counting rule lesson page', () => {
     const { container } = renderScreen()
 
     const referenced = row(container, REFERENCED_ID).closest('li')!
-    expect(within(referenced).getByText(`Hører til ${lesson.buildsOn.labelDa} — tælles der.`))
+    expect(within(referenced).getByText('Hører til en tidligere lektion — tælles der.'))
       .toBeInTheDocument()
+    expect(within(referenced).queryByText(new RegExp(lesson.buildsOn.labelDa))).toBeNull()
     expect(within(referenced).queryByRole('button')).not.toBeInTheDocument()
     expect(store.ids).not.toContain(REFERENCED_ID)
   })

@@ -3,6 +3,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import App from '../App'
 import { counting21to99Lesson } from '../lessons/counting21to99'
+import { formatCountingNumber, formatCountingRange } from '../lessons/countingDisplay'
 import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
 import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
 import SpeakingHome from './SpeakingHome'
@@ -57,7 +58,7 @@ describe('speaking-first pages', () => {
       const card = screen.getByRole('link', { name: new RegExp(entry.title) })
       expect(card, entry.path).toHaveAttribute('href', entry.path)
       expect(card).toHaveTextContent(entry.summary)
-      expect(card).toHaveTextContent(`fra ${entry.range[0]} til ${entry.range[1]}`)
+      expect(card).toHaveTextContent(formatCountingRange(entry.range))
       expect(card).toHaveTextContent(countingCurriculumProgressLine(entry))
       // Every card is a live door: none of them is shown as a disabled stub.
       expect(card).not.toHaveAttribute('aria-disabled')
@@ -84,27 +85,30 @@ describe('speaking-first pages', () => {
       .not.toContain('/tal/tal/1')
   })
 
-  it('claims no unreviewed Persian or pronunciation on the 21-99 card', () => {
+  it('claims no unreviewed Persian or pronunciation on any rule card', () => {
     render(
       <MemoryRouter initialEntries={['/tal']}>
         <Routes><Route path="/tal" element={<SpeakingHome />} /></Routes>
       </MemoryRouter>,
     )
-    const card = screen.getByRole('link', { name: new RegExp(counting21to99Lesson.title) })
-    // Not one letter of Persian script — that covers every candidate form and
-    // the joiner alike — and none of the candidate lydskrift or IPA either.
-    expect(card.textContent ?? '').not.toMatch(/[\u0600-\u06FF]/)
-    for (const candidate of ['tjehel', 'pandjåh', 'siː', 'tʃehel']) {
-      expect(card.textContent ?? '', candidate).not.toContain(candidate)
+    for (const entry of countingCurriculum.filter((row) => row !== countingLesson)) {
+      const card = screen.getByRole('link', { name: new RegExp(entry.title) })
+      // Not one letter of Persian script — that covers every candidate form and
+      // the joiner alike — and none of the candidate lydskrift or IPA either.
+      expect(card.textContent ?? '', entry.path).not.toMatch(/[\u0600-\u06FF]/)
+      for (const candidate of ['tjehel', 'pandjåh', 'siː', 'tʃehel']) {
+        expect(card.textContent ?? '', candidate).not.toContain(candidate)
+      }
+      expect(card).toHaveTextContent(`Tal ${formatCountingRange(entry.range)}`)
+      // The badge is one fixed-size number, so it carries the range's first
+      // number alone, written as Danish writes it; the full range stays in the
+      // text meta above.
+      const badge = card.querySelector('.speaking-number')
+      expect(badge).toHaveTextContent(formatCountingNumber(entry.range[0]))
+      expect(badge?.textContent ?? '').not.toContain('\u2013')
     }
-    expect(card).toHaveTextContent(
-      `Tal fra ${counting21to99Lesson.range[0]} til ${counting21to99Lesson.range[1]}`,
-    )
-    // The badge is one fixed-size number, so it carries the range's first
-    // number alone; the full range stays in the text meta above.
-    const badge = card.querySelector('.speaking-number')
-    expect(badge).toHaveTextContent(String(counting21to99Lesson.range[0]))
-    expect(badge?.textContent ?? '').not.toContain('\u2013')
+    expect(screen.getByRole('link', { name: new RegExp(counting21to99Lesson.title) }))
+      .toHaveTextContent('Tal fra 21 til 99')
   })
 
   it('opens one speak-and-replay page without asking the learner to read first', () => {

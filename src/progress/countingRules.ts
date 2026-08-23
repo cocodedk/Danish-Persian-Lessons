@@ -1,5 +1,5 @@
 // Progress through the counting *rule* lessons (plan 017, fixpoint A item 2):
-// `dpl.v1.counting.21-99`, `dpl.v1.counting.100-900`, and later `.tusinder`.
+// `dpl.v1.counting.21-99`, `dpl.v1.counting.100-900` and `dpl.v1.counting.tusinder`.
 //
 // One factory, one store per lesson. Each store keeps the same shape and the
 // same add-only semantics as the 1-20 foundation in `counting.ts`, but on its
@@ -11,6 +11,7 @@
 import { readJSON, writeJSON } from './storage'
 import { counting21to99Lesson } from '../lessons/counting21to99'
 import { counting100to900Lesson } from '../lessons/counting100to900'
+import { countingThousandsLesson } from '../lessons/countingThousands'
 import type { RuleLessonDescriptor } from '../lessons/countingRuleTypes'
 import type { RewardEventKind } from '../rewards/types'
 
@@ -143,4 +144,9 @@ export const counting21to99Progress = createCountingRuleProgress(
 export const counting100to900Progress = createCountingRuleProgress(
   counting100to900Lesson.storageKey,
   ownedIds(counting100to900Lesson),
+)
+
+export const countingThousandsProgress = createCountingRuleProgress(
+  countingThousandsLesson.storageKey,
+  ownedIds(countingThousandsLesson),
 )

@@ -2777,6 +2777,380 @@
       ]
     },
     {
+      "clipId": "counting-tusinder-tusind",
+      "entryId": "counting-tusinder-tusind",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هِزار",
+      "synthesisText": "هِزار",
+      "plainPersian": "هزار",
+      "danishMeaning": "tusind",
+      "soundDa": "hezår",
+      "ipa": "hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusind.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-2000",
+      "entryId": "counting-tusinder-tusinde-2000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "دو هِزار",
+      "synthesisText": "دو هِزار",
+      "plainPersian": "دو هزار",
+      "danishMeaning": "to tusind",
+      "soundDa": "do hezår",
+      "ipa": "do hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-2000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-3000",
+      "entryId": "counting-tusinder-tusinde-3000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "سِه هِزار",
+      "synthesisText": "سِه هِزار",
+      "plainPersian": "سه هزار",
+      "danishMeaning": "tre tusind",
+      "soundDa": "se hezår",
+      "ipa": "se hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-3000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-4000",
+      "entryId": "counting-tusinder-tusinde-4000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "چَهار هِزار",
+      "synthesisText": "چَهار هِزار",
+      "plainPersian": "چهار هزار",
+      "danishMeaning": "fire tusind",
+      "soundDa": "tjahår hezår",
+      "ipa": "tʃæˈhɒːɾ hezɒːɾ",
+      "stressMarked": true,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-4000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-5000",
+      "entryId": "counting-tusinder-tusinde-5000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "پَنج هِزار",
+      "synthesisText": "پَنج هِزار",
+      "plainPersian": "پنج هزار",
+      "danishMeaning": "fem tusind",
+      "soundDa": "pandj hezår",
+      "ipa": "pændʒ hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-5000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-6000",
+      "entryId": "counting-tusinder-tusinde-6000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "شِش هِزار",
+      "synthesisText": "شِش هِزار",
+      "plainPersian": "شش هزار",
+      "danishMeaning": "seks tusind",
+      "soundDa": "sjesj hezår",
+      "ipa": "ʃeʃ hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-6000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-7000",
+      "entryId": "counting-tusinder-tusinde-7000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هَفت هِزار",
+      "synthesisText": "هَفت هِزار",
+      "plainPersian": "هفت هزار",
+      "danishMeaning": "syv tusind",
+      "soundDa": "haft hezår",
+      "ipa": "hæft hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-7000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-8000",
+      "entryId": "counting-tusinder-tusinde-8000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هَشت هِزار",
+      "synthesisText": "هَشت هِزار",
+      "plainPersian": "هشت هزار",
+      "danishMeaning": "otte tusind",
+      "soundDa": "hasjt hezår",
+      "ipa": "hæʃt hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-8000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tusinde-9000",
+      "entryId": "counting-tusinder-tusinde-9000",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "نُه هِزار",
+      "synthesisText": "نُه هِزار",
+      "plainPersian": "نه هزار",
+      "danishMeaning": "ni tusind",
+      "soundDa": "noh hezår",
+      "ipa": "noh hezɒːɾ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tusinde-9000.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-1300",
+      "entryId": "counting-tusinder-tal-1300",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هِزار و سیصَد",
+      "synthesisText": "هِزار و سیصَد",
+      "plainPersian": "هزار و سیصد",
+      "danishMeaning": "et tusind tre hundrede",
+      "soundDa": "hezår o sisad",
+      "ipa": "hezɒːɾ o siːsæd",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-1300.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-1042",
+      "entryId": "counting-tusinder-tal-1042",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هِزار و چِهِل و دو",
+      "synthesisText": "هِزار و چِهِل و دو",
+      "plainPersian": "هزار و چهل و دو",
+      "danishMeaning": "et tusind og toogfyrre",
+      "soundDa": "hezår o tjehel o do",
+      "ipa": "hezɒːɾ o tʃehel o do",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-1042.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-1007",
+      "entryId": "counting-tusinder-tal-1007",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هِزار و هَفت",
+      "synthesisText": "هِزار و هَفت",
+      "plainPersian": "هزار و هفت",
+      "danishMeaning": "et tusind og syv",
+      "soundDa": "hezår o haft",
+      "ipa": "hezɒːɾ o hæft",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-1007.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-9999",
+      "entryId": "counting-tusinder-tal-9999",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "نُه هِزار و نُهصَد و نَوَد و نُه",
+      "synthesisText": "نُه هِزار و نُهصَد و نَوَد و نُه",
+      "plainPersian": "نه هزار و نهصد و نود و نه",
+      "danishMeaning": "ni tusind ni hundrede og nioghalvfems",
+      "soundDa": "noh hezår o nohsad o navad o noh",
+      "ipa": "noh hezɒːɾ o nohsæd o nævæd o noh",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-9999.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-2088",
+      "entryId": "counting-tusinder-tal-2088",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "دو هِزار و هَشتاد و هَشت",
+      "synthesisText": "دو هِزار و هَشتاد و هَشت",
+      "plainPersian": "دو هزار و هشتاد و هشت",
+      "danishMeaning": "to tusind og otteogfirs",
+      "soundDa": "do hezår o hasjtåd o hasjt",
+      "ipa": "do hezɒːɾ o hæʃtɒːd o hæʃt",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-2088.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-3105",
+      "entryId": "counting-tusinder-tal-3105",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "سِه هِزار و صَد و پَنج",
+      "synthesisText": "سِه هِزار و صَد و پَنج",
+      "plainPersian": "سه هزار و صد و پنج",
+      "danishMeaning": "tre tusind et hundrede og fem",
+      "soundDa": "se hezår o sad o pandj",
+      "ipa": "se hezɒːɾ o sæd o pændʒ",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-3105.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-5642",
+      "entryId": "counting-tusinder-tal-5642",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "پَنج هِزار و شِشصَد و چِهِل و دو",
+      "synthesisText": "پَنج هِزار و شِشصَد و چِهِل و دو",
+      "plainPersian": "پنج هزار و ششصد و چهل و دو",
+      "danishMeaning": "fem tusind seks hundrede og toogfyrre",
+      "soundDa": "pandj hezår o sjesjsad o tjehel o do",
+      "ipa": "pændʒ hezɒːɾ o ʃeʃsæd o tʃehel o do",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-5642.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
+      "clipId": "counting-tusinder-tal-8371",
+      "entryId": "counting-tusinder-tal-8371",
+      "formId": "neutral",
+      "register": "neutral",
+      "scope": "writing",
+      "domain": "numbers",
+      "transcript": "هَشت هِزار و سیصَد و هَفتاد و یِک",
+      "synthesisText": "هَشت هِزار و سیصَد و هَفتاد و یِک",
+      "plainPersian": "هشت هزار و سیصد و هفتاد و یک",
+      "danishMeaning": "otte tusind tre hundrede og enoghalvfjerds",
+      "soundDa": "hasjt hezår o sisad o haftåd o jek",
+      "ipa": "hæʃt hezɒːɾ o siːsæd o hæftɒːd o jek",
+      "stressMarked": false,
+      "expectedDraft": ".audio/work/counting-tusinder-tal-8371.mp3",
+      "requiredBeforeGeneration": [
+        "native-content"
+      ],
+      "requiredTakeReview": [
+        "native-persian"
+      ]
+    },
+    {
       "clipId": "interface-greeting",
       "entryId": "interface-greeting",
       "formId": "neutral",

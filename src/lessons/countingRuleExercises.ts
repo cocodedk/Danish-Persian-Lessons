@@ -10,6 +10,7 @@
 //
 // CANDIDATE CONTENT. Everything these rounds display comes from candidate
 // draft rows, release-blocked until AAA-QUALITY-BAR.md Gate A is satisfied.
+import { formatCountingNumber } from './countingDisplay'
 import { arrange, CHOICE_COUNT } from './exercises'
 import type { Choice, Question } from './exercises'
 import type { PersianEntry } from '../catalog/types'
@@ -33,24 +34,23 @@ function owns(descriptor: RuleLessonDescriptor, entry: PersianEntry): boolean {
   return entry.id.startsWith(descriptor.idPrefix)
 }
 
-/**
- * Code-point order over ids, spelled out rather than left to `localeCompare`,
- * whose result depends on the runtime's locale data. Ids are ASCII by
- * construction, so this order reads the same on every machine.
- */
+/** Code-point order over ids, spelled out rather than left to `localeCompare`,
+ *  whose result depends on the runtime's locale data. Ids are ASCII by
+ *  construction, so this order reads the same on every machine. */
 function byId(a: string, b: string): number {
   if (a === b) return 0
   return a < b ? -1 : 1
 }
 
-/** Everything a recognition round may print: the lesson's base forms and its
- *  worked examples. The joining element is left out — a piece of a number, not
- *  a number — and so are the build targets, which `byg` needs unseen. */
+/** Everything a recognition round may print, once each: the base forms and the
+ *  worked examples, deduplicated by id in first-occurrence order, so a round
+ *  base also worked as an example (500, 1.000, 5.000 — the same row) is asked
+ *  once. The joiner is left out, and so are the targets, which `byg` needs. */
 function recognitionPool(descriptor: RuleLessonDescriptor): PersianEntry[] {
-  return [
+  return dedupe([
     ...descriptor.baseForms.map((base) => base.entry),
     ...descriptor.examples.map((example) => example.entry),
-  ]
+  ])
 }
 
 /** Two rows never share a question when either could answer the other. */
@@ -189,7 +189,8 @@ export function buildRuleBuildQuestions(descriptor: RuleLessonDescriptor): Build
       id,
       itemId: target.entry.id,
       entry: target.entry,
-      promptDa: `Byg tallet ${target.value}`,
+      // Danish writing, via the one counting formatter: 2.088, never 2088.
+      promptDa: `Byg tallet ${formatCountingNumber(target.value)}`,
       targetValue: target.value,
       parts: target.parts,
       tokens: poolOf(id, [...target.parts, ...buildDistractors(descriptor, target.parts)]),

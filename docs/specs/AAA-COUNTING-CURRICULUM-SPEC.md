@@ -30,7 +30,7 @@ never on its own permission to release its content.
 | 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | Partly — 1-10 only; the 11-20 forms remain blocked by section 6 |
 | 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | Yes | No |
 | 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | Yes | No |
-| 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | No | No |
+| 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | Yes | No |
 
 - These four routes are the complete counting curriculum. A fifth counting lesson, or a second
   lesson covering any of these ranges, requires a recorded product decision in
@@ -128,8 +128,9 @@ literal, or computation.
 
 ### 3.3 Thousands scope
 
-Lesson 4 covers **1,000-9,999 only**, using the reviewed thousand multipliers 1-9 and composition
-with the ranges taught by lessons 1-3. Numbers of 10,000 and above, and all million-scale numbers,
+Lesson 4 covers **1,000-9,999 only**, using the thousand multipliers 1-9 and composition with the
+ranges taught by lessons 1-3. Those forms remain subject to section 6. Numbers of 10,000 and above,
+and all million-scale numbers,
 are explicitly **out of scope** for the counting curriculum. Introducing them requires a new recorded
 product decision in [`DESIGN.md`](../../DESIGN.md#counting); it MUST NOT be done by widening this
 lesson.
@@ -253,6 +254,10 @@ a new exercise engine.
 - The Tal shelf, the child workshop's number section, and the course home are **entry points** into
   the four lessons. Each MUST read the title, summary, range, and count from the relevant descriptor
   and MUST NOT hold its own range, ordering, title, or progress record.
+- Descriptor ranges and exercise targets remain numeric data. Human-facing decimal integers and
+  range lines anywhere in the counting UI, including entry cards and exercise prompts, MUST be
+  formatted only through `src/lessons/countingDisplay.ts`, which owns Danish thousands grouping
+  (`1.000`, `9.999`). A surface or exercise MUST NOT interpolate or format the number itself.
 - No surface may present a second 1-20 lesson, a partial 1-10 lesson, or an alternate counting range.
   Approved audio, whatever the manifest currently covers, is a capability inside the foundation
   lesson, not a lesson of its own.

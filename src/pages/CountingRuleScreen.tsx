@@ -55,7 +55,9 @@ export function CountingRuleScreen({ lesson, store }: CountingRuleScreenProps) {
   }
 
   /** One teaching row: the form itself, and either its tick or its action.
-   *  A referenced row says where it belongs instead of offering an action. */
+   *  A referenced row says it belongs earlier instead of offering an action.
+   *  It names no lesson: the row may come from any earlier stage, not
+   *  necessarily the one this lesson builds on. */
   function row(entry: PersianEntry, key: string) {
     const owned = entry.id.startsWith(lesson.idPrefix)
     return (
@@ -63,7 +65,7 @@ export function CountingRuleScreen({ lesson, store }: CountingRuleScreenProps) {
         <CompactPhraseRow entry={entry} marked />
         <span className="letter__done">
           {!owned ? (
-            <span lang="da">Hører til {lesson.buildsOn.labelDa} — tælles der.</span>
+            <span lang="da">Hører til en tidligere lektion — tælles der.</span>
           ) : cleared.includes(entry.id) ? (
             <>
               <ProgressTick granted label="Gennemgået" />

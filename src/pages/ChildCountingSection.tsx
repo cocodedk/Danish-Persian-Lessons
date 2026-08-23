@@ -7,6 +7,7 @@
 // lesson to the curriculum adds a door here without touching this file.
 import { Link } from 'react-router-dom'
 import { PersianText } from '../components/PersianText'
+import { formatCountingNumber, formatCountingRange } from '../lessons/countingDisplay'
 import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
 import type { CountingCurriculumEntry } from '../lessons/countingLesson'
 import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
@@ -24,7 +25,6 @@ import './ChildNumbers.css'
  * first ten numbers have recorded audio.
  */
 function CountingLessonLink({ entry }: { entry: CountingCurriculumEntry }) {
-  const [start, end] = entry.range
   const foundation = entry === countingLesson ? countingLesson : null
   const first = foundation?.numbers[0]
   return (
@@ -32,7 +32,9 @@ function CountingLessonLink({ entry }: { entry: CountingCurriculumEntry }) {
       {first ? (
         <PersianText entry={first.digit} className="child-number__digit" ariaHidden />
       ) : (
-        <span className="child-number__digit" aria-hidden="true">{start}</span>
+        <span className="child-number__digit" aria-hidden="true">
+          {formatCountingNumber(entry.range[0])}
+        </span>
       )}
       <span>
         {first && <PersianText entry={first.word} marked />}
@@ -40,8 +42,8 @@ function CountingLessonLink({ entry }: { entry: CountingCurriculumEntry }) {
         <span>{entry.summary}</span>
         <span>
           {foundation
-            ? `${foundation.numbers.length} tal fra ${start} til ${end}`
-            : `Tal fra ${start} til ${end}`}
+            ? `${foundation.numbers.length} tal ${formatCountingRange(entry.range)}`
+            : `Tal ${formatCountingRange(entry.range)}`}
         </span>
         <span>{countingCurriculumProgressLine(entry)}</span>
       </span>

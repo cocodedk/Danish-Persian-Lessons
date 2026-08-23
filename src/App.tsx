@@ -18,6 +18,10 @@ import {
   Counting100to900Screen,
   Counting100to900ExerciseScreen,
 } from './pages/Counting100to900Routes'
+import {
+  CountingThousandsScreen,
+  CountingThousandsExerciseScreen,
+} from './pages/CountingThousandsRoutes'
 import TypeWordScreen from './pages/TypeWordScreen'
 import TypeNameScreen from './pages/TypeNameScreen'
 import NameSpelling from './pages/NameSpelling'
@@ -78,12 +82,17 @@ export default function App() {
           <Route path="/lesson/ord/:unit/laes/:reading" element={<ConnectedReadingScreen />} />
           <Route path="/lesson/ord/:unit/:word" element={<WordScreen />} />
           {/* The rule lessons before the foundation and the generic «/lesson/:id»,
-              so «21-99» and «100-900» each read as their own lesson and never
-              as a page of «taelle». */}
+              so «21-99», «100-900» and «tusinder» each read as their own lesson
+              and never as a page of «taelle». */}
           <Route path="/lesson/taelle/21-99" element={<Counting21to99Screen />} />
           <Route path="/lesson/taelle/21-99/ovelse/:kind" element={<Counting21to99ExerciseScreen />} />
           <Route path="/lesson/taelle/100-900" element={<Counting100to900Screen />} />
           <Route path="/lesson/taelle/100-900/ovelse/:kind" element={<Counting100to900ExerciseScreen />} />
+          <Route path="/lesson/taelle/tusinder" element={<CountingThousandsScreen />} />
+          <Route
+            path="/lesson/taelle/tusinder/ovelse/:kind"
+            element={<CountingThousandsExerciseScreen />}
+          />
           <Route path="/lesson/taelle" element={<CountingScreen />} />
           <Route path="/lesson/taelle/ovelse/:kind" element={<CountingExerciseScreen />} />
           <Route path="/puslespil/:id" element={<PuzzleScreen />} />

@@ -17,8 +17,13 @@ import { countingLesson } from '../lessons/countingLesson'
 import type { CountingCurriculumEntry } from '../lessons/countingLesson'
 import { counting21to99Lesson } from '../lessons/counting21to99'
 import { counting100to900Lesson } from '../lessons/counting100to900'
+import { countingThousandsLesson } from '../lessons/countingThousands'
 import { countingDoneCount } from './counting'
-import { counting21to99Progress, counting100to900Progress } from './countingRules'
+import {
+  counting21to99Progress,
+  counting100to900Progress,
+  countingThousandsProgress,
+} from './countingRules'
 
 /**
  * How far through one counting lesson the learner has come. `noun` is what the
@@ -62,6 +67,13 @@ export function countingCurriculumProgress(
     return {
       done: counting100to900Progress.doneCount(),
       total: counting100to900Progress.ids.length,
+      noun: 'dele',
+    }
+  }
+  if (entry === countingThousandsLesson) {
+    return {
+      done: countingThousandsProgress.doneCount(),
+      total: countingThousandsProgress.ids.length,
       noun: 'dele',
     }
   }
