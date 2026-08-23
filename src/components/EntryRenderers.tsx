@@ -67,9 +67,12 @@ export interface DetailStripProps {
    * (the lesson indexes) — never for strips that change on every keystroke
    * or tile tap, where the announcements would drown the exercise. */
   live?: boolean
+  /** Monotonic counter passed straight to the player: each rise is one
+   * deliberate ask from the surface that owns the selection. */
+  playRequest?: number
 }
 
-export function DetailStrip({ entry, to, className = '', live }: DetailStripProps) {
+export function DetailStrip({ entry, to, className = '', live, playRequest }: DetailStripProps) {
   return (
     <aside
       className={`entry-detail ${className}`}
@@ -79,7 +82,7 @@ export function DetailStrip({ entry, to, className = '', live }: DetailStripProp
       <PersianText entry={entry} className="entry-detail__fa" />
       <div className="entry-detail__help">
         <PronLine {...entry.pron} />
-        <OptionalAudioControl audioId={entry.audioId} />
+        <OptionalAudioControl audioId={entry.audioId} playRequest={playRequest} />
         <span lang="da" dir="ltr">
           {entry.da}
         </span>

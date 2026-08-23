@@ -25,3 +25,70 @@
 .audio-control [role='status'] {
   flex-basis: 100%;
 }
+
+.audio-control__more {
+  border-color: transparent;
+  text-decoration: underline;
+}
+
+/* Transport row (play · stop · Lydvalg). At 320px the three labels only share
+   one 44px line if their padding is tighter than the disclosure's, so the
+   transport gets its own inline padding rather than the button default. */
+.audio-control .audio-control__transport {
+  padding-inline: 0.3rem;
+}
+
+/* The play label is the only one that changes — Hør → Afspiller → Hør igen —
+   so the button reserves the widest of the three from the first paint. The two
+   longer labels ride along as hidden ghosts stacked in the same grid cell:
+   the column is sized by the longest, the row never rewraps mid-playback, and
+   the number grid under the card keeps its top edge. Ghosts scale with the
+   text, so this holds at 200% too, where a fixed min-inline-size would not. */
+.audio-control__play {
+  display: inline-grid;
+  place-items: center;
+}
+
+.audio-control__play > span,
+.audio-control__play::before,
+.audio-control__play::after {
+  grid-area: 1 / 1;
+}
+
+.audio-control__play::before,
+.audio-control__play::after {
+  visibility: hidden;
+}
+
+.audio-control__play::before {
+  content: 'Afspiller';
+}
+
+.audio-control__play::after {
+  content: 'Hør igen';
+}
+
+/* Segmented tempo strip: one bordered group, hairline dividers, square inner
+   corners, and the selected cell filled with ink so the choice reads at a glance. */
+.audio-control__speeds {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.audio-control__speeds button {
+  border: 0;
+  border-radius: 0;
+  padding-inline: 0.6rem;
+}
+
+.audio-control__speeds button + button {
+  border-inline-start: 1px solid var(--blue);
+}
+
+.audio-control__speeds button[aria-pressed='true'] {
+  background: var(--blue);
+  color: var(--paper);
+}

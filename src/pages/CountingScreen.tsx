@@ -17,11 +17,14 @@ import './vocab.css'
 
 /**
  * "Tæl til tyve": every number from one to twenty on one count-along page.
- * A tap only browses — it updates the detail strip with the full teaching
- * card (digit, vocalized word, dansk lydskrift, IPA and Danish meaning) and
- * writes nothing. Saying you have been through a number is a separate,
- * deliberate tap, so the count on this page stays honest. Nothing is ever
- * locked (plan 016).
+ * A tap is the primary action: it selects the number — updating the detail
+ * strip with the full teaching card (digit, vocalized word, dansk lydskrift,
+ * IPA and Danish meaning) — and, when the approved manifest has a clip for
+ * that number, plays it at once. Numbers without an approved clip are
+ * complete teaching rows that simply have no sound. A tap still writes
+ * nothing: saying you have been through a number is a separate, deliberate
+ * tap, so the count on this page stays honest. Nothing is ever locked
+ * (plan 016).
  */
 export default function CountingScreen() {
   const [cleared, setCleared] = useState(() => getCountingProgress().words)
@@ -29,6 +32,10 @@ export default function CountingScreen() {
   // The one word whose "done" was just earned here, so the moment belongs to
   // it alone: no second tick beside it, and none left behind when we move on.
   const [justMarked, setJustMarked] = useState<string | null>(null)
+  // Every deliberate tile activation raises this by one, including a tap on the
+  // number already selected. The player obeys the rise, so re-renders that had
+  // nothing to do with the learner never start a clip.
+  const [playRequest, setPlayRequest] = useState(0)
   const celebration = useCelebration()
 
   const selected = countingLesson.numbers[selectedValue - 1]
@@ -43,10 +50,13 @@ export default function CountingScreen() {
     celebration.cheer(kind)
   }
 
-  /** Browsing on ends the celebration for good, here and on the way back. */
+  /** One deliberate tap: select the number and ask to hear it. Selecting on
+   *  ends the celebration for good, here and on the way back — and it is the
+   *  only progress this tap touches. */
   function select(value: number) {
     setSelectedValue(value)
     setJustMarked(null)
+    setPlayRequest((asked) => asked + 1)
   }
 
   return (
@@ -62,7 +72,12 @@ export default function CountingScreen() {
       </p>
 
       <div className="lesson-index">
-        <DetailStrip entry={selected.word} className="entry-detail--master" live />
+        <DetailStrip
+          entry={selected.word}
+          className="entry-detail--master"
+          live
+          playRequest={playRequest}
+        />
         <div className="lesson-index__content">
           <div className="letter__done">
             {justMarked === selected.word.id ? (
