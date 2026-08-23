@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { findPronunciationAudio, pronunciationAudioUrl } from '../audio/manifest'
 import { activateAudio, releaseAudio } from '../audio/playback'
 import './AudioControl.css'
-
 const NORMAL_PLAYBACK_RATE = 1
 const PLAYBACK_OPTIONS = [
   { rate: NORMAL_PLAYBACK_RATE, label: 'Normal 1×', short: '1×' },
@@ -18,7 +17,6 @@ function applyPlaybackRate(node: HTMLMediaElement, rate: number): void {
 }
 
 export type AudioControlSource = { file: string; transcript: string }
-
 export function AudioControl({ audioId, source, onPlay, playRequest }: {
   audioId?: string
   source?: AudioControlSource
@@ -37,7 +35,6 @@ export function AudioControl({ audioId, source, onPlay, playRequest }: {
   const [played, setPlayed] = useState(false)
   const [failed, setFailed] = useState(false)
   const [expanded, setExpanded] = useState(false)
-
   const servedRequest = useRef(0)
   const mounted = useRef(true)
   /** Only the live token may report; `heard` deduplicates its witnesses. */
@@ -152,7 +149,6 @@ export function AudioControl({ audioId, source, onPlay, playRequest }: {
     setMuted(!muted)
     if (audio.current) audio.current.muted = !muted
   }
-
   return (
     <div className="audio-control">
       {/* `preload="none"`: the corpus is fetched only when a learner asks. */}
@@ -169,29 +165,35 @@ export function AudioControl({ audioId, source, onPlay, playRequest }: {
       />
       {/* The play label grows to "Afspiller"/"Hør igen", so the transport reserves
           the longest up front (see the CSS): no row reflow. */}
-      <button type="button" className="audio-control__transport audio-control__play"
-        aria-label={`Hør ${row.transcript}`} onClick={() => void replay()}
-      ><span>{playing ? 'Afspiller' : played ? 'Hør igen' : 'Hør'}</span></button>
-      <button type="button" className="audio-control__transport" disabled={!playing}
-        aria-label={`Stop lyden for ${row.transcript}`} onClick={stop}
-      >Stop</button>
-      {/* Speed and mute stay folded away so the default row is one clear choice. */}
-      <button type="button" className="audio-control__transport audio-control__more"
-        aria-expanded={expanded} aria-label="Flere lydvalg" onClick={() => setExpanded(!expanded)}
-      >Lydvalg</button>
-      {/* One segmented strip; `aria-pressed` is state and ink-fill styling hook. */}
-      {expanded && (<>
-        <div role="group" aria-label="Tempo" className="audio-control__speeds">
-          {PLAYBACK_OPTIONS.map((option) => (
-            <button type="button" key={option.rate} aria-label={option.label}
-              aria-pressed={playbackRate === option.rate} onClick={() => chooseSpeed(option.rate)}
-            >{option.short}</button>
-          ))}
-        </div>
-        <button type="button" aria-pressed={muted} onClick={toggleMute}
-          aria-label={muted ? 'Slå udtalelyd til' : 'Slå udtalelyd fra'}
-        >{muted ? 'Lyd til' : 'Lyd fra'}</button>
+      {!expanded && (<>
+        <button type="button" className="audio-control__transport audio-control__play"
+          aria-label={`Hør ${row.transcript}`} onClick={() => void replay()}
+        ><span>{playing ? 'Afspiller' : played ? 'Hør igen' : 'Hør'}</span></button>
+        <button type="button" className="audio-control__transport" disabled={!playing}
+          aria-label={`Stop lyden for ${row.transcript}`} onClick={stop}
+        >Stop</button>
+        <button type="button" className="audio-control__transport audio-control__more"
+          aria-expanded="false" aria-label="Flere lydvalg" onClick={() => setExpanded(true)}
+        >Lydvalg</button>
       </>)}
+      {/* The hi-fi bank replaces the transport in the same one-row footprint. */}
+      {expanded && (
+        <div className="audio-control__advanced">
+          <div role="group" aria-label="Tempo" className="audio-control__speeds">
+            {PLAYBACK_OPTIONS.map((option) => (
+              <button type="button" key={option.rate} aria-label={option.label}
+                aria-pressed={playbackRate === option.rate} onClick={() => chooseSpeed(option.rate)}
+              >{option.short}</button>
+            ))}
+          </div>
+          <button type="button" disabled={!playing} aria-label={`Stop lyden for ${row.transcript}`}
+            onClick={stop}>Stop</button>
+          <button type="button" aria-pressed={muted} onClick={toggleMute}
+            aria-label={muted ? 'Slå udtalelyd til' : 'Slå udtalelyd fra'}>Lyd</button>
+          <button type="button" aria-expanded="true" aria-label="Luk lydvalg"
+            onClick={() => setExpanded(false)}>Luk</button>
+        </div>
+      )}
       {failed && <span role="status">Lyden virker ikke. Du kan stadig se hjælpen.</span>}
     </div>
   )

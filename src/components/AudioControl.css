@@ -1,8 +1,11 @@
 .audio-control {
+  direction: ltr;
   display: flex;
-  flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
   gap: 0.35rem;
+  inline-size: min(100%, 16.5rem);
+  min-block-size: var(--tap-min);
   font-family: var(--font-latin);
   font-size: 0.875rem;
 }
@@ -68,20 +71,36 @@
   content: 'Hør igen';
 }
 
-/* Segmented tempo strip: one bordered group, hairline dividers, square inner
-   corners, and the selected cell filled with ink so the choice reads at a glance. */
-.audio-control__speeds {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid var(--blue);
+/* Sound settings replace the transport as one six-cell hi-fi bank: three tempo
+   cells, stop, mute and close. At a 320px viewport each remains a 44px target. */
+.audio-control__advanced {
+  display: grid;
+  grid-template-columns: 3fr repeat(3, 1fr);
+  inline-size: 100%;
+  min-block-size: var(--tap-min);
   border-radius: 3px;
+  box-shadow: inset 0 0 0 1px var(--blue);
   overflow: hidden;
 }
 
-.audio-control__speeds button {
+.audio-control__advanced button {
+  min-inline-size: 0;
+  padding-inline: 0.15rem;
   border: 0;
   border-radius: 0;
-  padding-inline: 0.6rem;
+}
+
+.audio-control__advanced > * + * {
+  border-inline-start: 1px solid var(--blue);
+}
+
+.audio-control__speeds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.audio-control__speeds button {
+  padding-inline: 0.15rem;
 }
 
 .audio-control__speeds button + button {

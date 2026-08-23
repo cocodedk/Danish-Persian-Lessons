@@ -30,10 +30,10 @@ export function FullTeachingCard({
     <section className="entry-card" data-entry-id={entry.id}>
       <FaSpecimen entry={entry} />
       <PronLine {...entry.pron} />
-      <OptionalAudioControl audioId={entry.audioId} />
-      {imageEntryId && <LessonImage entryId={imageEntryId} />}
       <DaWord>{entry.da}</DaWord>
+      {imageEntryId && <LessonImage entryId={imageEntryId} />}
       {showReadingCues && entry.readingCues && <ReadingCues entry={entry} />}
+      <OptionalAudioControl audioId={entry.audioId} />
     </section>
   )
 }
@@ -49,12 +49,12 @@ export function CompactPhraseRow({
     <div className="entry-phrase" data-entry-id={entry.id}>
       <PersianText entry={entry} className="entry-phrase__fa" marked={marked} />
       <PronLine {...entry.pron} />
-      <OptionalAudioControl audioId={entry.audioId} />
       {/* Danish keeps its own direction even inside an RTL frame (the Kit's
           mirrored sample), like PronLine does. */}
       <span lang="da" dir="ltr">
         {entry.da}
       </span>
+      <OptionalAudioControl audioId={entry.audioId} />
     </div>
   )
 }
@@ -82,10 +82,10 @@ export function DetailStrip({ entry, to, className = '', live, playRequest }: De
       <PersianText entry={entry} className="entry-detail__fa" />
       <div className="entry-detail__help">
         <PronLine {...entry.pron} />
-        <OptionalAudioControl audioId={entry.audioId} playRequest={playRequest} />
         <span lang="da" dir="ltr">
           {entry.da}
         </span>
+        <OptionalAudioControl audioId={entry.audioId} playRequest={playRequest} />
       </div>
       {to && (
         <Link className="entry-detail__link" to={to}>

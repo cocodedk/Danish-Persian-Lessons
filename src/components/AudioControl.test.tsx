@@ -22,7 +22,9 @@ describe('pronunciation audio controls', () => {
 
   /** Speeds and mute live behind the disclosure so the default view stays calm. */
   function expand() {
-    fireEvent.click(screen.getByRole('button', { name: 'Flere lydvalg' }))
+    const toggle = screen.queryByRole('button', { name: 'Flere lydvalg' })
+      ?? screen.getByRole('button', { name: 'Luk lydvalg' })
+    fireEvent.click(toggle)
   }
 
   it('hides speed and mute choices until the learner asks for them', () => {
@@ -40,7 +42,8 @@ describe('pronunciation audio controls', () => {
 
     fireEvent.click(more)
 
-    expect(more).toHaveAttribute('aria-expanded', 'true')
+    expect(screen.getByRole('button', { name: 'Luk lydvalg' })).toHaveAttribute('aria-expanded', 'true')
+    expect(screen.queryByRole('button', { name: 'Hør آب' })).toBeNull()
     expect(screen.getByRole('button', { name: 'Normal 1×' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Meget langsom 0,5×' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Slå udtalelyd fra' })).toBeVisible()
@@ -96,7 +99,6 @@ describe('pronunciation audio controls', () => {
     expand()
     fireEvent.click(screen.getByRole('button', { name: 'Langsom 0,8×' }))
     expect(audio).toHaveAttribute('src', '/Danish-Persian-Lessons/app/audio/word-ab.mp3')
-    fireEvent.click(screen.getByRole('button', { name: 'Hør آب' }))
     expect(screen.getByRole('button', { name: 'Meget langsom 0,5×' })).toBeVisible()
     expect(await screen.findByRole('button', { name: 'Stop lyden for آب' })).toBeEnabled()
     expect(audio.playbackRate).toBe(0.8)

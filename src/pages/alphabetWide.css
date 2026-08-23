@@ -9,8 +9,6 @@
   .lesson-index > .entry-detail--master {
     inset-block-start: var(--rule-step);
     align-self: start;
-    grid-template-columns: 1fr;
-    justify-items: start;
   }
 
   .alphabet__grid {

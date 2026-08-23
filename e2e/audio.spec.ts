@@ -77,7 +77,10 @@ test('the tempo strip stays one row at 320px and never forces sideways scrolling
 
   // One shared row: same top edge, and each cell keeps the 44px tap target.
   expect(new Set(boxes.map((box) => Math.round(box!.y))).size).toBe(1)
-  for (const box of boxes) expect(box!.height).toBeGreaterThanOrEqual(44)
+  for (const box of boxes) {
+    expect(box!.width).toBeGreaterThanOrEqual(44)
+    expect(box!.height).toBeGreaterThanOrEqual(44)
+  }
   // The selected cell is filled with ink; its neighbours stay on paper.
   const [ink, paper] = await Promise.all([cells.first(), cells.nth(1)]
     .map((cell) => cell.evaluate((node) => getComputedStyle(node).backgroundColor)))
@@ -101,19 +104,38 @@ test('the transport stays put when Hør becomes Hør igen', async ({ page }) => 
     playWidth: (await play.boundingBox())!.width,
     gridY: (await grid.boundingBox())!.y,
   })
+  const frameGeometry = async () => ({
+    controlHeight: (await control.boundingBox())!.height,
+    gridY: (await grid.boundingBox())!.y,
+  })
   const idle = await geometry()
 
   await play.click()
   await expect(play).toHaveText('Hør igen')
 
   expect(await geometry()).toEqual(idle)
-  expect(idle.controlHeight).toBe(44)
+  expect(idle.controlHeight).toBeGreaterThanOrEqual(44)
+
+  const idleFrame = await frameGeometry()
+  await control.getByRole('button', { name: 'Flere lydvalg' }).click()
+  expect(await frameGeometry()).toEqual(idleFrame)
+  await control.getByRole('button', { name: 'Luk lydvalg' }).click()
 
   // "to" is a prefix of "tolv": only the exact label picks the number two tile.
   await page.getByRole('button', { name: 'Vælg tallet to', exact: true }).click()
   // One click now selects and plays, so the transport never falls back to Hør.
   await expect(play).toHaveText(/Afspiller|Hør igen/)
   expect(await geometry()).toEqual(idle)
+})
+
+test('counting detail follows the authoritative teaching order', async ({ page }) => {
+  await open(page, '#/lesson/taelle')
+  const detail = page.locator('.entry-detail--master')
+  await expect(detail.locator('.audio-control')).toBeVisible()
+  const order = await detail.evaluate((node) => [...node.querySelectorAll(
+    '.entry-detail__fa, .pron-line, .entry-detail__help > span[lang="da"], .audio-control',
+  )].map((row) => row.className || 'meaning'))
+  expect(order).toEqual(['entry-detail__fa', 'pron-line', 'meaning', 'audio-control'])
 })
 
 test('every approved counting clip plays from its own tile', async ({ page }) => {
