@@ -32,7 +32,7 @@
 .vocab__grid {
   direction: rtl;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--tile-min, 8rem), 1fr));
   gap: 0.4rem;
   margin: 0.5rem 0 0;
   padding: 0;
@@ -51,7 +51,6 @@
   border-radius: 3px;
   background: var(--card);
   color: var(--ink);
-  text-decoration: none;
   inline-size: 100%;
   font: inherit;
   cursor: pointer;
@@ -83,8 +82,10 @@
 
 @media (min-width: 64rem) {
   .vocab__grid {
-    grid-template-columns: repeat(auto-fit, minmax(9rem, 12rem));
-    justify-content: start;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--tile-wide-min, 9rem), var(--tile-wide-max, 12rem))
+    );
   }
 
   .lesson--word .split-card {

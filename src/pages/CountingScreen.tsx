@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { LessonSheet, BarLink } from '../components/LessonSheet'
 import { ProgressTick } from '../components/ProgressTick'
@@ -14,6 +14,19 @@ import { useCelebration } from '../rewards/useCelebration'
 import './alphabet.css'
 import './alphabetWide.css'
 import './vocab.css'
+
+const countingGridStyle = {
+  direction: 'ltr',
+  '--tile-min': '4.75rem',
+  '--tile-wide-min': '5rem',
+  '--tile-wide-max': '5rem',
+} as CSSProperties & Record<string, string>
+
+const countingTileStyle: CSSProperties = {
+  gap: 0,
+  paddingBlock: '0.25rem',
+  lineHeight: 1.2,
+}
 
 /**
  * "Tæl til tyve": every number from one to twenty on one count-along page.
@@ -92,7 +105,7 @@ export default function CountingScreen() {
             )}
           </div>
 
-          <ol className="vocab__grid" dir="rtl">
+          <ol className="vocab__grid" dir="ltr" style={countingGridStyle}>
             {countingLesson.numbers.map(({ value, digit, word }) => (
               <li key={value}>
                 <button
@@ -101,6 +114,7 @@ export default function CountingScreen() {
                   aria-label={`Vælg tallet ${word.da}`}
                   aria-pressed={selectedValue === value}
                   onClick={() => select(value)}
+                  style={countingTileStyle}
                 >
                   <PersianText entry={digit} className="vocab__cell-fa" ariaHidden />
                   <span className="vocab__cell-da" lang="da" dir="ltr">{word.da}</span>
