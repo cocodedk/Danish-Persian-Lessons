@@ -27,7 +27,7 @@ touched by this plan. The foundation is not extended, re-ranged, re-titled or re
 Implement on this branch lessons 2, 3 and 4 of the counting curriculum as three separate rule
 lessons that teach **composition rules with representative examples**, so a learner can build any
 number in range from the rule plus the 1-20 vocabulary. None of these lessons may be released until
-[`AAA-QUALITY-BAR.md`](../specs/AAA-QUALITY-BAR.md) Gate A is satisfied with human evidence. No exhaustive enumeration: no 79-item list, no 800-item list, no
+[`AAA-QUALITY-BAR.md`](../specs/AAA-QUALITY-BAR.md) Gate A is satisfied with human evidence. No exhaustive enumeration: no 79-item list, no 900-item list, no
 9,000-item list.
 
 ## Fixed decisions
@@ -62,6 +62,10 @@ number in range from the rule plus the 1-20 vocabulary. None of these lessons ma
   needed by one lesson lives in that lesson's module.
 - Rule lessons **reference** the foundation's rows for any 1-20 form used in an example. They never
   copy them into their own list.
+- Lesson 3 keeps the route and label `100-900`, while its descriptor declares the range **100-999**
+  and the lesson hands off at 1,000. This plan does not decide that; it consumes
+  § "Lesson 3 range: label versus coverage" of the counting specification verbatim and MUST NOT
+  restate the reasoning or derive a different range.
 - Lesson 4 covers **1,000-9,999 only**. 10,000 and above, and all million-scale numbers, are out of
   scope and MUST NOT be reached by widening this work.
 - Content is static and deterministic: no randomness, no clock, no network. Counts are read off
@@ -152,7 +156,8 @@ made shared.
 
 - [ ] Tests below that cover fixpoint A are green; `npm run verify` passes.
 - [x] Staged diff scanned for machine-specific absolute paths (home/workspace leaks) — none present.
-- [ ] Conventional Commits commit, stating that the 21-99 forms are candidates pending Gate A.
+- [x] Conventional Commits commit, stating that the 21-99 forms are candidates pending Gate A —
+      `cec2e73 feat: add candidate 21-99 counting rule`.
 - [x] Any regenerated visual PNG baselines stay **out of the commit** until owner sign-off.
 
 Current evidence: 111 unit files / 773 tests, ESLint, TypeScript, production build, image/audio
@@ -170,7 +175,9 @@ is made in the shared piece and A's tests must stay green.
 
 1. Hundreds as catalog entries through `defineEntry`, prefix `counting-100900-`; candidate forms.
 2. Descriptor at `/lesson/taelle/100-900` with rule text, builds-on line linking back to
-   `/lesson/taelle/21-99`, hundreds base forms and worked examples.
+   `/lesson/taelle/21-99`, hundreds base forms and worked examples. Its declared range is **100-999**
+   per § "Lesson 3 range: label versus coverage" of the specification, while route and label stay
+   `100-900`; entry points show whatever that descriptor declares and hold no range literal.
 3. Progress store `dpl.v1.counting.100-900` from the factory.
 4. Rounds `betydning`, `tal`, `byg` at `/lesson/taelle/100-900/ovelse/:kind`; `byg` uses the shared
    token builder to compose a hundred with a remainder the lesson never showed.

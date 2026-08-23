@@ -28,8 +28,8 @@ never on its own permission to release its content.
 | # | Lesson | Route | Teaches | Implemented | Release-approved |
 |---|---|---|---|---|---|
 | 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | Partly — 1-10 only; the 11-20 forms remain blocked by section 6 |
-| 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | No | No |
-| 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below | No | No |
+| 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | Yes | No |
+| 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | No | No |
 | 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | No | No |
 
 - These four routes are the complete counting curriculum. A fifth counting lesson, or a second
@@ -58,7 +58,7 @@ never on its own permission to release its content.
 ## 3. What the rule lessons teach
 
 Lessons 2-4 teach **composition rules with representative worked examples**. They MUST NOT ship an
-exhaustive enumeration of their range: no 79-item list for 21-99, no 800-item list for 100-900, no
+exhaustive enumeration of their range: no 79-item list for 21-99, no 900-item list for 100-999, no
 9,000-item list for thousands. A learner who finishes a rule lesson should be able to build any
 number in the range from the rule plus the 1-20 vocabulary, not recall a list.
 
@@ -104,7 +104,29 @@ Lesson 4 (thousands) MUST demonstrate:
 - a thousand composed with a 1-20 remainder (lesson 1);
 - the upper boundary of scope, 9,999.
 
-### 3.2 Thousands scope
+### 3.2 Lesson 3 range: label versus coverage
+
+This subsection is the sole authority for the lesson 3 range semantics. Code, descriptors, surfaces,
+and plans MAY materialize or report the values fixed here, and MUST link back to this subsection when
+they do. They MUST NOT independently choose, redefine, or derive those values from any other rule,
+literal, or computation.
+
+- The public route `/lesson/taelle/100-900` and the lesson label **100-900** are fixed, because the
+  nine base forms the rule requires are the round hundreds 100, 200, 300, 400, 500, 600, 700, 800,
+  and 900. The label names those required base forms, not the outer edge of what the lesson enables.
+- The composition rule the lesson teaches operationally covers **every integer 100 through 999**: a
+  hundred multiplier alone, or a hundred multiplier joined to any remainder from the ranges taught by
+  lessons 1 and 2.
+- Lesson 3 **hands off at 1,000**. Everything from 1,000 upward belongs to lesson 4 under
+  section 3.3 below, and MUST NOT be taught, demonstrated, or enumerated here.
+- The lesson 3 descriptor's declared range is therefore **100 through 999**, and every surface that
+  reads a range from that descriptor (section 4, section 9) shows 100-999 while the route and the
+  lesson label stay 100-900. That pairing is intentional and is not a defect to be "fixed" by
+  changing either value.
+- This resolves the range wording only. It does not change the four-lesson product decision recorded
+  in [`DESIGN.md`](../../DESIGN.md#counting), add a lesson, or move any boundary.
+
+### 3.3 Thousands scope
 
 Lesson 4 covers **1,000-9,999 only**, using the reviewed thousand multipliers 1-9 and composition
 with the ranges taught by lessons 1-3. Numbers of 10,000 and above, and all million-scale numbers,
@@ -112,7 +134,7 @@ are explicitly **out of scope** for the counting curriculum. Introducing them re
 product decision in [`DESIGN.md`](../../DESIGN.md#counting); it MUST NOT be done by widening this
 lesson.
 
-### 3.3 Research leads, not approvals
+### 3.4 Research leads, not approvals
 
 The following are **non-approval references** that a content author MAY consult while drafting
 candidate forms. Citing them does not make any form approved, and they MUST NOT be recorded as review
