@@ -106,7 +106,50 @@ At 200–400% desktop zoom, effective container width—not physical monitor wid
   is visible without a monitor-width eye movement or scroll back to the page top.
 - Alphabet cells are 3.25–6rem wide; vocabulary cards are 8–18rem wide. `1fr` MUST NOT stretch the
   final row across the remaining desktop width. Groups remain visually distinct notebook sections.
-- Internal Persian grids fill RTL; headings, progress, and global navigation retain Danish LTR order.
+- Internal Persian grids in these indexes fill RTL; headings, progress, and global navigation retain
+  Danish LTR order. This rule is scoped to the alphabet and vocabulary indexes. It does not govern the
+  counting number grid, whose ascending order is a numeric sequence rather than Persian running text
+  and whose direction is fixed by the counting subsection below.
+
+### Counting number grid and detail rail
+
+This subsection is the sole layout authority for counting number tiles and the wide-screen counting
+detail rail. It implements the product-level composition recorded in
+[DESIGN.md](../../DESIGN.md#the-counting-experience); what a tile *does* when activated is owned by
+[AAA-COUNTING-CURRICULUM-SPEC.md](AAA-COUNTING-CURRICULUM-SPEC.md), not here.
+
+- **Direction.** The tiles are laid out in ascending numeric order **left-to-right and top-to-bottom**,
+  so the sequence reads the way the numbers count. The Persian text inside each tile keeps its own
+  **RTL** direction and language metadata; the grid's LTR flow MUST NOT be applied to, or leak into,
+  the Persian content of a tile. Mirroring the grid to RTL, or forcing a tile's Persian text to LTR,
+  are both release defects.
+- **Target size.** Every number tile keeps at least a `44×44` CSS-pixel activation target at every
+  matrix width, height, and text scale, including the most compact tile variant. A denser
+  presentation MUST reduce padding and gap before it reduces the target, and MUST NOT go below this
+  floor.
+- **Column counts.** The grid renders at least **3 columns at 320px** and at least **4 columns at
+  390px** viewport inline size, with no page-level horizontal overflow and no clipped digit, Persian
+  word, or focus ring. Wider containers MAY add columns within the bounds below.
+- **Wide layout.** From Wide upward the grid is bounded — it MUST NOT stretch tiles or the final row
+  across the remaining monitor width — and the selected number's teaching content occupies a
+  **dedicated detail rail** in its own grid or flex track, within the `18–24rem` secondary-rail
+  bound. That rail MUST NOT overlay, occlude, or crowd the grid in any resting state, per
+  [Rails, cards, and lesson content](#rails-cards-and-lesson-content). Where it cannot claim its own
+  track, it collapses into normal document flow in DOM order rather than floating over the tiles.
+- **Layout stability.** None of the following may move, resize, reflow, or reorder the tile grid, and
+  none may move the selected tile out of view or under sticky chrome:
+  - selecting a different number;
+  - a number having an approved clip versus having none;
+  - an audio label growing from `Hør` to `Hør igen` or to its playing label;
+  - audio or teaching controls expanding, collapsing, or appearing after an action;
+  - a label wrapping, or a longer Danish or Persian string in the detail content.
+
+  Space for the largest state a control can reach is reserved up front so the grid stays still. A
+  layout that shifts the tiles when the learner activates one is a release defect, not a cosmetic
+  issue.
+- The selected tile stays visible after selection under
+  [Focus, anchors, and selection visibility](#focus-anchors-and-selection-visibility), including when
+  the detail rail or a feedback region appears.
 
 ### Letter, vowel, word, and connected-reading details
 
@@ -268,6 +311,13 @@ compositions collapsing to one column when container queries are unavailable; st
 derived from measured geometry rather than a constant; and focused, anchored, and selected elements
 fully visible with the emulated keyboard open.
 
+For the counting number grid specifically, automated assertions MUST prove: ascending tiles flow LTR
+while each tile's Persian text resolves RTL; every tile meets `44×44` at every matrix size and text
+scale; at least 3 columns at 320px and at least 4 at 390px with no horizontal overflow; the wide
+composition bounds the grid and gives the detail rail its own non-overlapping track; and the tile
+grid's box and the selected tile's box are unchanged across a selection change, a clip-present versus
+clip-absent number, a `Hør`-to-`Hør igen` label change, an expanded control, and a longer label.
+
 The visual-snapshot state inventory, the widths and schemes it covers, and the baseline procedure are
 owned by [docs/reviews/VISUAL-REVIEW-PROTOCOL.md](../reviews/VISUAL-REVIEW-PROTOCOL.md). Reviewer
 roles and approval/sign-off are owned by the [AAA quality bar](AAA-QUALITY-BAR.md). Neither is
@@ -286,6 +336,10 @@ restated here; this specification supplies the responsive facts those reviews ar
   fits without overflow or ambiguous truncation at 320px and 200% text scale.
 - Clearance: no focused control, anchor target, or selected item is obscured by sticky, fixed, or
   keyboard UI, and no chrome clearance is derived from a hard-coded constant.
+- Counting: the number grid meets its direction, target-size, and column-count floors at 320px and
+  390px; the wide composition bounds the grid and gives the detail rail its own track; and no
+  selection, clip-availability, label, or control-expansion change moves the grid or the selected
+  tile.
 - All automated geometry/snapshot gates and manual real-device/desktop journeys pass. Severity
   definitions, the exception process, and reviewer sign-off authority are owned by the
   [AAA quality bar](AAA-QUALITY-BAR.md).

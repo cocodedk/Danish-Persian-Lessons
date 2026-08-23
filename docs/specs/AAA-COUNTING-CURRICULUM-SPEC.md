@@ -1,13 +1,16 @@
 # AAA Counting Curriculum Specification
 
 Status: normative single source of truth for the counting curriculum — routes, staged content scope,
-worked-example requirements, data ownership, progress identities, audio honesty, and lesson
-mechanics.
+worked-example requirements, data ownership, progress identities, audio honesty, the exact counting
+selection and playback behaviour, and lesson mechanics.
 
 This document is **subordinate to the product sequence** recorded in
-[`DESIGN.md`](../../DESIGN.md#counting). `DESIGN.md` decides that counting is exactly four lessons and
-in which order they are taught; it does not decide the values below. This document decides the exact
-routes, ranges, mechanics, and review evidence, and MUST NOT contradict that sequence. Where an
+[`DESIGN.md`](../../DESIGN.md#counting). `DESIGN.md` decides that counting is exactly four lessons, in
+which order they are taught, and the high-level shape of the counting experience — that the primary
+job is to select a number and hear or learn it, that tile activation is the primary action, that
+replay is secondary, and the teaching order; it does not decide the values below. This document
+decides the exact routes, ranges, mechanics, behaviour, and review evidence, and MUST NOT contradict
+that sequence. Where an
 aspect is owned elsewhere — pedagogy and reviewed audio by
 [`AAA-LEARNING-SPEC.md`](AAA-LEARNING-SPEC.md), release evidence by
 [`AAA-QUALITY-BAR.md`](AAA-QUALITY-BAR.md), accessibility by
@@ -22,12 +25,13 @@ restates. Normative language (**MUST**, **SHOULD**, **MAY**) is defined in
 ## 1. The four lessons
 
 The table separates **implementation state** (does the route exist and render today?) from **release
-approval** (is its language content cleared to ship under section 6?). A route being implemented is
-never on its own permission to release its content.
+approval** (is its language content cleared under section 6, and does it meet every other blocking
+condition in this document, such as the 1-20 word-audio completeness required by section 7.3?). A
+route being implemented is never on its own permission to release its content.
 
 | # | Lesson | Route | Teaches | Implemented | Release-approved |
 |---|---|---|---|---|---|
-| 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | Partly — 1-10 only; the 11-20 forms remain blocked by section 6 |
+| 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | No — Gate A in section 6 and the word-audio condition in section 7.3 remain unsatisfied |
 | 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | Yes | No |
 | 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | Yes | No |
 | 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | Yes | No |
@@ -228,6 +232,74 @@ lessons 2-4 is correct or approved.
   provenance process owned by [`AAA-LEARNING-SPEC.md`](AAA-LEARNING-SPEC.md), and only after the
   language review in section 6.
 
+### 7.1 Selecting a number
+
+This subsection is the sole authority for what a counting number tile does. It implements, and MUST
+NOT contradict, the product-level experience recorded in
+[`DESIGN.md`](../../DESIGN.md#the-counting-experience).
+
+- **Arriving is not asking.** Entering a counting route, restoring it with Back, deep-linking into
+  it, resizing, or having a tile receive focus by keyboard or screen-reader navigation MUST NOT
+  fetch, decode, preload, or play any audio, and MUST NOT put the surface into a playing state. Only
+  a deliberate activation does.
+- **Deliberate activation** means activating a tile with pointer, touch, `Enter`, or `Space` — the
+  same activation for every input method. Moving focus, hovering, or scrolling a tile into view is
+  never activation.
+- One deliberate activation performs both halves of the primary job in one step: it makes that number
+  the selected number, and, if and only if the approved manifest has a clip for that number, it
+  starts that clip immediately without a second control.
+- **Only an approved clip may play.** The clip that plays is the approved manifest row for the
+  activated number and nothing else. Activation MUST NOT fall back to speech synthesis, to a clip
+  belonging to another entry, to a digit-glyph clip, or to a silent placeholder.
+- **Repeated activation replays.** Activating the already-selected number again restarts its clip
+  from the beginning. Replay MUST remain reachable for as long as the number stays selected, and the
+  replay affordance MUST NOT be the only way to hear a number for the first time.
+- **A different number resets stale transport state.** Selecting a number other than the current one
+  MUST stop any clip still playing or pending, clear any playing, loading, error, or "already heard"
+  state left from the previous number, and start from the new number's own state. The previous
+  number's transport state MUST NOT be shown against the new selection, and a clip that finishes
+  loading after the selection changed MUST NOT play.
+- **Missing audio selects only.** Activating a number that has no approved clip selects it and shows
+  its complete teaching content, and does nothing else. The surface MUST NOT play anything, MUST NOT
+  enter a playing or loading state, MUST NOT show a play control that does nothing, and MUST NOT
+  present the number as broken, failed, or lesser (section 7).
+- A playback failure at runtime MUST leave the number selected and its teaching content intact, and
+  MUST be reported honestly rather than as a silent success or a stuck playing state.
+
+### 7.2 Selection state
+
+- Exactly one number is selected at a time on a counting surface. Selection is presentational state:
+  it MUST NOT be persisted as progress, MUST NOT by itself claim the number was learned, and MUST NOT
+  survive as a hidden second selection in any wide-screen composition.
+- The compact layout and any wide-screen detail rail show the **same** selected number and the same
+  teaching content for it; there is one selection, not one per column.
+- Changing selection MUST NOT remount the surface, reset scroll, or move focus away from the
+  activated tile. The layout consequences of a selection change are owned by
+  [`AAA-RESPONSIVE-DESIGN-SPEC.md`](AAA-RESPONSIVE-DESIGN-SPEC.md).
+
+### 7.3 Required 1-20 word audio before release
+
+- The 1-20 foundation lesson is **not releasable** until every one of its twenty number **word** rows
+  has an approved clip in the manifest. Partial word audio is not a shippable configuration of this
+  lesson, and no exception under [`AAA-QUALITY-BAR.md`](AAA-QUALITY-BAR.md) may waive the requirement
+  by presenting a subset as complete.
+- This condition is **additional to**, not a substitute for, the language review gate in section 6.
+  Both MUST be satisfied: section 6 clears the forms, this subsection requires the clips for the
+  cleared forms to exist and be approved.
+- While any of the twenty word clips lacks approval, the counting work **MUST NOT be merged and MUST
+  NOT be released**. The approved manifest is the sole authority for whether that condition is
+  satisfied; this specification MUST NOT restate its current inventory.
+- That blocking state is nevertheless an **honest development state**, not a defect in the lesson's
+  presentation. The 11-20 rows are complete teaching rows that currently have no clip, and section 7
+  governs how they are shown: no fake audio, no dead control, and no framing of those numbers as
+  broken or lesser. Nothing in this subsection permits inventing, borrowing, or synthesizing a clip
+  in order to unblock the release.
+- Digit-glyph entries are not word rows. Their `audioNotApplicable` reason (section 7) stands and is
+  not counted against this requirement.
+- Audio for the rule lessons 2-4 is governed by section 7 and
+  [`AAA-LEARNING-SPEC.md`](AAA-LEARNING-SPEC.md); this subsection sets a completeness condition for
+  the 1-20 word rows only.
+
 ## 8. Exercises and feedback
 
 Rule lessons reuse the shipped choice machinery (`src/lessons/exercises.ts`) rather than introducing
@@ -281,6 +353,13 @@ Before a counting change ships, the following MUST pass:
   `:kind` redirects, and `/tal/tal/:page` redirects to the foundation.
 - **Audio manifest** — every counting entry that shows a play control has an approved manifest row,
   and every entry without one shows no play control.
+- **Selection and playback** — initial render and Back restoration request and play nothing; a
+  deliberate tile activation selects and plays only that number's approved clip; re-activating the
+  selected number replays it; selecting a different number stops and clears the previous transport
+  state; and activating a number without a clip selects it without entering a playing or loading
+  state (section 7.1, section 7.2).
+- **1-20 word audio completeness** — a release build is refused while any of the twenty foundation
+  word rows lacks an approved clip (section 7.3).
 - **Review evidence** — no form covered by section 6 is present in a release build without the
   recorded approvals.
 
@@ -292,12 +371,14 @@ Before a counting change ships, the following MUST pass:
 | Pedagogy, review scheduling, mastery, reviewed-audio manifest and quality | [`AAA-LEARNING-SPEC.md`](AAA-LEARNING-SPEC.md) |
 | Release gates, reviewer authority, severity, sign-off, exceptions | [`AAA-QUALITY-BAR.md`](AAA-QUALITY-BAR.md) |
 | Navigation, feedback patterns, keyboard and accessibility behavior | [`AAA-UX-ACCESSIBILITY-SPEC.md`](AAA-UX-ACCESSIBILITY-SPEC.md) |
-| Breakpoints, layout bounds, wrapping, visual QA | [`AAA-RESPONSIVE-DESIGN-SPEC.md`](AAA-RESPONSIVE-DESIGN-SPEC.md) |
+| Breakpoints, layout bounds, wrapping, visual QA, and the counting tile-grid and rail layout acceptance | [`AAA-RESPONSIVE-DESIGN-SPEC.md`](AAA-RESPONSIVE-DESIGN-SPEC.md) |
 | Child-path framing of the number section | [`AAA-CHILD-EXPERIENCE-SPEC.md`](AAA-CHILD-EXPERIENCE-SPEC.md) |
 | Lesson imagery, rights, and delivery | [`AAA-LESSON-IMAGE-SPEC.md`](AAA-LESSON-IMAGE-SPEC.md) |
 | Repository architecture and the typed-catalog contract | [`CLAUDE.md`](../../CLAUDE.md) |
 | Which document owns which aspect | [`docs/specs/README.md`](README.md) |
 
 This document owns only the counting curriculum: the four routes, the staged ranges, worked-example
-coverage, counting data ownership, counting progress identities, counting audio honesty, and counting
-exercise mechanics.
+coverage, counting data ownership, counting progress identities, counting audio honesty, the exact
+counting selection and playback behaviour and its pre-release audio completeness condition, and
+counting exercise mechanics. It does not own the layout of the number grid or the detail rail, and it
+does not own the product-level shape of the counting experience.

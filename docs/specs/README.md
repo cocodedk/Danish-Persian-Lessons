@@ -26,7 +26,8 @@ directly improve this learning experience.
 7. [AAA child first-run specification](AAA-CHILD-FIRST-RUN-SPEC.md) — exact routes, mission state,
    persistence, feedback, responsive bounds, and browser acceptance journeys.
 8. [AAA counting curriculum specification](AAA-COUNTING-CURRICULUM-SPEC.md) — counting routes, staged
-   ranges, worked examples, counting data, progress identities, audio honesty, and exercises.
+   ranges, worked examples, counting data, progress identities, audio honesty, counting selection and
+   playback behavior, and exercises.
 
 ## Normative language
 
@@ -39,15 +40,19 @@ document that happens to mention the aspect.
 
 - [docs/specs/README.md](README.md) — this authority map itself: which document owns which aspect.
 - [DESIGN.md](../../DESIGN.md) — product promise, information architecture, navigation decisions, the
-  semantic typography roles and permitted-weight policy, testimonial composition and layout, and the
-  product-level four-lesson counting sequence.
+  semantic typography roles and permitted-weight policy, the product-level teaching order, testimonial
+  composition and layout, the product-level four-lesson counting sequence, and the high-level counting
+  experience: the primary job of a counting surface, tile activation as the primary action, replay as
+  secondary, and the mobile-base/wide-rail composition intent.
 - [docs/design/ART-DIRECTION.md](../design/ART-DIRECTION.md) — the notebook visual metaphor and
   component styling semantics.
 - [src/styles/fonts.css](../../src/styles/fonts.css) — the exact font files and weights that ship.
 - [src/styles/tokens.css](../../src/styles/tokens.css) — the exact palette, font-family stacks,
   spacing, and measure token values.
 - [AAA-RESPONSIVE-DESIGN-SPEC.md](AAA-RESPONSIVE-DESIGN-SPEC.md) — breakpoints, wrapping, mobile
-  fallback, and rail and fixed-control geometry.
+  fallback, rail and fixed-control geometry, and the counting layout acceptance: number-tile
+  direction, tile target size, minimum column counts, the bounded wide grid with its dedicated detail
+  rail, and tile-grid layout stability.
 - [AAA-UX-ACCESSIBILITY-SPEC.md](AAA-UX-ACCESSIBILITY-SPEC.md) — accessibility requirements,
   including contrast and scrim requirements.
 - [AAA-LEARNING-SPEC.md](AAA-LEARNING-SPEC.md) — pedagogy, Persian linguistic accuracy, audio policy,
@@ -57,9 +62,13 @@ document that happens to mention the aspect.
   audio clip inventory.
 - [AAA-COUNTING-CURRICULUM-SPEC.md](AAA-COUNTING-CURRICULUM-SPEC.md) — the exact counting routes,
   staged counting ranges, worked-example coverage, counting descriptor and data ownership, counting
-  progress identities, counting audio-honesty behavior, and counting exercise mechanics. It does not
-  own the product-level four-lesson counting sequence, which stays with
-  [DESIGN.md](../../DESIGN.md); the approved audio clip inventory, which stays with
+  progress identities, counting audio-honesty behavior, the exact counting selection and playback
+  behavior — what navigation, activation, re-activation, a changed selection, and a missing clip do —
+  the pre-release 1-20 word-audio completeness condition, and counting exercise mechanics. It does not
+  own the product-level four-lesson counting sequence or the high-level counting experience, which
+  stay with [DESIGN.md](../../DESIGN.md); the counting tile-grid and rail layout acceptance, which
+  stays with [AAA-RESPONSIVE-DESIGN-SPEC.md](AAA-RESPONSIVE-DESIGN-SPEC.md); the approved audio clip
+  inventory, which stays with
   [src/audio/approved.generated.json](../../src/audio/approved.generated.json); audio policy, process,
   and quality, which stay with [AAA-LEARNING-SPEC.md](AAA-LEARNING-SPEC.md); or reviewer roles, which
   stay with [AAA-QUALITY-BAR.md](AAA-QUALITY-BAR.md).
