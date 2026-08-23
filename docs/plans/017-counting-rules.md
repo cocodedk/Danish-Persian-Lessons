@@ -1,7 +1,8 @@
 # Plan 017 — Regnereglerne: 21-99, 100-900 og tusinder
 
-Status: implementation plan, not implemented. Every Persian, IPA and dansk lydskrift form this plan
-touches is a **candidate** and stays release-blocked until Gate A human evidence exists.
+Status: candidate implementation complete on this branch through `6714838`; not release-ready.
+Every Persian, IPA and dansk lydskrift form this plan touches is a **candidate** and stays
+release-blocked until Gate A human evidence exists.
 
 ## Questions
 
@@ -233,7 +234,8 @@ cross-browser test weakened here.
 
 - [ ] Tests green; `npm run verify` passes.
 - [x] Path scan of the staged diff — clean.
-- [ ] Conventional Commits commit, stating the thousands forms are candidates pending Gate A.
+- [x] Conventional Commits commit, stating the thousands forms are candidates pending Gate A —
+      `6714838 feat: add candidate thousands counting rule`.
 - [x] Visual PNG candidates left uncommitted.
 
 Current evidence: 120 unit files / 864 tests, ESLint, TypeScript, production build, image/audio
@@ -266,27 +268,27 @@ every new form.
 
 ## Acceptance
 
-- [ ] Three rule lessons exist at their contracted routes with their contracted exercise sub-paths;
+- [x] Three rule lessons exist at their contracted routes with their contracted exercise sub-paths;
       no fifth counting lesson and no second lesson over any of these ranges.
-- [ ] The foundation at `/lesson/taelle` is unchanged in route, range, title, ids and store.
-- [ ] Each rule lesson has one descriptor, one add-only store with its contracted key and id prefix,
+- [x] The foundation at `/lesson/taelle` is unchanged in route, range, title, ids and store.
+- [x] Each rule lesson has one descriptor, one add-only store with its contracted key and id prefix,
       a plain-Danish rule statement, a builds-on line with a back link, candidate teaching rows
       pending review, representative examples meeting the coverage lists above, and a `byg` assembly
       testing an unseen number.
-- [ ] `byg` is one small shared token-builder component used by all three lessons; `betydning` and
+- [x] `byg` is one small shared token-builder component used by all three lessons; `betydning` and
       `tal` reuse `ChoiceExercise` and `arrange`.
-- [ ] No exhaustive enumeration is implemented for any range.
-- [ ] Recommended order is presented everywhere; nothing is locked, hidden or gated.
-- [ ] Every new Persian/IPA/dansk lydskrift form is marked candidate and release-blocked pending
+- [x] No exhaustive enumeration is implemented for any range.
+- [x] Recommended order is presented everywhere; nothing is locked, hidden or gated.
+- [x] Every new Persian/IPA/dansk lydskrift form is marked candidate and release-blocked pending
       Gate A human evidence; no generated manifest or web source is treated as approval.
 - [ ] All eight test guarantees are in place and green; `npm run verify` passes at each fixpoint.
-- [ ] Three commits, one per fixpoint, each preceded by a clean path scan; no visual PNG baseline
+- [x] Three commits, one per fixpoint, each preceded by a clean path scan; no visual PNG baseline
       committed without owner sign-off.
 
 ## Scope notes
 
-- Only this file is created by this task. The usual companion updates — a P17 entry in
-  [`ROADMAP.md`](ROADMAP.md), and any specification edit — are **not** made here and remain to be
-  done by whoever implements the plan.
+- During planning, only this file was created. Implementation subsequently updated the P17 entry in
+  [`ROADMAP.md`](ROADMAP.md) and the authoritative specifications; this historical scope note does
+  not supersede those documents.
 - 10,000 and above, million-scale numbers, ordinals, and any counting audio recording remain out of
   scope.

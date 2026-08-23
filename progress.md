@@ -8,7 +8,7 @@ Original prompt: read docs/reports/2026-08-23-plan016-status.md, and you act as 
 - Unified every 1-10/1-20 surface behind the canonical `countingLesson` descriptor at `/lesson/taelle`; `beginnerNumbers` remains compatibility data, not a lesson.
 - Updated `DESIGN.md` and the specification authority map; added the counting curriculum contract for the three future rule lessons.
 - Current non-visual evidence: ESLint clean, 100 test files/660 tests passed, production build green, `scripts/verify.sh` green, main CSS 49,961 bytes.
-- Pending: checkpoint commit without the unapproved visual PNG candidates; then implement and verify the 21-99, 100-900, and thousands rule lessons as separate fixpoints.
+- The foundation checkpoint was committed as `7795014` without the unapproved visual PNG candidates; Plan 017 then implemented 21-99, 100-900, and thousands as separate fixpoints.
 
 ## 2026-08-23 Plan 017
 
@@ -33,3 +33,4 @@ Original prompt: read docs/reports/2026-08-23-plan016-status.md, and you act as 
 - The generated content manifest grew from 291 to 308 rows and the audio review queue from 171 to 188. All 17 thousands rows remain `draft-awaiting-native-review`, have missing audio, and require the existing human review roles; approved audio stays at 97 clips.
 - The final review findings were closed before commit: recognition pools deduplicate base entries reused as examples, and every build target prompt uses the same Danish formatter as the overview cards.
 - Claude's focused follow-up returned APPROVE: stable first-occurrence deduplication preserves four-choice sound safety, grouped build prompts retain numeric targets and reveal no answer fields, and the updated formatting/review contract matches all counting UI consumers.
+- Fixpoint C was committed as `6714838`; all three rule-lesson implementations are now preserved as separate candidate commits. Merge remains blocked by Gate A human evidence and visual owner sign-off.

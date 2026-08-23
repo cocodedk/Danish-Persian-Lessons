@@ -70,8 +70,9 @@ the app exists, `npm run verify`) is green.
 
 - [ ] **P17 — [017-counting-rules.md](017-counting-rules.md)** (depends on P16): the counting rules
       beyond 20, delivered as three separate rule lessons and three fixpoints — 21–99, 100–900, and
-      1,000–9,999. Planned and in progress; every new language form is still a candidate and Gate A
-      remains blocked.
+      1,000–9,999. Candidate implementation is complete on the feature branch; every new language
+      form still awaits Gate A human evidence, the visual candidates still await owner sign-off,
+      and the work is not release-ready.
 
 ## Later (not planned yet — do not build ahead)
 
