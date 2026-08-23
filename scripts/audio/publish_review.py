@@ -21,23 +21,23 @@ def main() -> None:
     cfg = config()
     report_path = REPORTS / "latest.json"
     if not report_path.exists():
-        raise SystemExit("No drafts found. Run npm run audio:generate -- --scope talk first.")
+        raise SystemExit("No drafts found. Run npm run audio:generate first.")
 
     reports = load_json(report_path)
-    talk_jobs = {row["clipId"]: row for row in jobs("talk")}
-    report_ids = {row["clipId"] for row in reports}
-    if report_ids != set(talk_jobs):
-        missing = sorted(set(talk_jobs) - report_ids)
-        extra = sorted(report_ids - set(talk_jobs))
-        raise SystemExit(
-            "Latest report is not the full talk set. "
-            f"Missing: {missing}; extra: {extra}"
-        )
+    if not reports:
+        raise SystemExit("Latest draft batch is empty.")
+    current_jobs = {row["clipId"]: row for row in jobs()}
+    report_ids = [row["clipId"] for row in reports]
+    if len(report_ids) != len(set(report_ids)):
+        raise SystemExit("Latest draft batch contains duplicate clip ids.")
+    unknown = sorted(set(report_ids) - set(current_jobs))
+    if unknown:
+        raise SystemExit(f"Unknown or already approved draft(s): {unknown}")
 
     prepared = []
     for report in reports:
         clip_id = report["clipId"]
-        job = talk_jobs[clip_id]
+        job = current_jobs[clip_id]
         if report.get("sourceTextHash") != source_hash(job, cfg):
             raise SystemExit(f"Stale draft for {clip_id}; generate it again.")
         draft = AUDIO_ROOT / report["draftFile"]
