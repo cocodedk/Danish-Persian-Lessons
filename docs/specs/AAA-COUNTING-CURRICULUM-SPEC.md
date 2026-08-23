@@ -29,7 +29,7 @@ never on its own permission to release its content.
 |---|---|---|---|---|---|
 | 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | Partly — 1-10 only; the 11-20 forms remain blocked by section 6 |
 | 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | Yes | No |
-| 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | No | No |
+| 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | Yes | No |
 | 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | No | No |
 
 - These four routes are the complete counting curriculum. A fifth counting lesson, or a second

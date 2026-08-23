@@ -1,18 +1,29 @@
 import { describe, expect, it } from 'vitest'
 import { countingCurriculum, countingLesson } from './countingLesson'
 import { counting21to99Lesson } from './counting21to99'
+import { counting100to900Lesson } from './counting100to900'
 import { countingNumbers } from './numbers'
 
 describe('tællekurvens rækkefølge', () => {
-  it('lists the two counting lessons themselves, in teaching order', () => {
-    expect(countingCurriculum).toHaveLength(2)
+  it('lists the three counting lessons themselves, in teaching order', () => {
+    expect(countingCurriculum).toHaveLength(3)
     expect(countingCurriculum[0]).toBe(countingLesson)
     expect(countingCurriculum[1]).toBe(counting21to99Lesson)
+    expect(countingCurriculum[2]).toBe(counting100to900Lesson)
+    // The descriptors themselves, not look-alikes carrying the same fields:
+    // a structural clone of the third lesson is not what the array holds.
+    const lookAlike = { ...counting100to900Lesson }
+    expect(countingCurriculum.includes(counting100to900Lesson)).toBe(true)
+    expect(countingCurriculum.some((entry) => entry === lookAlike)).toBe(false)
   })
 
-  it('covers 1-20 and then 21-99, exactly', () => {
+  it('covers 1-20, then 21-99, then 100-999, exactly', () => {
     expect(countingLesson.range).toEqual([1, 20])
     expect(counting21to99Lesson.range).toEqual([21, 99])
+    // Lesson 3's label says 100-900 — the nine hundreds its rule needs — while
+    // the range it covers runs to 999. The descriptor is the only place that
+    // pairing is fixed; this test reads it, it does not restate it.
+    expect(counting100to900Lesson.range).toEqual([100, 999])
   })
 
   it('leaves no gap and no overlap between the ranges', () => {
@@ -27,6 +38,7 @@ describe('tællekurvens rækkefølge', () => {
   it('gives every lesson its own route', () => {
     const paths = countingCurriculum.map((lesson) => lesson.path)
     expect(new Set(paths).size).toBe(paths.length)
+    expect(paths).toHaveLength(3)
   })
 
   it('presents no partial 1-10 lesson: the foundation runs all the way to 20', () => {

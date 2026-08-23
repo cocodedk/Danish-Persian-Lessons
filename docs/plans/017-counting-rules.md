@@ -187,19 +187,26 @@ is made in the shared piece and A's tests must stay green.
 
 ### B — worked-example coverage (§ 3.1)
 
-- [ ] every hundred multiplier as its own base form, including each hundred whose form is not
+- [x] every hundred multiplier as its own base form, including each hundred whose form is not
       predictable from the corresponding unit
-- [ ] a round hundred with no remainder
-- [ ] a hundred joined to a 1-20 number (referencing the foundation's rows)
-- [ ] a hundred joined to a 21-99 number built with lesson 2's rule
-- [ ] the boundary against lesson 4 (900-plus-remainder versus 1,000)
+- [x] a round hundred with no remainder
+- [x] a hundred joined to a 1-20 number (referencing the foundation's rows)
+- [x] a hundred joined to a 21-99 number built with lesson 2's rule
+- [x] the boundary against lesson 4 (900-plus-remainder versus 1,000)
 
 ### B — close-out
 
 - [ ] Tests green; `npm run verify` passes.
-- [ ] Path scan of the staged diff — clean.
+- [x] Path scan of the staged diff — clean.
 - [ ] Conventional Commits commit, stating the 100-900 forms are candidates pending Gate A.
-- [ ] Visual PNG candidates left uncommitted.
+- [x] Visual PNG candidates left uncommitted.
+
+Current evidence: 113 unit files / 807 tests, ESLint, TypeScript, production build, image/audio
+verification and the repository verifier are green. All 36 Chromium functional end-to-end tests
+pass against the production preview. The live lesson, build round and Tal shelf were inspected at
+320, 1024 and 1440 px on port 9000. Aggregate verification remains open for the already-documented
+owner visual sign-off and environment-only Firefox/WebKit results; no baseline was approved or
+cross-browser test weakened here.
 
 ## Fixpoint C — 1,000-9,999
 

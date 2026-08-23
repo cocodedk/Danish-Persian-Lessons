@@ -1,6 +1,7 @@
 import { countingNumbers } from './numbers'
 import type { BeginnerNumber } from './numbers'
 import { counting21to99Lesson } from './counting21to99'
+import { counting100to900Lesson } from './counting100to900'
 
 /**
  * "Tæl til tyve" as the app knows it: the one place the counting lesson's
@@ -63,4 +64,5 @@ export interface CountingCurriculumEntry {
 export const countingCurriculum: readonly CountingCurriculumEntry[] = [
   countingLesson,
   counting21to99Lesson,
+  counting100to900Lesson,
 ]

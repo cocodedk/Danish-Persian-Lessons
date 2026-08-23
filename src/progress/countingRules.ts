@@ -1,5 +1,5 @@
 // Progress through the counting *rule* lessons (plan 017, fixpoint A item 2):
-// `dpl.v1.counting.21-99`, and later `.100-900` and `.tusinder`.
+// `dpl.v1.counting.21-99`, `dpl.v1.counting.100-900`, and later `.tusinder`.
 //
 // One factory, one store per lesson. Each store keeps the same shape and the
 // same add-only semantics as the 1-20 foundation in `counting.ts`, but on its
@@ -10,6 +10,8 @@
 // lesson cannot change the foundation's count in either direction.
 import { readJSON, writeJSON } from './storage'
 import { counting21to99Lesson } from '../lessons/counting21to99'
+import { counting100to900Lesson } from '../lessons/counting100to900'
+import type { RuleLessonDescriptor } from '../lessons/countingRuleTypes'
 import type { RewardEventKind } from '../rewards/types'
 
 export interface CountingRuleProgress {
@@ -106,27 +108,39 @@ export function createCountingRuleProgress(
 }
 
 /**
- * Lesson 2's store, over exactly what the descriptor teaches: the joining
- * element, the tens, the worked examples and the build targets. The descriptor
- * is the single source of both the taught rows and the progress items, so what
- * the learner is shown and what completion counts can never drift apart — and
- * a later change to the lesson's *catalog* export, which serves registration
- * rather than teaching, cannot silently widen this lesson.
+ * The ids one rule lesson owns, read off its descriptor and nothing else: the
+ * joining element, the base forms, the worked examples and the build targets,
+ * in that order. The descriptor is the single source of both the taught rows
+ * and the progress items, so what the learner is shown and what completion
+ * counts can never drift apart — and a later change to a lesson's *catalog*
+ * export, which serves registration rather than teaching, cannot silently
+ * widen its progress.
  *
- * Both the key and the ownership test come from the descriptor's own
- * `storageKey` and `idPrefix`, so neither is restated here. The prefix filter
- * is what keeps the boundary against lesson 1: the descriptor references the
- * foundation's own twenty as a base form, and that row belongs to
- * `dpl.v1.counting`, never here.
+ * The prefix filter is what keeps the lessons apart: a descriptor may
+ * reference rows an earlier lesson owns — the foundation's twenty in lesson 2,
+ * lesson 2's joiner and tens in lesson 3 — and a referenced row keeps the
+ * prefix of the lesson that authored it, so it is dropped here. Clearing a
+ * reused part therefore counts where it was taught, never a second time in the
+ * lesson that merely builds on it.
  */
-export const counting21to99Progress = createCountingRuleProgress(
-  counting21to99Lesson.storageKey,
-  [
-    counting21to99Lesson.joiner,
-    ...counting21to99Lesson.baseForms.map((base) => base.entry),
-    ...counting21to99Lesson.examples.map((example) => example.entry),
-    ...counting21to99Lesson.targets.map((target) => target.entry),
+function ownedIds(lesson: RuleLessonDescriptor): string[] {
+  return [
+    lesson.joiner,
+    ...lesson.baseForms.map((base) => base.entry),
+    ...lesson.examples.map((example) => example.entry),
+    ...lesson.targets.map((target) => target.entry),
   ]
     .map((entry) => entry.id)
-    .filter((id) => id.startsWith(counting21to99Lesson.idPrefix)),
+    .filter((id) => id.startsWith(lesson.idPrefix))
+}
+
+/** Both keys and both id sets come from the descriptors, never restated. */
+export const counting21to99Progress = createCountingRuleProgress(
+  counting21to99Lesson.storageKey,
+  ownedIds(counting21to99Lesson),
+)
+
+export const counting100to900Progress = createCountingRuleProgress(
+  counting100to900Lesson.storageKey,
+  ownedIds(counting100to900Lesson),
 )

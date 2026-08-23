@@ -3,9 +3,9 @@
 // The curriculum array in `../lessons/countingLesson` says what the counting
 // lessons *are*: their route, their title, their range. It says nothing about
 // where a learner's progress through them is kept, and it should not — the
-// foundation counts twenty number words in `dpl.v1.counting`, the rule lesson
-// counts its own taught parts in `dpl.v1.counting.21-99`, and the two stores
-// know nothing of each other by design.
+// foundation counts number words in its own store, each rule lesson counts the
+// parts it teaches in a store of its own, and none of them knows the others
+// exist. The keys are the stores' business; none is restated here.
 //
 // This module is the one place those two halves are joined: given a curriculum
 // entry, it answers how far the learner has come and out of how many. Every
@@ -16,8 +16,9 @@
 import { countingLesson } from '../lessons/countingLesson'
 import type { CountingCurriculumEntry } from '../lessons/countingLesson'
 import { counting21to99Lesson } from '../lessons/counting21to99'
+import { counting100to900Lesson } from '../lessons/counting100to900'
 import { countingDoneCount } from './counting'
-import { counting21to99Progress } from './countingRules'
+import { counting21to99Progress, counting100to900Progress } from './countingRules'
 
 /**
  * How far through one counting lesson the learner has come. `noun` is what the
@@ -54,6 +55,13 @@ export function countingCurriculumProgress(
     return {
       done: counting21to99Progress.doneCount(),
       total: counting21to99Progress.ids.length,
+      noun: 'dele',
+    }
+  }
+  if (entry === counting100to900Lesson) {
+    return {
+      done: counting100to900Progress.doneCount(),
+      total: counting100to900Progress.ids.length,
       noun: 'dele',
     }
   }
