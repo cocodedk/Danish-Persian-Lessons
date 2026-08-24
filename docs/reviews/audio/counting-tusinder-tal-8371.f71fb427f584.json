@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-tusinder-tal-8371",
+  "entryId": "counting-tusinder-tal-8371",
+  "formId": "neutral",
+  "transcript": "هَشت هِزار و سیصَد و هَفتاد و یِک",
+  "synthesisText": "هَشت هِزار و سیصَد و هَفتاد و یِک",
+  "sourceTextHash": "d2725fe10338941d0bfeef76490897eea95f07179b5fb0aa2f5b9af333e40914",
+  "draftFile": "work/counting-tusinder-tal-8371.d2725fe10338.mp3",
+  "durationMs": 3340,
+  "channels": 1,
+  "integratedLufs": -20.55,
+  "truePeakDbtp": -2.94,
+  "bytes": 20288,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-tusinder-tal-8371.f71fb427f584.mp3"
+}
