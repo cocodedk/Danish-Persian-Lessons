@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-ti-50",
+  "entryId": "counting-2199-ti-50",
+  "formId": "neutral",
+  "transcript": "پَنجاه",
+  "synthesisText": "پَنجاه",
+  "sourceTextHash": "3707d2e4e1010149539fb21ef43d2281d1607c46ec2198179c6ab9156514a0cb",
+  "draftFile": "work/counting-2199-ti-50.3707d2e4e101.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.37,
+  "truePeakDbtp": -2.05,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-2199-ti-50.9ea8ada7c7a3.mp3"
+}

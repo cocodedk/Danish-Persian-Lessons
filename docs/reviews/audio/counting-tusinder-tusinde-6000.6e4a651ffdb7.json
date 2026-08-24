@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-tusinder-tusinde-6000",
+  "entryId": "counting-tusinder-tusinde-6000",
+  "formId": "neutral",
+  "transcript": "شِش هِزار",
+  "synthesisText": "شِش هِزار",
+  "sourceTextHash": "cb5e5c3e368b42169cb8c1c97f25c9649501439eaec561bfb354ecd532bc5a88",
+  "draftFile": "work/counting-tusinder-tusinde-6000.cb5e5c3e368b.mp3",
+  "durationMs": 1330,
+  "channels": 1,
+  "integratedLufs": -20.39,
+  "truePeakDbtp": -4.66,
+  "bytes": 8219,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-tusinder-tusinde-6000.6e4a651ffdb7.mp3"
+}

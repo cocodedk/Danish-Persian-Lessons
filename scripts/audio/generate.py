@@ -136,17 +136,23 @@ def synthesize_one(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate local Persian audio drafts")
     parser.add_argument("--scope", choices=("talk", "writing"))
-    parser.add_argument("--clip")
+    parser.add_argument("--clip", action="append", default=[])
     args = parser.parse_args()
 
+    selected = jobs(args.scope)
+    if args.clip:
+        requested = set(args.clip)
+        selected = [job for job in selected if job["clipId"] in requested]
+        missing = requested - {job["clipId"] for job in selected}
+        if missing:
+            raise SystemExit(f"Unknown or already approved clip(s): {sorted(missing)}")
+    if not selected:
+        print("No missing clips in this scope.")
+        return
     cfg = config()
     model = require_model(cfg)
     voice = PiperVoice.load(model)
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-    selected = jobs(args.scope, args.clip)
-    if not selected:
-        print("No missing clips in this scope.")
-        return
     print(f"Generating {len(selected)} local draft clip(s)...")
     reports = [synthesize_one(voice, ffmpeg, cfg, job) for job in selected]
     write_json(REPORTS / "latest.json", reports)

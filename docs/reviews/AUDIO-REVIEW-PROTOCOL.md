@@ -1,10 +1,11 @@
 # Reviewed Persian audio protocol
 
-Status: 97 drafts are online for direct review; zero clips are approved. The learner talk path stays closed.
+Status and inventory are deliberately not restated here. The checked-in recording queue owns the
+missing forms, `review.generated.json` owns the current unapproved review batch, and
+`approved.generated.json` owns the released clips. This document owns only the process.
 
-`npm run audio:queue` writes the checked-in review queue. It currently has 222 missing spoken
-forms: 97 for the first talk corpus and 125 for the writing path. Each row fixes the Persian text,
-Danish meaning, Danish sound spelling, IPA, register, source hash input, and draft path.
+`npm run audio:queue` writes the checked-in review queue. Each row fixes the Persian text, Danish
+meaning, Danish sound spelling, IPA, register, source hash input, and draft path.
 
 ## 1. Make local drafts
 
@@ -12,6 +13,13 @@ Danish meaning, Danish sound spelling, IPA, register, source hash input, and dra
 npm run audio:setup
 npm run audio:queue
 npm run audio:generate -- --scope talk
+```
+
+For a focused review batch, repeat `--clip` in one command. The latest report then contains exactly
+those clips:
+
+```bash
+npm run audio:generate -- --clip first-clip-id --clip second-clip-id
 ```
 
 `audio:setup` creates an ignored Python environment and downloads the checksummed Persian Ganji
@@ -28,8 +36,8 @@ npm run audio:publish-review
 npm run audio:verify-review
 ```
 
-This copies only the latest complete set of 97 talk drafts to `public/audio-review/` and writes a
-separate list whose status is always `unreviewed`. It never writes the approved lesson list.
+This copies exactly the latest validated draft batch to `public/audio-review/` and writes a separate
+list whose status is always `unreviewed`. It never writes the approved lesson list.
 The direct page `#/lydreview` lets a reviewer listen, mark God or Fejl, add notes, and share or
 download an `audio-decisions.json` file.
 

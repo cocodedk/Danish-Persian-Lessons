@@ -12,6 +12,8 @@ import { getAlphabetProgress, doneCount, ALPHABET_TOTAL } from '../progress/alph
 import { isNameLessonDone } from '../progress/nameLesson'
 import { vocabUnits } from '../lessons/vocab'
 import { unitDoneCount } from '../progress/vocab'
+import { countingCurriculum } from '../lessons/countingLesson'
+import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
 import { getRewards } from '../rewards/engine'
 import { DEMO_WORD } from '../content/demoWord'
 import { GREETING_ENTRY, GREETING_WITH_NAME_ENTRY, daGreeting } from '../content/greetings'
@@ -156,6 +158,18 @@ export default function Home() {
                   summary={unit.summary}
                   progress={`${unitDoneCount(unit)} af ${unit.words.length} ord gennemgået eller øvet`}
                   to={`/lesson/ord/${unit.id}`}
+                />
+              ))}
+              {/* The counting lessons in curriculum order — one card each, with
+                  every line read off the descriptor and its own progress store. */}
+              {countingCurriculum.map((entry, index) => (
+                <LessonCard
+                  key={entry.path}
+                  number={firstWordNumber + vocabUnits.length + index}
+                  title={entry.title}
+                  summary={entry.summary}
+                  progress={countingCurriculumProgressLine(entry)}
+                  to={entry.path}
                 />
               ))}
             </div>

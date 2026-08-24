@@ -1,0 +1,23 @@
+{
+  "clipId": "number-19-word",
+  "entryId": "number-19-word",
+  "formId": "neutral",
+  "transcript": "نوزدَه",
+  "synthesisText": "نوزدَه",
+  "sourceTextHash": "61068fe8d7dabfe51f7744986be6cde3b0d076d9d7e5310f5c13f31605bb5f30",
+  "draftFile": "work/number-19-word.61068fe8d7da.mp3",
+  "durationMs": 860,
+  "channels": 1,
+  "integratedLufs": -20.39,
+  "truePeakDbtp": -4.91,
+  "bytes": 5398,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/number-19-word.7b65271aed44.mp3"
+}

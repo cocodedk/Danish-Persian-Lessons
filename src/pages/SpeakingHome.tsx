@@ -3,7 +3,11 @@ import { ColorSwatch } from '../components/ColorSwatch'
 import { LessonImage } from '../components/LessonImage'
 import { PersianText } from '../components/PersianText'
 import { RuledSection } from '../components/RuledSection'
+import { formatCountingNumber, formatCountingRange } from '../lessons/countingDisplay'
+import { countingCurriculum, countingLesson } from '../lessons/countingLesson'
+import type { CountingCurriculumEntry } from '../lessons/countingLesson'
 import { allSpeakingPractice } from '../progress/speaking'
+import { countingCurriculumProgressLine } from '../progress/countingCurriculum'
 import { requiredTalkClipIds, speakingLessons, talkAudioReady } from '../speaking/lessons'
 import './speaking.css'
 
@@ -43,8 +47,6 @@ export default function SpeakingHome() {
                 >
                   {first.swatch ? (
                     <ColorSwatch color={first.swatch} size="large" />
-                  ) : first.number ? (
-                    <div className="speaking-number speaking-number--small" aria-hidden="true">{first.number}</div>
                   ) : (
                     <LessonImage entryId={first.imageEntryId ?? first.entry.id} size="thumbnail" />
                   )}
@@ -57,9 +59,46 @@ export default function SpeakingHome() {
                 </Link>
               )
             })}
+            {countingCurriculum.map((entry) => (
+              <CountingCard entry={entry} key={entry.path} />
+            ))}
           </div>
         </section>
       </RuledSection>
     </main>
+  )
+}
+
+/**
+ * One counting lesson on the talk shelf, as a door to the course route that
+ * owns it. Everything on the card — where it goes, what it is called, what it
+ * says and which numbers it covers — is read off the curriculum descriptor, so
+ * the shelf can never disagree with the lesson it points at.
+ *
+ * Only the foundation shows a Persian preview, and only of its own first row.
+ * The rule lesson's Persian, lydskrift and IPA are candidate drafts that no
+ * reviewer has approved, so the shelf shows none of it: the badge carries the
+ * lesson's first number alone, which fits the fixed badge, and the text meta
+ * says the full range without claiming how any of it is said.
+ */
+function CountingCard({ entry }: { entry: CountingCurriculumEntry }) {
+  const foundation = entry === countingLesson ? countingLesson : null
+  return (
+    <Link className="speaking-lesson-card" to={entry.path}>
+      <div className="speaking-number speaking-number--small" aria-hidden="true">
+        {formatCountingNumber(foundation ? foundation.numbers[0].value : entry.range[0])}
+      </div>
+      <div>
+        {foundation && <PersianText entry={foundation.numbers[0].word} marked />}
+        <h3>{entry.title}</h3>
+        <p>{entry.summary}</p>
+        <strong>
+          {foundation
+            ? `${foundation.numbers.length} tal ${formatCountingRange(entry.range)}`
+            : `Tal ${formatCountingRange(entry.range)}`}
+        </strong>
+        <p>{countingCurriculumProgressLine(entry)}</p>
+      </div>
+    </Link>
   )
 }

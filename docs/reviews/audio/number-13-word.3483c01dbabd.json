@@ -1,0 +1,23 @@
+{
+  "clipId": "number-13-word",
+  "entryId": "number-13-word",
+  "formId": "neutral",
+  "transcript": "سیزدَه",
+  "synthesisText": "سیزدَه",
+  "sourceTextHash": "795486323b12b030e58226bcdc0b09465c254e8afd727ebc2c8d34784d64a745",
+  "draftFile": "work/number-13-word.795486323b12.mp3",
+  "durationMs": 890,
+  "channels": 1,
+  "integratedLufs": -20.37,
+  "truePeakDbtp": -5.7,
+  "bytes": 5555,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/number-13-word.3483c01dbabd.mp3"
+}

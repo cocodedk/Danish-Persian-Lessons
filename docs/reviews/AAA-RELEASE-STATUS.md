@@ -36,9 +36,10 @@ waiver. Empty signature fields block release.
 - 224 deterministic pixel baselines cover 16 required states at seven widths in both color schemes.
   They remain candidates and need a refresh after the animal lesson before visual sign-off.
 
-## Latest local run
+## Archived local run
 
-Checks on 2026-08-10:
+Historical checks on 2026-08-10. These figures are evidence for that run, not current inventory
+authorities:
 
 - lint passed; all 94 Vitest files and 618 tests passed with one worker;
 - the production build, image checks, audio-manifest checks, and repository structure checks passed;
@@ -58,7 +59,8 @@ Checks on 2026-08-10:
 - [ ] Native Iranian literacy reviewer 2: name, qualification, date, commit, signature
 - [ ] Phonetics reviewer: name, qualification, date, commit, signature
 - [ ] Native Danish copy/lydskrift reviewer: name, qualification, date, commit, signature
-- [ ] Audio: 97 talk clips, named native review, provenance/licence, and loudness reports
+- [ ] Audio: every release clip in the approved manifest has named native review,
+  provenance/licence, and loudness reports
 - [ ] Accessibility specialist: WCAG 2.2 AA and selected-AAA audit
 - [ ] VoiceOver/Safari, TalkBack/Chrome, and NVDA/Firefox manual notes
 - [ ] Five zero-knowledge Danish novice sessions and 7±2-day follow-up
@@ -71,8 +73,12 @@ Checks on 2026-08-10:
 - The 86 whole-item cues are honest candidates, not a claim of fine-grained decomposition. Reviewers
   must approve them or request contextual spans where the item is taught as reading material.
 - Connected phrases and microtexts are implementation candidates, not approved teaching copy.
-- The audio manifest is intentionally empty: 222 spoken forms lack approved clips; 97 block the talk
-  path. Unreviewed generated speech and all runtime speech generation are prohibited.
+- The exact released audio inventory is defined only by
+  [`src/audio/approved.generated.json`](../../src/audio/approved.generated.json). Missing forms and
+  review requirements are defined by
+  [`content-review-manifest.json`](content-review-manifest.json); the generated recording queue is a
+  handoff view of that manifest, not a second inventory authority. Unreviewed generated speech and all
+  runtime speech generation are prohibited.
 - `npm audit` reports two high findings from the same React Router RSC-only advisory,
   [GHSA-qwww-vcr4-c8h2](https://github.com/advisories/GHSA-qwww-vcr4-c8h2). This static HashRouter app
   does not use the affected unstable RSC APIs. The published patch is React Router 8.3.0; re-evaluate

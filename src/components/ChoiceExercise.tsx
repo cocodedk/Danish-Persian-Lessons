@@ -95,7 +95,10 @@ export function ChoiceExercise({
 
       <h2 ref={promptRef} tabIndex={-1} className="choice-exercise__prompt">{question.promptDa}</h2>
       {question.showsFa && <FaSpecimen entry={question.entry} />}
-      <PronLine {...question.entry.pron} />
+      {/* A round whose answer IS the pronunciation hides it while the attempt
+          is active (plan 010), exactly as ReviewSession does. The reveal below
+          still carries the complete help after any tap. */}
+      {question.showsPron !== false && <PronLine {...question.entry.pron} />}
 
       <ul className="choice-exercise__choices">
         {question.choices.map((choice) => {

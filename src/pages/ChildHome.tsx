@@ -6,13 +6,12 @@ import { PersianText } from '../components/PersianText'
 import { CompactPhraseRow } from '../components/EntryRenderers'
 import { LessonImage } from '../components/LessonImage'
 import { PronLine } from '../components/PronLine'
+import { ChildCountingSection } from './ChildCountingSection'
 import { conversationBasics } from '../lessons/conversation'
-import { beginnerNumbers } from '../lessons/numbers'
 import { findVocabUnit } from '../lessons/vocab'
 import { ColorSwatch } from '../components/ColorSwatch'
 import { getChildCollection } from '../progress/childCollection'
 import './ChildJourney.css'
-import './ChildNumbers.css'
 import './ChildColors.css'
 import './ChildAnimals.css'
 
@@ -147,17 +146,7 @@ export default function ChildHome() {
           </Link>
         </section>
 
-        <section className="child-numbers" aria-labelledby="child-numbers-title">
-          <h2 id="child-numbers-title">Tal fra 1 til 10</h2>
-          <ol>
-            {beginnerNumbers.map(({ value, digit, word }) => (
-              <li key={value}>
-                <PersianText entry={digit} className="child-number__digit" />
-                <CompactPhraseRow entry={word} marked />
-              </li>
-            ))}
-          </ol>
-        </section>
+        <ChildCountingSection />
 
         <section className="child-collection" aria-labelledby="child-collection-title">
           <h2 id="child-collection-title">Mine persiske ord</h2>

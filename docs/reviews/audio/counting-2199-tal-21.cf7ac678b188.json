@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-21",
+  "entryId": "counting-2199-tal-21",
+  "formId": "neutral",
+  "transcript": "بیست و یِک",
+  "synthesisText": "بیست و یِک",
+  "sourceTextHash": "3ed8413a5e3551587c9df60ed23794547feefefb3f549ea911f980a3f490bea6",
+  "draftFile": "work/counting-2199-tal-21.3ed8413a5e35.mp3",
+  "durationMs": 970,
+  "channels": 1,
+  "integratedLufs": -20.3,
+  "truePeakDbtp": -5.03,
+  "bytes": 6025,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-2199-tal-21.cf7ac678b188.mp3"
+}

@@ -7,7 +7,11 @@ const LazyAudioControl = lazy(async () => {
 })
 
 /** Loads player code only when a reviewed local recording actually exists. */
-export function OptionalAudioControl({ audioId }: { audioId?: string }) {
+export function OptionalAudioControl({ audioId, playRequest }: { audioId?: string; playRequest?: number }) {
   if (!findPronunciationAudio(audioId)) return null
-  return <Suspense fallback={null}><LazyAudioControl audioId={audioId} /></Suspense>
+  return (
+    <Suspense fallback={null}>
+      <LazyAudioControl key={audioId} audioId={audioId} playRequest={playRequest} />
+    </Suspense>
+  )
 }

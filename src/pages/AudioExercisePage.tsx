@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { findPronunciationAudio } from '../audio/manifest'
-import { audioReviewRows } from '../audio/review'
+import { pronunciationAudio } from '../audio/manifest'
+import { catalogDomains, persianCatalog } from '../catalog/registry'
 import { AudioControl } from '../components/AudioControl'
 import { BarLink, LessonSheet } from '../components/LessonSheet'
 import { PersianText } from '../components/PersianText'
@@ -26,11 +26,23 @@ const domainNames: Record<string, string> = {
   vocabulary: 'Ord og sætninger',
 }
 
-const audioExerciseRows = audioReviewRows.flatMap((row) => {
-  const audio = findPronunciationAudio(row.clipId)
-  return audio?.source === 'piper' && audio.sourceTextHash === row.sourceTextHash
-    ? [{ ...row, file: audio.file }]
-    : []
+const entriesById = new Map(persianCatalog.map((entry) => [entry.id, entry]))
+const domainsById = new Map(Object.entries(catalogDomains).flatMap(([domain, entries]) =>
+  entries.map((entry) => [entry.id, domain] as const)))
+
+const audioExerciseRows = pronunciationAudio.flatMap((audio) => {
+  const entry = entriesById.get(audio.entryId)
+  const domain = domainsById.get(audio.entryId)
+  return entry && domain ? [{
+    clipId: audio.clipId,
+    entryId: entry.id,
+    transcript: audio.transcript,
+    danishMeaning: entry.da,
+    soundDa: entry.pron.da,
+    ipa: entry.pron.ipa,
+    file: audio.file,
+    domain,
+  }] : []
 })
 
 function readExercise(): ExerciseState {

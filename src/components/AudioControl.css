@@ -1,8 +1,11 @@
 .audio-control {
+  direction: ltr;
   display: flex;
-  flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
   gap: 0.35rem;
+  inline-size: min(100%, 16.5rem);
+  min-block-size: var(--tap-min);
   font-family: var(--font-latin);
   font-size: 0.875rem;
 }
@@ -24,4 +27,87 @@
 
 .audio-control [role='status'] {
   flex-basis: 100%;
+}
+
+.audio-control__more {
+  border-color: transparent;
+  text-decoration: underline;
+}
+
+/* Transport row (play · stop · Lydvalg). At 320px the three labels only share
+   one 44px line if their padding is tighter than the disclosure's, so the
+   transport gets its own inline padding rather than the button default. */
+.audio-control .audio-control__transport {
+  padding-inline: 0.3rem;
+}
+
+/* The play label is the only one that changes — Hør → Afspiller → Hør igen —
+   so the button reserves the widest of the three from the first paint. The two
+   longer labels ride along as hidden ghosts stacked in the same grid cell:
+   the column is sized by the longest, the row never rewraps mid-playback, and
+   the number grid under the card keeps its top edge. Ghosts scale with the
+   text, so this holds at 200% too, where a fixed min-inline-size would not. */
+.audio-control__play {
+  display: inline-grid;
+  place-items: center;
+}
+
+.audio-control__play > span,
+.audio-control__play::before,
+.audio-control__play::after {
+  grid-area: 1 / 1;
+}
+
+.audio-control__play::before,
+.audio-control__play::after {
+  visibility: hidden;
+}
+
+.audio-control__play::before {
+  content: 'Afspiller';
+}
+
+.audio-control__play::after {
+  content: 'Hør igen';
+}
+
+/* Sound settings replace the transport as one six-cell hi-fi bank: three tempo
+   cells, stop, mute and close. At a 320px viewport each remains a 44px target. */
+.audio-control__advanced {
+  display: grid;
+  grid-template-columns: 3fr repeat(3, 1fr);
+  inline-size: 100%;
+  min-block-size: var(--tap-min);
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px var(--blue);
+  overflow: hidden;
+}
+
+.audio-control__advanced button {
+  min-inline-size: 0;
+  padding-inline: 0.15rem;
+  border: 0;
+  border-radius: 0;
+}
+
+.audio-control__advanced > * + * {
+  border-inline-start: 1px solid var(--blue);
+}
+
+.audio-control__speeds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.audio-control__speeds button {
+  padding-inline: 0.15rem;
+}
+
+.audio-control__speeds button + button {
+  border-inline-start: 1px solid var(--blue);
+}
+
+.audio-control__speeds button[aria-pressed='true'] {
+  background: var(--blue);
+  color: var(--paper);
 }

@@ -1,7 +1,10 @@
 # AAA UX and Accessibility Specification
 
 Status: normative for Plan 012. The art direction remains the exercise notebook; this spec governs
-behavior, hierarchy, responsiveness, and access.
+behavior, hierarchy, and access, and is the authoritative owner for accessibility requirements
+including contrast and scrims. Breakpoints, wrapping, rail/fixed geometry, and viewport matrices are
+owned by the [responsive design specification](AAA-RESPONSIVE-DESIGN-SPEC.md); reviewer authority and
+sign-off are owned by the [AAA quality bar](AAA-QUALITY-BAR.md).
 
 ## Supported variations
 
@@ -22,8 +25,9 @@ answer wrong/correct, retry/next, complete a puzzle, type a word, edit/delete/sk
   a completed activity or earned milestone, not passive exposure or permanent mastery.
 - IPA and Danish sound spelling remain adjacent to their Persian item. Danish sound spelling has
   stronger immediate hierarchy; IPA remains readable reference, not decorative gray noise.
-- Long indexes keep the sticky master-detail strip, but it MUST use no more than 25% of a 360×640
-  viewport and MUST leave the selected grid row and its next action visible.
+- Long indexes keep the sticky master-detail strip, bounded by the index geometry in the
+  [responsive design specification](AAA-RESPONSIVE-DESIGN-SPEC.md). Whatever its size, it MUST leave
+  the selected grid row and its next action visible.
 
 ## First run and orientation
 
@@ -142,12 +146,44 @@ plus this named set—not an imprecise “WCAG AAA” badge. Normative source:
 - Notebook rules stay structural and MUST not reduce small-text legibility. Body/instructional text
   targets enhanced 7:1 contrast; large text targets 4.5:1. Controls and focus indicators meet at least
   3:1 against adjacent colors in both schemes.
-- Body text is at least 16 CSS pixels; Persian teaching text is sized for marks; line length is 35–70
-  Latin characters where practical. Text spacing overrides MUST not clip or overlap.
+- Body text is at least 16 CSS pixels; Persian teaching text is sized for marks; line length follows
+  the reading measure in the [responsive design specification](AAA-RESPONSIVE-DESIGN-SPEC.md). Text
+  spacing overrides MUST not clip or overlap.
 - Motion is limited to instruction and celebration, under 1.5 seconds, interruptible where repeated,
   and static under reduced motion. No essential state waits for animation.
 - One screen asks for one main decision. Optional IPA detail, settings, and exhaustive browsing must
   not compete with the primary Continue/answer action.
+
+### Contrast, scrims, and imagery
+
+These rules are normative and apply to every surface, including decorative and celebratory ones.
+
+- Contrast is verified on the **final composited pixels** a learner actually sees—after every
+  background, image, texture, overlay, scrim, gradient, blur, shadow, and opacity has been applied—in
+  every supported state (default, hover, focus, active, selected, playing, correct, wrong, loading,
+  error; inactive controls follow the WCAG exemption) and in both light and dark schemes. A ratio
+  computed from token values alone, or from one state, is not evidence.
+- Reducing opacity on a container that carries text or controls MUST NOT be used as a contrast,
+  hierarchy, or de-emphasis technique. Opacity on such a container composites its content toward the
+  backdrop and lowers the measured ratio. De-emphasis uses a different token-defined color that itself
+  meets the required ratio.
+- Text or controls placed over imagery, photographs, patterns, or textures MUST sit on a token-derived
+  opaque surface, or on a scrim whose **worst-case** composite—the least favorable pixel of the
+  brightest and darkest imagery permitted in that slot, in both schemes—still meets the ratio required
+  for that content: 7:1 for body/instructional text, 4.5:1 for large text, 3:1 for controls and focus
+  indicators. Scrims use existing paper/card tokens from `tokens.css`; a partially transparent scrim is
+  permitted only when its worst case is measured and documented, not assumed.
+- If the imagery is variable, learner-supplied, remote, or otherwise not fully known at design time,
+  contrast cannot be guaranteed and the text MUST move onto an opaque surface adjacent to or above the
+  image instead of sitting on it.
+- Meaning and readability MUST survive the image failing to load, being disabled or blocked, and
+  forced-colors/high-contrast mode being active. Under forced colors, backgrounds, scrims, and
+  decorative layers may be removed by the user agent; the text, its container, and its focus indicator
+  MUST remain legible and MUST NOT depend on a removed layer. Essential information MUST NOT live only
+  in an image or its scrim.
+- Decorative notebook rules, margin lines, confetti, and flourish MUST NOT lower the contrast of any
+  text, control, or focus indicator they pass behind. Where a rule would cross small text, the rule
+  yields—it is never the text that dims.
 
 ## Automated browser matrix
 
@@ -162,8 +198,9 @@ Playwright MUST exercise Chromium, Firefox, and WebKit. For representative route
 - axe with zero critical/serious violations and manual adjudication of incomplete rules.
 
 Screenshots are required for the route/state and viewport matrix in the responsive spec. Snapshot
-approval requires the Danish learner, art director, and accessibility reviewer—not the implementer
-alone.
+review follows [docs/reviews/VISUAL-REVIEW-PROTOCOL.md](../reviews/VISUAL-REVIEW-PROTOCOL.md), and
+approval authority is the one defined in the [AAA quality bar](AAA-QUALITY-BAR.md)—never the
+implementer alone.
 
 ## Manual acceptance journeys
 

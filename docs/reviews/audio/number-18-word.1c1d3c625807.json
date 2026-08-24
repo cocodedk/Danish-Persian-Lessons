@@ -1,0 +1,23 @@
+{
+  "clipId": "number-18-word",
+  "entryId": "number-18-word",
+  "formId": "neutral",
+  "transcript": "هُجدَه",
+  "synthesisText": "هُجدَه",
+  "sourceTextHash": "5125172719b897d5740e7249fb2080d1bc4ae12ee4f057f2ac30ff7c7a2fe8c2",
+  "draftFile": "work/number-18-word.5125172719b8.mp3",
+  "durationMs": 910,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -3.94,
+  "bytes": 5711,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/number-18-word.1c1d3c625807.mp3"
+}

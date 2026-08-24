@@ -27,21 +27,18 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 0.75rem;
-  min-height: 4.5rem;
-  padding: 0.65rem 0.75rem;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border-block: 1px solid var(--rule);
   background: var(--paper);
-}
-
-.entry-detail--master {
-  top: 0;
-  bottom: auto;
 }
 
 .entry-detail__help {
   display: grid;
   gap: 0.1rem;
+  /* Reserve the complete audio row even when this entry has no approved clip. */
+  min-block-size: 6.05rem;
+  line-height: 1.3;
 }
 
 .entry-detail__link {
@@ -64,10 +61,16 @@
 @media (max-width: 30rem) {
   .entry-detail {
     grid-template-columns: auto 1fr;
-    padding-block: 0.5rem;
   }
 
   .entry-detail__link {
     grid-column: 1 / -1;
   }
+}
+
+.entry-detail--master {
+  top: 0;
+  bottom: auto;
+  grid-template-columns: 1fr;
+  text-align: left;
 }

@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-100900-hundrede-100",
+  "entryId": "counting-100900-hundrede-100",
+  "formId": "neutral",
+  "transcript": "صَد",
+  "synthesisText": "صَد",
+  "sourceTextHash": "e413a9af48f6fd0c7f31b20fffde41213403c8541b08322135df198faba46047",
+  "draftFile": "work/counting-100900-hundrede-100.e413a9af48f6.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.36,
+  "truePeakDbtp": -1.72,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-100900-hundrede-100.90730b6ab035.mp3"
+}
