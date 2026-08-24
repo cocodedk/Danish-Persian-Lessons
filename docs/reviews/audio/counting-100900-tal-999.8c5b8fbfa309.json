@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-100900-tal-999",
+  "entryId": "counting-100900-tal-999",
+  "formId": "neutral",
+  "transcript": "نُهصَد و نَوَد و نُه",
+  "synthesisText": "نُهصَد و نَوَد و نُه",
+  "sourceTextHash": "eec7d88616c85f92e9eca0ecb19f9a7b9408e787a57c942e0108f78b89e82bf5",
+  "draftFile": "work/counting-100900-tal-999.eec7d88616c8.mp3",
+  "durationMs": 1650,
+  "channels": 1,
+  "integratedLufs": -20.37,
+  "truePeakDbtp": -4.01,
+  "bytes": 10100,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-100900-tal-999.8c5b8fbfa309.mp3"
+}
