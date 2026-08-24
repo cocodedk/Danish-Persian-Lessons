@@ -1,0 +1,23 @@
+{
+  "clipId": "number-14-word",
+  "entryId": "number-14-word",
+  "formId": "neutral",
+  "transcript": "چَهاردَه",
+  "synthesisText": "چَهاردَه",
+  "sourceTextHash": "4789df1d5627a2b4e755e41e6d3d1a05b8142beaf671e5ff443baf67e6b3cca1",
+  "draftFile": "work/number-14-word.4789df1d5627.mp3",
+  "durationMs": 860,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -5.6,
+  "bytes": 5398,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/number-14-word.6794f2eef705.mp3"
+}

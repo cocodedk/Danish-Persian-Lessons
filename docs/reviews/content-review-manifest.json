@@ -9300,7 +9300,7 @@
       "roleSensitive": true,
       "audioId": "number-11-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9359,7 +9359,7 @@
       "roleSensitive": true,
       "audioId": "number-12-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9418,7 +9418,7 @@
       "roleSensitive": true,
       "audioId": "number-13-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9477,7 +9477,7 @@
       "roleSensitive": true,
       "audioId": "number-14-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9536,7 +9536,7 @@
       "roleSensitive": true,
       "audioId": "number-15-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9595,7 +9595,7 @@
       "roleSensitive": true,
       "audioId": "number-16-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9654,7 +9654,7 @@
       "roleSensitive": true,
       "audioId": "number-17-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9713,7 +9713,7 @@
       "roleSensitive": true,
       "audioId": "number-18-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9772,7 +9772,7 @@
       "roleSensitive": true,
       "audioId": "number-19-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
@@ -9831,7 +9831,7 @@
       "roleSensitive": true,
       "audioId": "number-20-word",
       "audioNotApplicable": null,
-      "audioStatus": "missing",
+      "audioStatus": "reviewed",
       "requiredReviews": [
         "iranian-persian-1",
         "iranian-persian-2",
