@@ -151,16 +151,13 @@ describe('the counting rule lesson page', () => {
       .toBeInTheDocument()
   })
 
-  it('promises no sound for rows whose pronunciation is still a candidate', () => {
+  it('offers released audio for every teaching row', async () => {
     renderScreen()
 
-    expect(screen.queryAllByRole('button', { name: /^Hør / })).toHaveLength(0)
-    expect(screen.queryAllByRole('button', { name: /^Stop lyden/ })).toHaveLength(0)
-    // The rows do claim a clip id — the silence is the approval gate doing its
-    // job, not an accident of rows that were never given one.
-    const own = [lesson.joiner, ...lesson.baseForms.map((base) => base.entry)]
-      .filter((entry) => entry.id.startsWith(lesson.idPrefix))
-    expect(own.every((entry) => entry.audioId)).toBe(true)
-    expect(own.filter((entry) => findPronunciationAudio(entry.audioId))).toEqual([])
+    const visible = [lesson.joiner,
+      ...lesson.baseForms.map((base) => base.entry),
+      ...lesson.examples.map((example) => example.entry)]
+    expect(visible.every((entry) => findPronunciationAudio(entry.audioId))).toBe(true)
+    expect(await screen.findAllByRole('button', { name: /^Hør / })).toHaveLength(visible.length)
   })
 })

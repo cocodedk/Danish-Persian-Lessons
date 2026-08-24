@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-bindeled",
+  "entryId": "counting-2199-bindeled",
+  "formId": "neutral",
+  "transcript": "و",
+  "synthesisText": "و",
+  "sourceTextHash": "8fd67af0c9841b5ba8fc07b071c6bc11b446ca46057c8b520196530eee170097",
+  "draftFile": "work/counting-2199-bindeled.8fd67af0c984.mp3",
+  "durationMs": 760,
+  "channels": 1,
+  "integratedLufs": -20.49,
+  "truePeakDbtp": -3.19,
+  "bytes": 4771,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Owner-directed release on 2026-08-24.",
+  "releasedFile": "/audio/counting-2199-bindeled.d5c3e850a3bb.mp3"
+}
