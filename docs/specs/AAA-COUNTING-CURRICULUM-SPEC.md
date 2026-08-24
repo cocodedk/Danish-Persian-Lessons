@@ -24,17 +24,18 @@ restates. Normative language (**MUST**, **SHOULD**, **MAY**) is defined in
 
 ## 1. The four lessons
 
-The table separates **implementation state** (does the route exist and render today?) from **release
-approval** (is its language content cleared under section 6, and does it meet every other blocking
-condition in this document, such as the 1-20 word-audio completeness required by section 7.3?). A
+The table separates **implementation state** (does the route exist and render today?) from its
+**release gate** (which conditions must be satisfied, without duplicating mutable approval status here).
+A release requires language clearance under section 6 and the counting-wide audio completeness in
+section 7.3. A
 route being implemented is never on its own permission to release its content.
 
-| # | Lesson | Route | Teaches | Implemented | Release-approved |
+| # | Lesson | Route | Teaches | Implemented | Release gate |
 |---|---|---|---|---|---|
-| 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | No — Gate A in section 6 and the word-audio condition in section 7.3 remain unsatisfied |
-| 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | Yes | No |
-| 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | Yes | No |
-| 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | Yes | No |
+| 1 | 1-20 foundation | `/lesson/taelle` | The twenty number words as individual items | Yes | Sections 6 and 7.3 |
+| 2 | 21-99 rules | `/lesson/taelle/21-99` | How tens and units combine into one spoken number | Yes | Sections 6 and 7.3 |
+| 3 | 100-900 rules | `/lesson/taelle/100-900` | How hundreds are formed and joined to the range below (range semantics: section 3.2) | Yes | Sections 6 and 7.3 |
+| 4 | Thousands rules | `/lesson/taelle/tusinder` | How thousands are formed and joined to the ranges below | Yes | Sections 6 and 7.3 |
 
 - These four routes are the complete counting curriculum. A fifth counting lesson, or a second
   lesson covering any of these ranges, requires a recorded product decision in
@@ -277,28 +278,24 @@ NOT contradict, the product-level experience recorded in
   activated tile. The layout consequences of a selection change are owned by
   [`AAA-RESPONSIVE-DESIGN-SPEC.md`](AAA-RESPONSIVE-DESIGN-SPEC.md).
 
-### 7.3 Required 1-20 word audio before release
+### 7.3 Required counting audio before release
 
-- The 1-20 foundation lesson is **not releasable** until every one of its twenty number **word** rows
-  has an approved clip in the manifest. Partial word audio is not a shippable configuration of this
-  lesson, and no exception under [`AAA-QUALITY-BAR.md`](AAA-QUALITY-BAR.md) may waive the requirement
-  by presenting a subset as complete.
+- The counting curriculum is **not releasable** until every number **word or composed form** catalogued
+  by the foundation or any rule lesson has its own approved clip in the manifest. Partial audio is not
+  a shippable configuration of any counting lesson, and no exception under
+  [`AAA-QUALITY-BAR.md`](AAA-QUALITY-BAR.md) may waive the requirement by presenting a subset as complete.
 - This condition is **additional to**, not a substitute for, the language review gate in section 6.
   Both MUST be satisfied: section 6 clears the forms, this subsection requires the clips for the
   cleared forms to exist and be approved.
-- While any of the twenty word clips lacks approval, the counting work **MUST NOT be merged and MUST
+- While any catalogued counting form lacks approval, the counting work **MUST NOT be merged and MUST
   NOT be released**. The approved manifest is the sole authority for whether that condition is
   satisfied; this specification MUST NOT restate its current inventory.
 - That blocking state is nevertheless an **honest development state**, not a defect in the lesson's
-  presentation. The 11-20 rows are complete teaching rows that currently have no clip, and section 7
-  governs how they are shown: no fake audio, no dead control, and no framing of those numbers as
-  broken or lesser. Nothing in this subsection permits inventing, borrowing, or synthesizing a clip
-  in order to unblock the release.
+  presentation. Section 7 governs how a row without a clip is shown: no fake audio, no dead control,
+  and no framing of that number as broken or lesser. Nothing in this subsection permits inventing,
+  borrowing, or synthesizing a clip in order to unblock the release.
 - Digit-glyph entries are not word rows. Their `audioNotApplicable` reason (section 7) stands and is
   not counted against this requirement.
-- Audio for the rule lessons 2-4 is governed by section 7 and
-  [`AAA-LEARNING-SPEC.md`](AAA-LEARNING-SPEC.md); this subsection sets a completeness condition for
-  the 1-20 word rows only.
 
 ## 8. Exercises and feedback
 
@@ -358,8 +355,8 @@ Before a counting change ships, the following MUST pass:
   selected number replays it; selecting a different number stops and clears the previous transport
   state; and activating a number without a clip selects it without entering a playing or loading
   state (section 7.1, section 7.2).
-- **1-20 word audio completeness** — a release build is refused while any of the twenty foundation
-  word rows lacks an approved clip (section 7.3).
+- **Counting audio completeness** — `src/lessons/countingAudio.test.ts` refuses a release while any
+  catalogued form from the foundation or three rule lessons lacks an approved clip (section 7.3).
 - **Review evidence** — no form covered by section 6 is present in a release build without the
   recorded approvals.
 

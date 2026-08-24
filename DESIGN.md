@@ -192,6 +192,9 @@ section; this file states only the intent.
   action last.
 - A number with no approved clip is still a complete teaching row. It can be selected and read like
   any other, and the app MUST NOT promise, fake, imply, or substitute a sound for it.
+- A counting lesson does not ship with partial audio. Every catalogued number form taught by any of
+  the four counting lessons must resolve to its own released clip before the counting curriculum is
+  merged or released; digit-glyph rows remain explicitly not applicable.
 - **Mobile is the base.** The base composition is one column containing the ascending number tiles
   and the selected number's teaching content, in DOM order. A wide screen MAY place a related detail
   rail beside the grid when that genuinely helps the learner keep the tiles and the teaching content
@@ -204,7 +207,7 @@ A dedicated
 [`docs/specs/AAA-COUNTING-CURRICULUM-SPEC.md`](docs/specs/AAA-COUNTING-CURRICULUM-SPEC.md) owns the
 exact rule-lesson routes, the ranges each stage teaches, worked-example coverage, the descriptor,
 data, and progress identities, audio-honesty behaviour, the exact counting selection and playback
-behaviour, the pre-release audio completeness condition for 1-20, and the exercise mechanics that
+behaviour, the counting-wide pre-release audio completeness condition, and the exercise mechanics that
 present them. The exact layout acceptance for the number grid and the wide-screen detail rail -
 tile direction, target sizes, column counts, bounds, and layout stability - is owned by
 [`docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md`](docs/specs/AAA-RESPONSIVE-DESIGN-SPEC.md). Persian
