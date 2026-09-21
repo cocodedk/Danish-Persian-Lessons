@@ -39,7 +39,7 @@ describe('pronunciation audio manifest', () => {
 
   it('uses the app base path for public audio files', () => {
     expect(pronunciationAudioUrl(
-      '/audio/example.mp3', '/Danish-Persian-Lessons/app/',
-    )).toBe('/Danish-Persian-Lessons/app/audio/example.mp3')
+      '/audio/example.mp3', '/app/',
+    )).toBe('/app/audio/example.mp3')
   })
 })
