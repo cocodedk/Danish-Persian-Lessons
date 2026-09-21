@@ -8,9 +8,9 @@ The project is purely static: no backend, no database, no accounts. Progress is 
 
 ## Site
 
-- [English](https://cocodedk.github.io/Danish-Persian-Lessons/): what the app teaches and who it is for
-- [Dansk](https://cocodedk.github.io/Danish-Persian-Lessons/da/): the Danish page, written for the primary audience
-- [فارسی (Persian)](https://cocodedk.github.io/Danish-Persian-Lessons/fa/): the Persian page, right-to-left
+- [English](https://persisk.cocode.dk/): what the app teaches and who it is for
+- [Dansk](https://persisk.cocode.dk/da/): the Danish page, written for the primary audience
+- [فارسی (Persian)](https://persisk.cocode.dk/fa/): the Persian page, right-to-left
 
 ## Repository
 

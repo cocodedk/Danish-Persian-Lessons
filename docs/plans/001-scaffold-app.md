@@ -8,7 +8,7 @@ Executor: Opus or Sonnet. Scope: exactly this file. Invoke `karpathy-guidelines`
 ## Goal
 
 A running Vite + React + TypeScript app deployed at
-https://cocodedk.github.io/Danish-Persian-Lessons/app/ showing the split-screen shell with one
+https://persisk.cocode.dk/app/ showing the split-screen shell with one
 hardcoded demo pair (آب / vand) and the first-run name capture, with storage, tests, lint, and the
 upgraded CI/deploy/hook gates all green. No lesson content yet — that's plans 003/004.
 

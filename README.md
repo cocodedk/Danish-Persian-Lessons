@@ -12,9 +12,9 @@ Lær at tale persisk. Læs og skriv, når du vil.
 
 ## Website
 
-- [English](https://cocodedk.github.io/Danish-Persian-Lessons/)
-- [Dansk](https://cocodedk.github.io/Danish-Persian-Lessons/da/)
-- [فارسی (Persian)](https://cocodedk.github.io/Danish-Persian-Lessons/fa/)
+- [English](https://persisk.cocode.dk/)
+- [Dansk](https://persisk.cocode.dk/da/)
+- [فارسی (Persian)](https://persisk.cocode.dk/fa/)
 
 ## Features
 
@@ -41,7 +41,7 @@ Lær at tale persisk. Læs og skriv, når du vil.
 
 The landing site is live in all three languages, and so is the app.
 
-What ships at [`/app/`](https://cocodedk.github.io/Danish-Persian-Lessons/app/) includes orientation,
+What ships at [`/app/`](https://persisk.cocode.dk/app/) includes orientation,
 the alphabet and vowel marks, personal-name spelling, first-reader vocabulary, a Persian keyboard,
 generous feedback, and short puzzle breaks. There is no signup and no waiting list.
 The speaking screens and audio pipeline are present but stay closed while the checked-in audio
