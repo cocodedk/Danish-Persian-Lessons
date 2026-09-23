@@ -30,9 +30,19 @@ try {
 </script>
 <title>Lær persisk skrift</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
+<script type="module" src="https://brand.cocode.dk/v1.js"></script>
 </head>
 <body>
+<!-- The cocode.dk family frame, outside the React tree on purpose: #root is the
+     app's own mount point, and the frame must not re-render on every route change. -->
+<cocode-head project="Lær persisk skrift" accent="#941520" on-accent="#F7F2E9">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-head>
 <div id="root"></div>
+<cocode-foot repo="cocodedk/Danish-Persian-Lessons">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-foot>
 <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

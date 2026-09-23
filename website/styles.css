@@ -176,52 +176,12 @@ main > section:first-child { padding-block-start: 1.25rem; }
 [dir="rtl"] .note { font-size: 1rem; }
 
 /* --------------------------------------------------------------------------
-   4. Header + language switcher
+   4. The cocode.dk family frame
+   Replaces the old .masthead (wordmark + language nav); cocode-head/cocode-foot
+   are direct children of body, not of .sheet, so they span the full viewport.
+   Lines them up with the sheet's own column, including its breakpoint changes.
    -------------------------------------------------------------------------- */
-.masthead {
-  padding-block-end: 1.25rem;
-}
-
-.wordmark {
-  font-size: 0.8rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  margin: 0 0 0.75rem;
-  color: var(--ink);
-  opacity: 0.65;
-}
-[dir="rtl"] .wordmark { letter-spacing: normal; text-transform: none; font-size: 0.9rem; }
-
-.langs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.5rem;
-  align-items: center;
-}
-
-.langs li { display: flex; }
-
-.langs a,
-.langs span {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  padding-inline: 0.7rem;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  font-size: 0.95rem;
-  text-decoration: none;
-}
-
-.langs a { color: var(--blue); }
-.langs a:hover { border-color: var(--blue); }
-
-.langs .is-current {
-  color: var(--ink);
-  border-color: var(--red);
-  border-inline-start-width: 3px;
-  font-weight: 700;
-}
+cocode-head, cocode-foot { --cocode-max: var(--sheet-max); --cocode-gutter: var(--gutter); }
 
 /* --------------------------------------------------------------------------
    5. Hero — the split-screen specimen
@@ -559,9 +519,7 @@ footer p { margin: 0; }
   unicode-bidi: isolate;
 }
 
-[dir="rtl"] .cta,
-[dir="rtl"] .langs a,
-[dir="rtl"] .langs span { font-family: var(--font-fa); }
+[dir="rtl"] .cta { font-family: var(--font-fa); }
 
 [dir="rtl"] .steps .num { font-family: var(--font-fa); }
 
@@ -597,15 +555,6 @@ footer p { margin: 0; }
   .facts li { max-width: 66ch; }
 
   .marks { justify-content: flex-start; }
-
-  .masthead {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .wordmark { margin-block-end: 0; }
 
   .lede { font-size: 1.2rem; max-width: 44ch; }
   [dir="rtl"] .lede { font-size: 1.3rem; max-width: 44ch; }

@@ -104,3 +104,17 @@ main h1[tabindex='-1']:focus {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   The cocode.dk family frame (index.html, outside #root).
+   -------------------------------------------------------------------------- */
+
+/* No single screen shares one column width, so line up with the app's own
+   broadest wrapper and its fluid page gutter rather than a fixed value. */
+cocode-head, cocode-foot { --cocode-max: var(--shell-max); --cocode-gutter: var(--page-gutter); }
+
+/* AreaNav is fixed to the viewport bottom on every route (see AppChrome.css,
+   which reserves the same height for .app-content). A foot placed after
+   #root sits below that reservation, so without this the nav's ~4.5rem strip
+   would permanently cover the foot's own content once scrolled to the end. */
+cocode-foot { margin-block-end: var(--area-nav-block-size, calc(4.5rem + env(safe-area-inset-bottom, 0px))); }
