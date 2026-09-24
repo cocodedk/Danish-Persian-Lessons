@@ -44,7 +44,7 @@ test('three-run mobile lab medians meet the production performance targets', asy
   expect(median(runs.map((run) => run.interaction))).toBeLessThanOrEqual(200)
 })
 
-test('production journeys make no external, fetch, or XHR request', async ({ page }) => {
+test('production journeys stay on cocode.dk and make no fetch or XHR of their own', async ({ page }) => {
   const requests: Array<{ url: string; type: string }> = []
   page.on('request', (request) => requests.push({ url: request.url(), type: request.resourceType() }))
   await page.goto('./#/lesson/alphabet')
@@ -56,8 +56,15 @@ test('production journeys make no external, fetch, or XHR request', async ({ pag
   await expect(page.getByRole('heading', { name: 'Billedkilder' })).toBeVisible()
 
   const origin = new URL(page.url()).origin
-  expect(requests.every((request) => new URL(request.url).origin === origin)).toBe(true)
-  expect(requests.filter((request) => ['fetch', 'xhr'].includes(request.type))).toEqual([])
+  /* The one allowed exception: the cocode.dk family frame loads its script and stylesheet from
+     brand.cocode.dk (fetching the stylesheet once for its shadow root) and its fonts from
+     cocode.dk. Everything else must stay on this origin. */
+  const FRAME = 'https://brand.cocode.dk'
+  const family = new Set([origin, FRAME, 'https://cocode.dk'])
+  expect(requests.filter((request) => !family.has(new URL(request.url).origin))).toEqual([])
+  expect(requests.filter((request) => (
+    ['fetch', 'xhr'].includes(request.type) && new URL(request.url).origin !== FRAME
+  ))).toEqual([])
   const routeImages = requests.filter((request) => (
     request.type === 'image' && request.url.includes('/lesson-images/')
   ))
