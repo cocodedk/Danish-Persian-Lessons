@@ -13,6 +13,11 @@ test.describe('visual regression candidates awaiting human sign-off', () => {
 
         for (const state of visualStates) {
           await prepareVisualState(page, state)
+          /* The cocode.dk frame loads from brand.cocode.dk and upgrades once its stylesheet is in;
+             wait for it, or a screenshot can catch the no-JavaScript fallback instead. */
+          await page.waitForFunction(() => (
+            [...document.querySelectorAll('cocode-head, cocode-foot')].every((frame) => frame.shadowRoot)
+          ))
           await page.evaluate(() => document.fonts.ready)
           await expect(page.locator('.lesson-image--loading')).toHaveCount(0)
           await page.waitForFunction(() => (

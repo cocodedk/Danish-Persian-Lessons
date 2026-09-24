@@ -80,7 +80,10 @@ test('a longer selection keeps grid geometry, focus and nav clearance', async ({
   const grid = page.locator('.vocab__grid')
   const geometry = () => grid.evaluate((node) => {
     const box = node.getBoundingClientRect()
-    return { top: box.top + scrollY, width: box.width, height: box.height }
+    /* Rounded to 1/100 px: Firefox's sub-pixel layout can move top + scrollY by ~0.00002 px with
+       no visible change, which exact float equality would report as a shift. */
+    const px = (value: number) => Math.round(value * 100) / 100
+    return { top: px(box.top + scrollY), width: px(box.width), height: px(box.height) }
   })
   const before = await geometry()
   const seventeen = page.getByRole('button', { name: 'Vælg tallet sytten' })

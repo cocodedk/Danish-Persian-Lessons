@@ -19,6 +19,8 @@ never hardcode it outside `vite.config.ts` and the workflows.
 - Split screen: **Persian on top** (`lang="fa" dir="rtl"`, large type), **Danish below** (`lang="da"`).
 - Mobile-first: fully usable one-handed on a phone in portrait; nav in the bottom thumb zone.
 - 100% static: every lesson is data committed to the repo. No runtime fetches to external services.
+  The one exception is the cocode.dk family frame (script and stylesheet from brand.cocode.dk,
+  fonts from cocode.dk); `e2e/performance.spec.ts` allows exactly those origins and nothing else.
 - Progress: browser `localStorage` only, keys namespaced `dpl.v1.*`, must survive empty/cleared/denied storage.
 - Personalization: the learner may enter a name (optional, always skippable, editable, deletable);
   stored only in `dpl.v1.profile` and used as a teaching instrument — greeting, name-letter badges,

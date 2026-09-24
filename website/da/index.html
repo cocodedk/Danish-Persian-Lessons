@@ -42,6 +42,8 @@
 <meta name="twitter:image:alt" content="Det persiske ord آب i sort naskh med rødt madde-tegn, en linje fra et skrivehæfte, og det danske ord vand nedenunder.">
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
+<script type="module" src="https://brand.cocode.dk/v1.js"></script>
 
 <script type="application/ld+json">
 {
@@ -73,18 +75,20 @@
 </head>
 
 <body>
+<!-- The cocode.dk family frame. Without JavaScript its children show instead: a way home
+     and the language links. Wrapped in landmarks so axe's "region" rule (WCAG best
+     practice) doesn't flag them as page content outside any landmark; the foot uses
+     role="region" rather than <footer> because the page already has one <footer>
+     (the slim credit line inside .sheet) and a page should have only one contentinfo. -->
+<header>
+<cocode-head project="Dansk-persiske lektioner" accent="var(--red)" on-accent="#F7F2E9" dark="auto">
+  <a href="https://cocode.dk">cocode.dk</a>
+  <a href="../" hreflang="en">EN</a>
+  <span class="on">DA</span>
+  <a href="../fa/" hreflang="fa">FA</a>
+</cocode-head>
+</header>
 <div class="sheet">
-
-  <header class="masthead">
-    <p class="wordmark">Dansk-persiske lektioner</p>
-    <nav aria-label="Sprog">
-      <ul class="langs">
-        <li><a href="../" lang="en" hreflang="en">English</a></li>
-        <li><span class="is-current" aria-current="page">Dansk</span></li>
-        <li><a href="../fa/" lang="fa" hreflang="fa" dir="rtl">فارسی</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <main>
 
@@ -193,7 +197,7 @@
         browseren.</p>
       <ul class="facts">
         <li>Ingen konto, ingen mail, ingen adgangskode.</li>
-        <li>Ingen statistik og ingen sporing. Der hentes ingenting udefra.</li>
+        <li>Ingen statistik og ingen sporing. Der hentes ingenting uden for cocode.dk.</li>
         <li>Din fremgang ligger i browserens egen hukommelse (localStorage).</li>
         <li>Rydder du browserdata, er den væk. Der findes ingen kopi på en server.</li>
       </ul>
@@ -214,8 +218,13 @@
 
   </main>
 
-  <footer><p>Apache-2.0 &nbsp;|&nbsp; © 2026 <a href="https://cocode.dk" target="_blank" rel="noreferrer">Cocode</a> &nbsp;|&nbsp; Skabt af <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">Babak Bandpey</a></p></footer>
+  <footer><p>Apache-2.0 &nbsp;|&nbsp; Skabt af <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">Babak Bandpey</a></p></footer>
 
+</div>
+<div role="region" aria-label="cocode.dk">
+<cocode-foot repo="cocodedk/Danish-Persian-Lessons" dark="auto">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-foot>
 </div>
 </body>
 </html>

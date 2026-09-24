@@ -30,9 +30,25 @@ try {
 </script>
 <title>Lær persisk skrift</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
+<script type="module" src="https://brand.cocode.dk/v1.js"></script>
 </head>
 <body>
+<!-- The cocode.dk family frame, outside the React tree on purpose: #root is the
+     app's own mount point, and the frame must not re-render on every route change.
+     Wrapped in native landmarks: axe's "region" rule (WCAG best practice) flags any
+     top-level content not contained by a landmark, and a bare custom element is not one. -->
+<header>
+<cocode-head project="Lær persisk skrift" accent="var(--red)" on-accent="#F7F2E9" dark="auto">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-head>
+</header>
 <div id="root"></div>
+<footer>
+<cocode-foot repo="cocodedk/Danish-Persian-Lessons" dark="auto">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-foot>
+</footer>
 <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

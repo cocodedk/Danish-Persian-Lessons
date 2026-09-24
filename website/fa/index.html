@@ -42,6 +42,8 @@
 <meta name="twitter:image:alt" content="کلمهٔ «آب» با خط نسخ سیاه و نشانهٔ مد قرمز، یک خط دفتر مشق، و پایینش کلمهٔ دانمارکی vand.">
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://brand.cocode.dk/v1.css">
+<script type="module" src="https://brand.cocode.dk/v1.js"></script>
 
 <script type="application/ld+json">
 {
@@ -73,18 +75,20 @@
 </head>
 
 <body>
+<!-- The cocode.dk family frame. Without JavaScript its children show instead: a way home
+     and the language links. Wrapped in landmarks so axe's "region" rule (WCAG best
+     practice) doesn't flag them as page content outside any landmark; the foot uses
+     role="region" rather than <footer> because the page already has one <footer>
+     (the slim credit line inside .sheet) and a page should have only one contentinfo. -->
+<header>
+<cocode-head project="درس‌های فارسی-دانمارکی" accent="var(--red)" on-accent="#F7F2E9" dark="auto">
+  <a href="https://cocode.dk">cocode.dk</a>
+  <a href="../" hreflang="en">EN</a>
+  <a href="../da/" hreflang="da">DA</a>
+  <span class="on">FA</span>
+</cocode-head>
+</header>
 <div class="sheet">
-
-  <header class="masthead">
-    <p class="wordmark">درس‌های فارسی-دانمارکی</p>
-    <nav aria-label="زبان">
-      <ul class="langs">
-        <li><a href="../" lang="en" hreflang="en" dir="ltr">English</a></li>
-        <li><a href="../da/" lang="da" hreflang="da" dir="ltr">Dansk</a></li>
-        <li><span class="is-current" aria-current="page">فارسی</span></li>
-      </ul>
-    </nav>
-  </header>
 
   <main>
 
@@ -193,7 +197,7 @@
         همان‌جا می‌ماند.</p>
       <ul class="facts">
         <li>نه حساب کاربری، نه ایمیل، نه رمز.</li>
-        <li>نه آمارگیری و نه ردیابی. هیچ‌چیزی هم از بیرون بار نمی‌شود.</li>
+        <li>نه آمارگیری و نه ردیابی. هیچ‌چیزی هم از بیرونِ cocode.dk بار نمی‌شود.</li>
         <li>پیشرفت در حافظهٔ خود مرورگر می‌ماند (localStorage).</li>
         <li>داده‌های مرورگر را پاک کنید، پاک می‌شود. هیچ نسخه‌ای روی سرور نیست.</li>
       </ul>
@@ -214,8 +218,13 @@
 
   </main>
 
-  <footer><p>Apache-2.0 &nbsp;|&nbsp; © ۱۴۰۵ <a href="https://cocode.dk" target="_blank" rel="noreferrer">Cocode</a> &nbsp;|&nbsp; ساخته شده توسط <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">بابک بندپی</a></p></footer>
+  <footer><p>Apache-2.0 &nbsp;|&nbsp; ساخته شده توسط <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">بابک بندپی</a></p></footer>
 
+</div>
+<div role="region" aria-label="cocode.dk">
+<cocode-foot repo="cocodedk/Danish-Persian-Lessons" dark="auto">
+  <a href="https://cocode.dk">cocode.dk</a>
+</cocode-foot>
 </div>
 </body>
 </html>
