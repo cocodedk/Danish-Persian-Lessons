@@ -79,3 +79,11 @@ the app exists, `npm run verify`) is green.
 Full writing practice (tracing letters with a finger, beyond the stroke-order drawings of P3) · PWA
 offline install · broader grammar/conversation curriculum · possible project rename (working title
 may change).
+
+## Pivot (2026-10-24)
+
+The lessons app gets no second visit. Work moves to **Persia**, a 2D arcade shooter forked from
+invaders that plays Persian as the soundtrack of what happens on screen. Design:
+`docs/superpowers/specs/2026-10-24-persia-design.md` in the sibling repo `persia-game`.
+P16 and P17 stay as recorded; nothing here is deleted. The lessons repo lends Persia its approved
+clips, pictures and catalog.
