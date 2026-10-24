@@ -12,7 +12,7 @@ from common import AUDIO_ROOT, REPORTS, WORK, jobs, load_json
 
 def card(job: dict, report: dict) -> str:
     clip = html.escape(job["clipId"])
-    draft = html.escape(os.path.relpath(WORK / report["draftFile"].split("/", 1)[-1], AUDIO_ROOT))
+    draft = html.escape(os.path.relpath(WORK / report["draftFile"].split("/", 1)[-1], AUDIO_ROOT / "review"))
     correction = f" · rettet {report['loudnessCorrectionDb']:+g} dB" if report.get("loudnessCorrectionDb") else ""
     return f"""
     <article data-clip="{clip}">
