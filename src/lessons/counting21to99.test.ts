@@ -113,12 +113,12 @@ describe('regnereglen 21-99: catalog identities', () => {
     expect(ids).toContain(`${ID_PREFIX}tal-99`)
   })
 
-  it('adds twenty candidate entries: the joiner, seven tens, eight taught numbers and four extra', () => {
+  it('adds twenty-four candidate entries: the joiner, seven tens, eight taught numbers and eight extra', () => {
     expect(counting21to99Catalog).toHaveLength(1 + 7 + compositions.length + extraNumbers.length)
   })
 
   it('registers the extra numbers in the catalog without teaching them', () => {
-    expect(extraNumbers.map(({ value }) => value)).toEqual([22, 23, 24, 25])
+    expect(extraNumbers.map(({ value }) => value)).toEqual([22, 23, 24, 25, 26, 27, 28, 29])
     for (const { entry } of extraNumbers) expect(counting21to99Catalog).toContain(entry)
     expect(compositions.map(({ value }) => value)).toEqual([21, 31, 48, 99, 42, 57, 68, 73])
     expect(counting21to99Lesson.examples).toBe(examples)
