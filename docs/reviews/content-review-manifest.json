@@ -10415,6 +10415,150 @@
       ]
     },
     {
+      "id": "counting-2199-tal-22",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "بیست و دو",
+      "faMarked": "بیست و دو",
+      "da": "toogtyve",
+      "soundDa": "bist o do",
+      "ipa": "bist o do",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 9,
+          "display": "بیست و دو",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "bist o do",
+            "ipa": "bist o do"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-22",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-23",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "بیست و سه",
+      "faMarked": "بیست و سِه",
+      "da": "treogtyve",
+      "soundDa": "bist o se",
+      "ipa": "bist o se",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 9,
+          "display": "بیست و سه",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "bist o se",
+            "ipa": "bist o se"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-23",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-24",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "بیست و چهار",
+      "faMarked": "بیست و چَهار",
+      "da": "fireogtyve",
+      "soundDa": "bist o tjahår",
+      "ipa": "bist o tʃæˈhɒːɾ",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 11,
+          "display": "بیست و چهار",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "bist o tjahår",
+            "ipa": "bist o tʃæˈhɒːɾ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-24",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-25",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "بیست و پنج",
+      "faMarked": "بیست و پَنج",
+      "da": "femogtyve",
+      "soundDa": "bist o pandj",
+      "ipa": "bist o pændʒ",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 10,
+          "display": "بیست و پنج",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "bist o pandj",
+            "ipa": "bist o pændʒ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-25",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "counting-100900-hundrede-100",
       "domain": "numbers",
       "kind": "word",

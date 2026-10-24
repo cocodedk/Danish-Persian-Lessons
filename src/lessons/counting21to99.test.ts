@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { counting21to99Lesson, counting21to99Catalog, examples, joiner, targets, tens } from './counting21to99'
+import { counting21to99Lesson, counting21to99Catalog, examples, extraNumbers, joiner, targets, tens } from './counting21to99'
 import { countingNumbers } from './numbers'
 import { findPersianTextViolations } from './textRules'
 import type { RuleComposition } from './countingRuleTypes'
@@ -113,8 +113,16 @@ describe('regnereglen 21-99: catalog identities', () => {
     expect(ids).toContain(`${ID_PREFIX}tal-99`)
   })
 
-  it('adds sixteen candidate entries: the joiner, seven tens and eight numbers', () => {
-    expect(counting21to99Catalog).toHaveLength(1 + 7 + compositions.length)
+  it('adds twenty candidate entries: the joiner, seven tens, eight taught numbers and four extra', () => {
+    expect(counting21to99Catalog).toHaveLength(1 + 7 + compositions.length + extraNumbers.length)
+  })
+
+  it('registers the extra numbers in the catalog without teaching them', () => {
+    expect(extraNumbers.map(({ value }) => value)).toEqual([22, 23, 24, 25])
+    for (const { entry } of extraNumbers) expect(counting21to99Catalog).toContain(entry)
+    expect(compositions.map(({ value }) => value)).toEqual([21, 31, 48, 99, 42, 57, 68, 73])
+    expect(counting21to99Lesson.examples).toBe(examples)
+    expect(counting21to99Lesson.targets).toBe(targets)
   })
 })
 

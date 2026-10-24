@@ -133,6 +133,20 @@ export const targets: RuleComposition[] = [
   composed(73, 'treoghalvfjerds'),
 ]
 
+/**
+ * Clips other apps use but this lesson does not teach. They are built by the
+ * same `composed` rule so they cannot disagree with it, are registered in the
+ * catalog only (so they are recorded, reviewed and released like every other
+ * clip), and are deliberately absent from `examples` and `targets`: the lesson
+ * shows and tests only those eight numbers. Candidate drafts, like the rest.
+ */
+export const extraNumbers: RuleComposition[] = [
+  composed(22, 'toogtyve'),
+  composed(23, 'treogtyve'),
+  composed(24, 'fireogtyve'),
+  composed(25, 'femogtyve'),
+]
+
 export const counting21to99Lesson: RuleLessonDescriptor = {
   path: '/lesson/taelle/21-99',
   title: 'Regnereglen 21-99',
@@ -168,5 +182,5 @@ export const counting21to99Lesson: RuleLessonDescriptor = {
 export const counting21to99Catalog: PersianEntry[] = [
   joiner,
   ...tens.filter((base) => base.entry.id.startsWith(ID_PREFIX)).map((base) => base.entry),
-  ...[...examples, ...targets].map((composition) => composition.entry),
+  ...[...examples, ...targets, ...extraNumbers].map((composition) => composition.entry),
 ]
