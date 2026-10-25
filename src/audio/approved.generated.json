@@ -1522,14 +1522,14 @@
     "clipId": "number-11-word",
     "entryId": "number-11-word",
     "formId": "neutral",
-    "file": "/audio/number-11-word.4241ab6f810a.mp3",
+    "file": "/audio/number-11-word.36df6125081f.mp3",
     "locale": "fa-IR",
     "transcript": "یازدَه",
-    "durationMs": 840,
+    "durationMs": 890,
     "channels": 1,
-    "integratedLufs": -20.42,
-    "truePeakDbtp": -7.36,
-    "loudnessReportRef": "docs/reviews/audio/number-11-word.4241ab6f810a.json",
+    "integratedLufs": -20.43,
+    "truePeakDbtp": -5.21,
+    "loudnessReportRef": "docs/reviews/audio/number-11-word.36df6125081f.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1537,22 +1537,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "یازدَه",
-    "sourceTextHash": "b98b50ea97597260ec1fabe7e8c1284668f31656da3284c7be7212898b82f94a"
+    "synthesisText": "یازْدَه",
+    "sourceTextHash": "54be88f8373128467e80f59db52c6158cd106f7122f7ce465519e2d1eb6a3750"
   },
   {
     "source": "piper",
     "clipId": "number-12-word",
     "entryId": "number-12-word",
     "formId": "neutral",
-    "file": "/audio/number-12-word.d1a7f2863482.mp3",
+    "file": "/audio/number-12-word.f3f98f491369.mp3",
     "locale": "fa-IR",
     "transcript": "دوازدَه",
-    "durationMs": 890,
+    "durationMs": 780,
     "channels": 1,
-    "integratedLufs": -20.42,
-    "truePeakDbtp": -4.48,
-    "loudnessReportRef": "docs/reviews/audio/number-12-word.d1a7f2863482.json",
+    "integratedLufs": -20.39,
+    "truePeakDbtp": -5.61,
+    "loudnessReportRef": "docs/reviews/audio/number-12-word.f3f98f491369.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1560,22 +1560,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "دوازدَه",
-    "sourceTextHash": "4c2f0e11806848c74e28bb81bffbd93e9d7bb2826e7040565b55d1dd7465a1ee"
+    "synthesisText": "دوازْدَه",
+    "sourceTextHash": "741bdfc7151f9bfaa3f4f113a1c0355361cbbef9f691c145dc79052b36678a9b"
   },
   {
     "source": "piper",
     "clipId": "number-13-word",
     "entryId": "number-13-word",
     "formId": "neutral",
-    "file": "/audio/number-13-word.3483c01dbabd.mp3",
+    "file": "/audio/number-13-word.cce386fb8159.mp3",
     "locale": "fa-IR",
     "transcript": "سیزدَه",
-    "durationMs": 890,
+    "durationMs": 760,
     "channels": 1,
-    "integratedLufs": -20.37,
-    "truePeakDbtp": -5.7,
-    "loudnessReportRef": "docs/reviews/audio/number-13-word.3483c01dbabd.json",
+    "integratedLufs": -20.41,
+    "truePeakDbtp": -4.65,
+    "loudnessReportRef": "docs/reviews/audio/number-13-word.cce386fb8159.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1583,22 +1583,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "سیزدَه",
-    "sourceTextHash": "795486323b12b030e58226bcdc0b09465c254e8afd727ebc2c8d34784d64a745"
+    "synthesisText": "سیزْدَه",
+    "sourceTextHash": "1e1f8b408d59bd8977a83acd8ae2591f3bd925cb444a82d7aef84ec5f6af6be2"
   },
   {
     "source": "piper",
     "clipId": "number-14-word",
     "entryId": "number-14-word",
     "formId": "neutral",
-    "file": "/audio/number-14-word.6794f2eef705.mp3",
+    "file": "/audio/number-14-word.4f0f1d4cc68c.mp3",
     "locale": "fa-IR",
     "transcript": "چَهاردَه",
-    "durationMs": 860,
+    "durationMs": 810,
     "channels": 1,
-    "integratedLufs": -20.45,
-    "truePeakDbtp": -5.6,
-    "loudnessReportRef": "docs/reviews/audio/number-14-word.6794f2eef705.json",
+    "integratedLufs": -20.4,
+    "truePeakDbtp": -6.37,
+    "loudnessReportRef": "docs/reviews/audio/number-14-word.4f0f1d4cc68c.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1606,22 +1606,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "چَهاردَه",
-    "sourceTextHash": "4789df1d5627a2b4e755e41e6d3d1a05b8142beaf671e5ff443baf67e6b3cca1"
+    "synthesisText": "چَهارْدَه",
+    "sourceTextHash": "7f93dcd6ef30cbf36880c8ea94deb19a7797a45dd7b9b1bdcabebf388f12ad14"
   },
   {
     "source": "piper",
     "clipId": "number-15-word",
     "entryId": "number-15-word",
     "formId": "neutral",
-    "file": "/audio/number-15-word.587a1260a6dc.mp3",
+    "file": "/audio/number-15-word.442a0b916241.mp3",
     "locale": "fa-IR",
     "transcript": "پانزدَه",
-    "durationMs": 1070,
+    "durationMs": 970,
     "channels": 1,
-    "integratedLufs": -20.45,
-    "truePeakDbtp": -6.37,
-    "loudnessReportRef": "docs/reviews/audio/number-15-word.587a1260a6dc.json",
+    "integratedLufs": -20.43,
+    "truePeakDbtp": -2.13,
+    "loudnessReportRef": "docs/reviews/audio/number-15-word.442a0b916241.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1629,22 +1629,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "پانزدَه",
-    "sourceTextHash": "2f9fd63ddf602a43991ab0a8c675f4c398bbc7e78957556c2d51e7b4160008cf"
+    "synthesisText": "پانْزْدَه",
+    "sourceTextHash": "3580072aa0315f288a21c44a119f867280b236e0fc323022d5635fcf1fc9d9a6"
   },
   {
     "source": "piper",
     "clipId": "number-16-word",
     "entryId": "number-16-word",
     "formId": "neutral",
-    "file": "/audio/number-16-word.7623fb909f34.mp3",
+    "file": "/audio/number-16-word.9ad36522618b.mp3",
     "locale": "fa-IR",
     "transcript": "شانزدَه",
-    "durationMs": 910,
+    "durationMs": 810,
     "channels": 1,
-    "integratedLufs": -20.37,
-    "truePeakDbtp": -4.01,
-    "loudnessReportRef": "docs/reviews/audio/number-16-word.7623fb909f34.json",
+    "integratedLufs": -20.43,
+    "truePeakDbtp": -5.29,
+    "loudnessReportRef": "docs/reviews/audio/number-16-word.9ad36522618b.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1652,22 +1652,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "شانزدَه",
-    "sourceTextHash": "d8c0a22ffb6e4e6d166d0b71597f93a9028552d33bdda51915243e94be2de0a0"
+    "synthesisText": "شانْزْدَه",
+    "sourceTextHash": "97d6b1f3368d2b5a4e397161930defc43fabcb3c816f9b3819cf494698cf5e7d"
   },
   {
     "source": "piper",
     "clipId": "number-17-word",
     "entryId": "number-17-word",
     "formId": "neutral",
-    "file": "/audio/number-17-word.2e3863325967.mp3",
+    "file": "/audio/number-17-word.e86eb23012cc.mp3",
     "locale": "fa-IR",
     "transcript": "هَفدَه",
     "durationMs": 780,
     "channels": 1,
-    "integratedLufs": -21.3,
-    "truePeakDbtp": -1.5,
-    "loudnessReportRef": "docs/reviews/audio/number-17-word.2e3863325967.json",
+    "integratedLufs": -20.42,
+    "truePeakDbtp": -2.46,
+    "loudnessReportRef": "docs/reviews/audio/number-17-word.e86eb23012cc.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1675,22 +1675,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هَفدَه",
-    "sourceTextHash": "2c0eb88bd5a98a7d9cf0be05c869252d06fe99adf262c195fc40d3b2e9f9d94b"
+    "synthesisText": "هِفْدَه",
+    "sourceTextHash": "256add8c7ecd26ec347e21e11ec3b9a2c29e10f7de242dcb472e43ee9a95c34d"
   },
   {
     "source": "piper",
     "clipId": "number-18-word",
     "entryId": "number-18-word",
     "formId": "neutral",
-    "file": "/audio/number-18-word.1c1d3c625807.mp3",
+    "file": "/audio/number-18-word.c117be4d1a26.mp3",
     "locale": "fa-IR",
     "transcript": "هُجدَه",
     "durationMs": 910,
     "channels": 1,
-    "integratedLufs": -20.43,
-    "truePeakDbtp": -3.94,
-    "loudnessReportRef": "docs/reviews/audio/number-18-word.1c1d3c625807.json",
+    "integratedLufs": -20.37,
+    "truePeakDbtp": -5.03,
+    "loudnessReportRef": "docs/reviews/audio/number-18-word.c117be4d1a26.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1698,22 +1698,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هُجدَه",
-    "sourceTextHash": "5125172719b897d5740e7249fb2080d1bc4ae12ee4f057f2ac30ff7c7a2fe8c2"
+    "synthesisText": "هِجْدَه",
+    "sourceTextHash": "e8e9ae31b663bc9312062fe2f6e1555a4a36de7bd5621249a54e39ce4bcf7362"
   },
   {
     "source": "piper",
     "clipId": "number-19-word",
     "entryId": "number-19-word",
     "formId": "neutral",
-    "file": "/audio/number-19-word.7b65271aed44.mp3",
+    "file": "/audio/number-19-word.1cd89667117f.mp3",
     "locale": "fa-IR",
     "transcript": "نوزدَه",
-    "durationMs": 860,
+    "durationMs": 840,
     "channels": 1,
-    "integratedLufs": -20.39,
-    "truePeakDbtp": -4.91,
-    "loudnessReportRef": "docs/reviews/audio/number-19-word.7b65271aed44.json",
+    "integratedLufs": -20.46,
+    "truePeakDbtp": -5.71,
+    "loudnessReportRef": "docs/reviews/audio/number-19-word.1cd89667117f.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1721,8 +1721,8 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "نوزدَه",
-    "sourceTextHash": "61068fe8d7dabfe51f7744986be6cde3b0d076d9d7e5310f5c13f31605bb5f30"
+    "synthesisText": "نوزْدَه",
+    "sourceTextHash": "359b79eac518ef9bec8468ac03e0b88dca02c4b3daa0f286c7d5272a5bc84e6b"
   },
   {
     "source": "piper",

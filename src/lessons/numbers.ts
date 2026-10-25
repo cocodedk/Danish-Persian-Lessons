@@ -7,10 +7,11 @@ export interface BeginnerNumber {
   word: PersianEntry
 }
 
-type NumberRow = [string, string, string, string, string, string]
+// The optional last field is synthesis-only: without a sukun the voice inserts a vowel before د ("yazadah").
+type NumberRow = [string, string, string, string, string, string, synthesisText?: string]
 
 function number(value: number, row: NumberRow): BeginnerNumber {
-  const [digit, fa, faMarked, da, pronDa, ipa] = row
+  const [digit, fa, faMarked, da, pronDa, ipa, synthesisText] = row
   return {
     value,
     digit: defineEntry({
@@ -26,6 +27,7 @@ function number(value: number, row: NumberRow): BeginnerNumber {
       kind: 'word',
       fa,
       faMarked,
+      ...(synthesisText ? { synthesisText } : {}),
       da,
       pron: { da: pronDa, ipa },
     }),
@@ -54,15 +56,15 @@ export const beginnerNumbers: BeginnerNumber[] = [
 
 /** Eleven through twenty, for the "Tæl til tyve" lesson (plan 016). */
 export const teenNumbers: BeginnerNumber[] = [
-  number(11, ['۱۱', 'یازده', 'یازدَه', 'elleve', 'jåzde', 'jɒːzˈde']),
-  number(12, ['۱۲', 'دوازده', 'دوازدَه', 'tolv', 'dovåzde', 'dɒːzˈde']),
-  number(13, ['۱۳', 'سیزده', 'سیزدَه', 'tretten', 'sizde', 'siːzˈde']),
-  number(14, ['۱۴', 'چهارده', 'چَهاردَه', 'fjorten', 'tjahårde', 'tʃæːhɒːɾˈde']),
-  number(15, ['۱۵', 'پانزده', 'پانزدَه', 'femten', 'pånze', 'pɒːnˈze']),
-  number(16, ['۱۶', 'شانزده', 'شانزدَه', 'seksten', 'sjånze', 'ʃɒːnˈze']),
-  number(17, ['۱۷', 'هفده', 'هَفدَه', 'sytten', 'hefde', 'hæfˈde']),
-  number(18, ['۱۸', 'هجده', 'هُجدَه', 'atten', 'hedje', 'hædʒˈde']),
-  number(19, ['۱۹', 'نوزده', 'نوزدَه', 'nitten', 'nuzde', 'nuːzˈde']),
+  number(11, ['۱۱', 'یازده', 'یازدَه', 'elleve', 'jåzde', 'jɒːzˈde', 'یازْدَه']),
+  number(12, ['۱۲', 'دوازده', 'دوازدَه', 'tolv', 'dovåzde', 'dɒːzˈde', 'دوازْدَه']),
+  number(13, ['۱۳', 'سیزده', 'سیزدَه', 'tretten', 'sizde', 'siːzˈde', 'سیزْدَه']),
+  number(14, ['۱۴', 'چهارده', 'چَهاردَه', 'fjorten', 'tjahårde', 'tʃæːhɒːɾˈde', 'چَهارْدَه']),
+  number(15, ['۱۵', 'پانزده', 'پانزدَه', 'femten', 'pånze', 'pɒːnˈze', 'پانْزْدَه']),
+  number(16, ['۱۶', 'شانزده', 'شانزدَه', 'seksten', 'sjånze', 'ʃɒːnˈze', 'شانْزْدَه']),
+  number(17, ['۱۷', 'هفده', 'هَفدَه', 'sytten', 'hefde', 'hæfˈde', 'هِفْدَه']),
+  number(18, ['۱۸', 'هجده', 'هُجدَه', 'atten', 'hedje', 'hædʒˈde', 'هِجْدَه']),
+  number(19, ['۱۹', 'نوزده', 'نوزدَه', 'nitten', 'nuzde', 'nuːzˈde', 'نوزْدَه']),
   number(20, ['۲۰', 'بیست', 'بیست', 'tyve', 'bist', 'bist']),
 ]
 

@@ -13,6 +13,7 @@ import type { RuleComposition } from './countingRuleTypes'
 
 const ID_PREFIX = 'counting-100900-'
 const PERSIAN_SCRIPT = /[؀-ۿ]/
+const DAMMA = '\u064F'
 const compositions: RuleComposition[] = [...examples, ...targets]
 const wholes = compositions.filter(({ parts }) => parts.length > 1)
 
@@ -167,6 +168,22 @@ describe('regnereglen 100-900: text rules and pronunciation', () => {
         expect(findPersianTextViolations(fa), entry.id).toEqual([])
       }
     }
+  })
+
+  it('gives the synthesizer a damma for each joiner instead of the joiner, so it says "o" and not "va"', () => {
+    for (const { entry, parts } of wholes) {
+      const text = entry.synthesisText!
+      expect(text.split(' '), entry.id).not.toContain(joiner.fa)
+      expect(text.split(`${DAMMA} `), entry.id).toHaveLength(parts.filter((part) => part === joiner).length + 1)
+      expect(text, entry.id).toBe(parts.map((part) => part.synthesisText ?? part.faMarked ?? part.fa).join(' ').replaceAll(` ${joiner.fa} `, `${DAMMA} `))
+      expect(text, entry.id).not.toMatch(/[\u064B-\u0652]{2}/)
+      expect(findPersianTextViolations(text), entry.id).toEqual([])
+      for (const shown of [entry.fa, entry.faMarked]) expect(shown, entry.id).toContain(` ${joiner.fa} `)
+    }
+  })
+
+  it('leaves a round hundred, said alone, to be said as written', () => {
+    for (const { entry } of hundreds) expect(entry.synthesisText, entry.id).toBeUndefined()
   })
 
   it('gives every candidate row a meaning, dansk lydskrift and IPA', () => {

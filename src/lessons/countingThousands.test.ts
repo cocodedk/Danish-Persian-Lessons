@@ -8,10 +8,12 @@ import {
 } from './countingThousands'
 import { joiner } from './counting21to99'
 import { countingNumbers } from './numbers'
+import { findPersianTextViolations } from './textRules'
 import type { RuleComposition } from './countingRuleTypes'
 
 const ID_PREFIX = 'counting-tusinder-'
 const PERSIAN_SCRIPT = /[؀-ۿ]/
+const DAMMA = '\u064F'
 const compositions: RuleComposition[] = [...examples, ...targets]
 
 function foundationWord(value: number) {
@@ -127,5 +129,23 @@ describe('regnereglen tusinder: worked examples and unseen targets', () => {
     const shown = new Set(examples.map(({ value }) => value))
     for (const { value } of targets) expect(shown.has(value)).toBe(false)
     expect(countingThousandsLesson.targets).toBe(targets)
+  })
+})
+
+describe('regnereglen tusinder: what the voice reads', () => {
+  it('gives the synthesizer a damma for each joiner instead of the joiner, so it says "o" and not "va"', () => {
+    for (const { entry, parts } of compositions.filter(({ parts }) => parts.length > 1)) {
+      const text = entry.synthesisText!
+      expect(text.split(' '), entry.id).not.toContain(joiner.fa)
+      expect(text.split(`${DAMMA} `), entry.id).toHaveLength(parts.filter((part) => part === joiner).length + 1)
+      expect(text, entry.id).toBe(parts.map((part) => part.synthesisText ?? part.faMarked ?? part.fa).join(' ').replaceAll(` ${joiner.fa} `, `${DAMMA} `))
+      expect(text, entry.id).not.toMatch(/[\u064B-\u0652]{2}/)
+      expect(findPersianTextViolations(text), entry.id).toEqual([])
+      for (const shown of [entry.fa, entry.faMarked]) expect(shown, entry.id).toContain(` ${joiner.fa} `)
+    }
+  })
+
+  it('leaves a round thousand, said alone, to be said as written', () => {
+    for (const { entry } of thousands) expect(entry.synthesisText, entry.id).toBeUndefined()
   })
 })

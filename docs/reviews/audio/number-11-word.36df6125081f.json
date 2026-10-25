@@ -1,0 +1,23 @@
+{
+  "clipId": "number-11-word",
+  "entryId": "number-11-word",
+  "formId": "neutral",
+  "transcript": "یازدَه",
+  "synthesisText": "یازْدَه",
+  "sourceTextHash": "54be88f8373128467e80f59db52c6158cd106f7122f7ce465519e2d1eb6a3750",
+  "draftFile": "work/number-11-word.54be88f83731.mp3",
+  "durationMs": 890,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -5.21,
+  "bytes": 5555,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: udtales uden indskudt vokal (yazdah, panzdah, hefdah, hejdah).",
+  "releasedFile": "/audio/number-11-word.36df6125081f.mp3"
+}

@@ -1,0 +1,23 @@
+{
+  "clipId": "number-16-word",
+  "entryId": "number-16-word",
+  "formId": "neutral",
+  "transcript": "شانزدَه",
+  "synthesisText": "شانْزْدَه",
+  "sourceTextHash": "97d6b1f3368d2b5a4e397161930defc43fabcb3c816f9b3819cf494698cf5e7d",
+  "draftFile": "work/number-16-word.97d6b1f3368d.mp3",
+  "durationMs": 810,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -5.29,
+  "bytes": 5085,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: udtales uden indskudt vokal (yazdah, panzdah, hefdah, hejdah).",
+  "releasedFile": "/audio/number-16-word.9ad36522618b.mp3"
+}

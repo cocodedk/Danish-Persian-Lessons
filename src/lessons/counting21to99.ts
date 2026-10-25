@@ -60,6 +60,11 @@ export const joiner: PersianEntry = defineEntry({
   pron: { da: 'o', ipa: 'o' },
 })
 
+/** The voice says a separate و "va": drop each joiner and put a damma on the word before it ("si-o do"). */
+export function joinedSynthesisText(parts: readonly PersianEntry[]): string {
+  return parts.map((part) => (part === joiner ? '\u064F' : ` ${part.synthesisText ?? part.faMarked ?? part.fa}`)).join('').trimStart()
+}
+
 /**
  * Every ten from 20 to 90, each once. Twenty is the foundation's own row: the
  * lesson references it so the boundary against lesson 1 is literally the same
@@ -88,9 +93,6 @@ function tenEntry(value: number): PersianEntry {
  * spoken order, plus the single catalog entry the three parts spell out. The
  * entry's Persian, marked form and both pronunciation aids are derived from
  * the parts, so a row can never disagree with the assembly that builds it.
- *
- * The voice reads a separate و as "va", but spoken Persian says "si-o do". So
- * `synthesisText` leans the ten on its unit with a damma and drops the joiner.
  */
 function composed(value: number, da: string): RuleComposition {
   const parts: readonly PersianEntry[] = [
@@ -105,7 +107,7 @@ function composed(value: number, da: string): RuleComposition {
       kind: 'phrase',
       fa: parts.map((part) => part.fa).join(' '),
       faMarked: parts.map((part) => part.faMarked ?? part.fa).join(' '),
-      synthesisText: `${parts[0].faMarked ?? parts[0].fa}\u064F ${parts[2].faMarked ?? parts[2].fa}`,
+      synthesisText: joinedSynthesisText(parts),
       da,
       pron: {
         da: parts.map((part) => part.pron.da).join(' '),

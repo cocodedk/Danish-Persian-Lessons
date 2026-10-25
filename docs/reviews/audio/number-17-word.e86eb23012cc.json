@@ -1,0 +1,23 @@
+{
+  "clipId": "number-17-word",
+  "entryId": "number-17-word",
+  "formId": "neutral",
+  "transcript": "هَفدَه",
+  "synthesisText": "هِفْدَه",
+  "sourceTextHash": "256add8c7ecd26ec347e21e11ec3b9a2c29e10f7de242dcb472e43ee9a95c34d",
+  "draftFile": "work/number-17-word.256add8c7ecd.mp3",
+  "durationMs": 780,
+  "channels": 1,
+  "integratedLufs": -20.42,
+  "truePeakDbtp": -2.46,
+  "bytes": 4928,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: udtales uden indskudt vokal (yazdah, panzdah, hefdah, hejdah).",
+  "releasedFile": "/audio/number-17-word.e86eb23012cc.mp3"
+}

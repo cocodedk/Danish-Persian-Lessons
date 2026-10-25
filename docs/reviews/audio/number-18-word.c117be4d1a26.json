@@ -1,0 +1,23 @@
+{
+  "clipId": "number-18-word",
+  "entryId": "number-18-word",
+  "formId": "neutral",
+  "transcript": "هُجدَه",
+  "synthesisText": "هِجْدَه",
+  "sourceTextHash": "e8e9ae31b663bc9312062fe2f6e1555a4a36de7bd5621249a54e39ce4bcf7362",
+  "draftFile": "work/number-18-word.e8e9ae31b663.mp3",
+  "durationMs": 910,
+  "channels": 1,
+  "integratedLufs": -20.37,
+  "truePeakDbtp": -5.03,
+  "bytes": 5711,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: udtales uden indskudt vokal (yazdah, panzdah, hefdah, hejdah).",
+  "releasedFile": "/audio/number-18-word.c117be4d1a26.mp3"
+}

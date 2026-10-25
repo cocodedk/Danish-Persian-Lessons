@@ -1,7 +1,7 @@
 import { defineEntry } from '../catalog/types'
 import type { PersianEntry } from '../catalog/types'
 import { countingNumbers } from './numbers'
-import { joiner, tens } from './counting21to99'
+import { joinedSynthesisText, joiner, tens } from './counting21to99'
 import type {
   RuleBaseForm,
   RuleComposition,
@@ -109,6 +109,7 @@ function composed(value: number, da: string): RuleComposition {
       kind: 'phrase',
       fa: parts.map((part) => part.fa).join(' '),
       faMarked: parts.map((part) => part.faMarked ?? part.fa).join(' '),
+      synthesisText: joinedSynthesisText(parts),
       da,
       pron: {
         da: parts.map((part) => part.pron.da).join(' '),

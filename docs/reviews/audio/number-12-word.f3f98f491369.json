@@ -1,0 +1,23 @@
+{
+  "clipId": "number-12-word",
+  "entryId": "number-12-word",
+  "formId": "neutral",
+  "transcript": "دوازدَه",
+  "synthesisText": "دوازْدَه",
+  "sourceTextHash": "741bdfc7151f9bfaa3f4f113a1c0355361cbbef9f691c145dc79052b36678a9b",
+  "draftFile": "work/number-12-word.741bdfc7151f.mp3",
+  "durationMs": 780,
+  "channels": 1,
+  "integratedLufs": -20.39,
+  "truePeakDbtp": -5.61,
+  "bytes": 4928,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: udtales uden indskudt vokal (yazdah, panzdah, hefdah, hejdah).",
+  "releasedFile": "/audio/number-12-word.f3f98f491369.mp3"
+}
