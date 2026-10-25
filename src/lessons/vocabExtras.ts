@@ -37,4 +37,23 @@ export const extraVocabulary: PersianEntry[] = [
     da: 'sol',
     pron: { da: 'khorsjid', ipa: 'xoɾˈʃiːd' },
   }),
+  defineEntry({
+    id: 'vocabulary-5-rubah',
+    kind: 'word',
+    fa: 'روباه',
+    faMarked: 'روباه',
+    // Piper stresses روباه on its first syllable, as it did شتر; its raw phonemes put the stress on
+    // the second, as the IPA has it.
+    synthesisText: '[[ rubˈɑh ]]',
+    da: 'ræv',
+    pron: { da: 'rubah', ipa: 'ɾuːˈbɒːh' },
+  }),
+  defineEntry({
+    id: 'vocabulary-3-ranginkaman',
+    kind: 'word',
+    fa: 'رنگین‌کمان',
+    faMarked: 'رَنگین‌کَمان',
+    da: 'regnbue',
+    pron: { da: 'ranginkaman', ipa: 'ɾæŋˌɡiːnkæˈmɒːn' },
+  }),
 ]

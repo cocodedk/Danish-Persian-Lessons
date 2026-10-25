@@ -8696,6 +8696,78 @@
       ]
     },
     {
+      "id": "vocabulary-5-rubah",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "روباه",
+      "faMarked": "روباه",
+      "da": "ræv",
+      "soundDa": "rubah",
+      "ipa": "ɾuːˈbɒːh",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 5,
+          "display": "روباه",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "rubah",
+            "ipa": "ɾuːˈbɒːh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-rubah",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "vocabulary-3-ranginkaman",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "رنگین‌کمان",
+      "faMarked": "رَنگین‌کَمان",
+      "da": "regnbue",
+      "soundDa": "ranginkaman",
+      "ipa": "ɾæŋˌɡiːnkæˈmɒːn",
+      "stressReviewRequired": true,
+      "stressMarked": true,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 10,
+          "display": "رنگین‌کمان",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "ranginkaman",
+            "ipa": "ɾæŋˌɡiːnkæˈmɒːn"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "vocabulary-3-ranginkaman",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "conversation-introduction",
       "domain": "conversation",
       "kind": "phrase",
@@ -11233,6 +11305,114 @@
       "cueCoverage": "whole-word",
       "roleSensitive": true,
       "audioId": "counting-2199-tal-45",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-46",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "چهل و شش",
+      "faMarked": "چِهِل و شِش",
+      "da": "seksogfyrre",
+      "soundDa": "tjehel o sjesj",
+      "ipa": "tʃehel o ʃeʃ",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "چهل و شش",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "tjehel o sjesj",
+            "ipa": "tʃehel o ʃeʃ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-46",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-47",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "چهل و هفت",
+      "faMarked": "چِهِل و هَفت",
+      "da": "syvogfyrre",
+      "soundDa": "tjehel o haft",
+      "ipa": "tʃehel o hæft",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 9,
+          "display": "چهل و هفت",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "tjehel o haft",
+            "ipa": "tʃehel o hæft"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-47",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-49",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "چهل و نه",
+      "faMarked": "چِهِل و نُه",
+      "da": "niogfyrre",
+      "soundDa": "tjehel o noh",
+      "ipa": "tʃehel o noh",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "چهل و نه",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "tjehel o noh",
+            "ipa": "tʃehel o noh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-49",
       "audioNotApplicable": null,
       "audioStatus": "reviewed",
       "requiredReviews": [

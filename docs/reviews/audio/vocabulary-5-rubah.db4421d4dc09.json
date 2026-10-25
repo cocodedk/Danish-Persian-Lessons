@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-5-rubah",
+  "entryId": "vocabulary-5-rubah",
+  "formId": "neutral",
+  "transcript": "روباه",
+  "synthesisText": "[[ rubˈɑh ]]",
+  "sourceTextHash": "8e0aee2a5a17a13c06a02c2d21f88ead592c7251cc7ba439609ebeccb7245612",
+  "draftFile": "work/vocabulary-5-rubah.8e0aee2a5a17.mp3",
+  "durationMs": 890,
+  "channels": 1,
+  "integratedLufs": -20.4,
+  "truePeakDbtp": -5.71,
+  "bytes": 5555,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden (til Persia, bane 10): ræven, regnbuen og 46, 47 og 49 med bindeleddet o. روباه har trykket på anden stavelse.",
+  "releasedFile": "/audio/vocabulary-5-rubah.db4421d4dc09.mp3"
+}

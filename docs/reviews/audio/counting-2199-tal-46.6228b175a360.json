@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-46",
+  "entryId": "counting-2199-tal-46",
+  "formId": "neutral",
+  "transcript": "چِهِل و شِش",
+  "synthesisText": "چِهِلُ شِش",
+  "sourceTextHash": "6b06aaaab8c47b6605d0d35d25a3cfdd46f4bf2c85d9bd3d433aa70193e1457b",
+  "draftFile": "work/counting-2199-tal-46.6b06aaaab8c4.mp3",
+  "durationMs": 1100,
+  "channels": 1,
+  "integratedLufs": -20.48,
+  "truePeakDbtp": -3.63,
+  "bytes": 6809,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden (til Persia, bane 10): ræven, regnbuen og 46, 47 og 49 med bindeleddet o. روباه har trykket på anden stavelse.",
+  "releasedFile": "/audio/counting-2199-tal-46.6228b175a360.mp3"
+}

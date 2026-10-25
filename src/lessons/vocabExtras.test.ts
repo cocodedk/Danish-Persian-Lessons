@@ -6,7 +6,7 @@ import { extraVocabulary } from './vocabExtras'
 
 describe('vocabulary extras', () => {
   it('registers the words no lesson teaches in the catalog, and only there', () => {
-    expect(extraVocabulary.map((entry) => entry.id)).toEqual(['vocabulary-5-shir', 'vocabulary-5-shotor', 'vocabulary-3-khorshid'])
+    expect(extraVocabulary.map((entry) => entry.id)).toEqual(['vocabulary-5-shir', 'vocabulary-5-shotor', 'vocabulary-3-khorshid', 'vocabulary-5-rubah', 'vocabulary-3-ranginkaman'])
     const taught = new Set(allVocabWords.map((word) => word.entry.id))
     for (const entry of extraVocabulary) {
       expect(vocabularyCatalog, entry.id).toContain(entry)

@@ -162,6 +162,9 @@ export const extraNumbers: RuleComposition[] = [
   composed(43, 'treogfyrre'),
   composed(44, 'fireogfyrre'),
   composed(45, 'femogfyrre'),
+  composed(46, 'seksogfyrre'),
+  composed(47, 'syvogfyrre'),
+  composed(49, 'niogfyrre'),
 ]
 
 export const counting21to99Lesson: RuleLessonDescriptor = {

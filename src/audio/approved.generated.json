@@ -990,6 +990,52 @@
   },
   {
     "source": "piper",
+    "clipId": "counting-2199-tal-46",
+    "entryId": "counting-2199-tal-46",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-46.6228b175a360.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و شِش",
+    "durationMs": 1100,
+    "channels": 1,
+    "integratedLufs": -20.48,
+    "truePeakDbtp": -3.63,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-46.6228b175a360.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ شِش",
+    "sourceTextHash": "6b06aaaab8c47b6605d0d35d25a3cfdd46f4bf2c85d9bd3d433aa70193e1457b"
+  },
+  {
+    "source": "piper",
+    "clipId": "counting-2199-tal-47",
+    "entryId": "counting-2199-tal-47",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-47.66d866370def.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و هَفت",
+    "durationMs": 1040,
+    "channels": 1,
+    "integratedLufs": -20.42,
+    "truePeakDbtp": -5.31,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-47.66d866370def.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ هَفت",
+    "sourceTextHash": "b8bde8f2971d32e7f15f501abf3b463d78b723098a274f04029cde2e137aaa6a"
+  },
+  {
+    "source": "piper",
     "clipId": "counting-2199-tal-48",
     "entryId": "counting-2199-tal-48",
     "formId": "neutral",
@@ -1010,6 +1056,29 @@
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
     "synthesisText": "چِهِلُ هَشت",
     "sourceTextHash": "694b385aac2838f591e566d33ce182e85182fa81282c7082288573c57d292543"
+  },
+  {
+    "source": "piper",
+    "clipId": "counting-2199-tal-49",
+    "entryId": "counting-2199-tal-49",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-49.1b2387d55f92.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و نُه",
+    "durationMs": 1070,
+    "channels": 1,
+    "integratedLufs": -20.42,
+    "truePeakDbtp": -2.88,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-49.1b2387d55f92.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ نُه",
+    "sourceTextHash": "7670e25cc013fc186af1130acf85863817029bd5c43794403a543eac8997bbbd"
   },
   {
     "source": "piper",
@@ -3152,6 +3221,29 @@
   },
   {
     "source": "piper",
+    "clipId": "vocabulary-3-ranginkaman",
+    "entryId": "vocabulary-3-ranginkaman",
+    "formId": "neutral",
+    "file": "/audio/vocabulary-3-ranginkaman.df9b54162e57.mp3",
+    "locale": "fa-IR",
+    "transcript": "رَنگین‌کَمان",
+    "durationMs": 1230,
+    "channels": 1,
+    "integratedLufs": -20.39,
+    "truePeakDbtp": -3.86,
+    "loudnessReportRef": "docs/reviews/audio/vocabulary-3-ranginkaman.df9b54162e57.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "رَنگین‌کَمان",
+    "sourceTextHash": "d6ce41fd039f3073cf94e50631701f202e59d0dec51f75c8a3d30e7a4ba5166b"
+  },
+  {
+    "source": "piper",
     "clipId": "vocabulary-3-sabz",
     "entryId": "vocabulary-3-sabz",
     "formId": "neutral",
@@ -3494,6 +3586,29 @@
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
     "synthesisText": "پَرَنده",
     "sourceTextHash": "d92232d6be680af48b92a0b1761e2b838d58fa80b3bb36018ababb551fcc097c"
+  },
+  {
+    "source": "piper",
+    "clipId": "vocabulary-5-rubah",
+    "entryId": "vocabulary-5-rubah",
+    "formId": "neutral",
+    "file": "/audio/vocabulary-5-rubah.db4421d4dc09.mp3",
+    "locale": "fa-IR",
+    "transcript": "روباه",
+    "durationMs": 890,
+    "channels": 1,
+    "integratedLufs": -20.4,
+    "truePeakDbtp": -5.71,
+    "loudnessReportRef": "docs/reviews/audio/vocabulary-5-rubah.db4421d4dc09.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "[[ rubˈɑh ]]",
+    "sourceTextHash": "8e0aee2a5a17a13c06a02c2d21f88ead592c7251cc7ba439609ebeccb7245612"
   },
   {
     "source": "piper",

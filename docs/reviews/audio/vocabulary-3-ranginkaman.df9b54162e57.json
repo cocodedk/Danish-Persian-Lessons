@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-3-ranginkaman",
+  "entryId": "vocabulary-3-ranginkaman",
+  "formId": "neutral",
+  "transcript": "رَنگین‌کَمان",
+  "synthesisText": "رَنگین‌کَمان",
+  "sourceTextHash": "d6ce41fd039f3073cf94e50631701f202e59d0dec51f75c8a3d30e7a4ba5166b",
+  "draftFile": "work/vocabulary-3-ranginkaman.d6ce41fd039f.mp3",
+  "durationMs": 1230,
+  "channels": 1,
+  "integratedLufs": -20.39,
+  "truePeakDbtp": -3.86,
+  "bytes": 7592,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden (til Persia, bane 10): ræven, regnbuen og 46, 47 og 49 med bindeleddet o. روباه har trykket på anden stavelse.",
+  "releasedFile": "/audio/vocabulary-3-ranginkaman.df9b54162e57.mp3"
+}
