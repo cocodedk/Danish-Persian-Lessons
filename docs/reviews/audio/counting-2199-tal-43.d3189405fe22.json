@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-43",
+  "entryId": "counting-2199-tal-43",
+  "formId": "neutral",
+  "transcript": "چِهِل و سِه",
+  "synthesisText": "چِهِلُ سِه",
+  "sourceTextHash": "69e3c44b9fcadeee203f383b0223f5dcae26a42a1f8333f3f62b866ec14f1e54",
+  "draftFile": "work/counting-2199-tal-43.69e3c44b9fca.mp3",
+  "durationMs": 1100,
+  "channels": 1,
+  "integratedLufs": -20.34,
+  "truePeakDbtp": -2.42,
+  "bytes": 6809,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden (til Persia, bane 9): kamelen, solen og 41, 43, 44 og 45 med bindeleddet o. شتر er lavet om én gang med trykket på anden stavelse, så det lyder hurtigere.",
+  "releasedFile": "/audio/counting-2199-tal-43.d3189405fe22.mp3"
+}

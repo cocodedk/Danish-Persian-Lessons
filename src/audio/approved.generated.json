@@ -875,6 +875,29 @@
   },
   {
     "source": "piper",
+    "clipId": "counting-2199-tal-41",
+    "entryId": "counting-2199-tal-41",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-41.f65bade84e29.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و یِک",
+    "durationMs": 1200,
+    "channels": 1,
+    "integratedLufs": -20.37,
+    "truePeakDbtp": -3.98,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-41.f65bade84e29.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ یِک",
+    "sourceTextHash": "409d9c725a8ab2a33687e3583c6b9c0b5439e8dfa5ebc755a161d27b66210858"
+  },
+  {
+    "source": "piper",
     "clipId": "counting-2199-tal-42",
     "entryId": "counting-2199-tal-42",
     "formId": "neutral",
@@ -895,6 +918,75 @@
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
     "synthesisText": "چِهِلُ دو",
     "sourceTextHash": "fa6e76a919266df87564ff572d0ba5d13e3daef6a68a127faa55fed39b640d95"
+  },
+  {
+    "source": "piper",
+    "clipId": "counting-2199-tal-43",
+    "entryId": "counting-2199-tal-43",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-43.d3189405fe22.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و سِه",
+    "durationMs": 1100,
+    "channels": 1,
+    "integratedLufs": -20.34,
+    "truePeakDbtp": -2.42,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-43.d3189405fe22.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ سِه",
+    "sourceTextHash": "69e3c44b9fcadeee203f383b0223f5dcae26a42a1f8333f3f62b866ec14f1e54"
+  },
+  {
+    "source": "piper",
+    "clipId": "counting-2199-tal-44",
+    "entryId": "counting-2199-tal-44",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-44.cb3c73925941.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و چَهار",
+    "durationMs": 1040,
+    "channels": 1,
+    "integratedLufs": -20.43,
+    "truePeakDbtp": -5.93,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-44.cb3c73925941.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ چَهار",
+    "sourceTextHash": "0b7b527fc8a8bddc0f0d19567a791b616e9b7ed8d04722dd5a6e6a0225388e77"
+  },
+  {
+    "source": "piper",
+    "clipId": "counting-2199-tal-45",
+    "entryId": "counting-2199-tal-45",
+    "formId": "neutral",
+    "file": "/audio/counting-2199-tal-45.26c91acb5290.mp3",
+    "locale": "fa-IR",
+    "transcript": "چِهِل و پَنج",
+    "durationMs": 1250,
+    "channels": 1,
+    "integratedLufs": -20.36,
+    "truePeakDbtp": -3.43,
+    "loudnessReportRef": "docs/reviews/audio/counting-2199-tal-45.26c91acb5290.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "چِهِلُ پَنج",
+    "sourceTextHash": "1a91559fc4d7b02410423053514e5502b77811844ddd14ac7a60f004f6ef60c2"
   },
   {
     "source": "piper",
@@ -3014,6 +3106,29 @@
   },
   {
     "source": "piper",
+    "clipId": "vocabulary-3-khorshid",
+    "entryId": "vocabulary-3-khorshid",
+    "formId": "neutral",
+    "file": "/audio/vocabulary-3-khorshid.95f006054572.mp3",
+    "locale": "fa-IR",
+    "transcript": "خورشید",
+    "durationMs": 890,
+    "channels": 1,
+    "integratedLufs": -20.38,
+    "truePeakDbtp": -8.42,
+    "loudnessReportRef": "docs/reviews/audio/vocabulary-3-khorshid.95f006054572.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "خورشید",
+    "sourceTextHash": "842d23144c4d6cd969170d731f63de12428470c05ef53b2ca69f0abd3ac1fbdb"
+  },
+  {
+    "source": "piper",
     "clipId": "vocabulary-3-mah",
     "entryId": "vocabulary-3-mah",
     "formId": "neutral",
@@ -3425,6 +3540,29 @@
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
     "synthesisText": "شیر",
     "sourceTextHash": "28d943b11b75968c46bf3a88e6ea777044bc945b46c96d990240404375e3b223"
+  },
+  {
+    "source": "piper",
+    "clipId": "vocabulary-5-shotor",
+    "entryId": "vocabulary-5-shotor",
+    "formId": "neutral",
+    "file": "/audio/vocabulary-5-shotor.e64d9fdac8d1.mp3",
+    "locale": "fa-IR",
+    "transcript": "شُتُر",
+    "durationMs": 760,
+    "channels": 1,
+    "integratedLufs": -20.42,
+    "truePeakDbtp": -4.49,
+    "loudnessReportRef": "docs/reviews/audio/vocabulary-5-shotor.e64d9fdac8d1.json",
+    "reviewedBy": [
+      "cocodedk"
+    ],
+    "license": "MIT model; CC0 dataset",
+    "engineVersion": "1.4.2",
+    "voiceModel": "fa_IR-ganji-medium",
+    "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+    "synthesisText": "[[ ʃotˈor ]]",
+    "sourceTextHash": "afe0ab6ed3664170ec626d343e705804201240c67563b5c83b2c43408e5d2760"
   },
   {
     "source": "piper",
