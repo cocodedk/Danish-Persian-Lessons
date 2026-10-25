@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-100900-tal-315",
+  "entryId": "counting-100900-tal-315",
+  "formId": "neutral",
+  "transcript": "سیصَد و پانزدَه",
+  "synthesisText": "سیصَدُ پانْزْدَه",
+  "sourceTextHash": "046df64a0a4a37d209aee88a1a9a7556b43d4a25bebe7860e08545b18831f823",
+  "draftFile": "work/counting-100900-tal-315.046df64a0a4a.mp3",
+  "durationMs": 1910,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -3.85,
+  "bytes": 11667,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o, og hundrederne uden indskudt vokal (divist, chaharsad, pansad, haftsad, hashtsad).",
+  "releasedFile": "/audio/counting-100900-tal-315.2269a7bea78d.mp3"
+}

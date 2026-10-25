@@ -37,9 +37,10 @@ function tenEntry(value: number): PersianEntry {
   return row.entry
 }
 
-type HundredRow = [fa: string, faMarked: string, da: string, pronDa: string, ipa: string]
+// The optional last field is synthesis-only: without a sukun the voice inserts a vowel into the cluster ("devyest", "chaharasad").
+type HundredRow = [fa: string, faMarked: string, da: string, pronDa: string, ipa: string, synthesisText?: string]
 
-function hundred(value: number, [fa, faMarked, da, pronDa, ipa]: HundredRow): RuleBaseForm {
+function hundred(value: number, [fa, faMarked, da, pronDa, ipa, synthesisText]: HundredRow): RuleBaseForm {
   return {
     value,
     entry: defineEntry({
@@ -47,6 +48,7 @@ function hundred(value: number, [fa, faMarked, da, pronDa, ipa]: HundredRow): Ru
       kind: 'word',
       fa,
       faMarked,
+      ...(synthesisText ? { synthesisText } : {}),
       da,
       pron: { da: pronDa, ipa },
     }),
@@ -60,13 +62,13 @@ function hundred(value: number, [fa, faMarked, da, pronDa, ipa]: HundredRow): Ru
  */
 export const hundreds: RuleBaseForm[] = [
   hundred(100, ['صد', 'صَد', 'hundrede', 'sad', 'sæd']),
-  hundred(200, ['دویست', 'دِویست', 'to hundrede', 'devist', 'devist']),
+  hundred(200, ['دویست', 'دِویست', 'to hundrede', 'devist', 'devist', 'دیویسْت']),
   hundred(300, ['سیصد', 'سیصَد', 'tre hundrede', 'sisad', 'siːsæd']),
-  hundred(400, ['چهارصد', 'چَهارصَد', 'fire hundrede', 'tjahårsad', 'tʃæhɒːrsæd']),
-  hundred(500, ['پانصد', 'پانصَد', 'fem hundrede', 'pånsad', 'pɒːnsæd']),
+  hundred(400, ['چهارصد', 'چَهارصَد', 'fire hundrede', 'tjahårsad', 'tʃæhɒːrsæd', 'چَهارْصَد']),
+  hundred(500, ['پانصد', 'پانصَد', 'fem hundrede', 'pånsad', 'pɒːnsæd', 'پانْصَد']),
   hundred(600, ['ششصد', 'شِشصَد', 'seks hundrede', 'sjesjsad', 'ʃeʃsæd']),
-  hundred(700, ['هفتصد', 'هَفتصَد', 'syv hundrede', 'haftsad', 'hæftsæd']),
-  hundred(800, ['هشتصد', 'هَشتصَد', 'otte hundrede', 'hasjtsad', 'hæʃtsæd']),
+  hundred(700, ['هفتصد', 'هَفتصَد', 'syv hundrede', 'haftsad', 'hæftsæd', 'هَفتْصَد']),
+  hundred(800, ['هشتصد', 'هَشتصَد', 'otte hundrede', 'hasjtsad', 'hæʃtsæd', 'هَشتْصَد']),
   hundred(900, ['نهصد', 'نُهصَد', 'ni hundrede', 'nohsad', 'nohsæd']),
 ]
 

@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-100900-tal-861",
+  "entryId": "counting-100900-tal-861",
+  "formId": "neutral",
+  "transcript": "هَشتصَد و شَصت و یِک",
+  "synthesisText": "هَشتْصَدُ شَصتُ یِک",
+  "sourceTextHash": "866d8631c9d2bf9122d3fdb8325f66633023d24ca4e0aaf4736c45d49576694e",
+  "draftFile": "work/counting-100900-tal-861.866d8631c9d2.mp3",
+  "durationMs": 1590,
+  "channels": 1,
+  "integratedLufs": -20.4,
+  "truePeakDbtp": -4.37,
+  "bytes": 9787,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o, og hundrederne uden indskudt vokal (divist, chaharsad, pansad, haftsad, hashtsad).",
+  "releasedFile": "/audio/counting-100900-tal-861.bbc2723f97b7.mp3"
+}

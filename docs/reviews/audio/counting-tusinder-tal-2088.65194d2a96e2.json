@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-tusinder-tal-2088",
+  "entryId": "counting-tusinder-tal-2088",
+  "formId": "neutral",
+  "transcript": "دو هِزار و هَشتاد و هَشت",
+  "synthesisText": "دو هِزارُ هَشتادُ هَشت",
+  "sourceTextHash": "41c6b20bad7d115c54f727b1fb03c64f1d3aeee161772da018c72728fd48598e",
+  "draftFile": "work/counting-tusinder-tal-2088.41c6b20bad7d.mp3",
+  "durationMs": 1850,
+  "channels": 1,
+  "integratedLufs": -20.41,
+  "truePeakDbtp": -4.3,
+  "bytes": 11354,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o, og hundrederne uden indskudt vokal (divist, chaharsad, pansad, haftsad, hashtsad).",
+  "releasedFile": "/audio/counting-tusinder-tal-2088.65194d2a96e2.mp3"
+}

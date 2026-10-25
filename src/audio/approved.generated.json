@@ -73,14 +73,14 @@
     "clipId": "counting-100900-hundrede-200",
     "entryId": "counting-100900-hundrede-200",
     "formId": "neutral",
-    "file": "/audio/counting-100900-hundrede-200.284570f71ae0.mp3",
+    "file": "/audio/counting-100900-hundrede-200.52838608524a.mp3",
     "locale": "fa-IR",
     "transcript": "دِویست",
-    "durationMs": 1020,
+    "durationMs": 810,
     "channels": 1,
-    "integratedLufs": -21.22,
-    "truePeakDbtp": -2.3,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-200.284570f71ae0.json",
+    "integratedLufs": -20.39,
+    "truePeakDbtp": -7.68,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-200.52838608524a.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -88,8 +88,8 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "دِویست",
-    "sourceTextHash": "5c7654cafade61833b6c3c12725080e5e4dd9d3c366a026c784b334b4d0d9c56"
+    "synthesisText": "دیویسْت",
+    "sourceTextHash": "a6995d39f766c34b5fa01ab49f5acc93eb454968a774cff65ff57e7965958dfb"
   },
   {
     "source": "piper",
@@ -119,14 +119,14 @@
     "clipId": "counting-100900-hundrede-400",
     "entryId": "counting-100900-hundrede-400",
     "formId": "neutral",
-    "file": "/audio/counting-100900-hundrede-400.34f7f9b2476b.mp3",
+    "file": "/audio/counting-100900-hundrede-400.b060e3651385.mp3",
     "locale": "fa-IR",
     "transcript": "چَهارصَد",
-    "durationMs": 1180,
+    "durationMs": 890,
     "channels": 1,
-    "integratedLufs": -20.34,
-    "truePeakDbtp": -3.58,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-400.34f7f9b2476b.json",
+    "integratedLufs": -20.41,
+    "truePeakDbtp": -4.27,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-400.b060e3651385.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -134,22 +134,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "چَهارصَد",
-    "sourceTextHash": "c1eebd75407dc25c17f75d72fc27051b2eaef15acf50c38a07375951307c6844"
+    "synthesisText": "چَهارْصَد",
+    "sourceTextHash": "8756cdc7846ffda27768b75622c6acc7af0297c8741d7be61fc91a0a62cedd7d"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-hundrede-500",
     "entryId": "counting-100900-hundrede-500",
     "formId": "neutral",
-    "file": "/audio/counting-100900-hundrede-500.1df843010c21.mp3",
+    "file": "/audio/counting-100900-hundrede-500.fee6c5aa2db4.mp3",
     "locale": "fa-IR",
     "transcript": "پانصَد",
-    "durationMs": 860,
+    "durationMs": 890,
     "channels": 1,
-    "integratedLufs": -20.46,
-    "truePeakDbtp": -4.86,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-500.1df843010c21.json",
+    "integratedLufs": -20.47,
+    "truePeakDbtp": -2.04,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-500.fee6c5aa2db4.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -157,8 +157,8 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "پانصَد",
-    "sourceTextHash": "21e369072401fb9641cb4ec983dbfce63989dfc1aee83fdbbeb9c4fa019e8270"
+    "synthesisText": "پانْصَد",
+    "sourceTextHash": "357771f8cbade4bc470d29991524a56d30f7f44e9e55386b15b540d4a6e9d659"
   },
   {
     "source": "piper",
@@ -188,14 +188,14 @@
     "clipId": "counting-100900-hundrede-700",
     "entryId": "counting-100900-hundrede-700",
     "formId": "neutral",
-    "file": "/audio/counting-100900-hundrede-700.72d595323b37.mp3",
+    "file": "/audio/counting-100900-hundrede-700.264e130d619e.mp3",
     "locale": "fa-IR",
     "transcript": "هَفتصَد",
-    "durationMs": 890,
+    "durationMs": 780,
     "channels": 1,
-    "integratedLufs": -20.28,
-    "truePeakDbtp": -3.78,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-700.72d595323b37.json",
+    "integratedLufs": -20.26,
+    "truePeakDbtp": -2.69,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-700.264e130d619e.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -203,22 +203,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هَفتصَد",
-    "sourceTextHash": "e94821a206258cb3a0f6064af146ef9ff5719ed3b0bf0c565a129a726f4164d0"
+    "synthesisText": "هَفتْصَد",
+    "sourceTextHash": "944d539663a607a564bd6c82a2dbca88b98cc11228aab9ce9c0bb0868bf13d30"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-hundrede-800",
     "entryId": "counting-100900-hundrede-800",
     "formId": "neutral",
-    "file": "/audio/counting-100900-hundrede-800.85270598f121.mp3",
+    "file": "/audio/counting-100900-hundrede-800.1c47787dc209.mp3",
     "locale": "fa-IR",
     "transcript": "هَشتصَد",
-    "durationMs": 1150,
+    "durationMs": 940,
     "channels": 1,
-    "integratedLufs": -20.39,
-    "truePeakDbtp": -5.76,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-800.85270598f121.json",
+    "integratedLufs": -20.2,
+    "truePeakDbtp": -1.76,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-hundrede-800.1c47787dc209.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -226,8 +226,8 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هَشتصَد",
-    "sourceTextHash": "959f35670b815b580887d1864a6437465805fff7cdfc912861036a734766778d"
+    "synthesisText": "هَشتْصَد",
+    "sourceTextHash": "3359877a2d6fa45ca60d992e6271937eea6e8da0ddac10e01b0432223ac9c276"
   },
   {
     "source": "piper",
@@ -257,14 +257,14 @@
     "clipId": "counting-100900-tal-107",
     "entryId": "counting-100900-tal-107",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-107.75b990b44aa7.mp3",
+    "file": "/audio/counting-100900-tal-107.54ebffd4614a.mp3",
     "locale": "fa-IR",
     "transcript": "صَد و هَفت",
-    "durationMs": 1200,
+    "durationMs": 1150,
     "channels": 1,
-    "integratedLufs": -20.42,
-    "truePeakDbtp": -2.37,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-107.75b990b44aa7.json",
+    "integratedLufs": -20.47,
+    "truePeakDbtp": -2.34,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-107.54ebffd4614a.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -272,22 +272,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "صَد و هَفت",
-    "sourceTextHash": "bd29e293e0b19401828cbd77fa86660865e6aeb7a014668ccc46ef85ca01ed98"
+    "synthesisText": "صَدُ هَفت",
+    "sourceTextHash": "e236158dcd059725ee143874f653cead4ed16352b5b528a7b631628fcb63ab51"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-208",
     "entryId": "counting-100900-tal-208",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-208.93bf092fec7d.mp3",
+    "file": "/audio/counting-100900-tal-208.4a3d16c95de2.mp3",
     "locale": "fa-IR",
     "transcript": "دِویست و هَشت",
     "durationMs": 1180,
     "channels": 1,
-    "integratedLufs": -20.93,
-    "truePeakDbtp": -2.31,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-208.93bf092fec7d.json",
+    "integratedLufs": -20.33,
+    "truePeakDbtp": -3.92,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-208.4a3d16c95de2.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -295,22 +295,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "دِویست و هَشت",
-    "sourceTextHash": "f58c4541da215a8eff74061aecdd4299cd55526f2bf5af7ada3d0f99912d0351"
+    "synthesisText": "دیویسْتُ هَشت",
+    "sourceTextHash": "ecc9344d254debf28a928a0d15cb34ccdb011e4504a10dd465936cd93d29dbb7"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-315",
     "entryId": "counting-100900-tal-315",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-315.f7abcbc872f9.mp3",
+    "file": "/audio/counting-100900-tal-315.2269a7bea78d.mp3",
     "locale": "fa-IR",
     "transcript": "سیصَد و پانزدَه",
-    "durationMs": 1590,
+    "durationMs": 1910,
     "channels": 1,
-    "integratedLufs": -20.39,
-    "truePeakDbtp": -2.66,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-315.f7abcbc872f9.json",
+    "integratedLufs": -20.45,
+    "truePeakDbtp": -3.85,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-315.2269a7bea78d.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -318,22 +318,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "سیصَد و پانزدَه",
-    "sourceTextHash": "6e3aa1ef181dbbf83d7fb7d322f9c8a630a7e0ef56ce053f21e4c2c2da88f24f"
+    "synthesisText": "سیصَدُ پانْزْدَه",
+    "sourceTextHash": "046df64a0a4a37d209aee88a1a9a7556b43d4a25bebe7860e08545b18831f823"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-350",
     "entryId": "counting-100900-tal-350",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-350.72db016b8e89.mp3",
+    "file": "/audio/counting-100900-tal-350.7b0914c288ee.mp3",
     "locale": "fa-IR",
     "transcript": "سیصَد و پَنجاه",
-    "durationMs": 1280,
+    "durationMs": 1440,
     "channels": 1,
-    "integratedLufs": -20.43,
-    "truePeakDbtp": -4.36,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-350.72db016b8e89.json",
+    "integratedLufs": -20.39,
+    "truePeakDbtp": -5.75,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-350.7b0914c288ee.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -341,22 +341,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "سیصَد و پَنجاه",
-    "sourceTextHash": "42444e042c07ace2a42840e57ab21e1b1b4d5fe345bd3cc53464e4d91ce5719b"
+    "synthesisText": "سیصَدُ پَنجاه",
+    "sourceTextHash": "1563a1b8b293060de9cfc5882603aab9e82004be214ef4d57ec1023d092eaa81"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-416",
     "entryId": "counting-100900-tal-416",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-416.e08e2cffe684.mp3",
+    "file": "/audio/counting-100900-tal-416.655d43ed753b.mp3",
     "locale": "fa-IR",
     "transcript": "چَهارصَد و شانزدَه",
-    "durationMs": 1520,
+    "durationMs": 1360,
     "channels": 1,
-    "integratedLufs": -20.38,
-    "truePeakDbtp": -2.84,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-416.e08e2cffe684.json",
+    "integratedLufs": -20.39,
+    "truePeakDbtp": -3.35,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-416.655d43ed753b.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -364,22 +364,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "چَهارصَد و شانزدَه",
-    "sourceTextHash": "72596361e7d25148337eb618f4f4ebc87664351628ebbac93ff7cefbcad548d2"
+    "synthesisText": "چَهارْصَدُ شانْزْدَه",
+    "sourceTextHash": "7904e66df9c916f55c17ebf6f41997c098c73cc62d0fb964dcd1fbd6893632cc"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-642",
     "entryId": "counting-100900-tal-642",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-642.9fa59435d79a.mp3",
+    "file": "/audio/counting-100900-tal-642.a5c1e8de41f8.mp3",
     "locale": "fa-IR",
     "transcript": "شِشصَد و چِهِل و دو",
-    "durationMs": 1750,
+    "durationMs": 1460,
     "channels": 1,
-    "integratedLufs": -20.35,
-    "truePeakDbtp": -1.93,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-642.9fa59435d79a.json",
+    "integratedLufs": -20.38,
+    "truePeakDbtp": -5.08,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-642.a5c1e8de41f8.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -387,22 +387,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "شِشصَد و چِهِل و دو",
-    "sourceTextHash": "0b294cf1ddaa2c171eaa74c65e69cc11c769c572a0133079d363eead1db81a7c"
+    "synthesisText": "شِشصَدُ چِهِلُ دو",
+    "sourceTextHash": "e4b18cab05553b14e224aadc17734402ec075f08eaac3ef3f027f773cd6460d1"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-861",
     "entryId": "counting-100900-tal-861",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-861.51ca1185e695.mp3",
+    "file": "/audio/counting-100900-tal-861.bbc2723f97b7.mp3",
     "locale": "fa-IR",
     "transcript": "هَشتصَد و شَصت و یِک",
-    "durationMs": 1570,
+    "durationMs": 1590,
     "channels": 1,
-    "integratedLufs": -20.37,
-    "truePeakDbtp": -4.52,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-861.51ca1185e695.json",
+    "integratedLufs": -20.4,
+    "truePeakDbtp": -4.37,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-861.bbc2723f97b7.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -410,22 +410,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هَشتصَد و شَصت و یِک",
-    "sourceTextHash": "9490258ba60df08646670d6913850cc6c1bd676c859fdb0d408595d2ad4ef875"
+    "synthesisText": "هَشتْصَدُ شَصتُ یِک",
+    "sourceTextHash": "866d8631c9d2bf9122d3fdb8325f66633023d24ca4e0aaf4736c45d49576694e"
   },
   {
     "source": "piper",
     "clipId": "counting-100900-tal-999",
     "entryId": "counting-100900-tal-999",
     "formId": "neutral",
-    "file": "/audio/counting-100900-tal-999.8c5b8fbfa309.mp3",
+    "file": "/audio/counting-100900-tal-999.c9af5abd3156.mp3",
     "locale": "fa-IR",
     "transcript": "نُهصَد و نَوَد و نُه",
-    "durationMs": 1650,
+    "durationMs": 1460,
     "channels": 1,
-    "integratedLufs": -20.37,
-    "truePeakDbtp": -4.01,
-    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-999.8c5b8fbfa309.json",
+    "integratedLufs": -20.75,
+    "truePeakDbtp": -1.67,
+    "loudnessReportRef": "docs/reviews/audio/counting-100900-tal-999.c9af5abd3156.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -433,8 +433,8 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "نُهصَد و نَوَد و نُه",
-    "sourceTextHash": "eec7d88616c85f92e9eca0ecb19f9a7b9408e787a57c942e0108f78b89e82bf5"
+    "synthesisText": "نُهصَدُ نَوَدُ نُه",
+    "sourceTextHash": "8001017a5a7fcac49f26384dbb73c457118c0ccd8f95ab86ec147a6f9ddbc700"
   },
   {
     "source": "piper",
@@ -1085,14 +1085,14 @@
     "clipId": "counting-tusinder-tal-1007",
     "entryId": "counting-tusinder-tal-1007",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-1007.b4aa1e3ed206.mp3",
+    "file": "/audio/counting-tusinder-tal-1007.c315156195a8.mp3",
     "locale": "fa-IR",
     "transcript": "هِزار و هَفت",
-    "durationMs": 1310,
+    "durationMs": 1020,
     "channels": 1,
-    "integratedLufs": -20.47,
-    "truePeakDbtp": -4.06,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-1007.b4aa1e3ed206.json",
+    "integratedLufs": -20.41,
+    "truePeakDbtp": -4.69,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-1007.c315156195a8.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1100,22 +1100,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هِزار و هَفت",
-    "sourceTextHash": "09dab4816ba58f98fc4d6e5dd0f8a72512c944bbdbcf60201044d5cd03e3ab22"
+    "synthesisText": "هِزارُ هَفت",
+    "sourceTextHash": "4f53cddaba72027333618e65c1eae0916f9cfa79063104c37cb8fbc9bc69e2a6"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-1042",
     "entryId": "counting-tusinder-tal-1042",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-1042.5f14d8db8f3a.mp3",
+    "file": "/audio/counting-tusinder-tal-1042.79c9a6b9d2d5.mp3",
     "locale": "fa-IR",
     "transcript": "هِزار و چِهِل و دو",
-    "durationMs": 1520,
+    "durationMs": 1410,
     "channels": 1,
-    "integratedLufs": -20.46,
-    "truePeakDbtp": -4.69,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-1042.5f14d8db8f3a.json",
+    "integratedLufs": -20.42,
+    "truePeakDbtp": -4.66,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-1042.79c9a6b9d2d5.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1123,22 +1123,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هِزار و چِهِل و دو",
-    "sourceTextHash": "1883a67da172ac9d3b458f426a30988c86c6313a994280d6e399e2b41d4ed581"
+    "synthesisText": "هِزارُ چِهِلُ دو",
+    "sourceTextHash": "c6401c6c53659f5e64b8781efee019d5139b2842cd39a3a2be836a5467dc3c1c"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-1300",
     "entryId": "counting-tusinder-tal-1300",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-1300.be002ff37c13.mp3",
+    "file": "/audio/counting-tusinder-tal-1300.f3cfb8c8c462.mp3",
     "locale": "fa-IR",
     "transcript": "هِزار و سیصَد",
-    "durationMs": 1720,
+    "durationMs": 1310,
     "channels": 1,
-    "integratedLufs": -20.4,
-    "truePeakDbtp": -1.55,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-1300.be002ff37c13.json",
+    "integratedLufs": -20.36,
+    "truePeakDbtp": -3.56,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-1300.f3cfb8c8c462.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1146,22 +1146,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هِزار و سیصَد",
-    "sourceTextHash": "c40c853f257aa8c5750641ec517e2cf47bc8b35b063d4bd806dee84ee606c1e6"
+    "synthesisText": "هِزارُ سیصَد",
+    "sourceTextHash": "bb890fd442cefc4fa21cbb92fc0036a644c293bbd90ee398cd14492dd995fe53"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-2088",
     "entryId": "counting-tusinder-tal-2088",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-2088.1054c1621582.mp3",
+    "file": "/audio/counting-tusinder-tal-2088.65194d2a96e2.mp3",
     "locale": "fa-IR",
     "transcript": "دو هِزار و هَشتاد و هَشت",
-    "durationMs": 2060,
+    "durationMs": 1850,
     "channels": 1,
-    "integratedLufs": -20.45,
-    "truePeakDbtp": -3.69,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-2088.1054c1621582.json",
+    "integratedLufs": -20.41,
+    "truePeakDbtp": -4.3,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-2088.65194d2a96e2.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1169,22 +1169,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "دو هِزار و هَشتاد و هَشت",
-    "sourceTextHash": "8bb237ee4b44575f0b42b9ab0fbc8fa43cf364a47ae1c2e1bb8439526c3f6524"
+    "synthesisText": "دو هِزارُ هَشتادُ هَشت",
+    "sourceTextHash": "41c6b20bad7d115c54f727b1fb03c64f1d3aeee161772da018c72728fd48598e"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-3105",
     "entryId": "counting-tusinder-tal-3105",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-3105.3a5a582fef86.mp3",
+    "file": "/audio/counting-tusinder-tal-3105.481283948ea9.mp3",
     "locale": "fa-IR",
     "transcript": "سِه هِزار و صَد و پَنج",
-    "durationMs": 2010,
+    "durationMs": 1780,
     "channels": 1,
-    "integratedLufs": -20.42,
-    "truePeakDbtp": -4.35,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-3105.3a5a582fef86.json",
+    "integratedLufs": -20.4,
+    "truePeakDbtp": -1.32,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-3105.481283948ea9.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1192,22 +1192,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "سِه هِزار و صَد و پَنج",
-    "sourceTextHash": "a4760993e190ca11d53c610e74456545910dfab45902c0bbb9edf6d8bcf3d4ad"
+    "synthesisText": "سِه هِزارُ صَدُ پَنج",
+    "sourceTextHash": "5a35699a5749424db9b45f961d3e906908b8232f30582312738605be1deeff1e"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-5642",
     "entryId": "counting-tusinder-tal-5642",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-5642.c5b8a785e637.mp3",
+    "file": "/audio/counting-tusinder-tal-5642.82def9e5bc88.mp3",
     "locale": "fa-IR",
     "transcript": "پَنج هِزار و شِشصَد و چِهِل و دو",
-    "durationMs": 2720,
+    "durationMs": 2460,
     "channels": 1,
-    "integratedLufs": -20.4,
-    "truePeakDbtp": -3.7,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-5642.c5b8a785e637.json",
+    "integratedLufs": -20.41,
+    "truePeakDbtp": -2.97,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-5642.82def9e5bc88.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1215,22 +1215,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "پَنج هِزار و شِشصَد و چِهِل و دو",
-    "sourceTextHash": "5641898e73256a4d7a5d8fcd54a9d4d336a49a73072bd079b08a2c3eb34557c5"
+    "synthesisText": "پَنج هِزارُ شِشصَدُ چِهِلُ دو",
+    "sourceTextHash": "fdc94d6db7afddf4c05bdcc401941002d592b49c7b580977fa0453ac9b20e9ac"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-8371",
     "entryId": "counting-tusinder-tal-8371",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-8371.f71fb427f584.mp3",
+    "file": "/audio/counting-tusinder-tal-8371.055dcc63abf1.mp3",
     "locale": "fa-IR",
     "transcript": "هَشت هِزار و سیصَد و هَفتاد و یِک",
-    "durationMs": 3340,
+    "durationMs": 3320,
     "channels": 1,
-    "integratedLufs": -20.55,
-    "truePeakDbtp": -2.94,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-8371.f71fb427f584.json",
+    "integratedLufs": -20.74,
+    "truePeakDbtp": -1.26,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-8371.055dcc63abf1.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1238,22 +1238,22 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "هَشت هِزار و سیصَد و هَفتاد و یِک",
-    "sourceTextHash": "d2725fe10338941d0bfeef76490897eea95f07179b5fb0aa2f5b9af333e40914"
+    "synthesisText": "هَشت هِزارُ سیصَدُ هَفتادُ یِک",
+    "sourceTextHash": "880ff0729b94078379322a12f83758805feb9ad69b1ace7ed8ff4338dae2dc0f"
   },
   {
     "source": "piper",
     "clipId": "counting-tusinder-tal-9999",
     "entryId": "counting-tusinder-tal-9999",
     "formId": "neutral",
-    "file": "/audio/counting-tusinder-tal-9999.e669aec26fcb.mp3",
+    "file": "/audio/counting-tusinder-tal-9999.6258607d224e.mp3",
     "locale": "fa-IR",
     "transcript": "نُه هِزار و نُهصَد و نَوَد و نُه",
-    "durationMs": 2800,
+    "durationMs": 2090,
     "channels": 1,
-    "integratedLufs": -20.44,
-    "truePeakDbtp": -1.91,
-    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-9999.e669aec26fcb.json",
+    "integratedLufs": -20.43,
+    "truePeakDbtp": -3.02,
+    "loudnessReportRef": "docs/reviews/audio/counting-tusinder-tal-9999.6258607d224e.json",
     "reviewedBy": [
       "cocodedk"
     ],
@@ -1261,8 +1261,8 @@
     "engineVersion": "1.4.2",
     "voiceModel": "fa_IR-ganji-medium",
     "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
-    "synthesisText": "نُه هِزار و نُهصَد و نَوَد و نُه",
-    "sourceTextHash": "5c8f51f9749eed5492508c08429a52b95558d66963da0347de905883b3d0de18"
+    "synthesisText": "نُه هِزارُ نُهصَدُ نَوَدُ نُه",
+    "sourceTextHash": "4439c793d2cd9ae7f830fa6e957fcc411c6a18e3951c627ff9407ed42d6e6390"
   },
   {
     "source": "piper",

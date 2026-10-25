@@ -182,10 +182,6 @@ describe('regnereglen 100-900: text rules and pronunciation', () => {
     }
   })
 
-  it('leaves a round hundred, said alone, to be said as written', () => {
-    for (const { entry } of hundreds) expect(entry.synthesisText, entry.id).toBeUndefined()
-  })
-
   it('gives every candidate row a meaning, dansk lydskrift and IPA', () => {
     for (const entry of counting100to900Catalog) {
       expect(entry.fa, entry.id).toMatch(PERSIAN_SCRIPT)
