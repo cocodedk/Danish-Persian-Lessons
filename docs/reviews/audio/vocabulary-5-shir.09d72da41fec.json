@@ -1,0 +1,23 @@
+{
+  "clipId": "vocabulary-5-shir",
+  "entryId": "vocabulary-5-shir",
+  "formId": "neutral",
+  "transcript": "شیر",
+  "synthesisText": "شیر",
+  "sourceTextHash": "28d943b11b75968c46bf3a88e6ea777044bc945b46c96d990240404375e3b223",
+  "draftFile": "work/vocabulary-5-shir.28d943b11b75.mp3",
+  "durationMs": 970,
+  "channels": 1,
+  "integratedLufs": -20.39,
+  "truePeakDbtp": -8.3,
+  "bytes": 6025,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden (til Persia, bane 8): løven og 36 til 39 med bindeleddet o.",
+  "releasedFile": "/audio/vocabulary-5-shir.09d72da41fec.mp3"
+}

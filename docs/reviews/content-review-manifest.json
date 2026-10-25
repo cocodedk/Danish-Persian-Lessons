@@ -8588,6 +8588,42 @@
       ]
     },
     {
+      "id": "vocabulary-5-shir",
+      "domain": "vocabulary",
+      "kind": "word",
+      "fa": "شیر",
+      "faMarked": "شیر",
+      "da": "løve",
+      "soundDa": "sjir",
+      "ipa": "ʃiːɾ",
+      "stressReviewRequired": false,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 3,
+          "display": "شیر",
+          "role": "whole",
+          "helpDa": "Læs hele ordet samlet",
+          "pron": {
+            "da": "sjir",
+            "ipa": "ʃiːɾ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "vocabulary-5-shir",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
       "id": "conversation-introduction",
       "domain": "conversation",
       "kind": "phrase",
@@ -10837,6 +10873,150 @@
       "cueCoverage": "whole-word",
       "roleSensitive": true,
       "audioId": "counting-2199-tal-35",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-36",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "سی و شش",
+      "faMarked": "سی و شِش",
+      "da": "seksogtredive",
+      "soundDa": "si o sjesj",
+      "ipa": "siː o ʃeʃ",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 7,
+          "display": "سی و شش",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "si o sjesj",
+            "ipa": "siː o ʃeʃ"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-36",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-37",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "سی و هفت",
+      "faMarked": "سی و هَفت",
+      "da": "syvogtredive",
+      "soundDa": "si o haft",
+      "ipa": "siː o hæft",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "سی و هفت",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "si o haft",
+            "ipa": "siː o hæft"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-37",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-38",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "سی و هشت",
+      "faMarked": "سی و هَشت",
+      "da": "otteogtredive",
+      "soundDa": "si o hasjt",
+      "ipa": "siː o hæʃt",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 8,
+          "display": "سی و هشت",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "si o hasjt",
+            "ipa": "siː o hæʃt"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-38",
+      "audioNotApplicable": null,
+      "audioStatus": "reviewed",
+      "requiredReviews": [
+        "iranian-persian-1",
+        "iranian-persian-2",
+        "phonetics",
+        "danish"
+      ]
+    },
+    {
+      "id": "counting-2199-tal-39",
+      "domain": "numbers",
+      "kind": "phrase",
+      "fa": "سی و نه",
+      "faMarked": "سی و نُه",
+      "da": "niogtredive",
+      "soundDa": "si o noh",
+      "ipa": "siː o noh",
+      "stressReviewRequired": true,
+      "stressMarked": false,
+      "readingCues": [
+        {
+          "start": 0,
+          "end": 7,
+          "display": "سی و نه",
+          "role": "whole",
+          "helpDa": "Læs hele udtrykket samlet",
+          "pron": {
+            "da": "si o noh",
+            "ipa": "siː o noh"
+          }
+        }
+      ],
+      "cueCoverage": "whole-word",
+      "roleSensitive": true,
+      "audioId": "counting-2199-tal-39",
       "audioNotApplicable": null,
       "audioStatus": "reviewed",
       "requiredReviews": [

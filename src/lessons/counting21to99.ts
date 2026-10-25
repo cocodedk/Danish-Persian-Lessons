@@ -139,13 +139,8 @@ export const targets: RuleComposition[] = [
   composed(73, 'treoghalvfjerds'),
 ]
 
-/**
- * Clips other apps use but this lesson does not teach. They are built by the
- * same `composed` rule so they cannot disagree with it, are registered in the
- * catalog only (so they are recorded, reviewed and released like every other
- * clip), and are deliberately absent from `examples` and `targets`: the lesson
- * shows and tests only those eight numbers. Candidate drafts, like the rest.
- */
+/** Clips other apps use but no lesson teaches: built by `composed`, registered in the catalog only (recorded and
+ *  reviewed like every clip), never in `examples` or `targets`. Candidate drafts. */
 export const extraNumbers: RuleComposition[] = [
   composed(22, 'toogtyve'),
   composed(23, 'treogtyve'),
@@ -159,6 +154,10 @@ export const extraNumbers: RuleComposition[] = [
   composed(33, 'treogtredive'),
   composed(34, 'fireogtredive'),
   composed(35, 'femogtredive'),
+  composed(36, 'seksogtredive'),
+  composed(37, 'syvogtredive'),
+  composed(38, 'otteogtredive'),
+  composed(39, 'niogtredive'),
 ]
 
 export const counting21to99Lesson: RuleLessonDescriptor = {

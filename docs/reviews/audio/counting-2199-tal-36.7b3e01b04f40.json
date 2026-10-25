@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-36",
+  "entryId": "counting-2199-tal-36",
+  "formId": "neutral",
+  "transcript": "سی و شِش",
+  "synthesisText": "سیُ شِش",
+  "sourceTextHash": "44b8e8a9687d066c3fb5f87ab9996a6fabbbb4daddcff92c57578dd47a28386b",
+  "draftFile": "work/counting-2199-tal-36.44b8e8a9687d.mp3",
+  "durationMs": 1100,
+  "channels": 1,
+  "integratedLufs": -20.35,
+  "truePeakDbtp": -7.92,
+  "bytes": 6809,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden (til Persia, bane 8): løven og 36 til 39 med bindeleddet o.",
+  "releasedFile": "/audio/counting-2199-tal-36.7b3e01b04f40.mp3"
+}
