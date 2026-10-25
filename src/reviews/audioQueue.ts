@@ -1,6 +1,6 @@
 import { findPronunciationAudio } from '../audio/manifest'
 import { catalogDomains, persianCatalog } from '../catalog/registry'
-import type { PersianEntry } from '../catalog/types'
+import type { PersianEntry, SpokenForm } from '../catalog/types'
 import { spokenFormsFor } from '../catalog/types'
 import { launchTalkClipIds } from '../speaking/launchCorpus'
 
@@ -16,6 +16,19 @@ function domainFor(entryId: string): Domain {
   return found[0] as Domain
 }
 
+/** What the synthesizer reads. The transcript stays the displayed form. */
+function synthesisTextFor(form: SpokenForm): string {
+  return form.synthesisText ?? form.faMarked ?? form.fa
+}
+
+/** Missing, or approved from synthesis text the catalog no longer says: the
+ * old take is stale, so it is queued again for a new one to replace it. */
+function needsRecording(form: SpokenForm): boolean {
+  const approved = findPronunciationAudio(form.audioId)
+  if (!approved) return true
+  return approved.source === 'piper' && approved.synthesisText !== synthesisTextFor(form)
+}
+
 export const audioRecordingQueue = {
   schemaVersion: 2,
   status: 'draft-awaiting-native-review',
@@ -24,7 +37,7 @@ export const audioRecordingQueue = {
   rows: persianCatalog.flatMap((entry: PersianEntry) => {
     const domain = domainFor(entry.id)
     return spokenFormsFor(entry)
-      .filter((form) => !findPronunciationAudio(form.audioId))
+      .filter(needsRecording)
       .map((form) => ({
         clipId: form.audioId,
         entryId: entry.id,
@@ -33,7 +46,7 @@ export const audioRecordingQueue = {
         scope: LAUNCH_TALK_CLIPS.has(form.audioId) ? 'talk' : 'writing',
         domain,
         transcript: form.faMarked ?? form.fa,
-        synthesisText: form.faMarked ?? form.fa,
+        synthesisText: synthesisTextFor(form),
         plainPersian: form.fa,
         danishMeaning: form.da,
         soundDa: form.pron.da,

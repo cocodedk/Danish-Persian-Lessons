@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-42",
+  "entryId": "counting-2199-tal-42",
+  "formId": "neutral",
+  "transcript": "چِهِل و دو",
+  "synthesisText": "چِهِلُ دو",
+  "sourceTextHash": "fa6e76a919266df87564ff572d0ba5d13e3daef6a68a127faa55fed39b640d95",
+  "draftFile": "work/counting-2199-tal-42.fa6e76a91926.mp3",
+  "durationMs": 990,
+  "channels": 1,
+  "integratedLufs": -20.44,
+  "truePeakDbtp": -7.45,
+  "bytes": 6182,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o (si-o-do), ikke va.",
+  "releasedFile": "/audio/counting-2199-tal-42.e04a3ed76c65.mp3"
+}

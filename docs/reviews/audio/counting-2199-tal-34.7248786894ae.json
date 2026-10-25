@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-34",
+  "entryId": "counting-2199-tal-34",
+  "formId": "neutral",
+  "transcript": "سی و چَهار",
+  "synthesisText": "سیُ چَهار",
+  "sourceTextHash": "3dbc2de616941fda7a25ad4c67fb4c24873d1cfa8ea8ff1898927b0327fbf1b6",
+  "draftFile": "work/counting-2199-tal-34.3dbc2de61694.mp3",
+  "durationMs": 1070,
+  "channels": 1,
+  "integratedLufs": -20.45,
+  "truePeakDbtp": -5.09,
+  "bytes": 6652,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o (si-o-do), ikke va.",
+  "releasedFile": "/audio/counting-2199-tal-34.7248786894ae.mp3"
+}

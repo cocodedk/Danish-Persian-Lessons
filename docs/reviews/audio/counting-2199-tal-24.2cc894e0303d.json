@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-24",
+  "entryId": "counting-2199-tal-24",
+  "formId": "neutral",
+  "transcript": "بیست و چَهار",
+  "synthesisText": "بیستُ چَهار",
+  "sourceTextHash": "5e5cb07653a96553fe96880aba2bde037f66c6f5551fffe7ac989ea97891a8eb",
+  "draftFile": "work/counting-2199-tal-24.5e5cb07653a9.mp3",
+  "durationMs": 990,
+  "channels": 1,
+  "integratedLufs": -20.35,
+  "truePeakDbtp": -3.51,
+  "bytes": 6182,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o (si-o-do), ikke va.",
+  "releasedFile": "/audio/counting-2199-tal-24.2cc894e0303d.mp3"
+}

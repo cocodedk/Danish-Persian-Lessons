@@ -6,6 +6,7 @@ import type { RuleComposition } from './countingRuleTypes'
 
 const ID_PREFIX = 'counting-2199-'
 const PERSIAN_SCRIPT = /[؀-ۿ]/
+const DAMMA = '\u064F'
 const compositions: RuleComposition[] = [...examples, ...targets]
 
 function foundationWord(value: number) {
@@ -96,6 +97,22 @@ describe('regnereglen 21-99: composition parts', () => {
       expect(entry.faMarked).toBe(parts.map((part) => part.faMarked ?? part.fa).join(' '))
     }
   })
+
+  it('gives the synthesizer the ten with a damma instead of the joiner, so it says "o" and not "va"', () => {
+    for (const { entry, parts } of [...compositions, ...extraNumbers]) {
+      const [ten, , unit] = parts
+      expect(entry.synthesisText, entry.id).toBe(`${ten.faMarked ?? ten.fa}${DAMMA} ${unit.faMarked ?? unit.fa}`)
+      expect(entry.synthesisText!.split(' '), entry.id).not.toContain(joiner.fa)
+      expect(findPersianTextViolations(entry.synthesisText!), entry.id).toEqual([])
+      // What learners read keeps its joiner.
+      expect(entry.fa, entry.id).toContain(` ${joiner.fa} `)
+      expect(entry.faMarked, entry.id).toContain(` ${joiner.fa} `)
+    }
+  })
+
+  it('leaves the joiner and the tens to be said as written', () => {
+    for (const entry of [joiner, ...tens.map((base) => base.entry)]) expect(entry.synthesisText).toBeUndefined()
+  })
 })
 
 describe('regnereglen 21-99: catalog identities', () => {
@@ -113,12 +130,12 @@ describe('regnereglen 21-99: catalog identities', () => {
     expect(ids).toContain(`${ID_PREFIX}tal-99`)
   })
 
-  it('adds twenty-four candidate entries: the joiner, seven tens, eight taught numbers and eight extra', () => {
+  it('adds twenty-eight candidate entries: the joiner, seven tens, eight taught numbers and twelve extra', () => {
     expect(counting21to99Catalog).toHaveLength(1 + 7 + compositions.length + extraNumbers.length)
   })
 
   it('registers the extra numbers in the catalog without teaching them', () => {
-    expect(extraNumbers.map(({ value }) => value)).toEqual([22, 23, 24, 25, 26, 27, 28, 29])
+    expect(extraNumbers.map(({ value }) => value)).toEqual([22, 23, 24, 25, 26, 27, 28, 29, 32, 33, 34, 35])
     for (const { entry } of extraNumbers) expect(counting21to99Catalog).toContain(entry)
     expect(compositions.map(({ value }) => value)).toEqual([21, 31, 48, 99, 42, 57, 68, 73])
     expect(counting21to99Lesson.examples).toBe(examples)

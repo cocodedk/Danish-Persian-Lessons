@@ -48,6 +48,7 @@ describe('the typed Persian catalog', () => {
         expect(findPersianTextViolations(entry.faMarked), entry.id).toEqual([])
         expect(withoutMarks(entry.faMarked), entry.id).toBe(entry.fa)
       }
+      if (entry.synthesisText) expect(findPersianTextViolations(entry.synthesisText), entry.id).toEqual([])
       if (/[۰-۹]/u.test(entry.fa)) expect(entry.kind, entry.id).toBe('symbol')
       expect(entry.fa, entry.id).not.toMatch(/\s\u200c|\u200c\s/u)
     }

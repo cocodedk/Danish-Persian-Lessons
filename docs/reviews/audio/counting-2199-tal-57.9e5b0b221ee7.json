@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-57",
+  "entryId": "counting-2199-tal-57",
+  "formId": "neutral",
+  "transcript": "پَنجاه و هَفت",
+  "synthesisText": "پَنجاهُ هَفت",
+  "sourceTextHash": "b465d8a51112e10595c17cce20659875048148da4f60f59aa816d3f78834f069",
+  "draftFile": "work/counting-2199-tal-57.b465d8a51112.mp3",
+  "durationMs": 990,
+  "channels": 1,
+  "integratedLufs": -20.42,
+  "truePeakDbtp": -2.59,
+  "bytes": 6182,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o (si-o-do), ikke va.",
+  "releasedFile": "/audio/counting-2199-tal-57.9e5b0b221ee7.mp3"
+}

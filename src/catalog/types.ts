@@ -14,6 +14,7 @@ export interface SpokenForm {
   register: SpokenRegister
   fa: string
   faMarked?: string
+  synthesisText?: string
   da: string
   pron: Pronunciation
   audioId: string
@@ -47,6 +48,10 @@ export interface PersianEntry {
   fa: string
   /** Teaching-only spelling with vowel marks. */
   faMarked?: string
+  /** Synthesis-only spelling, for when the voice reads the displayed form
+   * differently from how it is said. Never shown to learners; the audio
+   * transcript stays `faMarked ?? fa`. */
+  synthesisText?: string
   /** Danish letter name, meaning, translation, or sign explanation. */
   da: string
   pron: Pronunciation
@@ -69,6 +74,7 @@ export function spokenFormsFor(entry: PersianEntry): readonly SpokenForm[] {
     register: 'neutral',
     fa: entry.fa,
     ...(entry.faMarked ? { faMarked: entry.faMarked } : {}),
+    ...(entry.synthesisText ? { synthesisText: entry.synthesisText } : {}),
     da: entry.da,
     pron: entry.pron,
     audioId: entry.audioId ?? entry.id,

@@ -1,0 +1,23 @@
+{
+  "clipId": "counting-2199-tal-27",
+  "entryId": "counting-2199-tal-27",
+  "formId": "neutral",
+  "transcript": "بیست و هَفت",
+  "synthesisText": "بیستُ هَفت",
+  "sourceTextHash": "1fe701daf9552436b463831f84baf29097706660c05f3f90f64e100b9754a6ef",
+  "draftFile": "work/counting-2199-tal-27.1fe701daf955.mp3",
+  "durationMs": 940,
+  "channels": 1,
+  "integratedLufs": -20.43,
+  "truePeakDbtp": -6.09,
+  "bytes": 5868,
+  "engineVersion": "1.4.2",
+  "voiceModel": "fa_IR-ganji-medium",
+  "modelSha256": "6a98504bb77dc2fd3a863c977d37e67a6a525fdf661917385d569a3ff78e6cae",
+  "voiceLicense": "MIT model; CC0 dataset",
+  "reviewedBy": [
+    "cocodedk"
+  ],
+  "reviewNote": "Godkendt efter lytning på review-siden: forbindelsen udtales o (si-o-do), ikke va.",
+  "releasedFile": "/audio/counting-2199-tal-27.60411766fbfa.mp3"
+}
